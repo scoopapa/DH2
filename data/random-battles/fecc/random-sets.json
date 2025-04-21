@@ -543,9 +543,14 @@
         "level": 87,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Moonblast", "Play Rough", "Shadow Ball", "U-Turn", "Poltergeist", "Flamethrower", "Sludge Bomb", "Throat Chop"],
+                "role": "Wallbreaker",
+                "movepool": ["Moonblast", "Shadow Ball", "U-Turn", "Flamethrower"],
                 "teraTypes": ["Fairy", "Ghost", "Fire"]
+            },
+			{
+                "role": "Wallbreaker",
+                "movepool": ["Play Rough", "U-Turn", "Poltergeist", "Shadow Sneak"],
+                "teraTypes": ["Fairy", "Ghost"]
             },
 			{
                 "role": "Fast Support",
@@ -562,11 +567,6 @@
                 "movepool": ["Moonblast", "Shadow Ball", "Flamethrower", "Nasty Plot"],
                 "teraTypes": ["Fairy", "Ghost", "Fire"]
             },
-			{
-                "role": "Tera Blast user",
-                "movepool": ["Play Rough", "Bitter Malice", "Roost", "Tera Blast"],
-                "teraTypes": ["Steel", "Fire", "Ground"]
-            }
         ]
     },
 	"dragomarill": {
@@ -588,8 +588,13 @@
         "level": 81,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Draco Meteor", "Malignant Chain", "Nasty Plot", "Strength Sap", "Sludge Bomb", "Rapid Spin"],
+                "role": "Bulky Setup",
+                "movepool": ["Draco Meteor", "Malignant Chain", "Nasty Plot", "Strength Sap"],
+                "teraTypes": ["Grass", "Fairy"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Draco Meteor", "Malignant Chain", "Toxic", "Strength Sap", "Parting Shot", "Rapid Spin"],
                 "teraTypes": ["Grass", "Fairy"]
             }
         ]
@@ -598,8 +603,13 @@
         "level": 88,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Swords Dance"],
+                "role": "Bulky Setup",
+                "movepool": ["Shadow Sneak", "Poltergeist", "Close Combat", "Rapid Spin", "Strength Sap", "Leech Life", "Swords Dance"],
+                "teraTypes": ["Ghost", "Fighting"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Knock Off"],
                 "teraTypes": ["Ghost", "Fairy"]
             }
         ]
@@ -1066,6 +1076,11 @@
 				"role": "Bulky Attacker",
 				"movepool": ["Volt Switch", "Dragon Hammer", "Earthquake", "Close Combat", "Iron Head", "Supercell Slam", "Dragon Tail", "Poison Jab"],
 				"teraTypes": ["Dragon", "Ground", "Fighting", "Steel"]
+			},
+			{
+				"role": "Setup Sweeper",
+				"movepool": ["Dragon Dance", "Dragon Hammer", "Earthquake", "Close Combat", "Iron Head", "Supercell Slam", "Poison Jab"],
+				"teraTypes": ["Dragon", "Ground", "Fighting", "Steel"]
 			}
 		]
 	},
@@ -1314,7 +1329,7 @@
         "sets": [
 			{
                 "role": "Bulky Support",
-                "movepool": ["Stealth Rock", "Spikes", "Sludge Bomb", "U-Turn", "Taunt", "Knock Off", "Toxic Spikes", "Toxic"],
+                "movepool": ["Stealth Rock", "Sludge Bomb", "U-Turn", "Taunt", "Knock Off", "Toxic Spikes", "Toxic"],
                 "teraTypes": ["Ghost", "Steel"]
             }
         ]
@@ -1436,12 +1451,17 @@
         ]
     },
 	"espathrem": {
-        "level": 79,
+        "level": 80,
         "sets": [
 			{
                 "role": "Fast Attacker",
                 "movepool": ["Lumina Crash", "Draco Meteor", "Earth Power", "Roost", "U-Turn"],
                 "teraTypes": ["Steel", "Ground"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Stored Power", "Earth Power", "Roost", "Substitute", "Agility"],
+                "teraTypes": ["Steel"]
             }
         ]
     },
@@ -1461,7 +1481,7 @@
         ]
     },
 	"darkcross": {
-        "level": 76,
+        "level": 83,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1541,11 +1561,16 @@
         ]
     },
 	"xatoking": {
-        "level": 88,
+        "level": 90,
         "sets": [
 			{
                 "role": "Fast Attacker",
                 "movepool": ["Earth Power", "Hurricane", "Flamethrower", "Roost", "Stealth Rock", "U-Turn"],
+                "teraTypes": ["Flying", "Fire", "Water"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Earth Power", "Hurricane", "Flamethrower", "Roost", "Calm Mind"],
                 "teraTypes": ["Flying", "Fire", "Water"]
             }
         ]
@@ -1675,7 +1700,7 @@
             },
 			{
                 "role": "Mega",
-                "movepool": ["Thunderbolt", "Volt Switch", "Giga Drain", "Leech Seed", "Dark Pulse"],
+                "movepool": ["Thunderbolt", "Volt Switch", "Giga Drain", "Flamethrower", "Leech Seed", "Dark Pulse"],
                 "teraTypes": ["Dark"]
             }
         ]
@@ -1815,7 +1840,7 @@
         "sets": [
 			{
                 "role": "Fast Support",
-                "movepool": ["Toxic Spikes", "Flare Blitz", "Fire Punch", "Gunk Shot", "Taunt", "U-Turn"],
+                "movepool": ["Toxic Spikes", "Flare Blitz", "Fire Punch", "Gunk Shot", "Taunt", "U-Turn", "Defog"],
                 "teraTypes": ["Ghost", "Flying"]
             }
         ]
@@ -1825,13 +1850,13 @@
         "sets": [
 			{
                 "role": "Bulky Support",
-                "movepool": ["U-Turn", "Shadow Ball", "Night Daze", "Matcha Gotcha", "Strength Sap", "Will-o-Wisp"],
-                "teraTypes": ["Steel"]
+                "movepool": ["U-Turn", "Shadow Ball", "Focus Blast", "Matcha Gotcha", "Strength Sap", "Will-o-Wisp"],
+                "teraTypes": ["Steel", "Grass"]
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Shadow Ball", "Night Daze", "Matcha Gotcha", "Strength Sap", "Will-o-Wisp"],
-                "teraTypes": ["Steel"]
+                "movepool": ["Calm Mind", "Shadow Ball", "Focus Blast", "Matcha Gotcha", "Strength Sap", "Will-o-Wisp"],
+                "teraTypes": ["Steel", "Grass"]
             }
         ]
     },

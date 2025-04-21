@@ -1322,6 +1322,7 @@ export class RandomTeams {
 		
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
+		if (species.id === 'espathrem' && moves.has('storedpower')) return 'weaknesspolicy';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';

@@ -2559,6 +2559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sweatypalms: {
 		onBasePower(basePower, pokemon, target, move) {
 			if (this.randomChance(3, 10)) {
+				this.add('-activate', pokemon, 'ability: Sweaty Palms');
 				this.add('-message', `${pokemon.name} is going all out for this attack!`);
 				return this.chainModify(2);
 			}
@@ -2740,6 +2741,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyTryPrimaryHit(target, source, move) {
+			if (move === 'Status') return;
 			this.add('-ability', source, 'Intimidate', 'boost');
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|You look strong. Let's fight!`);
 			this.boost({atk: -1}, target, source, null, true);
