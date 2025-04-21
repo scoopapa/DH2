@@ -1261,7 +1261,7 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
-			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozium Z';
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
