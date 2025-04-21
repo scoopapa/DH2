@@ -426,7 +426,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "33% of putting target to sleep. Powder.",
+		shortDesc: "30% of putting target to sleep. Powder.",
 		name: "Sylvan Powder",
 		pp: 5,
 		priority: 0,
@@ -436,7 +436,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Sleep Powder", target);
 		},
 		secondary: {
-			chance: 33, // Might ask submitter to change it to 30% as no other move has 33% trigger chance
+			chance: 30,
 			status: 'slp',
 		},
 		target: "normal",
@@ -1505,12 +1505,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
-			atk: 1,
+			atk: 1, 
+			spd: 1, 
+			spe: 1,
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-		zMove: {boost: {atk: 1, spd: 1, spe: 1}},
+		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
 	},
 	//
