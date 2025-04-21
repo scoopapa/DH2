@@ -1400,8 +1400,8 @@
         "sets": [
 			{
                 "role": "Fast Attacker",
-                "movepool": ["Seed Flare", "Liquidation", "Scald", "Ice Beam", "Earth Power", "Synthesis"],
-                "teraTypes": ["Steel"]
+                "movepool": ["Seed Flare", "Liquidation", "Air Slash", "Ice Beam", "Earth Power", "Synthesis"],
+                "teraTypes": ["Grass", "Steel"]
             }
         ]
     },
@@ -1735,7 +1735,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Stored Power", "Dazzling Gleam", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
+                "movepool": ["Stored Power", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
                 "teraTypes": ["Steel", "Fire"]
             }
         ]
