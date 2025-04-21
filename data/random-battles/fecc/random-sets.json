@@ -13,12 +13,12 @@
         "level": 60,
         "sets": [
             {
-                "role": "AV Pivot",
-                "movepool": ["Flip Turn", "Liquidation", "Iron Head", "Earthquake", "U-Turn", "Poison Jab"],
-                "teraTypes": ["Grass"]
+                "role": "Bulky Setup",
+                "movepool": ["Iron Head", "Earthquake", "Rest", "Swords Dance"],
+                "teraTypes": ["Ground"]
             },
             {
-                "role": "Bulky Setup",
+                "role": "Setup Sweeper",
                 "movepool": ["Liquidation", "Iron Head", "Earthquake", "Sucker Punch", "Swords Dance"],
                 "teraTypes": ["Dark", "Flying", "Fire"]
             }
@@ -220,7 +220,7 @@
         ]
     },
 	"kingcario": {
-        "level": 92,
+        "level": 90,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -726,6 +726,11 @@
                 "role": "Bulky Attacker",
                 "movepool": ["Blood Moon", "Stone Edge", "Close Combat", "Earthquake", "U-Turn"],
                 "teraTypes": ["Normal", "Fighting", "Ground"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Blood Moon", "Stone Edge", "Morning Sun", "Stealth Rock", "U-Turn"],
+                "teraTypes": ["Ghost"]
             }
         ]
     },
@@ -830,7 +835,7 @@
         ]
     },
 	"bearlamar": {
-        "level": 80,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -909,8 +914,13 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Hurricane", "Heat Wave", "Earthquake", "Sucker Punch", "Leaf Blade"],
+                "movepool": ["Hurricane", "Earthquake", "Sucker Punch", "Leaf Blade"],
                 "teraTypes": ["Ice", "Fire", "Ground", "Dark"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Hurricane", "Leaf Blade", "Earthquake", "Tailwind"],
+                "teraTypes": ["Ice", "Fire", "Ground"]
             }
         ]
     },
@@ -1140,7 +1150,7 @@
 			{
                 "role": "Bulky Setup",
                 "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off", "Calm Mind", "Slack Off"],
-                "teraTypes": ["Psychic", "Fighting", "Dark"]
+                "teraTypes": ["Psychic", "Dark"]
             }
         ]
     },
@@ -1149,7 +1159,12 @@
     	"sets": [
 			{
 				"role": "Bulky Attacker",
-				"movepool": ["Bolt Beak", "Throat Chop", "Ice Punch", "Sucker Punch", "Superpower", "Bulk Up", "Trick"],
+				"movepool": ["Bolt Beak", "Darkest Lariat", "Ice Punch", "Sucker Punch", "Superpower", "Bulk Up"],
+				"teraTypes": ["Electric", "Flying", "Fairy"]
+			},
+			{
+				"role": "Wallbreaker",
+				"movepool": ["Bolt Beak", "Darkest Lariat", "Ice Punch", "Sucker Punch", "Superpower", "Trick", "Parting Shot"],
 				"teraTypes": ["Electric", "Flying", "Fairy"]
 			}
     	]
@@ -1875,12 +1890,12 @@
         "sets": [
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Bug Buzz", "Quiver Dance", "Thunderbolt", "Focus Blast", "Ice Beam"],
+                "movepool": ["Bug Buzz", "Agility", "Thunderbolt", "Focus Blast", "Ice Beam"],
                 "teraTypes": ["Fighting", "Ice", "Electric"]
             },
 			{
                 "role": "Tera Blast user",
-                "movepool": ["Bug Buzz", "Quiver Dance", "Tera Blast", "Focus Blast"],
+                "movepool": ["Bug Buzz", "Agility", "Tera Blast", "Focus Blast"],
                 "teraTypes": ["Ground", "Fire"]
             }
         ]
