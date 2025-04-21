@@ -745,11 +745,16 @@
         ]
     },
 	"thrally": {
-        "level": 94,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Support",
                 "movepool": ["Parting Shot", "Toxic", "Taunt", "Explosion"],
+                "teraTypes": ["Normal"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["U-Turn", "Swords Dance", "Multi-Attack", "Explosion"],
                 "teraTypes": ["Normal"]
             },
 			{
