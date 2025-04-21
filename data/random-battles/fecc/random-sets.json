@@ -860,7 +860,7 @@
         ]
     },
 	"avalluxe": {
-        "level": 96,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -873,8 +873,18 @@
         "level": 86,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Brave Bird", "Iron Head", "Close Combat", "Roost", "U-Turn", "Earthquake", "Swords Dance"],
+                "role": "Setup Sweeper",
+                "movepool": ["Brave Bird", "Iron Head", "Close Combat", "Roost", "Earthquake", "Swords Dance"],
+                "teraTypes": ["Flying", "Fighting"]
+            },
+			{
+                "role": "Wallbreaker",
+                "movepool": ["Brave Bird", "Iron Head", "Close Combat", "U-Turn", "Earthquake"],
+                "teraTypes": ["Flying", "Fighting"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Brave Bird", "Iron Head", "Close Combat", "U-Turn", "Earthquake"],
                 "teraTypes": ["Flying", "Fighting"]
             }
         ]
@@ -894,13 +904,13 @@
             },
 			{
                 "role": "Bulky Support",
-                "movepool": ["Lunge", "Knock Off", "Foul Play", "Poison Jab", "Toxic", "Haze", "Roost"],
+                "movepool": ["Lunge", "Knock Off", "Poison Jab", "Toxic", "Haze", "Roost"],
                 "teraTypes": ["Poison"]
             }
         ]
     },
 	"gigawattrel": {
-        "level": 77,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Support",
