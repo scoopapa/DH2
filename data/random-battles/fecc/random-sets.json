@@ -1521,7 +1521,7 @@
         ]
     },
 	"xatoking": {
-        "level": 83,
+        "level": 88,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1531,7 +1531,7 @@
         ]
     },
 	"shedlurk": {
-        "level": 100,
+        "level": 95,
         "sets": [
 			{
                 "role": "Setup Sweeper",

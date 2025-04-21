@@ -1311,6 +1311,7 @@ export class RandomTeams {
 			case 'rolyklawfy':
 			case 'blazer':
 			case 'smearccino':
+			case 'shedlurk':
 				return 'Focus Sash';
 			case 'basbal':
 			case 'naclinch':
