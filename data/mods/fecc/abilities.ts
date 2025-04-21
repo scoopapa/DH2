@@ -611,9 +611,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
 					this.runEvent('EatItem', pokemon, null, null, item);
-					pokemon.setItem(pokemon.item);
-					this.add('-item', pokemon, pokemon.item);
+					const newItem = pokemon.item;
 					pokemon.lastItem = '';
+					pokemon.setItem(newItem);
 				}
 			}
 		},
@@ -3622,7 +3622,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}	
 				if (success) {
-					target.setType(target.getTypes(true).map(type => lostTypes.includes(type) ? "???" : type));
+					target.setType('???');
 					this.add('-start', target, 'typechange', target.types.join('/'));
 				}				
 			}
