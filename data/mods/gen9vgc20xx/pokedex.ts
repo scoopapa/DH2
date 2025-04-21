@@ -1017,7 +1017,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	gengar: {
 		inherit: true,
-		abilities: {0: "Levitate"},
+		abilities: {0: "Levitate", H: "Toxic Debris"},
 	},
 	// end
 
