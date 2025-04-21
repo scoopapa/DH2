@@ -1416,7 +1416,7 @@
         ]
     },
 	"espathrem": {
-        "level": 74,
+        "level": 79,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1496,7 +1496,7 @@
         ]
     },
 	"screamvillain": {
-        "level": 78,
+        "level": 82,
         "sets": [
 			{
                 "role": "Bulky Support",
@@ -1515,7 +1515,7 @@
         "sets": [
 			{
                 "role": "Bulky Support",
-                "movepool": ["Giga Drain", "Synthesis", "Rock Slide", "Earth Power", "Stealth Rock", "Spikes", "Toxic Spikes", "Toxic"],
+                "movepool": ["Giga Drain", "Synthesis", "Earth Power", "Spikes", "Toxic"],
                 "teraTypes": ["Steel", "Ghost"]
             }
         ]
