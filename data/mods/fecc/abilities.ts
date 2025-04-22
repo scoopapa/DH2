@@ -89,12 +89,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bongcloud: {
 		onStart(pokemon) {
 			if (pokemon.side.totalFainted) {
+				if (!pokemon.originalLevel) pokemon.originalLevel = pokemon.set.level;
 				this.add('-activate', pokemon, 'ability: Bongcloud');
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
-				pokemon.level += 20 * fallen;
-				pokemon.set.level += 20 * fallen;
+				pokemon.level = pokemon.originalLevel + 20 * fallen;
+				pokemon.set.level = pokemon.originalLevel + 20 * fallen;
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
@@ -1902,8 +1903,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Gorilla of Ruin SpA drop');
 			return this.chainModify(0.75);
 		},
-		onFoeSwitchIn(pokemon) {
-			if(!pokemon.hasAbility('Gorilla of Ruin') && !pokemon.volatiles['gorillaofruin']) pokemon.addVolatile('gorillaofruin');
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target.hasAbility('gorillaofruin') && !target.volatiles['gorillaofruin']) target.addVolatile('gorillaofruin');
+			}
+		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['gorillaofruin']) target.removeVolatile('gorillaofruin');
+			}
 		},
 		condition: {
 			onStart(pokemon) {
@@ -2741,7 +2749,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyTryPrimaryHit(target, source, move) {
-			if (move === 'Status') return;
+			if (move.target === 'self') return;
 			this.add('-ability', source, 'Intimidate', 'boost');
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|You look strong. Let's fight!`);
 			this.boost({atk: -1}, target, source, null, true);
@@ -3057,30 +3065,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifyAtk(atk, pokemon) {
 				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Protosynthesis atk boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, pokemon) {
 				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Protosynthesis def boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(spa, pokemon) {
 				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Protosynthesis spa boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(spd, pokemon) {
 				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Protosynthesis spd boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Protosynthesis spe boost');
-				return this.chainModify(1 - 0.5 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.5 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onEnd(pokemon) {
 				this.effectState.virusTurns = 0;

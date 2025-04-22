@@ -165,7 +165,7 @@
         ]
     },
 	"zacianoh": {
-        "level": 72,
+        "level": 75,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -570,7 +570,7 @@
         ]
     },
 	"dragomarill": {
-        "level": 88,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1220,7 +1220,7 @@
         ]
     },
 	"tipplin": {
-        "level": 82,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1615,6 +1615,16 @@
             }
         ]
     },
+	"fiskiarygalar": {
+        "level": 82,
+        "sets": [
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Reflect Type", "Roost", "Brave Bird", "Earthquake"],
+                "teraTypes": ["Water", "Steel"]
+            }
+        ]
+    },
 	"snorcannon": {
         "level": 82,
         "sets": [
@@ -1910,7 +1920,7 @@
             }
         ]
     },
-	"lycanopsmidnight": {
+	"lycaneopsmidnight": {
         "level": 80,
         "sets": [
 			{
