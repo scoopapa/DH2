@@ -19,8 +19,8 @@
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Liquidation", "Iron Head", "Earthquake", "Poison Jab", "Sucker Punch", "Swords Dance"],
-                "teraTypes": ["Water", "Steel"]
+                "movepool": ["Liquidation", "Iron Head", "Earthquake", "Sucker Punch", "Swords Dance"],
+                "teraTypes": ["Dark", "Flying", "Fire"]
             }
         ]
     },
@@ -140,7 +140,7 @@
         ]
     },
 	"talonsprit": {
-        "level": 95,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Support",
@@ -214,7 +214,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Glacial Lance", "Substitute", "Swords Dance", "Leech Seed"],
+                "movepool": ["Glacial Lance", "Close Combat", "Swords Dance", "Synthesis", "High Horsepower"],
                 "teraTypes": ["Water"]
             }
         ]
@@ -258,7 +258,7 @@
     	"level": 92,
     	"sets": [
 			{
-				"role": "Fast Attacker",
+				"role": "Wallbreaker",
 				"movepool": ["Leaf Storm", "Energy Ball", "Psychic", "U-turn"],
 				"teraTypes": ["Grass"]
 			},
@@ -674,7 +674,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Double-Edge", "Stone Edge", "Close Combat", "Will-o-Wisp"],
+                "movepool": ["Double-Edge", "Stone Edge", "Close Combat", "Will-o-Wisp", "Morning Sun"],
                 "teraTypes": ["Fighting"]
             },
 			{
@@ -789,8 +789,13 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Snipe Shot", "Cross Poison", "Knock Off", "Encore", "U-Turn", "Nasty Plot", "Swords Dance", "Taunt"],
+                "movepool": ["Snipe Shot", "Cross Poison", "Knock Off", "U-Turn", "Nasty Plot", "Swords Dance"],
                 "teraTypes": ["Dark", "Water", "Poison"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Snipe Shot", "Liquidation", "Cross Poison", "Knock Off", "Sludge Bomb", "Nasty Plot", "Swords Dance"],
+                "teraTypes": ["Flying"]
             }
         ]
     },
@@ -1395,7 +1400,7 @@
         "sets": [
 			{
                 "role": "Fast Attacker",
-                "movepool": ["Seed Flare", "Liquidation", "Scald", "Ice Beam", "Earth Power", "Leech Seed", "Synthesis"],
+                "movepool": ["Seed Flare", "Liquidation", "Scald", "Ice Beam", "Earth Power", "Synthesis"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -1486,7 +1491,7 @@
 			{
                 "role": "Bulky Setup",
                 "movepool": ["Rock Slide", "Aerial Ace", "Superpower", "Spikes", "Roost", "Swords Dance"],
-                "teraTypes": ["Ghost", "Fighting"]
+                "teraTypes": ["Steel", "Water"]
             }
         ]
     },
@@ -1715,7 +1720,7 @@
             },
 			{
                 "role": "Fast Support",
-                "movepool": ["Skill Swap", "Recover", "Freezing Glare", "Ice Beam", "U-Turn", "Hyper Beam", "Overheat"],
+                "movepool": ["Skill Swap", "Recover", "Freezing Glare", "Ice Beam", "U-Turn", "Overheat"],
                 "teraTypes": ["Psychic", "Ice", "Water"]
             }
         ]
@@ -1846,7 +1851,7 @@
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Toxic", "Charm", "Toxic Spikes", "Defog", "Encore", "Screech", "Shift Gear"],
-                "teraTypes": ["Grass", "Flying"]
+                "teraTypes": ["Steel", "Fire", "Water"]
             }
         ]
     },

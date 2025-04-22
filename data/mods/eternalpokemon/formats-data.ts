@@ -44,7 +44,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sylveon: {tier: "FE"},
 
 	aerodactyl: {tier: "FE"},
-	aerodactylmega: {tier: "FE"},
+	aerodactylmega: {tier: "Banned"},
 
 	dratini: {tier: "2x NFE"},
 	dragonair: {tier: "1x NFE"},

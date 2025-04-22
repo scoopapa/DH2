@@ -93,7 +93,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
-				if(pokemon.leveled) return;
 				pokemon.level += 20 * fallen;
 				pokemon.set.level += 20 * fallen;
 				pokemon.baseMaxhp = Math.floor(Math.floor(
@@ -107,7 +106,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details, '[silent]');
 				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
-				pokemon.leveled = true;
 			}
 		},
 		onModifyAtk(atk, pokemon) {
@@ -1760,6 +1758,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	codebreaker: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Code Breaker');
+			pokemon.addVolatile('ability:corrosion');
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
@@ -3134,7 +3133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			onBasePowerPriority: 19,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.name === attacker.strongestMove.name) {
+				if (attacker.strongestMove && move.name === attacker.strongestMove.name) {
 					return 0;
 				}
 			},
@@ -3156,7 +3155,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bad Bees",
-		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.,
+		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.",
 	},
 	allforone: {
 		onAfterMoveSecondarySelf(source, target, move) {
@@ -3813,6 +3812,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Illusion will not disguise as anything
 					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
 						pokemon.illusion = possibleTarget;
+						pokemon.toHeal = possibleTarget;
 					}
 					break;
 				}
@@ -3820,10 +3820,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
+				this.add('-start', target, 'typechange', target.baseSpecies.types.join('/'), '[silent]');
 				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, source, move);
 				const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
-				const healed = allies[allies.length - 1];
-				if (healed.hp < healed.baseMaxhp) {
+				const healed = allies.filter(p => p.name === target.toHeal.name)[0];
+				if (healed && !healed.fainted && healed.hp < healed.baseMaxhp) {
 					const toHeal = Math.trunc(Math.min(healed.baseMaxhp / 4, healed.baseMaxhp - healed.hp));
 					healed.hp += toHeal;
 					this.add('-message', `${target.name} paid ${healed.name} ${toHeal} HP in legal settlement for identity theft and defamation.`);
@@ -3833,6 +3834,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
+				pokemon.toHeal = pokemon.illusion;
 				pokemon.illusion = null;
 				const details = pokemon.getUpdatedDetails();
 				this.add('replace', pokemon, details);
@@ -4062,11 +4064,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let move2 = '';
 				switch (ball) {
 					case 0:
-						move1 = 'extremespeed';
+						move1 = 'boomburst';
 						move2 = 'shadowball';
 						break;
 					case 1:
-						move1 = 'lavaplume';
+						move1 = 'nastyplot';
 						move2 = 'pyroball';
 						break;
 					case 2:
@@ -4090,7 +4092,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'energyball';
 						break;
 					case 7:
-						move1 = 'gigadrain';
+						move1 = 'synthesis';
 						move2 = 'energyball';
 						break;
 					case 8:
@@ -4118,7 +4120,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'shadowball';
 						break;
 					case 14:
-						move1 = 'shadowsneak';
+						move1 = 'moonlight';
 						move2 = 'shadowball';
 						break;
 					case 15:
@@ -4126,11 +4128,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'rollout';
 						break;
 					case 16:
-						move1 = 'poisonjab';
+						move1 = 'barbbarrage';
 						move2 = 'shadowball';
 						break;
 					case 17:
-						move1 = 'dracometeor';
+						move1 = 'dragondance';
 						move2 = 'energyball';
 						break;
 				}
@@ -4160,6 +4162,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.baseMoveSlots[3] = learnedMove2;
 				this.add('-message', `${pokemon.name} fetched a ${balls[ball]}!`);
 				pokemon.formeChange(balls[ball]);
+				this.add('-start', target, 'typechange', pokemon.baseSpecies.types.join('/'), '[from] ability: Switch Balls', '[silent]');
 			}
 		},
 		flags: {},

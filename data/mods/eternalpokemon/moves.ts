@@ -538,7 +538,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		category: "Physical",
 		name: "Fiery Provocation",
-        shortDesc: "BP + burn % equal to target's base Atk.",
+        shortDesc: "BP = target's base Atk. Proportional burn chance.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -550,7 +550,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
             this.add('-anim', source, 'Flare Blitz', target);
 		},
         onModifyMove(move, pokemon, target) {
-            const odds = Math.min(target.species.baseStats.atk, 100)
+            const odds = 100 * target.species.baseStats.atk / 255
             move.secondaries = [];
 			move.secondaries.push({
                 chance: odds,
@@ -621,7 +621,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 50,
 		category: "Physical",
 		name: "Continuous Steps",
-		shortDesc: "Hits 50x. Each hit can miss. Ignores acc modifiers.",
+		shortDesc: "Hits 50x. Each hit can miss. Ignores Acc modifiers.",
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
