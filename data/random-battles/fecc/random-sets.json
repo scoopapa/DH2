@@ -189,7 +189,12 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Dazzling Gleam", "Psychic", "Focus Blast", "Nasty Plot", "U-Turn"],
+                "movepool": ["Dazzling Gleam", "Psychic", "Focus Blast", "U-Turn"],
+                "teraTypes": ["Fighting", "Fairy", "Psychic"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Dazzling Gleam", "Psychic", "Focus Blast", "Nasty Plot", "Substitute"],
                 "teraTypes": ["Fighting", "Fairy", "Psychic"]
             }
         ]
@@ -360,6 +365,11 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Roar", "Flare Blitz", "Parting Shot", "Darkest Lariat"],
+                "teraTypes": ["Grass", "Water"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Flare Blitz", "Knock Off", "Roar", "U-Turn"],
                 "teraTypes": ["Grass", "Water"]
             }
         ]
@@ -670,7 +680,7 @@
 			{
                 "role": "Tera Blast user",
                 "movepool": ["Calm Mind", "Strength Sap", "Shadow Ball", "Tera Blast"],
-                "teraTypes": ["Fighting", "Fairy"]
+                "teraTypes": ["Fighting", "Fairy", "Ground"]
             },
 			{
                 "role": "Bulky Setup",
@@ -1024,7 +1034,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Flamethrower", "Flash Cannon", "Aura Sphere", "U-Turn"],
+                "movepool": ["Flamethrower", "Flash Cannon", "Aura Sphere", "Trick", "Healing Wish", "U-Turn"],
                 "teraTypes": ["Fire", "Fighting"]
             },
 			{
@@ -1044,7 +1054,7 @@
             },
 			{
                 "role": "Fast Support",
-                "movepool": ["Flamethrower", "Flash Cannon", "Aura Sphere", "U-Turn", "Stealth Rock", "Will-o-Wisp", "Wish", "Protect", "Ruination"],
+                "movepool": ["Flamethrower", "Flash Cannon", "U-Turn", "Stealth Rock", "Will-o-Wisp", "Wish", "Protect", "Ruination"],
                 "teraTypes": ["Grass", "Flying"]
             }
         ]
