@@ -970,6 +970,23 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	lachespind: {
+		num: -1050,
+		name: "Lachespind",
+		types: ["Psychic"],
+		gender: "F",
+		baseStats: {hp: 76, atk: 81, def: 54, spa: 60, spd: 101, spe: 113},
+		abilities: {0: "Shield Dust", 1: "Overcoat", H: "Cotton Down"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 15.0,
+		color: "Purple",
+		eggGroups: ["Field"],
+	//	creator: "Genuine_Angus_B33F",
+	},
+	// end
+
 	// Changes
 	// start
 	shiftry: {
