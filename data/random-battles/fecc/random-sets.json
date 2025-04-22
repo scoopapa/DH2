@@ -196,6 +196,11 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Dazzling Gleam", "Psychic", "Focus Blast", "Nasty Plot", "Substitute"],
                 "teraTypes": ["Fighting", "Fairy", "Psychic"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Draining Kiss", "Psyshock", "Stored Power", "Calm Mind", "Acid Armor"],
+                "teraTypes": ["Steel"]
             }
         ]
     },
