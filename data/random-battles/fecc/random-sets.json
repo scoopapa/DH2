@@ -581,7 +581,7 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Moonblast", "Shadow Ball", "Flamethrower", "Nasty Plot"],
                 "teraTypes": ["Fairy", "Ghost", "Fire"]
-            },
+            }
         ]
     },
 	"dragomarill": {
