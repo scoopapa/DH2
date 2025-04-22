@@ -38,7 +38,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1,
 	},
 	younglion: {
-		shortDesc: "If this Pokemon moves before the opponent, this Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage halved.",
+		shortDesc: "Move before target: attack becomes multihit with second hit being 0.3x power",
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !(target.newlySwitched || this.queue.willMove(target))) return;
