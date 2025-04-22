@@ -1487,6 +1487,11 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Stored Power", "Earth Power", "Roost", "Substitute", "Agility"],
                 "teraTypes": ["Steel"]
+            },
+			{
+                "role": "Fast Support",
+                "movepool": ["Lumina Crash", "Earth Power", "Roost", "Substitute", "Calm Mind"],
+                "teraTypes": ["Steel"]
             }
         ]
     },

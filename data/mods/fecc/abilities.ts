@@ -3118,7 +3118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				used: false,
 			};
 			target.moveSlots[target.moveSlots.length] = learnedMove;
-			target.baseMoveSlots[target.moveSlots.length - 1] = learnedMove;
+			target.baseMoveSlots[target.moveSlots.length] = learnedMove;
 		},
 		//shortDesc: "When this Pokemon is targeted by a move, it adds that move to its moveset.",
 	},
