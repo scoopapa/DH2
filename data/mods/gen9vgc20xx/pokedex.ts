@@ -654,7 +654,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Flying"],
 		baseStats: {hp: 95, atk: 125, def: 100, spa: 60, spd: 79, spe: 81},
-		abilities: {0: "Unburden", 1: "Aerilate", H: "Wind Rider"},
+		abilities: {0: "Unburden", 1: "Aerilate", H: "Cloud Nine"},
 		heightm: 6.5,
 		weightkg: 88.3,
 		color: "White",
