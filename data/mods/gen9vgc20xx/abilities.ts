@@ -171,10 +171,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	eternalice: {
-		shortDesc: "Moves last; immune to Fire and Fighting.",
+		shortDesc: "Moves last; immune to Fire and Water.",
 		onFractionalPriority: -0.1,
 		onTryHit(target, source, move) {
-			if (move.type === 'Fire' || move.type === 'Fighting') {
+			if (move.type === 'Fire' || move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Eternal Ice');
 				return null;
 			}
