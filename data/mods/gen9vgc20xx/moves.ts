@@ -97,7 +97,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	flyingdive: {
 		num: -4,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
 		shortDesc: "Double damage against grounded target.",
 		name: "Flying Dive",
