@@ -911,7 +911,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		// Basically having this status makes this Pokemon have HDB, which means its functionality is handled in moves
 		onStart(pokemon) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Snarl", pokemon);
+			this.add('-anim', pokemon, "Baneful Bunker", pokemon);
 		},
 	},
 };
