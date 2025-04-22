@@ -725,7 +725,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm', 'noretreat']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm', 'noretreat', 'seedflare', 'swagger']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1261,7 +1261,7 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
-			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozium Z';
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
@@ -1311,7 +1311,8 @@ export class RandomTeams {
 			case 'rolyklawfy':
 			case 'blazer':
 			case 'smearccino':
-				return 'Eviolite';
+			case 'shedlurk':
+				return 'Focus Sash';
 			case 'basbal':
 			case 'naclinch':
 			case 'glimmgar':
@@ -1321,6 +1322,7 @@ export class RandomTeams {
 		
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
+		if (species.id === 'espathrem' && moves.has('storedpower')) return 'weaknesspolicy';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
