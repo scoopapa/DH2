@@ -331,6 +331,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	lachespind: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	foongusenlightened: {
 		tier: "VGC",
 		doublesTier: "VGC",
