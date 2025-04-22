@@ -1206,6 +1206,11 @@
                 "role": "Fast Attacker",
                 "movepool": ["Liquidation", "Close Combat", "Sucker Punch", "Poison Jab"],
                 "teraTypes": ["Water", "Fighting", "Dark", "Poison"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Liquidation", "Drain Punch", "Sucker Punch", "Poison Jab", "Swords Dance"],
+                "teraTypes": ["Water", "Fighting", "Dark", "Poison"]
             }
         ]
     },
