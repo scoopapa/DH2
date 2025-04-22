@@ -2666,6 +2666,12 @@ export const Formats: FormatList = [
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
+    {
+		name: "[Gen 3] ADV+",
+		mod: 'gen3advplus',
+		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Starf Berry', 'Speed Boost + Blaziken'],
+	},
 	{
 		name: "[Gen 3] ADV DX OU",
 		mod: 'gen3advdx',
@@ -3423,12 +3429,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
-    {
-		name: "[Gen 3] ADV+",
-		mod: 'gen3advplus',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Starf Berry', 'Speed Boost + Blaziken'],
 	},
 	{
 		name: "[Gen 1] Glitch OU",
