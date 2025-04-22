@@ -1007,7 +1007,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
         guardswap: ["9M"],
         helpinghand: ["9M"],
         hyperbeam: ["9M"],
-        hypnosis: ["9M"],
+  //      hypnosis: ["9M"],
         imprison: ["9M"],
         irondefense: ["9M"],
         leechlife: ["9M"],
