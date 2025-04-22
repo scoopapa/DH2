@@ -69,7 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "Super-effective on Dragon types. 10% chance to flinch.",
+		shortDesc: "Super-effective on Dragon types. 10% flinch chance.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -219,7 +219,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Eliminates all stat changes.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		onHit() {
 			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
@@ -349,5 +349,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+	},
+	biocharge: {
+		num: 294,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Biocharge",
+		shortDesc: "Raises the user's Sp. Atk by 3. Lowest priority.",
+		pp: 5,
+		priority: -6,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			spa: 3,
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
 	},
 };
