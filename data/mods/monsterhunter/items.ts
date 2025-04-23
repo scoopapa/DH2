@@ -13,19 +13,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1001,
 			gen: 9,
 	},
-		malzenite: {
-			name: "Malzenite",
-			spritenum: 617,
-			megaStone: "Primordial Malzeno",
-			megaEvolves: "Malzeno",
-			itemUser: ["Malzeno"],
-			onTakeItem(item, source) {
-				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-				return true;
-			},
-			num: 1002,
-			gen: 9,
-	},
 		magnamalite: {
 			name: "Magnamalite",
 			spritenum: 614,
