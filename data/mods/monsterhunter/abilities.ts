@@ -61,6 +61,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Debris",
+		shortDesc: "If this pokemon is hit by a physical attack, Toxic Spikes are set on the opposing side.",
 		rating: 3.5,
 		num: 1002,
 	},
