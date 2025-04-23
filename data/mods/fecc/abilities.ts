@@ -768,7 +768,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	goodvibes: {
 		onStart(pokemon) {
-			this.add('-ability', target, 'Good Vibes');
+			this.add('-ability', pokemon, 'Good Vibes');
 			pokemon.side.addSideCondition('goodvibe');
 		},
 		onModifyAtkPriority: 6,
@@ -784,7 +784,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	badvibes: {
 		onStart(pokemon) {
-			this.add('-ability', target, 'Bad Vibes');
+			this.add('-ability', pokemon, 'Bad Vibes');
 			pokemon.side.addSideCondition('badvibe');
 		},
 		onModifySpAPriority: 6,
@@ -3118,7 +3118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				used: false,
 			};
 			target.moveSlots[target.moveSlots.length] = learnedMove;
-			target.baseMoveSlots[target.moveSlots.length - 1] = learnedMove;
+			target.baseMoveSlots[target.moveSlots.length] = learnedMove;
 		},
 		//shortDesc: "When this Pokemon is targeted by a move, it adds that move to its moveset.",
 	},
@@ -3401,6 +3401,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.formeChange(newPokemon);
 		},
 		onResidual(pokemon) {
+			if (!pokemon.activeTurns) return;
 			const pokemonList = Object.keys(randomSets);
 			const newPokemon = this.sample(pokemonList);
 			
