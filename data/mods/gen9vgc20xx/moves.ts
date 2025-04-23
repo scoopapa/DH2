@@ -97,7 +97,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	flyingdive: {
 		num: -4,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
 		shortDesc: "Double damage against grounded target.",
 		name: "Flying Dive",
@@ -426,7 +426,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "33% of putting target to sleep. Powder.",
+		shortDesc: "30% of putting target to sleep. Powder.",
 		name: "Sylvan Powder",
 		pp: 5,
 		priority: 0,
@@ -436,7 +436,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Sleep Powder", target);
 		},
 		secondary: {
-			chance: 33, // Might ask submitter to change it to 30% as no other move has 33% trigger chance
+			chance: 30,
 			status: 'slp',
 		},
 		target: "normal",
@@ -536,7 +536,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Super effective against Ground.",
+		shortDesc: "Super effective against Ground, fail against airborne.",
 		name: "Conductive Spell",
 		pp: 10,
 		priority: 0,
@@ -551,8 +551,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				move.ignoreImmunity['Electric'] = true;
 			}
 		},
+		onTryHit(target, source, move) {
+			// Check if the target is airborne and fail the move
+			if (!target.isGrounded()) {
+				return false; // Fail the move
+			}
+		},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Ground') return 1;
+			if (!target) return;
+			if (type === 'Ground' && target.isGrounded()) {
+				return 1; // Make it super effective
+			}
 		},
 		target: "normal",
 		type: "Electric",
@@ -728,6 +737,60 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Bug",
+		contestType: "Cool",
+	},
+	//
+	tautthread: {
+		num: -25,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Taut Thread",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, nonsky: 1, noassist: 1, failcopycat: 1},
+		shortDesc: "Mat Block. If successful block, Misty Terrain.",
+		stallingMove: true,
+		sideCondition: 'tautthread',
+	
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Taut Thread only works on your first turn out.");
+				return false;
+			}
+			return !!this.queue.willAct();
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Taut Thread');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Taut Thread', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (!this.field.isTerrain('mistyterrain')) {
+					this.field.setTerrain('mistyterrain');
+				}
+				return this.NOT_FAIL;
+			},
+		},	
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
 	//
@@ -1393,6 +1456,29 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
+	hypnosis: {
+		num: 95,
+		accuracy: 60,
+		basePower: 0,
+		category: "Status",
+		name: "Hypnosis",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (target.hasType('Psychic')) {
+				this.add('-immune', target, '[from] type: Psychic');
+				return null;
+			}
+		},
+		status: 'slp',
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
+	//
 	hydrocannon: {
 		num: 308,
 		accuracy: 90,
@@ -1505,12 +1591,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
-			atk: 1,
+			atk: 1, 
+			spd: 1, 
+			spe: 1,
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-		zMove: {boost: {atk: 1, spd: 1, spe: 1}},
+		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
 	},
 	//

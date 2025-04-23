@@ -40,6 +40,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: -1000, // It doesn't seem like Honey item is on DH.. So, it's technically considered a new item here, I guess...
 		gen: 9,
+		desc: "At the end of turn, boosts Bug's best stat. Consumable.",
 	},
 	//
 	ancientarmor: {
@@ -55,12 +56,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 	   },
 		num: -1001,
+		gen: 9,
 		desc: "User receives 25% less damage from a super effective move.",
 	},
 	// end
 	
-	miracleberry: {
-		name: "Miracle Berry",
+	gaiaberry: {
+		name: "Gaia Berry",
 		spritenum: 262,
 		isBerry: true,
 		naturalGift: {
@@ -79,18 +81,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 2);
 		},
-		/*onUpdate(pokemon) {
-			if (pokemon.status || pokemon.volatiles['confusion']) {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			pokemon.cureStatus();
-			pokemon.removeVolatile('confusion');
-		},*/
-		num: 157,
-		gen: 2,
-		isNonstandard: null,
+		num: -1002,
+		gen: 9,
+		desc: "At or below 25% HP, recovers half of its HP.",
 	},
 	//
 	zoomlens: {

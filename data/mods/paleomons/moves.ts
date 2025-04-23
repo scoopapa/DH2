@@ -163,7 +163,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's SpA by 1.",
+		shortDesc: "100% chance to raise the user's SpA by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -172,7 +172,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		    this.add('-anim', source, "Paleo Wave", target);
 		},
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					spa: 1,
@@ -251,6 +251,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 85,
 		category: "Physical",
 		name: "Hemlock Hit",
+		shortDesc: "30% chance to poison the target.",
 		pp: 20,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
@@ -263,7 +264,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		},
 		target: "normal",
-		type: "Poison",
+		type: "Grass",
 	},
 	
 	//edited vanilla moves
