@@ -3145,7 +3145,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!warnMoves.length) return;
 			const [warnMoveName, warnTarget] = this.sample(warnMoves);
 			this.add('-activate', pokemon, 'ability: Epidemiologist', warnMoveName, `[of] ${warnTarget}`);
-			this.add('-message', `${pokemon.name} disapproved of ${warnTarget}'s ${warnMoveName}!`);
+			this.add('-message', `${pokemon.name} disapproved of ${warnTarget.name}'s ${warnMoveName}!`);
 			warnTarget.strongestMove = warnMoveName;
 			warnTarget.addVolatile('epidemiologist');
 		},

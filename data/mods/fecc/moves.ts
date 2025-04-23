@@ -283,7 +283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.type = 'Water';
 				break;
 			}
-			this.add('-message', `Its type changed to match ${pokemon.species.name}'s!`);
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	aurawheel: {
@@ -351,7 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.type = 'Dragon';
 					break;
 			}
-			this.add('-message', `Its type changed to match ${pokemon.species.name}'s!`);
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	attract: {
@@ -443,7 +443,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			if (type === "Stellar") type = pokemon.getTypes(false, true)[0];
 			move.type = type;
-			this.add('-message', `Its type changed to match ${pokemon.species.name}'s!`);
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	terastarstorm: {
