@@ -255,4 +255,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	nurturaptor: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	hemlophosaur: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	carriguana: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+
 };

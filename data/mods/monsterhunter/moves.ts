@@ -51,7 +51,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 25,
 		category: "Physical",
 		name: "Glide Bomb",
-		shortDesc: "The user attacks by dropping explosive scales onto the target. This move hits two to five times in a row.",
+		shortDesc: "Hits 2-5 times in one turn.",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -69,7 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "The user utilizes a dragonator to impale the target. This may also flinch the target. This move is super effective on Dragon types.",
+		shortDesc: "Super-effective on Dragon types. 10% flinch chance.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -94,171 +94,279 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
-		heal: [1],
+		heal: [1, 2],
+		onTry(source) {
+			return source.getItem().isBerry;
+		},
+		onHit(pokemon) {
+			pokemon.eatItem(true);
+		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
 		contestType: "Beautiful",
 	},
-	/*
-	RE-IMPLEMENTED MOVES
-	*/
-	vcreate: {
-		num: 557,
+	wretchedwater: {
+		num: 2005,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Wretched Water",
+		shortDesc: "30% chance to paralyze the target.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "allAdjacentFoes",
+		type: "Water",
+		contestType: "Cool",
+	},
+	cutwingbarrage: {
+		num: 2006,
 		accuracy: 95,
-		basePower: 180,
+		basePower: 90,
 		category: "Physical",
-		name: "V-create",
+		name: "Cutwing Barrage",
+		shortDesc: "May cause flinching.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, slicing: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	thunderrush: {
+		num: 2007,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Thunder Rush",
+		shortDesc: "Usually goes first. Always crits.",
+		pp: 15,
+		priority: 2,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	frenzyslam: {
+		num: 2008,
+		accuracy: 95,
+		basePower: 80,
+		category: "Special",
+		name: "Frenzy Slam",
+		shortDesc: "Summons reflect.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			sideCondition: 'reflect',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	bewitchedbubble: {
+		num: 2009,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Bewitched Bubble",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	creepynoise: {
+		num: 2010,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Creepy Noise",
+		shortDesc: "100% chance to paralyze the foe.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	arcticshriek: {
+		num: 2011,
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		name: "Arctic Shriek",
+		shortDesc: "Eliminates all stat changes.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onHit() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+	},
+	cloakingglow: {
+		num: 2012,
+		accuracy: 95,
+		basePower: 80,
+		category: "Special",
+		name: "Cloaking Glow",
+		shortDesc: "Summons Light Screen.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			sideCondition: 'lightscreen',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	mossbomb: {
+		num: 2013,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Moss Bomb",
+		shortDesc: "Summons Leech Seed.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	magmasurge: {
+		num: 2014,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Magma Surge",
+		shortDesc: "100% chance to burn the foe.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	apexburst: {
+		num: 2015,
+		accuracy: 85,
+		basePower: 120,
+		category: "Special",
+		name: "Apex Burst",
+		shortDesc: "Cures the user's party of all status conditions.",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		self: {
-			boosts: {
-				spe: -1,
-				def: -1,
-				spd: -1,
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+						continue;
+					}
+					ally.cureStatus();
+				}
 			},
 		},
 		secondary: null,
 		target: "normal",
-		type: "Fire",
-		zMove: {basePower: 220},
-		contestType: "Cool",
+		type: "Fairy",
+		contestType: "Clever",
 	},
-	thousandarrows: {
-		num: 614,
+	frenzypulse: {
+		num: 2016,
 		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		isNonstandard: "Past",
-		name: "Thousand Arrows",
-		pp: 10,
+		basePower: 100,
+		category: "Special",
+		name: "Frenzy Pulse",
+		shortDesc: "Lowers SpA by 1; Raises Spe by 1.",
+		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1},
-		onEffectiveness(typeMod, target, type, move) {
-			if (move.type !== 'Ground') return;
-			if (!target) return; // avoid crashing when called from a chat plugin
-			// ignore effectiveness if the target is Flying type and immune to Ground
-			if (!target.runImmunity('Ground')) {
-				if (target.hasType('Flying')) return 0;
-			}
-		},
-		volatileStatus: 'smackdown',
-		ignoreImmunity: {'Ground': true},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Ground",
-		zMove: {basePower: 180},
-		contestType: "Beautiful",
-	},
-	thousandwaves: {
-		num: 615,
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		isNonstandard: "Past",
-		name: "Thousand Waves",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1},
-		onHit(target, source, move) {
-			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfBoost: {
+			boosts: {
+				spa: -1,
+				spe: +1,
+			},
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Ground",
-		contestType: "Tough",
+		target: "normal",
+		type: "Fairy",
 	},
-	landswrath: {
-		num: 616,
+	psychocrush: {
+		num: 2017,
 		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		isNonstandard: "Past",
-		name: "Land's Wrath",
+		basePower: 95,
+		category: "Special",
+		name: "Psycho Crush",
+		shortDesc: "Summons Gravity.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1},
+		self: {
+			pseudoWeather: 'gravity',
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Ground",
-		zMove: {basePower: 185},
-		contestType: "Beautiful",
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
 	},
-	healorder: {
-		num: 456,
+	biocharge: {
+		num: 294,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
-		name: "Heal Order",
-		pp: 10,
-		priority: 0,
-		flags: {snatch: 1, heal: 1, metronome: 1},
-		heal: [1, 2],
+		name: "Biocharge",
+		shortDesc: "Raises the user's Sp. Atk by 3. Lowest priority.",
+		pp: 5,
+		priority: -6,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			spa: 3,
+		},
 		secondary: null,
 		target: "self",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Clever",
-	},
-	kingsshield: {
-		num: 588,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		isNonstandard: "Past",
-		name: "King's Shield",
-		pp: 10,
-		priority: 4,
-		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
-		stallingMove: true,
-		volatileStatus: 'kingsshield',
-		onPrepareHit(pokemon) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
-		},
-		onHit(pokemon) {
-			pokemon.addVolatile('stall');
-		},
-		condition: {
-			duration: 1,
-			onStart(target) {
-				this.add('-singleturn', target, 'Protect');
-			},
-			onTryHitPriority: 3,
-			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.category === 'Status') {
-					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
-					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
-					return;
-				}
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				} else {
-					this.add('-activate', target, 'move: Protect');
-				}
-				const lockedmove = source.getVolatile('lockedmove');
-				if (lockedmove) {
-					// Outrage counter is reset
-					if (source.volatiles['lockedmove'].duration === 2) {
-						delete source.volatiles['lockedmove'];
-					}
-				}
-				if (this.checkMoveMakesContact(move, source, target)) {
-					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
-				}
-				return this.NOT_FAIL;
-			},
-			onHit(target, source, move) {
-				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
-				}
-			},
-		},
-		secondary: null,
-		target: "self",
-		type: "Steel",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cool",
+		contestType: "Beautiful",
 	},
 };

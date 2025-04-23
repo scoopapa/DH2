@@ -409,6 +409,20 @@ export const Formats: FormatList = [
 		mod: 'bookofenigmas',
 	},
 	{
+		name: "[Gen 9] Breeding Variants V4",
+		desc: `A NatDex format that adds alternate forms for Pokemon based around inheriting elements from a possible breeding partner.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
+		],
+		mod: 'breedingvariants',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: [
+			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+	},
+	{
 		name: "[Gen 9] CCAPM 2024",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
@@ -456,85 +470,6 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'CSM2') {
 					return [set.species + ' is not useable in Clean Slate Micro 2.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Crossover Chaos [Defunct]",
-		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
-		],
-		mod: 'gen9crossoverchaos',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', /* 'Mega Data Mod' */],
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'King Dedede' || set.species === 'Masked Dedede') {
-				if (item === 'dededesmask') {
-					set.species = 'Masked Dedede';
-					let attackOrder = set.moves.indexOf('attackorder');
-					if (attackOrder >= 0) {
-						set.moves[attackOrder] = 'gigatonhammer';
-					}
-					let beatup = set.moves.indexOf('beatup');
-					if (beatup >= 0) {
-						set.moves[beatup] = 'electrohammer';
-					}
-				}
-				else {
-					set.species = 'King Dedede';
-				}
-			}
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CC OU', 'CC UU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Crossover Chaos Gen 9.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Crossover Chaos AG [Defunct]",
-		desc: `Crossover Chaos, allowing mons in CC Ubers and unintroduced to be used.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
-		],
-		mod: 'gen9crossoverchaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', /* 'Mega Data Mod' */],
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'King Dedede' || set.species === 'Masked Dedede') {
-				if (item === 'dededesmask') {
-					set.species = 'Masked Dedede';
-					let attackOrder = set.moves.indexOf('attackorder');
-					if (attackOrder >= 0) {
-						set.moves[attackOrder] = 'gigatonhammer';
-					}
-					let beatup = set.moves.indexOf('beatup');
-					if (beatup >= 0) {
-						set.moves[beatup] = 'electrohammer';
-					}
-				}
-				else {
-					set.species = 'King Dedede';
-				}
-			}
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CC OU', 'CC UU', 'CC Ubers', 'unintroduced'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Crossover Chaos Gen 9 AG.'];
 				}
 			}
 		},
@@ -688,7 +623,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pok%C3%A9mon.3755140/">Eternal Pokémon on Smogon Forums</a>`,
 		],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Baton Pass'],
+		banlist: ['Aerodactylite', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Baton Pass'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -1016,7 +951,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Mega Rayquaza Clause', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule', 'Mario Kart Wii Clause'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
 		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
-		'Abomasite', 'Absolite', 'Houndoominite', 'Red Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
+		'Absolite', 'Houndoominite', 'Red Orb', 'Blue Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
 		unbanlist: ['Light of Ruin', 'Baddy Bad'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -2731,6 +2666,12 @@ export const Formats: FormatList = [
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
+    {
+		name: "[Gen 3] ADV+",
+		mod: 'gen3advplus',
+		ruleset: ['Standard', /*'Baton Pass Mod',*/ 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Starf Berry', 'Speed Boost + Blaziken'],
+	},
 	{
 		name: "[Gen 3] ADV DX OU",
 		mod: 'gen3advdx',
@@ -2748,7 +2689,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 3] ADV Tradebacks",
 		mod: 'gen3tradebacks',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		ruleset: ['Standard', /*'Baton Pass Mod',*/ 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
 		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{
@@ -3329,8 +3270,16 @@ export const Formats: FormatList = [
 		mod: 'fecc',
 		team: 'random',
 		desc: `fecc`,
-		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Intro Mod'],
 	},
+	/*
+	{
+		name: "[Gen 9] Fusion Evolution Corrupt Council 2",
+		mod: 'fecc',
+		desc: `fecc`,
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Z-Move Clause'],
+	},
+	*/
 	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
@@ -3489,12 +3438,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-    {
-		name: "[Gen 3] Gen 3 Plus",
-		mod: 'gen3plus',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
-	},
 	{
 		name: "[Gen 1] Glitch OU",
 		mod: 'gen1glitch',
@@ -3549,8 +3492,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
-		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought'],
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', /*'Baton Pass Mod'*/],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",
@@ -3848,34 +3791,36 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monster Hunter Megas",
+		name: "[Gen 9] Monster Hunter Ubers",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter Megas.'];
+					return [set.species + ' is not legal in Monster Hunter Ubers.'];
 				}
 			}
 		},
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Doubles",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'doubles',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3886,15 +3831,16 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Free-For-Alls",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3905,22 +3851,66 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter OU",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU'];
+			let allowedTiers = ['MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Monster Hunter OU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Monster Hunter UU",
+		teambuilderFormat: 'National Dex',
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: [
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHUU', 'MHRU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter UU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Monster Hunter RU",
+		teambuilderFormat: 'National Dex',
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: [
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHRU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter RU.'];
 				}
 			}
 		},
@@ -4606,6 +4596,121 @@ export const Formats: FormatList = [
 		section: "Pet Mods Bonus Formats",
 		column: 3,
 		// name: "petmodsbonusformats",
+	},
+	{
+		name: "[Gen 9] Breeding Variants V4 No Megas",
+		desc: `A NatDex format that adds alternate forms for Pokemon based around inheriting elements from a possible breeding partner.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
+		],
+		mod: 'breedingvariants',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: [
+			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
+			let tierSpecies = species;
+
+			if (item.megaStone) {
+				[item.name + ' is banned as this is a no mega format.'];
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Breeding Variants V4 SV Cup",
+		desc: `A SV OU format that adds alternate forms for Pokemon based around inheriting elements from a possible breeding partner.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
+		],
+		mod: 'breedingvariants',
+		teambuilderFormat: "OU",
+		ruleset: ['Standard', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
+		name: "[Gen 9] Crossover Chaos [Defunct]",
+		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
+		],
+		mod: 'gen9crossoverchaos',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', /* 'Mega Data Mod' */],
+		onChangeSet(set) {
+			const item = this.toID(set.item);
+			if (set.species === 'King Dedede' || set.species === 'Masked Dedede') {
+				if (item === 'dededesmask') {
+					set.species = 'Masked Dedede';
+					let attackOrder = set.moves.indexOf('attackorder');
+					if (attackOrder >= 0) {
+						set.moves[attackOrder] = 'gigatonhammer';
+					}
+					let beatup = set.moves.indexOf('beatup');
+					if (beatup >= 0) {
+						set.moves[beatup] = 'electrohammer';
+					}
+				}
+				else {
+					set.species = 'King Dedede';
+				}
+			}
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['CC OU', 'CC UU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Crossover Chaos Gen 9.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Crossover Chaos AG [Defunct]",
+		desc: `Crossover Chaos, allowing mons in CC Ubers and unintroduced to be used.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
+		],
+		mod: 'gen9crossoverchaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', /* 'Mega Data Mod' */],
+		onChangeSet(set) {
+			const item = this.toID(set.item);
+			if (set.species === 'King Dedede' || set.species === 'Masked Dedede') {
+				if (item === 'dededesmask') {
+					set.species = 'Masked Dedede';
+					let attackOrder = set.moves.indexOf('attackorder');
+					if (attackOrder >= 0) {
+						set.moves[attackOrder] = 'gigatonhammer';
+					}
+					let beatup = set.moves.indexOf('beatup');
+					if (beatup >= 0) {
+						set.moves[beatup] = 'electrohammer';
+					}
+				}
+				else {
+					set.species = 'King Dedede';
+				}
+			}
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['CC OU', 'CC UU', 'CC Ubers', 'unintroduced'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Crossover Chaos Gen 9 AG.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 3] Hoenn Gaiden UU",
@@ -5843,7 +5948,7 @@ export const Formats: FormatList = [
 		mod: 'moderngen4',
 		searchShow: false,
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause', 'Gems Clause'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Drizzle', 'Drought', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew', 'Toxic Spikes'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Drizzle', 'Drought', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Toxic Spikes'],
 	},
 	{
 		name: "[Gen 4] Modern Gen 4 Ubers",

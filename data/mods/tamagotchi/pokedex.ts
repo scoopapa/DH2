@@ -547,7 +547,7 @@ mametchi: {
 		gender: "M",
 		types: ["Normal"],
 		baseStats: {hp: 98, atk: 64, def: 100, spa: 50, spd: 112, spe: 86},
-		abilities: {0: "Wool Coat", 1: "N", H: "A"},
+		abilities: {0: "Wool Coat", 1: "Fur Coat", H: "Klutz"},
 	},
 	paparatchi: {
 		num: 70,
@@ -1252,7 +1252,7 @@ mametchi: {
 		gender: "F",
 		types: ["Fairy", "Normal"],
 		baseStats: {hp: 135, atk: 75, def: 75, spa: 75, spd: 75, spe: 75},
-		abilities: {0: "Tamamori Shift", 1: "MoriPakuCoffret", H: "Fluffy"},
+		abilities: {0: "Color Change", 1: "MoriPakuCoffret", H: "Fluffy"},
 	},
 	perotchi: {
 		num: 158,
@@ -2021,7 +2021,7 @@ mametchi: {
 		gender: "F",
 		types: ["Psychic", "Ice"],
 		baseStats: {hp: 129, atk: 44, def: 40, spa: 96, spd: 128, spe: 73},
-		abilities: {0: "Technican", 1: "Pastel Veil", H: "Filter"},
+		abilities: {0: "Technician", 1: "Pastel Veil", H: "Filter"},
 	},
 	mochiusatchi: {
 		num: 254,
@@ -2381,7 +2381,7 @@ mametchi: {
 		gender: "F",
 		types: ["Steel", "Electric"],
 		baseStats: {hp: 50, atk: 50, def: 255, spa: 60, spd: 50, spe: 45},
-		abilities: {0: "Special Device", 1: "Regenerator", H: "Rivalry"},
+		abilities: {0: "Motor Drive", 1: "Regenerator", H: "Rivalry"},
 	},
 	pashalin: {
 		num: 299,
@@ -2389,7 +2389,7 @@ mametchi: {
 		gender: "F",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 50, atk: 50, def: 50, spa: 60, spd: 255, spe: 45},
-		abilities: {0: "Special Device", 1: "Illuminate", H: "Tamamori Shift"},
+		abilities: {0: "Motor Drive", 1: "Illuminate", H: "Color Change"},
 	},
 	anemoriritchi: {
 		num: 300,
@@ -2397,7 +2397,7 @@ mametchi: {
 		gender: "F",
 		types: ["Poison", "Fairy"],
 		baseStats: {hp: 136, atk: 75, def: 75, spa: 75, spd: 75, spe: 74},
-		abilities: {0: "Anger Point", 1: "Tamamori Shift", H: "Own Tempo"},
+		abilities: {0: "Anger Point", 1: "Color Change", H: "Own Tempo"},
 	},
 	octpasketchi: {
 		num: 301,
@@ -2437,6 +2437,6 @@ mametchi: {
 		gender: "F",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 50, atk: 50, def: 155, spa: 60, spd: 155, spe: 40},
-		abilities: {0: "Special Device", 1: "Levitate", H: "Download"},
+		abilities: {0: "Motor Drive", 1: "Levitate", H: "Download"},
 	},
 }
