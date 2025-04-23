@@ -1555,7 +1555,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				const newTarget = this.sample(target.adjacentFoes());
-				this.add('-message', `${source.name} becomes the center of attention!`);
+				this.add('-message', `${newTarget.name} becomes the center of attention!`);
 				this.actions.useMove(newMove, newTarget, newTarget);
 				return null;
 			}
@@ -3179,7 +3179,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	allforone: {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
-			if (target !== source && move.category !== 'Status') {
+			if (target !== source && move.category !== 'Status' && !target.getAbility().flags['cantsuppress']) {
 				target.addVolatile('gastroacid');
 				source.addVolatile('ability:' + target.getAbility().id);
 			}
@@ -3353,10 +3353,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fruitloop: {
 		onStart(pokemon) {
-			pokemon.abilityState.gluttony = true;
-		},
-		onDamage(item, pokemon) {
-			pokemon.abilityState.gluttony = true;
+			pokemon.addVolatile('ability:gluttony');
 		},
 		onEatItem(item, pokemon) {
 			if (!pokemon.berryCount) pokemon.berryCount = 0;
