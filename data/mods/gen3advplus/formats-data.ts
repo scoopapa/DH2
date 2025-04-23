@@ -1743,13 +1743,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	lickilicky: {
-		tier: "Illegal"
+		tier: "OU"
 	},
 	rhyperior: {
 		tier: "OU"
 	},
 	tangrowth: {
-		tier: "Illegal"
+		tier: "OU"
 	},
 	electivire: {
 		tier: "OU"
