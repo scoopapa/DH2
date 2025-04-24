@@ -21,7 +21,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				spe: -1,
 			},
 		},
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -725,6 +725,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		multihit: 2,
 		shortDesc: "Hits twice + no contact penalty.",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
