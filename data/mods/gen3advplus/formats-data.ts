@@ -1005,7 +1005,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE"
 	},
 	sceptile: {
-		tier: "OU"
+		tier: "14"
 	},
 	sceptilemega: {
 		tier: "Uber"
@@ -1770,7 +1770,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "9"
 	},
 	gliscor: {
-		tier: "OU"
+		tier: "18"
 	},
 	mamoswine: {
 		tier: "16"
