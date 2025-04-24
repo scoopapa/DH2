@@ -3856,7 +3856,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
-			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', /*'Malzenite',*/
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
 		onValidateTeam(team, format) {
@@ -3878,7 +3878,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
-			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', /*'Malzenite',*/
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
 		onValidateTeam(team, format) {
@@ -3900,7 +3900,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
-			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', /*'Malzenite',*/
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
 		onValidateTeam(team, format) {
@@ -5948,7 +5948,7 @@ export const Formats: FormatList = [
 		mod: 'moderngen4',
 		searchShow: false,
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause', 'Gems Clause'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Drizzle', 'Drought', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew', 'Toxic Spikes'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Drizzle', 'Drought', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Toxic Spikes'],
 	},
 	{
 		name: "[Gen 4] Modern Gen 4 Ubers",

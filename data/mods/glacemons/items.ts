@@ -1116,29 +1116,31 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	// Slate 6
 	parallelmegaorb: { 
-        name: "Parallel Mega Orb",
-        onTakeItem: false,
-        onBeforeMega(pokemon) {
-            pokemon.addVolatile('gastroacid');
-        },
-        onAfterMega(pokemon) {
-            let newAbility = pokemon.set.ability
-            const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-            pokemon.removeVolatile('gastroacid');
-        },
-        onPreStart(pokemon) {
-            pokemon.addVolatile('gastroacid');
-        },
-        onStart(pokemon) {
-            let newAbility = pokemon.set.ability
-            const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-            pokemon.removeVolatile('gastroacid');
-        },
-        shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-        num: -15,
-        gen: 9,
-        rating: 3,
-    },
+		name: "Parallel Mega Orb",
+		onTakeItem: false,
+		onBeforeMega(pokemon) {
+			pokemon.addVolatile('gastroacid');
+		},
+		onAfterMega(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility);
+			pokemon.removeVolatile('gastroacid');
+			return oldAbility as false | null;
+		},
+		onPreStart(pokemon) {
+			pokemon.addVolatile('gastroacid');
+		},
+		onStart(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility);
+			pokemon.removeVolatile('gastroacid');
+			return oldAbility as false | null;
+		},
+		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+		num: -15,
+		gen: 9,
+		rating: 3,
+	},
 	legendplate: {
 		name: "Legend Plate",
 		spritenum: 658,
@@ -1911,7 +1913,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.add('-message', `${pokemon.name} is holding a Polkadot Bow!`);
 		},
 		onModifyTypePriority: -1,
-		onModifyType(move, pokemon) {
+		onModifyType(move, pokemon, target) {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
@@ -1920,8 +1922,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				!(move.isZ && move.category !== 'Status')
 				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
 				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
-				if (move.id === target.moveSlots[0].id) type = types[0];
-				else if (move.id === target.moveSlots[1].id) type = types[1];
+				if (move.id === pokemon.moveSlots[0].id) type = pokemon.types[0];
+				else if (move.id === pokemon.moveSlots[1].id) type = pokemon.types[1];
 				move.type = type;
 				move.typeChangerBoosted = this.effect;
 			}
@@ -1972,5 +1974,32 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		desc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
 		shortDesc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
+	},
+	dungeonslooplet: {
+		name: "Dungeon's Looplet",
+		spritenum: 747,
+		num: -31,
+		gen: 9,
+		desc: "",
+		shortDesc: "",
+	},
+	surprisebomb: {
+		name: "Surprise Bomb",
+		spritenum: 345,
+		num: -33,
+		gen: 9,
+		rating: 3,
+		onStart(pokemon) {
+			this.actions.useMove("surprise", pokemon, "normal", "[from] item: Surprise Bomb")
+			this.actions.runEvent("EatItem", pokemon)
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id !== "surprise") return;
+			move.type = pokemon.types[0]
+			move.typeChangerBoosted = this.effect;
+		},
+		desc: "On switch-in, the holder uses a 40 BP Physical move with the holder's primary type, Special if SpAtk > Atk. Single use.",
+		shortDesc: "On switch-in: 40 BP move based on primary type and stronger attack. Single use.",
 	},
 };

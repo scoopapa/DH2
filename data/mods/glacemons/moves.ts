@@ -1774,7 +1774,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				pokemon.maybeDisabled = true;
 			},
 			onFoeBeforeMovePriority: 4,
-			onFoeBeforeMove(attacker, defender, move) {
+			onFoeBeforeMove(attacker, defender, move, target) {
 				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
 					this.damage(Math.round(target.maxhp / 4), attacker, defender);
 					this.add('cant', attacker, 'move: Imprison', move);
@@ -1782,8 +1782,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		shortDesc: "WIP",
-		desc: "WIP",
+		shortDesc: "Target can't use setup or the user's moves, and they take 25% max hp when using Imprisoned moves",
+		desc: "No foe can use any move known by the user, or any setup move. Target takes 25% max HP damage if an attempt is made to use Imprisoned move.",
 	},
 	powderbomb: {
 		num: -28,
@@ -2030,17 +2030,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				move.category = 'Physical';
 			}
 		},
-		onModifyBasePowerPriority: 22,
-		onModifyBasePower(basePower, attacker, defender, move) {
-			let bonfireBP = 0
+		basePowerCallback(basePower, attacker, defender, move) {
+			let bonfireBP = 60
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of attacker.moveSlots) {
 					if (moveSlot.name === 'Bonfire') {
-						bonfireBP += 20
+						bonfireBP += 20;
 					}
 				}
 			}
-			move.basePower += bonfireBP
+			return bonfireBP
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
@@ -2051,21 +2050,54 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Fire",
 	},
 	kiblast: {
-        num: -37,
-        accuracy: 100,
-        basePower: 140,
-        category: "Special",
-        name: "Ki Blast",
-        pp: 5,
-        priority: 0,
-        flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-        secondary: null,
-        target: "normal",
-        onAfterHit(target, pokemon, sourceEffect) {
-            if (target !== "normal") return
-            this.useMove("Ki Blast", pokemon, "self", sourceEffect);
-        },
-        type: "Fighting",
-        contestType: "Cool",
-    },
+		num: -37,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		onAfterHit(pokemon) {
+			this.useMove("Ki Blast 2", pokemon);
+		},
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	kiblast2: {
+		num: -38,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast 2",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	surprise: {
+		num: -39,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Surprise!",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+				move.category = 'Special';
+			}
+		},
+	},
 };
