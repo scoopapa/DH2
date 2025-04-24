@@ -8576,6 +8576,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["9L1"],
 			arcticshriek: ["9L1"],
 			airslash: ["9L1"],
+			healpulse: ["9L1"],
+			oblivionwing: ["9L1"],
 			attract: ["9L1"],
 			batonpass: ["9L1"],
 			bulkup: ["9L1"],
