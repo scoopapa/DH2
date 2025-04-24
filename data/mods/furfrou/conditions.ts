@@ -42,13 +42,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onStart(target) {
-			this.add('-start', target, 'move: Light Parry');
+			this.add('-start', target, 'Solis Charge');
 		},
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify(1.5);
 		},
 		onEnd(target) {
-			this.add('-end', target, 'Light Parry');
+			this.add('-end', target, 'Solis Charge');
 		},
 	},
 };

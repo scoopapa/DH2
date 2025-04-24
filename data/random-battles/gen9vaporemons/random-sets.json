@@ -350,6 +350,12 @@
                 "teraTypes": ["Fighting", "Normal"]
             },
             {
+                "role": "Bulky Setup",
+                "movepool": ["Curse", "Extreme Speed", "Raging Fury", "Rekindle"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Fighting", "Normal"]
+            },
+            {
                 "role": "Wallbreaker",
                 "movepool": ["Close Combat", "Extreme Speed", "Flare Blitz", "Wild Charge"],
                 "abilities": ["Fair Fight"],
@@ -555,7 +561,7 @@
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Recover", "Gunk Shot", "Stealth Rock", "Knock Off", "Poison Jab", "Choke"],
+                "movepool": ["Recover", "Gunk Shot", "Stealth Rock", "Knock Off", "Latent Venom", "Toxic", "Toxic Spikes"],
                 "abilities": ["Neutralizing Gas"],
                 "teraTypes": ["Dark"]
             },
@@ -1638,7 +1644,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Outrage", "Waterfall", "Wave Crash"],
+                "movepool": ["Dragon Dance", "Outrage", "Waterfall", "Wave Crash", "Substitute"],
                 "abilities": ["Swift Swim", "Sniper"],
                 "teraTypes": ["Dragon", "Water"]
             },
@@ -2941,6 +2947,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Rebuild", "Echo Chamber", "Rapid Spin", "Software Crash", "Volt Switch"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Electric", "Flying", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Rapid Spin", "Echo Chamber", "Software Crash", "Volt Switch"],
                 "abilities": ["Levitate"],
                 "teraTypes": ["Electric", "Flying", "Water"]
             }
@@ -6573,6 +6585,11 @@
                 "teraTypes": ["Ground"]
             },
             {
+                "role": "Setup Sweeper",
+                "movepool": ["Meteor Beam", "Energy Ball", "Power Gem", "Sludge Wave", "Rock Polish", "Earth Power"],
+                "teraTypes": ["Ground"]
+            }
+            {
                 "role": "Wallbreaker",
                 "movepool": ["Earth Power", "Rollout", "Power Gem", "Sludge Wave"],
                 "teraTypes": ["Ground"]
@@ -7068,7 +7085,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dark Pulse", "Fire Blast", "Nasty Plot", "Psychic", "Will-O-Wisp"],
+                "movepool": ["Dark Pulse", "Fire Blast", "Nasty Plot", "Psychic", "Rekindle"],
                 "teraTypes": ["Dark", "Fire"]
             },
             {
@@ -7142,6 +7159,12 @@
                 "movepool": ["Dire Claw", "Close Combat", "Parting Shot", "Gunk Shot", "Latent Venom", "Knock Off"],
                 "abilities": ["Intimidate"],
                 "teraTypes": ["Dark"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Bulk Up", "Drain Punch", "Gunk Shot", "Knock Off"],
+                "abilities": ["Intimidate", "Toxic Chain"],
+                "teraTypes": ["Dark"]
             }
         ]
     },
@@ -7164,6 +7187,12 @@
                 "movepool": ["Play Rough", "Roost", "Dire Claw", "Will-O-Wisp", "Healing Stones"],
                 "abilities": ["Neutralizing Gas"],
                 "teraTypes": ["Dark", "Steel", "Water"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Roost", "Moonblast", "Will-O-Wisp", "Heat Wave"],
+                "abilities": ["Neutralizing Gas"],
+                "teraTypes": ["Dark", "Steel", "Water"]
             }
         ]
     },
@@ -7172,7 +7201,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Ivy Cudgel", "Knock Off", "Spikes", "Superpower", "Jungle Healing", "U-turn"],
+                "movepool": ["Ivy Cudgel", "Knock Off", "Spikes", "Superpower", "Jungle Healing", "U-turn", "Encore"],
                 "abilities": ["Defiant"],
                 "teraTypes": ["Grass"]
             },
@@ -7300,8 +7329,13 @@
         "level": 77,
         "sets": [
             {
+                "role": "Fast Attacker",
+                "movepool": ["Sacred Sword", "Mighty Cleave", "Rollout", "Psycho Cut", "Earthquake"],
+                "teraTypes": ["Fighting"]
+            },
+            {
                 "role": "Setup Sweeper",
-                "movepool": ["Sacred Sword", "Mighty Cleave", "Swords Dance", "Cutting Remark"],
+                "movepool": ["Close Combat", "Rock Blast", "Swords Dance", "Zen Headbutt"],
                 "teraTypes": ["Fighting"]
             },
             {
@@ -7317,6 +7351,16 @@
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Calm Mind", "Focus Blast", "Psycho Boost", "Tachyon Cutter", "Volt Switch"],
+                "teraTypes": ["Fighting", "Steel"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Psychic Noise", "Focus Blast", "Psycho Boost", "Tachyon Cutter", "Volt Switch"],
+                "teraTypes": ["Fighting", "Steel"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Future Sight", "Focus Blast", "Psychic Noise", "Tachyon Cutter", "Volt Switch"],
                 "teraTypes": ["Fighting", "Steel"]
             }
         ]

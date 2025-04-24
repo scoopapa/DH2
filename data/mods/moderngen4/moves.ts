@@ -313,6 +313,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	doubleironbash: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 4,
 	},
 	doubleshock: {
@@ -1509,10 +1510,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	thousandarrows: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 4,
 	},
 	thousandwaves: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 4,
 	},
 	throatchop: {

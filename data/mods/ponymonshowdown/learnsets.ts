@@ -1318,11 +1318,11 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			cosmicpower: ["9M"],
 			reflect: ["9M"],
 			healpulse: ["9M"],
-			teleport: ["9M"],
 			partingshot: ["9M"],
 			irondefense: ["9M"],
 			calmmind: ["9M"],
 			hiddenpower: ["9M"],
+			willowisp: ["9L1"],
 		},
 	},
 	princesscelestia: {
@@ -1402,6 +1402,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			substitute: ["9M"],
 			sleeptalk: ["9M"],
 			hiddenpower: ["9M"],
+			taunt: ["9M"],
 		},
 	},
 	princesscadance: {
@@ -1438,6 +1439,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			substitute: ["9M"],
 			sleeptalk: ["9M"],
 			hiddenpower: ["9M"],
+			taunt: ["9M"],
 		},
 	},
 	spike: {
@@ -1661,6 +1663,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			sleeptalk: ["9M"],
 			hiddenpower: ["9M"],
 			terablast: ["9M"],
+			powertrip: ["9M"],
 		},
 	},
 	sunburst: {
@@ -1744,7 +1747,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	bigmacintosh: {
 		learnset: {
-			groundshatteringingrain: ["9L1"],
+			shatteringingrain: ["9L1"],
 			applebuck: ["9L1"],
 			headlongrush: ["9L1"],
 			earthquake: ["9M"],
@@ -1837,6 +1840,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			celebrate: ["9M"],
 			thunder: ["9M"],
 			expandingforce: ["9M"],
+			moonblast: ["9M"],
+			dazzlinggleam: ["9M"],
 			toxic: ["9M"],
 			helpinghand: ["9M"],
 			protect: ["9M"],
@@ -1918,6 +1923,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			hiddenpower: ["9M"],
 			terablast: ["9M"],
 			icebeam: ["9M"],
+			willowisp: ["9L1"],
 		},
 	},
 	spitfire: {

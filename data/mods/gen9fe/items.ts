@@ -393,4 +393,19 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		num: 665,
 		desc: "If held by Giracham-Origin, this item allows it to Mega Evolve in battle.",
 	},
+
+	aggronite: {
+		name: "Aggronite",
+		spritenum: 578,
+		megaStone: "Aggram-Mega",
+		megaEvolves: "Aggram",
+		itemUser: ["Aggram"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 667,
+		isNonstandard: null,
+		desc: "If held by an Aggram, this item allows it to Mega Evolve in battle.",
+	},
 };

@@ -129,7 +129,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	pokemon: {
 		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
 			const setStatus = this.battle.dex.conditions.get(status);
-			if (setStatus.statusSlots > 1 && !['hvybrn', 'shk', 'weakheavy', 'stp'].includes(status)) {
+			if (setStatus.statusSlots > 1 && !['hvybrn', 'tox', 'shk', 'weakheavy', 'stp'].includes(status)) {
 				const statusOne = status.substring(0, 3);
 				const statusTwo = status.substring(3);
 				return this.setStatus(statusOne, source, sourceEffect) &&
@@ -213,6 +213,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!this.hp) return false;
 			currentStatus = this.battle.dex.conditions.get(currentStatus);
 			newStatus = this.battle.dex.conditions.get(newStatus);
+			//console.log('currentstatus: ' + currentStatus.id + '\nnewStatus: ' + newStatus.id + '\nthis.status: ' + this.status);
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
@@ -228,9 +229,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
 					return false;
+				} else {
+					return false;
 				}
 			} else if (this.status) {
-				if(currentStatus.statusSlots === 1 && 
+				if (currentStatus.statusSlots === 1 && 
 				   newStatus.statusSlots === 1) {
 					newStatus = this.battle.dex.conditions.get(this.status + newStatus.id);
 					this.battle.add('-end', this, this.status, '[silent]');
@@ -238,6 +241,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
+					return false;
+				} else {
 					return false;
 				}
 			}

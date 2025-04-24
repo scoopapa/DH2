@@ -537,7 +537,7 @@ export class RandomTeams {
 			// These attacks are redundant with each other
 			[['psychic', 'psychicnoise'], ['psyshock', 'psychicnoise']],
 			['surf', 'hydropump'],
-			['liquidation', 'wavecrash'],
+			['wavecrash', ['liquidation', 'waterfall']],
 			['aquajet', 'flipturn'],
 			['gigadrain', 'leafstorm'],
 			['powerwhip', 'hornleech'],
@@ -1345,8 +1345,8 @@ export class RandomTeams {
 				(species.id === 'ironthorns' && ability === 'Quark Drive') || 
 				(species.id === 'ironbundle' && ability === 'Neuron Drive') || 
 				(species.id === 'ironleaves' && ability === 'Quark Drive') || 
-				(species.id === 'ironcrown' && ability === 'Quark Drive') || 
-				(species.id === 'ironboulder' && ability === 'Quark Drive') || 
+				(species.id === 'ironcrown' && ability === 'Quark Drive' && !moves.has('voltswitch')) || 
+				(species.id === 'ironboulder' && ability === 'Quark Drive' && role !== 'Fast Attacker') || 
 				(species.id === 'gougingfire' && ability === 'Protosynthesis' && !teamDetails.sun) || 
 				(species.id === 'ragingbolt' && ability === 'Protosynthesis' && !teamDetails.sun)
 			) {
@@ -1375,6 +1375,7 @@ export class RandomTeams {
 		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
 		if (species.id === 'charizard' && role === 'Fast Attacker') return 'Charizardite Shard Y';
 		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
+		if (species.id === 'ironboulder' && role === 'Fast Attacker') return 'Razor Claw';
 		if (species.id === 'hippowdon' && moves.has('roar')) return 'Walkie-Talkie';
 		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) return 'Tera Shard';
 		if (species.id === 'milotic' && role === 'Setup Sweeper') return 'Life Orb';
@@ -1411,6 +1412,7 @@ export class RandomTeams {
 		if (ability === 'Cud Chew') return 'Figy Berry';
 		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
 		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
+		if (species.id === 'talonflame' && role === 'Setup Sweeper') return 'Apicot Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&

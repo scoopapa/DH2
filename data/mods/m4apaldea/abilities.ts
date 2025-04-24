@@ -226,35 +226,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('ultrasleep')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.source = source;
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['ultrasleep'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
-				return false;
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('endlessdream');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
-			this.field.removePseudoWeather('ultrasleep');
+			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
 		rating: 3,
@@ -386,7 +365,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	congestion: { //rn it only works with one move at a time; will have to correct that
+	/*congestion: { //rn it only works with one move at a time; will have to correct that
 		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
 		shortDesc: "Status moves don't effect until the user switches out.",
 		onBeforeMove(source, target, move) {
@@ -444,7 +423,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Congestion",
 		rating: 3,
 		num: -27,
-	},
+	},*/
+	congestion: {
+			name: "Congestion",
+			shortDesc: "All status moves are delayed until all Congestion users are gone.",
+			rating: 3,
+			num: -27,
+		
+			onUpdate(pokemon) {
+				// Loop over all active Pokémon
+				for (const p of this.getAllActive()) {
+					const slot = p.position;
+					const side = p.side;
+		
+					// Apply the congestionstatus slot condition if not present
+					if (!side.slotConditions[slot]?.congestionstatus) {
+						side.addSlotCondition(p, 'congestionstatus');
+					}
+				}
+			},
+		},
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
@@ -703,5 +701,45 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Grudgeful Tablets",
 		rating: 4.5,
 		num: -36,
+	},
+	hauntingmelody: {
+		onModifyMove(move) {
+			const target = move.target;
+			if (move.flags['sound']) {
+				if (target.hasType('Ghost')) return false;
+				if (!target.addType('Ghost')) return false;
+				this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			}
+		},
+		flags: {},
+		name: "Haunting Melody",
+		shortDesc: "The user's sound moves add ghost type to the target.",
+		rating: 1.5,
+		num: -37,
+	},
+	liquidate: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				this.actions.useMove('soak', this.effectState.target);
+			}
+		},
+		flags: {},
+		name: "Liquidate",
+		shortDesc: "If this pokemon is hit by a physical move, use Soak on the opponent.",
+		rating: 1.5,
+		num: -38,
+	},
+	toxicgains: {
+		basePowerCallback(pokemon, target, move) {
+			if (move.type !== 'Poison') return move.basePower;
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		flags: {},
+		name: "Toxic Gains",
+		shortDesc: "Poison-type moves gain +20 base power for each stat boost.",
+		rating: 1.5,
+		num: -39,
 	},
 };

@@ -123,6 +123,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	// inherit: true,
 	// category: "Physical",
 	// },
+	photonray: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Photon Ray",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Photon Geyser", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 	energysiphon: {
 		accuracy: 100,
 		basePower: 50,

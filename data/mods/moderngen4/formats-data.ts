@@ -4091,7 +4091,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislash: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	aegislashblade: {
 	},
@@ -4930,11 +4930,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	meltan: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 4,
 		tier: "RU",
 	},
 	melmetal: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 4,
 		tier: "OU",
 	},

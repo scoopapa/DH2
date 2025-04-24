@@ -36,6 +36,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Palkia-Origin", "The Pearl Hand"],
 	},
+	ultranecroziumz: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//slate 1
 	kunai: {
@@ -55,7 +59,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 640,
 		gen: 6,
 		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Defense and Sp. Defense.",
-		rating: 3,
+		rating: 2,
 	},
 	fishhook: {
 		name: "Fish Hook",
@@ -65,30 +69,57 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 			},
 		},
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
-				pokemon.tryTrap(true);
+		onStart(target) {
+			if (!target.ignoringItem()) {
+				this.add('-message', `${target.name} casts their Fish Hook!`);
 			}
 		},
-		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!source || !pokemon.isAdjacent(source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Water')) {
-				pokemon.maybeTrapped = true;
-			}
-		},
-		onDisableMove(pokemon) {
-			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.id);
-				if (move.category !== 'Status' && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Lemon')) {
-					pokemon.disableMove(moveSlot.id);
+		onBeforeTurn(pokemon) {
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				for (const target of side.active) {
+					console.log("target: " + target.name + "\nfishing terrain: " + (this.field.isTerrain('fishingterrain') && pokemon.isGrounded()) + "\nwater: " + target.hasType('Water') + "\nfish: " + target.baseSpecies.fish);
+					if ((this.field.isTerrain('fishingterrain') && pokemon.isGrounded()) ||
+					target.hasType('Water') || target.baseSpecies.fish) {
+						side.addSideCondition('fishhook', pokemon);
+						const data = side.getSideConditionData('fishhook');
+						if (!data.sources) {
+							data.sources = [];
+						}
+						data.sources.push(pokemon);
+						break;
+					}
 				}
 			}
 		},
-		num: 270,
-		shortDesc: "Traps opposing Water-types. Holder cannot use Grass/Electric/Lemon-type attacks.",
-		gen: 4,
-		rating: 3,
+		onModifyMove(move, source, target) {
+			if (((this.field.isTerrain('fishingterrain') && source.isGrounded()) ||
+				target.hasType('Water') || target.baseSpecies.fish) && 
+				(target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
+		},
+		onTryHit(source, target) {
+			if ((this.field.isTerrain('fishingterrain') && source.isGrounded()) ||
+				target.hasType('Water') || target.baseSpecies.fish) target.side.removeSideCondition('fishhook');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				const move = this.queue.willMove(pokemon.foes()[0]);
+				const moveName = move && move.moveid ? move.moveid.toString() : "";
+				this.debug('fishhook start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon.foes()[0], 'item: Fish Hook');
+						alreadyAdded = true;
+					}
+					this.actions.runMove(moveName, source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		shortDesc: "Pursuits opposing Water-types/Fish. Always works in Fishing Terrain.",
 	},
 	baseball: {
 		name: "Baseball",
@@ -101,11 +132,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
+				source.trySetStatus('baseball', target);
 				return null;
 			}
-		},
-		onStart(pokemon) {
-			pokemon.trySetStatus('baseball', pokemon);
 		},
 		num: 640,
 		gen: 6,
@@ -184,7 +213,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
 		spritenum: 716,
-		rating: 3,
+		rating: 2,
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'balanceboard') return;
 			let activated = false;
@@ -213,7 +242,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	buckethat: {
 		fling: {
 			basePower: 30,
-			onHit(target, source, move) {
+			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 			},
 		},
@@ -229,21 +258,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	jarofmercury: {
 		name: "Jar of Mercury",
-		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1.",
+		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1. Single use.",
 		spritenum: 761,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 10,
-			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
-				spd: -1,
-				spe: -1,
+			effect(pokemon) {
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, pokemon, pokemon, null, true);
 			},
 		},
 		onTryHit(pokemon, source, move) {
-			if (move.name === 'Double Iron Bash') {
+			if (move.name === 'Double Iron Bash' && pokemon.useItem()) {
 				this.add('-activate', pokemon, 'item: Jar of Mercury', move.name);
 				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, source, pokemon, null, true);
 				return null;
@@ -254,22 +279,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	nervecharm: {
 		name: "Nerve Charm",
-		shortDesc: "Every other turn, the holder sets Quick Guard.",
-		rating: 3,
+		shortDesc: "Holder is immune to moves with nonzero priority. Announces on switchin.",
+		rating: 2,
 		fling: {
 			basePower: 40,
 			priority: 1,
 		},
 		onStart(pokemon) {
-			pokemon.removeVolatile('nervecharm');
-			if (pokemon.activeTurns) {
-				pokemon.addVolatile('nervecharm');
-			}
+			this.add('-message', `${pokemon.name} has a Nerve Charm!`);
 		},
-		onBeforeTurn(pokemon) {
-			if (pokemon.removeVolatile('nervecharm')) {
-				pokemon.side.addSideCondition('quickguard');
-			} else pokemon.addVolatile('nervecharm');
+		onTryHit(pokemon, source, move) {
+			if (move.priority !== 0 && pokemon !== source) {
+				this.add('-activate', pokemon, 'item: Nerve Charm', move.name);
+				return null;
+			}
 		},
 		condition: {},
 	},
@@ -400,7 +423,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 292,
 		fling: {
 			basePower: 200,
-			onHit(target, source, move) {
+			effect(target) {
 				if (move) {
 					this.heal(target.baseMaxhp);
 				}
@@ -473,7 +496,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			spe: 1,
 		},
-		rating: 3,
+		rating: 2,
 	},
 	cornerstonemask: {
 		inherit: true,
@@ -534,11 +557,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'bigbutton',
 		},
 		onDamagingHit(damage, target, source, move) {
-			if(!source.volatiles['bigbutton'] && source.set.teraType !== "Bug" && target.useItem()) {
-				source.addVolatile('bigbutton');
-			}
+			if (source.volatiles['bigbutton'] || (source.terastallized && source.set.teraType === "Bug")) return;
+			if (target.useItem()) source.addVolatile('bigbutton');
 		},
-		shortDesc: "On hit, force the opponent to use Big Button. Single use.",
+		shortDesc: "On hit, force the opponent to use Big Button if not Terastallized Bug. Single use.",
 		rating: 3,
 	},
 
@@ -579,18 +601,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.category !== 'Status') source.shuriken ++;
 			else source.shuriken = 0;
 			if (source.shuriken >= 3) {
-				this.boost({def: 1, spd: 1});
+				this.boost({atk: 1, spa: 1});
 				source.shuriken = 0;
 			}
 		},
 		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Attack and Sp. Attack.",
-		rating: 3,
+		rating: 2,
 	},
 	tubeofonebillionlemons: {
 		name: "Tube of One Billion Lemons",
 		shortDesc: "Holder's Lemon-type attacks have 1.2x power.",
 		spritenum: 60,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 30,
 		},
@@ -605,7 +627,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Comically Large Spoon",
 		shortDesc: "Holder's Silly-type attacks have 1.2x power.",
 		spritenum: 520,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 80,
 		},
@@ -619,7 +641,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bobscurse: {
 		name: "Bob\'s Curse",
 		shortDesc: "Holder's bullet attacks have 1.2x power and have a 30% chance to badly poison.",
-		rating: 3,
+		rating: 2,
 		spritenum: 660,
 		fling: {
 			basePower: 90,
@@ -692,7 +714,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 379,
 		fling: {
 			basePower: 60,
-			onHit(target, source) {
+			effect(target) {
 				this.damage(target.baseMaxhp / 8, target, source);
 			},
 		},
@@ -707,7 +729,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		fling: {
 			basePower: 85,
-			onHit(target, source) {
+			effect(target) {
 				target.addVolatile('inexplicablesouvenir');
 			},
 		},
@@ -792,16 +814,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Shoe",
 		shortDesc: "Holder's foot attacks have 1.3x power and 1.5x accuracy.",
 		rating: 3,
-		spritenum: 660,
 		fling: {
 			basePower: 90,
-			onModifyType(move, pokemon) {
-				move.type = 'Fighting';
-			},
+			type: "Fighting",
 		},
-		onModifyMove(move, pokemon) {
-			if (move.flags['foot']) {
-				if (typeof accuracy !== 'number') return;
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.flags['foot'] && typeof accuracy === 'number') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -833,6 +851,186 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
+		},
+	},
+
+	//slate 9
+	sigmarice: {
+		name: "Sigma Rice",
+		shortDesc: "Sigma Rice Lion: 1.3x Atk/Def/SpA. Consumed when transformed into a Lion.",
+		fling: {
+			basePower: 30,
+			volatileStatus: 'sigmarice',
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && pokemon.baseSpecies.name === 'Sigma Rice Lion') {
+				this.add('-item', pokemon, 'Sigma Rice');
+				pokemon.addVolatile('sigmarice');
+			}
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed) return;
+			if (['pyroar', 'luxray', 'entei', 'gougingfire', 'solgaleo', 'necrozmaduskmane'].includes(pokemon.id)) pokemon.useItem();
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} has become Sigma!`);
+				this.add('-start', pokemon, 'Sigma', '[silent]');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				return this.chainModify([5325, 4096]);
+			},
+		},
+	},
+	frigidseed: {
+		name: "Frigid Seed",
+		shortDesc: "If the terrain is Frigid Terrain, raises holder's Spe by 1 stage. Single use.",
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('frigidterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('frigidterrain')) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		rating: 2,
+	},
+	shellierbell: {
+		name: "Shellier Bell",
+		spritenum: 438,
+		fling: {
+			basePower: 0,
+			damageCallback(pokemon, target) {
+				return this.clampIntRange(target.getUndynamaxedHP() / 2, 1);
+			},
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		rating: 3,
+		desc: "The holder heals 12.5% of their max HP upon successfully damaging a Pokemon with an attack.",
+	},
+	liongun: {
+		name: "Lion Gun",
+		shortDesc: "Holder's use of Lion Deluge lasts 10 turns instead of 5.",
+		fling: {
+			basePower: 100,
+			type: 'Steel',
+		},
+	},
+	weezerberry: {
+		name: "Weezer Berry",
+		shortDesc: "Holder's Atk/SpA +1, Def +3, SpD -4 if hit by a Lemon/Normal-type attack. Single use.",
+		isBerry: true,
+		fling: {
+			basePower: 70,
+			type: 'Silly',
+			secondary: {
+				chance: 10,
+				status: 'psn',
+			},
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Lemon' || move.type === 'Normal') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+			def: 3,
+			spa: 1,
+			spd: -4,
+		},
+	},
+	manyfishingtokens: {
+		name: "Many Fishing Tokens",
+		shortDesc: "When the holder is damaged by an attack, its user gets 1 Fishing Token.",
+		fling: {
+			basePower: 20,
+		},
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			target.side.addFishingTokens(1);
+		},
+	},
+	citroniumz: {
+		name: "Citronium Z",
+		shortDesc: "If held by Citrus Jams with Citron, it can use CITRON OVERLOAD.",
+		spritenum: 659,
+		onTakeItem: false,
+		zMove: "CITRON OVERLOAD",
+		zMoveFrom: "Citron",
+		itemUser: ["Citrus Jams"],
+	},
+
+	//slate 10
+	spacejamdvd: {
+		name: "Space Jam DVD",
+		shortDesc: "Holder's use of Gravity/Magic Room/Wonder Room lasts 8 turns instead of 5.",
+		spritenum: 721,
+		fling: {
+			basePower: 20,
+			effect(target) {
+				this.field.addPseudoWeather('gravity');
+			},
+		},
+	},
+	eatmecookie: {
+		name: "Eat-me Cookie",
+		fling: {
+			basePower: 90,
+			volatileStatus: 'bigbutton',
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp && pokemon.volatiles['bigbutton']) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		shortDesc: "When the holder becomes Big, restores 1/3 max HP. Single use.",
+	},
+	cardcrystal: {
+		name: "Card Crystal",
+		fling: {
+			basePower: 20,
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.id === 'trumpcard' && target.useItem()) {
+				target.side.trumpcard ++;
+			}
+		},
+		shortDesc: "If the holder uses Trump Card, adds an extra Trump Card use. Single use.",
+	},
+	sulphurrock: {
+		name: "Sulphur Rock",
+		shortDesc: "Holder's use of Acid Rain lasts 8 turns instead of 5.",
+		fling: {
+			basePower: 60,
 		},
 	},
 }

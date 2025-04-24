@@ -36,6 +36,81 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	hydrappletera: {
 		tier: "Tera",
 	},
+	flygontera: {
+		tier: "Tera",
+	},
+	clodsiretera: {
+		tier: "Tera",
+	},
+	ironleavestera: {
+		tier: "Tera",
+	},
+	weezinggalartera: {
+		tier: "Tera",
+	},
+	volcaniontera: {
+		tier: "Tera",
+	},
+	meowscaradatera: {
+		tier: "Tera",
+	},
+	okidogitera: {
+		tier: "Tera",
+	},
+	munkidoritera: {
+		tier: "Tera",
+	},
+	fezandipititera: {
+		tier: "Tera",
+	},
+	terapagosstellar: {
+		tier: "Uber",
+	},
+	diancietera: {
+		tier: "Tera",
+	},
+	basculegionftera: {
+		tier: "Tera",
+	},
+	kleavortera: {
+		tier: "Tera",
+	},
+	avaluggtera: {
+		tier: "Tera",
+	},
+	goodratera: {
+		tier: "Tera",
+	},
+	hawluchatera: {
+		tier: "Tera",
+	},
+	blazikentera: {
+		tier: "Tera",
+	},
+	dragonitetera: {
+		tier: "Tera",
+	},
+	primarinatera: {
+		tier: "Tera",
+	},
+	farigiraftera: {
+		tier: "Tera",
+	},
+	snorlaxtera: {
+		tier: "Tera",
+	},
+	leavannytera: {
+		tier: "Tera",
+	},
+	ironcrowntera: {
+		tier: "Tera",
+	},
+	palafintera: {
+		tier: "Tera",
+	},
+	palafinherotera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
@@ -5264,7 +5339,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	palafin: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "(DUU)",
 		natDexTier: "Uber",
 	},
@@ -5680,11 +5755,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "DUber",
 		natDexTier: "OU",
-	},
-	terapagosstellar: {
-		tier: "Uber",
-		doublesTier: "DUber",
-		natDexTier: "Uber",
 	},
 	pecharunt: {
 		tier: "OU",

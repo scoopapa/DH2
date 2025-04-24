@@ -1019,7 +1019,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -32,
 	},
-	settle: {
+	/*settle: {
 		desc: "When using a given special move for the first time in at least three turns, this Pokémon uses its Attack stat, and the power is increased by 100%. Has no effect if the same special move has been used in the last three turns.",
 		shortDesc: "On using special move for the first time in at least 3 turns: move uses Atk stat, 2x power.",
 		name: "Settle",
@@ -1058,6 +1058,74 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		rating: 3,
 		num: -33,
+	},*/
+	settle: {
+		desc: "When using a given special move for the first time in at least three turns after its last boost, this Pokémon uses its Attack stat instead of Special Attack, and the move's power is doubled.",
+		shortDesc: "1st use of a special move (after 3 turns): uses Atk and 2x power.",
+		name: "Settle",
+		rating: 3,
+		num: -33,
+	
+		onStart(pokemon) {
+			pokemon.m.settleCooldowns = {}; // { [moveId]: lastBoostTurn }
+			pokemon.m.settleReadyMessagesShown = {}; // { [moveId]: boolean }
+		},
+	
+		onBeforeMove(pokemon, target, move) {
+			if (move.category !== 'Special' || move.basePower <= 0) return;
+	
+			if (!pokemon.m.settleCooldowns) {
+				pokemon.m.settleCooldowns = {};
+			}
+	
+			const lastBoostTurn = pokemon.m.settleCooldowns[move.id];
+			const turnsSinceLastBoost = lastBoostTurn !== undefined ? this.turn - lastBoostTurn : Infinity;
+	
+			if (turnsSinceLastBoost > 2) {
+				move.overrideOffensiveStat = 'atk';
+				move.basePower *= 2;
+				this.add('-ability', pokemon, 'Settle');
+				this.add('-message', `${pokemon.name} focused its strength into a powered-up ${move.name}!`);
+				pokemon.m.settleCooldowns[move.id] = this.turn;
+	
+				// Reset ready flag
+				if (pokemon.m.settleReadyMessagesShown) {
+					pokemon.m.settleReadyMessagesShown[move.id] = false;
+				}
+			}
+		},
+	
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (!pokemon.m.settleCooldowns) return;
+	
+			if (!pokemon.m.settleReadyMessagesShown) {
+				pokemon.m.settleReadyMessagesShown = {};
+			}
+	
+			for (const moveId in pokemon.m.settleCooldowns) {
+				const lastTurn = pokemon.m.settleCooldowns[moveId];
+				const turnsSince = this.turn - lastTurn;
+				const moveName = this.dex.moves.get(moveId).name;
+				const turnsUntilReady = Math.max(0, 3 - turnsSince);
+	
+				if (turnsUntilReady > 0) {
+					const message =
+						turnsUntilReady === 1
+							? `${pokemon.name}'s ${moveName} will be available for a power-up next turn.`
+							: `${pokemon.name}'s ${moveName} will be available for a power-up in ${turnsUntilReady} turn(s).`;
+					this.add('-ability', pokemon, 'Settle');
+					this.add('-message', message);
+					pokemon.m.settleReadyMessagesShown[moveId] = false;
+				} else {
+					if (!pokemon.m.settleReadyMessagesShown[moveId]) {
+						this.add('-ability', pokemon, 'Settle');
+						this.add('-message', `${pokemon.name}'s ${moveName} is ready to power up again!`);
+						pokemon.m.settleReadyMessagesShown[moveId] = true;
+					}
+				}
+			}
+		},
 	},
 	heavenlytechniques: {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
@@ -1243,7 +1311,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
 				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
-				if (['hail'].includes(source.effectiveWeather())) {
+				if (['hail', 'snow'].includes(source.effectiveWeather())) {
 					return this.chainModify([dmgMod[numConsecutive], 0x1000]);
 				} else {
 					return damage * (1 + (this.effectState.numConsecutive / 10));
@@ -2229,7 +2297,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -66,
 	},
-	cheapheat: {
+	/*cheapheat: {
 		desc: "When this Pokémon uses an attacking move, before the move hits, the Pokémon's attacking stat and the target's defending stat are raised by 1 stage. The stats that were raised are lowered by 1 stage after the move hits.",
 		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
 		onBeforeMove(source, target, move) {
@@ -2307,6 +2375,87 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Cheap Heat",
 		rating: 3,
 		num: -67,
+	},*/
+	cheapheat: {
+		name: "Cheap Heat",
+		shortDesc: "Boosts user's attacking stat and targets' defending stats before hitting. Reverts after.",
+		desc: "When this Pokémon uses a damaging move, it boosts its relevant attacking stat (Attack or Sp. Atk) by 1 stage and the target's corresponding defending stat (Defense or Sp. Def) by 1 stage before damage is calculated. After the hit, both stats are lowered by 1 stage.",
+		rating: 3,
+		num: -67,
+	
+		onStart(pokemon) {
+			pokemon.m.cheapHeatTargets = new Map<AnyObject, BoostID>();
+			pokemon.m.cheapHeatSelfBoosted = null;
+		},
+	
+		onBeforeMove(pokemon, _target, move) {
+			if (move.category === 'Status' || move.basePower <= 0) return;
+	
+			const offensiveStat: BoostID = move.category === 'Physical' ? 'atk' : 'spa';
+			const defensiveStat: BoostID = move.category === 'Physical' ? 'def' : 'spd';
+	
+			// Boost user's attacking stat
+			const selfBoost: SparseBoostsTable = {};
+			selfBoost[offensiveStat] = 1;
+			this.boost(selfBoost, pokemon, pokemon, this.dex.abilities.get('Cheap Heat'));
+			pokemon.m.cheapHeatSelfBoosted = offensiveStat;
+	
+			// Determine valid targets
+			const targets: Pokemon[] = [];
+	
+			if (move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
+				for (const foe of pokemon.side.foe.active) {
+					if (foe && !foe.fainted && pokemon.isAdjacent(foe)) {
+						targets.push(foe);
+					}
+				}
+				if (move.target === 'allAdjacent') {
+					for (const ally of pokemon.side.active) {
+						if (ally && ally !== pokemon && !ally.fainted && pokemon.isAdjacent(ally)) {
+							targets.push(ally);
+						}
+					}
+				}
+			} else {
+				// Single target — use target passed in
+				if (_target && _target.isActive && !_target.fainted) {
+					targets.push(_target);
+				}
+			}
+	
+			// Boost all chosen targets
+			pokemon.m.cheapHeatTargets = new Map();
+			for (const t of targets) {
+				const targetBoost: SparseBoostsTable = {};
+				targetBoost[defensiveStat] = 1;
+				this.boost(targetBoost, t, pokemon, this.dex.abilities.get('Cheap Heat'));
+				pokemon.m.cheapHeatTargets.set(t, defensiveStat);
+			}
+		},
+	
+		onAfterMove(pokemon, _target, move) {
+			if (move.category === 'Status' || move.basePower <= 0) return;
+	
+			// Revert user's stat
+			const stat = pokemon.m.cheapHeatSelfBoosted;
+			if (stat) {
+				const debuff: SparseBoostsTable = {};
+				debuff[stat as keyof BoostsTable] = -1;
+				this.boost(debuff, pokemon, pokemon, this.dex.abilities.get('Cheap Heat'));
+				pokemon.m.cheapHeatSelfBoosted = null;
+			}
+	
+			// Revert all targets' stat boosts
+			if (pokemon.m.cheapHeatTargets) {
+				for (const [t, boostedStat] of pokemon.m.cheapHeatTargets.entries()) {
+					if (!t?.isActive) continue;
+					const revert: SparseBoostsTable = {};
+					revert[boostedStat as keyof BoostsTable] = -1;
+					this.boost(revert, t, pokemon, this.dex.abilities.get('Cheap Heat'));
+				}
+				pokemon.m.cheapHeatTargets.clear();
+			}
+		},
 	},
 	staccato: {
 		desc: "If this Pokémon cures an opposing Pokémon's non-volatile status condition, the affected Pokémon will be paralyzed.",

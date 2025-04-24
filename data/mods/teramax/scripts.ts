@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC"],
+		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 	},
 	init() {
 		for (const i in this.data.FormatsData) {
@@ -46,7 +46,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'annihilape').learnset.bulkup;
 		delete this.modData('Learnsets', 'primeape').learnset.bulkup;
 		delete this.modData('Learnsets', 'mankey').learnset.bulkup;
-		delete this.modData('Learnsets', 'chienpao').learnset.suckerpunch;    
+		delete this.modData('Learnsets', 'chienpao').learnset.suckerpunch;
 		this.modData("Learnsets", "chienpao").learnset.freezedry = ["9L1"];
 		this.modData("Learnsets", "chienpao").learnset.icebeam = ["9L1"];
 		this.modData("Learnsets", "chienpao").learnset.nastyplot = ["9L1"];
@@ -57,6 +57,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.synthesis = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.acidarmor = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.acidspray = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.clearsmog = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.poisonjab = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.sludgewave = ["9L1"];
+		delete this.modData('Learnsets', 'wochien').learnset.leafstorm;
+		delete this.modData('Learnsets', 'wochien').learnset.bulletseed;
+		delete this.modData('Learnsets', 'wochien').learnset.trailblaze;
+		delete this.modData('Learnsets', 'wochien').learnset.energyball;
+		delete this.modData('Learnsets', 'wochien').learnset.seedbomb;
+		delete this.modData('Learnsets', 'wochien').learnset.powerwhip;
 		this.modData("Learnsets", "flapple").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "flapple").learnset.scaleshot = ["9L1"];
 		this.modData("Learnsets", "alcremie").learnset.moonblast = ["9L1"];
@@ -77,7 +90,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "falinks").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "falinks").learnset.bulletseed = ["9L1"];
 		this.modData("Learnsets", "falinks").learnset.gunkshot = ["9L1"];
-		delete this.modData('Learnsets', 'falinks').learnset.swordsdance;
 		this.modData("Learnsets", "scovillain").learnset.flareblitz = ["9L1"];
 		this.modData("Learnsets", "scovillain").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "dudunsparce").learnset.knockoff = ["9L1"];
@@ -255,6 +267,168 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "grafaiai").learnset.moonlight = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.sacredfire = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.flyingpress = ["9L1"];
+		this.modData("Learnsets", "sinistcha").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "sinistchamasterpiece").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.thunderbolt = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "hydrapple").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "hydrapple").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "toxapex").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "toxapex").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.infernalparade = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.strengthsap = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "copperajah").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "alomomola").learnset.toxic = ["9L1"];
+		this.modData('Learnsets', "slowbro").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "slowking").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "chansey").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "blissey").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "clefable").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.closecombat = ["9L1"];
+		delete this.modData('Learnsets', 'urshifu').learnset.acrobatics;
+		delete this.modData('Learnsets', 'urshifu').learnset.aerialace;
+		delete this.modData('Learnsets', 'urshifu').learnset.stoneedge;
+		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.acrobatics;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.aerialace;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.stoneedge;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
+		delete this.modData('Learnsets', 'kubfu').learnset.acrobatics;
+		delete this.modData('Learnsets', 'kubfu').learnset.aerialace;
+		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
+		this.modData("Learnsets", "calyrex").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.healingwish = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.hypnosis = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.finalgambit = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.uturn = ["9L1"];
+		delete this.modData('Learnsets', 'calyrex').learnset.storedpower;
+		this.modData("Learnsets", "glastrier").learnset.glaciallance = ["9L1"];
+		this.modData("Learnsets", "glastrier").learnset.iceshard = ["9L1"];
+		this.modData("Learnsets", "glastrier").learnset.trickroom = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.astralbarrage = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.topsyturvy = ["9L1"];
+		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
+		delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
+		this.modData("Learnsets", "okidogi").learnset.ruthlessfist = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.expandingforce = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.thunder = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.neurotoxin = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.perniciousplume = ["9L1"];
+		this.modData("Learnsets", "pecharunt").learnset.banefulbunker = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.powergem = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.psyshock = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.doubleshock = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.wideguard = ["9L1"];
+		delete this.modData('Learnsets', 'regieleki').learnset.terablast;
+		this.modData("Learnsets", "regidrago").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.meteorbeam = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.rockslide = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.voltswitch = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.wideguard = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.workup = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.curse = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.bulkup = ["9L1"];
+		this.modData("Learnsets", "machamp").learnset.heatcrash = ["9L1"];
+		this.modData("Learnsets", "blastoise").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "blastoise").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "blastoise").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "blastoise").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.powerwhip = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.strengthsap = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.hammerarm = ["9L1"];
+		this.modData("Learnsets", "scizor").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "scizor").learnset.sandtomb = ["9L1"];
+		this.modData("Learnsets", "scizor").learnset.taunt = ["9L1"];
+		this.modData('Learnsets', 'aegislash').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'greattusk').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'falinks').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'archaludon').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'dhelmise').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'ferrothorn').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'steelix').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'zamazenta').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'stonjourner').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'silvally').learnset.behemothbash = ["9L1"];
+		this.modData('Learnsets', 'aegislash').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'irontreads').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'haxorus').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'ironleaves').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'ironcrown').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'ironboulder').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'chienpao').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'gallade').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'scizor').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'silvally').learnset.behemothblade = ["9L1"];
+		this.modData('Learnsets', 'kommoo').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'noivern').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'regidrago').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'hydreigon').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'salamence').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'dragalge').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'clawitzer').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'tatsugiri').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'glimmora').learnset.dynamaxcannon = ["9L1"];
+		this.modData('Learnsets', 'silvally').learnset.dynamaxcannon = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.firepledge = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.grasspledge = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.psychic = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.waterpledge = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.lifedew = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.wideguard = ["9L1"];
+		this.modData("Learnsets", "greninjabond").learnset.ceaselessedge = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "rayquaza").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "zekrom").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "reshiram").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozmaduskmane").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyurem").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyuremwhite").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyuremblack").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "reshiram").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "zekrom").learnset.roost = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -263,6 +437,37 @@ export const Scripts: ModdedBattleScriptsData = {
 				return null;
 			}
 			return pokemon.teraType;
+		},
+		terastallize(pokemon: Pokemon) {
+			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+			const type = pokemon.teraType;
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				if (!pokemon.hasAbility('stellarshell')) {
+					ally.canTerastallize = null;
+				}
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	  	modifyDamage(baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false) {
 	  		const tr = this.battle.trunc;
@@ -516,13 +721,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
-	inherit: true,
+		inherit: true,
 		getDynamaxRequest(skipChecks?: boolean) {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
 				if (!this.side.canDynamaxNow()) return;
 				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
+					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
 				) {
 					return;
 				}

@@ -330,7 +330,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 130,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gardevoir-Amelia') return false;
+			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
 			return true;
 		},
 		itemUser: ["Gardevoir-Amelia"],
@@ -345,12 +345,34 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile-Mega-Korra') return false;
+			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
 			return true;
 		},
 		itemUser: ["Mawile-Mega-Korra"],
 		shortDesc: "No effect.",
 		num: 2410,
+		gen: 9,
+	},
+	necasabre: {
+		name: "Neca Sabre",
+		spritenum: 698,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Foton-Knight')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Foton') return false;
+			return true;
+		},
+		forcedForme: "Foton-Knight",
+		itemUser: ["Foton-Knight"],
+		shortDesc: "If this Pokemon is Foton-Knight, its attacks have 1.2x power.",
+		num: -5000,
 		gen: 9,
 	},
 };

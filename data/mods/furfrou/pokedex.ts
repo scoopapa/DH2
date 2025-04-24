@@ -211,7 +211,31 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.0,
 		creator: "viivian",
 	},
-	
+	jade: {
+		num: -1093,
+		name: "Jade",
+		types: ["Normal"],
+		gender: "F",
+		baseStats: {hp: 3, atk: 23, def: 6, spa: 2, spd: 6, spe: 50},
+		abilities: {0: "Anticipation", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.7,
+		weightkg: 90.7,
+		evos: ["Gourgeist-Jade"], //necessary for sketch functionality
+	},
+	gourgeistjade: {
+		num: 711,
+		name: "Gourgeist-Jade",
+		baseSpecies: "Gourgeist",
+		forme: "Jade",
+		types: ["Ghost", "Grass"],
+		gender: "F",
+		prevo: "Jade",
+		baseStats: {hp: 55, atk: 65, def: 122, spa: 78, spd: 75, spe: 99},
+		abilities: {0: "Harvest", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.1,
+		weightkg: 14,
+		color: "Brown",
+	},
 	// Pure customs //
 	
 	albatross: {
@@ -305,9 +329,23 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 14.5,
 		creator: "ausma",
 	},
-	solisknight: {
+	foton: {
 		num: 2005,
-		name: "Solis Knight",
+		name: "Foton",
+		types: ["Fighting", "Psychic"],
+		abilities: {0: "Neuroforce", H: "Technician"},
+		baseStats: {hp: 50, atk: 95, def: 90, spa: 60, spd: 90, spe: 115},
+		gender: "M",
+		heightm: 1.1,
+		weightkg: 3.5,
+		creator: "ausma",
+	},
+	fotonknight: {
+		num: 2005,
+		name: "Foton-Knight",
+		baseSpecies: "Foton",
+		forme: "Knight",
+		requiredItem: "Neca Sabre",
 		types: ["Fighting", "Psychic"],
 		abilities: {0: "Speed Boost", H: "Sharpness"},
 		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
@@ -326,6 +364,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 0.5,
 		weightkg: 5,
 		creator: "Amity",
+	},
+	badeline: {
+		num: 2007,
+		name: "Badeline",
+		types: ["Poison", "Dark"],
+		abilities: {0: "Envious Aura", 1: "Corrosion", H: "Dark Aura"},
+		baseStats: {hp: 105, atk: 55, def: 105, spa: 115, spd: 105, spe: 115},
+		gender: "F",
+		heightm: 2.0,
+		weightkg: 77.4,
+		creator: "Maddy",
 	},
 	
 	// Kit changes //

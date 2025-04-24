@@ -687,12 +687,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	groundshatteringingrain: {
+	shatteringingrain: {
 		num: -18,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
-		name: "Ground Shattering Ingrain",
+		name: "Shattering Ingrain",
 		desc: "Restores the user’s HP by up to half the damage taken by the target.",
 		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
@@ -754,19 +754,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	scatteredsparks: {
 		num: -22,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 70,
 		category: "Special",
 		name: "Scattered Sparks",
-		desc: "10% chance to Burn the target.",
-		shortDesc: "10% chance to Burn the target.",
-		pp: 10,
+		desc: "Power doubles if statused.",
+		shortDesc: "Power doubles if statused.",
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 10,
-			status: 'brn',
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp') {
+				return this.chainModify(2);
+			}
 		},
+		secondary: null,
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
@@ -778,19 +780,19 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		category: "Status",
 		name: "Bellowing Whistle",
 		desc: "The user’s Attack is raised by one stage and the target’s Defense is lowered by one stage.",
-		shortDesc: "Raises the user's Attack by 1. Decreases the target's Defense by 1.",
+		shortDesc: "Raises the user's Atk by 1. Decreases target's Def by 1.",
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		boosts: {
-			def: -1,
+		self: {
+			boosts: {
+				atk: 1,
+			},
 		},
-		secondary:  {
+		secondary: {
 			chance: 100,
-			self: {
-				boosts: {
-					atk: 1,
-				},
+			boosts: {
+				def: -1,
 			},
 		},
 		target: "allAdjacentFoes",
@@ -946,16 +948,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Ritual of Aris",
-		desc: "Highest attacking stat is raised by two stages and the user is cured of status conditions.",
-		shortDesc: "Cures user's status, raises highest attacking stat by 2.",
+		desc: "Highest attacking stat and speed is raised by one stage, the user is cured of status conditions.",
+		shortDesc: "Cures status, raises highest attacking stat and speed by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		onHit(target, source) {
 			if (source.getStat('atk', false, true) >= source.getStat('spa', false, true)) {
-				(this.boost({atk: 2}, source))
+				(this.boost({atk: 1, spe: 1}, source))
 			} else if (source.getStat('spa', false, true) > source.getStat('atk', false, true)) {
-				(this.boost({spa: 2}, source))
+				(this.boost({spa: 1, spe: 1}, source))
 			}
 				source.cureStatus();
 		},
@@ -983,18 +985,27 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	streetcattrickery: {
 		num: -33,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 55,
 		category: "Physical",
 		name: "Street Cat Trickery",
-		desc: "Power increased by 2x if the target is holding an item.",
-		shortDesc: "Power increased by 2x if the target is holding an item.",
+		desc: "Power increased by 2x if the target is holding an item. Removes item.",
+		shortDesc: "Power increased by 2x if the target is holding an item. Removes item",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
 			if (item.id) {
 				return this.chainModify(2);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Street Cat Trickery', '[of] ' + source);
+				}
 			}
 		},
 		secondary: null,

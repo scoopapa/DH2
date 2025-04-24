@@ -2227,10 +2227,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	thousandarrows: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 	},
 	thousandwaves: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 	},
 	throatchop: {

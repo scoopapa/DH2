@@ -31,6 +31,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sparophim: {
 		tier: "OU",
 	},
+	roaduo: {
+		tier: "OU",
+	},
 
 // Normal Mons
 	bulbasaur: {

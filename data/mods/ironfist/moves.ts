@@ -76,9 +76,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "G-Max Steelsurge", target);
 		},
 		onEffectiveness(typeMod, target, type) {
-		    if(target.baseSpecies.types[0] === type) return 1;
-			else return 0;
-		},
+            if (target.getTypes()[0] === type || target.terastallized) return 1;
+            else return 0;
+        },
 		target: "normal",
 		type: "Steel",
 		shortDesc: "Always super-effective.",
@@ -107,7 +107,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
                     break;
                 }
             }
-            if(activated) move.name = newMoveName;
+            if (activated) move.name = newMoveName;
 			else move.basePower /= 2;
         },
 		secondary: null,
@@ -152,12 +152,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
   	chocolatekiss: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 40,
 		category: "Physical",
 		name: "Chocolate Kiss",
 		pp: 20,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Lovely Kiss", target);
@@ -201,7 +201,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Stanky Leg",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Rolling Kick", target);
@@ -270,7 +270,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "100% chance for -1 Defense. OHKOs Goomba.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, foot: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "High Jump Kick", target);
@@ -284,8 +284,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			for (const target of pokemon.foes()) {
 				if (target.baseSpecies == "Goomba") {
-					move.ohko = true;
-					move.accuracy = true;
+					if (target.volatiles['bigbutton']) {
+						basePower = 0;
+						damageCallback = function (target) {
+							return this.clampIntRange(target.getUndynamaxedHP() / 3, 1);
+						}
+					} else {
+						move.ohko = true;
+						move.accuracy = true;
+					}
 				}
 			}
 		},
@@ -296,11 +303,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	splash: {
 		inherit: true,
 		flags: {snatch: 1, fishing: 1, metronome: 1},
-		shortDesc: "Feebas: remove all tokens and gain +1 Atk/Def/SpA/SpD/Spe for each two.",
+		shortDesc: "Feebas: remove all tokens and gain +1 all stats for each 2.",
 		onTryHit(target, source, move) {
 			if(target.baseSpecies.baseSpecies === 'Feebas') {
 				const targetSide = target.side;
-				if(targetSide.fishingTokens > 0) {
+				if (targetSide.fishingTokens > 0) {
 					const boosts = Math.floor(Math.min(targetSide.fishingTokens, 6) / 2);
 					target.side.removeFishingTokens(targetSide.fishingTokens);
 					this.boost({atk: boosts, def: boosts, spa: boosts, spd: boosts, spe: boosts}, target, target, move);
@@ -348,7 +355,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge'] || !source.removeFishingTokens(1)) {
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge'] || !source.side.removeFishingTokens(1)) {
 				return false;
 			}
 		},
@@ -1230,9 +1237,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	awesomeearthquake: {
 		name: "awesome Earthquake",
-		type: "Ground",
+		type: "Silly",
 		category: "Physical",
-		basePower: 110,
+		basePower: 100,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "No additional effect.",
@@ -1290,7 +1297,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		category: "Physical",
 		basePower: 300,
-		accuracy: 99.9,
+		accuracy: 100,
 		pp: 1,
 		noPPBoosts: true,
 		shortDesc: "User faints. Removes user's side's entry hazards.",
@@ -1346,7 +1353,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyDeductPP(target, source) {
-				//if (target.isGrounded() && ) return 2;
+				if (target.isGrounded() && target.lastMoveUsed.flags['fishing']) return 2;
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
@@ -1369,7 +1376,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "+10 BP per other unfainted allied Diamond Hand",
+		shortDesc: "+10 BP per other unfainted allied Diamond Hand.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1606,21 +1613,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Looksmaxx Knuckle",
 		type: "Fairy",
 		category: "Physical",
-		basePower: 85,
+		basePower: 70,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Raises the user's Attack by 1.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Max Knuckle", target);
 		},
 		self: {
-				boosts: {
-					atk: 1,
-				},
+			boosts: {
+				atk: 1,
 			},
+		},
 		secondary: null,
 		target: "normal",
 	},
@@ -1714,7 +1721,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Endeavor", target);
 		},
 		onTryImmunity(pokemon, source) {
-			//const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
+			//const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyakuza', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
 			return (pokemon.gender !== 'N');
 		},
 		onHit(target) {
@@ -1736,7 +1743,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 40,
-		shortDesc: "Sets Deluge of Lions for 5 turns.",
+		shortDesc: "For 5 turns, sound moves turn the user into a Lion.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1746,9 +1753,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'liondeluge',
 		condition: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('liongun')) {
+					return 10;
+				}
+				return 5;
+			},
 			onFieldStart(target, source, sourceEffect) {
 				this.add('-fieldactivate', 'move: Lion Deluge');
-				this.hint(`Certin types of moves cause the user to become a lion Pokemon after using ${sourceEffect}.`);
+				this.hint(`Certain sound moves cause the user to become a lion Pokemon depending on the move's type.`);
 			},
 			onBeforeMove(pokemon, target, move) {
 				if(!move.flags['sound']) return;
@@ -2404,35 +2417,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fish Burn",
 		type: "Fire",
 		category: "Special",
-		basePower: 60,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.side.removeFishingTokens(1)) {
+				return move.basePower *= 1.5;
+			}
+			return move.basePower;
+		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Removes 1 user's FT - always SE. else - removes 1 foe's FT, burns fish.",
+		shortDesc: "-1 foe's Fishing Token to deal 1.5x damage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, fishing: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Burn Up", target);
-		},
-		onModifyMove(move, pokemon, target) {
-			const pokemonSide = pokemon.side;
-			if (pokemonSide.removeFishingTokens(1)) move.burnedUserToken = true;
-			else {
-				target.side.removeFishingTokens(1);
-				move.burnedOppToken = true;
-			}
-		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!move.burnedUserToken) return typeMod;
-			move.burnedUserToken = false;
-		    if (target.baseSpecies.types[0] === type) return 1;
-			else return 0;
-		},
-		onAfterHit(target, source, move) {
-			if (move.burnedOppToken && target.baseSpecies.fish) {
-				move.burnedOppToken = false;
-				target.trySetStatus('brn');
-			}
 		},
 		secondary: null,
 		target: "normal",
@@ -2642,7 +2641,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 5,
-		shortDesc: "For 5 turns, +Ghost and damages non-Ghost/Darks.",
+		shortDesc: "For 5 turns, +Ghost and damages non-Ghost/Darks/Normals.",
 		priority: 0,
 		flags: {metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -2728,7 +2727,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		shortDesc: "Fails if this Pokemon has a Status move.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "First Impression", target);
@@ -2766,17 +2765,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Lemon Bash",
 		type: "Lemon",
 		category: "Physical",
-		basePower: 80,
+		basePower: 85,
 		accuracy: 100,
 		pp: 15,
-		shortDesc: "No additional effect.",
+		shortDesc: "20% chance to lower the target's Def by 1.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1,},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Double-Edge", target);
 		},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 	},
 	springyfist: {
@@ -2951,10 +2955,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Blazeball",
 		type: "Fire",
 		category: "Special",
-		basePower: 140,
+		basePower: 160,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon === target || move.target === 'self') {
+				this.debug("BP halved in hitting self");
+				return move.basePower / 2;
+			}
+			return move.basePower;
+		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "User hits self and target.",
+		shortDesc: "User also hits self at half power.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -3041,7 +3052,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		shortDesc: "Zekrom: 2x power. Else transforms into Zekrom.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, foot: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Thunderous Kick", target);
@@ -3072,7 +3083,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onHit(target, source, move) {
 				if (this.checkMoveMakesContact(move, source, target)) {
-					this.boost({spd: 2}, target);
+					this.boost({def: 2, accuracy: 1}, target);
 				}
 			},
 		},
@@ -3118,6 +3129,802 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+	},
+	
+	//slate 9
+	trumpcard: {
+		inherit: true,
+		basePowerCallback(source, target, move) {
+			const callerMoveId = move.sourceEffect || move.id;
+			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
+			let bp;
+			if (!moveSlot) {
+				bp = 40;
+			} else {
+				switch (moveSlot.pp) {
+				case 0:
+					bp = 250;
+					break;
+				case 1:
+					bp = 120;
+					break;
+				case 2:
+					bp = 90;
+					break;
+				case 3:
+					bp = 60;
+					break;
+				default:
+					bp = 40;
+					break;
+				}
+			}
+
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onPrepareHit(target, source) {
+			if (!source.side.trumpcard) source.side.trumpcard = 0;
+			source.side.trumpcard ++;
+			console.log(source.name + " " + source.side.trumpcard);
+		},
+	},
+	racism2: {
+		name: "Racism 2",
+		type: "Dark",
+		category: "Special",
+		basePower: 82,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "25% chance to transform the target into Ferrothorn for 3 turns.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Taunt", target);
+		},
+		secondary: {
+			chance: 25,
+			volatileStatus: 'racism2',
+		},
+		condition: {
+			noCopy: true,
+			duration: 3,
+			onStart(pokemon) {
+				pokemon.formeChange('Ferrothorn');
+			},
+			onEnd(pokemon) {
+				pokemon.formeChange(pokemon.baseSpecies.name);
+			},
+		},
+		target: "normal",
+	},
+	citron: {
+		name: "Citron",
+		type: "Lemon",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits all adjacent foes.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1,},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Overdrive", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+	},
+	citronoverload: {
+		name: "CITRON OVERLOAD",
+		type: "Lemon",
+		category: "Special",
+		basePower: 145,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "Hits all adjacent foes. All Pokemon become Lemon-type.",
+		priority: 0,
+		flags: {sound: 1},
+		isZ: 'citroniumz',
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+		},
+		onAfterHit(target, pokemon, move) {
+			this.add('-fieldactivate', 'move: CITRON OVERLOAD');
+			for (const pokemon of this.getAllActive()) {
+				if(pokemon.setType('Lemon')) {
+					this.add('-start', pokemon, 'typechange', 'Lemon');
+				}
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+	},
+	everstormhalberd: {
+		name: "Everstorm Halberd",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 0,
+		damageCallback(pokemon, target) {
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
+			return nonVanilla.includes(target.baseSpecies.name) ? 200 : 150;
+		},
+		accuracy: 90,
+		pp: 5,
+		shortDesc: "Deals 150 damage; 200 to fakemon.",
+		priority: -2,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Dragon Hammer", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	absolutezero: {
+		name: "Absolute Zero",
+		type: "Ice",
+		category: "Special",
+		basePower: 80,
+		accuracy: 80,
+		pp: 10,
+		shortDesc: "Frigid Terrain: 1.5x power, lowers Speed by 2.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sheer Cold", target);
+		},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('frigidterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('frigidterrain') && source.isGrounded()) {
+				move.secondaries = [];
+				move.secondaries.push({
+					chance: 100,
+					boosts: {
+						spe: -2,
+					},
+				});
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	yoshisisland: {
+		name: "Yoshi\'s Island",
+		type: "Normal",
+		category: "Physical",
+		basePower: 180,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Hits all adjacent Pokemon. User faints and gains 3 Fishing Tokens.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfdestruct: "always",
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Explosion", target);
+		},
+		onAfterHit(target, source) {
+			source.side.addFishingTokens(3);
+		},
+		onAfterSubDamage(damage, target, source) {
+			source.side.addFishingTokens(3);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fuckaroundandfindout: {
+		name: "Fuck Around and Find Out",
+		type: "Silly",
+		category: "Physical",
+		basePower: 120,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Has 50% recoil unless it KOs the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		recoil: [1, 2],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			const moves = this.dex.moves.all();
+			this.add('-anim', pokemon, this.sample(moves).name, target);
+		},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('fuckaroundandfindout');
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onSourceDamagingHit(damage, target, source, move) {
+				if (target.hp <= 0) {
+					source.addVolatile("ability:rockhead");
+				}
+			},
+			onEnd(pokemon){
+				pokemon.removeVolatile("ability:rockhead");
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	'5bigdooms': {
+		accuracy: 100,
+		basePower: 28,
+		category: "Special",
+		name: "5 Big Dooms",
+		shortDesc: "Hits 5 times, 2 turns after being used.",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1, futuremove: 1},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: '5bigdooms',
+				source: source,
+				moveData: {
+					id: '5bigdooms',
+					name: "5 Big Dooms",
+					accuracy: 100,
+					basePower: 28,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					multihit: 5,
+					effectType: 'Move',
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, '5 Big Dooms');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	snagphone: {
+		name: "Snag Phone",
+		type: "Lemon",
+		category: "Physical",
+		basePower: 20,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Steals the target's item if user is not holding one. User switches out.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		selfSwitch: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Thief", target);
+		},
+		onAfterHit(target, source, move) {
+			if (source.item || source.volatiles['gem']) {
+				return;
+			}
+			const yourItem = target.takeItem(source);
+			if (!yourItem) {
+				return;
+			}
+			if (!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
+				!source.setItem(yourItem)) {
+				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+				return;
+			}
+			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Snag Phone', '[of] ' + source);
+			this.add('-item', source, yourItem, '[from] move: Snag Phone', '[of] ' + target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
+	//slate 10
+	lemonthrow: {
+		name: "Lemon Throw",
+		type: "Lemon",
+		category: "Physical",
+		basePower: 25,
+		accuracy: 90,
+		pp: 10,
+		shortDesc: "Hits 2-5 times.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rock Blast", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	eatmyshorts: {
+		name: "Eat My Shorts!",
+		type: "Lemon",
+		category: "Special",
+		basePower: 85,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "For 2 turns, the target cannot use status moves.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Taunt", target);
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectState.duration!++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('eatmyshorts');
+			},
+		},
+		target: "normal",
+	},
+	citrusrend: {
+		name: "Citrus Rend",
+		type: "Lemon",
+		category: "Physical",
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 1.6;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "1.6x power if user moves before the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fishious Rend", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	decoyanvil: {
+		name: "Decoy Anvil",
+		type: "Silly",
+		category: "Special",
+		basePower: 110,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Lowers user's Sp. Atk by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rock Tomb", target);
+			this.add('-anim', pokemon, "Core Enforcer", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	anvildrop: {
+		name: "Anvil Drop",
+		type: "Steel",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Hits in 2 turns. Sets Stealth Rock.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'anvildrop',
+				source,
+				moveData: {
+					id: 'anvildrop',
+					name: "Anvil Drop",
+					accuracy: 100,
+					basePower: 80,
+					category: "Physical",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Steel',
+					onAfterHit(target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
+							}
+						}
+					},
+					onAfterSubDamage(damage, target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
+							}
+						}
+					},
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Doom Desire", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fishield: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fishield",
+		shortDesc: "Protects from moves. Attack: +1 Fishing Token.",
+		pp: 10,
+		priority: 4,
+		flags: { metronome: 1, noassist: 1, failcopycat: 1, fishing: 1},
+		stallingMove: true,
+		volatileStatus: 'fishield',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.category !== 'Status') {
+					target.side.addFishingTokens(1);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered) {
+					target.side.addFishingTokens(1);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+	},
+	floatsamhook: {
+		name: "Floatsam Hook",
+		type: "Water",
+		category: "Physical",
+		basePower: 75,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Has +1 crit ratio for each user's Fishing Token.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Liquidation", target);
+		},
+		onModifyMove(move, pokemon) {
+			move.critRatio = pokemon.side.fishingTokens;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	youwantfun: {
+		name: "You Want Fun?!",
+		type: "Dark",
+		category: "Physical",
+		basePower: 65,
+		accuracy: 95,
+		pp: 10,
+		shortDesc: "Forces the target to switch to a random ally.",
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		forceSwitch: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pursuit", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	abominationsjig: {
+		name: "Abomination's Jig",
+		type: "Silly",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "30% chance to inflict Insanity on the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, dance: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Teeter Dance", target);
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'insanity',
+		},
+		target: "normal",
+	},
+	catchysong: {
+		name: "Catchy Song",
+		type: "Silly",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "Inflicts the target with Insanity.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sing", target);
+		},
+		volatileStatus: 'insanity',
+		secondary: null,
+		target: "normal",
+	},
+	bravestbird: {
+		name: "Bravest Bird",
+		type: "Flying",
+		category: "Physical",
+		basePower: 150,
+		accuracy: 100,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Has 50% recoil. 10% chance to burn.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		recoil: [1, 2],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Brave Bird", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+	},
+	bloomdesire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Bloom Desire",
+		shortDesc: "2 turns: 2/3 of user's max HP is restored, cure status.",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1, heal: 1, metronome: 1 },
+		slotCondition: 'bloomdesire',
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Wish", target);
+		},
+		condition: {
+			onStart(pokemon, source) {
+				this.effectState.hp = source.maxhp * 2/3;
+				this.effectState.turns = 2;
+			},
+			onResidualOrder: 4,
+			onResidual(side) {
+				if (this.effectState.turns === 0) side.removeSlotCondition(this.getAtSlot(this.effectState.sourceSlot), 'bloomdesire');
+				else this.effectState.turns --;
+			},
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) {
+						this.add('-heal', target, target.getHealth, '[from] move: Bloom Desire', '[wisher] ' + this.effectState.source.name);
+						target.cureStatus();
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: { boost: { spd: 1 } },
+		contestType: "Cute",
+	},
+	acidrain: {
+		name: "Acid Rain",
+		type: "Lemon",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		shortDesc: "For 5 turns, the weather becomes Acid Rain.",
+		priority: 0,
+		flags: {protect: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rain Dance", target);
+		},
+		weather: 'acidrain',
+		secondary: null,
+		target: "all",
+	},
+	makelemonade: {
+		name: "Make Lemonade",
+		type: "Lemon",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		shortDesc: "Heals a weather-dependent amount. Lemon-type removed until turn ends.",
+		priority: 0,
+		flags: { snatch: 1, heal: 1, metronome: 1 },
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+				case 'acidrain':
+					factor = 0.667;
+					break;
+				case 'sunnyday':
+				case 'desolateland':
+				case 'raindance':
+				case 'primordialsea':
+				case 'sandstorm':
+				case 'hail':
+				case 'snowscape':
+				case 'graveyard':
+					factor = 0.333;
+					break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+		self: {
+			volatileStatus: 'makelemonade',
+		},
+		condition: {
+			duration: 1,
+			onResidualOrder: 25,
+			onStart(target) {
+				if (target.terastallized) {
+					if (target.hasType('Lemon')) {
+						this.add('-hint', "If a Terastallized Pokemon uses Make Lemonade, it remains Lemon-type.");
+					}
+					return false;
+				}
+				this.add('-singleturn', target, 'move: Make Lemonade');
+			},
+			onTypePriority: -1,
+			onType(types, pokemon) {
+				this.effectState.typeWas = types;
+				return types.filter(type => type !== 'Lemon');
+			},
+		},
+		secondary: null,
+		target: "self",
+	},
+	fishmortar: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Fish Mortar",
+		shortDesc: "Hits two turns after being used.",
+		pp: 10,
+		priority: 0,
+		flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'fishmortar',
+				source,
+				moveData: {
+					id: 'fishmortar',
+					name: "Fish Mortar",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Water',
+				},
+			});
+			this.add('-start', source, 'move: Fish Mortar');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	stealthanvils: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Anvils",
+		shortDesc: "Flattens the opponent upon entry.",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1, snatch: 1},
+		sideCondition: 'stealthanvils',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Stealth Anvils');
+			},
+			onEntryHazard(pokemon) {
+				this.add('-message', `${pokemon.name} was flattened!`);
+				pokemon.addVolatile('flattened');
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Steel",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
 	},
 	
 	//silly shit
@@ -3406,6 +4213,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
 	},
+	lowsweep: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
 	
 	//fake moves
 	abomacarespikes: {
@@ -3450,8 +4261,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.baseSpecies.diamondHand) {
-					const bestStat = pokemon.getBestStat(true, true);
-					this.boost({[bestStat]: 1}, pokemon);
+					if (pokemon.hasAbility('stillwater')) pokemon.side.addFishingTokens(3);
+					else {
+						const bestStat = pokemon.getBestStat(true, true);
+						this.boost({[bestStat]: 1}, pokemon);
+					}
 					pokemon.side.removeSideCondition('madnesscounter');
 					this.add('-sideend', pokemon.side, 'move: Madness Counter', '[of] ' + pokemon);
 				}
@@ -3572,6 +4386,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	insanity: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Insanity",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		volatileStatus: 'insanity',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Insanity', '[silent]');
+			},
+			onAfterMove(source, target, move) {
+				if(move.category !== 'Status') this.actions.useMove('chaospotion', source);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Silly",
+	},
 
 	//vanilla moves
 	naturepower: {
@@ -3665,12 +4500,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	waterpledge: {
+	firepledge: {
 		inherit: true,
 		isViable: true,
 		shortDesc: "Sets Rainbow if Fishing Terrain is active.",
 		onModifyMove(move) {
 			if (this.field.isTerrain('fishingterrain')) move.sideCondition = 'waterpledge';
+		},
+	},
+	grasspledge: {
+		inherit: true,
+		isViable: true,
+		shortDesc: "Sets Swamp if Fishing Terrain is active.",
+		onModifyMove(move) {
+			if (this.field.isTerrain('fishingterrain')) move.sideCondition = 'grasspledge';
 		},
 	},
 	skydrop: {
@@ -3700,13 +4543,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	gmaxcuddle: null,
-	trumpcard: {
-		inherit: true,
-		onPrepareHit(pokemon) {
-			if (!pokemon.side.trumpcard) pokemon.side.trumpcard = 0;
-			pokemon.side.trumpcard ++;
-		},
-	},
 	weatherball: {
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -3909,5 +4745,277 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	baddybad: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	fling: {
+		inherit: true,
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			
+			move.basePower = item.fling.basePower;
+			if (item.fling.damageCallback) move.damageCallback = item.fling.damageCallback;
+			if (item.fling.multihit) move.multihit = item.fling.multihit;
+			if (item.fling.priority) move.prioty = item.fling.priority;
+			
+			this.debug('BP: ' + move.basePower);
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) {
+					move.secondaries = [];
+					if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+					} else if (item.fling.volatileStatus) {
+						move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+					} else if (item.fling.secondaries) {
+						move.secondaries.push(item.fling.secondary);
+					}
+				}
+				
+			}
+			source.addVolatile('fling');
+		},
+	},
+	gravity: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Gravity');
+					return 7;
+				}
+				if (source?.hasItem('spacejamdvd')) {
+					this.add('-message', `${source.name} is ballin!`);
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Gravity', '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Gravity');
+				}
+				for (const pokemon of this.getAllActive()) {
+					let applies = false;
+					if (pokemon.removeVolatile('bounce') || pokemon.removeVolatile('fly')) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['skydrop']) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+
+						if (pokemon.volatiles['skydrop'].source) {
+							this.add('-end', pokemon.volatiles['twoturnmove'].source, 'Sky Drop', '[interrupt]');
+						}
+						pokemon.removeVolatile('skydrop');
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['magnetrise']) {
+						applies = true;
+						delete pokemon.volatiles['magnetrise'];
+					}
+					if (pokemon.volatiles['telekinesis']) {
+						applies = true;
+						delete pokemon.volatiles['telekinesis'];
+					}
+					if (applies) this.add('-activate', pokemon, 'move: Gravity');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify([6840, 4096]);
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Gravity');
+			},
+		},
+	},
+	magicroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Magic Room');
+					return 7;
+				}
+				if (source?.hasItem('spacejamdvd')) {
+					this.add('-message', `${source.name} is ballin!`);
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Magic Room', `[of] ${source}`, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Magic Room', `[of] ${source}`);
+				}
+				for (const mon of this.getAllActive()) {
+					this.singleEvent('End', mon.getItem(), mon.itemState, mon);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('magicroom');
+			},
+			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 6,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
+			},
+		},
+	},
+	wonderroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Wonder Room');
+					return 7;
+				}
+				if (source?.hasItem('spacejamdvd')) {
+					this.add('-message', `${source.name} is ballin!`);
+					return 8;
+				}
+				return 5;
+			},
+			onModifyMove(move, source, target) {
+				// This code is for moves that use defensive stats as the attacking stat; see below for most of the implementation
+				if (!move.overrideOffensiveStat) return;
+				const statAndBoosts = move.overrideOffensiveStat;
+				if (!['def', 'spd'].includes(statAndBoosts)) return;
+				move.overrideOffensiveStat = statAndBoosts === 'def' ? 'spd' : 'def';
+				this.hint(`${move.name} uses ${statAndBoosts === 'def' ? '' : 'Sp. '}Def boosts when Wonder Room is active.`);
+			},
+			onFieldStart(field, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Wonder Room', `[of] ${source}`, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Wonder Room', `[of] ${source}`);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('wonderroom');
+			},
+			// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 5,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Wonder Room');
+			},
+		},
+	},
+	reflect: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				if (source?.hasAbility('timebomb')) {
+					return 10;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+	},
+	lightscreen: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				if (source?.hasAbility('timebomb')) {
+					return 10;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Light Screen weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Light Screen');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Light Screen');
+			},
+		},
+	},
+	metronome: {
+		inherit: true,
+		onAfterMove(pokemon) {
+			if (pokemon && pokemon.hp && pokemon.lastMove === 'metronome' && pokemon.item === 'metronome') {
+				if (!pokemon.metronome) pokemon.metronome = 0;
+				pokemon.metronome ++;
+			}
+			else pokemon.metronome = 0;
+		},
 	},
 };

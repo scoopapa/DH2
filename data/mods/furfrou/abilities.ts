@@ -50,4 +50,33 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Flicker",
 		shortDesc: "First active turn: dodge any incoming move. If no dodge: ability will never activate again.",
 	},
+	enviousaura: {
+		onStart(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (target.positiveBoosts() > 0) {
+					this.add('-start', pokemon, 'ability: Envious Aura');
+					this.add('-message', `${pokemon.name} craves ${target.name}'s strength!`);
+				}
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.positiveBoosts() > 0) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const enviousUser = this.effectState.target;
+			if (enviousUser === pokemon) return;
+			if (enviousUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+		},
+		flags: {},
+		name: "Envious Aura",
+		shortDesc: "User gets a 1.5x power boost if the opponent has a positive boost. User ignores defensive stat boosts.",
+		rating: 2.5,
+		num: 233,
+	},
 };

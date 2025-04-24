@@ -94,7 +94,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: 658,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey', 'Pawmot', 'Hydrapple', 'Mabosstiff'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey', 'Pawmot', 'Hydrapple', 'Mabosstiff', 'Flygon', 'Iron Leaves', 'Clodsire', 'Weezing', 'Volcanion', 'Meowscarada', 'Okidogi', 'Munkidori', 'Fezandipiti', 'Basculegion', 'Diancie', 'Kleavor', 'Goodra', 'Avalugg', 'Hawlucha', 'Primarina', 'Dragonite', 'Farigiraf', 'Blaziken', 'Palafin', 'Snorlax', 'Iron Crown', 'Leavanny'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {
@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	  			}
       	}
 		},
-		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton", "Pincurchin", "Metagross", "Blissey", "Pawmot", "Hydrapple", "Mabosstiff"],
+		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton", "Pincurchin", "Metagross", "Blissey", "Pawmot", "Hydrapple", "Mabosstiff", "Flygon", "Iron Leaves", "Clodsire", "Weezing-Galar", "Volcanion", "Meowscarada", "Okidogi", "Munkidori", "Fezandipiti", "Basculegion-F", "Diancie", "Kleavor", "Goodra", "Avalugg", "Hawlucha", "Primarina", "Dragonite", "Farigiraf", "Blaziken", "Palafin", "Snorlax", "Iron Crown", "Leavanny"],
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
@@ -113,7 +113,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: 345,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey', 'Pawmot', 'Hydrapple', 'Mabosstiff'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey', 'Pawmot', 'Hydrapple', 'Mabosstiff', 'Flygon', 'Iron Leaves', 'Clodsire', 'Weezing', 'Volcanion', 'Meowscarada', 'Okidogi', 'Munkidori', 'Fezandipiti', 'Basculegion', 'Diancie', 'Kleavor', 'Goodra', 'Avalugg', 'Hawlucha', 'Primarina', 'Dragonite', 'Farigiraf', 'Blaziken', 'Palafin', 'Snorlax', 'Iron Crown', 'Leavanny'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {

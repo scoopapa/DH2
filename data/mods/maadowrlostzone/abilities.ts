@@ -624,55 +624,98 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: 
 	rewind: {
-		shortDesc: "Recovers items on user's side at 50% or below. Form change.",
+		name: "Rewind",
+		shortDesc: "Restores items on user's side at or below 50% HP. Chronosensis changes form.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		rating: 4,
+		num: -18, 
+	
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Chronosensis' || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Alternate') {
-					pokemon.formeChange('Chronosensis-Alternate');
-				}
-			} else {
-				if (pokemon.species.forme === 'Alternate') {
-					pokemon.formeChange(pokemon.set.species);
-				}
+			pokemon.addVolatile('rewind'); 
+		},
+	
+		onDamage(damage, target, source, effect) {
+			const rewindState = target.volatiles['rewind'];
+			if (!rewindState || typeof damage !== 'number') return;
+	
+			const hpBefore = target.hp;
+			const hpAfter = hpBefore - damage;
+	
+			if (rewindState.triggeredThisTurn) return;
+	
+			if (hpBefore > target.maxhp / 2 && hpAfter <= target.maxhp / 2) {
+				rewindState.shouldTrigger = true;
+				rewindState.triggeredThisTurn = true;
 			}
 		},
+	
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Chronosensis' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Alternate') {
-					pokemon.formeChange('Chronosensis-Alternate');
+			const rewindState = pokemon.volatiles['rewind'];
+			if (rewindState) {
+				rewindState.triggeredThisTurn = false;
+	
+				// --- FORM CHANGE FOR CHRONOSENSIS ---
+				if (pokemon.baseSpecies.name === 'Chronosensis' && !pokemon.transformed) {
+					if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.species.name !== 'Chronosensis-Alternate') {
+						pokemon.formeChange('Chronosensis-Alternate', this.effect, false, '[msg]');
+					} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.species.name === 'Chronosensis-Alternate') {
+						pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[msg]');
+					}
 				}
-			} else {
-				if (pokemon.species.forme === 'Alternate') {
-					pokemon.formeChange(pokemon.set.species);
-				}
-			}
-		},
-		onDamage(damage, target, source, effect) {
-			// Check if the target's HP is brought to 50% or below after damage is applied
-			if (target.hp - damage <= target.maxhp / 2) {
-				this.effectState.rewindTriggered = true; // Mark that the ability has been triggered
-			}
-		},
-		onAfterMoveSecondary(target, source, move) {
-			// Check if the ability was triggered
-			if (this.effectState.rewindTriggered) {
-				this.effectState.rewindTriggered = false; // Reset the trigger
-				// Recover items from all Pokémon on the user's side that don't already have an item
-				for (const ally of target.side.pokemon) {
-					if (ally && !ally.item) { // Only recover items for allies without items
-						// Use Recycle to recover the item
-						this.actions.useMove('Recycle', ally);
+	
+				// --- REWIND TRIGGER ---
+				if (rewindState.shouldTrigger) {
+					rewindState.shouldTrigger = false;
+					this.add('-message', `${pokemon.name} has triggered Rewind!`);
+	
+					let itemRestored = false;
+	
+					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+						for (const ally of pokemon.side.pokemon) {
+							if (ally && !ally.item) {
+								this.actions.useMove('Recycle', ally);
+								itemRestored = true;
+							}
+						}
+	
+						if (itemRestored) {
+							this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+						}
 					}
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Rewind",
-		rating: 4,
-		num: -18,
+	
+		onUpdate(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (!rewindState || !rewindState.shouldTrigger) return;
+	
+			rewindState.shouldTrigger = false;
+			let itemRestored = false;
+			this.add('-ability', pokemon, 'Rewind');
+	
+			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+				for (const ally of pokemon.side.pokemon) {
+					if (ally && !ally.item) {
+						this.actions.useMove('Recycle', ally);
+						itemRestored = true;
+					}
+				}
+	
+				if (itemRestored) {
+					this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+				}
+			}
+		},
+	
+		condition: {
+			noCopy: true,
+			onStart() {
+				this.effectState.shouldTrigger = false;
+				this.effectState.triggeredThisTurn = false;
+			}
+		},
 	},
 	// end
 
@@ -1365,39 +1408,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('ultrasleep')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.source = source;
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['ultrasleep'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
-				return false;
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('endlessdream');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
-			this.field.removePseudoWeather('ultrasleep');
+			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
 		rating: 3,
-		num: -38,
+		num: -22,
 	},
 	// end
 
