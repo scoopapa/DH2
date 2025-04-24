@@ -4414,6 +4414,11 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	hydrappletoxic: {
 		learnset: {
+			fireblast: ["9L1"],
+			flamethrower: ["9L1"],
+			firelash: ["9L1"],
+			toxicspikes: ["9L1"],
+			toxic: ["9L1"],
 			astonish: ["9L1"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
