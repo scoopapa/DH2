@@ -693,6 +693,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.effectState.fallen = fallen;
 			}
 		},
+		onResidual(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Pyre');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 		},
@@ -1018,7 +1027,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			sideCondition: 'mist',
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.side.sideConditions['mist'] && !move.flags['contact']) {
+			if (target.side.sideConditions['mist'] && !move.flags['contact']) {
 				return this.chainModify(0.33);
 			}
 		},
@@ -1196,11 +1205,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
+		onEatItem(pokemon) {
+			if (pokemon.shieldBoost) return;
+			pokemon.shieldBoost = true;
+			pokemon.setItem(pokemon.lastItem);
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Resourceful');
+		},
+		onAfterUseItem(pokemon) {
+			if (pokemon.swordBoost) return;
+			pokemon.swordBoost = true;
+			this.actions.runEvent('UseItem', this, null, null, pokemon.getItem())
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			pokemon.swordBoost = false;
+		},
 		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
 		shortDesc: "Items trigger twice, and can avoid being consumed once.",
-		//onTakeItem(item, pokemon, source) {
-		//	
-		//},
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {
