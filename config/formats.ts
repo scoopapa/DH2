@@ -3855,10 +3855,7 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod'],
-		banlist: [
-			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', /*'Malzenite',*/
-			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-		],
+		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
