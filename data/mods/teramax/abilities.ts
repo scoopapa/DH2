@@ -263,8 +263,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
-				if (!target.hasType('Grass')) {
-					target.addVolatile('leechseed');
+				if (!target.hasType('Grass') && !target.volatiles['leechseed']) {
+					this.actions.useMove("Leech Seed", source);
 				}
 			}
 		},

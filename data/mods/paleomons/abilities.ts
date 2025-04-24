@@ -84,7 +84,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
-				this.boost({spd: 1});
+				this.boost({def: 1});
 			}
 		},
 		onFoeBeforeMovePriority: 13,
@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('permafrost');
 			},
 		},
-		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpD when hit by Ice.",
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def when hit by Ice.",
 		rating: 4,
 	},
 	sedimentary: {

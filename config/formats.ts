@@ -415,6 +415,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
 		],
 		mod: 'breedingvariants',
+		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
 		banlist: [
 			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
@@ -622,7 +623,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pok%C3%A9mon.3755140/">Eternal Pokémon on Smogon Forums</a>`,
 		],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Baton Pass'],
+		banlist: ['Aerodactylite', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Baton Pass'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -2665,6 +2666,12 @@ export const Formats: FormatList = [
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
+    {
+		name: "[Gen 3] ADV+",
+		mod: 'gen3advplus',
+		ruleset: ['Standard', /*'Baton Pass Mod',*/ 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Starf Berry', 'Speed Boost + Blaziken'],
+	},
 	{
 		name: "[Gen 3] ADV DX OU",
 		mod: 'gen3advdx',
@@ -2682,7 +2689,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 3] ADV Tradebacks",
 		mod: 'gen3tradebacks',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		ruleset: ['Standard', /*'Baton Pass Mod',*/ 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
 		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{
@@ -3263,8 +3270,16 @@ export const Formats: FormatList = [
 		mod: 'fecc',
 		team: 'random',
 		desc: `fecc`,
-		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Intro Mod'],
 	},
+	/*
+	{
+		name: "[Gen 9] Fusion Evolution Corrupt Council 2",
+		mod: 'fecc',
+		desc: `fecc`,
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Z-Move Clause'],
+	},
+	*/
 	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
@@ -3423,12 +3438,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-    {
-		name: "[Gen 3] Gen 3 Plus",
-		mod: 'gen3plus',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
-	},
 	{
 		name: "[Gen 1] Glitch OU",
 		mod: 'gen1glitch',
@@ -3483,8 +3492,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
-		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought', 'Soul Dew'],
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', /*'Baton Pass Mod'*/],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",
@@ -3783,10 +3792,10 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter Ubers",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -3802,11 +3811,11 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Doubles",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'doubles',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -3822,11 +3831,11 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Free-For-Alls",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -3842,10 +3851,10 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter OU",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
@@ -3864,10 +3873,10 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter UU",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
@@ -3886,10 +3895,10 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter RU",
-		teambuilderFormat: "National Dex",
+		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
@@ -4595,6 +4604,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
 		],
 		mod: 'breedingvariants',
+		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
 		banlist: [
 			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
@@ -4619,6 +4629,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
 		],
 		mod: 'breedingvariants',
+		teambuilderFormat: "OU",
 		ruleset: ['Standard', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},

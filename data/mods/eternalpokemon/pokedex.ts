@@ -272,7 +272,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Doublade",
 		
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 59, atk: 127, def: 99, spa: 28, spd: 49, spe: 137},
+		// baseStats: {hp: 59, atk: 127, def: 99, spa: 28, spd: 49, spe: 137},
+		baseStats: {hp: 59, atk: 127, def: 99, spa: 45, spd: 49, spe: 120}, // changed as of 19/04/2025
 		abilities: {0: "No Guard"},
 		movepoolAdditions: ["soulsplittingslices"],
 
