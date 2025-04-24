@@ -757,7 +757,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bubblebeam: ["9L1"],
 			waterfall: ["9L1"],
 			babydolleyes: ["9L1"],
-			mistyterrain: ["9L1"],
 			soak: ["9L1"],
 			pound: ["9L1"],
 			helpinghand: ["9L1"],
