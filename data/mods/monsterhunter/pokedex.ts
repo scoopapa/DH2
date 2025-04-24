@@ -303,7 +303,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Ceadeus",
 		types: ["Dragon", "Water"],
 		baseStats: {hp: 100, atk: 117, def: 99, spa: 100, spd: 123, spe: 81},
-		abilities: {0: "Shield Dust", 1: "Primordial Sea"},
+		abilities: {0: "Shield Dust", 1: "Primordial Sea", H: "Regenerator"},
 		heightm: 1.0,
 		weightkg: 200.0,
 		color: "Black",
