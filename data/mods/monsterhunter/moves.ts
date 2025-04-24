@@ -201,7 +201,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to paralyze the foe.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -368,5 +368,103 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+	},
+	/*
+	TORQUES
+	*/
+	blazingtorque: {
+		num: 896,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Blazing Torque",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	combattorque: {
+		num: 899,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Combat Torque",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	magicaltorque: {
+		num: 900,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Magical Torque",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	noxioustorque: {
+		num: 898,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Noxious Torque",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	wickedtorque: {
+		num: 897,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Wicked Torque",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		target: "normal",
+		type: "Dark",
 	},
 };
