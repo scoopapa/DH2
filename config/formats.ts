@@ -3856,7 +3856,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: [
-			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', /*'Malzenite',*/
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
 		onValidateTeam(team, format) {
