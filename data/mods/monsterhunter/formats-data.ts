@@ -87,7 +87,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	dalamadur: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	deviljho: {
 		tier: "MHOU",
@@ -114,7 +114,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	fatalis: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	gaismagorm: {
 		tier: "MHOU",
@@ -423,13 +423,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	boltreaverastalos: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	massacrediablos: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	primordialmalzeno: {
 		tier: "MHOU",
@@ -438,30 +438,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	scornedmagnamalo: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	seethingbazelgeuse: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	snowbaronlagombi: {
 		tier: "MHOU",
 	},
 	soulseermizutsune: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	furiousrajang: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	dreadqueenrathian: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	dreadkingrathalos: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	thunderlordzinogre: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	crimsonglowvalstrax: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 };
