@@ -579,6 +579,249 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 192,
 	},
+	electromorphosis: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			target.addVolatile('charge');
+		},
+		flags: {},
+		name: "Electromorphosis",
+		rating: 3,
+		num: 280,
+	},
+	flamebody: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
+	},
+	gooey: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Gooey",
+		rating: 2,
+		num: 183,
+	},
+	gulpmissile: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.isSemiInvulnerable() || target === source) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gulp Missile",
+		rating: 2.5,
+		num: 241,
+	},
+	innardsout: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (!target.hp) {
+				this.damage(target.getUndynamaxedHP(damage), source, target);
+			}
+		},
+		flags: {},
+		name: "Innards Out",
+		rating: 4,
+		num: 215,
+	},
+	ironbarbs: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Iron Barbs",
+		rating: 2.5,
+		num: 160,
+	},
+	perishbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (!this.checkMoveMakesContact(move, source, target)) return;
+			if (target === source) return;
+			let announced = false;
+			for (const pokemon of [target, source]) {
+				if (pokemon.volatiles['perishsong']) continue;
+				if (!announced) {
+					this.add('-ability', target, 'Perish Body');
+					announced = true;
+				}
+				pokemon.addVolatile('perishsong');
+			}
+		},
+		flags: {},
+		name: "Perish Body",
+		rating: 1,
+		num: 253,
+	},
+	poisonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	roughskin: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Rough Skin",
+		rating: 2.5,
+		num: 24,
+	},
+	sandspit: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			this.field.setWeather('sandstorm');
+		},
+		flags: {},
+		name: "Sand Spit",
+		rating: 1,
+		num: 245,
+	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			this.field.setTerrain('grassyterrain');
+		},
+		flags: {},
+		name: "Seed Sower",
+		rating: 2.5,
+		num: 269,
+	},
+	static: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
+	},
+	tanglinghair: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Tangling Hair');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Tangling Hair",
+		rating: 2,
+		num: 221,
+	},
+	toxicdebris: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const toxicSpikes = side.sideConditions['toxicspikes'];
+			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+				this.add('-activate', target, 'ability: Toxic Debris');
+				side.addSideCondition('toxicspikes', target);
+			}
+		},
+		flags: {},
+		name: "Toxic Debris",
+		rating: 3.5,
+		num: 295,
+	},
+	weakarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+			}
+		},
+		flags: {},
+		name: "Weak Armor",
+		rating: 1,
+		num: 133,
+	},
+	cursedbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (target === source) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
+	effectspore: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
 	intimidate: {
 		onStart(pokemon) {
 			let activated = false;
