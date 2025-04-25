@@ -534,7 +534,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "10"
 	},
 	mrmimegalar: {
-		tier: "12"
+		tier: "11"
 	},
 	scyther: {
 		tier: "6"
