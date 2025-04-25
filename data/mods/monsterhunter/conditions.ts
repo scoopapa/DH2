@@ -21,5 +21,4 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			return this.chainModify(0.5);
 		},
 	},
-	},
 };
