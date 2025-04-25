@@ -336,7 +336,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	graveler: {
-		tier: "NFE"
+		tier: "2"
 	},
 	graveleralola: {
 		tier: "NFE"
