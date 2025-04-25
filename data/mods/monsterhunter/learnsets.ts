@@ -8408,7 +8408,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	odagaron: {
+	odogaron: {
 		learnset: {
 			acrobatics: ["9L1"],
 			acupressure: ["9L1"],

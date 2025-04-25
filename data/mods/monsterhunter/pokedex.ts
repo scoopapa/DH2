@@ -1194,9 +1194,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
-	odagaron: {
+	odogaron: {
 		num: 107,
-		name: "Odagaron",
+		name: "Odogaron",
 		types: ["Dark"],
 		baseStats: {hp: 90, atk: 130, def: 80, spa: 85, spd: 95, spe: 85},
 		abilities: {0: "Intimidate", 1: "Guard Dog"},

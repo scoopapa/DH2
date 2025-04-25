@@ -287,7 +287,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nibelsnarf: {
 		tier: "MHRU",
 	},
-	odagaron: {
+	odogaron: {
 		tier: "MHUU",
 	},
 	paolumu: {
