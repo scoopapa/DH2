@@ -243,57 +243,50 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever", 
 	},
 	//
-	/*passiveaggressive: {
+	passiveaggressive: {
 		num: -8,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Passive Aggressive",
+		shortDesc: "Ally’s +0 prio status move trigger 60 BP special Sound move hitting foes.",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1}, // Can be stolen by Snatch
+		flags: {snatch: 1},
 		volatileStatus: 'passiveaggressive',
+		onTry(pokemon) {
+			if (pokemon.volatiles['passiveaggressive']) {
+				this.add('-fail', pokemon, 'move: Passive Aggressive');
+				return null;
+			}
+		},
 		condition: {
-			duration: 5, // Lasts for 5 turns
 			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Passive Aggressive');
+				this.add('-start', pokemon, 'Passive Aggressive');
 			},
-			onAllyTryMove(target, source, move) {
-				// Check if the user of Passive Aggressive is still on the field
-				const passiveAggressiveUser = this.effectState.source;
-				if (!passiveAggressiveUser || passiveAggressiveUser.fainted || passiveAggressiveUser.side !== source.side) return;
+			onAllyTryMove(source, target, move) {
+				// `source`: the ally trying to move
+				// `target`: usually the ally's target (not used here)
+				// Only trigger on neutral priority status moves
+				if (source === this.effectState.target) return; // skip if it's the user, not an ally
+				
+				if (move.category !== 'Status' || move.priority !== 0) return;
 	
-				// Ensure the ally's move is a neutral priority status move
-				if (
-					source.side === target.side &&
-					source !== target &&
-					move.category === 'Status' &&
-					move.priority === 0
-				) {
-					const type = move.type; // Get the type of the ally's status move
-					if (!type) return;
+				// Don't trigger on moves that are called by other moves (like Copycat)
+				if (move.isExternal) return;
 	
-					const attackMove = this.dex.getActiveMove({
-						basePower: 60,
-						accuracy: 100,
-						category: "Special",
-						type,
-						flags: { protect: 1, mirror: 1 },
-						name: `Passive Strike (${type})`,
-					});
-	
-					this.add('-activate', target, 'move: Passive Aggressive');
-					this.actions.useMove(attackMove, passiveAggressiveUser, target);
-				}
+				this.add('-activate', source, 'Passive Aggressive');
+				this.actions.useMove('echosnap', source); // Ally executes Echo Snap
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'move: Passive Aggressive');
+				this.add('-end', pokemon, 'Passive Aggressive');
 			},
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-	},*/
+		contestType: "Tough",
+	},
 	//
 	refreeze: {
 		num: -9,
@@ -792,6 +785,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allySide",
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	//
+	echosnap: {
+		num: -26,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Echo Snap",
+		shortDesc: "Matches user's primary type and hits opposing Pkm.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, sound: 1, bypasssub: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+		},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
 		contestType: "Cool",
 	},
 	//
