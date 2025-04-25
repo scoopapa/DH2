@@ -204,7 +204,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE"
 	},
 	wigglytuff: {
-		tier: "OU"
+		tier: "7"
 	},
 	zubat: {
 		tier: "LC"
@@ -441,7 +441,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	kingler: {
-		tier: "OU"
+		tier: "2"
 	},
 	voltorb: {
 		tier: "LC"
@@ -834,7 +834,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "3"
 	},
 	forretress: {
-		tier: "10"
+		tier: "12"
 	},
 	dunsparce: {
 		tier: "LC"
@@ -1278,7 +1278,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	cacturne: {
-		tier: "OU"
+		tier: "6"
 	},
 	swablu: {
 		tier: "LC"
@@ -1371,7 +1371,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "3"
 	},
 	chimecho: {
-		tier: "OU"
+		tier: "4"
 	},
 	absol: {
 		tier: "3"
@@ -3759,7 +3759,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal"
 	},
 	ironthorns: {
-		tier: "14"
+		tier: "15"
 	},
 	frigibax: {
 		tier: "Illegal"
