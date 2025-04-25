@@ -807,7 +807,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "13"
 	},
 	umbreon: {
-		tier: "15"
+		tier: "14"
 	},
 	murkrow: {
 		tier: "3"
