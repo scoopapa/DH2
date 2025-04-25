@@ -1170,7 +1170,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "9"
 	},
 	sableyemega: {
-		tier: "16"
+		tier: "18"
 	},
 	mawile: {
 		tier: "3"
@@ -3741,7 +3741,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal"
 	},
 	sandyshocks: {
-		tier: "17"
+		tier: "14"
 	},
 	irontreads: {
 		tier: "17"
