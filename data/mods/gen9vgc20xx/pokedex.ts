@@ -24,7 +24,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Valoseus",
 
 		types: ["Grass"],
-		baseStats: {hp: 105, atk: 125, def: 85, spa: 65, spd: 75, spe: 30},
+		baseStats: {hp: 110, atk: 125, def: 85, spa: 65, spd: 75, spe: 30},
 		abilities: {0: "Filter", 1: "Water Bubble", H: "Iron Fist"},
 		heightm: 1.0,
 		weightkg: 2.1,
