@@ -53,15 +53,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	debris: {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
-			const toxicSpikes = side.sideConditions['spikes'];
-			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+			const Spikes = side.sideConditions['spikes'];
+			if (move.category === 'Physical' && (!Spikes || Spikes.layers < 3)) {
 				this.add('-activate', target, 'ability: Debris');
 				side.addSideCondition('spikes', target);
 			}
 		},
 		flags: {},
 		name: "Debris",
-		shortDesc: "If this pokemon is hit by a physical attack, Toxic Spikes are set on the opposing side.",
+		shortDesc: "If this pokemon is hit by a physical attack, Spikes are set on the opposing side.",
 		rating: 3.5,
 		num: 1002,
 	},
