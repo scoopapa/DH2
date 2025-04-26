@@ -38,6 +38,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'clawitzer').learnset.waterbombshell = ['9L1'];
 		this.modData('Learnsets', 'noivern').learnset.killerwail = ['9L1'];
 
+		//Gen 7
+		this.modData('Learnsets', 'mimikyu').learnset.snuggle = ['9L1'];
+
+		//Gen 8
+
 		//Gen 9
 		this.modData('Learnsets', 'toedscruel').learnset.tentaclelock = ['9L1'];
 	}

@@ -564,22 +564,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Water Bombshell",
+		desc: "The user attacks the target with a water missile. The resulting burst damages Pokémon next to the target as well.",
+		shortDesc: "Damages Pokemon next to the target as well.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onHit(target, source, move) {
 			for (const ally of target.adjacentAllies()) {
-				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Water Bombshell'));
+				this.damage(ally.baseMaxhp / 8, ally, source, this.dex.conditions.get('Water Bombshell'));
 			}
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			for (const ally of target.adjacentAllies()) {
-				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Water Bombshell'));
+				this.damage(ally.baseMaxhp / 8, ally, source, this.dex.conditions.get('Water Bombshell'));
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+	//Mimikyu
+	snuggle: {
+		num: 3019,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Snuggle",
+		desc: "The user attacks its foe with tough love. This move lowers the target's Attack and Defense stats.",
+		shortDesc: "Lowers the target's Atk and Def by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
 	},
 
 	//Old moves remixed (for technicality)
