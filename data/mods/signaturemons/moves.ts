@@ -605,6 +605,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
+	//Corviknight
+	armorwing: {
+		num: 3020,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Armor Wing",
+		desc: "The user adjusts its flight for defense. This move raises both the user's Defense and Speed stats.",
+		shortDesc: "Raises the user's Def by 2 and its Spe by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			def: 2,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration of the status effect is set inside the move itself
