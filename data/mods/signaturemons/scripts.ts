@@ -21,6 +21,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//Gen 3
 		this.modData('Learnsets', 'spinda').learnset.spintowin = ['9L1'];
 		this.modData('Learnsets', 'zangoose').learnset.whiteclaw = ['9L1'];
+		this.modData('Learnsets', 'luvdisc').learnset.loveadvice = ['9L1'];
 
 		//Gen 4
 		this.modData('Learnsets', 'roserade').learnset.secretthorns = ['9L1'];

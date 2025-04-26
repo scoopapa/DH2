@@ -465,9 +465,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 	},
+	//Luvdisc
+	loveadvice: {
+		num: 3016,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Love Advice",
+		desc: "The user provides counseling on love to its target. This move lowers the target's Attack and Special Attack, and changes their Ability to Cute Charm.",
+		shortDesc: "Atk -1 & SpA -1. Target's ability changed to Cute Charm.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, allyanim: 1, metronome: 1},
+		//Check for immunities : Unremovable abilities, Cute Charm and Truant. In which cases the move fails altogether
+		onTryHit(target) {
+			if (target.getAbility().flags['cantsuppress'] || target.ability === 'cutecharm' || target.ability === 'truant') {
+				return false;
+			}
+		},
+		//Apply debuff and change target's ability
+		onHit(target, source, move) {
+			const success = this.boost({atk: -1, spa: -1}, target, source);
+			//If the debuff did not land, no ability change
+			//In case of Mirror Armor : The debuff is reflected at the user but the target's ability is still changed afterwards
+			if (!success && !target.hasAbility('mirrorarmor')) {
+				return;
+			}
+			//Ability change to Cute Charm
+			const oldAbility = target.setAbility('cutecharm');
+			if (oldAbility) {
+				this.add('-ability', target, 'Cute Charm', '[from] move: Love Advice');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 
 	//Old moves remixed (for technicality)
-	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself
+	//Heal block status is defined in the 'Heal Block' move, so the duration of the status effect is set inside the move itself
 	healblock: {
 		inherit: true,
 		condition: {
