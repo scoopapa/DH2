@@ -391,7 +391,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Swift",
-		shortDesc: "This move does not check accuracy. Hits foes. Usually goes first.",
+		shortDesc: "Bypasses accuracy checks. +1 Priority.",
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
