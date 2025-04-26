@@ -2501,6 +2501,14 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
+		name: "[Gen 9] Signaturemons Doubles",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
+		mod: 'signaturemons',
+		gameType: 'doubles',
+		teambuilderFormat: "National Dex Doubles",
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+	},
+	{
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
