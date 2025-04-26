@@ -715,7 +715,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 130,
 		name: "Gureadomosu",
 		types: ["Grass", "Water"],
-		baseStats: {hp: 92, atk: 105, def: 97, spa: 124, spd: 103, spe: 65},
+		baseStats: {hp: 105, atk: 92, def: 97, spa: 124, spd: 103, spe: 65},
 		abilities: {0: "Storm Drain", 1: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 170.0,
