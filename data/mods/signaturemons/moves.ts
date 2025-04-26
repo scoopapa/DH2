@@ -658,8 +658,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return this.effectState.target;
 				}
 			},
-			onHit(target, source, move) {
-				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+			onDamagingHit(damage, target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
 					source.trySetStatus('par', target);
 				}
 			},
