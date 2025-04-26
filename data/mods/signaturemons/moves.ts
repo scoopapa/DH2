@@ -439,6 +439,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Dragon",
 	},
+	//Weavile
+	sinisterclaw: {
+		num: 3015,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Sinister Claw",
+		desc: "The user slashes the target with extra-cold claws. This move may greately reduce the target's Speed stat or leave the target frozen.",
+		shortDesc: "40% chance of Spe -2. 10% chance of Freeze",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'frz',
+			}, {
+				chance: 40,
+				boosts: {
+					spe: -2,
+				},
+			},
+		],
+		target: "normal",
+		type: "Ice",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself
