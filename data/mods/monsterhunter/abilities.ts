@@ -53,15 +53,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	debris: {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
-			const toxicSpikes = side.sideConditions['spikes'];
-			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+			const Spikes = side.sideConditions['spikes'];
+			if (move.category === 'Physical' && (!Spikes || Spikes.layers < 3)) {
 				this.add('-activate', target, 'ability: Debris');
 				side.addSideCondition('spikes', target);
 			}
 		},
 		flags: {},
 		name: "Debris",
-		shortDesc: "If this pokemon is hit by a physical attack, Toxic Spikes are set on the opposing side.",
+		shortDesc: "If this pokemon is hit by a physical attack, Spikes are set on the opposing side.",
 		rating: 3.5,
 		num: 1002,
 	},
@@ -111,6 +111,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
+		num: 1004,
 	},
 	windrider: {
 		inherit: true,
@@ -130,5 +131,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
+	},
+	mightywall: {
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
+		shortDesc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
+		name: "Mighty Wall",
+		rating: 4,
+		num: 1005,
 	},
 }
