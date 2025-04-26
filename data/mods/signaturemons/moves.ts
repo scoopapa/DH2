@@ -625,6 +625,51 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Flying",
 	},
+	//Bellibolt
+	bellyspot: {
+		num: 3021,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Belly Spot",
+		desc: "The user redirects all opposing attacks to itself using its shining belly. Direct contact with the user will paralyse the attacker.",
+		shortDesc: "Draws foes' moves to the user. Paralyzes on contact.",
+		pp: 10,
+		priority: 2,
+		flags: {noassist: 1, failcopycat: 1},
+		volatileStatus: 'bellyspot',
+		onTry(source) {
+			return this.activePerHalf > 1;
+		},
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-singleturn', target, 'move: Belly Spot', '[zeffect]');
+				} else {
+					this.add('-singleturn', target, 'move: Belly Spot');
+				}
+			},
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
+					if (move.smartTarget) move.smartTarget = false;
+					this.debug("Follow Me redirected target of move");
+					return this.effectState.target;
+				}
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		//left in for technicality but won't be used without z-moves
+		zMove: {effect: 'clearnegativeboost'},
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration of the status effect is set inside the move itself

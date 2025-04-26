@@ -45,6 +45,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'corviknight').learnset.armorwing = ['9L1'];
 
 		//Gen 9
+		this.modData('Learnsets', 'bellibolt').learnset.bellyspot = ['9L1'];
 		this.modData('Learnsets', 'toedscruel').learnset.tentaclelock = ['9L1'];
 	}
 };
