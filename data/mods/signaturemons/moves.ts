@@ -523,7 +523,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(target, source, move) {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
-				move.secondary = {};
+				move.secondary = null;
 				move.infiltrates = true;
 			}
 		},
