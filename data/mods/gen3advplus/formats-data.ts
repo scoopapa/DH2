@@ -390,7 +390,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	dodrio: {
-		tier: "12"
+		tier: "13"
 	},
 	seel: {
 		tier: "LC"
