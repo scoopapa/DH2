@@ -16,6 +16,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'snorlax').learnset.bellyflop = ['9L1'];
 
 		//Gen 2
+		this.modData('Learnsets', 'azumarill').learnset.bubbleball = ['9L1'];
 		this.modData('Learnsets', 'sudowoodo').learnset.fakebranch = ['9L1'];
 
 		//Gen 3

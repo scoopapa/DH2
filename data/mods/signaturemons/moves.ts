@@ -229,23 +229,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Curse of Snow",
 		desc: "The user casts a freezing curse to deal damage and lower the target's Special Attack. This move has more effects is the target is of the opposite gender to the user.",
-		shortDesc: "SpA -1. If target is of opposite gender : also Atk -1, Spe -1.",
+		shortDesc: "SpA -1. If target is of opposite gender: also Atk -1, Spe -1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
 			if ((pokemon.gender === 'M' && target.gender === 'F') || (pokemon.gender === 'F' && target.gender === 'M')) {
-				move.boosts = {
-					atk: -1,
-					spa: -1,
-					spe: -1,
+				move.secondary = {
+					chance: 100,
+					boosts: {
+						atk: -1,
+						spa: -1,
+						spe: -1,
+					},
 				};
 			}
 		},
-		boosts: {
-			spa: -1,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ice",
 	},
@@ -257,7 +262,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Secret Thorns",
 		desc: "The user poisons its foe using one of their special flowers. The effects of the move changes depending on the target's remaining HP.",
-		shortDesc: "Poison & Atk -1. If target HP < 50%: Bad Poison & Heal Block",
+		shortDesc: "Poison & Atk -1. If target HP < 50%: Bad Poison & Heal Block.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
@@ -430,7 +435,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Killer Wail",
 		desc: "The user blasts its target with ultrasonic soundwaves. This move has a high chance of landing a critical hit.",
-		shortDesc: "Sound move. High critical hit ratio",
+		shortDesc: "Sound move. High critical hit ratio.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
@@ -447,7 +452,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Sinister Claw",
 		desc: "The user slashes the target with extra-cold claws. This move may greately reduce the target's Speed stat or leave the target frozen.",
-		shortDesc: "40% chance of Spe -2. 10% chance of Freeze",
+		shortDesc: "40% chance of Spe -2. 10% chance of Freeze.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -502,6 +507,55 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+	},
+	//Azumarill
+	bubbleball: {
+		num: 3017,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Bubble Ball",
+		desc: "The user creates a big water bubble and sends it flying to its target, lowering its Speed stat. If the move targets an ally, it will heal instead.",
+		shortDesc: "Spe -1. If target is an ally: heals 50% HP instead.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1, bullet: 1},
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.secondary = {};
+				move.infiltrates = true;
+			}
+		},
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
+					return this.NOT_FAIL;
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
 	},
 
 	//Old moves remixed (for technicality)
