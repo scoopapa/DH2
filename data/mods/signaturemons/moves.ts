@@ -557,6 +557,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	//Clawitzer
+	waterbombshell: {
+		num: 3018,
+		accuracy: 90,
+		basePower: 110,
+		category: "Special",
+		name: "Water Bombshell",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onHit(target, source, move) {
+			for (const ally of target.adjacentAllies()) {
+				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Water Bombshell'));
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			for (const ally of target.adjacentAllies()) {
+				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Water Bombshell'));
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration of the status effect is set inside the move itself
