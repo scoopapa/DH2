@@ -88,7 +88,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon retaliates with Shadow Sneak whenever it is damaged by an attack.",
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.flags['noreaction'] && target.hp) {
+			if (!move.flags['noreaction'] && target.hp && source.hp) {
 				this.actions.useMove({
 						id: 'shadowsneak',
 						name: "Shadow Sneak",
