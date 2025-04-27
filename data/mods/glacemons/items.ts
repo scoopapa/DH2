@@ -1990,8 +1990,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		rating: 3,
 		onStart(pokemon) {
-			this.actions.useMove("surprise", pokemon, "normal", "[from] item: Surprise Bomb")
-			this.actions.runEvent("EatItem", pokemon)
+			this.actions.useMove("surprise", pokemon)
+			this.add('-enditem', pokemon, "Surprise Bomb");
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
