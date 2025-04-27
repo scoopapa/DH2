@@ -146,6 +146,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			terablast: ["9L1"],
 			sludgebomb: ["9L1"],
+			taunt: ["9L1"],
+			disable: ["9L1"],
+			rapidspin: ["9L1"],
 		},
 	},
 	arsenstorm: {
@@ -480,6 +483,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			slackoff: ["9L1"],
+			takeheart: ["9L1"],
 		},
 	},
 	karmalice: {
