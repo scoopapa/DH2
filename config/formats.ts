@@ -2497,7 +2497,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Signaturemons",
         desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
 		mod: 'signaturemons',
-		teambuilderFormat: "National Dex AG",
+		teambuilderFormat: 'National Dex',
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
@@ -2505,7 +2505,7 @@ export const Formats: FormatList = [
         desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
 		mod: 'signaturemons',
 		gameType: 'doubles',
-		teambuilderFormat: "National Dex Doubles",
+		teambuilderFormat: 'National Dex',
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
