@@ -385,20 +385,60 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-	swift: {
-		num: 129,
-		accuracy: true,
-		basePower: 60,
+	boltbreath: {
+		num: 2020,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Breath damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Bolt Breath NOT boosted');
+			return move.basePower;
+		},
 		category: "Special",
-		name: "Swift",
-		shortDesc: "Bypasses accuracy checks. +1 Priority.",
-		pp: 20,
-		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		name: "Bolt Breath",
+		shortDesc: "Power doubles if the user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Normal",
-		contestType: "Cool",
+		target: "normal",
+		type: "Electric",
+	},
+	cyclonerend: {
+		num: 2021,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Cyclone Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Cyclone Rend NOT boosted');
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Cyclone Rend",
+		shortDesc: "Power doubles if the user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	/*
+	Edits
+	*/
+	swift: {
+		inherit: true,
+		priority: 1,
+	},
+	healorder: {
+		inherit: true,
+		pp: 5,
 	},
 	/*
 	TORQUES
