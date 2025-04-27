@@ -2031,7 +2031,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 		},
 		basePowerCallback(basePower, attacker, defender, move) {
-			let bonfireBP = 60
+			let bonfireBP = 40
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of attacker.moveSlots) {
 					if (moveSlot.name === 'Bonfire') {
