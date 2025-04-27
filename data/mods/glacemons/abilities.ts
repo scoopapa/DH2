@@ -1031,9 +1031,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(0.66);
 			}
 		},
-		onModifySecondaries(secondaries) {
-			const pokemon = this.effectState.target;
-			if (pokemon.side.sideConditions['mist']) {
+		onModifySecondaries(secondaries, effect) {
+			const pokemonSecondaries = this.effectState.target;
+			if (pokemonSecondaries.side.sideConditions['mist']) {
 				this.debug('Shield Dust prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
