@@ -1028,7 +1028,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.side.sideConditions['mist'] && !move.flags['contact']) {
-				return this.chainModify(0.33);
+				return this.chainModify(0.66);
 			}
 		},
 		onModifySecondaries(secondaries) {
