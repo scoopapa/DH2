@@ -2171,7 +2171,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			round: ["9M"],
 			scald: ["9M"],
 			shadowball: ["9M"],
-			sing: ["9L20"],
 			sleeptalk: ["9M"],
 			snipeshot: ["9M"],
 			snore: ["9M"],
