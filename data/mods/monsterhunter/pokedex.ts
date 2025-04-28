@@ -1466,7 +1466,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	somnacanth: {
 		num: 102,
 		name: "Somnacanth",
-		types: ["Ice", "Psychic"],
+		types: ["Water", "Psychic"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 65, spa: 126, spd: 95, spe: 116},
 		abilities: {0: "Opportunist", 1:"Magic Guard"},
