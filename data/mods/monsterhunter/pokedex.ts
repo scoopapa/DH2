@@ -1576,7 +1576,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Field"],
 	},
 	vaalhazak: {
-		num: 125,
+		num: 124,
 		name: "Vaal Hazak",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 95, atk: 105, def: 85, spa: 110, spd: 145, spe: 75},
