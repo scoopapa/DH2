@@ -225,7 +225,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	parasect: {
-		tier: "OU"
+		tier: "4"
 	},
 	venonat: {
 		tier: "LC"
@@ -255,7 +255,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	persian: {
-		tier: "OU"
+		tier: "5"
 	},
 	persianalola: {
 		tier: "OU"
@@ -294,7 +294,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "9"
 	},
 	abra: {
-		tier: "LC"
+		tier: "2"
 	},
 	kadabra: {
 		tier: "7"
@@ -465,7 +465,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "7"
 	},
 	cubone: {
-		tier: "LC"
+		tier: "2"
 	},
 	marowak: {
 		tier: "9"
@@ -825,7 +825,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	wobbuffet: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	girafarig: {
 		tier: "4"
@@ -876,10 +876,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "15"
 	},
 	sneasel: {
-		tier: "LC"
+		tier: "3"
 	},
 	sneaselhisui: {
-		tier: "LC"
+		tier: "10"
 	},
 	teddiursa: {
 		tier: "LC"
@@ -900,7 +900,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "6"
 	},
 	corsola: {
-		tier: "OU"
+		tier: "2"
 	},
 	corsolagalar: {
 		tier: "LC"
@@ -1380,7 +1380,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	wynaut: {
-		tier: "LC"
+		tier: "Uber"
 	},
 	snorunt: {
 		tier: "LC"
@@ -3300,7 +3300,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "14"
 	},
 	perrserker: {
-		tier: "OU"
+		tier: "3"
 	},
 	cursola: {
 		tier: "11"
