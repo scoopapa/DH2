@@ -1049,7 +1049,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Fairy", "Water"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 88, atk: 100, def: 90, spa: 140, spd: 109, spe: 123},
-		abilities: {0: "No Guard"},
+		abilities: {0: "Ignite"},
 		heightm: 1.0,
 		weightkg: 70.3,
 		color: "Black",
