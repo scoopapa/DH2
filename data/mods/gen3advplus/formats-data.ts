@@ -225,7 +225,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	parasect: {
-		tier: "4"
+		tier: "3"
 	},
 	venonat: {
 		tier: "LC"
@@ -294,7 +294,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "9"
 	},
 	abra: {
-		tier: "2"
+		tier: "LC"
 	},
 	kadabra: {
 		tier: "7"
