@@ -520,12 +520,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	spectralthief: {
 		inherit: true,
 		basePower: 60,
+		rating: 4,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		onHit(target) {
 			target.clearBoosts();
 			this.add('-clearboost', target);
 		},
-		isViable: true,
 	},
 	gravelgrater: {
 		num: -7,
@@ -617,6 +617,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	landswrath: {
 		inherit: true,
 		basePower: 70,
+		rating: 4,
 		onAfterHit(target, pokemon, move) {
 			let success = false;
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
@@ -1197,6 +1198,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 25,
 		pp: 20,
+		rating: 4,
 		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
 		multihit: [2, 5],
 		secondary: {
@@ -1520,6 +1522,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 80,
 		pp: 15,
+		rating: 4,
 		secondary: {
 			chance: 30,
 			status: 'frz',
