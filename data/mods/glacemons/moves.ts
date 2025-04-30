@@ -1074,11 +1074,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onResidual(pokemon) {
 			boosts: {
 				atk: -1,
-			}
+					},
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "X-Scissor", target);
+				}
 		},
 		shortDesc: "Hits twice; -1 Atk. Ignored if target switches.",
 		secondary: null,
