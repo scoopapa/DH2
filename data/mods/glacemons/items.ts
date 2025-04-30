@@ -76,7 +76,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Bug') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -88,7 +88,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dragon') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -100,7 +100,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Electric') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -112,7 +112,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fighting') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -124,7 +124,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fire') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -136,7 +136,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Flying') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -148,7 +148,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ghost') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -160,7 +160,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Grass') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -172,7 +172,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ground') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -184,7 +184,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ice') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -196,7 +196,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -208,7 +208,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Psychic') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -220,7 +220,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Rock') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -232,7 +232,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Steel') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -244,7 +244,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Water') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -256,7 +256,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fairy') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -268,7 +268,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dark') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
@@ -287,7 +287,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Normal') {
-				return this.chainModify(4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		forcedForme: "Silvally",
@@ -1704,7 +1704,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([[4915, 4096]);
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -1916,7 +1916,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				else {
 					pokemon.addVolatile('expertbelt');
 				}
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([[4915, 4096]);
 			}
 		},
 		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
