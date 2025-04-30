@@ -1916,7 +1916,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				else {
 					pokemon.addVolatile('expertbelt');
 				}
-				return this.chainModify([[4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
