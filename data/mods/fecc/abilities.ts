@@ -3347,6 +3347,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (changes > 0) this.boost({ atk: 2 * changes }, pokemon, pokemon, null, false, true);
 			pokemon.previousTypes = pokemon.types;
 		},
+		onEnd(pokemon){
+			pokemon.previousTypes = null;
+		},
 		flags: {},
 		name: "Chemical Imbalance",
 		//shortDesc: "This Pokemon's Attack is raised by 2 for each type that it changes.",

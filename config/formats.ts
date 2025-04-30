@@ -769,6 +769,13 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Fusion Evolution Random Battle",
+		mod: 'gen9fe',
+		team: 'random',
+		desc: `gen9fe`,
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'OU Terastal Clause'],
+	},
+	{
 		name: "[Gen 9] Fusion Evolution",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Fusion Evolution</a>`,
@@ -1667,6 +1674,12 @@ export const Formats: FormatList = [
 			   pokemon.stellarBoostedTypes = [];
 			}
 		},
+	},
+	{
+		name: "[Gen 9] Trainer Support",
+		mod: 'trainersupport',
+		ruleset: ['Standard', 'Trainer Support Rule'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
 		name: "[Gen 9] Triple Threat",
