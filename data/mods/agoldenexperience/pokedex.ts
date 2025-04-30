@@ -202,9 +202,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Fairy"],
 		requiredItem: "Wigglytite",
 	},
+	oddish: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Flower Veil", H: "Run Away"},
+	},
+	gloom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Flower Veil", H: "Stench"},
+	},
 	vileplume: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 50, def: 95, spa: 110, spd: 100, spe: 50},
+		abilities: {0: "Chlorophyll", 1: "Flower Veil", H: "Effect Spore"},
 	},
 	parasect: {
 		inherit: true,
@@ -556,7 +565,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Grass", "Fairy"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 80, atk: 132, def: 110, spa: 83, spd: 110, spe: 110},
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Flower Veil" },
 		heightm: 1.8,
 		weightkg: 100.5,
 		color: "Green",
@@ -721,6 +730,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 75, atk: 50, def: 95, spa: 110, spd: 100, spe: 60},
+		abilities: {0: "Chlorophyll", 1: "Flower Veil", H: "Healer"},
 	},
 	azumarill: {
 		inherit: true,
@@ -1347,6 +1357,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Hard Rock", 1: "Rock Head", H: "Sturdy"},
 	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Intimidate", H: "Sheer Force"},
+	},
 	beldum: {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Light Metal"},
@@ -1919,6 +1933,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lilligant: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 75, spa: 110, spd: 75, spe: 100},
+		abilities: {0: "Chlorophyll", 1: "Own Tempo", H: "Flower Veil"},
+	},
+	lilliganthisui: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 110, def: 75, spa: 50, spd: 75, spe: 110},
+		abilities: {0: "Chlorophyll", 1: "Hustle", H: "Flower Veil"},
 	},
 	krookodile: {
 		inherit: true,
@@ -3029,6 +3049,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Pressure", 1: "Inner Focus", H: "Poison Touch"},
 	},
 	// Gen 9
+	meowscarada: {
+		inherit: true,
+		otherFormes: ["Meganium-Mega"],
+		formeOrder: ["Meganium", "Meganium-Mega"],
+	},
+	meowscaradamega: {
+		num: 908,
+		name: "Meowscarada-Mega",
+		baseSpecies: "Meowscarada",
+		forme: "Mega",
+		types: ["Grass", "Dark"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 76, atk: 140, def: 90, spa: 81, spd: 90, spe: 153},
+		abilities: {0: "Illusion" },
+		heightm: 1.5,
+		weightkg: 31.2,
+		color: "Green",
+		eggGroups: ["Field", "Grass"],
+		requiredItem: "Meowscaradite",
+	},
 	oinkologne: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 100, def: 85, spa: 49, spd: 90, spe: 55},

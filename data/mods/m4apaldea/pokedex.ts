@@ -565,6 +565,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "belliboltmega",
 		megaName: "Bellibolt-Mega",
+		megaType: ["Electric", "Water"],
 		megaAbility: {0: "Liquidate"},
 		megaStats: {hp: 109, atk: 79, def: 126, spa: 123, spd: 103, spe: 55},
 		megaStone: "Belliboltite",
