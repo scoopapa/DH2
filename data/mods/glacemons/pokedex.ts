@@ -1562,13 +1562,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	latiasmega: {
 		inherit: true,
-		abilities: { 0: "Moody" },
 		requiredItem: null,
 		requiredItems: ["Latiasite", "Parallel Mega Orb"],
 	},
 	latiosmega: {
 		inherit: true,
-		abilities: { 0: "Moody" },
 		requiredItem: null,
 		requiredItems: ["Latiosite", "Parallel Mega Orb"],
 	},
