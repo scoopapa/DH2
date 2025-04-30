@@ -3318,8 +3318,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
-				return 1;
-			};
+				if (target.getTypes()[0] === type || target.terastallized) return 1;
+				else return 0;
+			}
 		},
 		flags: {},
 		name: "No Wonder",
