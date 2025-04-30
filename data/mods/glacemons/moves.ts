@@ -1071,8 +1071,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				move.boosts = {atk: 0};
 			}
 		},
-		onResidual(pokemon)
-		self: {
+		onResidual(pokemon) {
 			boosts: {
 				atk: -1,
 			},
