@@ -6,11 +6,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyMove(move, source, target) {
 			if (move.flags['contact']) {
 				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.flags['contact'] && target.volatiles['stall']) {
-				this.debug('Armor Piercer reduces damage against Stall');
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
 				return this.chainModify(0.25);
 			}
 		},
