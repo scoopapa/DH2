@@ -1074,7 +1074,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onResidual(pokemon) {
 			boosts: {
 				atk: -1,
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
