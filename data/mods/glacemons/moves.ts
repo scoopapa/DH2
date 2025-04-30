@@ -1059,7 +1059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	scythelimbs: {
 		num: -14,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 75,
 		category: "Physical",
 		name: "Scythe Limbs",
 		pp: 5,
@@ -1071,15 +1071,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				move.boosts = {atk: 0};
 			}
 		},
-		onResidual(pokemon) {
+		self: {
 			boosts: {
 				atk: -1,
-					},
+			},
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "X-Scissor", target);
-				}
 		},
 		shortDesc: "Hits twice; -1 Atk. Ignored if target switches.",
 		secondary: null,
