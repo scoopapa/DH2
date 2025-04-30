@@ -2021,3 +2021,4 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		desc: "On switch-in, the holder uses a 40 BP Physical move with the holder's primary type, Special if SpAtk > Atk. Single use.",
 		shortDesc: "On switch-in: 40 BP move based on primary type and stronger attack. Single use.",
 	},
+	};
