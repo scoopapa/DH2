@@ -1132,12 +1132,16 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
+		onSwitchIn(pokemon) {
+			this.actions.terastallize(pokemon);
+		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
 		forcedForme: "Ogerpon-Cornerstone",
 		itemUser: ["Ogerpon-Cornerstone"],
+		shortDesc: "Ogerpon-Cornerstone: 1.2x power attacks; Terastallizes to gain Embody Aspect.",
 		num: 2406,
 		gen: 9,
 	},

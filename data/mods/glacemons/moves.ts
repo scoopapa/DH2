@@ -1146,7 +1146,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: {
 			chance: 100,
 			onHit(target, source, move) {
-				if (target?.statsRaisedThisTurn) {
+				let hasBoost = false;
+				let i: BoostID;
+				if (!target) return;
+				for (i in target.boosts) {
+					if (target.boosts[i] !== 0) hasBoost = true;
+				}
+				if (hasBoost) {
 					target.trySetStatus('brn', source, move);
 					this.boost({ spa: 2 }, source, source);
 				}
@@ -1583,10 +1589,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		pp: 5,
 		onTryImmunity(target, source) {},
-		onHit(target) {
-			const type = target.getTypes().join();
-			if (target.hasType(type) || !target.setType(type)) return false;
-			this.add('-start', target, 'typechange', type);
+		onHit(target, source) {
+			const types = target.getTypes();
+			var type1 = types[0];
+			var type2;
+			if (types.length == 2) type2 = types[1];
+			if (source.hasType(type1) || !source.setType(type1)) return false;
+			this.add('-start', source, 'typechange', type1);
+			if (type2) {
+				this.add('-start', source, 'typeadd', type2);
+			}			
 		},
 		shortDesc: "Changes user's type to that of the target after hit.",
 	},
@@ -1762,7 +1774,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				pokemon.maybeDisabled = true;
 			},
 			onFoeBeforeMovePriority: 4,
-			onFoeBeforeMove(attacker, defender, move) {
+			onFoeBeforeMove(attacker, defender, move, target) {
 				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
 					this.damage(Math.round(target.maxhp / 4), attacker, defender);
 					this.add('cant', attacker, 'move: Imprison', move);
@@ -1770,8 +1782,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		shortDesc: "WIP",
-		desc: "WIP",
+		shortDesc: "Target can't use setup or the user's moves, and they take 25% max hp when using Imprisoned moves",
+		desc: "No foe can use any move known by the user, or any setup move. Target takes 25% max HP damage if an attempt is made to use Imprisoned move.",
 	},
 	powderbomb: {
 		num: -28,
@@ -1797,7 +1809,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Rage Powder", target);
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
@@ -1836,5 +1848,256 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Fairy",
 		contestType: "Beautiful",
 		shortDesc: "Amount of hits and power is determined by how much HP the user has left.",
+	},
+	// Slate 10
+	skyuppercut: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 100,
+		onAfterMove(target, source, move) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (target.side.getSideCondition(condition)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					return;
+				}
+			}
+		},
+		desc: "Inflicts 1/8 max HP if hazards are up.",
+		shortDesc: "Inflicts 1/8 max HP if hazards are up.",
+	},
+	blackout: {
+		num: -30,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Blackout",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Daze", target);
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Lowers the user's SpA and SpD by one afterward.",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	hypnotichorror: {
+		num: -31,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Hypnotic Horror",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hypnosis", target);
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Lowers the user's SpA and SpD by one afterward.",
+		type: "Psychic",
+		contestType: "Tough",
+	},
+	syrupbomb: {
+		num: -32,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Syrup Bomb",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		sideCondition: 'grasspledge',
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Bomb", target);
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Creates a Swamp on the opponent's side of the field.",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	foulfuture: {
+		num: -34,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Foul Future",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'foulfuture',
+				source: source,
+				moveData: {
+					id: 'foulfuture',
+					name: "Foul Future",
+					accuracy: 100,
+					basePower: 120,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Poison',
+				},
+			});
+			this.add('-start', source, 'move: Foul Future');
+			return this.NOT_FAIL;
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Jab", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+		desc: "Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
+		shortDesc: "Hits two turns after being used.",
+	},
+	rainbowblast: {
+		num: -35,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Rainbow Blast",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dazzling Gleam", target);
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		shortDesc: "30% chance to lower target's SpA by 1.",
+		type: "Fairy",
+		contestType: "Cute",
+	},
+	rockclimb: {
+		inherit: true,
+		basePower: 120,
+		pp: 5,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		type: "Rock",
+		desc: "Has a 10% chance to confuse the target.",
+		shortDesc: "10% chance to confuse the target.",
+	},
+	bonfire: {
+		num: -36,
+		accuracy: 100,
+		basePower: 60,
+		category: 'Special',
+		name: 'Bonfire',
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		basePowerCallback(basePower, attacker, defender, move) {
+			let bonfireBP = 60
+			for (const ally of attacker.side.pokemon) {
+				for (const moveSlot of attacker.moveSlots) {
+					if (moveSlot.name === 'Bonfire') {
+						bonfireBP += 20;
+					}
+				}
+			}
+			return bonfireBP
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Wheel", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	kiblast: {
+		num: -37,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		onAfterHit(pokemon) {
+			this.useMove("Ki Blast 2", pokemon);
+		},
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	kiblast2: {
+		num: -38,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast 2",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	surprise: {
+		num: -39,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Surprise!",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+				move.category = 'Special';
+			}
+		},
 	},
 };

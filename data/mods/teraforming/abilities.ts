@@ -202,6 +202,90 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		shortDesc: "This Pokemon's Sp. Def is 1.5x, but it can only select damaging moves.",
 	},
+	superioritycomplex: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = false;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = true;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Superiority Complex",
+		rating: 2.5,
+		shortDesc: "This Pokemon's attacks have 1.3x power if it is the first to move in a turn.",
+	},
+	hungerpains: {
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (pokemon.hp < pokemon.maxhp) {
+					if (!target.volatiles['torment'] && target !== pokemon) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.addVolatile('torment');
+					}
+					if (!target.volatiles['embargo'] && target !== pokemon) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.addVolatile('embargo');
+					}
+				} else if (pokemon.hp >= pokemon.maxhp) {
+					if (target.volatiles['torment']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.removeVolatile('torment');
+					}
+					if (target.volatiles['embargo']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.removeVolatile('embargo');
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Hunger Pains",
+		rating: 2,
+		shortDesc: "While this Pokemon is active and its HP isn't full, all other Pokemon are affected by Torment and Embargo.",
+	},
+	martialmom: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Martial Mom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Martial Mom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Martial Mom",
+		rating: 3.5,
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Fighting-type attack.",
+	},
 
 	// vanillabilities
 	guarddog: {
@@ -350,5 +434,31 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Scrappy",
 		rating: 3,
 		num: 113,
+	},
+	zerotohero: {
+		onSwitchOut(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
+			if (pokemon.terastallized) return;
+			if (pokemon.species.forme !== 'Hero') {
+				pokemon.formeChange('Palafin-Hero', this.effect, true);
+			}
+		},
+		onSwitchIn() {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!this.effectState.switchingIn) return;
+			if (pokemon.terastallized) return;
+			this.effectState.switchingIn = false;
+			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
+			if (!this.effectState.heroMessageDisplayed && pokemon.species.forme === 'Hero') {
+				this.add('-activate', pokemon, 'ability: Zero to Hero');
+				this.effectState.heroMessageDisplayed = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
+		name: "Zero to Hero",
+		rating: 5,
+		num: 278,
 	},
 };

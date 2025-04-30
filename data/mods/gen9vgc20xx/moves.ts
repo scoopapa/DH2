@@ -21,7 +21,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				spe: -1,
 			},
 		},
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -97,7 +97,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	flyingdive: {
 		num: -4,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
 		shortDesc: "Double damage against grounded target.",
 		name: "Flying Dive",
@@ -237,63 +237,56 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,  
 		priority: 0,  
 		flags: {protect: 1, mirror: 1},
-		secondary: null,  
+		secondary: {},  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
 		contestType: "Clever", 
 	},
 	//
-	/*passiveaggressive: {
+	passiveaggressive: {
 		num: -8,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Passive Aggressive",
+		shortDesc: "Ally’s +0 prio status move trigger 60 BP special Sound move hitting foes.",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1}, // Can be stolen by Snatch
+		flags: {snatch: 1},
 		volatileStatus: 'passiveaggressive',
+		onTry(pokemon) {
+			if (pokemon.volatiles['passiveaggressive']) {
+				this.add('-fail', pokemon, 'move: Passive Aggressive');
+				return null;
+			}
+		},
 		condition: {
-			duration: 5, // Lasts for 5 turns
 			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Passive Aggressive');
+				this.add('-start', pokemon, 'Passive Aggressive');
 			},
-			onAllyTryMove(target, source, move) {
-				// Check if the user of Passive Aggressive is still on the field
-				const passiveAggressiveUser = this.effectState.source;
-				if (!passiveAggressiveUser || passiveAggressiveUser.fainted || passiveAggressiveUser.side !== source.side) return;
+			onAllyTryMove(source, target, move) {
+				// `source`: the ally trying to move
+				// `target`: usually the ally's target (not used here)
+				// Only trigger on neutral priority status moves
+				if (source === this.effectState.target) return; // skip if it's the user, not an ally
+				
+				if (move.category !== 'Status' || move.priority !== 0) return;
 	
-				// Ensure the ally's move is a neutral priority status move
-				if (
-					source.side === target.side &&
-					source !== target &&
-					move.category === 'Status' &&
-					move.priority === 0
-				) {
-					const type = move.type; // Get the type of the ally's status move
-					if (!type) return;
+				// Don't trigger on moves that are called by other moves (like Copycat)
+				if (move.isExternal) return;
 	
-					const attackMove = this.dex.getActiveMove({
-						basePower: 60,
-						accuracy: 100,
-						category: "Special",
-						type,
-						flags: { protect: 1, mirror: 1 },
-						name: `Passive Strike (${type})`,
-					});
-	
-					this.add('-activate', target, 'move: Passive Aggressive');
-					this.actions.useMove(attackMove, passiveAggressiveUser, target);
-				}
+				this.add('-activate', source, 'Passive Aggressive');
+				this.actions.useMove('echosnap', source); // Ally executes Echo Snap
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'move: Passive Aggressive');
+				this.add('-end', pokemon, 'Passive Aggressive');
 			},
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-	},*/
+		contestType: "Tough",
+	},
 	//
 	refreeze: {
 		num: -9,
@@ -426,7 +419,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "33% of putting target to sleep. Powder.",
+		shortDesc: "30% of putting target to sleep. Powder.",
 		name: "Sylvan Powder",
 		pp: 5,
 		priority: 0,
@@ -436,7 +429,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Sleep Powder", target);
 		},
 		secondary: {
-			chance: 33, // Might ask submitter to change it to 30% as no other move has 33% trigger chance
+			chance: 30,
 			status: 'slp',
 		},
 		target: "normal",
@@ -536,7 +529,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Super effective against Ground.",
+		shortDesc: "Super effective against Ground, fail against airborne.",
 		name: "Conductive Spell",
 		pp: 10,
 		priority: 0,
@@ -551,8 +544,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				move.ignoreImmunity['Electric'] = true;
 			}
 		},
+		onTryHit(target, source, move) {
+			// Check if the target is airborne and fail the move
+			if (!target.isGrounded()) {
+				return false; // Fail the move
+			}
+		},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Ground') return 1;
+			if (!target) return;
+			if (type === 'Ground' && target.isGrounded()) {
+				return 1; // Make it super effective
+			}
 		},
 		target: "normal",
 		type: "Electric",
@@ -604,7 +606,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Close Combat", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -706,8 +708,145 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 	},
+	//
+	mantisfists: {
+		num: -24,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Mantis Fists",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		multihit: 2,
+		shortDesc: "Hits twice + no contact penalty.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Mega Punch", target);
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	//
+	tautthread: {
+		num: -25,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Taut Thread",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, nonsky: 1, noassist: 1, failcopycat: 1},
+		shortDesc: "Mat Block. If successful block, Misty Terrain.",
+		stallingMove: true,
+		sideCondition: 'tautthread',
+	
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Taut Thread only works on your first turn out.");
+				return false;
+			}
+			return !!this.queue.willAct();
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Taut Thread');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Taut Thread', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (!this.field.isTerrain('mistyterrain')) {
+					this.field.setTerrain('mistyterrain');
+				}
+				return this.NOT_FAIL;
+			},
+		},	
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	//
+	echosnap: {
+		num: -26,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Echo Snap",
+		shortDesc: "Matches user's primary type and hits opposing Pkm.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, sound: 1, bypasssub: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+		},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	//
 	
 	// start
+	autotomize: {
+		num: 475,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Autotomize",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onTryHit(pokemon) {
+			const hasContrary = pokemon.hasAbility('contrary');
+			if ((!hasContrary && pokemon.boosts.spe === 6) || (hasContrary && pokemon.boosts.spe === -6)) {
+				return false;
+			}
+		},
+		boosts: {
+			spe: 2,
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	//
 	belch: {
 		num: 562,
 		accuracy: 90,
@@ -1168,7 +1307,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower:80,
 		category: "Special",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Flame Burst",
 		pp: 15,
 		priority: 0,
@@ -1336,6 +1475,30 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
+	hypnosis: {
+		num: 95,
+		accuracy: 60,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Psychic are immune to Hypnosis's Sleep.",
+		name: "Hypnosis",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (target.hasType('Psychic')) {
+				this.add('-immune', target, '[from] type: Psychic');
+				return null;
+			}
+		},
+		status: 'slp',
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
+	//
 	hydrocannon: {
 		num: 308,
 		accuracy: 90,
@@ -1382,7 +1545,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		// isNonstandard: "Past",
+		isNonstandard: null,
 		name: "King's Shield",
 		pp: 10,
 		priority: 4,
@@ -1442,18 +1605,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-	//	isNonstandard: "Past",
+		shortDesc: "+1 Atk, SpD, and Spe.",
+		isNonstandard: null,
 		name: "Meditate",
 		pp: 40,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
-			atk: 1,
+			atk: 1, 
+			spd: 1, 
+			spe: 1,
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
-		zMove: {boost: {atk: 1, spd: 1, spe: 1}},
+		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
 	},
 	//
@@ -1504,6 +1670,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "allAdjacentFoes",
 		type: "Poison",
+	},
+	//
+	purify: {
+		num: 685,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Purify",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target.cureStatus()) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+			this.heal(Math.ceil(source.maxhp * 0.5), source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
 	},
 	//
 	rapidspin: {
@@ -1558,6 +1749,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+	},
+	//
+	sharpen: {
+		num: 159,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Sharpen",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cute",
 	},
 	//
 	smackdown: {
@@ -1645,7 +1856,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
-	//	isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Submission",
 		pp: 20,
 		priority: 0,

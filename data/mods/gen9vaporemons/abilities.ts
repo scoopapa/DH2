@@ -251,9 +251,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
-			if (!this.effectState.switchingIn) return;
-			this.add('-ability', pokemon, 'Cloud Nine');
-			this.effectState.switchingIn = false;
+			// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			pokemon.abilityState.ending = false; // Clear the ending flag
+			if (this.effectState.switchingIn) {
+				this.add('-ability', pokemon, 'Cloud Nine');
+				this.effectState.switchingIn = false;
+			}
+			this.eachEvent('WeatherChange', this.effect);
 			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
 			if (this.field.terrain) {
 				for (const other of pokemon.foes()) {
@@ -298,6 +302,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			source.abilityState.ending = true;
+			this.eachEvent('WeatherChange', this.effect);
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('mimicry')) {
 					if (this.field.terrain) {
@@ -749,6 +754,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onAfterMove(pokemon) {
 				pokemon.removeVolatile('counteract');
 			},
+			onFlinch(pokemon) {
+				pokemon.removeVolatile('counteract');
+			},
+			/* onMoveFail(target, source, move) { // test later
+				source.removeVolatile('counteract');
+			}, */
 		},
 		flags: {},
 		desc: "While this Pokemon is active, opposing Pokemon's moves and their effects ignore its own Ability. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode Abilities.",

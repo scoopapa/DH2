@@ -16,6 +16,11 @@
                 "role": "Fast Support",
                 "movepool": ["Hex", "Spikes", "Will-O-Wisp", "Earth Power", "Taunt", "Toxic Spikes"],
                 "teraTypes": ["Steel"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Earthquake", "Poltergeist", "Shadow Sneak", "Ice Beam", "Moonblast", "Taunt"],
+                "teraTypes": ["Steel"]
             }
         ]
     },
@@ -124,7 +129,7 @@
             }
         ]
     },
-	"cogwild": {
+	"cogwyld": {
         "level": 100,
         "sets": [
             {
@@ -194,7 +199,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Ice Beam", "Body Slam", "Discharge", "Revival Blessing"],
+                "movepool": ["Ice Beam", "Body Slam", "Discharge", "Revival Blessing", "Heal Bell"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -205,6 +210,11 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Icicle Crash", "Poltergeist", "Shadow Sneak", "Trick"],
+                "teraTypes": ["Steel"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Ice Beam", "Freeze-Dry", "Earth Power", "Shadow Ball", "Trick"],
                 "teraTypes": ["Steel"]
             },
             {
@@ -334,7 +344,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Knock Off", "Defog", "Roost", "Pursuit"],
+                "movepool": ["Knock Off", "Defog", "Roost", "Pursuit", "Dual Wingbeat"],
                 "teraTypes": ["Steel"]
             },
             {
@@ -409,7 +419,7 @@
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Draco Meteor", "Core Enforcer", "Fire Blast", "Stealth Rock"],
+                "movepool": ["Draco Meteor", "Core Enforcer", "Fire Blast", "Close Combat", "Flash Cannon"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -464,7 +474,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Fire Blast", "Moonblast", "Giga Drain", "Trick Room", "Recover"],
+                "movepool": ["Flare Blitz", "Play Rough", "Leaf Blade", "Trick Room", "Recover"],
                 "teraTypes": ["Steel"]
             },
             {
@@ -604,7 +614,7 @@
             }
         ]
     },
-	"oonoosi": {
+	"oonoonsi": {
         "level": 100,
         "sets": [
             {
@@ -759,7 +769,12 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Meteor Beam", "Dazzling Gleam", "Psychic Noise", "Tera Blast", "Agility"],
+                "movepool": ["Meteor Beam", "Dazzling Gleam", "Psychic Noise", "Tri Attack", "Agility"],
+                "teraTypes": ["Steel"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Tri Attack", "Dazzling Gleam", "Extrasensory", "Trick"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -853,7 +868,7 @@
                 "teraTypes": ["Steel"]
             },
             {
-                "role": "Bulky Setup",
+                "role": "Bulky Support",
                 "movepool": ["Body Press", "Stored Power", "Rest", "Sleep Talk"],
                 "teraTypes": ["Steel"]
             }

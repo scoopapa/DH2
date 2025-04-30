@@ -116,4 +116,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
+	poweruppunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

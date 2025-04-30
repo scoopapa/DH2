@@ -22,6 +22,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.hasAbility('earlybird')) {
 				pokemon.cureStatus();
+				return;
 			}
 			pokemon.statusState.time--;
 			if (pokemon.statusState.time <= 0) {

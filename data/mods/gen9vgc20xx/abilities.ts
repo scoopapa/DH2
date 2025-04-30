@@ -6,11 +6,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyMove(move, source, target) {
 			if (move.flags['contact']) {
 				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.flags['contact'] && target.volatiles['stall']) {
-				this.debug('Armor Piercer reduces damage against Stall');
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
 				return this.chainModify(0.25);
 			}
 		},
@@ -171,10 +172,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	eternalice: {
-		shortDesc: "Moves last; immune to Fire and Fighting.",
+		shortDesc: "Moves last; immune to Fire and Water.",
 		onFractionalPriority: -0.1,
 		onTryHit(target, source, move) {
-			if (move.type === 'Fire' || move.type === 'Fighting') {
+			if (move.type === 'Fire' || move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Eternal Ice');
 				return null;
 			}
@@ -245,29 +246,90 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	rewind: {
-		shortDesc: "Recovers items on user's side at 50% or below.",
-		onDamage(damage, target, source, effect) {
-			if (target.hp - damage <= target.maxhp / 2) {
-				this.effectState.rewindTriggered = true; // Mark that the ability has been triggered
-			}		
+		name: "Rewind",
+		shortDesc: "Restores items on user's side when HP brought to 50% or below.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		rating: 4,
+		num: -12,
+	
+		onStart(pokemon) {
+			pokemon.addVolatile('rewind');
 		},
-		onAfterMoveSecondary(target, source, move) {
-			// Check if the ability was triggered
-			if (this.effectState.rewindTriggered) {
-				this.effectState.rewindTriggered = false; // Reset the trigger
-				// Recover items from all Pokémon on the user's side that don't already have an item
-				for (const ally of target.side.pokemon) {
-					if (ally && !ally.item) { // Only recover items for allies without items
-						// Use Recycle to recover the item
-						this.actions.useMove('Recycle', ally);
+	
+		onDamage(damage, target, source, effect) {
+			const rewindState = target.volatiles['rewind'];
+			if (!rewindState || typeof damage !== 'number') return;
+	
+			const hpBefore = target.hp;
+			const hpAfter = hpBefore - damage;
+	
+			if (rewindState.triggeredThisTurn) return;
+	
+			if (hpBefore > target.maxhp / 2 && hpAfter <= target.maxhp / 2) {
+				rewindState.shouldTrigger = true;
+				rewindState.triggeredThisTurn = true;
+			}
+		},
+	
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (rewindState) {
+				rewindState.triggeredThisTurn = false;
+	
+				if (rewindState.shouldTrigger) {
+					rewindState.shouldTrigger = false;
+					this.add('-message', `${pokemon.name} has triggered Rewind!`);
+	
+					let itemRestored = false;
+	
+					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+						for (const ally of pokemon.side.pokemon) {
+							if (ally && !ally.item) {
+								this.actions.useMove('Recycle', ally);
+								itemRestored = true;
+							}
+						}
+	
+						if (itemRestored) {
+							this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+						}
 					}
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Rewind",
-		rating: 4,
-		num: -12,
+	
+		onUpdate(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (!rewindState || !rewindState.shouldTrigger) return;
+	
+			rewindState.shouldTrigger = false;
+	
+			let itemRestored = false;
+	
+			this.add('-ability', pokemon, 'Rewind');
+	
+			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+				for (const ally of pokemon.side.pokemon) {
+					if (ally && !ally.item) {
+						this.actions.useMove('Recycle', ally);
+						itemRestored = true;
+					}
+				}
+	
+				if (itemRestored) {
+					this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+				}
+			}
+		},
+	
+		condition: {
+			noCopy: true,
+			onStart() {
+				this.effectState.shouldTrigger = false;
+				this.effectState.triggeredThisTurn = false;
+			}
+		},
 	},
 	//
 	weightbreaker: {
@@ -325,7 +387,149 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -16,
 	},
+	//
+	archetype: {
+		shortDesc: "Gains opposite effect of target's lowered stat.",
+		onPrepareHit(source, target, move) {
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						const boosts = { ...foe.boosts };
+						foe.addVolatile('archetype', source);
+						foe.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', foe, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${foe.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						const boosts = { ...adjacent.boosts };
+						adjacent.addVolatile('archetype', source);
+						adjacent.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', adjacent, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${adjacent.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				const boosts = { ...target.boosts };
+				target.addVolatile('archetype', source);
+				target.volatiles['archetype'].boosts = boosts;
+			//	this.add('-start', target, 'Archetype', '[from] ability: Archetype');
+			//	this.add('-message', `${target.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (target === source) return; // originally had "target.fainted" but its inclusion might be unnecessary, especially in VGC where if one ally faints, the other becomes unaffected by ability
 	
+			const stats = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'] as const;
+			type BoostStatistics = typeof stats[number];
+			const boostGains: Partial<Record<BoostStatistics, number>> = {};
+	
+			for (const activeTarget of this.getAllActive()) {
+				if (!activeTarget.volatiles['archetype']) continue;
+	
+				const storedBoosts = activeTarget.volatiles['archetype'].boosts;
+				const currentBoosts = activeTarget.boosts;
+	
+				for (const stat of stats) {
+					if (currentBoosts[stat] < storedBoosts[stat] || 
+						(currentBoosts[stat] < 0 && currentBoosts[stat] < storedBoosts[stat])) {
+						const difference = storedBoosts[stat] - currentBoosts[stat];
+						boostGains[stat] = (boostGains[stat] || 0) + difference;
+	
+					//	this.add('-message', `${source.name} gains ${difference} ${stat} boost from ${activeTarget.name}'s lower boost.`);
+					}
+				}
+	
+				delete activeTarget.volatiles['archetype'];
+			//	this.add('-end', activeTarget, 'Archetype', '[from] ability: Archetype');
+			}
+	
+			// Apply all boost gains at once and trigger visual display
+			if (Object.keys(boostGains).length > 0) {
+				this.boost(boostGains, source, source, this.effect);
+			}
+		},	
+		flags: {},
+		name: "Archetype",
+		rating: 4,
+		num: -17,
+	},
+	//
+	hearth: {
+		shortDesc: "Ice does 50% less damage against user's side + 1/16 healing.",
+		onAnyModifyDamage(damage, source, target, effect) {
+			if (source && effect && effect.effectType === 'Move' && effect.type === 'Ice') {
+				if (target === this.effectState.target || target.isAlly(this.effectState.target)) {
+					this.debug('Hearth damage reduction from Ice-type move');
+				//	this.add('-message', `${target.name} is protected by Hearth, reducing damage from the Ice-type move!`);
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			// Check if the user or any ally is frozen
+			const allies = pokemon.side.active; // Get all active Pokémon on the user's side
+			for (const ally of allies) {
+				if (ally.status === 'frz') {
+					this.add('-activate', ally, 'ability: Hearth');
+					ally.cureStatus(); // Cure the frozen status for the ally
+				}
+			}
+			 // Also check the user of the ability
+			 if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Hearth');
+				pokemon.cureStatus(); // Cure the frozen status for the user
+			}
+		},
+		onImmunity(type, pokemon) {
+			// Grant immunity to freeze for the user and their allies
+			if (type === 'frz') {
+				const allies = pokemon.side.active; // Get all active Pokémon on the user's side
+				for (const ally of allies) {
+					if (ally === pokemon || ally.isAlly(pokemon)) {
+						this.add('-immune', ally, 'ability: Hearth');
+					}
+				}
+				return false; // Prevent the freeze status from being applied
+			}
+		},
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+			const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+				if (ally) {
+					this.heal(ally.baseMaxhp / 16, ally);
+			}
+		},
+		flags: {},
+		name: "Hearth",
+		rating: 3,
+		num: -18,
+	},
+	//
+	underhanded: {
+		/*shortDesc: "50% more damage if user's stats lowered this turn.",
+		onBasePower(basePower, source) {
+			if (source.statsLoweredThisTurn) {
+				this.debug('underhanded buff');
+				return this.chainModify(1.5);
+			}
+		},*/
+		shortDesc: "50% more physical damage if target's stats lowered this turn.",
+		onBasePower(basePower, source, target, move) {
+			if (move.category === 'Physical' && target.statsLoweredThisTurn) {
+				this.debug('underhanded buff');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Underhanded",
+		rating: 3,
+		num: -19,
+	},
+	// end
 
 	// Changes to abilities
 	// Start

@@ -1845,10 +1845,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Non-STAB moves have 1.2x power.",
+		shortDesc: "Non-STAB moves have 1.5x power.",
 	},
 	galewings: {
 		inherit: true,
@@ -2514,5 +2514,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -83,
 		desc: "If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
 		shortDesc: "If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
+	},
+	seasonpass: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const allTypes = ['Ghost', 'Fire', 'Fairy', 'Ice'];
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes()[0] !== type && allTypes.includes(type)) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typeadd', type, '[from] ability: Season Pass');
+			}
+		},
+		rating: 4.5,
+		flags: {},
+		name: "Season Pass",
+		num: -84,
+		desc: "This Pokemon's first type changes to Ghost/Fire/Fairy/Ice/Normal. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's first type changes to match the type of the Ghost/Fire/Fairy/Ice/Normal move it is about to use.",
+	},
+	rattled: {
+		inherit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Rattled weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Rattled weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		desc: "Bug/Ghost/Dark resistances. This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon affected this Pokemon with the Intimidate Ability.",
+		shortDesc: "Bug/Ghost/Dark resistances. Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated.",
 	},
 };

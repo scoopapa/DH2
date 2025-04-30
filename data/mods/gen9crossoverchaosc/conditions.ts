@@ -883,7 +883,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'Nano Boosted',
 		// Setting turn + 2 turns active
 		duration: 3,
-	 onStart(pokemon) {
+		onStart(pokemon) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Zap Cannon", pokemon);
 			this.add('-start', pokemon, 'Nano Boost');
@@ -892,7 +892,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Nano Boost');
 			let statName: BoostID;
-			let mod: 1;
+			let mod = 1;
 			// If a nanoboosted mon has contrary, their boosts are actually debuffs
 			if (pokemon.ability === 'contrary') {
 				mod = -1;
@@ -901,8 +901,17 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			for (const statName of nanoStats) {
 				if ((pokemon.boosts[statName] * mod) > 0) {
 					pokemon.boosts[statName] = 0;
+					this.add('-setboost', pokemon, statName, pokemon.boosts[statName], '[silent]');
 				}
 			}
+		},
+	},
+	hazardshield: {
+		name: 'hazardshield',
+		// Basically having this status makes this Pokemon have HDB, which means its functionality is handled in moves
+		onStart(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Baneful Bunker", pokemon);
 		},
 	},
 };

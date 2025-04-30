@@ -454,7 +454,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	shedinja: {
 		//tier: "DoNU",
-		tier: "Restricted",
+		//tier: "Restricted", banned
 		isNonstandard: null,
 		randomBattleMoves: ["poltergeist", "xscissor", "suckerpunch", "shadowsneak", "willowisp", "swordsdance"]
 	},

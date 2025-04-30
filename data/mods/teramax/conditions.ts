@@ -79,7 +79,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Stakeout');
 						break;
 					case 'Corviknight':
-						pokemon.setAbility('intimidate', pokemon, true);
+						pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
 						//this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
@@ -184,7 +184,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (['behemothbash','behemothblade','dynamaxcannon'].includes(move.id)) {
+			if (['behemothbash','behemothblade','dynamaxcannon','terablast'].includes(move.id)) {
 				return this.chainModify(2);
 			}
 		},
