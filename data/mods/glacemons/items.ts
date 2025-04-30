@@ -1704,7 +1704,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
-				return this.chainModify([[4915, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onModifyMove(move, pokemon) {
