@@ -1059,7 +1059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	scythelimbs: {
 		num: -14,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 65,
 		category: "Physical",
 		name: "Scythe Limbs",
 		pp: 5,
