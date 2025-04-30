@@ -159,7 +159,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	enamorustherian: {
 		inherit: true,
-		abilities: { 0: "Multiscale", H: "Resourceful"},
+		abilities: { 0: "Multiscale", H: "Hospitality"},
 	},
 	genesect: {
 		inherit: true,
@@ -1294,7 +1294,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	ironboulder: {
 		inherit: true,
-		abilities: { 0: "Quark Drive", H: "Sturdy" },
+		abilities: { 0: "Quark Drive", H: "Long Reach" },
 	},
 	ironmoth: {
 		inherit: true,
@@ -1306,7 +1306,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	ironjugulis: {
 		inherit: true,
-		abilities: { 0: "Quark Drive", H: "Wind Power" },
+		abilities: { 0: "Quark Drive", H: "Aerodynamism" },
 	},
 	ironthorns: {
 		inherit: true,
@@ -1957,7 +1957,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	regice: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Sturdy", H: "Refrigerate" },
+		abilities: { 0: "Clear Body", 1: "Sturdy", H: "Filter" },
 	},
 	registeel: {
 		inherit: true,
@@ -1969,11 +1969,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	regieleki: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Galvanize", H: "Transistor" },
+		abilities: { 0: "Clear Body", 1: "Opportunist", H: "Transistor" },
 	},
 	regidrago: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Pressure", H: "Dragon's Maw" },
+		abilities: { 0: "Clear Body", 1: "Mega Launcher", H: "Dragon's Maw" },
 	},
 	// Karate
 	sawk: {
@@ -2232,7 +2232,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	empoleon: {
 		inherit: true,
-		abilities: { 0: "Torrent", H: "Anticipation" },
+		abilities: { 0: "Torrent", H: "Lightning Rod" },
 	},
 	floetteeternal: {
 		inherit: true,
