@@ -926,15 +926,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	raikou: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Berserk"},
+		abilities: {0: "Pressure", 1: "Inner Focus", H: "Berserk"},
 	},
 	entei: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Searing Touch"},
+		abilities: {0: "Pressure", 1: "Inner Focus", H: "Searing Touch"},
 	},
 	suicune: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Mental Fortitude"},
+		abilities: {0: "Pressure", 1: "Inner Focus", H: "Mental Fortitude"},
 	},
 	// Gen 3 :
 	treecko: {
@@ -1679,17 +1679,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	uxie: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 70, def: 130, spa: 70, spd: 130, spe: 95},
-		abilities: {0: "Levitate", H: "Magic Bounce"},
+		abilities: {0: "Levitate", 1: "Mirror Armor", H: "Magic Bounce"},
 	},
 	mesprit: {
 		inherit: true,
 		types: ["Psychic", "Fairy"],
-		abilities: {0: "Levitate", H: "Mental Fortitude"},
+		abilities: {0: "Levitate", 1: "Healer", H: "Mental Fortitude"},
 	},
 	azelf: {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
-		abilities: {0: "Levitate", H: "Sturdy"},
+		abilities: {0: "Levitate", 1: "Defiant", H: "Competitive"},
 	},
 	regigigas: {
 		inherit: true,
@@ -3051,8 +3051,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	// Gen 9
 	meowscarada: {
 		inherit: true,
-		otherFormes: ["Meganium-Mega"],
-		formeOrder: ["Meganium", "Meganium-Mega"],
+		otherFormes: ["Meowscarada-Mega"],
+		formeOrder: ["Meowscarada", "Meowscarada-Mega"],
 	},
 	meowscaradamega: {
 		num: 908,
@@ -3213,11 +3213,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	wochien: {
 		inherit: true,
+		baseStats: {hp: 115, atk: 85, def: 100, spa: 95, spd: 135, spe: 40},
 		abilities: {0: "Tablets of Ruin", H: "Leaf Dress"},
 	},
 	chienpao: {
 		inherit: true,
-		abilities: {0: "Sword of Ruin", H: "Sharpness"},
+		abilities: {0: "Sword of Ruin", H: "Slush Rush"},
 	},
 	tinglu: {
 		inherit: true,
@@ -3284,16 +3285,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	okidogi: {
 		inherit: true,
-		abilities: {0: "Toxic Chain", H: "Scrappy"},
+		abilities: {0: "Toxic Chain", 1: "Guard Dog", H: "Scrappy"},
 	},
 	munkidori: {
 		inherit: true,
-		abilities: {0: "Toxic Chain", H: "Psychic Surge"},
+		abilities: {0: "Toxic Chain", 1: "Frisk", H: "Psychic Surge"},
 	},
 	fezandipiti: {
 		inherit: true,
 		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
-		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+		abilities: {0: "Toxic Chain", 1: "Technician", H: "Magic Guard"},
 	},
 	gougingfire: {
 		inherit: true,
