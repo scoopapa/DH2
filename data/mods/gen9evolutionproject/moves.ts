@@ -70,7 +70,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			this.add('-anim', attacker, "Aurora Veil", defender);
 			this.boost({spd: 1}, attacker, attacker, move);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;

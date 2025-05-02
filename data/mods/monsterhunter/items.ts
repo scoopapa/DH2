@@ -13,19 +13,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1001,
 			gen: 9,
 	},
-		malzenite: {
-			name: "Malzenite",
-			spritenum: 617,
-			megaStone: "Primordial Malzeno",
-			megaEvolves: "Malzeno",
-			itemUser: ["Malzeno"],
-			onTakeItem(item, source) {
-				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-				return true;
-			},
-			num: 1002,
-			gen: 9,
-	},
 		magnamalite: {
 			name: "Magnamalite",
 			spritenum: 614,
@@ -156,6 +143,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1010,
 			gen: 9,
 		},
+		diablite: {
+			name: "Diablite",
+			spritenum: 589,
+			megaStone: "Massacre Diablos",
+			megaEvolves: "Diablos",
+			itemUser: ["Diablos"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1012,
+			gen: 9,
+	},
 		valstraxite: {
 			name: "Valstraxite",
 			spritenum: 605,
@@ -168,5 +168,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 			num: 1011,
 			gen: 9,
-	}	
+	},
+	frostorb: {
+		name: "Frost Orb",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+			status: 'frz',
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('frz', pokemon);
+		},
+		desc: "At the end of each turn, tries to freeze the holder.",
+		shortDesc: "At the end of each turn, tries to freeze the holder.",
+		num: -26,
+		gen: 4,
+	}
 };

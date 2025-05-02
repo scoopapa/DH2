@@ -93,6 +93,27 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'flittle').learnset.psychic;
 		delete this.modData('Learnsets', 'flittle').learnset.psyshock;
 		delete this.modData('Learnsets', 'flittle').learnset.storedpower;
+		delete this.modData('Learnsets', 'scyther').learnset.closecombat;
+		delete this.modData('Learnsets', 'scyther').learnset.brickbreak;
+		delete this.modData('Learnsets', 'scyther').learnset.facade;
+		delete this.modData('Learnsets', 'scyther').learnset.nightslash;
+		delete this.modData('Learnsets', 'scyther').learnset.trailblaze;
+		delete this.modData('Learnsets', 'scyther').learnset.reversal;
+		delete this.modData('Learnsets', 'scyther').learnset.thief;
+		this.modData("Learnsets", "chespin").learnset.bodypress = ["9L1"];
+		this.modData("Learnsets", "chespin").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "chespin").learnset.bulkup = ["9L1"];
+		this.modData("Learnsets", "meowthalola").learnset.suckerpunch = ["9L1"];
+		this.modData("Learnsets", "meowthalola").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "hatenna").learnset.covet = ["9L1"];
+		this.modData("Learnsets", "shuppet").learnset.spiritbreak = ["9L1"];
+		this.modData("Learnsets", "duskull").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "duskull").learnset.superfang = ["9L1"];
+		this.modData("Learnsets", "duskull").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "charcadet").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "charcadet").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "charcadet").learnset.poweruppunch = ["9L1"];
+		this.modData("Learnsets", "charcadet").learnset.psychocut = ["9L1"];
 	},
 	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {

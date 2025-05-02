@@ -3320,7 +3320,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.onEffectiveness = function(typeMod, target, type) {
 				if (target.getTypes()[0] === type || target.terastallized) return 1;
 				else return 0;
-			},
+			}
 		},
 		flags: {},
 		name: "No Wonder",

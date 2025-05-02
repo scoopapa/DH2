@@ -9,7 +9,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	venusaurmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	charmander: {
 		tier: "LC"
@@ -21,10 +21,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	charizardmegax: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	charizardmegay: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	squirtle: {
 		tier: "LC"
@@ -57,7 +57,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	beedrillmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	pidgey: {
 		tier: "LC"
@@ -141,7 +141,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	pikachustarter: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	pikachuworld: {
 		tier: "OU"
@@ -369,7 +369,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	slowbromega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	slowbrogalar: {
 		tier: "OU"
@@ -591,7 +591,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	jolteon: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	flareon: {
 		tier: "OU"
@@ -615,7 +615,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	aerodactylmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	snorlax: {
 		tier: "OU"
@@ -657,7 +657,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	mew: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	chikorita: {
 		tier: "LC"
@@ -1008,7 +1008,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	sceptilemega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	torchic: {
 		tier: "LC"
@@ -1020,7 +1020,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	blazikenmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mudkip: {
 		tier: "LC"
@@ -1032,7 +1032,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	swampertmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	poochyena: {
 		tier: "LC"
@@ -1107,7 +1107,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	gardevoirmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	surskit: {
 		tier: "LC"
@@ -1197,7 +1197,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	medichammega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	electrike: {
 		tier: "LC"
@@ -1206,7 +1206,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	manectricmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	plusle: {
 		tier: "OU"
@@ -1377,7 +1377,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	absolmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	wynaut: {
 		tier: "LC"
@@ -1449,13 +1449,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	latias: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	latiasmega: {
 		tier: "Uber"
 	},
 	latios: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	latiosmega: {
 		tier: "Uber"
@@ -1488,7 +1488,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	deoxysdefense: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	deoxysspeed: {
 		tier: "Uber"
@@ -1509,7 +1509,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE"
 	},
 	infernape: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	piplup: {
 		tier: "LC"
@@ -1629,7 +1629,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	lopunnymega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mismagius: {
 		tier: "OU"
@@ -1680,10 +1680,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE"
 	},
 	garchomp: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	garchompmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	munchlax: {
 		tier: "LC"
@@ -1695,7 +1695,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	lucariomega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	hippopotas: {
 		tier: "LC"
@@ -1782,7 +1782,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	gallademega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	probopass: {
 		tier: "OU"
@@ -1818,7 +1818,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	azelf: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	dialga: {
 		tier: "Uber"
@@ -1854,7 +1854,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	darkrai: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	shaymin: {
 		tier: "OU"
@@ -2388,7 +2388,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	volcarona: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	cobalion: {
 		tier: "OU"
@@ -2418,10 +2418,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	landorus: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	landorustherian: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	kyurem: {
 		tier: "OU"
@@ -2433,31 +2433,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	keldeo: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	keldeoresolute: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	meloetta: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	meloettapirouette: {
 		tier: "OU"
 	},
 	genesect: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	genesectdouse: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	genesectshock: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	genesectburn: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	genesectchill: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	chespin: {
 		tier: "LC"
@@ -2487,10 +2487,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	greninjabond: {
-		tier: "OU"
+		tier: "Illegal"
 	},
 	greninjaash: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	bunnelby: {
 		tier: "LC"
@@ -2709,7 +2709,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	xerneasneutral: {
-		tier: "Uber"
+		tier: "Illegal"
 	},
 	yveltal: {
 		tier: "Uber"
@@ -2727,13 +2727,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	dianciemega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	hoopa: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	hoopaunbound: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	volcanion: {
 		tier: "OU"
@@ -2841,7 +2841,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	wishiwashischool: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mareanie: {
 		tier: "LC"
@@ -3069,13 +3069,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	xurkitree: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	celesteela: {
 		tier: "OU"
 	},
 	kartana: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	guzzlord: {
 		tier: "OU"
@@ -3111,10 +3111,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	blacephalon: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	zeraora: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	meltan: {
 		tier: "OU"
@@ -3405,7 +3405,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	urshifu: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	urshifurapidstrike: {
 		tier: "OU"
@@ -3435,7 +3435,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	calyrexice: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	calyrexshadow: {
 		tier: "Uber"
@@ -3447,7 +3447,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	ursaluna: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	ursalunabloodmoon: {
 		tier: "OU"
@@ -3459,7 +3459,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	sneasler: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	overqwil: {
 		tier: "OU"
@@ -3795,7 +3795,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	ironvaliant: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	koraidon: {
 		tier: "Uber"
@@ -3885,6 +3885,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	pecharunt: {
-		tier: "OU"
+		tier: "Uber"
 	},
 };
