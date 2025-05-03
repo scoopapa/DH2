@@ -804,8 +804,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify([5324, 4096]);
 		},
-			onModifySpe(spe) {
+		onModifySpe(spe) {
 			return this.chainModify(0.5);
+		},
 	},
 
 
