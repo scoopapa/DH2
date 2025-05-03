@@ -999,6 +999,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 110,
 		category: "Physical",
 		pp: 10,
+		desc: "100% chance to lower user's Attack by 1.",
 		shortdesc: "100% chance to lower user's Attack by 1.",
 		onModifyMove(move, pokemon, target) {
 			if (target && ['sunnyday', 'desolateland', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
