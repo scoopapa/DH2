@@ -24,7 +24,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Valoseus",
 
 		types: ["Grass"],
-		baseStats: {hp: 105, atk: 125, def: 85, spa: 65, spd: 75, spe: 30},
+		baseStats: {hp: 110, atk: 125, def: 85, spa: 65, spd: 75, spe: 30},
 		abilities: {0: "Filter", 1: "Water Bubble", H: "Iron Fist"},
 		heightm: 1.0,
 		weightkg: 2.1,
@@ -654,7 +654,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Flying"],
 		baseStats: {hp: 95, atk: 125, def: 100, spa: 60, spd: 79, spe: 81},
-		abilities: {0: "Unburden", 1: "Aerilate", H: "Wind Rider"},
+		abilities: {0: "Unburden", 1: "Aerilate", H: "Cloud Nine"},
 		heightm: 6.5,
 		weightkg: 88.3,
 		color: "White",
@@ -970,6 +970,23 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	lachespind: {
+		num: -1050,
+		name: "Lachespind",
+		types: ["Psychic"],
+		gender: "F",
+		baseStats: {hp: 76, atk: 81, def: 54, spa: 60, spd: 101, spe: 113},
+		abilities: {0: "Shield Dust", 1: "Overcoat", H: "Cotton Down"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 15.0,
+		color: "Purple",
+		eggGroups: ["Field"],
+	//	creator: "Genuine_Angus_B33F",
+	},
+	// end
+
 	// Changes
 	// start
 	shiftry: {
@@ -1017,7 +1034,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	gengar: {
 		inherit: true,
-		abilities: {0: "Levitate"},
+		abilities: {0: "Levitate", H: "Toxic Debris"},
 	},
 	// end
 

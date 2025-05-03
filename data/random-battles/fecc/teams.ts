@@ -725,7 +725,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm', 'noretreat', 'seedflare', 'swagger']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1261,42 +1261,68 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
-			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozium Z';
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
-				if (moves.has('shellsmash')) mega += 'b';
+				if (moves.has('shellsmash') || 
+					moves.has('hydropump') ||
+					moves.has('icebeam') ||
+					moves.has('aurasphere') ||
+					moves.has('dragonpulse')) mega += 'b';
 				else mega += 'a';
 			}
 			return this.dex.species.get(mega).requiredItems[0];
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
 		//mon hardcodes
-		if (species.id === 'hooporantunbound') return 'Light Ball';
-		if (species.id === 'zacianoh') return 'Rusted Sword';
-		if (species.id === 'shitto') return 'Black Sludge';
-		if (species.id === 'swalos') return 'Starf Berry';
-		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		if (species.id === 'tipplin') return 'Metronome';
-		if (species.id === 'mimighold') return 'Lum Berry';
-		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || 
-			species.id === 'naclinch' || 
-			species.id === 'glimmgar' || 
-			species.id === 'roseron') return 'Eviolite';
-		if (species.id === 'exeggumoramora') return 'White Herb';
-		if (species.id === 'rolyklawfy') return 'Focus Sash';
-		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
-		if (species.id === 'gigawrath') return 'Choice Band';
-		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+		switch (species.id) {
+			case 'hooporantunbound':
+				return 'Light Ball';
+			case 'zacianoh':
+				return 'Rusted Sword';
+			case 'zamadactylcrowned':
+				return 'Rusted Shield';
+			case 'shitto':
+				return 'Black Sludge';
+			case 'tipplin':
+				return 'Metronome';
+			case 'mimighold':
+				return 'Lum Berry';
+			case 'exeggumoramora':
+				return 'White Herb';
+			case 'gigawrath':
+				return 'Choice Band';
+			case 'spinningfire':
+				return 'Berserk Gene';
+			case 'tapuluna':
+				return 'Life Orb';
+			case 'yvenne':
+				return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+			case 'swalos':
+			case 'snorcannon':
+				return 'Starf Berry';
+			case 'necromaneduskmane':
+			case 'ferrothorns':
+				return 'Booster Energy';
+			case 'koraisle':
+			case 'mirainun':
+				return 'Destiny Knot';
+			case 'rolyklawfy':
+			case 'blazer':
+			case 'smearccino':
+			case 'shedlurk':
+				return 'Focus Sash';
+			case 'basbal':
+			case 'naclinch':
+			case 'glimmgar':
+			case 'roseron':
+				return 'Eviolite';
+		}
+		
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
-		
-		if (species.id === 'blazer') return 'Focus Sash';
-		if (species.id === 'spinningfire') return 'Berserk Gene';
-		if (species.id === 'snorcannon') return 'Starf Berry';
-		if (species.id === 'tapuluna') return 'Life Orb';
-		if (species.id === 'smearccino') return 'Focus Sash';
+		if (species.id === 'espathrem' && moves.has('storedpower')) return 'weaknesspolicy';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';

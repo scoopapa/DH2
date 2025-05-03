@@ -198,7 +198,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 24,
 		name: "Archeops",
 		types: ["Rock", "Fighting"],
-		baseStats: {hp: 85, atk: 120, def: 85, spa: 92, spd: 65, spe: 110},
+		baseStats: {hp: 85, atk: 110, def: 85, spa: 92, spd: 65, spe: 110},
 		abilities: {0: "First Flight"},
 	},
 	tirtouga: {
@@ -277,7 +277,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Crocalor-Ancient",
 		forme: "Ancient",
 		types: ["Fire", "Dragon"],
-		baseStats: {hp: 104, atk: 75, def: 75, spa: 110, spd: 100, spe: 66},
+		baseStats: {hp: 104, atk: 85, def: 75, spa: 100, spd: 100, spe: 66},
 		abilities: {0: "Blaze", H: "Unaware"},
 	},
 	pumpkabooancient: {
@@ -466,7 +466,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Tauros",
 		forme: "Ancestor",
 		types: ["Fire", "Ghost"],
-		baseStats: {hp: 100, atk: 65, def: 85, spa: 55, spd: 80, spe: 105},
+		baseStats: {hp: 100, atk: 60, def: 85, spa: 60, spd: 80, spe: 105},
 		abilities: {0: "Gorilla Tactics"},
 	},
 	conkeldurrconch: {
@@ -544,7 +544,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Bellibolt-Twisted",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 109, atk: 64, def: 91, spa: 103, spd: 83, spe: 45},
-		abilities: {0: "Electromorphosis", 1: "Static", H: "Dry Skin"},
+		abilities: {0: "Electromorphosis", 1: "Static", H: "Water Absorb"},
 	},
 	salazzleancient: {
 		num: 64,
@@ -553,4 +553,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 69, spa: 108, spd: 69, spe: 114},
 		abilities: {0: "Oblivious", H: "Intimidate"},
 	},
+	nurturaptor: {
+		num: 65,
+		name: "Nurturaptor",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 80, atk: 76, def: 80, spa: 85, spd: 85, spe: 119},
+		abilities: {0: "Natural Cure", 1: "Friend Guard", H: "Healer"},
+		weightkg: 30.0,
+	},
+	hemlophosaur: {
+		num: 66,
+		name: "Hemlophosaur",
+		types: ["Poison", "Grass"],
+		baseStats: {hp: 85, atk: 110, def: 75, spa: 65, spd: 95, spe: 100},
+		abilities: {0: "Chlorophyll", 1: "Poison Point", H: "Merciless"},
+		weightkg: 74.0,
+	},
+	carriguana: {
+		num: 67,
+		name: "Carriguana",
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 90, atk: 60, def: 110, spa: 90, spd: 95, spe: 60},
+		abilities: {0: "Oblivious", 1: "Wandering Spirit", H: "Cud Chew"},
+		weightkg: 420.0,
+	},
+
 }

@@ -283,6 +283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.type = 'Water';
 				break;
 			}
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	aurawheel: {
@@ -350,6 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.type = 'Dragon';
 					break;
 			}
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	attract: {
@@ -423,7 +425,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (source.species.name === 'Hooporant-Unbound') {
 				return;
 			}
-			this.hint("Only a Pokemon whose form is Hooporant Unbound can use this move.");
+			this.hint("Only a Pokemon whose form is Hooporant-Unbound can use this move.");
 			if (source.species.name === 'Hooporant') {
 				this.attrLastMove('[still]');
 				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
@@ -441,6 +443,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			if (type === "Stellar") type = pokemon.getTypes(false, true)[0];
 			move.type = type;
+			this.add('-message', `${move.name}'s type changed to match ${pokemon.species.name}'s!`);
 		},
 	},
 	terastarstorm: {

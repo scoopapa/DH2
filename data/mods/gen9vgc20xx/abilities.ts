@@ -6,11 +6,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyMove(move, source, target) {
 			if (move.flags['contact']) {
 				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.flags['contact'] && target.volatiles['stall']) {
-				this.debug('Armor Piercer reduces damage against Stall');
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
 				return this.chainModify(0.25);
 			}
 		},
@@ -171,10 +172,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	eternalice: {
-		shortDesc: "Moves last; immune to Fire and Fighting.",
+		shortDesc: "Moves last; immune to Fire and Water.",
 		onFractionalPriority: -0.1,
 		onTryHit(target, source, move) {
-			if (move.type === 'Fire' || move.type === 'Fighting') {
+			if (move.type === 'Fire' || move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Eternal Ice');
 				return null;
 			}
@@ -245,29 +246,90 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	rewind: {
-		shortDesc: "Recovers items on user's side at 50% or below.",
-		onDamage(damage, target, source, effect) {
-			if (target.hp - damage <= target.maxhp / 2) {
-				this.effectState.rewindTriggered = true; // Mark that the ability has been triggered
-			}		
+		name: "Rewind",
+		shortDesc: "Restores items on user's side when HP brought to 50% or below.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		rating: 4,
+		num: -12,
+	
+		onStart(pokemon) {
+			pokemon.addVolatile('rewind');
 		},
-		onAfterMoveSecondary(target, source, move) {
-			// Check if the ability was triggered
-			if (this.effectState.rewindTriggered) {
-				this.effectState.rewindTriggered = false; // Reset the trigger
-				// Recover items from all Pokémon on the user's side that don't already have an item
-				for (const ally of target.side.pokemon) {
-					if (ally && !ally.item) { // Only recover items for allies without items
-						// Use Recycle to recover the item
-						this.actions.useMove('Recycle', ally);
+	
+		onDamage(damage, target, source, effect) {
+			const rewindState = target.volatiles['rewind'];
+			if (!rewindState || typeof damage !== 'number') return;
+	
+			const hpBefore = target.hp;
+			const hpAfter = hpBefore - damage;
+	
+			if (rewindState.triggeredThisTurn) return;
+	
+			if (hpBefore > target.maxhp / 2 && hpAfter <= target.maxhp / 2) {
+				rewindState.shouldTrigger = true;
+				rewindState.triggeredThisTurn = true;
+			}
+		},
+	
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (rewindState) {
+				rewindState.triggeredThisTurn = false;
+	
+				if (rewindState.shouldTrigger) {
+					rewindState.shouldTrigger = false;
+					this.add('-message', `${pokemon.name} has triggered Rewind!`);
+	
+					let itemRestored = false;
+	
+					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+						for (const ally of pokemon.side.pokemon) {
+							if (ally && !ally.item) {
+								this.actions.useMove('Recycle', ally);
+								itemRestored = true;
+							}
+						}
+	
+						if (itemRestored) {
+							this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+						}
 					}
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Rewind",
-		rating: 4,
-		num: -12,
+	
+		onUpdate(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (!rewindState || !rewindState.shouldTrigger) return;
+	
+			rewindState.shouldTrigger = false;
+	
+			let itemRestored = false;
+	
+			this.add('-ability', pokemon, 'Rewind');
+	
+			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+				for (const ally of pokemon.side.pokemon) {
+					if (ally && !ally.item) {
+						this.actions.useMove('Recycle', ally);
+						itemRestored = true;
+					}
+				}
+	
+				if (itemRestored) {
+					this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+				}
+			}
+		},
+	
+		condition: {
+			noCopy: true,
+			onStart() {
+				this.effectState.shouldTrigger = false;
+				this.effectState.triggeredThisTurn = false;
+			}
+		},
 	},
 	//
 	weightbreaker: {
@@ -448,9 +510,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	underhanded: {
-		shortDesc: "50% more damage if user's stats lowered this turn.",
+		/*shortDesc: "50% more damage if user's stats lowered this turn.",
 		onBasePower(basePower, source) {
 			if (source.statsLoweredThisTurn) {
+				this.debug('underhanded buff');
+				return this.chainModify(1.5);
+			}
+		},*/
+		shortDesc: "50% more physical damage if target's stats lowered this turn.",
+		onBasePower(basePower, source, target, move) {
+			if (move.category === 'Physical' && target.statsLoweredThisTurn) {
 				this.debug('underhanded buff');
 				return this.chainModify(1.5);
 			}

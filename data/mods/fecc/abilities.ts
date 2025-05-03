@@ -89,13 +89,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bongcloud: {
 		onStart(pokemon) {
 			if (pokemon.side.totalFainted) {
+				if (!pokemon.originalLevel) pokemon.originalLevel = pokemon.set.level;
 				this.add('-activate', pokemon, 'ability: Bongcloud');
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
-				if(pokemon.leveled) return;
-				pokemon.level += 20 * fallen;
-				pokemon.set.level += 20 * fallen;
+				pokemon.level = pokemon.originalLevel + 20 * fallen;
+				pokemon.set.level = pokemon.originalLevel + 20 * fallen;
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
@@ -107,7 +107,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details, '[silent]');
 				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
-				pokemon.leveled = true;
 			}
 		},
 		onModifyAtk(atk, pokemon) {
@@ -430,7 +429,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Second Phase",
-		//shortDesc: "Changes to Zygarb-Reclyced at 0 or less HP and fully heals user.",
+		//shortDesc: "Changes to Zygarb-Recycled at 0 or less HP and fully heals user.",
 	},
 	asonesex: {
 		onPreStart(pokemon) {
@@ -613,9 +612,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
 					this.runEvent('EatItem', pokemon, null, null, item);
-					pokemon.setItem(pokemon.item);
-					this.add('-item', pokemon, pokemon.item);
+					const newItem = pokemon.item;
 					pokemon.lastItem = '';
+					pokemon.setItem(newItem);
 				}
 			}
 		},
@@ -769,11 +768,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	goodvibes: {
 		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Good Vibes');
 			pokemon.side.addSideCondition('goodvibe');
 		},
 		onModifyAtkPriority: 6,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.side.getSideCondition('badvibe')) return this.chainModify(1.5);
+			if (pokemon.side.getSideCondition('badvibe')) {
+				this.add('-message', `${pokemon.name} is enjoying the bad vibe!`);
+				return this.chainModify(1.5);
+			}
 		},
 		flags: {},
 		name: "Good Vibes",
@@ -781,11 +784,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	badvibes: {
 		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Bad Vibes');
 			pokemon.side.addSideCondition('badvibe');
 		},
 		onModifySpAPriority: 6,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.side.getSideCondition('goodvibe')) return this.chainModify(1.5);
+			if (pokemon.side.getSideCondition('goodvibe')) {
+				this.add('-message', `${pokemon.name} is enjoying the good vibe!`);
+				return this.chainModify(1.5);
+			}
 		},
 		flags: {},
 		name: "Bad Vibes",
@@ -1548,7 +1555,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				const newTarget = this.sample(target.adjacentFoes());
-				this.add('-message', `${source.name} becomes the center of attention!`);
+				this.add('-message', `${newTarget.name} becomes the center of attention!`);
 				this.actions.useMove(newMove, newTarget, newTarget);
 				return null;
 			}
@@ -1760,6 +1767,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	codebreaker: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Code Breaker');
+			pokemon.addVolatile('ability:corrosion');
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
@@ -1895,8 +1903,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Gorilla of Ruin SpA drop');
 			return this.chainModify(0.75);
 		},
-		onFoeSwitchIn(pokemon) {
-			if(!pokemon.hasAbility('Gorilla of Ruin') && !pokemon.volatiles['gorillaofruin']) pokemon.addVolatile('gorillaofruin');
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target.hasAbility('gorillaofruin') && !target.volatiles['gorillaofruin']) target.addVolatile('gorillaofruin');
+			}
+		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['gorillaofruin']) target.removeVolatile('gorillaofruin');
+			}
 		},
 		condition: {
 			onStart(pokemon) {
@@ -2552,6 +2567,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sweatypalms: {
 		onBasePower(basePower, pokemon, target, move) {
 			if (this.randomChance(3, 10)) {
+				this.add('-activate', pokemon, 'ability: Sweaty Palms');
 				this.add('-message', `${pokemon.name} is going all out for this attack!`);
 				return this.chainModify(2);
 			}
@@ -2733,6 +2749,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyTryPrimaryHit(target, source, move) {
+			if (move.target === 'self') return;
 			this.add('-ability', source, 'Intimidate', 'boost');
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|You look strong. Let's fight!`);
 			this.boost({atk: -1}, target, source, null, true);
@@ -3048,30 +3065,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifyAtk(atk, pokemon) {
 				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Protosynthesis atk boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, pokemon) {
 				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Protosynthesis def boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(spa, pokemon) {
 				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Protosynthesis spa boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(spd, pokemon) {
 				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Protosynthesis spd boost');
-				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.3 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Protosynthesis spe boost');
-				return this.chainModify(1 - 0.5 * Math.pow(2, this.effectState.virusTurns));
+				return this.chainModify(Math.max(0, 1 - 0.5 * Math.pow(2, this.effectState.virusTurns)));
 			},
 			onEnd(pokemon) {
 				this.effectState.virusTurns = 0;
@@ -3101,7 +3118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				used: false,
 			};
 			target.moveSlots[target.moveSlots.length] = learnedMove;
-			target.baseMoveSlots[target.moveSlots.length - 1] = learnedMove;
+			target.baseMoveSlots[target.moveSlots.length] = learnedMove;
 		},
 		//shortDesc: "When this Pokemon is targeted by a move, it adds that move to its moveset.",
 	},
@@ -3128,13 +3145,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!warnMoves.length) return;
 			const [warnMoveName, warnTarget] = this.sample(warnMoves);
 			this.add('-activate', pokemon, 'ability: Epidemiologist', warnMoveName, `[of] ${warnTarget}`);
+			this.add('-message', `${pokemon.name} disapproved of ${warnTarget.name}'s ${warnMoveName}!`);
 			warnTarget.strongestMove = warnMoveName;
 			warnTarget.addVolatile('epidemiologist');
 		},
 		condition: {
 			onBasePowerPriority: 19,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.name === attacker.strongestMove.name) {
+				if (attacker.strongestMove && move.name === attacker.strongestMove.name) {
 					return 0;
 				}
 			},
@@ -3156,12 +3174,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bad Bees",
-		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.,
+		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.",
 	},
 	allforone: {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
-			if (target !== source && move.category !== 'Status') {
+			if (target !== source && move.category !== 'Status' && !target.getAbility().flags['cantsuppress']) {
 				target.addVolatile('gastroacid');
 				source.addVolatile('ability:' + target.getAbility().id);
 			}
@@ -3300,8 +3318,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
-				return 1;
-			};
+				if (target.getTypes()[0] === type || target.terastallized) return 1;
+				else return 0;
+			}
 		},
 		flags: {},
 		name: "No Wonder",
@@ -3329,16 +3348,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (changes > 0) this.boost({ atk: 2 * changes }, pokemon, pokemon, null, false, true);
 			pokemon.previousTypes = pokemon.types;
 		},
+		onEnd(pokemon){
+			pokemon.previousTypes = null;
+		},
 		flags: {},
 		name: "Chemical Imbalance",
 		//shortDesc: "This Pokemon's Attack is raised by 2 for each type that it changes.",
 	},
 	fruitloop: {
 		onStart(pokemon) {
-			pokemon.abilityState.gluttony = true;
-		},
-		onDamage(item, pokemon) {
-			pokemon.abilityState.gluttony = true;
+			pokemon.addVolatile('ability:gluttony');
 		},
 		onEatItem(item, pokemon) {
 			if (!pokemon.berryCount) pokemon.berryCount = 0;
@@ -3357,7 +3376,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//shortDesc: "Gluttony + This Pokemon eats its berries 5 times.",
 	},
 	transfiguration: {
+		onStart(pokemon) {
+			const pokemonList = Object.keys(randomSets);
+			const newPokemon = this.sample(pokemonList);
+			
+			const sets = randomSets[newPokemon].sets;
+			const set = this.sample(sets);
+			let movepool = set.movepool;
+			for (let i = 0; i < 4; i ++) {
+				const temp = this.sample(movepool);
+				const moveSlot = this.dex.moves.get(temp);
+				const learnedMove = {
+					move: moveSlot,
+					id: moveSlot.id,
+					pp: moveSlot.pp,
+					maxpp: moveSlot.pp,
+					target: moveSlot.target,
+					disabled: false,
+					used: false,
+				};
+				pokemon.moveSlots[i] = learnedMove;
+				movepool.splice(movepool.indexOf(temp), 1);
+				if (movepool.length === 0) break;
+			}
+			pokemon.formeChange(newPokemon);
+		},
 		onResidual(pokemon) {
+			if (!pokemon.activeTurns) return;
 			const pokemonList = Object.keys(randomSets);
 			const newPokemon = this.sample(pokemonList);
 			
@@ -3587,7 +3632,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}	
 				if (success) {
-					target.setType(target.getTypes(true).map(type => lostTypes.includes(type) ? "???" : type));
+					target.setType('???');
 					this.add('-start', target, 'typechange', target.types.join('/'));
 				}				
 			}
@@ -3813,6 +3858,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Illusion will not disguise as anything
 					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
 						pokemon.illusion = possibleTarget;
+						pokemon.toHeal = possibleTarget;
 					}
 					break;
 				}
@@ -3820,10 +3866,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
+				this.add('-start', target, 'typechange', target.baseSpecies.types.join('/'), '[silent]');
 				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, source, move);
 				const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
-				const healed = allies[allies.length - 1];
-				if (healed.hp < healed.baseMaxhp) {
+				const healed = allies.filter(p => p.name === target.toHeal.name)[0];
+				if (healed && !healed.fainted && healed.hp < healed.baseMaxhp) {
 					const toHeal = Math.trunc(Math.min(healed.baseMaxhp / 4, healed.baseMaxhp - healed.hp));
 					healed.hp += toHeal;
 					this.add('-message', `${target.name} paid ${healed.name} ${toHeal} HP in legal settlement for identity theft and defamation.`);
@@ -3833,6 +3880,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
+				pokemon.toHeal = pokemon.illusion;
 				pokemon.illusion = null;
 				const details = pokemon.getUpdatedDetails();
 				this.add('replace', pokemon, details);
@@ -4062,11 +4110,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let move2 = '';
 				switch (ball) {
 					case 0:
-						move1 = 'extremespeed';
+						move1 = 'boomburst';
 						move2 = 'shadowball';
 						break;
 					case 1:
-						move1 = 'lavaplume';
+						move1 = 'nastyplot';
 						move2 = 'pyroball';
 						break;
 					case 2:
@@ -4090,7 +4138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'energyball';
 						break;
 					case 7:
-						move1 = 'gigadrain';
+						move1 = 'synthesis';
 						move2 = 'energyball';
 						break;
 					case 8:
@@ -4118,7 +4166,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'shadowball';
 						break;
 					case 14:
-						move1 = 'shadowsneak';
+						move1 = 'moonlight';
 						move2 = 'shadowball';
 						break;
 					case 15:
@@ -4126,11 +4174,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'rollout';
 						break;
 					case 16:
-						move1 = 'poisonjab';
+						move1 = 'barbbarrage';
 						move2 = 'shadowball';
 						break;
 					case 17:
-						move1 = 'dracometeor';
+						move1 = 'dragondance';
 						move2 = 'energyball';
 						break;
 				}
@@ -4160,6 +4208,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.baseMoveSlots[3] = learnedMove2;
 				this.add('-message', `${pokemon.name} fetched a ${balls[ball]}!`);
 				pokemon.formeChange(balls[ball]);
+				this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.types.join('/'), '[from] ability: Switch Balls', '[silent]');
 			}
 		},
 		flags: {},

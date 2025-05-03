@@ -51,6 +51,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Soundproof", 1: "Velocity", H: "Aftermath" },
 	},
+		glimmet: {
+		inherit: true,
+		abilities: { 0: "Toxic Debris", 1: "Corrosion", H: "Aftermath" },
+	},
+		glimmora: {
+		inherit: true,
+		abilities: { 0: "Toxic Debris", 1: "Corrosion", H: "Aftermath" },
+	},
 	arrokuda: {
 		inherit: true,
 		abilities: { 0: "Swift Swim", 1: "Velocity", H: "Propeller Tail" },
@@ -151,7 +159,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	enamorustherian: {
 		inherit: true,
-		abilities: { 0: "Multiscale", H: "Resourceful"},
+		abilities: { 0: "Multiscale", H: "Hospitality"},
 	},
 	genesect: {
 		inherit: true,
@@ -498,7 +506,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	silvallywater: {
 		inherit: true,
-		abilities: { 0: "RKS System", H: "Water Absorb" },
+		abilities: { 0: "RKS System", H: "Liquid Body" },
 		requiredItem: null,
 		requiredItems: ["Water Memory", "Waterium Z"],
 		unreleasedHidden: true,
@@ -858,7 +866,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	goodra: {
 		inherit: true,
 		types: ["Dragon", "Water"],
-		abilities: { 0: "Sap Sipper", 1: "Poison Heal", H: "Gooey" },
+		abilities: { 0: "Sap Sipper", 1: "Poison Heal", H: "Liquid Body" },
 	},
 	golisopod: {
 		inherit: true,
@@ -1013,11 +1021,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	tentacool: {
 		inherit: true,
-		abilities: { 0: "Evanesce", 1: "Liquid Ooze", H: "Rain Dish" },
+		abilities: { 0: "Liquid Body", 1: "Liquid Ooze", H: "Rain Dish" },
 	},
 	tentacruel: {
 		inherit: true,
-		abilities: { 0: "Evanesce", 1: "Liquid Ooze", H: "Rain Dish" },
+		abilities: { 0: "Liquid Body", 1: "Liquid Ooze", H: "Rain Dish" },
 	},
 	drowzee: {
 		inherit: true,
@@ -1286,7 +1294,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	ironboulder: {
 		inherit: true,
-		abilities: { 0: "Quark Drive", H: "Sturdy" },
+		abilities: { 0: "Quark Drive", H: "Long Reach" },
 	},
 	ironmoth: {
 		inherit: true,
@@ -1298,7 +1306,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	ironjugulis: {
 		inherit: true,
-		abilities: { 0: "Quark Drive", H: "Wind Power" },
+		abilities: { 0: "Quark Drive", H: "Aerodynamism" },
 	},
 	ironthorns: {
 		inherit: true,
@@ -1379,15 +1387,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	gastly: {
 		inherit: true,
-		abilities: { 0: "Levitate", H: "Life Stealer" },
+		abilities: { 0: "Levitate", 1: "Merciless", H: "Life Stealer" },
 	},
 	haunter: {
 		inherit: true,
-		abilities: { 0: "Levitate", H: "Life Stealer" },
+		abilities: { 0: "Levitate", 1: "Merciless", H: "Life Stealer" },
 	},
 	gengar: {
 		inherit: true,
-		abilities: { 0: "Levitate", H: "Life Stealer" },
+		abilities: { 0: "Levitate", 1: "Merciless", H: "Run It Back" },
 	},
 	obstagoon: {
 		inherit: true,
@@ -1554,13 +1562,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	latiasmega: {
 		inherit: true,
-		abilities: { 0: "Moody" },
 		requiredItem: null,
 		requiredItems: ["Latiasite", "Parallel Mega Orb"],
 	},
 	latiosmega: {
 		inherit: true,
-		abilities: { 0: "Moody" },
 		requiredItem: null,
 		requiredItems: ["Latiosite", "Parallel Mega Orb"],
 	},
@@ -1681,7 +1687,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	munkidori: {
 		inherit: true,
-		abilities: { 0: "Toxic Chain", H: "Forewarn" },
+		abilities: { 0: "Toxic Chain", 1: "Merciless", H: "Forewarn" },
+	},
+	okidogi: {
+		inherit: true,
+		abilities: { 0: "Toxic Chain", 1: "Merciless", H: "Guard Dog" },
+	},
+	fezandipiti: {
+		inherit: true,
+		abilities: { 0: "Toxic Chain", 1: "Merciless", H: "Technician" },
 	},
 	ralts: {
 		inherit: true,
@@ -1941,7 +1955,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	regice: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Sturdy", H: "Refrigerate" },
+		abilities: { 0: "Clear Body", 1: "Sturdy", H: "Filter" },
 	},
 	registeel: {
 		inherit: true,
@@ -1953,11 +1967,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	regieleki: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Galvanize", H: "Transistor" },
+		abilities: { 0: "Clear Body", 1: "Opportunist", H: "Transistor" },
 	},
 	regidrago: {
 		inherit: true,
-		abilities: { 0: "Clear Body", 1: "Pressure", H: "Dragon's Maw" },
+		abilities: { 0: "Clear Body", 1: "Mega Launcher", H: "Dragon's Maw" },
 	},
 	// Karate
 	sawk: {
@@ -2216,7 +2230,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	empoleon: {
 		inherit: true,
-		abilities: { 0: "Torrent", H: "Anticipation" },
+		abilities: { 0: "Torrent", H: "Lightning Rod" },
 	},
 	floetteeternal: {
 		inherit: true,

@@ -256,4 +256,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		shortDesc: "Effects of Bulletproof and Thick Fat.",
 	},
+	fauxfur: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def) {
+			return this.chainModify(2);
+		},
+		flags: {breakable: 1},
+		name: "Faux Fur",
+		rating: 4,
+		shortDesc: "Effects of Fur Coat and Dazzling.",
+	},
 };

@@ -950,7 +950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ["Walking Wake", "Okidogi"],
 		types: ["Water", "Poison"],
 		baseStats: {hp: 95, atk: 105, def: 105, spa: 95, spd: 85, spe: 95},
-		abilities: {0: "Pronounsyntheis"},
+		abilities: {0: "Pronounsynthesis"},
 	},
 	espathrem: {
 		name: "Espathrem",

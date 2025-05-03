@@ -54,7 +54,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	pebblestorm: {
 		num: -1,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 75,
 		category: "Physical",
 		name: "Pebble Storm",
 		pp: 20,
@@ -122,7 +122,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	flameburst: {
 		inherit: true,
 		viable: true,
-		basePower: 40,
+		basePower: 60,
 		isNonstandard: null,
 		pp: 30,
 		priority: 1,
@@ -154,7 +154,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	mentalgymnastics: {
 		num: -4,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		name: "Mental Gymnastics",
 		pp: 10,
@@ -520,12 +520,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	spectralthief: {
 		inherit: true,
 		basePower: 60,
+		rating: 4,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		onHit(target) {
 			target.clearBoosts();
 			this.add('-clearboost', target);
 		},
-		isViable: true,
 	},
 	gravelgrater: {
 		num: -7,
@@ -569,9 +569,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
 				this.boost({ atk: 1, def: 2 }, source);
-			}
-			else if (sourceAtk < targetAtk) {
-				this.boost({ atk: 1, def: 2 }, target);
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -620,6 +617,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	landswrath: {
 		inherit: true,
 		basePower: 70,
+		rating: 4,
 		onAfterHit(target, pokemon, move) {
 			let success = false;
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
@@ -846,7 +844,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	poisonfang: {
 		inherit: true,
 		accuracy: 95,
-		basePower: 65,
+		basePower: 75,
 		pp: 20,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
@@ -858,12 +856,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		secondaries: [
 			{
-				chance: 10,
-				status: 'psn',
+				chance: 30,
+				status: 'tox',
 			},
 		],
 		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to poison the target.",
-		shortDesc: "1.5x power if user moves before target. 10% poison.",
+		shortDesc: "1.5x power if user moves before target. 30% tox.",
 	},
 	fishiousrend: {
 		inherit: true,
@@ -891,7 +889,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		type: "Fighting",
 		accuracy: 95,
-		basePower: 65,
+		basePower: 75,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Hyper Fang damage boost');
@@ -901,14 +899,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			return move.basePower;
 		},
 		secondary: {
-			chance: 30,
+			chance: 10,
 			boosts: {
-				atk: -1,
+				def: -1,
 			},
 		},
 		pp: 20,
 		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Atk by 1 stage.",
-		shortDesc: "1.5x power if user moves before target. 30% -1 Atk.",
+		shortDesc: "1.5x power if user moves before target. 30% -1 Def.",
 	},
 	// Handling Cursed Branch
 	fling: {
@@ -1001,13 +999,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 110,
 		category: "Physical",
 		pp: 10,
+		shortdesc: "100% chance to lower user's Attack by 1.",
 		onModifyMove(move, pokemon, target) {
 			if (target && ['sunnyday', 'desolateland', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
 				move.accuracy = true;
 			}
 		},
 		secondary: {
-			chance: 30,
+			chance: 100,
 			self: {
 				boosts: {
 					atk: -1,
@@ -1060,7 +1059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	scythelimbs: {
 		num: -14,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 65,
 		category: "Physical",
 		name: "Scythe Limbs",
 		pp: 5,
@@ -1081,7 +1080,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "X-Scissor", target);
 		},
-		shortDesc: "Hits twice; -1 Atk per hit. Ignored if target switches.",
+		shortDesc: "Hits twice; -1 Atk. Ignored if target switches.",
 		secondary: null,
 		target: "normal",
 		type: "Bug",
@@ -1136,7 +1135,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "Hits 2-5 times. If user has >= +1 SpA, hits 4-5 times.",
+		shortDesc: "Hits 2-5 times. If >= +1 SpA, hits 4-5 times.",
 	},
 	// Slate 6
 	burningjealousy: {
@@ -1159,7 +1158,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 		desc: "Has a 100% chance to burn the target and raise user's Sp. Attack by 2 stages if it had a stat stage raised this turn.",
-		shortDesc: "If target has stat raise: 100% burn; user: +2 Sp. Atk.",
+		shortDesc: "If target has stat raise: 100% burn; user: +2 SpA.",
 	},
 	barbbarrage: {
 		inherit: true,
@@ -1198,6 +1197,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 25,
 		pp: 20,
+		rating: 4,
 		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
 		multihit: [2, 5],
 		secondary: {
@@ -1271,7 +1271,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	frostnip: {
 		num: -18,
-		accuracy: true,
+		accuracy: 85,
 		basePower: 0,
 		category: "Status",
 		name: "Frostnip",
@@ -1496,42 +1496,32 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	dragonhammer: {
 		inherit: true,
 		accuracy: 90,
-		basePower: 100,
+		basePower: 110,
 		pp: 10,
-		self: {
-			boosts: {
-				atk: -1,
-			},
-		},
-		desc: "Lowers the user's Attack by 1 stage.",
-		shortDesc: "Lowers the user's Atk by 1.",
+		recoil: [33, 100],
+		desc: "Has 1/3 recoil.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 	hammerarm: {
 		inherit: true,
-		self: {
-			boosts: {
-				atk: -1,
-			},
-		},
-		desc: "Lowers the user's Attack by 1 stage.",
-		shortDesc: "Lowers the user's Atk by 1.",
+		basePower: 110,
+		recoil: [33, 100],
+		desc: "Has 1/3 recoil.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 	icehammer: {
 		inherit: true,
 		accuracy: 90,
-		basePower: 100,
-		self: {
-			boosts: {
-				atk: -1,
-			},
-		},
-		desc: "Lowers the user's Attack by 1 stage.",
-		shortDesc: "Lowers the user's Atk by 1.",
+		basePower: 110,
+		recoil: [33, 100],
+		desc: "Has 1/3 recoil.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 	chillingwater: {
 		inherit: true,
 		basePower: 80,
 		pp: 15,
+		rating: 4,
 		secondary: {
 			chance: 30,
 			status: 'frz',
@@ -1649,11 +1639,11 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	sonicboom: {
 		inherit: true,
 		damage: null,
-		basePower: 40,
+		basePower: 60,
 		accuracy: 100,
 		category: "Special",
 		desc: "Priority +1, Sound move.",
-		shortDesc: "Usually goes first. Sound Move.",
+		shortDesc: "Usually goes first. Sound move.",
 		name: "Sonic Boom",
 		priority: 1,
 		isNonstandard: null,
@@ -1695,7 +1685,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	octazooka: {
 		inherit: true,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 80,
 		pp: 20,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, pulse: 1},
 		secondary: {
@@ -1774,7 +1764,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				pokemon.maybeDisabled = true;
 			},
 			onFoeBeforeMovePriority: 4,
-			onFoeBeforeMove(attacker, defender, move) {
+			onFoeBeforeMove(attacker, defender, move, target) {
 				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
 					this.damage(Math.round(target.maxhp / 4), attacker, defender);
 					this.add('cant', attacker, 'move: Imprison', move);
@@ -1782,8 +1772,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		shortDesc: "WIP",
-		desc: "WIP",
+		shortDesc: "Target can't use setup or the user's moves, and they take 25% max hp when using Imprisoned moves",
+		desc: "No foe can use any move known by the user, or any setup move. Target takes 25% max HP damage if an attempt is made to use Imprisoned move.",
 	},
 	powderbomb: {
 		num: -28,
@@ -2024,23 +2014,23 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: 'Bonfire',
 		pp: 10,
 		priority: 0,
+		shortDesc: "+20 BP for each ally with this move.",
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
 			}
 		},
-		onModifyBasePowerPriority: 22,
-		onModifyBasePower(basePower, attacker, defender, move) {
-			let bonfireBP = 0
+		basePowerCallback(basePower, attacker, defender, move) {
+			let bonfireBP = 60
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of attacker.moveSlots) {
 					if (moveSlot.name === 'Bonfire') {
-						bonfireBP += 20
+						bonfireBP += 20;
 					}
 				}
 			}
-			move.basePower += bonfireBP
+			return bonfireBP
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
@@ -2051,21 +2041,57 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Fire",
 	},
 	kiblast: {
-        num: -37,
-        accuracy: 100,
-        basePower: 140,
-        category: "Special",
-        name: "Ki Blast",
-        pp: 5,
-        priority: 0,
-        flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-        secondary: null,
-        target: "normal",
-        onAfterHit(target, pokemon, sourceEffect) {
-            if (target !== "normal") return
-            this.useMove("Ki Blast", pokemon, "self", sourceEffect);
-        },
-        type: "Fighting",
-        contestType: "Cool",
-    },
+		num: -37,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		onAfterHit(pokemon) {
+			this.useMove("Ki Blast 2", pokemon);
+		},
+		type: "Fighting",
+		shortDesc: "Damages user as much as it does to target.",
+		contestType: "Cool",
+	},
+	kiblast2: {
+		num: -38,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast 2",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		shortDesc: "Damages user as much as it does to target.",
+		contestType: "Cool",
+	},
+	surprise: {
+		num: -39,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Surprise!",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		shortDesc: "Placeholder for Surprise Bomb.",
+		contestType: "Cool",
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+				move.category = 'Special';
+			}
+		},
+	},
 };

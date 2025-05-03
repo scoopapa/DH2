@@ -3406,6 +3406,91 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Fails if the target did not select a physical attack, special attack, or Me First for use this turn, or if the target moves before the user.",
 		shortDesc: "Usually goes first. Fails if target is not attacking.",
 	},
+	razorwind: {
+		inherit: true,
+		basePower: 120,
+		type: "Flying",
+	},
+	befuddlepowder: {
+		num: -81,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "G-Max Befuddle",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, powder: 1 },
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Befuddle", target);
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+		contestType: "Cool",
+		shortDesc: "Double damage on targets that resist.",
+	},
+	piercingdart: {
+		desc: "Hits Steel types for super effective damages.",
+		shortDesc: "Super effective on Steel targets.",
+		num: -82,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Piercing Dart",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, slicing: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pin Missile", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	hindenburg: {
+		num: -83,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item || pokemon.status === 'brn') {
+				this.debug("BP doubled");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Drop", target);
+			this.add('-anim', source, "Explosion", target);
+		},
+		category: "Special",
+		name: "Hindenburg",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "any",
+		type: "Ghost",
+		contestType: "Cool",
+		shortDesc: "Power doubles if the user has no held item or is burned.",
+	},
 	// Everlasting Winter field
 	auroraveil: {
 		inherit: true,
