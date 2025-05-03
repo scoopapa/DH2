@@ -791,19 +791,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 		desc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 	},
-	meowscaradite: {
-		name: "Meowscaradite",
-		megaStone: "Meowscarada-Mega",
-		megaEvolves: "Meowscarada",
-		itemUser: ["Meowscarada"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -51,
-		gen: 9,
-		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
-	},
 	// everlasting winter
 	safetygoggles: {
 		inherit: true,

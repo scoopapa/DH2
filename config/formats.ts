@@ -899,14 +899,6 @@ export const Formats: FormatList = [
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex',
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {
-			if (source?.forme && source.forme.startsWith('Mega') && source.hasItem('parallelmegaorb')) {
-				let newAbility = source.set.ability
-				const oldAbility = source.setAbility(newAbility);
-			}
-			return {...species};
-		},
 	},
 	{
 		name: "[Gen 9] GlaceMons Uber",
@@ -922,14 +914,6 @@ export const Formats: FormatList = [
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex Uber',
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {
-			if (source?.forme && source.forme.startsWith('Mega') && source.hasItem('parallelmegaorb')) {
-				let newAbility = source.set.ability
-				const oldAbility = source.setAbility(newAbility);
-			}
-			return {...species};
-		},
 	},
 	{
 		name: "[Gen 9] Hide and Seaking",

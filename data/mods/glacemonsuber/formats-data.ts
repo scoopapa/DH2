@@ -981,11 +981,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mewtwo: {
 		inherit: true,
-		tier: "Uber",
+		tier: "UU",
 	},
 	mewtwomegax: {
 		inherit: true,
-		tier: "Uber",
+		tier: "UU",
 	},
 	mewtwomegay: {
 		inherit: true,
@@ -1425,7 +1425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lugia: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	hooh: {
 		inherit: true,
@@ -3013,7 +3013,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ferrothorn: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	klink: {
 		inherit: true,
@@ -4265,7 +4265,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hatterene: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	impidimp: {
 		inherit: true,
@@ -4677,7 +4677,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	glimmora: {
 		inherit: true,
-		tier: "Uber",
+		tier: "UU",
 	},
 	shroodle: {
 		inherit: true,

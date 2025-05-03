@@ -269,7 +269,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	clefable: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	vulpix: {
@@ -1788,7 +1788,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	altariamega: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	zangoose: {
@@ -4473,10 +4473,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	meowscarada: {
 		tier: "UU",
-		doublesTier: "DOU",
-	},
-	meowscaradamega: {
-		tier: "OU",
 		doublesTier: "DOU",
 	},
 	fuecoco: {
