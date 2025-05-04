@@ -861,7 +861,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				status: 'tox',
 			},
 		],
-		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to poison the target.",
+		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to badly poison the target.",
 		shortDesc: "1.5x power if user moves before target. 30% tox.",
 	},
 	fishiousrend: {
@@ -906,8 +906,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 		pp: 20,
-		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Atk by 1 stage.",
-		shortDesc: "1.5x power if user moves before target. 30% -1 Def.",
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to lower the target's Def by 1 stage.",
+		shortDesc: "1.5x power if user moves before target. 10% -1 Def.",
 	},
 	// Handling Cursed Branch
 	fling: {
@@ -1000,6 +1000,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 110,
 		category: "Physical",
 		pp: 10,
+		desc: "100% chance to lower user's Attack by 1.",
 		shortdesc: "100% chance to lower user's Attack by 1.",
 		onModifyMove(move, pokemon, target) {
 			if (target && ['sunnyday', 'desolateland', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
