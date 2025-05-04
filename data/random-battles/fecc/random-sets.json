@@ -1535,7 +1535,7 @@
         "sets": [
 			{
                 "role": "Fast Attacker",
-                "movepool": ["Shadow Ball", "Focus Blast", "Dark Pulse", "Trick", "U-Turn"],
+                "movepool": ["Shadow Ball", "Close Combat", "Knock Off", "Trick", "U-Turn"],
                 "teraTypes": ["Ghost", "Fighting", "Steel"]
             },
 			{
