@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	amatsu: {
 		num: 61,
 		name: "Amatsu",
-		types: ["Dragon", "Flying"],
+		types: ["Water", "Flying"],
 		baseStats: {hp: 101, atk: 95, def: 90, spa: 125, spd: 119, spe: 90},
 		abilities: {0: "Regenerator", 1: "Delta Stream"},
 		heightm: 1.0,
@@ -345,7 +345,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	dahrenmohran: {
 		num: 82,
 		name: "Dah'ren Mohran",
-		types: ["Dragon", "Ground"],
+		types: ["Rock", "Ground"],
 		baseStats: {hp: 104, atk: 123, def: 114, spa: 92, spd: 101, spe: 86},
 		abilities: {0: "Sand Force", 1: "Sand Rush"},
 		heightm: 1.0,
@@ -1433,7 +1433,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	sharaishvalda: {
 		num: 125,
 		name: "Shara Ishvalda",
-		types: ["Dragon", "Rock"],
+		types: ["Psychic", "Rock"],
 		baseStats: {hp: 103, atk: 135, def: 120, spa: 115, spd: 95, spe: 52},
 		abilities: {0: "Earth Eater", 1: "Tablets of Ruin"},
 		heightm: 1.0,
