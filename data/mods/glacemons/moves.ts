@@ -673,6 +673,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			return success;
 		},
 		shortDesc: "Free user from hazards/terrain/bind/Leech Seed.",
+		isViable: true,
 	},
 	// Slate 4
 	triattack: {
@@ -1526,6 +1527,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			chance: 30,
 			status: 'frz',
 		},
+		isViable: true,
 		desc: "Has a 30% chance to inflict Frostbite to the target.",
 		shortDesc: "30% chance to inflict Frostbite to the target.",
 	},

@@ -3416,7 +3416,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "G-Max Befuddle",
+		name: "Befuddle Powder",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, powder: 1 },

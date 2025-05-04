@@ -894,7 +894,7 @@ export const Formats: FormatList = [
 		mod: 'glacemons',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['AG', 'Uber', 'Power Construct', 'Berserk Gene', 'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			//'Blastoise + Parallel Mega Orb', 'Salamence + Parallel Mega Orb', 'Gengar + Parallel Mega Orb', 'Alakazam + Parallel Mega Orb', 'Blaziken + Parallel Mega Orb', 'Lucario + Parallel Mega Orb', 'Gallade + Parallel Mega Orb', 
+			'Blastoise + Parallel Mega Orb', 'Salamence + Parallel Mega Orb', 'Gengar + Parallel Mega Orb', 'Alakazam + Parallel Mega Orb', 'Blaziken + Parallel Mega Orb', 'Lucario + Parallel Mega Orb', 'Gallade + Parallel Mega Orb', 
 			'Special Tera Orb',
 		],
 		unbanlist: ['Light of Ruin'],
@@ -918,7 +918,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'glacemonsuber',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', /*'Gengar + Parallel Mega Orb',*/
+		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Gengar + Parallel Mega Orb',
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex Uber',
