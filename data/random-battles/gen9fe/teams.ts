@@ -1351,6 +1351,8 @@ export class RandomTeams {
 				return 'Wellspring Mask';
 			case 'hatteponcornerstone':
 				return 'Cornerstone Mask';
+			case 'varantis':
+				return 'Choice Band';
 		}
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
