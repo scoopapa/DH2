@@ -65,14 +65,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	dragonator: {
 		num: 2003,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "Super-effective on Dragon types. 10% flinch chance.",
+		shortDesc: "Cannot be used on consecutive turns. Effective on Dragon-Types. 10% Flinch.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dragon') return 1;
 		},
@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "The user recovers some health by devouring food.",
+		shortDesc: "Healths health and eats held berry. Fails if user isn't holding a berry.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -145,7 +145,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	thunderrush: {
 		num: 2007,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 55,
 		category: "Physical",
 		name: "Thunder Rush",
 		shortDesc: "Usually goes first. Always crits.",
@@ -217,7 +217,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Arctic Shriek",
 		shortDesc: "Eliminates all stat changes.",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		onHit() {
@@ -456,6 +456,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 	healorder: {
 		inherit: true,
 		pp: 5,
+	},
+	lightofruin: {
+		num: 617,
+		accuracy: 90,
+		basePower: 140,
+		category: "Special",
+		name: "Light of Ruin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
 	},
 	/*
 	TORQUES

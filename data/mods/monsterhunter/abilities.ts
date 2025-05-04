@@ -111,6 +111,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
+		name: "Tempest Energy",
 		num: 1004,
 	},
 	windrider: {
@@ -131,6 +132,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
+		name: "Tempest Force",
 	},
 	mightywall: {
 		onModifyDefPriority: 5,
@@ -171,5 +173,67 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Ignite",
 		rating: 4,
 		num: -39,
+	},
+	vampirism: {
+		shortDesc: "Replaces target's ability with Vampirism if user made contact.",
+		onSourceDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			const targetAbility = target.getAbility();
+	
+			// Check if the target's ability can be suppressed
+			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'vampirism') {
+				return; // Exit if the target's ability cannot be replaced or is already Vampirism
+			}
+	
+			// Check if the move makes contact
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				// Replace the target's ability with Vampirism
+				const oldAbility = target.setAbility('vampirism', source);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Vampirism', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		flags: {},
+		name: "Vampirism",
+		rating: 3,
+		num: 1100,
+	},
+	aggravation: {
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				this.effectState.checkedBerserk = false;
+			} else {
+				this.effectState.checkedBerserk = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedBerserk;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({atk: 1}, target, target);
+			}
+		},
+		flags: {},
+		name: "Aggravation",
+		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its Max HP.",
+		rating: 2,
+		num: 201,
 	},
 }
