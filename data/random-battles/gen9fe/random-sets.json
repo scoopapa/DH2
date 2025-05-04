@@ -1500,4 +1500,13 @@
 			}
 		]
 	}
+	"fishkarphisui": {
+		"level": 100,
+		"sets": [
+			{
+				"role": "Fast Support",
+				"movepool": ["Spikes", "Destiny Bond", "Taunt", "Toxic Spikes", "Crunch"]
+			}
+		]
+	}
 }
