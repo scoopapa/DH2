@@ -1106,43 +1106,64 @@ export class RandomTeams {
 	): string {
 		const abilityData = Array.from(abilities).map(a => this.dex.abilities.get(a));
 		Utils.sortBy(abilityData, abil => -abil.rating);
-
+		console.log(species.id + " " + abilityData.map(a => a.name));
 		switch (species.id) {
 			case 'aerodirge':
+			case 'aerodirgemega':
 				return 'Prehistoric Presence';
 			case 'aerowake':
+			case 'aerowakemega':
 				return 'Dyschronometria';
 			case 'aggram':
+			case 'aggrammega':
 				return 'Molten Core';
 			case 'chomptry':
+			case 'chomptrymega':
 				return 'Sand Rush';
 			case 'druddizor':
+			case 'druddizormega':
 				return 'Bleeding Edge';
 			case 'tentazor':
+			case 'tentazormega':
 				return 'Hydrotechnic';
 			case 'garpyuku':
+			case 'garpyukumega':
 				return 'Eczema';
 			case 'gooperthisui':
+			case 'gooperthisuimega':
 				return 'Pondweed';
 			case 'mawlakazam':
+			case 'mawlakazammegax':
+			case 'mawlakazammegay':
 				return 'Overwhelming';
 			case 'muktariaalola':
+			case 'muktariaalolamega':
 				return 'Neutralizing Gas';
 			case 'overgyara':
+			case 'overgyaramega':
 				return 'Intimidate';
-			case 'tyranixmega':
+			case 'tyranix':
+			case 'tyranixmegax':
+			case 'tyranixmegay':
 				return 'Sand Wrath';
 			case 'amphamence':
+			case 'amphamencemegax':
+			case 'amphamencemegay':
 				return 'Shock Factor';
 			case 'crygargonal':
+			case 'crygargonalmega':
 				return 'Rising Tension';
 			case 'girachamorigin':
+			case 'girachamoriginmega':
 				return 'Anointed';
 			case 'ironmeta':
+			case 'ironmetamega':
 				return 'Light Drive';
 			case 'solvaliant':
+			case 'solvaliantmega':
 				return 'Baryon Blade';
 			case 'necrotrikdawnwings':
+			case 'necrotrikultra':
 				return 'Airborne Armor';
 			case 'applekinggalar':
 				return 'Healthy Diet';
@@ -1334,6 +1355,7 @@ export class RandomTeams {
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
+		if (moves.has('swagger') && moves.has('acrobatics')) return 'Mirror Herb';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
