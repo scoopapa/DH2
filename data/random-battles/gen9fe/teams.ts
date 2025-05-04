@@ -1106,7 +1106,7 @@ export class RandomTeams {
 	): string {
 		const abilityData = Array.from(abilities).map(a => this.dex.abilities.get(a));
 		Utils.sortBy(abilityData, abil => -abil.rating);
-		console.log(species.id + " " + abilityData.map(a => a.name));
+		//console.log(species.id + " " + abilityData.map(a => a.name));
 		switch (species.id) {
 			case 'aerodirge':
 			case 'aerodirgemega':
