@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "Healths health and eats held berry. Fails if user isn't holding a berry.",
+		shortDesc: "Recovers HP and eats held berry. Fails if user isn't holding a berry.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
