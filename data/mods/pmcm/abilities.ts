@@ -207,7 +207,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Water Absorb');
+					this.add('-immune', target, '[from] ability: Still Water');
 				}
 				return null;
 			}
@@ -217,5 +217,90 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -107,
 		shortDesc: "This ability provides the effects of Unaware and Water Absorb.",
+	},
+	kingofthehill: {
+		//sharpness + mountaineer, still working on the custom part
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
 		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: King of the Hill');
+				return null;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Sharpness boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "King of the Hill",
+		rating: 5,
+		num: -108,
+		shortDesc: "Provides the effects of Mountaineer and Sharpness. Additionally, opposing Pokemon cannot avoid entry hazards by any means, including Boots, Flying-type, or Magic Guard.",
+	},
+	omnivore: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('stockpile');
+		},
+		flags: {},
+		name: "Omnivore",
+		rating: 5,
+		num: -109,
+		shortDesc: "This Pokemon gains a Stockpile charge upon being hit by a damaging attack.",
+	},
+	pseudowoodo: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move' && ['sudowoodo'].includes(target.species.id)) {
+				this.add('-activate', target, 'ability: Pseudowoodo');
+				this.effectState.rock = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (!['sudowoodo'].includes(target.species.id)) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category === 'Status') return;
+			if (!['sudowoodo'].includes(target.species.id)) {
+				return;
+			}
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (['sudowoodo'].includes(pokemon.species.id) && this.effectState.rock) {
+				const speciesid = pokemon.species.id === 'Sudowoodo-Rock';
+				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+			}
+		},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
+		name: "Pseudowoodo",
+		rating: 5,
+		num: -110,
+		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead. It then switches from a Grass type to a Rock type.",
+	},
 };
