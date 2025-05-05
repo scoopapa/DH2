@@ -207,7 +207,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Intimidate"},
 	},
 	masquerainmega: {
-		num: 0,
+		num: -999,
 		name: "Masquerain-Mega",
 		baseSpecies: "Masquerain",
 		forme: "Mega",
@@ -270,6 +270,22 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	sudowoodo: {
 		inherit: true,
 		abilities: {0: "Pseudowoodo"},
+		types: ["Grass"],
+	},
+	sudowoodorock: {
+		num: -1000,
+		name: "Sudowoodo-Rock",
+		baseSpecies: "Sudowoodo",
+		forme: "Rock",
+		types: ["Rock"],
+		baseStats: { hp: 70, atk: 100, def: 110, spa: 30, spd: 65, spe: 30 },
+		abilities: { 0: "Pseudowoodo" },
+		heightm: 1.7,
+		weightkg: 38,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+		requiredAbility: "Pseudowoodo",
+		battleOnly: "Sudowoodo",
 	},
 	dondozo: {
 		inherit: true,
