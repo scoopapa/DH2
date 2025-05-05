@@ -65,7 +65,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	dragonator: {
 		num: 2003,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
