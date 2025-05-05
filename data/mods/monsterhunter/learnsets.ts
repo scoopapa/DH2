@@ -4846,7 +4846,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			firstimpression: ["9L1"],
 			followme: ["9L1"],
 			geargrind: ["9L1"],
-			gigatonhammer: ["9L1"],
 			growl: ["9L1"],
 			healorder: ["9L1"],
 			honeclaws: ["9L1"],
