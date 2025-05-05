@@ -244,6 +244,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	kleavor: {
 		inherit: true,
 		abilities: {0: "King of the Hill"},
+		baseStats: { hp: 120, atk: 135, def: 95, spa: 45, spd: 75, spe: 85 },
 	},
 	araquanid: {
 		inherit: true,
