@@ -694,6 +694,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		onResidual(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target.side.totalFainted) {
 				this.add('-activate', pokemon, 'ability: Pyre');
@@ -1028,12 +1029,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.side.sideConditions['mist'] && !move.flags['contact']) {
-				return this.chainModify(0.33);
+				return this.chainModify(0.66);
 			}
 		},
-		onModifySecondaries(secondaries) {
-			const pokemon = this.effectState.target;
-			if (pokemon.side.sideConditions['mist']) {
+		onModifySecondaries(secondaries, effect) {
+			const pokemonSecondaries = this.effectState.target;
+			if (pokemonSecondaries.side.sideConditions['mist']) {
 				this.debug('Shield Dust prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
