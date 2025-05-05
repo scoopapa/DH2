@@ -9,10 +9,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		shortDesc: "If this move causes the opponent to faint, raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
 	},
 	sandsearstorm: {
-		//Now always hits in Sand instead of Rain
+		//Now always hits in Sand in addition to Rain
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
 			if (target && ['sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+			if (target && ['raindance'].includes(target.effectiveWeather())) {
 				move.accuracy = true;
 			}
 		}
@@ -138,7 +141,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			Fighting: this.dex.getEffectiveness('Fighting', target),
 			Fire: this.dex.getEffectiveness('Fire', target),
 			Normal: this.dex.getEffectiveness('Normal', target),
-		  };
+			};
 		  
 		  let bestType = 'Normal';
 		  let maxEffectiveness = -Infinity;
@@ -182,9 +185,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 	  
 		target: "normal",
-	  },
-	  
-	  metalclaw: {
+	}, 
+	metalclaw: {
 		inherit: true,
 		secondary: {
 			chance: 50,
@@ -194,6 +196,137 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				},
 			},
 		},
-  	}
+  	},
+	iciclestorm: {
+		num: -103,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Icicle Storm",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+			this.add('-anim', source, 'Icicle Crash', target);
+		},
+		self: {
+			onHit(source) {
+				this.field.setWeather('snowscape');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	springtidestorm: {
+		//Now always hits in Sand in addition to Rain
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		}
+	},
+	spitup: {
+		inherit: true,
+		type: "Poison",
+	},
+	geyser: {
+		num: -104,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Geyser",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] Water Spout ' + move.category);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Physical';
+				move.flags.contact = 1;
+			}
+		},
+		onHit(target, source, move) {
+			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
+			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	tidalsurge: {
+		num: -105,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Tidal Surge",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+			this.add('-anim', source, 'Water Pulse', target);
+		},
+		onHit(target) {
+				target.addVolatile('encore');
+				this.add('-anim', source, 'Encore', target);
+		},
+		weather: 'raindance',
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: { boost: { atk: 1 } },
+		contestType: "Beautiful",
+	},
+	bonsaibounce: {
+		num: -106,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Bonsai Bounce",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
+		onModifyPriority(priority, source, target, move) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (move.type === 'Water' || move.category === 'Status') {
+				return priority + 1;
+			}
+		},
+		onBasePower(basePower, source) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (move.type === 'Water') {
+				return basePower + 70;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.add('-anim', source, 'Splash', target);
+		},
+		onHit(target) {
+				this.add('-anim', source, 'Wood Hammer', target);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
 };
   
