@@ -202,4 +202,75 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Still Water"},
 	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	masquerainmega: {
+		num: 0,
+		name: "Masquerain-Mega",
+		baseSpecies: "Masquerain",
+		forme: "Mega",
+		types: ["Bug", "Dark"],
+		genderRatio: { M: 0.5, F: 0.5 },
+		baseStats: { hp: 70, atk: 60, def: 82, spa: 140, spd: 82, spe: 120 },
+		abilities: { 0: "Primordial Sea" },
+		heightm: 0.8,
+		weightkg: 3.6,
+		color: "Blue",
+		eggGroups: ["Water 1", "Bug"],
+		requiredItem: "Masquerainite",
+	},
+	kyuremblack: {
+		inherit: true,
+		abilities: {0: "Teravolt"},
+		types: ["Dragon", "Ice", "Electric"],
+	},
+	ironthorns: {
+		inherit: true,
+		abilities: {0: "Iron Barbs"},
+	},
+	dudunsparce: {
+		inherit: true,
+		abilities: {0: "Earth Eater"},
+		types: ["Normal", "Ground"],
+	},
+	chienpao: {
+		inherit: true,
+	},
+	pelipper: {
+		inherit: true,
+	},
+	kleavor: {
+		inherit: true,
+		abilities: {0: "King of the Hill"},
+	},
+	araquanid: {
+		inherit: true,
+		baseStats: { hp: 1, atk: 140, def: 92, spa: 50, spd: 132, spe: 42 },
+		maxHP: 1,
+	},
+	avalugghisui: {
+		inherit: true,
+		abilities: {0: "Multiscale"},
+		baseStats: { hp: 95, atk: 127, def: 184, spa: 68, spd: 72, spe: 76 },
+	},
+	swalot: {
+		inherit: true,
+		abilities: {0: "Omnivore"},
+	},
+	zapdosgalar: {
+		inherit: true,
+		types: ["Electric", "Fighting"],
+	},
+	phione: {
+		inherit: true,
+	},
+	sudowoodo: {
+		inherit: true,
+		abilities: {0: "Pseudowoodo"},
+	},
+	dondozo: {
+		inherit: true,
+	},
 };
