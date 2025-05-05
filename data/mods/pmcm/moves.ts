@@ -218,6 +218,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		shortDesc: "Sets up a snowstorm.",
 	},
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
@@ -261,14 +262,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onHit(target, source, move) {
 			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
-			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
 		},
 		onAfterSubDamage(damage, target, source, move) {
-			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
 		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		shortDesc: "This move is Physical + contact if it would be stronger.",
 	},
 	tidalsurge: {
 		num: -105,
@@ -292,6 +294,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		zMove: { boost: { atk: 1 } },
 		contestType: "Beautiful",
+		shortDesc: "Encore + Rain Dance",
 	},
 	bonsaibounce: {
 		num: -106,
@@ -321,12 +324,30 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onHit(target) {
 				this.add('-anim', source, 'Wood Hammer', target);
-			},
 		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
+		shortDesc: "If the target uses a Water-type move, this attack gains +1 Priority and doubled Power.",
 	},
+	ironstrike: {
+		num: -107,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Iron Strike",
+		pp: 24,
+		priority: 0,
+		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+			this.add('-anim', source, 'Metal Claw', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+		shortDesc: "Target takes damage from all entry hazards on their side of the field, unless they are immune.",
+	}
 };
   
