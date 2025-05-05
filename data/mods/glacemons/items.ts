@@ -1909,9 +1909,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	expertbelt: {
 		inherit: true,
-		onModifyDamage(damage, source, target, move) {
-			if (move && (target.getMoveHitData(move).typeMod > 0 || source.volatiles('expertbelt'))) {
-				if (source.volatiles('expertbelt')) {
+		onModifyDamage(damage, pokemon, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || pokemon.volatiles('expertbelt'))) {
+				if (pokemon.volatiles('expertbelt')) {
 					pokemon.removeVolatile('expertbelt');
 				}
 				else {
@@ -2009,8 +2009,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		rating: 3,
 		onStart(pokemon) {
-			this.actions.useMove("surprise", pokemon, "normal", "[from] item: Surprise Bomb")
-			this.actions.runEvent("EatItem", pokemon)
+			this.actions.useMove("surprise", pokemon)
+			this.add('-enditem', pokemon, "Surprise Bomb");
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
