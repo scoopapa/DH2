@@ -1417,29 +1417,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "If this Pokemon is an Eiscue, the first hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
 		shortDesc: "If Eiscue, the first hit it takes deals 0 damage. Effect is restored in Snow.",
 	},
-	battlebond: {
-		inherit: true,
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
-				return;
-			}
-			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.formeChange('Greninja-Ash', this.effect, true);
-			}
-		},
-		onModifyMovePriority: -1,
-		onModifyMove(move, attacker) {
-			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
-				!attacker.transformed) {
-				move.multihit = 3;
-			}
-		},
-		shortDesc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
-		desc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
-		isNonstandard: null,
-		rating: 4,
-	},
 	powerspot: {
 		inherit: true,
 		onAllyBasePower(basePower, attacker, defender, move) {
