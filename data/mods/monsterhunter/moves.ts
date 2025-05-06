@@ -69,7 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "Cannot be used on consecutive turns. Effective on Dragon-Types. 10% Flinch.",
+		shortDesc: "Cannot be used on consecutive turns. Super-Effective on Dragon-Types. 10% Flinch.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
@@ -164,7 +164,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Frenzy Slam",
-		shortDesc: "Summons reflect.",
+		shortDesc: "Summons Reflect.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -446,6 +446,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
 	},
+	blazeball: {
+		num: 2023,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Blaze Ball",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
 	/*
 	Edits
 	*/
@@ -458,7 +472,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 	},
 	lightofruin: {
-		num: 617,
+		num: 2200,
 		accuracy: 90,
 		basePower: 140,
 		category: "Special",
