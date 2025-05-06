@@ -3997,7 +3997,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['NSEW','NSEW2','NSEW3', 'NSEW4', 'NSEW5', 'NSEW6'];
+			let allowedTiers = ['NSEW','NSEW2','NSEW3', 'NSEW4', 'NSEW5', 'NSEW6','NSEW7','NSEW8', 'NSEW9', 'NSEW10', 'NSEW11', 'NSEW12', 'NSEW13', 'NSEW14', 'NSEW15'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
