@@ -821,7 +821,7 @@ horseserve: {
 				return false;
 			}
                 }
-                }
+                },
 		secondary: null,
 		target: "normal",
 		type: "Grass",
