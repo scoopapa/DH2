@@ -51,9 +51,26 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/sidney.png" height="80" width="80">`);
 						side.trainerBoost = 'sidney';
 						break;
+					case 'brycen-man':
+					case 'brycenman':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/brycenman.png" height="80" width="80">`);
+						side.trainerBoost = 'brycenman';
+						break;
+					case 'lear':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/2/23/Spr_Masters_Lear_2.png" height="80" width="80">`);
+						side.trainerBoost = 'lear';
+						break;
+					case 'flint':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/flint.png" height="80" width="80">`);
+						side.trainerBoost = 'flint';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
+				side.pokemon[0].set.name = side.pokemon[0].set.species;
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -85,6 +102,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'sidney':
 					pokemon.addVolatile('sidneyboost');
+					break;
+				case 'brycenman':
+					pokemon.addVolatile('brycenmanboost');
+					break;
+				case 'lear':
+					pokemon.addVolatile('learboost');
+					break;
+				case 'flint':
+					pokemon.addVolatile('flintboost');
 					break;
 			}
 		}

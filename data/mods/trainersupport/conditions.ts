@@ -62,6 +62,58 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	brycenmanboost: {
+		name: 'brycenmanboost',
+		noCopy: true,
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move?.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]');
+				this.add('-message', `${target.name} stole ${source.name}'s ${yourItem}!`);
+			}
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return this.chainModify(1.1);
+		},
+	},
+	learboost: {
+		name: 'learboost',
+		noCopy: true,
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			if (pokemon.item) this.heal(pokemon.baseMaxhp / 32);
+		},
+	},
+	flintboost: {
+		name: 'flintboost',
+		noCopy: true,
+		onModifyMove(move, pokemon) {
+			if (move.id === 'willowisp') move.accuracy = true;
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type !== 'Fire') return;
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug(`Base Power: ${basePowerAfterMultiplier}`);
+			if (basePowerAfterMultiplier <= 75) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	
 	//vanilla
 	sandstorm: {
