@@ -703,12 +703,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -36,
 	},
 	hauntingmelody: {
-		onModifyMove(move) {
-			const target = move.target;
+		onModifyMove(move, pokemon, target) {
 			console.log("target is " + target);
 			if (move.flags['sound']) {
-				// if (target.hasType('Ghost')) return false;
-				// if (!target.addType('Ghost')) return false;
+				if (target.hasType('Ghost')) return false;
+				if (!target.addType('Ghost')) return false;
 				this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
 			}
 		},
