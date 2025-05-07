@@ -550,7 +550,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	//
 	feigndeath: {
-		shortDesc: "Ally can't faint from full HP + takes 0.8 from Ghost moves.",
+		shortDesc: "Ally can't faint from full HP + takes 0.5 from Ghost moves.",
 		onUpdate(pokemon) {
 			for (const ally of pokemon.side.pokemon) {
 				if (ally !== pokemon && !ally.fainted && !ally.volatiles['feigndeath']) {
