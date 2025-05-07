@@ -451,6 +451,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	foongusenlightened: {
 		num: -1020,
 		name: "Foongus-Enlightened",
+		baseSpecies: "Foongus",
 
 		forme: "Enlightened",
 		types: ["Psychic", "Poison"],
