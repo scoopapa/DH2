@@ -529,6 +529,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -19,
 	},
+	//
+	feigndeath: {
+		shortDesc: "Ally can't faint from full HP + takes 0.8 from Ghost moves.",
+		onUpdate(pokemon) {
+			for (const ally of pokemon.side.pokemon) {
+				if (ally !== pokemon && !ally.fainted && !ally.volatiles['feigndeath']) {
+					ally.addVolatile('feigndeath');
+				}
+			}
+		},
+		flags: {},
+		name: "Feign Death",
+		rating: 5,
+		num: -20,
+	},
 	// end
 
 	// Changes to abilities
@@ -826,6 +841,55 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Torrent",
 		rating: 2,
 		num: 67,
+	},
+	//
+	zenmode: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			// Updated condition to allow Solastor and Lullux
+			if (!['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.species.baseSpecies) && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				// Handle forme changes for custom Pokémon
+				const zenFormes: {[k: string]: string} = {
+					'darmanitan': 'Darmanitan-Zen',
+					'darmanitangalar': 'Darmanitan-Galar-Zen',
+					'solastor': 'Solastor-Zen',
+					'lullux': 'Lullux-Zen',
+				};
+				const baseId = pokemon.species.id;
+				if (zenFormes[baseId]) {
+					pokemon.formeChange(zenFormes[baseId]);
+				}
+			},
+			onEnd(pokemon) {
+				const zenFormes = ['Zen', 'Galar-Zen'];
+				if (zenFormes.includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
 	},
 	// End
 	
