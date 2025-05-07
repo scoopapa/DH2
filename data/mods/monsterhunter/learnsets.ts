@@ -6885,7 +6885,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			behemothblade: ["9L1"],
 			bulkup: ["9L1"],
 			combattorque: ["9L1"],
-			doubleironbash: ["9L1"],
 			dracometeor: ["9L1"],
 			dragonclaw: ["9L1"],
 			dragondance: ["9L1"],
