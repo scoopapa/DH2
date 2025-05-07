@@ -97,7 +97,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: 1004,
 		name: "Araneidos",
 		types: ["Bug", "Poison"],
-		baseStats: {hp: 80, atk: 105, def: 105, spa: 65, spd: 95, spe: 45},
+		baseStats: {hp: 80, atk: 105, def: 105, spa: 65, spd: 105, spe: 65},
 		abilities: {0: "Swarm", 1: "Insomnia", H: "Malignant"},
 	//	heightm: 1.1,
 		weightkg: 45.3,
