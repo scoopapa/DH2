@@ -89,31 +89,50 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Dustform' || pokemon.transformed) return;
 			let forme = null;
+			let newTypes = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'dustformsunny') forme = 'Dustform-Sunny';
+				if (pokemon.species.id !== 'dustformsunny') {
+					forme = 'Dustform-Sunny';
+					newTypes = ['Ground', 'Fire'];
+				}
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.species.id !== 'dustformrainy') forme = 'Dustform-Rainy';
+				if (pokemon.species.id !== 'dustformrainy') {
+					forme = 'Dustform-Rainy';
+					newTypes = ['Ground', 'Water'];
+				}
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'dustformsnowy') forme = 'Dustform-Snowy';
+				if (pokemon.species.id !== 'dustformsnowy') {
+					forme = 'Dustform-Snowy';
+					newTypes = ['Ground', 'Ice'];
+				}
 				break;
 			case 'sandstorm':
 			case 'desertgales':
-				if (pokemon.species.id !== 'dustformsandy') forme = 'Dustform-Sandy';
+				if (pokemon.species.id !== 'dustformsandy') {
+					forme = 'Dustform-Sandy';
+					newTypes = ['Ground', 'Flying'];
+				}
 				break;
 			default:
-				if (pokemon.species.id !== 'dustform') forme = 'Dustform';
+				if (pokemon.species.id !== 'dustform') {
+					forme = 'Dustform';
+					newTypes = ['Ground'];
+				}
 				break;
 			}
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (newTypes) {
+					this.add('-start', pokemon, 'typechange', newTypes.join('/'), '[from] Desert Mirage');
+				}
 			}
-		},
+		},	
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Desert Mirage",
 		rating: 2,
