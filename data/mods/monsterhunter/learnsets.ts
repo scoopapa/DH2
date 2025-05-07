@@ -8307,6 +8307,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["9L1"],
 			aquaring: ["9L1"],
 			attract: ["9L1"],
+			hyperspacefury: ["9L1"],
 			tailslap: ["9L1"],
 			avalanche: ["9L1"],
 			coldsnap: ["9L1"],
