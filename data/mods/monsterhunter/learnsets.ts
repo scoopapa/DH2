@@ -8002,6 +8002,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["9L1"],
 			attract: ["9L1"],
 			axekick: ["9L1"],
+			spikecannon: ["9L1"],
 			barbbarrage: ["9L1"],
 			bellydrum: ["9L1"],
 			bodyslam: ["9L1"],
