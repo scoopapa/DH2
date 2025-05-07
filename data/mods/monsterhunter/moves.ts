@@ -258,7 +258,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Summons Leech Seed.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onHit(target, source) {
 			if (target.hasType('Grass')) return null;
 			target.addVolatile('leechseed', source);
@@ -424,7 +424,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
