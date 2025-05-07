@@ -463,6 +463,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	dustformsunny: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformrainy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsnowy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsandy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	stonjourner: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
