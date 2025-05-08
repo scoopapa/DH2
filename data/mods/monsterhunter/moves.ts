@@ -452,6 +452,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 95,
 		category: "Special",
 		name: "Blaze Ball",
+		shortDesc: "No additional effect.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},

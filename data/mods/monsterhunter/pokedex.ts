@@ -417,7 +417,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Dire Miralis",
 		types: ["Fire", "Water"],
 		baseStats: {hp: 124, atk: 97, def: 105, spa: 120, spd: 126, spe: 58},
-		abilities: {0: "Pressure", 1: "Desolate Land", H: "Meggido's Gift"},
+		abilities: {0: "Pressure", 1: "Desolate Land", H: "Megiddo's Gift"},
 		heightm: 1.0,
 		weightkg: 335.0,
 		color: "Black",

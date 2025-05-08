@@ -277,7 +277,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: 1014,
 	},
-	meggidosgift: {
+	megiddosgift: {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(target, source, move) {
 			if (move.type === 'Fire') {
