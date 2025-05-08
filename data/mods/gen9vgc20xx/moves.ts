@@ -380,9 +380,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	swarmingstrike: {
 		num: -13,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 60,
 		category: "Physical",
-		shortDesc: "+30 for each other unfainted Bug on the team.",
+		shortDesc: "+20 for each other unfainted Bug on the team.",
 		name: "Swarming Strike",
 		pp: 10,
 		priority: 0,
@@ -405,8 +405,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 	
-			// Add 30 base power for each Bug-type Pokémon in the party (excluding the user)
-			return basePower + bugCount * 30;
+			// Add 20 base power for each Bug-type Pokémon in the party (excluding the user)
+			return basePower + bugCount * 20;
 		},
 		secondary: null,
 		target: "normal",
@@ -812,6 +812,46 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	//
+	shellsight: {
+		num: -27,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shell Sight",
+		shortDesc: "Rock-type Soak; -1 prio; -1 Spe at the end of turn.",
+		pp: 20,
+		priority: -1,
+		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Bomb", target);
+		},
+		onHit(target) {
+			if (target.getTypes().join() === 'Rock' || !target.setType('Rock')) {
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Rock');
+		},
+		volatileStatus: 'shellsight',
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: Shell Sight', '[of] ' + source);
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({spe: -1}, pokemon); 
+			//	this.add('-boost', pokemon, 'spe', -1);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Shell Sight');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},		  
 	//
 	
 	// start

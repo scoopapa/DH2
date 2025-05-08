@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
         return "Slowbro-Galar-Mega";
       }
       else if (item.name === "Zoroarkite" && pokemon.baseSpecies.name === "Zoroark-Hisui") {
-        return null;
+        return "Zoroark-Hisui-Mega";
       }
       else if (item.name === "Scizorite" && pokemon.baseSpecies.name === "Scizor") {
         return "Scizor-Mega";
@@ -1542,6 +1542,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zoroark').learnset.gunkshot = ['9L1'];
     this.modData('Learnsets', 'zoroark').learnset.focuspunch = ['9L1'];
     this.modData('Learnsets', 'zoroark').learnset.superpower = ['9L1'];
+    this.modData('Learnsets', 'zoroarkhisui').learnset.chillblain = ['9L1'];
+    this.modData('Learnsets', 'zoroarkhisui').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'gothitelle').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'swanna').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'vanilluxe').learnset.hydropump = ['9L1'];

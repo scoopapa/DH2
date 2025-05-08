@@ -2035,12 +2035,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
     zoroark: {
         inherit: true,
         baseStats: {hp: 60, atk: 95, def: 60, spa: 120, spd: 60, spe: 115},
-        otherFormes: ["Zoroark-Hisui", "Zoroark-Mega"],
-        formeOrder: ["Zoroark", "Zoroark-Hisui", "Zoroark-Mega"],
+        otherFormes: ["Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
+        formeOrder: ["Zoroark", "Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
     },
 	zoroarkhisui: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 100, def: 60, spa: 125, spd: 60, spe: 110},
+		baseStats: {hp: 55, atk: 90, def: 60, spa: 125, spd: 60, spe: 120},
 	},
     zoroarkmega: {
         num: 571,
@@ -2051,6 +2051,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         genderRatio: {M: 0.875, F: 0.125},
         baseStats: {hp: 60, atk: 125, def: 90, spa: 125, spd: 95, spe: 115},
         abilities: {0: "Forgery"},
+        heightm: 1.6,
+        weightkg: 81.1,
+        color: "Gray",
+        eggGroups: ["Field"],
+        requiredItem: "Zoroarkite",
+    },
+    zoroarkhisuimega: {
+        num: 571,
+        name: "Zoroark-Hisui-Mega",
+        baseSpecies: "Zoroark",
+        forme: "Mega-Hisui",
+        types: ["Normal", "Ghost"],
+        genderRatio: {M: 0.875, F: 0.125},
+        baseStats: {hp: 60, atk: 90, def: 100, spa: 135, spd: 100, spe: 130},
+        abilities: {0: "Bitter Hatred"},
         heightm: 1.6,
         weightkg: 81.1,
         color: "Gray",
@@ -2303,10 +2318,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Delphite",
-	},
-	greninjaash: {
-		inherit: true,
-		baseStats: {hp: 72, atk: 145, def: 67, spa: 153, spd: 71, spe: 122},
 	},
 	pyroar: {
 		inherit: true,

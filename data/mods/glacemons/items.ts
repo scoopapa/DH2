@@ -1128,33 +1128,33 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 	},
 	// Slate 6
-	parallelmegaorb: { 
-		name: "Parallel Mega Orb",
-		spritenum: 578,
-		onTakeItem: false,
-		// onBeforeMega(pokemon) {
-		// 	pokemon.addVolatile('gastroacid');
-		// },
-		// onAfterMega(pokemon) {
-		// 	let newAbility = pokemon.set.ability
-		// 	const oldAbility = pokemon.setAbility(newAbility);
-		// 	pokemon.removeVolatile('gastroacid');
-		// 	return oldAbility as false | null;
-		// },
-		// onPreStart(pokemon) {
-		// 	pokemon.addVolatile('gastroacid');
-		// },
-		// onStart(pokemon) {
-		// 	let newAbility = pokemon.set.ability
-		// 	const oldAbility = pokemon.setAbility(newAbility);
-		// 	pokemon.removeVolatile('gastroacid');
-		// 	return oldAbility as false | null;
-		// },
-		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -15,
-		gen: 9,
-		rating: 3,
-	},
+	// parallelmegaorb: { 
+	// 	name: "Parallel Mega Orb",
+	// 	spritenum: 578,
+	// 	onTakeItem: false,
+	// 	// onBeforeMega(pokemon) {
+	// 	// 	pokemon.addVolatile('gastroacid');
+	// 	// },
+	// 	// onAfterMega(pokemon) {
+	// 	// 	let newAbility = pokemon.set.ability
+	// 	// 	const oldAbility = pokemon.setAbility(newAbility);
+	// 	// 	pokemon.removeVolatile('gastroacid');
+	// 	// 	return oldAbility as false | null;
+	// 	// },
+	// 	// onPreStart(pokemon) {
+	// 	// 	pokemon.addVolatile('gastroacid');
+	// 	// },
+	// 	// onStart(pokemon) {
+	// 	// 	let newAbility = pokemon.set.ability
+	// 	// 	const oldAbility = pokemon.setAbility(newAbility);
+	// 	// 	pokemon.removeVolatile('gastroacid');
+	// 	// 	return oldAbility as false | null;
+	// 	// },
+	// 	shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+	// 	num: -15,
+	// 	gen: 9,
+	// 	rating: 3,
+	// },
 	legendplate: {
 		name: "Legend Plate",
 		spritenum: 225,

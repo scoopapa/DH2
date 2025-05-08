@@ -35,6 +35,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	nihilink: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	nihilinknecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -44,6 +48,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	meowscaradarift: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	cashatrew: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -179,6 +187,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	mutinuncle: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	mutinunclenecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -190,6 +202,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delphoxrift: {
 		tier: "VGC",
 		doublesTier: "VGC",
+	},
+	solastor: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	solastorzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	magikarp: {
 		tier: "VGC NFE",
@@ -219,9 +239,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	upvybones: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	upvybonesnecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
+	},
+	lullux: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	lulluxzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	vulpixalola: {
 		tier: "VGC NFE",
@@ -252,6 +284,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	keisberg: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	anthroll: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	kolbolt: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -304,6 +344,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	aegislashbladelight: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	wizareetin: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
@@ -419,6 +463,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	dustformsunny: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformrainy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsnowy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsandy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	stonjourner: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -488,6 +548,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	conotox: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	possmortem: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
