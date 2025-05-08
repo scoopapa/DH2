@@ -2335,6 +2335,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			chargebeam: ["9M"],
 			chillingwater: ["9M"],
 			electricterrain: ["9M"],
+			electroball: ["9M"],
 			energyball: ["9M"],
 			focusblast: ["9M"],
 			flashcannon: ["9M"],
