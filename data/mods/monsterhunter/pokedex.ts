@@ -98,9 +98,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
-	fulguranjanath: {
+	fuljanath: {
 		num: 90,
-		name: "Fulgur Anjanath",
+		name: "Fuljanath",
 		types: ["Electric"],
 		baseStats: {hp: 94, atk: 135, def: 80, spa: 70, spd: 78, spe: 93},
 		abilities: {0: "Motor Drive", 1: "Anger Point"},
@@ -467,9 +467,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
-	flamingespinas: {
+	flaminas: {
 		num: 96,
-		name: "Flaming Espinas",
+		name: "Flaminas",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Poison Heal", 1: "Toxic Debris"},
@@ -1017,9 +1017,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
- 	primordialmalzeno: {
+ 	primozeno: {
 		num: 119,
-		name: "Primordial Malzeno",
+		name: "Primozeno",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 90, atk: 110, def: 120, spa: 130, spd: 85, spe: 80},
 		abilities: {0: "Sword of Ruin", 1: "Multiscale"},
@@ -1056,9 +1056,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Mizutsunite",
 	},
-	violetmizutsune: {
+	vizutsune: {
 		num: 74,
-		name: "Violet Mizutsune",
+		name: "Vizutsune",
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 88, atk: 72, def: 90, spa: 116, spd: 102, spe: 112},
 		abilities: {0: "Serene Grace", 1: "Marvel Scale"},
@@ -1122,9 +1122,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
-	lucentnargacuga: {
+	lucacuga: {
 		num: 27,
-		name: "Lucent Nargacuga",
+		name: "Lucacuga",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 88, atk: 116, def: 90, spa: 72, spd: 102, spe: 112},
 		abilities: {0: "Clear Body", 1: "Screen Cleaner"},

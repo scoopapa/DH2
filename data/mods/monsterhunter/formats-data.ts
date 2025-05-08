@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	anjanath: {
 		tier: "MHUU",
 	},
-	fulguranjanath: {
+	fuljanath: {
 		tier: "MHUU",
 	},
 	arzuros: {
@@ -110,7 +110,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	espinas: {
 		tier: "MHOU",
 	},
-	flamingespinas: {
+	flaminas: {
 		tier: "MHOU",
 	},
 	fatalis: {
@@ -254,7 +254,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mizutsune: {
 		tier: "MHOU",
 	},
-	violetmizutsune: {
+	vizutsune: {
 		tier: "MHOU",
 	},
 	monoblos: {
@@ -272,7 +272,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nargacuga: {
 		tier: "MHOU",
 	},
-	lucentnargacuga: {
+	lucacuga: {
 		tier: "MHOU",
 	},
 	narwa: {
@@ -431,7 +431,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	massacrediablos: {
 		tier: "MHOU",
 	},
-	primordialmalzeno: {
+	primozeno: {
 		tier: "MHOU",
 	},
 	redhelmarzuros: {

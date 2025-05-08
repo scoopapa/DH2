@@ -3724,7 +3724,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			weatherball: ["9M"],
 			},
 		},
-	flamingespinas: {
+	flaminas: {
 		learnset: {
 			acupressure: ["9M"],
 			bite: ["9L4"],
@@ -3850,7 +3850,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wish: ["9L28"],
 			},
 		},
-		primordialmalzeno: {
+		primozeno: {
 			learnset: {
 				acupressure: ["9L1"],
 				agility: ["9L1"],
@@ -4186,7 +4186,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			weatherball: ["9M"],
 			},
 		},
-	violetmizutsune: {
+	vizutsune: {
 		learnset: {
 			blastburn: ["9M"],
 			bodyslam: ["9M"],
@@ -4251,7 +4251,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9M"],
 			},
 		},
-	lucentnargacuga: {
+	lucacuga: {
 		learnset: {
 			acidspray: ["9M"],
 			assurance: ["9L10"],
@@ -6035,7 +6035,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wish: ["9L1"],
 		},
 	},
-	fulguranjanath: {
+	fuljanath: {
 		learnset: {
 			agility: ["9L1"],
 			attract: ["9L1"],
