@@ -814,6 +814,51 @@ export const Conditions: {[k: string]: ConditionData} = {
 			},
 		},
 		// end*/
+
+		feigndeath: {
+			name: 'FeignDeath',
+			noCopy: true,
+			onSourceModifyAtkPriority: 6,
+			onSourceModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Ghost' && defender.side.pokemon.some(
+					p => p !== defender && !p.fainted && p.hasAbility('feigndeath')
+				)) {
+					this.debug('FeignDeath weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Ghost' && defender.side.pokemon.some(
+					p => p !== defender && !p.fainted && p.hasAbility('feigndeath')
+				)) {
+					this.debug('FeignDeath weaken');
+					return this.chainModify(0.5);
+				}
+			},
+    		onDamagePriority: -30,    
+    		onDamage(damage, target, source, effect) {
+				if (target.volatiles['feigndeath']) {
+        				
+            		// If the target's HP is full and the damage would normally faint them
+            		if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+                
+            			// Check for a non-fainted ally with the 'Feign Death' ability
+            			const allyWithFeignDeath = target.side.pokemon.find(
+                			ally => !ally.fainted && ally.hasAbility('feigndeath')
+            			);
+
+                		// If there is such an ally, prevent fainting (set HP to 1)
+                		if (allyWithFeignDeath) {
+                			return target.hp - 1;  // Prevent fainting by leaving the target with 1 HP
+               	 		}
+					}
+        	
+        		}
+        		// If no conditions are met, the normal damage is returned
+        		return damage;
+    		}
+		},
 		// Start
 		fungus: {
 			name: 'Fungus',
