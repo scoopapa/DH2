@@ -1763,7 +1763,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		forme: "Mega",
 		types: ["Electric"],
 		baseStats: {hp: 73, atk: 133, def: 82, spa: 144, spd: 97, spe: 121},
-		abilities: {0: "Volt Absorb"},
+		abilities: {0: "Galvanize"},
 		heightm: 1.0,
 		weightkg: 178.4,
 		color: "Black",
