@@ -8499,7 +8499,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			hyperspacehole: ["9L1"],
 			instruct: ["9L1"],
 			leer: ["9L1"],
-			lightofruin: ["9L1"],
 			lightscreen: ["9L1"],
 			lockon: ["9L1"],
 			lunarblessing: ["9L1"],

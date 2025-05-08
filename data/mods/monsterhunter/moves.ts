@@ -472,21 +472,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		pp: 5,
 	},
-	lightofruin: {
-		num: 2200,
-		accuracy: 90,
-		basePower: 140,
-		category: "Special",
-		name: "Light of Ruin",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		recoil: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
-	},
 	/*
 	TORQUES
 	*/
