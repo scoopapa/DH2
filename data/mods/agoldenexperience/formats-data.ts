@@ -2822,6 +2822,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
+	zoroarkhisuimega: {
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	minccino: {
 		tier: "LC",
 	},
