@@ -65,11 +65,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	dragonator: {
 		num: 2003,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "Cannot be used on consecutive turns. Effective on Dragon-Types. 10% Flinch.",
+		shortDesc: "Cannot be used on consecutive turns. Super-Effective on Dragon-Types. 10% Flinch.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "Healths health and eats held berry. Fails if user isn't holding a berry.",
+		shortDesc: "Recovers HP and eats held berry. Fails if user isn't holding a berry.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -164,7 +164,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Frenzy Slam",
-		shortDesc: "Summons reflect.",
+		shortDesc: "Summons Reflect.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -258,7 +258,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Summons Leech Seed.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onHit(target, source) {
 			if (target.hasType('Grass')) return null;
 			target.addVolatile('leechseed', source);
@@ -424,7 +424,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -446,6 +446,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
 	},
+	blazeball: {
+		num: 2023,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Blaze Ball",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
 	/*
 	Edits
 	*/
@@ -458,7 +472,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 	},
 	lightofruin: {
-		num: 617,
+		num: 2200,
 		accuracy: 90,
 		basePower: 140,
 		category: "Special",

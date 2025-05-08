@@ -31,7 +31,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Ice-Armor",
-		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice.",
+		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice. Also activates under Snow.",
 		rating: 3,
 		num: 1000,
 	},
@@ -246,5 +246,64 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its Max HP.",
 		rating: 2,
 		num: 201,
+	},
+	geminicore: {
+		onChargeMove(pokemon, target, move) {
+			this.debug('tireless - remove charge turn for ' + move.id);
+			this.add('-activate', pokemon, 'ability: Tireless');
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false; // skip charge turn
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+				this.debug('tireless - remove recharge');
+				this.add('-activate', pokemon, 'ability: Tireless');
+			}
+		},
+		onBeforeMovePriority: 11,
+		onBeforeMove(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+				this.debug('tireless - failsafe remove recharge');
+			}
+		},
+		name: "Gemini Core",
+		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
+		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
+		activate: "[POKEMON] became energized immediately!",
+        flags: {},
+		rating: 2,
+		num: 1014,
+	},
+	meggidosgift: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(target, source, move) {
+			if (move.type === 'Fire') {
+				this.field.setWeather('sunnyday');
+			} else if (move.type === 'Water') {
+				this.field.setWeather('raindance');
+			}
+		},
+		name: "Megiddo's Gift",
+		shortDesc: "Before using a Water or Fire-type move, this Pokemon sets Rain Dance or Sunny Day respectively.",
+		rating: 4,
+	},
+	corrosiveclaws: {
+		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
+		shortDesc: "Badly poison enemies brought under half health..",
+		onAfterMove(source, target, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				target.setStatus('tox');
+			}
+		},
+		name: "Corrosive Claws",
+		rating: 4,
+		num: -33,
 	},
 }
