@@ -5464,7 +5464,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			acidarmor: ["9L1"],
 			acidspray: ["9L1"],
 			flamethrower: ["9L1"],
-			boltbreath: ["9L1"],
 			attract: ["9L1"],
             reversal: ["9M"],
 			belch: ["9L1"],
