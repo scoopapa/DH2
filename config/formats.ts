@@ -1278,7 +1278,7 @@ export const Formats: FormatList = [
                 }
             }
         },
-        mod: 'mmm2',
+        mod: 'mmm3',
     },
 	{
 		name: "[Gen 9] More Balanced Hackmons v4",
