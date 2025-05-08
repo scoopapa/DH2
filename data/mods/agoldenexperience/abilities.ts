@@ -2104,7 +2104,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sharpness: {
 		inherit: true,
-		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
+		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.3.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
@@ -2402,7 +2402,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAnyModifyDef(def, target, source, move) {
 			const abilityHolder = this.effectState.target;
 			if (target.side === source.side) return;
-			if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
+			if (!move.ruinedDef) move.ruinedDef = abilityHolder;
 			if (move.ruinedDef !== abilityHolder) return;
 			this.debug('Lingering Aroma Def drop');
 			return this.chainModify(0.75);
