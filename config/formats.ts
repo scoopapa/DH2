@@ -894,19 +894,19 @@ export const Formats: FormatList = [
 		mod: 'glacemons',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['AG', 'Uber', 'Power Construct', 'Berserk Gene', 'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Blastoise + Parallel Mega Orb', 'Salamence + Parallel Mega Orb', 'Gengar + Parallel Mega Orb', 'Alakazam + Parallel Mega Orb', 'Blaziken + Parallel Mega Orb', 'Lucario + Parallel Mega Orb', 'Gallade + Parallel Mega Orb', 
+			// 'Blastoise + Parallel Mega Orb', 'Salamence + Parallel Mega Orb', 'Gengar + Parallel Mega Orb', 'Alakazam + Parallel Mega Orb', 'Blaziken + Parallel Mega Orb', 'Lucario + Parallel Mega Orb', 'Gallade + Parallel Mega Orb', 
 			'Special Tera Orb',
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex',
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {
-			if (source?.forme && source.forme.startsWith('Mega') && source.hasItem('parallelmegaorb')) {
-				let newAbility = source.set.ability
-				const oldAbility = source.setAbility(newAbility);
-			}
-			return {...species};
-		},
+		// onModifySpeciesPriority: 2,
+		// onModifySpecies(species, target, source, effect) {
+		// 	if (source?.forme && source.forme.startsWith('Mega') && source.hasItem('parallelmegaorb')) {
+		// 		let newAbility = source.set.ability
+		// 		const oldAbility = source.setAbility(newAbility);
+		// 	}
+		// 	return {...species};
+		// },
 	},
 	{
 		name: "[Gen 9] GlaceMons Uber",
@@ -918,7 +918,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'glacemonsuber',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Gengar + Parallel Mega Orb',
+		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', // 'Gengar + Parallel Mega Orb',
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex Uber',
@@ -2556,44 +2556,8 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Power Construct', 'Berserk Gene', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Shed Tail'],
-		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash', 'Light of Ruin'],
+		unbanlist: [/*'Battle Bond', 'Greninja-Bond', 'Greninja-Ash',*/ 'Light of Ruin'],
 		teambuilderFormat: 'National Dex',
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
-				if (item === 'rustedsword') {
-					set.species = 'Zacian-Crowned';
-					set.ability = 'Intrepid Sword';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothblade';
-					}
-				} else {
-					set.species = 'Zacian';
-				}
-			}
-			else if (set.species === 'Zamazenta' || set.species === 'Zamazenta-Crowned') {
-				if (item === 'rustedshield') {
-					set.species = 'Zamazenta-Crowned';
-					set.ability = 'Dauntless Shield';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothbash';
-					}
-				} else {
-					set.species = 'Zamazenta';
-				}
-			}
-		},
-		onValidateTeam(team, format){
-			/**@type {{[k: string]: true}} */
-			for (const set of team) {
-				if (set.species == 'Zacian-Crowned' && set.ability !== 'Intrepid Sword')
-					 return ["Zacian-Crowned can only have Intrepid Sword as its ability."]
-				if ((set.species !== 'Zacian-Crowned' && set.species !== 'Zacian') && set.ability === 'Intrepid Sword')
-					 return ["Only Zacian-Crowned can have Intrepid Sword as its ability."]
-			}
-		},
 	},
 	{
 		name: "[Gen 9] A Golden Experience UU",
@@ -2606,44 +2570,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL', 'Battle Bond', 'Power Construct', 'Berserk Gene', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Shed Tail'],
-		// unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex UU',
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
-				if (item === 'rustedsword') {
-					set.species = 'Zacian-Crowned';
-					set.ability = 'Intrepid Sword';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothblade';
-					}
-				} else {
-					set.species = 'Zacian';
-				}
-			}
-			else if (set.species === 'Zamazenta' || set.species === 'Zamazenta-Crowned') {
-				if (item === 'rustedshield') {
-					set.species = 'Zamazenta-Crowned';
-					set.ability = 'Dauntless Shield';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothbash';
-					}
-				} else {
-					set.species = 'Zamazenta';
-				}
-			}
-		},
-		onValidateTeam(team, format){
-			/**@type {{[k: string]: true}} */
-			for (const set of team) {
-				if (set.species == 'Zacian-Crowned' && set.ability !== 'Intrepid Sword')
-					 return ["Zacian-Crowned can only have Intrepid Sword as its ability."]
-				if ((set.species !== 'Zacian-Crowned' && set.species !== 'Zacian') && set.ability === 'Intrepid Sword')
-					 return ["Only Zacian-Crowned can have Intrepid Sword as its ability."]
-			}
-		},
 	},
 	{
 		name: "[Gen 9] A Golden Experience RU",
@@ -2656,44 +2583,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL','Battle Bond', 'Power Construct', 'Berserk Gene', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Shed Tail'],
-		// unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex RU',
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
-				if (item === 'rustedsword') {
-					set.species = 'Zacian-Crowned';
-					set.ability = 'Intrepid Sword';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothblade';
-					}
-				} else {
-					set.species = 'Zacian';
-				}
-			}
-			else if (set.species === 'Zamazenta' || set.species === 'Zamazenta-Crowned') {
-				if (item === 'rustedshield') {
-					set.species = 'Zamazenta-Crowned';
-					set.ability = 'Dauntless Shield';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothbash';
-					}
-				} else {
-					set.species = 'Zamazenta';
-				}
-			}
-		},
-		onValidateTeam(team, format){
-			/**@type {{[k: string]: true}} */
-			for (const set of team) {
-				if (set.species == 'Zacian-Crowned' && set.ability !== 'Intrepid Sword')
-					 return ["Zacian-Crowned can only have Intrepid Sword as its ability."]
-				if ((set.species !== 'Zacian-Crowned' && set.species !== 'Zacian') && set.ability === 'Intrepid Sword')
-					 return ["Only Zacian-Crowned can have Intrepid Sword as its ability."]
-			}
-		},
 	},
 	{
 		name: "[Gen 9] A Golden Experience VGC",

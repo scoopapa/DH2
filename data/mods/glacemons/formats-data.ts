@@ -1593,7 +1593,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gallademega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "UUBL",
 	},
 	surskit: {
 		inherit: true,
