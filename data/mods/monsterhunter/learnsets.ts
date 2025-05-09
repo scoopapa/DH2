@@ -55,7 +55,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			taunt: ["9M"],
 			teeterdance: ["9L26"],
 			terablast: ["9M"],
-			toxic: ["9M"],
 			uturn: ["9M"],
 			victorydance: ["9M"],
 			workup: ["9M"],
@@ -2621,7 +2620,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderfang: ["9M", "9L24"],
 			thunderpunch: ["9M"],
 			thunderwave: ["9M", "9L1"],
-			toxic: ["9M"],
 			uproar: ["9M"],
 			voltswitch: ["9M"],
 			volttackle: ["9M"],
@@ -3448,7 +3446,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			taunt: ["9M"],
 			torchsong: ["9M"],
 			torment: ["9M"],
-			toxic: ["9M"],
 			uproar: ["9M", "9L45"],
 			workup: ["9M"],
 			uturn: ["9M"],
@@ -3628,9 +3625,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metalclaw: ["9M"],
 			metalsound: ["9M"],
 			mirrorcoat: ["9M"],
-			metalburst: ["9M"],
 			nastyplot: ["9M"],
-			oblivionwing: ["9M"],
 			outrage: ["9M"],
 			payback: ["9M"],
 			peck: ["9L1"],
@@ -3787,6 +3782,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			willowisp: ["9M"],
 			worryseed: ["9L33"],
 			yawn: ["9M"],
+			toxic: ["9M"],
 			},
 		},
 	malzeno: {
@@ -4182,7 +4178,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			swagger: ["9M"],
 			takedown: ["9M"],
 			terablast: ["9M"],
-			toxic: ["9M"],
 			weatherball: ["9M"],
 			},
 		},
@@ -4777,6 +4772,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acrobatics: ["9L1"],
 			agility: ["9L1"],
+			hyperdrill: ["9L1"],
+			drillpeck: ["9L1"],
 			heatbeam: ["9L1"],
 			amnesia: ["9L1"],
 			armorcannon: ["9L1"],
@@ -5064,7 +5061,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	banbaro: {
 		learnset: {
-			aerialace: ["9L1"],
 			afteryou: ["9L1"],
 			agility: ["9L1"],
 			assurance: ["9L1"],
@@ -5102,6 +5098,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			trailblaze: ["9L1"],
 			tripleaxel: ["9L1"],
 			zenheadbutt: ["9L1"],
+			avalanche: ["9L1"],
+			noxioustorque: ["9L1"],
+			blazingtorque: ["9L1"],
+			soak: ["9L1"],
+			woodhammer: ["9L1"],
 		},
 	},
 	beotodus: {
@@ -5877,6 +5878,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			whirlwind: ["9L1"],
 			woodhammer: ["9L1"],
 			zenheadbutt: ["9L1"],
+			bodypress: ["9L1"],
 		},
 	},
 	eruzerion: {
@@ -8073,6 +8075,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			triplearrows: ["9L1"],
 			triplekick: ["9L1"],
 			wickedblow: ["9L1"],
+			glaiverush: ["9L1"],
 		},
 	},
 	nerscylla: {
@@ -9335,6 +9338,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			creepynoise: ["9L1"],
 			heatwave: ["9L1"],
 			woodhammer: ["9L1"],
+			devour: ["9L1"],
+			rapidspin: ["9L1"],
 		},
 	},
 	yiangaruga: {

@@ -13,6 +13,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 310,
 	},
+	direspikescales: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || target.species.name !== 'Dalamadur') return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (move.category === 'Status' || move.id === 'struggle') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+
+			this.add('-activate', target, 'ability: Tera Shell');
+			this.effectState.resisted = true;
+			return -1;
+		},
+		onAnyAfterMove() {
+			this.effectState.resisted = false;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
+		name: "Direspike Scales",
+		shortDesc: "Dalamadur: If full HP, attacks taken have 0.5 effectiveness unless naturally immune.",
+		rating: 3.5,
+		num: 308,
+	},
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical' && target.species.id === 'zamtrios') {

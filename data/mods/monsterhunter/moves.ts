@@ -472,6 +472,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		pp: 5,
 	},
+	hyperspacefury: {
+		inherit: true,
+		breaksProtect: true,
+		onTry(source) {
+			if (source.species.name === 'Plesioth') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Plesioth can use this move.");
+			if (source.species.name === 'Plesioth') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
+		},
 	/*
 	TORQUES
 	*/

@@ -9,7 +9,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onModifySpA(spa, pokemon) {
 			return this.chainModify(0.5);
 		},
-		onStart(target, source, sourceEffect) {
+		onStart(target, source, sourceEffect, pokemon) {
+			this.add('-start', pokemon, 'Frostbite');
 			this.add('-message', `${target.name} was frostbitten! Special Attack halved!`);
 		},
 	},
