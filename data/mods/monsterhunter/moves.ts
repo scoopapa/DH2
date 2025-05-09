@@ -489,6 +489,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-fail', source, 'move: Hyperspace Fury');
 			return null;
 		},
+	},
 	/*
 	TORQUES
 	*/
@@ -587,4 +588,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-};
+}
