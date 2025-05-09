@@ -452,6 +452,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 95,
 		category: "Special",
 		name: "Blaze Ball",
+		shortDesc: "No additional effect.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
@@ -471,20 +472,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		pp: 5,
 	},
-	lightofruin: {
-		num: 2200,
-		accuracy: 90,
-		basePower: 140,
-		category: "Special",
-		name: "Light of Ruin",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		recoil: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
+	hyperspacefury: {
+		inherit: true,
+		breaksProtect: true,
+		onTry(source) {
+			if (source.species.name === 'Plesioth') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Plesioth can use this move.");
+			if (source.species.name === 'Plesioth') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
+		},
 	},
 	/*
 	TORQUES
@@ -584,4 +588,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-};
+}
