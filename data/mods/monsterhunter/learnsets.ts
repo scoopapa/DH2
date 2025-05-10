@@ -6046,7 +6046,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			willowisp: ["9L1"],
 			wish: ["9L1"],
 			crimsondawn: ["9S0"],
-			ancestralthunder: ["9S0"],
+			ancestralthunder: ["9S1"],
 		},
 		eventData: [
 			{generation: 9, level: 70, moves: ["crimsondawn"]},
