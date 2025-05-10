@@ -353,6 +353,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	auroracanth: {
 		tier: "MHRU",
 	},
+	spiribird: {
+		tier: "MHRU",
+	},
+	spiribirdred: {
+		tier: "MHRU",
+	},
+	spiribirdyellow: {
+		tier: "MHRU",
+	},
+	spiribirdorange: {
+		tier: "MHRU",
+	},
 	teostra: {
 		tier: "MHOU",
 	},
