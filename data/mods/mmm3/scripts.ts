@@ -67,8 +67,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "spinarak").learnset.poisonfang = ["9L1"];
 		delete this.modData('Learnsets', 'spinarak').learnset.xscissor;
 		delete this.modData('Learnsets', 'spinarak').learnset.lunge;
-		
-		//Galvantula
+		// Araquanid
+		this.modData("Learnsets", "araquanid").learnset.watershuriken = ["9L1"];
+		this.modData("Learnsets", "araquanid").learnset.steameruption = ["9L1"];
+		this.modData("Learnsets", "araquanid").learnset.doomdesire = ["9L1"];
+		// Galvantula
 		this.modData("Learnsets", "galvantula").learnset.blizzard = ["9L1"];
 	},
 };
