@@ -476,4 +476,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crimsonglowvalstrax: {
 		tier: "MHOU",
 	},
+	crimsonfatalis: {
+		tier: "MHUbers",
+	},
+	whitefatalis: {
+		tier: "MHUbers",
+	},
 };
