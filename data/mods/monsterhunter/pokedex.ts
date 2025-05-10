@@ -314,7 +314,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Cephadrome",
 		types: ["Ground", "Electric"],
 		baseStats: {hp: 70, atk: 103, def: 84, spa: 56, spd: 107, spe: 100},
-		abilities: {0: "Sand Rush", 1: "Emergency Exit"},
+		abilities: {0: "Sand Rush", 1: "Emergency Exit", H: "Infiltrator"},
 		heightm: 1.0,
 		weightkg: 48.0,
 		color: "Black",
@@ -367,7 +367,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	dalamadur: {
 		num: 83,
 		name: "Dalamadur",
-		types: ["Dragon"],
+		types: ["Dragon", "Rock"],
 		baseStats: {hp: 112, atk: 100, def: 125, spa: 103, spd: 130, spe: 50},
 		abilities: {0: "Iron Barbs", 1: "Direspike Scales", H: "Gemini Core"},
 		heightm: 1.0,
