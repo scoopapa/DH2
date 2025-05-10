@@ -6044,9 +6044,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			vcreate: ["9L1"],
 			willowisp: ["9L1"],
-			crimsondawn: ["9S12"],
-			ancestralthunder: ["9S11"],
 			wish: ["9L1"],
+			crimsondawn: ["9S0"],
+			ancestralthunder: ["9S0"],
 		},
 		eventData: [
 			{generation: 9, level: 70, moves: ["crimsondawn"]},
