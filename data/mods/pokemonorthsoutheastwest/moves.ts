@@ -626,6 +626,7 @@ horseserve: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+			shortDesc: "For five turns, Fairy powers up, Dragon moves are weakned, and grounded Pokémon can't get status conditions.",
 		name: "Misty Terrain",
 		pp: 10,
 		priority: 0,
@@ -785,6 +786,163 @@ horseserve: {
 		target: "all",
 		type: "Ghost",
 		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Beautiful",
+	},
+	pollenseason: {
+		num: 2440,
+		shortDesc: "Doubles effect chances and powers up Grass-type moves for 5 turns.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Pollen Season",
+		pp: 5,
+		priority: 0,
+		flags: { metronome: 1 },
+		weather: 'PollenSeason',
+		secondary: null,
+		target: "all",
+		type: "Grass",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	greatsneeze: {
+		num: 3333,
+		shortDesc: "Fails if the user is not Poisoned or if it is not Pollen Season.",
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Great Sneeze",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+                onTry(source) {
+                if (!pokemon.status === 'psn' || !pokemon.status === 'tox') {
+			if (!this.field.isWeather('pollenseason')) {
+				return false;
+			}
+                }
+                },
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+   mucusseed: {
+		num: 723,
+			shortDesc: "Leech Seed, then user switches out. Has +1 Priority in Pollen Season.",
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Mucus Seed",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
+		volatileStatus: 'leechseed',
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isWeather('pollenseason')) {
+				return priority + 1;
+			}
+		},
+	        onTry(source) {
+			return !!this.canSwitch(source.side);
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Leech Seed');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.getAtSlot(pokemon.volatiles['leechseed'].sourceSlot);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Grass');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Clever",
+	},
+			weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'nighttime':
+				move.type = 'Dark';
+				break;
+			case 'shadowsky':
+				move.type = 'Shadow';
+				break;
+			case 'pollenseason':
+				move.type = 'Grass';
+				break;
+			case 'hail':
+			case 'snowscape':
+				move.type = 'Ice';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'nighttime':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
+				move.basePower *= 2;
+				break;
+			case 'pollenseason':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snowscape':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug(`BP: ${move.basePower}`);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: { basePower: 160 },
+		maxMove: { basePower: 130 },
 		contestType: "Beautiful",
 	},
 };

@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
         return "Slowbro-Galar-Mega";
       }
       else if (item.name === "Zoroarkite" && pokemon.baseSpecies.name === "Zoroark-Hisui") {
-        return null;
+        return "Zoroark-Hisui-Mega";
       }
       else if (item.name === "Scizorite" && pokemon.baseSpecies.name === "Scizor") {
         return "Scizor-Mega";
@@ -1092,6 +1092,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'blastoise').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'blastoise').learnset.ironhead = ['9L1'];
     this.modData('Learnsets', 'blastoise').learnset.meteormash = ['9L1'];
+    this.modData('Learnsets', 'butterfree').learnset.befuddlepowder = ['9L1'];
+    this.modData('Learnsets', 'beedrill').learnset.piercingdart = ['9L1'];
     this.modData('Learnsets', 'pidgeot').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'spearow').learnset.bravebird = ['9L1'];
     this.modData('Learnsets', 'arbok').learnset.meanlook = ['9L1'];
@@ -1373,6 +1375,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'drifblim').learnset.heatwave = ['9L1'];
     this.modData('Learnsets', 'drifblim').learnset.mysticalfire = ['9L1'];
     this.modData('Learnsets', 'drifblim').learnset.roost = ['9L1'];
+    this.modData('Learnsets', 'drifblim').learnset.hindenburg = ['9L1'];
     this.modData('Learnsets', 'mismagius').learnset.moonblast = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.dualwingbeat = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.throatchop = ['9L1'];
@@ -1539,6 +1542,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zoroark').learnset.gunkshot = ['9L1'];
     this.modData('Learnsets', 'zoroark').learnset.focuspunch = ['9L1'];
     this.modData('Learnsets', 'zoroark').learnset.superpower = ['9L1'];
+    this.modData('Learnsets', 'zoroarkhisui').learnset.chillblain = ['9L1'];
+    this.modData('Learnsets', 'zoroarkhisui').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'gothitelle').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'swanna').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'vanilluxe').learnset.hydropump = ['9L1'];

@@ -54,9 +54,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	nihilink: {
+		num: -1003,
+		name: "Nihilink",
+	
+		types: ["Grass"],
+		gender: "N",
+		baseStats: {hp: 110, atk: 50, def: 100, spa: 95, spd: 125, spe: 95},
+		abilities: {0: "Unnerve"},
+	//	heightm: 1.5,
+		weightkg: 13.3,
+		color: "Green",
+		tags: ["Sub-Legendary"],
+		eggGroups: ["Undiscovered"],
+		otherFormes: ["Nihilink-Necro"],
+		formeOrder: ["Nihilink", "Nihilink-Necro"],
+	},
 	nihilinknecro: {
 		num: -1003,
 		name: "Nihilink-Necro",
+		baseSpecies: "Nihilink",
 
 		forme: "Necro",
 		types: ["Grass", "Ghost"],
@@ -80,7 +97,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: 1004,
 		name: "Araneidos",
 		types: ["Bug", "Poison"],
-		baseStats: {hp: 80, atk: 105, def: 105, spa: 65, spd: 95, spe: 45},
+		baseStats: {hp: 80, atk: 105, def: 105, spa: 65, spd: 105, spe: 65},
 		abilities: {0: "Swarm", 1: "Insomnia", H: "Malignant"},
 	//	heightm: 1.1,
 		weightkg: 45.3,
@@ -188,9 +205,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	mutinuncle: {
+		num: -1011,
+		name: "Mutinuncle",
+		
+		types: ["Fire"],
+		gender: "N",
+		baseStats: {hp: 90, atk: 35, def: 145, spa: 100, spd: 155, spe: 50},
+		abilities: {0: "Unnerve"},
+	//	heightm: 1.5,
+		weightkg: 9.7,
+		color: "Fire",
+		tags: ["Sub-Legendary"],
+		eggGroups: ["Undiscovered"],
+		otherFormes: ["Mutinuncle-Necro"],
+		formeOrder: ["Mutinuncle", "Mutinuncle-Necro"],
+	},
 	mutinunclenecro: {
 		num: -1011,
 		name: "Mutinuncle-Necro",
+		baseSpecies: "Mutinuncle",
 
 		forme: "Necro",
 		types: ["Fire", "Ghost"],
@@ -222,9 +256,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	upvybones: {
+		num: -1013,
+		name: "Upvybones",
+		
+		types: ["Water"],
+		gender: "N",
+		baseStats: {hp: 105, atk: 115, def: 105, spa: 95, spd: 100, spe: 55},
+		abilities: {0: "Unnerve"},
+	//	heightm: 1.5,
+		weightkg: 96.3,
+		color: "Water",
+		tags: ["Sub-Legendary"],
+		eggGroups: ["Undiscovered"],
+		otherFormes: ["Upvybones-Necro"],
+		formeOrder: ["Upvybones", "Upvybones-Necro"],
+	},
 	upvybonesnecro: {
 		num: -1013,
 		name: "Upvybones-Necro",
+		baseSpecies: "Upvybones",
 
 		forme: "Necro",
 		types: ["Water", "Ghost"],
@@ -304,7 +355,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -1017,
 		name: "Doublade-Light",
 
-		types: ["Electric"],
+		types: ["Electric", "Fighting"],
 		baseStats: {hp: 69, atk: 110, def: 150, spa: 35, spd: 49, spe: 35},
 		abilities: {0: "Battery"},
 	//	category: "Guardian",
@@ -362,9 +413,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	wizareetin: {
+		num: -1019,
+		name: "Wizareetin",
+
+		types: ["Electric"],
+		gender: "N",
+		baseStats: {hp: 41, atk: 75, def: 88, spa: 140, spd: 112, spe: 144},
+		abilities: {0: "Levitate"},
+	//	heightm: 1.5,
+		weightkg: 1.6,
+		color: "Yellow",
+		tags: ["Sub-Legendary"],
+		eggGroups: ["Undiscovered"],
+		otherFormes: ["Wizareetin-Gravelord"],
+		formeOrder: ["Wizareetin", "Wizareetin-Gravelord"],
+	},
 	wizareetingravelord: {
 		num: -1019,
 		name: "Wizareetin-Gravelord",
+		baseSpecies: "Wizareetin",
 
 		forme: "Gravelord",
 		types: ["Electric", "Ghost"],
@@ -383,6 +451,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	foongusenlightened: {
 		num: -1020,
 		name: "Foongus-Enlightened",
+		baseSpecies: "Foongus",
 
 		forme: "Enlightened",
 		types: ["Psychic", "Poison"],
@@ -495,7 +564,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Brown",
 		eggGroups: ["Fairy", "Amorphous"],
 
-		requiredAbility: "Forecast",
+		requiredAbility: "Desert Mirage",
 		battleOnly: "Dustform",
 	},
 	dustformrainy: {
@@ -512,7 +581,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Brown",
 		eggGroups: ["Fairy", "Amorphous"],
 
-		requiredAbility: "Forecast",
+		requiredAbility: "Desert Mirage",
 		battleOnly: "Dustform",
 	},
 	dustformsnowy: {
@@ -529,7 +598,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Brown",
 		eggGroups: ["Fairy", "Amorphous"],
 
-		requiredAbility: "Forecast",
+		requiredAbility: "Desert Mirage",
 		battleOnly: "Dustform",
 	},
 	dustformsandy: {
@@ -546,7 +615,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Brown",
 		eggGroups: ["Fairy", "Amorphous"],
 
-		requiredAbility: "Forecast",
+		requiredAbility: "Desert Mirage",
 		battleOnly: "Dustform",
 	},
 	// end
@@ -934,6 +1003,146 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	solastor: {
+		num: -1048,
+		name: "Solastor",
+
+		baseForme: "Standard",
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 55, atk: 110, def: 55, spa: 110, spd: 55, spe: 100},
+		abilities: {0: "Drought", 1: "Overcoat", H: "Zen Mode"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 0.1,
+		color: "Red",
+		eggGroups: ["Amorphous"],
+		otherFormes: ["Solastor-Zen"],
+		formeOrder: ["Solastor", "Solastor-Zen"],
+	//	creator: "Ubertrainer2000",
+	},
+	solastorzen: {
+		num: -1048,
+		name: "Solastor-Zen",
+
+		baseSpecies: "Solastor",
+		forme: "Zen",
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 55, atk: 140, def: 25, spa: 140, spd: 25, spe: 100},
+		abilities: {0: "Zen Mode"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 0.1,
+		color: "Red",
+		eggGroups: ["Amorphous"],
+		requiredAbility: "Zen Mode",
+		battleOnly: "Solastor",
+	//	creator: "Ubertrainer2000",
+	},
+	// end
+
+	// start
+	lullux: {
+		num: -1049,
+		name: "Lullux",
+
+		baseForme: "Standard",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 100, atk: 55, def: 110, spa: 55, spd: 110, spe: 55},
+		abilities: {0: "Drizzle", 1: "Overcoat", H: "Zen Mode"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 0.1,
+		color: "Blue",
+		eggGroups: ["Amorphous"],
+		otherFormes: ["Lullux-Zen"],
+		formeOrder: ["Lullux", "Lullux-Zen"],
+	//	creator: "Ubertrainer2000",
+	},
+	lulluxzen: {
+		num: -1049,
+		name: "Lullux-Zen",
+
+		baseSpecies: "Lullux",
+		forme: "Zen",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 100, atk: 25, def: 140, spa: 25, spd: 140, spe: 55},
+		abilities: {0: "Zen Mode"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 0.1,
+		color: "Blue",
+		eggGroups: ["Amorphous"],
+		requiredAbility: "Zen Mode",
+		battleOnly: "Lullux",
+	//	creator: "Ubertrainer2000",
+	},
+	// end
+
+	// start
+	possmortem: {
+		num: -1050,
+		name: "Possmortem",
+		types: ["Normal", "Ghost"],
+		baseStats: {hp: 80, atk: 85, def: 55, spa: 100, spd: 97, spe: 103},
+		abilities: {0: "Quick Feet", 1: "Run Away", H: "Feign Death"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 17.8,
+		color: "White",
+		eggGroups: ["Field"],
+	//	creator: "PalpitoadChamp",
+	},
+	// end
+
+	// start
+	cashatrew: {
+		num: -1051,
+		name: "Cashatrew",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 80, atk: 103, def: 100, spa: 55, spd: 97, spe: 85},
+		abilities: {0: "Battle Armor", 1: "Chlorophyll", H: "Prankster"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 7.8,
+		color: "Green",
+		eggGroups: ["Flying"],
+	//	creator: "PalpitoadChamp",
+	},
+	// end
+
+	// start
+	anthroll: {
+		num: -1052,
+		name: "Anthroll",
+		types: ["Ice", "Poison"],
+		baseStats: {hp: 91, atk: 112, def: 90, spa: 52, spd: 128, spe: 39},
+		abilities: {0: "Regenerator", 1: "Magic Guard", H: "Guts"},
+	//	category: "",
+		heightm: 1.1,
+		weightkg: 38.2,
+		color: "Purple",
+		eggGroups: ["Fairy"],
+	//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
+	kolbolt: {
+		num: -1053,
+		name: "Kolbolt",
+		types: ["Ice", "Electric"],
+		baseStats: {hp: 91, atk: 52, def: 70, spa: 102, spd: 70, spe: 127},
+		abilities: {0: "Poison Heal", 1: "Technician", H: "Sturdy"},
+	//	category: "",
+		heightm: 1.5,
+		weightkg: 25.3,
+		color: "Yellow",
+		eggGroups: ["Fairy"],
+	//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
 	ledian: {
 		inherit: true,
 		evos: ["Ledellar"],
@@ -1076,7 +1285,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	delcatty: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 65, def: 65, spa: 55, spd: 55, spe: 90},
+		baseStats: {hp: 90, atk: 75, def: 75, spa: 55, spd: 55, spe: 90},
 	},
 	// end
 

@@ -6,11 +6,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyMove(move, source, target) {
 			if (move.flags['contact']) {
 				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.flags['contact'] && target.volatiles['stall']) {
-				this.debug('Armor Piercer reduces damage against Stall');
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
 				return this.chainModify(0.25);
 			}
 		},
@@ -88,31 +89,50 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Dustform' || pokemon.transformed) return;
 			let forme = null;
+			let newTypes = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'dustformsunny') forme = 'Dustform-Sunny';
+				if (pokemon.species.id !== 'dustformsunny') {
+					forme = 'Dustform-Sunny';
+					newTypes = ['Ground', 'Fire'];
+				}
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.species.id !== 'dustformrainy') forme = 'Dustform-Rainy';
+				if (pokemon.species.id !== 'dustformrainy') {
+					forme = 'Dustform-Rainy';
+					newTypes = ['Ground', 'Water'];
+				}
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'dustformsnowy') forme = 'Dustform-Snowy';
+				if (pokemon.species.id !== 'dustformsnowy') {
+					forme = 'Dustform-Snowy';
+					newTypes = ['Ground', 'Ice'];
+				}
 				break;
 			case 'sandstorm':
 			case 'desertgales':
-				if (pokemon.species.id !== 'dustformsandy') forme = 'Dustform-Sandy';
+				if (pokemon.species.id !== 'dustformsandy') {
+					forme = 'Dustform-Sandy';
+					newTypes = ['Ground', 'Flying'];
+				}
 				break;
 			default:
-				if (pokemon.species.id !== 'dustform') forme = 'Dustform';
+				if (pokemon.species.id !== 'dustform') {
+					forme = 'Dustform';
+					newTypes = ['Ground'];
+				}
 				break;
 			}
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (newTypes) {
+					this.add('-start', pokemon, 'typechange', newTypes.join('/'), '[from] Desert Mirage');
+				}
 			}
-		},
+		},	
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Desert Mirage",
 		rating: 2,
@@ -528,6 +548,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -19,
 	},
+	//
+	feigndeath: {
+		shortDesc: "Ally can't faint from full HP + takes 0.5 from Ghost moves.",
+		onUpdate(pokemon) {
+			for (const ally of pokemon.side.pokemon) {
+				if (ally !== pokemon && !ally.fainted && !ally.volatiles['feigndeath']) {
+					ally.addVolatile('feigndeath');
+				}
+			}
+		},
+		flags: {},
+		name: "Feign Death",
+		rating: 5,
+		num: -20,
+	},
 	// end
 
 	// Changes to abilities
@@ -825,6 +860,55 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Torrent",
 		rating: 2,
 		num: 67,
+	},
+	//
+	zenmode: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			// Updated condition to allow Solastor and Lullux
+			if (!['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.species.baseSpecies) && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				// Handle forme changes for custom Pokémon
+				const zenFormes: {[k: string]: string} = {
+					'darmanitan': 'Darmanitan-Zen',
+					'darmanitangalar': 'Darmanitan-Galar-Zen',
+					'solastor': 'Solastor-Zen',
+					'lullux': 'Lullux-Zen',
+				};
+				const baseId = pokemon.species.id;
+				if (zenFormes[baseId]) {
+					pokemon.formeChange(zenFormes[baseId]);
+				}
+			},
+			onEnd(pokemon) {
+				const zenFormes = ['Zen', 'Galar-Zen'];
+				if (zenFormes.includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
 	},
 	// End
 	

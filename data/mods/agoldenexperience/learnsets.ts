@@ -2645,6 +2645,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			endure: ["9M"],
 			energyball: ["9M", "9L42"],
 			facade: ["9M"],
+			fakeout: ["9L1"],
 			faketears: ["9M"],
 			fling: ["9M"],
 			flowertrick: ["9L0"],

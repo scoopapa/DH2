@@ -69,10 +69,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "Super-effective on Dragon types. 10% flinch chance.",
+		shortDesc: "Cannot be used on consecutive turns. Super-Effective on Dragon-Types. 10% Flinch.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dragon') return 1;
 		},
@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "The user recovers some health by devouring food.",
+		shortDesc: "Recovers HP and eats held berry. Fails if user isn't holding a berry.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -145,7 +145,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	thunderrush: {
 		num: 2007,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 55,
 		category: "Physical",
 		name: "Thunder Rush",
 		shortDesc: "Usually goes first. Always crits.",
@@ -164,7 +164,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Frenzy Slam",
-		shortDesc: "Summons reflect.",
+		shortDesc: "Summons Reflect.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -217,7 +217,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Arctic Shriek",
 		shortDesc: "Eliminates all stat changes.",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		onHit() {
@@ -258,7 +258,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Summons Leech Seed.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onHit(target, source) {
 			if (target.hasType('Grass')) return null;
 			target.addVolatile('leechseed', source);
@@ -385,20 +385,110 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-	swift: {
-		num: 129,
-		accuracy: true,
-		basePower: 60,
+	boltbreath: {
+		num: 2020,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Breath damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Bolt Breath NOT boosted');
+			return move.basePower;
+		},
 		category: "Special",
-		name: "Swift",
-		shortDesc: "Bypasses accuracy checks. +1 Priority.",
-		pp: 20,
-		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		name: "Bolt Breath",
+		shortDesc: "Power doubles if the user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Normal",
-		contestType: "Cool",
+		target: "normal",
+		type: "Electric",
+	},
+	cyclonerend: {
+		num: 2021,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Cyclone Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Cyclone Rend NOT boosted');
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Cyclone Rend",
+		shortDesc: "Power doubles if the user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	coldsnap: {
+		num: 2022,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Cold Snap",
+		shortDesc: "Freezes the target.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		status: 'frz',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {boost: {spa: 1}},
+		contestType: "Beautiful",
+	},
+	blazeball: {
+		num: 2023,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Blaze Ball",
+		shortDesc: "No additional effect.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	/*
+	Edits
+	*/
+	swift: {
+		inherit: true,
+		priority: 1,
+	},
+	healorder: {
+		inherit: true,
+		pp: 5,
+	},
+	hyperspacefury: {
+		inherit: true,
+		breaksProtect: true,
+		onTry(source) {
+			if (source.species.name === 'Plesioth') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Plesioth can use this move.");
+			if (source.species.name === 'Plesioth') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
+		},
 	},
 	/*
 	TORQUES
@@ -498,4 +588,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-};
+}

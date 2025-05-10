@@ -239,4 +239,164 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW5",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+		kaihaencan: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	gymera: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	eltaigenesis: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	kotoedoria: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	saojampox: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wuzetialkii: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	shenirage: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	nirezushi: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jiyukafly: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	glazamcai: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	dynaslucia: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	pliolillion: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	arctomaritt: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	khorkavor: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	babaoshaw: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	zhoushakie: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yuilpawimi: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	obakubora: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	kunapisia: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yangwei: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	kamaiseiken: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	hongainbow: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wanakanju: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	snoozaki: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	oshidarin: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	ahyazi: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sozuko: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	elanzapp: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	kenflamz: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	otowaime: {
+		tier: "NSEW6",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	nostjing: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	bryoking: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	tyujin: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	taraguisa: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	monula: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	faragraph: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jiduaejebo: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	mokagami: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yokosura: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jackoyaku: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }

@@ -409,9 +409,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	merciless: {
 		inherit: true,
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox', 'brn', 'par'].includes(target.status)) return 5;
+			if (target && ['psn', 'tox', 'brn', 'par', 'frz', 'slp'].includes(target.status)) return 5;
 		},
-		shortDesc: "This Pokemon's attacks are critical hits if the target is poisoned, burned or paralyzed.",
+		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
 	},
 	telepathy: {
 		inherit: true,
@@ -494,13 +494,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	daredevil: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.accuracy <= 85) {
+			if (move.accuracy <= 90) {
 				return this.chainModify([5325, 4096]);
 			}
 		},
 		flags: {},
 		name: "Daredevil",
-		shortDesc: "Moves with 85% accuracy or less are powered up by 30%.",
+		shortDesc: "Moves with 90% accuracy or less are powered up by 30%.",
 		rating: 3.5,
 		num: -9,
 	},
@@ -694,6 +694,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		onResidual(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target.side.totalFainted) {
 				this.add('-activate', pokemon, 'ability: Pyre');
@@ -1028,12 +1029,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.side.sideConditions['mist'] && !move.flags['contact']) {
-				return this.chainModify(0.33);
+				return this.chainModify(0.66);
 			}
 		},
-		onModifySecondaries(secondaries) {
-			const pokemon = this.effectState.target;
-			if (pokemon.side.sideConditions['mist']) {
+		onModifySecondaries(secondaries, effect) {
+			const pokemonSecondaries = this.effectState.target;
+			if (pokemonSecondaries.side.sideConditions['mist']) {
 				this.debug('Shield Dust prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
