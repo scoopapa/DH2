@@ -2551,6 +2551,10 @@ export const Formats: FormatList = [
 		mod: 'signaturemons',
 		teambuilderFormat: 'National Dex',
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		checkCanLearn(move, template, lsetData, set) {
+			if (['hiddenpower', 'terablast'].includes(move.id)) return null; //What does this do ?
+			return this.checkCanLearn(move, template, lsetData, set);
+		},
 	},
 	{
 		name: "[Gen 9] Signaturemons Doubles",
