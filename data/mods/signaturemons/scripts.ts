@@ -1,9 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	/*teambuilderConfig: {
+	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ["Sign", "NoSign"],
-	},*/
+	},
 	init() {
 		//Add signature moves to learnsets (by dex number order)
 		//Gen 1
