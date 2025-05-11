@@ -2546,35 +2546,6 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 9] Signaturemons",
-        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
-		mod: 'signaturemons',
-		teambuilderFormat: 'National Dex',
-		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-		/*Tentative restrictions
-		checkCanLearn(move, template, lsetData, set) {
-			if (['terablast'].includes(move.id)) return null; //Tera Blast for everyone (except Magikarp, Ditto, Smeargle, Cosmog, Cosmoem and Terapagos)
-			if (['hiddenpower'].includes(move.id)) return null; //Hidden power for no one (except Unown)
-			return this.checkCanLearn(move, template, lsetData, set);
-		},*/
-	},
-	{
-		name: "[Gen 9] Signaturemons Doubles",
-        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
-		mod: 'signaturemons',
-		gameType: 'doubles',
-		teambuilderFormat: 'National Dex',
-		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-	},
-	/*{
-		name: "[Gen 9] Signaturemons Random Doubles",
-        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
-		mod: 'signaturemons',
-		gameType: 'doubles',
-		team: 'random',
-		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-	},*/
-	{
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
@@ -4396,7 +4367,37 @@ export const Formats: FormatList = [
 		'Mightyena', 'Miltank', 'Monferno', 'Oddish', 'Pansear', 'Pignite', 'Poipole', 'Psyduck', 'Quilava', 'Raboot', 'Sawsbuck', 'Scorbunny', 'Shelgon', 'Simisear', 'Sizzlipede', 'Skeledirge',
 		'Skiddo', 'Sliggoo', 'Sliggoo-Hisui', 'Stantler', 'Swablu', 'Tepig', 'Thwackey', 'Torchic', 'Torkoal', 'Torracat', 'Typhlosion', 'Typhlosion-Hisui', 'Watchog', 'Wyrdeer', 'Zebstrika', 'Zweilous',
 		],
-	},/*
+	},
+	{
+		name: "[Gen 9] Signaturemons",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
+		mod: 'signaturemons',
+		teambuilderFormat: 'National Dex',
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		/*Tentative restrictions - will work on it later
+		checkCanLearn(move, template, lsetData, set) {
+			if (['terablast'].includes(move.id)) return null; //Tera Blast for everyone (except Magikarp, Ditto, Smeargle, Cosmog, Cosmoem and Terapagos)
+			if (['hiddenpower'].includes(move.id)) return null; //Hidden power for no one (except Unown)
+			return this.checkCanLearn(move, template, lsetData, set);
+		},*/
+	},
+	{
+		name: "[Gen 9] Signaturemons Doubles",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
+		mod: 'signaturemons',
+		gameType: 'doubles',
+		teambuilderFormat: 'National Dex',
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+	},
+	/*{
+		name: "[Gen 9] Signaturemons Random Doubles",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
+		mod: 'signaturemons',
+		gameType: 'doubles',
+		team: 'random',
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+	},*/
+	/*
 		{
 		name: "[Gen 4] Yayamons",
 		threads: [
