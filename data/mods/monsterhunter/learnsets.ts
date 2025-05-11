@@ -1550,7 +1550,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	gossharag: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9M"],
 			assurance: ["9M"],
 			attract: ["9M"],
@@ -2491,7 +2491,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	shogunceanataur: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			aquacutter: ["9M"],
 			aquajet: ["9L15"],
 			attract: ["9M"],
@@ -3286,7 +3286,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	seregios: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acrobatics: ["9M"],
 			acupressure: ["9M"],
 			aerialace: ["9M"],
@@ -3791,7 +3791,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	malzeno: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9M"],
 			agility: ["9M"],
 			astonish: ["9L1"],
@@ -4564,7 +4564,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	valstrax: {
 		learnset: {
 			aerialace: ["9M"],
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			ancientpower: ["9L16"],
 			aurasphere: ["9M", "9L48"],
 			bodypress: ["9M"],
@@ -6329,7 +6329,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	glavenus: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			accelerock: ["9L1"],
 			attract: ["9L1"],
 			behemothblade: ["9L1"],
@@ -6896,7 +6896,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	harudomerugu: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9L1"],
 			agility: ["9L1"],
 			anchorshot: ["9L1"],
