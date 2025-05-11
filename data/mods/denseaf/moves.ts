@@ -683,7 +683,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	
 	sinker: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
 		name: "Sinker",
 		pp: 10,
