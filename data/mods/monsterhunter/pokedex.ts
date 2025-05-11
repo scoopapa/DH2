@@ -368,7 +368,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 83,
 		name: "Dalamadur",
 		types: ["Dragon", "Rock"],
-		baseStats: {hp: 112, atk: 100, def: 125, spa: 103, spd: 130, spe: 50},
+		baseStats: {hp: 110, atk: 100, def: 125, spa: 100, spd: 130, spe: 50},
 		abilities: {0: "Iron Barbs", 1: "Direspike Scales", H: "Gemini Core"},
 		heightm: 1.0,
 		weightkg: 500.0,
