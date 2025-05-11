@@ -2876,6 +2876,30 @@ export const Formats: FormatList = [
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody', 'Smeargle', 'Shell Smash', 'Shadow Tag', 'Calyrex-Ice', 'Eternatus-Eternamax', 'Medichamite'],
 	},
 	{
+		name: "[Gen 9] Dense AF",
+		desc: 'experimental format with few things and things that are smooshed together',
+		mod: 'denseaf',
+		ruleset: [
+		'Nickname Clause', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Dense AF Mod',
+		],
+		banlist: ['All Items'],
+		unbanlist: [
+		'Pinch Berry', 'Tsersi Berry', 'Nota Berry', 'Leftovers', 'Soft Silver Magnet', 'Miracle Stone Belt', 'Big Neutral Energy', 'Twisted Mystic Coal', 'Black Ice Coat',
+		'Sharp Feather Barb', 'Focus Sash', 'Adrenaline Orb', 'Shed Shell',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['DAF'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not DenseAF.'];
+				}
+			}
+		}
+  },
+	{
 		name: "[Gen 9] Do Not Use",
 		desc: [
 			"<b>Do Not Use</b>: A National Dex metagame where only Pokemon with 280 BST or less are allowed."
@@ -3762,21 +3786,20 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monster Hunter Ubers",
+		name: "[Gen 9] Monster Hunter AG",
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Baton Pass Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Shed Tail', 'Baton Pass'],
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter Ubers.'];
+					return [set.species + ' is not legal in Monster Hunter AG.'];
 				}
 			}
 		},
@@ -3793,7 +3816,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3813,7 +3836,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {

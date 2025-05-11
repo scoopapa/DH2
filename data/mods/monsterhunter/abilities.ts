@@ -21,7 +21,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!target.runImmunity(move.type)) return; // immunity has priority
 			if (target.hp < target.maxhp) return;
 
-			this.add('-activate', target, 'ability: Tera Shell');
+			this.add('-activate', target, 'ability: Direspike Scales');
 			this.effectState.resisted = true;
 			return -1;
 		},
@@ -271,7 +271,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
 			this.debug('tireless - remove charge turn for ' + move.id);
-			this.add('-activate', pokemon, 'ability: Tireless');
+			this.add('-activate', pokemon, 'ability: Gemini Core');
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; // skip charge turn
@@ -280,14 +280,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
 				this.debug('tireless - remove recharge');
-				this.add('-activate', pokemon, 'ability: Tireless');
+				this.add('-activate', pokemon, 'ability: Gemini Core');
 			}
 		},
 		onBeforeMovePriority: 11,
 		onBeforeMove(pokemon) {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
-				this.debug('tireless - failsafe remove recharge');
+				this.debug('geminicore - failsafe remove recharge');
 			}
 		},
 		name: "Gemini Core",
