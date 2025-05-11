@@ -13,6 +13,14 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-start', pokemon, 'Frostbite');
 			this.add('-message', `${target.name} was frostbitten! Special Attack halved!`);
 		},
+		onDamagingHit(damage, target, source, move) {},
+		onAfterMoveSecondary(target, source, move) {},
+	},
+	snow: {
+		inherit: true,
+		onImmunity(type) {
+			if (type === 'brn') return false;
+		},
 	},
 	heatres: {
 		name: 'Heat Resistance',
