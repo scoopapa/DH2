@@ -123,7 +123,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	garangolm: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	gendrome: {
 		tier: "MHRU",
@@ -144,7 +144,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	goremagala: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	chaoticgore: {
 		tier: "MHOU",
@@ -153,7 +153,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	gravios: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	greatbaggi: {
 		tier: "MHRU",
@@ -237,7 +237,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	lunagaron: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	lunastra: {
 		tier: "MHOU",
@@ -353,6 +353,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	auroracanth: {
 		tier: "MHRU",
 	},
+	spiribird: {
+		tier: "MHRU",
+	},
+	spiribirdred: {
+		tier: "MHRU",
+	},
+	spiribirdyellow: {
+		tier: "MHRU",
+	},
+	spiribirdorange: {
+		tier: "MHRU",
+	},
 	teostra: {
 		tier: "MHOU",
 	},
@@ -463,5 +475,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	crimsonglowvalstrax: {
 		tier: "MHOU",
+	},
+	crimsonfatalis: {
+		tier: "MHAG",
+	},
+	whitefatalis: {
+		tier: "MHAG",
 	},
 };
