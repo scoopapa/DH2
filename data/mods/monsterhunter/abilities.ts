@@ -327,4 +327,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -33,
 	},
+	icebody: {
+		inherit: true,
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+	},
 }
