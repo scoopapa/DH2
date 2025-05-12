@@ -33,7 +33,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.hasAbility('honeygather')
 			) {
 				if (pokemon.useItem()) {
-					const bestStat = pokemon.getBestStat(true);
+					const bestStat = pokemon.getBestStat(false, true);
 					this.boost({ [bestStat]: 1 }, pokemon);
 				}
 			}
