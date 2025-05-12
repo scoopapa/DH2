@@ -42,5 +42,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Meta Knight"],
 		num: -4,
 		gen: 9,
-	}
+	},
+	pittite: {
+		name: "Pittite",
+		spritenum: 576,
+		megaStone: "Pit-Mega",
+		megaEvolves: "Pit",
+		itemUser: ["Pit"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5,
+		gen: 9,
+		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
+	},
 };
