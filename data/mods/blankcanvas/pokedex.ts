@@ -284,7 +284,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Sculptera",
 		types: ["Rock", "Dragon"],
 		baseStats: {hp: 100, atk: 105, def: 70, spa: 40, spd: 85, spe: 85},
-		abilities: {0: "Skill Link"},
+		abilities: {0: "Skill Link", H: "Defiant"},
 		weightkg: 729,
 	},
 	lavalisk: {
