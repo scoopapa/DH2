@@ -67,6 +67,22 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/flint.png" height="80" width="80">`);
 						side.trainerBoost = 'flint';
 						break;
+					case 'mina':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/mina.png" height="80" width="80">`);
+						side.trainerBoost = 'mina';
+						break;
+					case 'dustin':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/worker.png" height="80" width="80">`);
+						side.trainerBoost = 'dustin';
+						break;
+					case 'youngsterjoey':
+					case 'youngster joey':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/youngster-gen4.png" height="80" width="80">`);
+						side.trainerBoost = 'joey';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
@@ -111,6 +127,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'flint':
 					pokemon.addVolatile('flintboost');
+					break;
+				case 'mina':
+					pokemon.addVolatile('minaboost');
+					break;
+				case 'dustin':
+					pokemon.addVolatile('dustinboost');
+					break;
+				case 'joey':
+					pokemon.addVolatile('joeyboost');
 					break;
 			}
 		}
