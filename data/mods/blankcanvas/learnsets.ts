@@ -1301,6 +1301,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			honeclaws: ["9L1"],
 		},
 	},
 	lavalisk: {
@@ -1529,7 +1530,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			hypervoice: ["9L1"],
 			brickbreak: ["9L1"],
 			aurasphere: ["9L1"],
-			knockoff: ["9L1"],
+			//knockoff: ["9L1"],
 			doubleedge: ["9L1"],
 			machpunch: ["9L1"],
 			drainpunch: ["9L1"],
