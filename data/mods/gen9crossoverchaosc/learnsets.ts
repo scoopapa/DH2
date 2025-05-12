@@ -1252,7 +1252,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			embargo: ["9L1"],
 			hypervoice: ["9L1"],
 			toxic: ["9L1"],
-			helpinghand: ["9L1"],
 			thief: ["9L1"],
 			snatch: ["9L1"],
 			fling: ["9L1"],
