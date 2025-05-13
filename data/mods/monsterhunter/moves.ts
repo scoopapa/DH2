@@ -474,6 +474,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
+		onTry(source) {
+			if (source.species.name === 'Crimson-Fatalis') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Crimson-Fatalis can use this move.");
+			if (source.species.name === 'Crimson-Fatalis') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Crimson Dawn', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Crimson Dawn');
+			return null;
+		},
 	},
 	ancestralthunder: {
 		num: 2025,
@@ -488,6 +502,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		onTry(source) {
+			if (source.species.name === 'White-Fatalis') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is White-Fatalis can use this move.");
+			if (source.species.name === 'White-Fatalis') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Ancestral Thunder', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Ancestral Thunder');
+			return null;
+		},
 	},
 	/*
 	Edits

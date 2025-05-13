@@ -169,6 +169,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1011,
 			gen: 9,
 	},
+	crimsonscale: {
+		name: "Crimson Gem",
+		spritenum: 141,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Crimson-Fatalis', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
+			return true;
+		},
+		itemUser: ["Fatalis"],
+		num: 1012,
+		gen: 9,
+	},
+		whitescale: {
+		name: "White Gem",
+		spritenum: 307,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('White-Fatalis', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
+			return true;
+		},
+		itemUser: ["Fatalis"],
+		num: 1013,
+		gen: 9,
+	},
 	frostorb: {
 		name: "Frost Orb",
 		spritenum: 515,
