@@ -327,6 +327,28 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -33,
 	},
+	centrifuge: {
+		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Centrifuge');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				return this.effectState.target;
+			}
+		},
+		name: "Centrifuge",
+		rating: 3,
+		num: -4,
+	},
 	icebody: {
 		inherit: true,
 		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",

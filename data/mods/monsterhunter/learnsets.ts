@@ -432,6 +432,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			populationbomb: ["9M"],
 			protect: ["9M", "9L20"],
 			psychocut: ["9M"],
+			rapidspin: ["9M"],
 			rest: ["9M"],
 			retaliate: ["9M"],
 			reversal: ["9M"],

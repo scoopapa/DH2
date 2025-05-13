@@ -467,7 +467,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 130,
 		category: "Physical",
 		name: "Crimson Dawn",
-		shortDesc: "Cannot be selected the turn after it's used.",
+		shortDesc: "C-Fatalis: Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
@@ -492,10 +492,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ancestralthunder: {
 		num: 2025,
 		accuracy: 100,
-		basePower: 130,
+		basePower: 120,
 		category: "Special",
 		name: "Ancestral Thunder",
-		shortDesc: "Cannot be selected the turn after it's used.",
+		shortDesc: "W-Fatalis: Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
@@ -516,6 +516,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-fail', source, 'move: Ancestral Thunder');
 			return null;
 		},
+	},
+	quicksandbreath: {
+		num: 2026,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		name: "Quicksand Breath",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
 	},
 	/*
 	Edits
