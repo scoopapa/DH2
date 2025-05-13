@@ -313,7 +313,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	corrosiveclaws: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
-		shortDesc: "Badly poison enemies brought under half health..",
+		shortDesc: "Badly poison enemies brought under half health.",
 		onAfterMove(source, target, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
@@ -326,5 +326,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Corrosive Claws",
 		rating: 4,
 		num: -33,
+	},
+	icebody: {
+		inherit: true,
+		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
 	},
 }

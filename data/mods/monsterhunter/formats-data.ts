@@ -477,9 +477,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	crimsonfatalis: {
-		tier: "MHAG",
+		tier: "MHOU",
 	},
 	whitefatalis: {
-		tier: "MHAG",
+		tier: "MHOU",
 	},
 };

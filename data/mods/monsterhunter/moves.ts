@@ -518,6 +518,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 	},
+	ivycudgel: {
+		inherit: true,
+		num: 904,
+		onPrepareHit(target, source, move) {
+			if (move.type !== "Grass") {
+				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+			}
+		},
+		onModifyType(move, pokemon) {},
+	},
 	/*
 	TORQUES
 	*/

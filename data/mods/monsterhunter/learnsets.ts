@@ -1550,7 +1550,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	gossharag: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9M"],
 			assurance: ["9M"],
 			attract: ["9M"],
@@ -2491,7 +2491,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	shogunceanataur: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			aquacutter: ["9M"],
 			aquajet: ["9L15"],
 			attract: ["9M"],
@@ -3286,7 +3286,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	seregios: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acrobatics: ["9M"],
 			acupressure: ["9M"],
 			aerialace: ["9M"],
@@ -3791,7 +3791,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	malzeno: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9M"],
 			agility: ["9M"],
 			astonish: ["9L1"],
@@ -4564,7 +4564,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	valstrax: {
 		learnset: {
 			aerialace: ["9M"],
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			ancientpower: ["9L16"],
 			aurasphere: ["9M", "9L48"],
 			bodypress: ["9M"],
@@ -5634,7 +5634,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			meanlook: ["9L1"],
 			metalsound: ["9L1"],
 			meteorassault: ["9L1"],
-			meteorbeam: ["9L1"],
 			moonlight: ["9L1"],
 			mountaingale: ["9L1"],
 			mysticalpower: ["9L1"],
@@ -5909,6 +5908,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			burningjealousy: ["9L1"],
 			burnup: ["9L1"],
 			chillyreception: ["9L1"],
+			crimsondawn: ["9L1"],
 			coldsnap: ["9L1"],
 			ember: ["9L1"],
 			eruption: ["9L1"],
@@ -5990,7 +5990,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dracometeor: ["9L1"],
 			dragonascent: ["9L1"],
 			dragonclaw: ["9L1"],
-			dragondance: ["9L1"],
+			thunder: ["9L1"],
+			thunderbolt: ["9L1"],
 			dragonenergy: ["9L1"],
 			dragonhammer: ["9L1"],
 			dragonpulse: ["9L1"],
@@ -6036,6 +6037,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sacredfire: ["9L1"],
 			seismictoss: ["9L1"],
 			snarl: ["9L1"],
+			swordsdance: ["9L1"],
 			substitute: ["9L1"],
 			superpower: ["9L1"],
 			swagger: ["9L1"],
@@ -6329,7 +6331,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	glavenus: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			accelerock: ["9L1"],
 			attract: ["9L1"],
 			behemothblade: ["9L1"],
@@ -6896,7 +6898,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	harudomerugu: {
 		learnset: {
-			sharpness: ["9L1"],
+			sharpen: ["9L1"],
 			acupressure: ["9L1"],
 			agility: ["9L1"],
 			anchorshot: ["9L1"],
@@ -7227,7 +7229,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			junglehealing: ["9L1"],
 			knockoff: ["9L1"],
 			lashout: ["9L1"],
-			tripleaxel: ["9L1"],
 			leechseed: ["9L1"],
 			leer: ["9L1"],
 			lowkick: ["9L1"],
@@ -7269,7 +7270,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			triplearrows: ["9L1"],
 			uturn: ["9L1"],
 			victorydance: ["9L1"],
-			willowisp: ["9L1"],
+			ivycudgel: ["9L1"],
+			dragonhammer: ["9L1"],
+			icehammer: ["9L1"],
+			woodhammer: ["9L1"],
 		},
 	},
 	kirin: {
@@ -8012,6 +8016,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thundercage: ["9L1"],
 			thunderwave: ["9L1"],
 			voltswitch: ["9L1"],
+			raindance: ["9L1"],
 			wavecrash: ["9L1"],
 			wildcharge: ["9L1"],
 			wish: ["9L1"],
