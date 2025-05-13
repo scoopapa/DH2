@@ -522,6 +522,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 75,
 		basePower: 100,
 		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 		name: "Quicksand Breath",
 		pp: 5,
 		priority: 0,

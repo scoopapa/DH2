@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1001,
+			num: 1000,
 			gen: 9,
 	},
 		magnamalite: {
@@ -23,7 +23,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1003,
+			num: 1001,
 			gen: 9,
 	},
 		astalite: {
@@ -36,7 +36,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1004,
+			num: 1002,
 			gen: 9,
 	},
 		mizutsunite: {
@@ -153,7 +153,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1012,
+			num: 1011,
 			gen: 9,
 	},
 		valstraxite: {
@@ -166,7 +166,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1011,
+			num: 1012,
 			gen: 9,
 	},
 	crimsongem: {
@@ -185,7 +185,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		itemUser: ["Fatalis"],
-		num: 1012,
+		num: 1013,
 		gen: 9,
 	},
 		whitegem: {
@@ -204,7 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		itemUser: ["Fatalis"],
-		num: 1013,
+		num: 1014,
 		gen: 9,
 	},
 	frostorb: {
@@ -221,7 +221,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "At the end of each turn, tries to freeze the holder.",
 		shortDesc: "At the end of each turn, tries to freeze the holder.",
-		num: -26,
+		num: 1015,
 		gen: 4,
 	}
 };
