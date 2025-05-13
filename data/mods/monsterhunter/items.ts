@@ -169,7 +169,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1011,
 			gen: 9,
 	},
-	crimsonscale: {
+	crimsongem: {
 		name: "Crimson Gem",
 		spritenum: 141,
 		onSwitchIn(pokemon) {
@@ -188,7 +188,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1012,
 		gen: 9,
 	},
-		whitescale: {
+		whitegem: {
 		name: "White Gem",
 		spritenum: 307,
 		onSwitchIn(pokemon) {
