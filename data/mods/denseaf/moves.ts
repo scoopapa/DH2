@@ -698,7 +698,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower * 3;
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 		target: "normal",
 		type: "Stellar",

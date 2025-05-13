@@ -3,7 +3,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 729.01,
 		name: "Default Dance",
 		types: ["Normal"],
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 85},
+		baseStats: {hp: 85, atk: 95, def: 95, spa: 95, spd: 95, spe: 85},
 		abilities: {0: "Recycler", 1: "Gambler"},
 	},
 	strikester: {

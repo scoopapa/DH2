@@ -365,6 +365,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	
 	//Just to hide items away (mainly Popular Items, and some others), they are already banned in config/format.ts
 	//Doing this until there is a better way to hide illegal items
+	leftovers: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},	
 	lifeorb: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',

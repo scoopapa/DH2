@@ -2855,7 +2855,7 @@ export const Formats: FormatList = [
 		],
 		banlist: ['All Items'],
 		unbanlist: [
-		'Pinch Berry', 'Tsersi Berry', 'Nota Berry', 'Leftovers', 'Soft Silver Magnet', 'Miracle Stone Belt', 'Big Neutral Energy', 'Twisted Mystic Coal', 'Black Ice Coat',
+		'Pinch Berry', 'Tsersi Berry', 'Nota Berry', 'Soft Silver Magnet', 'Miracle Stone Belt', 'Big Neutral Energy', 'Twisted Mystic Coal', 'Black Ice Coat',
 		'Sharp Feather Barb', 'Focus Sash', 'Adrenaline Orb', 'Shed Shell',
 		],
 		onValidateTeam(team, format) {

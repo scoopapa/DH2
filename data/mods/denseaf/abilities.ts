@@ -19,7 +19,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.randomChance(2, 3)) {
+			if (this.randomChance(3, 5)) {
 				if (pokemon.hp && !pokemon.item) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
@@ -156,13 +156,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					this.add('-ability', pokemon, 'Denigrate', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({atk: -1, spa: -1}, target, pokemon, null, true);
+					this.boost({spa: -1}, target, pokemon, null, true);
 				}
 			}
 		},
