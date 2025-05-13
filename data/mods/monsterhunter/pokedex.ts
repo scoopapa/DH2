@@ -336,7 +336,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Congalala",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 87, atk: 83, def: 89, spa: 106, spd: 104, spe: 61},
-		abilities: {0: "Harvest", 1: "Stench"},
+		abilities: {0: "Harvest", 1: "Stench", H: "Lingering Aroma"},
 		heightm: 1.0,
 		weightkg: 50.4,
 		color: "Black",
