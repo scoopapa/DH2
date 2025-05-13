@@ -512,6 +512,100 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Beautiful",
 	},
+	guardianorbitars: {
+		num: -17,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Guardian Orbitars",
+		shortDesc: "Special attacks targeting the user's side get reflected for the rest of the turn.",
+		pp: 20,
+		priority: 4,
+		flags: {metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magic Coat", source);
+		},
+		volatileStatus: 'guardianorbiters',
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				this.add('-singleturn', target, 'move: Guardian Orbiters');
+				if (effect?.effectType === 'Move') {
+					this.effectState.pranksterBoosted = effect.pranksterBoosted;
+				}
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.category === 'Special') {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.category === 'Special') {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, source);
+				return null;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
+	finalstrike: {
+		num: -18,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Final Strike",
+		shortDesc: "Lowers the user's Sp. Atk by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Judgment", target);
+			this.add('-anim', source, "Light of Ruin", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	frostbitebreath: {
+		num: -19,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Frostbite Breath",
+		shortDesc: "Hits the target for their lower defensive stat.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {

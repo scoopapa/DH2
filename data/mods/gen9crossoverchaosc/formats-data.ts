@@ -83,4 +83,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	mayafey: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	pit: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	pitmega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	nifl: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };

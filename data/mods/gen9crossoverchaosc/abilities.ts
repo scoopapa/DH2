@@ -24,7 +24,7 @@ Ratings and how they work:
 */
 
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-  bloodfueled: {
+	bloodfueled: {
 		shortDesc: "Restores 1/8 of own max HP, rounded down, upon hitting another Pokemon with a contact move.",
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
@@ -107,5 +107,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -4,
 	},
-
+	domainofice: {
+		shortDesc: "Reduce first attack damage recieved: 30% if phys, 50% if spec.",
+		onStart(pokemon) {
+			pokemon.addVolatile('domainofice');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('domainofice');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onSourceModifyAtkPriority: 6,
+			onSourceModifyAtk(atk, attacker, defender, move) {
+				if (!move.ignoreAbility) {
+					this.debug('Domain of Ice weaken');
+					return this.chainModify(0.7);
+				}
+				defender.removeVolatile('domainofice');
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(spa, attacker, defender, move) {
+				if (!move.ignoreAbility) {
+					this.debug('Domain of Ice weaken');
+					return this.chainModify(0.5);
+				}
+				defender.removeVolatile('domainofice');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Domain of Ice",
+		rating: 3.5,
+		num: -5,
+	},
 };
