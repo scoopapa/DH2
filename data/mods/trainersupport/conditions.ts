@@ -114,6 +114,43 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	minaboost: {
+		name: 'minaboost',
+		noCopy: true,
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!effect.self);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.spe && boost.spe < 0) {
+				delete boost.spe;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Speed");
+				}
+			}
+		},
+	},
+	dustinboost: {
+		name: 'dustinboost',
+		noCopy: true,
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, defender, move) {
+			if (move.type !== 'Steel') return;
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
 	
 	//vanilla
 	sandstorm: {
