@@ -307,8 +307,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		onModifyPriority(priority, source, target, move) {
 			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (move.type === 'Water' || move.category === 'Status') {
+			const targetMove = action?.choice === 'move' ? action.move : null;
+			if (targetMove.type === 'Water') {
 				return priority + 1;
 			}
 		},
