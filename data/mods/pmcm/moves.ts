@@ -156,7 +156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  if (bestType === 'Water') {
 			source.formeChange('Tauros-Paldea-Aqua');
 			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');
+			this.add('-ability', source, 'Adaptability');q
 		  } else if (bestType === 'Fighting') {
 			source.formeChange('Tauros-Paldea-Combat');
 			source.setAbility('Adaptability');
@@ -309,6 +309,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			const action = this.queue.willMove(target);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
+				this.add('-message', `Sudowoodo draws power from the water!`);
 				return priority + 1;
 			}
 		},
