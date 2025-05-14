@@ -349,6 +349,38 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Steel",
 		contestType: "Beautiful",
 		shortDesc: "Target takes damage from all entry hazards on their side of the field, unless they are immune.",
+	},
+	thunderouskick: {
+		inherit: true,
+		secondary: null,
+		onHit(target, source, move) {
+		    const randomNum = Math.round(Math.random());
+		    if (randomNum === 0) {
+		        if (target.boosts.def !== -6) {
+		            this.boost({def: -1}, target, source, move);
+		        }
+		    }
+			 else {
+		        this.add('-message', `${source.name} follows up with a Thunder Kick!`);
+		        const thunderKick = {
+		            name: "Thunder Kick",
+		            type: "Electric",
+		            basePower: 50,
+					  	accuracy: 100,
+		            category: "Physical",
+		            priority: 0,
+					  	onPrepareHit(target, source, move) {
+							this.add('-anim', source, 'High Jump Kick', target);
+						},
+					  	onHit(target, source, move) {
+							this.add('-anim', source, 'Thunder', target);
+						},
+		            flags: {contact: true, protect: true},
+		        };
+		        this.actions.useMove(thunderKick, source, target);
+		    }
+		},
+		shortDesc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
 	}
 };
   
