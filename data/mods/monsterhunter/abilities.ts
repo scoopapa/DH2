@@ -1,18 +1,4 @@
 export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
-	poisonpuppeteer: {
-		onAnyAfterSetStatus(status, target, source, effect) {
-			if (source.baseSpecies.name !== "Chameleos") return;
-			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
-			if (status.id === 'psn' || status.id === 'tox') {
-				target.addVolatile('confusion');
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Poison Puppeteer",
-		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
-		rating: 3,
-		num: 310,
-	},
 	direspikescales: {
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || target.species.name !== 'Dalamadur') return;
@@ -32,7 +18,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Direspike Scales",
 		shortDesc: "Dalamadur: If full HP, attacks taken have 0.5 effectiveness unless naturally immune.",
 		rating: 3.5,
-		num: 308,
+		num: 1000,
 	},
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
@@ -54,7 +40,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Ice-Armor",
 		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice. Also activates under Snow.",
 		rating: 3,
-		num: 1000,
+		num: 1001,
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
@@ -69,7 +55,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Puff-Up",
 		shortDesc: "This pokemon will react to a special attack by puffing up it's body.",
 		rating: 3,
-		num: 1001,
+		num: 1002,
 	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
@@ -84,7 +70,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Debris",
 		shortDesc: "If this pokemon is hit by a physical attack, Spikes are set on the opposing side.",
 		rating: 3.5,
-		num: 1002,
+		num: 1003,
 	},
 	solarwrath: {
 		onModifyAtkPriority: 5,
@@ -103,7 +89,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Solar Wrath",
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
 		rating: 2,
-		num: 1003,
+		num: 1004,
 	},
 	tempestenergy: {
 		onImmunity(type, pokemon) {
@@ -133,7 +119,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
 		name: "Tempest Energy",
-		num: 1004,
+		num: 1005,
 	},
 	tempestforce: {
 		inherit: true,
@@ -161,7 +147,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		rating: 1,
-		num: 2004,
+		num: 1006,
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
 		name: "Tempest Force",
@@ -183,7 +169,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
 		name: "Mighty Wall",
 		rating: 4,
-		num: 1005,
+		num: 1007,
 	},
 	ignite: {
 		desc: "This Pokémon's Normal-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
@@ -204,7 +190,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ignite",
 		rating: 4,
-		num: -39,
+		num: 1008,
 	},
 	vampirism: {
 		shortDesc: "Replaces target's ability with Vampirism if user made contact.",
@@ -229,7 +215,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Vampirism",
 		rating: 3,
-		num: 1100,
+		num: 1009,
 	},
 	aggravation: {
 		onDamage(damage, target, source, effect) {
@@ -266,7 +252,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Aggravation",
 		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its Max HP.",
 		rating: 2,
-		num: 201,
+		num: 1010,
 	},
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
@@ -296,7 +282,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		activate: "[POKEMON] became energized immediately!",
         flags: {},
 		rating: 2,
-		num: 1014,
+		num: 1111,
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
@@ -309,7 +295,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Megiddo's Gift",
 		shortDesc: "Before using a Water or Fire-type move, this Pokemon sets Rain Dance or Sunny Day respectively.",
-		rating: 4,
+		rating: 1112,
 	},
 	corrosiveclaws: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -325,8 +311,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Corrosive Claws",
 		rating: 4,
-		num: -33,
+		num: 1113,
 	},
+	centrifuge: {
+		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Centrifuge');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				return this.effectState.target;
+			}
+		},
+		name: "Centrifuge",
+		rating: 3,
+		num: 1114,
+	},
+	/*
+	Edits
+	*/
 	icebody: {
 		inherit: true,
 		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",
@@ -335,5 +346,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
+	},
+	poisonpuppeteer: {
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (source.baseSpecies.name !== "Chameleos") return;
+			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
+			if (status.id === 'psn' || status.id === 'tox') {
+				target.addVolatile('confusion');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Poison Puppeteer",
+		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
+		rating: 3,
+		num: 310,
 	},
 }

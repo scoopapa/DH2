@@ -281,6 +281,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nergigante: {
 		tier: "MHOU",
 	},
+	nefgarmat: {
+		tier: "MHOU",
+	},
 	nerscylla: {
 		tier: "MHRU",
 	},

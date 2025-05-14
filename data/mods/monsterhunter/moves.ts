@@ -467,27 +467,71 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 130,
 		category: "Physical",
 		name: "Crimson Dawn",
-		shortDesc: "Cannot be selected the turn after it's used.",
+		shortDesc: "C-Fatalis: Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
+		onTry(source) {
+			if (source.species.name === 'Crimson-Fatalis') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Crimson-Fatalis can use this move.");
+			if (source.species.name === 'Crimson-Fatalis') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Crimson Dawn', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Crimson Dawn');
+			return null;
+		},
 	},
 	ancestralthunder: {
 		num: 2025,
 		accuracy: 100,
-		basePower: 130,
+		basePower: 120,
 		category: "Special",
 		name: "Ancestral Thunder",
-		shortDesc: "Cannot be selected the turn after it's used.",
+		shortDesc: "W-Fatalis: Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		onTry(source) {
+			if (source.species.name === 'White-Fatalis') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is White-Fatalis can use this move.");
+			if (source.species.name === 'White-Fatalis') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Ancestral Thunder', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Ancestral Thunder');
+			return null;
+		},
+	},
+	quicksandbreath: {
+		num: 2026,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		name: "Quicksand Breath",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
 	},
 	/*
 	Edits
