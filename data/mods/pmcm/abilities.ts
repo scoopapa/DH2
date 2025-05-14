@@ -74,6 +74,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Copied from the code for Sand Spit
 		onDamagingHit(damage, target, source, move) {
 			this.field.setWeather('raindance');
+			this.add('-message', `Archaludon releases a deluge!`);
 		},
 		flags: {},
 		name: "Hydroelectric Dam",
@@ -248,6 +249,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			target.addVolatile('stockpile');
+			this.add('-message', `Swalot swallows down the move!`);
+			this.add('-activate', target, 'ability: Stockpile');
 		},
 		flags: {},
 		name: "Omnivore",
