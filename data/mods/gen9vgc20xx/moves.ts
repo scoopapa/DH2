@@ -99,7 +99,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-		shortDesc: "Double damage against grounded target.",
+		shortDesc: "Double damage against grounded target. Fails in Gravity.",
 		name: "Flying Dive",
 		pp: 5,
 		priority: 0,
@@ -150,9 +150,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.category === 'Status') {
-					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
-					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+				if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+
+				// Let Z or Max moves through, but mark them
+				if (move.isZ || move.isMax) {
+					target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
 				if (move.smartTarget) {
@@ -934,7 +936,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target) {
 			// Check if the user has the Selfish ability
 			if (target.hasAbility('selfish')) {
-				const ally = target.side.active.find(pokemon => pokemon && pokemon !== target && !pokemon.fainted);
+				const ally = target.side.active.find(pokemon => pokemon && pokemon !== target && !pokemon.fainted && !pokemon.hasAbility('selfish'));
 				if (ally) {
 					// If an ally exists, it loses 50% of its HP
 					this.directDamage(ally.maxhp / 2, ally, target);
@@ -1153,7 +1155,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (source.hasType('Ghost')) {
 				// Check if the user has the Selfish ability
 				if (source.hasAbility('selfish')) {
-					const ally = source.side.active.find(pokemon => pokemon && pokemon !== source && !pokemon.fainted);
+					const ally = source.side.active.find(pokemon => pokemon && pokemon !== source && !pokemon.fainted && !pokemon.hasAbility('selfish'));
 					if (ally) {
 						this.directDamage(ally.maxhp / 2, ally, source);
 						this.add('-message', `${ally.name} lost HP due to ${source.name}'s Selfish ability!`);
@@ -1672,6 +1674,57 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "allAdjacentFoes",
 		type: "Poison",
+	},
+	//
+	psychoshift: {
+		num: 375,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Psycho Shift",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (!source.status) return false;
+			move.status = source.status;
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.cureStatus();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+	},
+
+	//
+	punishment: {
+		num: 386,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			let power = 60 + 20 * target.positiveBoosts();
+			if (power > 200) power = 200;
+			this.debug('BP: ' + power);
+			return power;
+		},
+		category: "Physical",
+		isNonstandard: null,
+		name: "Punishment",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
 	},
 	//
 	purify: {
