@@ -74,6 +74,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Copied from the code for Sand Spit
 		onDamagingHit(damage, target, source, move) {
 			this.field.setWeather('raindance');
+			this.add('-ability', pokemon, 'Hydroelectric Dam');
 			this.add('-message', `Archaludon releases a deluge!`);
 		},
 		flags: {},
@@ -86,6 +87,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Code stolen from Shields Down
 		onTryHit(target, source, move) {
 			if(move.category != 'Status') {
+				this.add('-ability', pokemon, 'Frozen Armor');
 				move.basePower = Math.max(move.basePower - 20, 0);
 			}
 		},
@@ -109,6 +111,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
+					this.add('-ability', pokemon, 'Frozen Armor');
 					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 					return;
@@ -116,6 +119,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
+					this.add('-ability', pokemon, 'Frozen Armor');
 					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 				}
@@ -239,13 +243,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return this.chainModify(1.5);
 			}
 		},
-		onAnySwitchInPriority: 1,
-		onAnySwitchIn(pokemon) {
-			pokemon.ignoreAbility = true;
-			pokemon.ignoreItem = true;
-			pokemon.addVolatile('smackdown');
-			this.add('-activate', pokemon, 'ability: King of the Hill');
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'King of the Hill');
+			for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('kingofthehill');
+			}
 		},
+		onEnd(pokemon) {
+			for (const side of pokemon.side.foeSidesWithConditions()) {
+				if (side.getSideCondition('kingofthehill')) {
+					side.removeSideCondition('kingofthehill');
+				}
+			}
+		},
+		condition: {},
 		flags: {breakable: 1},
 		name: "King of the Hill",
 		rating: 5,
@@ -257,7 +268,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHit(damage, target, source, move) {
 			target.addVolatile('stockpile');
 			this.add('-message', `Swalot swallows down the move!`);
-			this.add('-activate', target, 'ability: Stockpile');
+			this.add('-activate', target, 'ability: Omnivore');
 		},
 		flags: {},
 		name: "Omnivore",
