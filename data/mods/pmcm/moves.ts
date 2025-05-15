@@ -76,16 +76,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  return null;
 		},
 		onAfterMove(source) {
-		  if (source.lastItem) {
-			const item = source.lastItem;
-			source.lastItem = '';
-			source.setItem(item);
-			this.add('-item', source, this.dex.items.get(item), '[from] move: Scavenge');
-		  }
+			if (source.lastItem) {
+				const item = source.lastItem;
+				source.lastItem = '';
+				source.setItem(item);
+				this.add('-item', source, this.dex.items.get(item), '[from] move: Scavenge');
+		  	}
 		},
-	  },	  
-
-
+	},	  
 	aquaring: {
 		inherit: true,
 		condition: {
@@ -233,6 +231,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		type: "Poison",
 	},
+	// clone of shell side arm
 	geyser: {
 		num: -104,
 		accuracy: 100,
@@ -305,6 +304,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
+		// checks for water move usage from opponent
 		onModifyPriority(priority, source, target, move) {
 			const action = this.queue.willMove(target);
 			const targetMove = action?.choice === 'move' ? action.move : null;
@@ -333,6 +333,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		shortDesc: "If the target uses a Water-type move, this attack gains +1 Priority and doubled Power.",
 	},
 	ironstrike: {
+		//implemented via changes to Stealth Rocks and Spikes
 		num: -107,
 		accuracy: 100,
 		basePower: 50,
@@ -354,33 +355,162 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		secondary: null,
 		onHit(target, source, move) {
-		    const randomNum = Math.round(Math.random());
-		    if (randomNum === 0) {
-		        if (target.boosts.def !== -6) {
-		            this.boost({def: -1}, target, source, move);
-		        }
-		    }
-			 else {
-		        this.add('-message', `${source.name} follows up with a Thunder Kick!`);
-		        const thunderKick = {
-		            name: "Thunder Kick",
-		            type: "Electric",
-		            basePower: 50,
-					  	accuracy: 100,
-		            category: "Physical",
-		            priority: 0,
-					  	onPrepareHit(target, source, move) {
-							this.add('-anim', source, 'High Jump Kick', target);
-						},
-					  	onHit(target, source, move) {
-							this.add('-anim', source, 'Thunder', target);
-						},
-		            flags: {contact: true, protect: true},
-		        };
-		        this.actions.useMove(thunderKick, source, target);
-		    }
+			// random # 0 or 1
+		   const randomNum = Math.round(Math.random());
+		   if (randomNum === 0) {
+		      if (target.boosts.def !== -6) {
+		         this.boost({def: -1}, target, source, move);
+		   	}
+		   }
+			else {
+		      this.add('-message', `${source.name} follows up with a Thunder Kick!`);
+		      const thunderKick = {
+		         name: "Thunder Kick",
+		         type: "Electric",
+		         basePower: 50,
+				  	accuracy: 100,
+	            category: "Physical",
+	            priority: 0,
+					onPrepareHit(target, source, move) {
+						this.add('-anim', source, 'High Jump Kick', target);
+					},
+				  	onHit(target, source, move) {
+						this.add('-anim', source, 'Thunder', target);
+					},
+		         flags: {contact: true, protect: true},
+		      };
+		      this.actions.useMove(thunderKick, source, target);
+		   }
 		},
 		shortDesc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
+	},
+	//This modifies the smackdown volatile to remove after switch in, which enables King of the Hill to work properly.
+	smackdown: {
+		num: 479,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Smack Down",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, nonsky: 1, metronome: 1 },
+		volatileStatus: 'smackdown',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				let applies = false;
+				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
+				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
+					this.field.getPseudoWeather('gravity')) applies = false;
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					applies = true;
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+				}
+				if (pokemon.volatiles['magnetrise']) {
+					applies = true;
+					delete pokemon.volatiles['magnetrise'];
+				}
+				if (pokemon.volatiles['telekinesis']) {
+					applies = true;
+					delete pokemon.volatiles['telekinesis'];
+				}
+				if (!applies) return false;
+				this.add('-start', pokemon, 'Smack Down');
+			},
+			onRestart(pokemon) {
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+					this.add('-start', pokemon, 'Smack Down');
+				}
+			},
+			// removes smackdown volatile after switch in happens to prevent it from staying while King of the hill is actice
+			onAfterSwitchInSelf(pokemon) {
+            pokemon.removeVolatile('smackdown');
+        	},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: { reflectable: 1, metronome: 1, mustpressure: 1 },
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+			// iron strike functionality
+			onHit(pokemon, source, move) {
+				if (move === 'ironstrike') {
+					if (pokemon.hasItem('heavydutyboots')) return;
+					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+					this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: { boost: { def: 1 } },
+		contestType: "Cool",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: { reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1 },
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+			// iron strike functionality
+			onHit(pokemon, source, move) {
+				if (move === 'ironstrike') {
+					if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: { boost: { def: 1 } },
+		contestType: "Clever",
 	}
 };
   
