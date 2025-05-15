@@ -323,5 +323,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -110,
 		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead. It then switches from a Grass type to a Rock type.",
+	},
+	magicguard: {
+		onDamage(damage, target, source, effect) {
+			if (target.side.getSideCondition('kingofthehill')) {
+            const hazards = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'];
+            if (effect && hazards.includes(effect.id)) {
+                return;
+           	}
+        	}
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Magic Guard",
+		rating: 4,
+		num: 98,
 	}
 };
