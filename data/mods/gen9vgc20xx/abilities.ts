@@ -354,7 +354,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	weightbreaker: {
 		shortDesc: "Double damage if user's weight < target's weight.",
 		onModifyDamage(damage, source, target, move) {
-			if (source.weighthg < target.weighthg) {
+			const sourceWeight = source.getWeight();
+			const targetWeight = target.getWeight();
+			if (sourceWeight < targetWeight) {
 				this.debug('Weight Breaker boost');
 				return this.chainModify(2);
 			}
