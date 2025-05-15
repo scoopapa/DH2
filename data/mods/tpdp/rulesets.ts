@@ -28,7 +28,7 @@ export const Rulesets: {[k: string]: FormatData} = {
         name: 'Status Mod',
         desc: "Displays new statuses as a volatile",
         onSwitchIn (pokemon) {
-			if(pokemon.status) this.battle.add('-start', pokemon, pokemon.status, '[silent]');
+			if(pokemon.status) this.add('-start', pokemon, pokemon.status, '[silent]');
 		},
     },
 	stylemonsmovelegality: {
