@@ -312,56 +312,5 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -110,
 		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead. It then switches from a Grass type to a Rock type.",
-	},
-	//This modifies the smackdown volatile to remove after switch in, which enables King of the Hill to work properly.
-	smackdown: {
-		num: 479,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Smack Down",
-		pp: 15,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, nonsky: 1, metronome: 1 },
-		volatileStatus: 'smackdown',
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				let applies = false;
-				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
-				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
-					this.field.getPseudoWeather('gravity')) applies = false;
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					applies = true;
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-				}
-				if (pokemon.volatiles['magnetrise']) {
-					applies = true;
-					delete pokemon.volatiles['magnetrise'];
-				}
-				if (pokemon.volatiles['telekinesis']) {
-					applies = true;
-					delete pokemon.volatiles['telekinesis'];
-				}
-				if (!applies) return false;
-				this.add('-start', pokemon, 'Smack Down');
-			},
-			onRestart(pokemon) {
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-					this.add('-start', pokemon, 'Smack Down');
-				}
-			},
-			onAfterSwitchInSelf(pokemon) {
-            pokemon.removeVolatile('smackdown');
-        	},
-			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
-		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
 	}
 };
