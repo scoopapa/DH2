@@ -523,7 +523,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1 },
 		condition: {
 			duration: 1,
-			onSwitchInPriority = 3,
+			onSwitchInPriority: 3,
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.name === 'Dondozo') {
