@@ -503,7 +503,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 270.0,
 		color: "Black",
 		eggGroups: ["Field"],
-		requiredItem: "Red Orb",
+		requiredItem: "Crimson Gem",
 	},
 	whitefatalis: {
 		num: 15,
@@ -517,7 +517,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 270.0,
 		color: "Black",
 		eggGroups: ["Field"],
-		requiredItem: "Red Orb",
+		requiredItem: "White Gem",
 
 	},
 	gaismagorm: {
