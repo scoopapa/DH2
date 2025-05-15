@@ -804,6 +804,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
 	},
+	greninjinite: {
+		name: "Greninjinite",
+		megaStone: "Greninja-Mega",
+		megaEvolves: "Greninja",
+		itemUser: ["Greninja"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -52,
+		gen: 9,
+		desc: "If held by a Greninja, this item allows it to Mega Evolve in battle.",
+	},
 	// everlasting winter
 	safetygoggles: {
 		inherit: true,
