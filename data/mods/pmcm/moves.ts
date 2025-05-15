@@ -452,7 +452,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('orderup')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 			},
@@ -493,7 +493,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('orderup')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -511,6 +511,102 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Ground",
 		zMove: { boost: { def: 1 } },
 		contestType: "Clever",
+	},
+		orderup: {
+		num: 856,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Order Up",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1 },
+		condition: {
+			duration: 1,
+			onSwitchInPriority = 3,
+			onSwitchIn(pokemon) {
+				// when Dondozo switches back in after eating, it gains boost
+				if (pokemon.name === 'Dondozo') {
+					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
+						this.boost({ atk: 3 }, pokemon);
+					}
+					else if (this.effectState.eatenBoost === 'def' || this.effectState.eatenBoost === 'spd') {
+						this.boost({ def: 2, spd: 2}, pokemon);
+					}
+					else {
+						this.boost({ spe: 3}, pokemon);
+					}
+					// adds volatile ordered, which prevents the order up effect from occuring again until Dondozo switches out
+					pokemon.addVolatile('ordered');
+					// removes the side condition
+					pokemon.side.removeSideCondition('orderup');
+				}
+				// after Dondozo switches out, this happens to the next pokemon that is switched in
+				else {
+					const meal = pokemon;
+					// faints the eaten mon
+					pokemon.faint();
+					// finds highest stat of eaten mon, stored in effectState eatenBoost
+					const stats = ['atk', 'def', 'spa', 'spd', 'spe'];
+    				let highestStat = stats[0];
+    				let maxStatValue = meal.storedStats[highestStat];
+
+    				for (const stat of stats) {
+        				if (meal.storedStats[stat] > maxStatValue) {
+            			highestStat = stat;
+      					maxStatValue = meal.storedStats[stat];
+      				}
+    				}
+					this.effectState.eatenBoost = highestStat;
+				}
+			},
+			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
+			onFaint(pokemon) {
+    			const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
+    			if (dondozo && !dondozo.fainted) {
+        			dondozo.switchFlag = true;
+    			}
+			}
+		},
+		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
+		onHit(target, source, move) {
+			if (pokemon.volatiles['ordered']) return;
+			source.side.addSideCondition('orderup');
+			source.switchFlag = true;
+		},
+		secondary: null,
+		hasSheerForce: true,
+		target: "normal",
+		type: "Dragon",
+	},
+	toxicspikes: {
+		// prevents Dondozo from being affected by Toxic Spikes during Order Up switching
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('orderup')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
 	}
 };
   
