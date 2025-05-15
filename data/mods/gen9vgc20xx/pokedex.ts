@@ -325,7 +325,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 95, atk: 120, def: 74, spa: 60, spd: 74, spe: 126},
 		abilities: {0: "Lightning Rod", 1: "Inflammation", H: "Sap Sipper"},
 	//	heightm: 3.4,
-		weightkg: 555.5,
+		weightkg: 93.2,
 		color: "Yellow",
 		eggGroups: ["Field"],
 		
