@@ -305,9 +305,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source, target, move) {
-      	if (!source.side.foe.active || (source.side.foe.active).fainted) return priority;
-			this.add('-message', `foe = ` + source.side.foe.active);
-      	const action = this.queue.willMove(source.side.foe.active);
+			const foee = source.side.foe.active[0]?.species.id;
+      	if (!foee || foee.fainted) return priority;
+			this.add('-message', `foe = ` + foee);
+      	const action = this.queue.willMove(foee);
 			this.add('-message', `action= ` + action);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
