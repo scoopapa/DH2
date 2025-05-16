@@ -2564,4 +2564,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Bitter Hatred",
 		num: -85,
 	},
+	ninjagaiden: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Ninja Gaiden');
+			}
+		},
+		flags: {},
+		name: "Ninja Gaiden",
+		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
+		rating: 4.5,
+		num: -86,
+	},
 };

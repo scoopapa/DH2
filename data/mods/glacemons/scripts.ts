@@ -179,6 +179,28 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return item.megaStone;
 		},
+		runMegaEvo(pokemon: Pokemon) {
+			const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+			if (!speciesid) return false;
+	
+			this.battle.runEvent('BeforeMega', pokemon);
+			
+			pokemon.formeChange(speciesid, pokemon.getItem(), true); //line to modify
+			let newAbility = pokemon.set.ability
+	
+			// Limit one mega evolution
+			const wasMega = pokemon.canMegaEvo;
+			for (const ally of pokemon.side.pokemon) {
+				if (wasMega) {
+					ally.canMegaEvo = null;
+				} else {
+					ally.canUltraBurst = null;
+				}
+			}
+	
+			this.battle.runEvent('AfterMega', pokemon);
+			return true;
+		},
 	},
 
 	init() {//Tera Blast
