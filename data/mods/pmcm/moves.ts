@@ -517,7 +517,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
-			if (source.side.getSideCondition('orderup') {
+			if (source.side.getSideCondition('orderup')) {
 				this.add('-ability', source, 'Order Up');
 			}
 			source.switchFlag = true;
