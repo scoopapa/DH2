@@ -245,7 +245,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of the Hill');
-			for (const side of source.side.foeSidesWithConditions()) {
+			for (const side of pokemon.side.foeSidesWithConditions()) {
 					side.addSideCondition('kingofthehill');
 			}
 		},
