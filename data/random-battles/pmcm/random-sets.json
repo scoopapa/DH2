@@ -537,7 +537,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Quiver Dance", "Weather Ball", "Bug Buzz", "Dark Pulse", "Hurricane", "Ice Beam"],
-                "abilities": ["Primordial Sea"],
+                "abilities": ["Intimidate"],
                 "teraTypes": ["Normal"]
             }
         ]
