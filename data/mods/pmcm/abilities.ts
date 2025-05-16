@@ -157,6 +157,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('grassyterrain');
 		},
+		shortDesc: "Starts Grassy Terrain on hit. 1.5x Def in Grassy Terrain.",
 	},
 	aquaveil: {
 		onSwitchInPriority: -1,
@@ -192,6 +193,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Aqua Veil",
 		rating: 5,
 		num: -106,
+		shortDesc: "Starts Aqua Ring on switch in.",
 	},
 	stillwater: {
 		onAnyModifyBoost(boosts, pokemon) {
