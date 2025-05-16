@@ -40,6 +40,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
+		shortDesc: "Breaks Screens.",
 	},
 	steelwing: {
 		//Buffed secondary chance to 50%
@@ -83,6 +84,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-item', source, this.dex.items.get(item), '[from] move: Scavenge');
 		  	}
 		},
+		shortDesc: "User regains their last used item, similar to Recycle.",
 	},	  
 	aquaring: {
 		inherit: true,
@@ -213,7 +215,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	type: "Ice",
 	contestType: "Clever",
 	shortDesc: "Sets Snowscape.",
-},
+	},
 
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
@@ -529,6 +531,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		hasSheerForce: true,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "Dondozo orders up a meal. Dondozo gains stat boosts based on the highest stat of the Pokemon it eats.",
 	},
 	toxicspikes: {
 		// prevents Dondozo from being affected by Toxic Spikes during Order Up switching
@@ -586,6 +589,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		shortDesc: "Sets gravity.",
 	}
 };
   
