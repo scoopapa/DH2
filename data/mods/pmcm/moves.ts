@@ -305,7 +305,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source, target, move) {
-      	if (!source.side.foe.active || (source.side.foe.active).fainted) continue;
+      	if (!source.side.foe.active || (source.side.foe.active).fainted) return priority;
       	const action = this.queue.willMove(source.side.foe.active);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
