@@ -211,6 +211,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.field.setWeather('snowscape');
 			if (this.field.getWeather('snowscape')) {
 				this.add('-message', `Snow set`);
+			}
 		},
 		secondary: null,
 		target: "normal",
