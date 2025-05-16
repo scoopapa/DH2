@@ -184,5 +184,6 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.modData('Learnsets', 'golurk').learnset.shatteredseal = ['9L1'];
 		this.modData('Learnsets', 'golurk').learnset.trickroom = ['9L1'];
+		this.modData('Learnsets', 'golurk').learnset.headlongrush = ['9L1'];
 	},
 };
