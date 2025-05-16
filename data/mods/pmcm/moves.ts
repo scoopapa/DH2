@@ -311,13 +311,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			// bonsaiCheck ensures that the onBasePower function is skipped if Priority is not modified
     		const foe = source.side.foe.active[0];
     		if (!foe || foe.fainted) {
-				this.effectState.bonsaiCheck = 1;
 				return priority;
 			}
 			this.add('-message', `foe = ` + foe);
     		const action = this.queue.willMove(foe);
     		if (!action || action.choice !== 'move') {
-				this.effectState.bonsaiCheck = 1;
 				return priority;
 			}
 			this.add('-message', `move = ` + action.move);
@@ -328,21 +326,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
         		return priority + 1;
     		}
 			else {
-				this.effectState.bonsaiCheck = 1;
 				return priority;
 			}
     		return priority;
 		},
 		onBasePower(basePower, source, target) {
-			if (this.effectState.bonsaiCheck === 1) {
+			const foe = source.side.foe.active[0];
+			if (!foe || foe.fainted) {
 				return basePower;
 			}
-			const foe = source.side.foe.active[0];
 			const action = this.queue.willMove(foe);
+			if (!action || action.choice !== 'move') {
+				return basePower;
+			}
 			const move = action.move;
-			if (move.type === 'Water') {
+			if (move?.type === 'Water') {
 				return basePower + 70;
 			}
+			else {
+				return basePower;
+			}
+			return basePower;
 		},
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Splash');
