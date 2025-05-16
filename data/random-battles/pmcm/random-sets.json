@@ -710,7 +710,7 @@
                 "role": "Bulky Setup",
                 "movepool": ["Trick Room", "Headlong Rush", "Shattered Seal", "Ice Punch", "Dynamic Punch"],
                 "abilities": ["Iron Fist"],
-                "teraTypes": ["Fighting", "Ground]
+                "teraTypes": ["Fighting", "Ground"]
             }
         ]
     }
