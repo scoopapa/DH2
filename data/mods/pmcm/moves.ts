@@ -308,7 +308,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			const foee = source.side.foe.active[0];
       	if (!foee || foee.fainted) return priority;
 			this.add('-message', `foe = ` + foee);
-      	const action = this.queue.willMove(foee);
+      	const action = this.dex.moves.get(foee.moveThisTurn);
 			this.add('-message', `action= ` + action);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
@@ -317,7 +317,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onBasePower(basePower, source, target) {
-			const action = this.queue.willMove(target);
+			const action = this.dex.moves.get(foee.moveThisTurn);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (move.type === 'Water') {
 				return basePower + 70;
