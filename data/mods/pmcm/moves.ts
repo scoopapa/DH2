@@ -349,10 +349,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return basePower;
 		},
 		onPrepareHit(target, source, move) {
+			this.add('-anim', source, 'Wood Hammer', target);
 			this.add('-anim', source, 'Splash');
-		},
-		onHit(target, source, move) {
-				this.add('-anim', source, 'Wood Hammer', target);
 		},
 		secondary: null,
 		target: "normal",
