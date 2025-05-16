@@ -283,7 +283,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Water Pulse', target);
 		},
-		onHit(target) {
+		onHit(target, source, move) {
 				target.addVolatile('encore');
 				this.add('-anim', source, 'Encore', target);
 		},
