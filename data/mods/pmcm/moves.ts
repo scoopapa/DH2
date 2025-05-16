@@ -384,58 +384,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		shortDesc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
 	},
-	//This modifies the smackdown volatile to remove after switch in, which enables King of the Hill to work properly.
-	smackdown: {
-		num: 479,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Smack Down",
-		pp: 15,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, nonsky: 1, metronome: 1 },
-		volatileStatus: 'smackdown',
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				let applies = false;
-				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
-				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
-					this.field.getPseudoWeather('gravity')) applies = false;
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					applies = true;
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-				}
-				if (pokemon.volatiles['magnetrise']) {
-					applies = true;
-					delete pokemon.volatiles['magnetrise'];
-				}
-				if (pokemon.volatiles['telekinesis']) {
-					applies = true;
-					delete pokemon.volatiles['telekinesis'];
-				}
-				if (!applies) return false;
-				this.add('-start', pokemon, 'Smack Down');
-			},
-			onRestart(pokemon) {
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-					this.add('-start', pokemon, 'Smack Down');
-				}
-			},
-			// removes smackdown volatile after switch in happens to prevent it from staying while King of the hill is actice
-			onAfterSwitchInSelf(pokemon) {
-            pokemon.removeVolatile('smackdown');
-        	},
-			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
-		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-	},
 	stealthrock: {
 		num: 446,
 		accuracy: true,
@@ -620,6 +568,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
 			},
 		},
+	},
+	shatteredseal: {
+		num: -1002,
+		accuracy: true,
+		basePower: 90,
+		category: "Physical",
+		name: "Shattered Seal",
+		pp: 15,
+		pseudoWeather: 'gravity',
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
 	}
 };
   
