@@ -509,7 +509,7 @@
             }
         ]
     },
-    "Clodsire": {
+    "clodsire": {
         "level": 84,
         "sets": [
             {
@@ -517,6 +517,189 @@
                 "movepool": ["Barb Barrage", "Earthquake", "Recover", "Spikes", "Stealth Rock", "Toxic Spikes"],
                 "abilities": ["Still Water"],
                 "teraTypes": ["Flying", "Dark"]
+            }
+        ]
+    },
+    "masquerain": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Sticky Web", "Hurricane", "Bug Buzz", "U-turn", "Roost"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "masquerainmega": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Quiver Dance", "Weather Ball", "Bug Buzz", "Dark Pulse", "Hurricane", "Ice Beam"],
+                "abilities": ["Primordial Sea"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+    "kyuremblack": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Fusion Bolt", "Ice Hammer", "Dragon Hammer", "Earthquake", "Rock Slide", "Roost"],
+                "abilities": ["Teravolt"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+    "ironthorns": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Sand Tomb", "Stealth Rock", "Iron Strike", "Knock Off"],
+                "abilities": ["Iron Barbs"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+    "dudunsparce": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stomping Tantrum", "Boomburst", "Stealth Rock", "Roost", "Glare"],
+                "abilities": ["Earth Eater"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+    "chienpao": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Bulk Up", "Icicle Storm", "Swords Dance", "Ice Shard", "Sacred Sword", "Throat Chop"],
+                "abilities": ["Tablets of Ruin"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+    "pelipper": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Weather Ball", "Bleakwind Storm", "Sandsear Storm", "Wildbolt Storm", "Springtide Storm"],
+                "abilities": ["Drizzle"],
+                "teraTypes": ["Ground", "Electric", "Fairy"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Weather Ball", "Bleakwind Storm", "Sandsear Storm", "Wildbolt Storm", "Springtide Storm", "Roost"],
+                "abilities": ["Drizzle"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+    "kleavor": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Stone Axe", "X-Scissor", "U-turn", "Close Combat"],
+                "abilities": ["King of the Hill"],
+                "teraTypes": ["Fighting"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Stone Axe", "X-Scissor", "U-turn", "Close Combat"],
+                "abilities": ["King of the Hill"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+    "araquanid": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Jet Punch", "Surging Strikes", "Flip Turn", "First Impression", "Sticky Web"],
+                "abilities": ["Water Bubble"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+    "avalugghisui": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Rapid Spin", "Mountain Maw", "Mountain Gale", "Body Press", "Recover", "Stealth Rock"],
+                "abilities": ["Multiscale"],
+                "teraTypes": ["Ghost", "Fighting"]
+            }
+        ]
+    },
+    "swalot": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Spit Up", "Swallow", "Toxic Spikes", "Earth Power"],
+                "abilities": ["Omnivore"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+    "zapdosgalar": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Thunderous Kick", "Knock Off", "U-turn", "Wild Charge"],
+                "abilities": ["Defiant"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+    "phione": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Geyser", "Tidal Surge", "Rest", "Work Up"],
+                "abilities": ["Hydration"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+    "sudowoodo": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Bonsai Bounce", "Head Smash", "Wood Hammer", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
+                "abilities": ["Pseudowoodo"],
+                "teraTypes": ["Rock", "Grass"]
+            }
+        ]
+    },
+    "dondozo": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Wave Crash", "Order Up", "Earthquake", "Horn Leech"],
+                "abilities": ["Unaware"],
+                "teraTypes": ["Dragon"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Recover", "Fishious Rend", "Flip Turn", "Body Slam", "Body Press"],
+                "abilities": ["Unaware"],
+                "teraTypes": ["Grass"]
             }
         ]
     }

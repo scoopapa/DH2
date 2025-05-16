@@ -140,5 +140,46 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.modData('Learnsets', 'clodsire').learnset.barbbarrage = ['9L1'];
 
+		this.modData('Learnsets', 'masquerain').learnset.roost = ['9L1'];
+		this.modData('Learnsets', 'masquerain').learnset.darkpulse = ['9L1'];
+
+		this.modData('Learnsets', 'kyuremblack').learnset.icehammer = ['9L1'];
+		this.modData('Learnsets', 'kyuremblack').learnset.dragonhammer = ['9L1'];
+		this.modData('Learnsets', 'kyuremblack').learnset.roost = ['9L1'];
+		this.modData('Learnsets', 'kyuremblack').learnset.earthquake = ['9L1'];
+
+		this.modData('Learnsets', 'ironthorns').learnset.ironstrike = ['9L1'];
+		this.modData('Learnsets', 'ironthorns').learnset.knockoff = ['9L1'];
+
+		this.modData('Learnsets', 'chienpao').learnset.bulkup = ['9L1'];
+		this.modData('Learnsets', 'chienpao').learnset.iciclestorm = ['9L1'];
+
+		this.modData('Learnsets', 'pelipper').learnset.bleakwindstorm = ['9L1'];
+		this.modData('Learnsets', 'pelipper').learnset.sandsearstorm = ['9L1'];
+		this.modData('Learnsets', 'pelipper').learnset.wildboltstorm = ['9L1'];
+		this.modData('Learnsets', 'pelipper').learnset.springtidestorm = ['9L1'];
+
+		this.modData('Learnsets', 'araquanid').learnset.surgingstrikes = ['9L1'];
+		this.modData('Learnsets', 'araquanid').learnset.flipturn = ['9L1'];
+		this.modData('Learnsets', 'araquanid').learnset.jetpunch = ['9L1'];
+		this.modData('Learnsets', 'araquanid').learnset.firstimpression = ['9L1'];
+
+		this.modData('Learnsets', 'avalugghisui').learnset.mountainmaw = ['9L1'];
+		
+		this.modData('Learnsets', 'swalot').learnset.earthpower = ['9L1'];
+
+		this.modData('Learnsets', 'zapdosgalar').learnset.wildcharge = ['9L1'];
+
+		this.modData('Learnsets', 'phione').learnset.workup = ['9L1'];
+		this.modData('Learnsets', 'phione').learnset.tidalsurge = ['9L1'];
+		this.modData('Learnsets', 'phione').learnset.geyser = ['9L1'];
+
+		this.modData('Learnsets', 'sudowoodo').learnset.bonsaibounce = ['9L1'];
+		this.modData('Learnsets', 'sudowoodo').learnset.synthesis = ['9L1'];
+
+		this.modData('Learnsets', 'dondozo').learnset.hornleech = ['9L1'];
+		this.modData('Learnsets', 'dondozo').learnset.fishiousrend = ['9L1'];
+		this.modData('Learnsets', 'dondozo').learnset.recover = ['9L1'];
+		this.modData('Learnsets', 'dondozo').learnset.flipturn = ['9L1'];
 	},
 };

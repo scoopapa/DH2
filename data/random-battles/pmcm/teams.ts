@@ -1200,6 +1200,24 @@ export class RandomTeams {
 		if (species.id === 'milotic') return 'Rocky Helmet';
 		if (species.id === 'gogoat') return 'Leftovers';
 		if (species.id === 'clodsire') return this.sample(['Leftovers', 'Rocky Helmet']);
+		if (species.id === 'masquerain') return 'Heavy-Duty Boots';
+		if (species.id === 'kyuremblack' && moves.has('roost')) return 'Heavy-Duty Boots';
+		if (species.id === 'kyuremblack') return this.sample(['Choice Band', 'Heavy-Duty Boots']);
+		if (species.id === 'ironthorns') return 'Rocky Helmet';
+		if (species.id === 'dudunsparce') return 'Leftovers';
+		if (species.id === 'chienpao') return 'Heavy Duty Boots';
+		if (species.id === 'pelipper' && moves.has('roost')) return 'Heavy-Duty Boots';
+		if (species.id === 'pelipper') return 'Choice Specs';
+		if (species.id === 'kleavor') return 'Choice Scarf';
+		if (species.id === 'araquanid') return 'Heavy-Duty Boots';
+		if (species.id === 'avalugghisui') return 'Heavy-Duty Boots';
+		if (species.id === 'swalot') return 'Leftovers';
+		if (species.id === 'zapdosgalar') return this.sample(['Choice Scarf', 'Expert Belt']);
+		if (species.id === 'phione') return 'Leftovers';
+		if (species.id === 'sudowoodo' && moves.has('synthesis')) return this.sample(['Red Card', 'Leftovers']);
+		if (species.id === 'sudowoodo' && moves.has('curse')) return this.sample(['Red Card', 'Leftovers']);
+		if (species.id === 'sudowoodo') return 'Choice Band';
+		if (species.id === 'dondozo') return 'Leftovers';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
