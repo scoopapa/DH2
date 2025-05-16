@@ -466,7 +466,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1 },
 		condition: {
-			duration: 1,
+			duration: 2,
 			onSwitchInPriority: 3,
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
@@ -519,6 +519,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			source.side.addSideCondition('orderup');
 			if (source.side.getSideCondition('orderup')) {
 				this.add('-ability', source, 'Order Up');
+				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move. After it faints, please switch in Dondozo or the move will not function successfully.`);
 			}
 			source.switchFlag = true;
 		},
