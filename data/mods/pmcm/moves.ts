@@ -196,20 +196,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
   	},
 	iciclestorm: {
-		num: -1044,
-		accuracy: 95,
-		basePower: 90,
-		category: "Physical",
-		name: "Icicle Storm",
-		pp: 15,
-		weather: 'snowscape',
-		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
-		target: "normal",
-		type: "Ice",
-		contestType: "Clever",
+	num: -1044,
+	accuracy: 95,
+	basePower: 90,
+	category: "Physical",
+	name: "Icicle Storm",
+	pp: 15,
+	priority: 0,
+	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+	onHit(target, source) {
+		this.field.setWeather('snowscape');
+		this.add('-weather', 'Snowscape', '[from] move: Icicle Storm');
 	},
+	secondary: null,
+	target: "normal",
+	type: "Ice",
+	contestType: "Clever",
+	shortDesc: "Sets Snowscape.",
+},
+
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
 		inherit: true,
