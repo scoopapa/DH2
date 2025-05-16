@@ -196,29 +196,20 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
   	},
 	iciclestorm: {
-		num: -103,
+		num: -1044,
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
 		name: "Icicle Storm",
-		pp: 10,
+		pp: 15,
+		weather: 'snowscape',
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-		onPrepareHit(target, source, move) {
-			this.add('-anim', source, 'Icicle Crash', target);
-		},
-		onHit(target, source, move) {
-			this.field.setWeather('snowscape');
-			if (this.field.getWeather('snowscape')) {
-				this.add('-message', `Snow set`);
-			}
-		},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		contestType: "Beautiful",
-		shortDesc: "Sets up a snowstorm.",
-	},
+		contestType: "Clever",
+	}
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
 		inherit: true,
@@ -407,7 +398,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			// iron strike functionality
 			onHit(pokemon, source, move) {
-				if (move === 'ironstrike') {
+				if (move.id === 'ironstrike') {
 					if (pokemon.hasItem('heavydutyboots')) return;
 					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 					this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
@@ -448,7 +439,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			// iron strike functionality
 			onHit(pokemon, source, move) {
-				if (move === 'ironstrike') {
+				if (move.id === 'ironstrike') {
 					if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
 					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
