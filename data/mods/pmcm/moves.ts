@@ -207,10 +207,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Icicle Crash', target);
 		},
-		self: {
-			onHit(source) {
-				this.field.setWeather('snowscape');
-			},
+		onHit(target, source, move) {
+			this.field.setWeather('snowscape');
 		},
 		secondary: null,
 		target: "normal",
