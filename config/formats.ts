@@ -2582,7 +2582,7 @@ export const Formats: FormatList = [
 			'Quick Claw', 'Razor Fang', 'Shed Tail',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
-		unbanlist: [/*'Battle Bond', 'Greninja-Bond', 'Greninja-Ash',*/ 'Light of Ruin'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', /*'Greninja-Ash',*/ 'Light of Ruin'],
 		teambuilderFormat: 'National Dex',
 	},
 	{
@@ -2598,7 +2598,7 @@ export const Formats: FormatList = [
 			'Quick Claw', 'Razor Fang', 'Shed Tail',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
-		unbanlist: [/*'Battle Bond', 'Greninja-Bond', 'Greninja-Ash',*/ 'Light of Ruin'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', /*'Greninja-Ash',*/ 'Light of Ruin'],
 		teambuilderFormat: 'National Dex UU',
 	},
 	{
@@ -2614,7 +2614,7 @@ export const Formats: FormatList = [
 			'Quick Claw', 'Razor Fang', 'Shed Tail',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
-		unbanlist: [/*'Battle Bond', 'Greninja-Bond', 'Greninja-Ash',*/ 'Light of Ruin'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', /*'Greninja-Ash',*/ 'Light of Ruin'],
 		teambuilderFormat: 'National Dex RU',
 	},
 	{
@@ -2638,7 +2638,7 @@ export const Formats: FormatList = [
 			'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
 			'Koraidon', 'Miraidon',
 		],
-		unbanlist: [/*'Battle Bond', 'Greninja-Bond', 'Greninja-Ash',*/ 'Light of Ruin'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', /*'Greninja-Ash',*/ 'Light of Ruin'],
 	},
     {
 		name: "[Gen 3] ADV+",
