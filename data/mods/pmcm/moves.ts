@@ -313,12 +313,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     		if (!foe || foe.fainted) {
 				return priority;
 			}
-			this.add('-message', `foe = ` + foe);
     		const action = this.queue.willMove(foe);
     		if (!action || action.choice !== 'move') {
 				return priority;
 			}
-			this.add('-message', `move = ` + action.move);
     		const move = action.move;
     		if (move?.type === 'Water') {
         		this.add('-message', `Sudowoodo draws power from the water!`);
