@@ -316,9 +316,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
         		this.add('-message', `Sudowoodo draws power from the water!`);
         		return priority + 1;
     		}
+			else {
+				this.effectState.bonsaiCheck = 1;
+				return priority;
+			}
     		return priority;
 		},
 		onBasePower(basePower, source, target) {
+			if (this.effectState.bonsaiCheck === 1) {
+				return;
+			}
 			const foe = source.side.foe.active[0];
 			const action = this.queue.willMove(foe);
 			const move = action.move;
