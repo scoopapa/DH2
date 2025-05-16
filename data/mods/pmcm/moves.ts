@@ -306,10 +306,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source) {
     		const foe = source.side.foe.active[0];
-    		if (!foe || foe.fainted) return priority;
+    		if (!foe || foe.fainted) {
+				this.effectState.bonsaiCheck === 1;
+				return priority;
+			}
 			this.add('-message', `foe = ` + foe);
     		const action = this.queue.willMove(foe);
-    		if (!action || action.choice !== 'move') return priority;
+    		if (!action || action.choice !== 'move') {
+				this.effectState.bonsaiCheck === 1;
+				return priority;
+			}
 			this.add('-message', `move = ` + action.move);
     		const move = action.move;
     		if (move?.type === 'Water') {
