@@ -680,7 +680,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Bonsai Bounce", "Head Smash", "Wood Hammer", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
+                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
                 "abilities": ["Pseudowoodo"],
                 "teraTypes": ["Rock", "Grass"]
             }
