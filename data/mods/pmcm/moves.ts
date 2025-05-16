@@ -507,17 +507,18 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
-			onFaint(pokemon) {
-    			const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
-    			if (dondozo && !dondozo.fainted) {
-        			dondozo.switchFlag = true;
-    			}
-			}
+			//onFaint(pokemon) {
+    			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
+    			//if (dondozo && !dondozo.fainted) {
+        			//dondozo.switchFlag = true;
+    			//}
+			//}
 		},
 		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
+			this.add('-ability', source, 'Order Up');
 			source.switchFlag = true;
 		},
 		secondary: null,
