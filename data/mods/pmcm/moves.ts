@@ -473,7 +473,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
-					this.add('-message', `Eaten successfully`);
+					this.add('-message', `Dondozo enjoyed its meal!`);
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
 						this.boost({ atk: 3 }, pokemon);
 					}
