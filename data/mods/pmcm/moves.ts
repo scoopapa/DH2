@@ -308,6 +308,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			const foee = source.side.foe.active[0];
       	if (!foee || foee.fainted) return priority;
 			this.add('-message', `foe = ` + foee);
+			this.add('-message', `movethisturn = ` + (foee.moveThisTurn));
       	const action = this.dex.moves.get(foee.moveThisTurn);
 			this.add('-message', `action= ` + action);
 			const targetMove = action?.choice === 'move' ? action.move : null;
