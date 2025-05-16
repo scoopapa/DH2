@@ -290,4 +290,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	dondozo: {
 		inherit: true,
 	},
+	golurk: {
+		inherit: true,
+	},
 };
