@@ -305,8 +305,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source, target, move) {
-			this.add("-message", `move` + target);
-			const action = this.queue.willMove(target);
+      	if (!source.side.foe.active || (source.side.foe.active).fainted) continue;
+      	const action = this.queue.willMove(source.side.foe.active);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
 				this.add('-message', `Sudowoodo draws power from the water!`);
