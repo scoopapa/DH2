@@ -310,7 +310,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onUpdate(pokemon) {
 			if (['sudowoodo'].includes(pokemon.species.id) && this.effectState.rock) {
-				const speciesid = pokemon.species.id === 'Sudowoodo-Rock';
+				const speciesid = 'Sudowoodo-Rock';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
