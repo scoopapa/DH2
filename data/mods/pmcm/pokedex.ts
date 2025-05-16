@@ -272,6 +272,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Pseudowoodo"},
 		types: ["Grass"],
+		baseForme: "Grass",
+		otherFormes: ["Sudowoodo-Rock"],
+		formeOrder: ["Sudowoodo", "Sudowoodo-Rock"],
 	},
 	sudowoodorock: {
 		num: 185,
