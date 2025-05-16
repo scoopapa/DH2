@@ -580,7 +580,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Icicle Storm", "Ice Shard", "Swords Dance", "Sacred Sword", "Throat Chop"],
+                "movepool": ["Bulk Up", "Icicle Storm", "Swords Dance", "Sacred Sword", "Throat Chop"],
                 "abilities": ["Tablets of Ruin"],
                 "teraTypes": ["Fighting"]
             }
