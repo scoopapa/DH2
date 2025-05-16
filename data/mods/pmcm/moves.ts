@@ -304,22 +304,24 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
-		onModifyPriority(priority, source, target, move) {
-			const foee = source.side.foe.active[0];
-      	if (!foee || foee.fainted) return priority;
-			this.add('-message', `foe = ` + foee);
-			this.add('-message', `movethisturn = ` + this.dex.moves.get(foee.moveThisTurn));
-      	const action = this.dex.moves.get(foee.moveThisTurn);
-			this.add('-message', `action= ` + action);
-			const targetMove = action?.choice === 'move' ? action.move : null;
-			if (targetMove.type === 'Water') {
-				this.add('-message', `Sudowoodo draws power from the water!`);
-				return priority + 1;
-			}
+		onModifyPriority(priority, source) {
+    		const foe = source.side.foe.active[0];
+    		if (!foe || foe.fainted) return priority;
+			this.add('-message', `foe = ` + foe);
+    		const action = this.queue.willMove(foe);
+    		if (!action || action.choice !== 'move') return priority;
+			this.add('-message', `move = ` + action.move);
+    		const move = action.move;
+    		if (move?.type === 'Water') {
+        		this.add('-message', `Sudowoodo draws power from the water!`);
+        		return priority + 1;
+    		}
+    		return priority;
 		},
 		onBasePower(basePower, source, target) {
-			const action = this.dex.moves.get(foee.moveThisTurn);
-			const move = action?.choice === 'move' ? action.move : null;
+			const foe = source.side.foe.active[0];
+			const action = this.queue.willMove(foe);
+			const move = action.move;
 			if (move.type === 'Water') {
 				return basePower + 70;
 			}
