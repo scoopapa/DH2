@@ -2070,6 +2070,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         weightkg: 81.1,
         color: "Gray",
         eggGroups: ["Field"],
+		battleOnly: "Zoroark-Hisui",
         requiredItem: "Zoroarkite",
     },
 	cinccino: {
