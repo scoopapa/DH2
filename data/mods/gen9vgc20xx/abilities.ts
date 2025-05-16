@@ -209,7 +209,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType !== 'Move') {
 				const ally = target.side.active.find(ally => ally && ally !== target && !ally.fainted);
-				if (ally) {
+				if (ally && !ally.hasAbility('selfish')) {
 					this.add('-ability', target, 'Selfish');
 					this.add('-message', `${target.name}'s Selfish redirects the damage to ${ally.name}!`);
 					this.damage(damage, ally, source, effect);
@@ -354,7 +354,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	weightbreaker: {
 		shortDesc: "Double damage if user's weight < target's weight.",
 		onModifyDamage(damage, source, target, move) {
-			if (source.weighthg < target.weighthg) {
+			const sourceWeight = source.getWeight();
+			const targetWeight = target.getWeight();
+			if (sourceWeight < targetWeight) {
 				this.debug('Weight Breaker boost');
 				return this.chainModify(2);
 			}
@@ -591,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	//
 	cutecharm: {
 		shortDesc: "50% damage reduction if move's type = user's type.",
-		onModifyDamage(damage, source, target, move) {
+		onSourceModifyDamage(damage, source, target, move) {
 			// Check if the move's type matches the defender's type
 			if (target.hasType(move.type)) {
 				this.debug('Cute Charm reducing damage due to type match');

@@ -55,8 +55,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				} else {
 					this.add('-status', target, 'slp');
 				}
-				// 1-3 turns
-				this.effectState.startTime = 2;
+				// 2 turns
+				this.effectState.startTime = 3;
 				this.effectState.time = this.effectState.startTime;
 	
 				if (target.removeVolatile('nightmare')) {
