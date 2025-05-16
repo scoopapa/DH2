@@ -570,7 +570,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
 		onHit(target, source, move) {
-			if (pokemon.volatiles['ordered']) return;
+			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
 			source.switchFlag = true;
 		},
