@@ -307,7 +307,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onModifyPriority(priority, source, target, move) {
       	if (!source.side.foe.active || (source.side.foe.active).fainted) return priority;
       	const action = this.queue.willMove(source.side.foe.active);
-			this.add('-message', action);
+			this.add('-message', `action= ` + action);
 			const targetMove = action?.choice === 'move' ? action.move : null;
 			if (targetMove.type === 'Water') {
 				this.add('-message', `Sudowoodo draws power from the water!`);
