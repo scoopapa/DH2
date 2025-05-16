@@ -273,7 +273,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Grass"],
 	},
 	sudowoodorock: {
-		num: -1000,
+		num: 185,
 		name: "Sudowoodo-Rock",
 		baseSpecies: "Sudowoodo",
 		forme: "Rock",
