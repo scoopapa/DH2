@@ -87,7 +87,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Code stolen from Shields Down
 		onTryHit(target, source, move) {
 			if(move.category != 'Status') {
-				this.add('-ability', pokemon, 'Frozen Armor');
+				this.add('-ability', target, 'Frozen Armor');
 				move.basePower = Math.max(move.basePower - 20, 0);
 			}
 		},
