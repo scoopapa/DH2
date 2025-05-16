@@ -316,7 +316,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return priority + 1;
 			}
 		},
-		onBasePower(basePower, source) {
+		onBasePower(basePower, source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (move.type === 'Water') {
