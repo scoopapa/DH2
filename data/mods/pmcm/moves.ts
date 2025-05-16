@@ -156,7 +156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  if (bestType === 'Water') {
 			source.formeChange('Tauros-Paldea-Aqua');
 			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');q
+			this.add('-ability', source, 'Adaptability');
 		  } else if (bestType === 'Fighting') {
 			source.formeChange('Tauros-Paldea-Combat');
 			source.setAbility('Adaptability');
