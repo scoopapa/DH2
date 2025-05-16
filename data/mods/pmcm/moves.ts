@@ -209,7 +209,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
-	}
+	},
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
 		inherit: true,
