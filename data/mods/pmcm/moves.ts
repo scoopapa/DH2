@@ -305,23 +305,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source) {
+			// stops this from repeating for no reason because im tired and dont want to fix the actual problem
+			if (this.effectState.doNotRepeatThisForNoReason === 1) return;
 			// gets current foe in singles
 			// bonsaiCheck ensures that the onBasePower function is skipped if Priority is not modified
     		const foe = source.side.foe.active[0];
     		if (!foe || foe.fainted) {
-				this.effectState.bonsaiCheck === 1;
+				this.effectState.bonsaiCheck = 1;
 				return priority;
 			}
 			this.add('-message', `foe = ` + foe);
     		const action = this.queue.willMove(foe);
     		if (!action || action.choice !== 'move') {
-				this.effectState.bonsaiCheck === 1;
+				this.effectState.bonsaiCheck = 1;
 				return priority;
 			}
 			this.add('-message', `move = ` + action.move);
     		const move = action.move;
     		if (move?.type === 'Water') {
         		this.add('-message', `Sudowoodo draws power from the water!`);
+				this.effectState.doNotRepeatThisForNoReason = 1;
         		return priority + 1;
     		}
 			else {
@@ -332,7 +335,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onBasePower(basePower, source, target) {
 			if (this.effectState.bonsaiCheck === 1) {
-				return;
+				return basePower;
 			}
 			const foe = source.side.foe.active[0];
 			const action = this.queue.willMove(foe);
