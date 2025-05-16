@@ -470,7 +470,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSwitchInPriority: 3,
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
-				if (pokemon.name === 'Dondozo') {
+				if (pokemon === 'dondozo') {
+					this.add('-message', `Eaten successfully`);
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
 						this.boost({ atk: 3 }, pokemon);
 					}
@@ -516,7 +517,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
-			this.add('-ability', source, 'Order Up');
+			if (source.side.getSideCondition('orderup') {
+				this.add('-ability', source, 'Order Up');
+			}
 			source.switchFlag = true;
 		},
 		secondary: null,
