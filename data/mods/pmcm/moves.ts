@@ -305,6 +305,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source) {
+			// gets current foe in singles
+			// bonsaiCheck ensures that the onBasePower function is skipped if Priority is not modified
     		const foe = source.side.foe.active[0];
     		if (!foe || foe.fainted) {
 				this.effectState.bonsaiCheck === 1;
@@ -342,7 +344,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Splash', target);
 		},
-		onHit(target) {
+		onHit(target, source, move) {
 				this.add('-anim', source, 'Wood Hammer', target);
 		},
 		secondary: null,
