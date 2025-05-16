@@ -237,6 +237,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	chienpao: {
 		inherit: true,
+		abilities: {0: "Tablets of Ruin"},
 	},
 	pelipper: {
 		inherit: true,
