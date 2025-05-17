@@ -537,7 +537,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Quiver Dance", "Weather Ball", "Bug Buzz", "Dark Pulse", "Hurricane", "Ice Beam"],
-                "abilities": ["Primordial Sea"],
+                "abilities": ["Intimidate"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -580,7 +580,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Icicle Storm", "Swords Dance", "Ice Shard", "Sacred Sword", "Throat Chop"],
+                "movepool": ["Bulk Up", "Icicle Storm", "Swords Dance", "Sacred Sword", "Throat Chop"],
                 "abilities": ["Tablets of Ruin"],
                 "teraTypes": ["Fighting"]
             }
@@ -680,7 +680,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Bonsai Bounce", "Head Smash", "Wood Hammer", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
+                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
                 "abilities": ["Pseudowoodo"],
                 "teraTypes": ["Rock", "Grass"]
             }
@@ -700,6 +700,17 @@
                 "movepool": ["Recover", "Fishious Rend", "Flip Turn", "Body Slam", "Body Press"],
                 "abilities": ["Unaware"],
                 "teraTypes": ["Grass"]
+            }
+        ]
+    },
+    "golurk": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Trick Room", "Headlong Rush", "Shattered Seal", "Ice Punch", "Dynamic Punch"],
+                "abilities": ["Iron Fist"],
+                "teraTypes": ["Fighting", "Ground"]
             }
         ]
     }

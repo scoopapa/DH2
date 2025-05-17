@@ -40,6 +40,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
+		shortDesc: "Breaks Screens.",
 	},
 	steelwing: {
 		//Buffed secondary chance to 50%
@@ -83,6 +84,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-item', source, this.dex.items.get(item), '[from] move: Scavenge');
 		  	}
 		},
+		shortDesc: "User regains their last used item, similar to Recycle.",
 	},	  
 	aquaring: {
 		inherit: true,
@@ -154,7 +156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  if (bestType === 'Water') {
 			source.formeChange('Tauros-Paldea-Aqua');
 			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');q
+			this.add('-ability', source, 'Adaptability');
 		  } else if (bestType === 'Fighting') {
 			source.formeChange('Tauros-Paldea-Combat');
 			source.setAbility('Adaptability');
@@ -196,28 +198,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
   	},
 	iciclestorm: {
-		num: -103,
-		accuracy: 95,
-		basePower: 90,
-		category: "Physical",
-		name: "Icicle Storm",
-		pp: 10,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-		onPrepareHit(target, source, move) {
-			this.add('-anim', source, 'Icicle Crash', target);
-		},
-		self: {
-			onHit(source) {
-				this.field.setWeather('snowscape');
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ice",
-		contestType: "Beautiful",
-		shortDesc: "Sets up a snowstorm.",
+	num: -1044,
+	accuracy: 95,
+	basePower: 90,
+	category: "Physical",
+	name: "Icicle Storm",
+	pp: 15,
+	priority: 0,
+	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+	onHit(target, source) {
+		this.field.setWeather('snowscape');
+		this.add('-weather', 'Snowscape', '[from] move: Icicle Storm');
 	},
+	secondary: null,
+	target: "normal",
+	type: "Ice",
+	contestType: "Clever",
+	shortDesc: "Sets Snowscape.",
+	},
+
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
 		inherit: true,
@@ -283,7 +282,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Water Pulse', target);
 		},
-		onHit(target) {
+		onHit(target, source, move) {
 				target.addVolatile('encore');
 				this.add('-anim', source, 'Encore', target);
 		},
@@ -305,26 +304,51 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
-		onModifyPriority(priority, source, target, move) {
-			const action = this.queue.willMove(target);
-			const targetMove = action?.choice === 'move' ? action.move : null;
-			if (targetMove.type === 'Water') {
-				this.add('-message', `Sudowoodo draws power from the water!`);
-				return priority + 1;
+		onModifyPriority(priority, source) {
+			// stops this from repeating for no reason because im tired and dont want to fix the actual problem
+			if (this.effectState.doNotRepeatThisForNoReason === 1) return;
+			// gets current foe in singles
+			// bonsaiCheck ensures that the onBasePower function is skipped if Priority is not modified
+    		const foe = source.side.foe.active[0];
+    		if (!foe || foe.fainted) {
+				return priority;
 			}
+    		const action = this.queue.willMove(foe);
+    		if (!action || action.choice !== 'move') {
+				return priority;
+			}
+    		const move = action.move;
+    		if (move?.type === 'Water') {
+        		this.add('-message', `Sudowoodo draws power from the water!`);
+				this.effectState.doNotRepeatThisForNoReason = 1;
+        		return priority + 1;
+    		}
+			else {
+				return priority;
+			}
+    		return priority;
 		},
-		onBasePower(basePower, source) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (move.type === 'Water') {
+		onBasePower(basePower, source, target) {
+			const foe = source.side.foe.active[0];
+			if (!foe || foe.fainted) {
+				return basePower;
+			}
+			const action = this.queue.willMove(foe);
+			if (!action || action.choice !== 'move') {
+				return basePower;
+			}
+			const move = action.move;
+			if (move?.type === 'Water') {
 				return basePower + 70;
 			}
+			else {
+				return basePower;
+			}
+			return basePower;
 		},
 		onPrepareHit(target, source, move) {
-			this.add('-anim', source, 'Splash', target);
-		},
-		onHit(target) {
-				this.add('-anim', source, 'Wood Hammer', target);
+			this.add('-anim', source, 'Wood Hammer', target);
+			this.add('-anim', source, 'Splash');
 		},
 		secondary: null,
 		target: "normal",
@@ -384,58 +408,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		shortDesc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
 	},
-	//This modifies the smackdown volatile to remove after switch in, which enables King of the Hill to work properly.
-	smackdown: {
-		num: 479,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Smack Down",
-		pp: 15,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, nonsky: 1, metronome: 1 },
-		volatileStatus: 'smackdown',
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				let applies = false;
-				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
-				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
-					this.field.getPseudoWeather('gravity')) applies = false;
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					applies = true;
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-				}
-				if (pokemon.volatiles['magnetrise']) {
-					applies = true;
-					delete pokemon.volatiles['magnetrise'];
-				}
-				if (pokemon.volatiles['telekinesis']) {
-					applies = true;
-					delete pokemon.volatiles['telekinesis'];
-				}
-				if (!applies) return false;
-				this.add('-start', pokemon, 'Smack Down');
-			},
-			onRestart(pokemon) {
-				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
-					this.queue.cancelMove(pokemon);
-					pokemon.removeVolatile('twoturnmove');
-					this.add('-start', pokemon, 'Smack Down');
-				}
-			},
-			// removes smackdown volatile after switch in happens to prevent it from staying while King of the hill is actice
-			onAfterSwitchInSelf(pokemon) {
-            pokemon.removeVolatile('smackdown');
-        	},
-			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
-		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-	},
 	stealthrock: {
 		num: 446,
 		accuracy: true,
@@ -458,7 +430,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			// iron strike functionality
 			onHit(pokemon, source, move) {
-				if (move === 'ironstrike') {
+				if (move.id === 'ironstrike') {
 					if (pokemon.hasItem('heavydutyboots')) return;
 					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 					this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
@@ -499,7 +471,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			// iron strike functionality
 			onHit(pokemon, source, move) {
-				if (move === 'ironstrike') {
+				if (move.id === 'ironstrike') {
 					if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
 					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
@@ -522,11 +494,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1 },
 		condition: {
-			duration: 1,
+			duration: 2,
 			onSwitchInPriority: 3,
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
-				if (pokemon.name === 'Dondozo') {
+				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
+					this.add('-message', `Dondozo enjoyed its meal!`);
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
 						this.boost({ atk: 3 }, pokemon);
 					}
@@ -561,23 +534,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
-			onFaint(pokemon) {
-    			const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
-    			if (dondozo && !dondozo.fainted) {
-        			dondozo.switchFlag = true;
-    			}
-			}
+			//onFaint(pokemon) {
+    			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
+    			//if (dondozo && !dondozo.fainted) {
+        			//dondozo.switchFlag = true;
+    			//}
+			//}
 		},
 		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
 		onHit(target, source, move) {
-			if (pokemon.volatiles['ordered']) return;
+			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
+			if (source.side.getSideCondition('orderup')) {
+				this.add('-ability', source, 'Order Up');
+				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move. After it faints, please switch in Dondozo or the move will not function successfully.`);
+			}
 			source.switchFlag = true;
 		},
 		secondary: null,
 		hasSheerForce: true,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "Dondozo orders up a meal. Dondozo gains stat boosts based on the highest stat of the Pokemon it eats.",
 	},
 	toxicspikes: {
 		// prevents Dondozo from being affected by Toxic Spikes during Order Up switching
@@ -620,6 +598,22 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
 			},
 		},
+	},
+	shatteredseal: {
+		num: -1002,
+		accuracy: true,
+		basePower: 90,
+		category: "Physical",
+		name: "Shattered Seal",
+		pp: 15,
+		pseudoWeather: 'gravity',
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+		shortDesc: "Sets gravity.",
 	}
 };
   

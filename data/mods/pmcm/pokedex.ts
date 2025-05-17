@@ -237,6 +237,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	chienpao: {
 		inherit: true,
+		abilities: {0: "Tablets of Ruin"},
 	},
 	pelipper: {
 		inherit: true,
@@ -271,9 +272,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Pseudowoodo"},
 		types: ["Grass"],
+		baseForme: "Grass",
+		otherFormes: ["Sudowoodo-Rock"],
+		formeOrder: ["Sudowoodo", "Sudowoodo-Rock"],
 	},
 	sudowoodorock: {
-		num: -1000,
+		num: 185,
 		name: "Sudowoodo-Rock",
 		baseSpecies: "Sudowoodo",
 		forme: "Rock",
@@ -288,6 +292,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		battleOnly: "Sudowoodo",
 	},
 	dondozo: {
+		inherit: true,
+	},
+	golurk: {
 		inherit: true,
 	},
 };
