@@ -11,7 +11,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onStart(target, source, sourceEffect, pokemon) {
 			this.add('-start', pokemon, 'Frostbite');
-			this.add('-message', `${target.name} was frostbitten! Special Attack halved!`);
+			this.add('-message', `${target.name} was frostbitten! Special Attack halved! (Stat change not visible)`);
 		},
 		onDamagingHit(damage, target, source, move) {},
 		onAfterMoveSecondary(target, source, move) {},

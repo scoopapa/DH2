@@ -319,7 +319,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Frenzy Pulse",
 		shortDesc: "Lowers SpA by 1; Raises Spe by 1.",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		selfBoost: {

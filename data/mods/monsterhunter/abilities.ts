@@ -282,7 +282,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		activate: "[POKEMON] became energized immediately!",
         flags: {},
 		rating: 2,
-		num: 1111,
+		num: 1011,
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
@@ -295,7 +295,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Megiddo's Gift",
 		shortDesc: "Before using a Water or Fire-type move, this Pokemon sets Rain Dance or Sunny Day respectively.",
-		rating: 1112,
+		rating: 1012,
 	},
 	corrosiveclaws: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -311,7 +311,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Corrosive Claws",
 		rating: 4,
-		num: 1113,
+		num: 1013,
 	},
 	centrifuge: {
 		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
@@ -333,7 +333,81 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Centrifuge",
 		rating: 3,
-		num: 1114,
+		num: 1014,
+	},
+	dragonvein: {
+		desc: "When it KOs an opponent with a direct move, it recovers 25% of its max HP.",
+		shortDesc: "Heals 25% HP on KO.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.heal(source.baseMaxhp / 4);
+			}
+		},
+		name: "Dragonvein",
+		rating: 3,
+		num: 1015,
+	},
+	permafrost: {
+			name: "Permafrost",
+			onStart(pokemon) {
+				this.add('-ability', pokemon, 'Permafrost');
+				this.add('-message', `${pokemon.name}'s freezing aura turns water into ice!`);
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (move.type === 'Ice') {
+					this.boost({def: 1});
+				}
+			},
+			onFoeBeforeMovePriority: 13,
+			onFoeBeforeMove(attacker, defender, move) {
+				attacker.addVolatile('permafrost');
+			},
+			condition: {
+				onModifyTypePriority: -1,
+				onModifyType(move, pokemon) {
+					if (move.type === 'Water') {
+						move.type = 'Ice';
+					}
+				},
+				onAfterMove(pokemon) {
+					pokemon.removeVolatile('permafrost');
+				},
+			},
+			shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def when hit by Ice.",
+			num: 1016,
+			rating: 4,
+		},
+		voltabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Heat Sink');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Volt Absorb",
+		rating: 3.5,
+		num: 1017,
+	},
+	rustedgale: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Rusted Gale');
+		},
+		onAnyModifyDef(def, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.hasAbility('Rusted Gale')) return;
+			if (!move.ruinedDef?.hasAbility('Rusted Gale')) move.ruinedDef = abilityHolder;
+			if (move.ruinedDef !== abilityHolder) return;
+			this.debug('Rusted Gale Def drop');
+			return this.chainModify(0.75);
+		},
+		flags: {},
+		name: "Sword of Ruin",
+		rating: 4.5,
+		num: 1018,
 	},
 	/*
 	Edits
