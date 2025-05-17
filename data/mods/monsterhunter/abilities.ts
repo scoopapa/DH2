@@ -405,7 +405,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			return this.chainModify(0.75);
 		},
 		flags: {},
-		name: "Sword of Ruin",
+		name: "Rusted Gale",
+		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 1018,
 	},
