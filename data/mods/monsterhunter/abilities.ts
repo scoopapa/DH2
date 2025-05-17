@@ -377,7 +377,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			num: 1016,
 			rating: 4,
 		},
-		heatsink: {
+	heatsink: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {

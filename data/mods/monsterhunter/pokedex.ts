@@ -972,7 +972,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Lavasioth",
 		types: ["Fire"],
 		baseStats: {hp: 80, atk: 102, def: 80, spa: 114, spd: 95, spe: 69},
-		abilities: {0: "Blaze", 1: "Magma Armor"},
+		abilities: {0: "Blaze", 1: "Magma Armor", H: "Flame Body"},
 		heightm: 1.0,
 		weightkg: 60.0,
 		color: "Black",
