@@ -2,6 +2,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 
 		narwanite: {
 			name: "Narwanite",
+			shortDesc: "If held by Narwa, this item allows it to Mega Evolve in battle.",
 			spritenum: 596,
 			megaStone: "Allmother Narwa",
 			megaEvolves: "Narwa",
@@ -15,6 +16,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		magnamalite: {
 			name: "Magnamalite",
+			shortDesc: "If held by Magnamalo, this item allows it to Mega Evolve in battle.",
 			spritenum: 614,
 			megaStone: "Scorned Magnamalo",
 			megaEvolves: "Magnamalo",
@@ -28,6 +30,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		astalite: {
 			name: "Astalite",
+			shortDesc: "If held by Astalos, this item allows it to Mega Evolve in battle.",
 			spritenum: 613,
 			megaStone: "Boltreaver Astalos",
 			megaEvolves: "Astalos",
@@ -41,6 +44,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		mizutsunite: {
 			name: "Mizutsunite",
+			shortDesc: "If held by Mizutsune, this item allows it to Mega Evolve in battle.",
 			spritenum: 624,
 			megaStone: "Soulseer Mizutsune",
 			megaEvolves: "Mizutsune",
@@ -54,6 +58,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rajanite: {
 			name: "Rajanite",
+			shortDesc: "If held by Rajang, this item allows it to Mega Evolve in battle.",
 			spritenum: 602,
 			megaStone: "Furious Rajang",
 			megaEvolves: "Rajang",
@@ -67,6 +72,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rathianite: {
 			name: "Rathianite",
+			shortDesc: "If held by Rathian, this item allows it to Mega Evolve in battle.",
 			spritenum: 607,
 			megaStone: "Dreadqueen Rathian",
 			megaEvolves: "Rathian",
@@ -80,6 +86,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rathalosite: {
 			name: "Rathalosite",
+			shortDesc: "If held by Rathalos, this item allows it to Mega Evolve in battle.",
 			spritenum: 586,
 			megaStone: "Dreadking Rathalos",
 			megaEvolves: "Rathalos",
@@ -93,6 +100,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		zinogrite: {
 			name: "Zinogrite",
+			shortDesc: "If held by Zinogre, this item allows it to Mega Evolve in battle.",
 			spritenum: 590,
 			megaStone: "Thunderlord Zinogre",
 			megaEvolves: "Zinogre",
@@ -106,6 +114,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		arzurite: {
 			name: "Arzurite",
+			shortDesc: "If held by Arzuros, this item allows it to Mega Evolve in battle.",
 			spritenum: 585,
 			megaStone: "Redhelm Arzuros",
 			megaEvolves: "Arzuros",
@@ -119,6 +128,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		lagombite: {
 			name: "Lagombite",
+			shortDesc: "If held by Lagombi, this item allows it to Mega Evolve in battle.",
 			spritenum: 583,
 			megaStone: "Snowbaron Lagombi",
 			megaEvolves: "Lagombi",
@@ -132,6 +142,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		bazelnite: {
 			name: "Bazelnite",
+			shortDesc: "If held by Bazelgeuse, this item allows it to Mega Evolve in battle.",
 			spritenum: 591,
 			megaStone: "Seething Bazelgeuse",
 			megaEvolves: "Bazelgeuse",
@@ -145,6 +156,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		diablite: {
 			name: "Diablite",
+			shortDesc: "If held by Diablos, this item allows it to Mega Evolve in battle.",
 			spritenum: 589,
 			megaStone: "Massacre Diablos",
 			megaEvolves: "Diablos",
@@ -158,6 +170,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		valstraxite: {
 			name: "Valstraxite",
+			shortDesc: "If held by Valstrax, this item allows it to Mega Evolve in battle.",
 			spritenum: 605,
 			megaStone: "Crimson Glow Valstrax",
 			megaEvolves: "Valstrax",
@@ -171,6 +184,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	crimsongem: {
 		name: "Crimson Gem",
+		shortDesc: "If held by Fatalis, this item triggers its Crimson Form in battle.",
 		spritenum: 141,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
@@ -190,6 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		whitegem: {
 		name: "White Gem",
+		shortDesc: "If held by Fatalis, this item triggers its White Form in battle.",
 		spritenum: 307,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {

@@ -221,6 +221,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kushaladaora: {
 		tier: "MHOU",
 	},
+	rushaladaora: {
+		tier: "MHOU",
+	},
 	lagiacrus: {
 		tier: "MHOU",
 	},
@@ -341,6 +344,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shagarumagala: {
 		tier: "MHOU",
 	},
+	shantien: {
+		tier: "MHOU",
+	},
 	sharaishvalda: {
 		tier: "MHOU",
 	},
@@ -381,7 +387,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	tobikadachi: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	tzitziyaku: {
 		tier: "MHRU",
