@@ -912,7 +912,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 36,
 		name: "Rushala Daora",
 		types: ["Ground", "Steel"],
-		baseStats: {hp: 95, atk: 105, def: 130, spa: 73, spd: 127, spe: 80},
+		baseStats: {hp: 95, atk: 105, def: 130, spa: 73, spd: 124, spe: 80},
 		abilities: {0: "Rusted Gale", 1: "Magic Bounce"},
 		heightm: 1.0,
 		weightkg: 200.4,
