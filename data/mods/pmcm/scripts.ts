@@ -181,5 +181,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'dondozo').learnset.fishiousrend = ['9L1'];
 		this.modData('Learnsets', 'dondozo').learnset.recover = ['9L1'];
 		this.modData('Learnsets', 'dondozo').learnset.flipturn = ['9L1'];
+
+		this.modData('Learnsets', 'golurk').learnset.shatteredseal = ['9L1'];
+		this.modData('Learnsets', 'golurk').learnset.trickroom = ['9L1'];
+		this.modData('Learnsets', 'golurk').learnset.headlongrush = ['9L1'];
 	},
 };

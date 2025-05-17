@@ -87,7 +87,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Code stolen from Shields Down
 		onTryHit(target, source, move) {
 			if(move.category != 'Status') {
-				this.add('-ability', pokemon, 'Frozen Armor');
+				this.add('-ability', target, 'Frozen Armor');
 				move.basePower = Math.max(move.basePower - 20, 0);
 			}
 		},
@@ -157,6 +157,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('grassyterrain');
 		},
+		shortDesc: "Starts Grassy Terrain on hit. 1.5x Def in Grassy Terrain.",
 	},
 	aquaveil: {
 		onSwitchInPriority: -1,
@@ -192,6 +193,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Aqua Veil",
 		rating: 5,
 		num: -106,
+		shortDesc: "Starts Aqua Ring on switch in.",
 	},
 	stillwater: {
 		onAnyModifyBoost(boosts, pokemon) {
@@ -245,7 +247,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of the Hill');
-			for (const side of source.side.foeSidesWithConditions()) {
+			for (const side of pokemon.side.foeSidesWithConditions()) {
 					side.addSideCondition('kingofthehill');
 			}
 		},
@@ -310,7 +312,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onUpdate(pokemon) {
 			if (['sudowoodo'].includes(pokemon.species.id) && this.effectState.rock) {
-				const speciesid = pokemon.species.id === 'Sudowoodo-Rock';
+				const speciesid = 'Sudowoodo-Rock';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
