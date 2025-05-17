@@ -188,7 +188,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 		mayafey: {
 		num: 22,
-		species: "Maya Fey",
+		name: "Maya Fey",
 		types: ["Psychic", "Water"],
 		baseStats: {hp: 80, atk: 55, def: 100, spa: 105, spd: 75, spe: 110},
 		abilities: {0: "Magic Guard", 1: "Inner Focus", H: "Friend Guard"},
@@ -196,7 +196,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	pit: {
 		num: 23,
-		species: "Pit",
+		name: "Pit",
 		types: ["Flying", "Fairy"],
 		baseStats: {hp: 70, atk: 85, def: 75, spa: 85, spd: 75, spe: 115},
 		abilities: {0: "Justified", 1: "Reckless", H: "Gluttony"},
@@ -206,7 +206,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	pitmega: {
 		num: 23,
-		species: "Pit-Mega",
+		name: "Pit-Mega",
 		baseSpecies: "Pit",
 		forme: "Mega",
 		types: ["Steel", "Fairy"],
@@ -217,7 +217,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	nifl: {
 		num: 24,
-		species: "Nifl",
+		name: "Nifl",
 		types: ["Ice", "Dragon"],
 		baseStats: {hp: 95, atk: 110, def: 90, spa: 55, spd: 80, spe: 106},
 		abilities: {0: "Domain of Ice"},

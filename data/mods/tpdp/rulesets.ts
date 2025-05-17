@@ -23,6 +23,14 @@ export const Rulesets: {[k: string]: FormatData} = {
             }
         },
     },
+	statusmod: {
+        effectType: 'Rule',
+        name: 'Status Mod',
+        desc: "Displays new statuses as a volatile",
+        onSwitchIn (pokemon) {
+			if(pokemon.status) this.add('-start', pokemon, pokemon.status, '[silent]');
+		},
+    },
 	stylemonsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'Stylemons Move Legality',
