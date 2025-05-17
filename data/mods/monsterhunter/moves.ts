@@ -179,7 +179,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	bewitchedbubble: {
 		num: 2009,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 75,
 		category: "Special",
 		name: "Bewitched Bubble",
 		shortDesc: "User recovers 50% of the damage dealt.",
