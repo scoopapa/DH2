@@ -77,7 +77,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	corphish: {
 		inherit: true,
 		types: ["Water", "Dark"],
-		baseStats: {hp: 50, atk: 80, def: 65, spa: 50, spd: 35, spe: 46},
+		baseStats: {hp: 50, atk: 50, def: 65, spa: 50, spd: 35, spe: 46},
 		abilities: {0: "Adaptability", 1: "Hyper Cutter", H: "Shell Armor"},
 	},
 	jangmoo: {
