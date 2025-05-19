@@ -88,7 +88,7 @@ const SPEED_SETUP = [
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'clangoroussoul', 'coil', 'cosmicpower', 'curse', 'dragondance',
 	'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch', 'quiverdance',
-	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'workup', 'victorydance',
+	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'trick room', 'workup', 'victorydance',
 ];
 const SPEED_CONTROL = [
 	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'stringshot', 'tailwind', 'thunderwave', 'trickroom',
@@ -1167,6 +1167,7 @@ export class RandomTeams {
 		if (species.id === 'smeargle') return 'Focus Sash';
 
 		// PMCM hardcodes
+		if (species.id === 'lurantis') return this.sample(['Life Orb', 'Leftovers']);
 		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
 		if (species.id === 'dugtrio') return 'Choice Band';
 		if (species.id === 'altaria') return 'Heavy-Duty Boots';
