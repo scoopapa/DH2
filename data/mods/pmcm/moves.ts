@@ -206,13 +206,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	pp: 15,
 	priority: 0,
 	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-	//onHit(target, source) {
-		//this.field.setWeather('snowscape');
-		//this.add('-anim', source, 'Ice Shard', target);
-		//this.add('-anim', source, 'Ice Shard', target);
-		//this.add('-anim', source, 'Ice Shard', target);
-	//},
-	weather: 'snowscape',
+	onHit(target, source) {
+		this.add('-message', `this is working`);
+		this.field.setWeather('snowscape');
+		if (this.field.getWeather().id === 'snowscape') {
+			this.add('-message', `Snow is set`);
+		}
+		this.add('-anim', source, 'Ice Shard', target);
+		this.add('-anim', source, 'Ice Shard', target);
+		this.add('-anim', source, 'Ice Shard', target);
+	},
 	secondary: null,
 	target: "normal",
 	type: "Ice",
