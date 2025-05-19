@@ -20,7 +20,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	callillumise: {
 		onTryHit(target, source, move) {
 			target.side.addSideCondition('callillumise')
-			if (target.side.getSideCondition('callillumise') {
+			if (target.side.getSideCondition('callillumise')) {
 				this.add('-message', `side condition added successfully`);
 			}
 		},
@@ -77,7 +77,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	callvolbeat: {
 		onTryHit(target, source, move) {
 			target.side.addSideCondition('callvolbeat')
-			if (target.side.getSideCondition('callvolbeat') {
+			if (target.side.getSideCondition('callvolbeat')) {
 				this.add('-message', `side condition added successfully`);
 			}
 		},
