@@ -29,14 +29,7 @@
                 "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
                 "abilities": ["Contrary"],
                 "teraTypes": ["Ice"]
-            },
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
-                "abilities": ["Contrary"],
-                "teraTypes": ["Ice"]
             }
-            
         ]
     },
     "ironcrown": {
@@ -193,7 +186,7 @@
         "level": 84,
         "sets": [
             {
-                "role": "Bulky Setup",
+                "role": "Setup Sweeper",
                 "movepool": ["Beak Blast", "Roost", "Return", "Dragon Dance", "Earthquake", "Draco Meteor", "Explosion"],
                 "abilities": ["Fluffy"],
                 "teraTypes": ["Normal"]
@@ -458,7 +451,7 @@
         "level": 86,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Fast Attacker",
                 "movepool": ["Hydro Pump", "Draco Meteor", "Rain Dance", "Nasty Plot", "Rapid Spin"],
                 "abilities": ["Dry Skin"],
                 "teraTypes": ["Water"]
@@ -546,7 +539,7 @@
         "level": 80,
         "sets": [
             {
-                "role": "Bulky Attacker",
+                "role": "Wallbreaker",
                 "movepool": ["Fusion Bolt", "Ice Hammer", "Dragon Hammer", "Earthquake", "Rock Slide", "Roost"],
                 "abilities": ["Teravolt"],
                 "teraTypes": ["Ice"]
