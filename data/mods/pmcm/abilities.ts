@@ -144,10 +144,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				for (const stat in source.boosts) {
 					if (source.boosts[stat] > 0) {
 						invertedBoosts[stat] = -2 * source.boosts[stat]; 
-						this.boost(invertedBoosts, source);
-						this.add('-ability', target, 'Flip Flop');
+						this.boost(invertedBoosts[stat], source);
 					}
 				}
+				this.add('-ability', target, 'Flip Flop');
 			}
 		},
 		flags: {},
