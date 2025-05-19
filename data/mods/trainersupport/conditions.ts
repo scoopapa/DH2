@@ -20,6 +20,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.removeVolatile('mustrecharge');
+				this.add('-message', `${source.name} recharged instantly!`);
 			}
 		},
 	},
