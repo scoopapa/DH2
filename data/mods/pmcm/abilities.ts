@@ -24,7 +24,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// Keep the Pokémon at 1 HP instead of fainting immediately
 				const finalHp = target.hp - 1;
 				this.damage(target.hp - 1, target, source, effect);
-				target.clearBoosts();
 
 				this.add('-activate', target, 'ability: Call Illumise');
 				this.add('-message', `Volbeat calls upon Illumise for aid!`);
@@ -48,17 +47,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
 				this.heal(this.modify(target.maxhp, 1))
+				target.side.addSideCondition('callillumise')
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
 				target.baseAbility = target.ability;
-				this.add('-message', `does anything actually happen here ` + target);
-				target.clearBoosts();
-				//target.status = '';
-				//target.volatiles = {};
 				return damage - damage;
 			}
 		},
-		flags: {breakable: 1},
+		condition: {
+			onStart(pokemon) {
+				pokemon.clearBoosts();
+				pokemon.clearVolatile();
+				pokemon.cureStatus();
+				pokemon.side.removeSideCondition('callillumise');
+			}
+		},
+		flags: {},
 		name: "Call Illumise",
 		rating: 5,
 		num: -100,
@@ -72,7 +76,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// Keep the Pokémon at 1 HP instead of fainting immediately
 				const finalHp = target.hp - 1;
 				this.damage(target.hp - 1, target, source, effect);
-				target.clearBoosts();
 
 				this.add('-activate', target, 'ability: Call Volbeat');
 				this.add('-message', `Illumise calls upon Volbeat for aid!`);
@@ -96,17 +99,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1))
+				target.side.addSideCondition('callvolbeat')
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
-				this.add('-message', `does anything actually happen here ` + target);
-				target.clearBoosts();
-				//target.status = '';
-				//target.volatiles = {};
 				return damage - damage;
 			}
 		},
-		flags: {breakable: 1},
+		condition: {
+			onStart(pokemon) {
+				pokemon.clearBoosts();
+				pokemon.clearVolatile();
+				pokemon.cureStatus();
+				pokemon.side.removeSideCondition('callvolbeat');
+			}
+		},
+		flags: {},
 		name: "Call Volbeat",
 		rating: 5,
 		num: -101,
