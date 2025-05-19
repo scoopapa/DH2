@@ -738,7 +738,7 @@ export class RandomTeams {
 					movePool, teraType, role);
 			}
 		}
-		if (species.id === 'altaria') {
+		if (species.id === 'altariamega') {
 			if (movePool.includes('dragondance')) {
 				const altariaNum = Math.floor(Math.random() * 3) + 1
 				if (altariaNum === 1) {
