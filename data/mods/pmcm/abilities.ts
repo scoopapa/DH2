@@ -45,7 +45,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				});
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', this.effect, true);
-				this.heal(this.modify(target.maxhp, 1)
+				this.heal(this.modify(target.maxhp, 1))
 				pokemon.setAbility(null);
 			}
 		},
@@ -84,7 +84,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				});
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', this.effect, true);
-				this.heal(this.modify(target.maxhp, 1)
+				this.heal(this.modify(target.maxhp, 1))
 				pokemon.setAbility(null);
 			}
 		},
