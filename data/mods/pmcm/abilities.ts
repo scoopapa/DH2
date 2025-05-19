@@ -51,9 +51,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				});
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
-				target.formeChange('Illumise', target, true);
 				target.clearStatus();
-				this.clearBoosts();
+				target.clearBoosts();
+				target.clearVolatile();
+				target.formeChange('Illumise', target, true);
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
@@ -61,6 +62,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage - damage;
 			}
 		},
+		/*
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
@@ -76,6 +78,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			}
 		},
+		*/
 		flags: {},
 		name: "Call Illumise",
 		rating: 5,
@@ -117,9 +120,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				});
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
-				target.formeChange('Volbeat', target, true);
 				target.clearStatus();
-				this.clearBoosts();
+				target.clearBoosts();
+				target.clearVolatile();
+				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
@@ -127,6 +131,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage - damage;
 			}
 		},
+		/*
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
@@ -142,6 +147,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			}
 		},
+  */
 		flags: {},
 		name: "Call Volbeat",
 		rating: 5,
