@@ -93,7 +93,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onSwitchInPriority: -1,
 		onUpdate(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.species.id !== 'Glastrier' || !pokemon.hp) return;
+			if (pokemon.species.id !== 'glastrier' || !pokemon.hp) return;
 			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
