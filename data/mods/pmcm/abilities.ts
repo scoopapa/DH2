@@ -46,6 +46,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
+				this.add('-message', `does anything actually happen here ` + target);
 				target.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
 				target.status = '';
 				target.volatiles = {};
