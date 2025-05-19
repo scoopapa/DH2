@@ -19,10 +19,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	callillumise: {
 		onTryHit(target, source, move) {
-			target.addVolatile('callillumise')
-			if (target.getVolatile('callillumise')) {
-				this.add('-message', `volatile added successfully`);
-			}
+			target.clearBoosts();
 		},
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
@@ -87,10 +84,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	callvolbeat: {
 		onTryHit(target, source, move) {
-			target.addVolatile('callvolbeat')
-			if (target.getVolatile('callvolbeat')) {
-				this.add('-message', `volatile added successfully`);
-			}
+			target.clearBoosts();
 		},
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
