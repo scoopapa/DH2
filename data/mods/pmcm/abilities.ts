@@ -44,9 +44,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					};
 				});
 				target.baseMoveSlots = target.moveSlots.slice();
-				target.formeChange('Illumise', this.effect, true);
+				target.formeChange('Illumise', target, true);
 				this.heal(this.modify(target.maxhp, 1))
-				target.setAbility(null);
+				target.setAbility('Tinted Lens');
+				this.add('-activate', target, 'ability: Tinted Lens');
 			}
 		},
 		flags: {breakable: 1},
@@ -83,9 +84,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					};
 				});
 				target.baseMoveSlots = target.moveSlots.slice();
-				target.formeChange('Volbeat', this.effect, true);
+				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1))
-				target.setAbility(null);
+				target.setAbility('Swarm');
+				this.add('-activate', target, 'ability: Swarm');
 			}
 		},
 		flags: {breakable: 1},
