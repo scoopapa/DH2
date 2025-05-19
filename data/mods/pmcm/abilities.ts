@@ -384,6 +384,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				pokemon.setAbility("Perish Body");
 			}
 		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			pokemon.setAbility("Perish Body");
+			if (pokemon.ability === "Perish Body") {
+				this.add('-message', `Mimikyu has Perish Body`);
+			}
+		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
 			breakable: 1, notransform: 1,
