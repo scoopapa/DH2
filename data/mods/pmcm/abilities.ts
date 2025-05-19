@@ -60,12 +60,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 0,
 			onEnd(pokemon) {
-				pokemon.clearBoosts();
-				pokemon.clearVolatile();
-				pokemon.cureStatus();
-				this.add('-message', `side condition removed`);
+				if (pokemon.ability !== "callillumise") {
+					pokemon.clearBoosts();
+					pokemon.clearVolatile();
+					pokemon.cureStatus();
+					this.add('-message', `side condition removed`);
+				}
 			}
 		},
 		flags: {},
@@ -118,12 +120,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 0,
 			onEnd(pokemon) {
-				pokemon.clearBoosts();
-				pokemon.clearVolatile();
-				pokemon.cureStatus();
-				this.add('-message', `side condition removed`);
+				if (pokemon.ability !== "callvolbeat") {
+					pokemon.clearBoosts();
+					pokemon.clearVolatile();
+					pokemon.cureStatus();
+					this.add('-message', `side condition removed`);
+				}
 			}
 		},
 		flags: {},
