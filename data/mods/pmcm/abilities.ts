@@ -18,6 +18,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "Fire-/Ice-type moves against this Pokemon deal 1/2 damage. Burn immune.",
 	},
 	callillumise: {
+		onTryHit(target, source, move) {
+			target.side.addSideCondition('callillumise')
+			if (target.side.getSideCondition('callillumise') {
+				this.add('-message', `side condition added successfully`);
+			}
+		},
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
 			if (damage >= target.hp && effect) {
@@ -46,8 +52,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
-				this.heal(this.modify(target.maxhp, 1))
-				target.side.addSideCondition('callillumise')
+				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
 				target.baseAbility = target.ability;
@@ -55,13 +60,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			onStart(pokemon) {
+			duration: 1,
+			onEnd(pokemon) {
 				pokemon.clearBoosts();
 				pokemon.clearVolatile();
 				pokemon.cureStatus();
-				pokemon.side.removeSideCondition('callillumise');
-			},
-			onEnd(pokemon) {
 				this.add('-message', `side condition removed`);
 			}
 		},
@@ -72,6 +75,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid",
 	},
 	callvolbeat: {
+		onTryHit(target, source, move) {
+			target.side.addSideCondition('callvolbeat')
+			if (target.side.getSideCondition('callvolbeat') {
+				this.add('-message', `side condition added successfully`);
+			}
+		},
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
 			if (damage >= target.hp && effect) {
@@ -101,8 +110,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', target, true);
-				this.heal(this.modify(target.maxhp, 1))
-				target.side.addSideCondition('callvolbeat')
+				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
@@ -110,13 +118,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			onStart(pokemon) {
+			duration: 1,
+			onEnd(pokemon) {
 				pokemon.clearBoosts();
 				pokemon.clearVolatile();
 				pokemon.cureStatus();
-				pokemon.side.removeSideCondition('callvolbeat');
-			},
-			onEnd(pokemon) {
 				this.add('-message', `side condition removed`);
 			}
 		},
