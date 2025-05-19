@@ -645,7 +645,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Fairy Lock', target);
+			this.add('-anim', source, 'Imprison', target);
 			this.add('-anim', source, 'Spirit Shackle', target);
 		},
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
