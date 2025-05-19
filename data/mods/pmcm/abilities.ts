@@ -53,8 +53,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
 				target.baseAbility = target.ability;
+				return damage - damage;
 			}
-			return damage - damage;
 		},
 		flags: {breakable: 1},
 		name: "Call Illumise",
@@ -99,8 +99,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
+				return damage - damage;
 			}
-			return damage - damage;
 		},
 		flags: {breakable: 1},
 		name: "Call Volbeat",
