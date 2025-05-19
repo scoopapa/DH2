@@ -48,4 +48,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.volatiles['joeyboost']) move.selfSwitch = true;
 		},
 	},
+	futuresight: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.volatiles['willboost']) return this.chainModify(1.3);
+		},
+	},
 };

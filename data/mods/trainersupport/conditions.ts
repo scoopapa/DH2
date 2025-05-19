@@ -20,6 +20,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.removeVolatile('mustrecharge');
+				this.add('-message', `${source.name} recharged instantly!`);
 			}
 		},
 	},
@@ -31,7 +32,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 	},
 	roxanneboost: {
-		name: 'roxieboost',
+		name: 'roxanneboost',
 		noCopy: true,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.type === 'Rock') return this.chainModify([4915, 4096]);
@@ -148,6 +149,27 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (boosted) {
 				this.debug('Analytic boost');
 				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	laceyboost: {
+		name: 'laceyboost',
+		noCopy: true,
+		onModifyMove(move) {
+			if (move.type === 'Fairy' || move.type === 'Ground') move.ignoreAbility = true;
+		},
+	},
+	willboost: {
+		name: 'willboost',
+		noCopy: true,
+		onStart(source) {
+			if (!source.hasType('Psychic') && !source.terastallized) {
+				let futuresight = false;
+				for (const moveSlot of source.moveSlots) {
+					if (moveSlot.id === 'futuresight') {
+						if (source.addType('Psychic')) this.add('-start', source, 'typeadd', 'Psychic');
+					}
+				}
 			}
 		},
 	},

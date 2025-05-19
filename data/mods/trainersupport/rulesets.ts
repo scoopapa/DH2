@@ -52,6 +52,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						side.trainerBoost = 'sidney';
 						break;
 					case 'brycen-man':
+					case 'brycen man':
 					case 'brycenman':
 						this.add('-message', `${side.name}'s Trainer Support:`);
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/brycenman.png" height="80" width="80">`);
@@ -59,7 +60,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						break;
 					case 'lear':
 						this.add('-message', `${side.name}'s Trainer Support:`);
-						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/2/23/Spr_Masters_Lear_2.png" height="80" width="80">`);
+						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/thumb/d/dc/Masters_Lear.png/348px-Masters_Lear.png" height="80" width="46.4774624">`);
 						side.trainerBoost = 'lear';
 						break;
 					case 'flint':
@@ -82,6 +83,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add('-message', `${side.name}'s Trainer Support:`);
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/youngster-gen4.png" height="80" width="80">`);
 						side.trainerBoost = 'joey';
+						break;
+					case 'lacey':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/lacey.png" height="80" width="80">`);
+						side.trainerBoost = 'lacey';
+						break;
+					case 'will':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/will.png" height="80" width="80">`);
+						side.trainerBoost = 'will';
+						break;
+					case 'marshal':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/marshal.png" height="80" width="80">`);
+						side.trainerBoost = 'marshal';
 						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
@@ -136,6 +152,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'joey':
 					pokemon.addVolatile('joeyboost');
+					break;
+				case 'lacey':
+					pokemon.addVolatile('laceyboost');
+					break;
+				case 'will':
+					pokemon.addVolatile('willboost');
+					break;
+				case 'marshal':
+					pokemon.addVolatile('marshalboost');
 					break;
 			}
 		}
