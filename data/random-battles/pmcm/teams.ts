@@ -738,6 +738,15 @@ export class RandomTeams {
 					movePool, teraType, role);
 			}
 		}
+		if (species.id === 'altaria') {
+			if (movePool.includes('dragondance')) {
+				const altariaNum = Math.floor(Math.random() * 3) + 1
+				if (altariaNum === 1) {
+					counter = this.addMove('dragondance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+			}
+		}
 
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
