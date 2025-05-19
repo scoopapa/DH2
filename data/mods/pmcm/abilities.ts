@@ -381,12 +381,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
-				pokemon.setAbility("Perish Body");
 			}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			pokemon.setAbility("Perish Body");
+			pokemon.setAbility('perishbody');
 			if (pokemon.ability === "Perish Body") {
 				this.add('-message', `Mimikyu has Perish Body`);
 			}
