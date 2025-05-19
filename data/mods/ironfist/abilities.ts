@@ -419,15 +419,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's attacks cause it to faint. Its use of Reflect/Light Screen/weather lasts 10 turns.",
 	},
 	impalpable: {
-		onTryHit(target, source, move) {
+		onSourceModifyDamage(damage, target, source, move) {
 			if (source.hasType(move.type) && target !== source) {
-				this.add('-immune', target, '[from] ability: Impalpable');
-				return null;
+				return this.chainModify(0.5);
 			}
 		},
 		flags: {breakable: 1},
 		name: "Impalpable",
-		shortDesc: "This Pokemon is non-grounded, and is immune to its own and the opponent's STABs.",
+		shortDesc: "This Pokemon is non-grounded, and takes halved damage from its/foe's STABs.",
 	},
 	getsilly: {
 		onModifyCritRatio(critRatio) {

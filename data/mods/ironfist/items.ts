@@ -424,9 +424,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 200,
 			effect(target) {
-				if (move) {
-					this.heal(target.baseMaxhp);
-				}
+				this.heal(target.baseMaxhp);
 			},
 		},
 		onModifyAtkPriority: 1,
@@ -715,7 +713,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 			effect(target) {
-				this.damage(target.baseMaxhp / 8, target, source);
+				this.damage(target.baseMaxhp / 8, target);
 			},
 		},
 	},
@@ -924,11 +922,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 10);
 			}
 		},
 		rating: 3,
-		desc: "The holder heals 12.5% of their max HP upon successfully damaging a Pokemon with an attack.",
+		desc: "The holder heals 1/10 max HP upon successfully damaging a Pokemon with an attack.",
 	},
 	liongun: {
 		name: "Lion Gun",

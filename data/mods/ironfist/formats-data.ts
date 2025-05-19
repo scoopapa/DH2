@@ -600,7 +600,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	emolga: {
-		tier: "Untested",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	skibidragon: {
