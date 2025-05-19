@@ -92,13 +92,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		onSwitchInPriority: -1,
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed) return;
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
+					this.add('-message', `Glastrier's Frozen Armor has shattered!`);
+					pokemon.setAbility('As One (Glastrier)');
+					this.add('-ability', pokemon, 'As One');
 				}
-			} else {
+			}
+		},
+			/*else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
 					this.add('-ability', pokemon, 'As One (Glastrier)');
@@ -124,7 +129,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					this.add('-ability', pokemon, 'As One');
 				}
 			}
-		},
+		},*/
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Frozen Armor",
 		rating: 5,
