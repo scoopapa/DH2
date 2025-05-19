@@ -145,9 +145,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					if (source.boosts[stat] > 0) {
 						this.add('-message', `Boost detected`);
 						invertedBoosts[stat] = -2 * source.boosts[stat]; 
-						this.boost(invertedBoosts[stat], source);
 					}
 				}
+				this.boost(invertedBoosts, source);
 				this.add('-ability', target, 'Flip Flop');
 			}
 		},
