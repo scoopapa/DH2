@@ -59,7 +59,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						break;
 					case 'lear':
 						this.add('-message', `${side.name}'s Trainer Support:`);
-						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/2/23/Spr_Masters_Lear_2.png" height="80" width="80">`);
+						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/thumb/d/dc/Masters_Lear.png/348px-Masters_Lear.png" height="80" width="80">`);
 						side.trainerBoost = 'lear';
 						break;
 					case 'flint':
