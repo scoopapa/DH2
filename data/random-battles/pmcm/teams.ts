@@ -1177,7 +1177,16 @@ export class RandomTeams {
 		if (species.id === 'smeargle') return 'Focus Sash';
 
 		// PMCM hardcodes
+		if (species.id === 'volcarona') return 'Heavy-Duty Boots';
+		if (species.id === 'golemalola') return 'Life Orb';
+		if (species.id === 'ironcrown') return this.sample(['Chesto Berry', 'Leftovers']);
 		if (species.id === 'lurantis') return this.sample(['Life Orb', 'Leftovers']);
+		if (species.id === 'carbink') return 'Leftovers';
+		if (species.id === 'moltres') return 'Life Orb';
+		if (species.id === 'kommoo') return 'Throat Spray';
+		if (species.id === 'volbeat') return 'Focus Sash';
+		if (species.id === 'illumise') return 'Focus Sash';
+		if (species.id === 'abomasnow') return 'Light Clay';
 		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
 		if (species.id === 'dugtrio') return 'Choice Band';
 		if (species.id === 'altaria') return 'Heavy-Duty Boots';
