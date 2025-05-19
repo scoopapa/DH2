@@ -26,7 +26,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (damage >= target.hp && effect) {
 				// Keep the Pokémon at 1 HP instead of fainting immediately
 				const finalHp = target.hp - 1;
-				this.damage(target.hp - 1, target, source, effect);
+				this.damage(target.hp - 1, target, source || target, effect);
 
 				this.add('-activate', target, 'ability: Call Illumise');
 				this.add('-message', `Volbeat calls upon Illumise for aid!`);
@@ -93,7 +93,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		
 				// Keep the Pokémon at 1 HP instead of fainting immediately
 				const finalHp = target.hp - 1;
-				this.damage(target.hp - 1, target, source, effect);
+				this.damage(target.hp - 1, target, source || target, effect);
 
 				this.add('-activate', target, 'ability: Call Volbeat');
 				this.add('-message', `Illumise calls upon Volbeat for aid!`);
