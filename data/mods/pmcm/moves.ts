@@ -39,7 +39,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			pokemon.side.removeSideCondition('lightscreen');
 			pokemon.side.removeSideCondition('auroraveil');
 		},
-		onHit(target, source) {
+		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Psychic Fangs', target);
 		},
 		secondary: null,
@@ -77,8 +77,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
-		onHit(target, source) {
+		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Thief', target);
+		},
+		onHit(target, source) {
 		  	if (source.item && !source.lastItem) {
 				source.lastItem = source.item;
 				source.setItem('');
@@ -219,15 +221,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	onTryMove() {
 		this.attrLastMove('[still]');
 	},
+	onPrepareHit(target, source) {
+		this.add('-anim', source, 'Ice Shard', target);
+		this.add('-anim', source, 'Ice Shard', target);
+		this.add('-anim', source, 'Ice Shard', target);
+	},
 	onHit(target, source) {
 		//this.add('-message', `this is working`);
 		this.field.setWeather('snowscape');
 		//if (this.field.getWeather().id === 'snowscape') {
 			//this.add('-message', `Snow is set`);
 		//}
-		this.add('-anim', source, 'Ice Shard', target);
-		this.add('-anim', source, 'Ice Shard', target);
-		this.add('-anim', source, 'Ice Shard', target);
 	},
 	secondary: null,
 	target: "normal",
@@ -274,10 +278,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				move.flags.contact = 0;
 			}
 		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Water Spout', target);
+		},
 		onHit(target, source, move) {
 			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
 			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
-			this.add('-anim', source, 'Water Spout', target);
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
@@ -303,8 +309,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Surf', target);
 		},
 		onHit(target, source, move) {
-			target.addVolatile('encore');
 			this.add('-anim', source, 'Encore', target);
+			target.addVolatile('encore');
 		},
 		weather: 'raindance',
 		secondary: null,
@@ -426,8 +432,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					},
 					onPrepareHit(target, source, move) {
 						this.add('-anim', source, 'High Jump Kick', target);
-					},
-				  	onHit(target, source, move) {
 						this.add('-anim', source, 'Thunder', target);
 					},
 		         flags: {contact: true, protect: true},
@@ -640,7 +644,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
-		onHit(target, source) {
+		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Shadow Punch', target);
 		},
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
