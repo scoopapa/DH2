@@ -216,7 +216,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	contestType: "Clever",
 	shortDesc: "Sets Snowscape.",
 	},
-
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
 		inherit: true,
@@ -235,11 +234,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -104,
 		accuracy: 100,
 		basePower: 100,
-		category: "Special",
+		category: "Physical",
 		name: "Geyser",
 		pp: 10,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
+		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		onPrepareHit(target, source, move) {
 			if (!source.isAlly(target)) {
 				this.attrLastMove('[anim] Water Spout ' + move.category);
@@ -253,9 +252,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			const spd = target.getStat('spd', false, true);
 			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
 			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
-			if (physical > special || (physical === special && this.randomChance(1, 2))) {
-				move.category = 'Physical';
-				move.flags.contact = 1;
+			if (physical < special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Special';
+				move.flags.contact = 0;
 			}
 		},
 		onHit(target, source, move) {
@@ -512,7 +511,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					// adds volatile ordered, which prevents the order up effect from occuring again until Dondozo switches out
 					pokemon.addVolatile('ordered');
 					// removes the side condition
-					pokemon.side.removeSideCondition('orderup');
 				}
 				// after Dondozo switches out, this happens to the next pokemon that is switched in
 				else {
@@ -532,6 +530,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     				}
 					this.effectState.eatenBoost = highestStat;
 				}
+			},
+			onAfterSwitchInSelf(pokemon) {
+				pokemon.side.removeSideCondition('orderup');
 			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
 			//onFaint(pokemon) {
