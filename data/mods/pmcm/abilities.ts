@@ -17,33 +17,82 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		shortDesc: "Fire-/Ice-type moves against this Pokemon deal 1/2 damage. Burn immune.",
 	},
-	callvolbeat: {
-		//Placeholder for when ability is implemented
-		/*onSourceDamagingHit(damage, target, source, move) {
-			if (this.hasVolHealed) return;
-			this.hasVolHealed = true;
-			this.heal(1 / 4);
-		},*/
+	callillumise: {
+		onDamagePriority: -30, 
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp && effect) {
+				// Keep the Pokémon at 1 HP instead of fainting immediately
+				const finalHp = target.hp - 1;
+				this.damage(target.hp - 1, target, source, effect);
+
+				this.add('-activate', target, 'ability: Call Illumise');
+				this.add('-message', `Volbeat calls upon Illumise for aid!`);
+				// Define new moves
+				const newMoves = ['bugbuzz', 'icebeam', 'thunderbolt', 'calmmind'];
+
+				// Update move slots
+				target.moveSlots = newMoves.map(move => {
+					const moveData = this.dex.moves.get(move);
+					return {
+						move: moveData.name,
+						id: moveData.id,
+						pp: moveData.pp,
+						maxpp: moveData.pp,
+						target: moveData.target,
+						disabled: false,
+						used: false,
+					};
+				});
+				target.baseMoveSlots = target.moveSlots.slice();
+				target.formeChange('Illumise', this.effect, true);
+				this.heal(this.modify(target.maxhp, 1)
+				pokemon.setAbility(null);
+			}
+		},
 		flags: {breakable: 1},
 		name: "Call Volbeat",
 		rating: 5,
 		num: -100,
-		shortDesc: "Does nothing right now!",
-		//shortDesc: "After getting hit for the first time in a battle, heal 25% HP.",
+		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid",
 	},
-	callillumise: {
-		//Placeholder for when ability is implemented
-		/*onSourceDamagingHit(damage, target, source, move) {
-			if (this.hasIllHealed) return;
-			this.hasIllHealed = true;
-			this.heal(1 / 4);
-		},*/
+	callvolbeat: {
+		onDamagePriority: -30, 
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp && effect) {
+		
+				// Keep the Pokémon at 1 HP instead of fainting immediately
+				const finalHp = target.hp - 1;
+				this.damage(target.hp - 1, target, source, effect);
+
+				this.add('-activate', target, 'ability: Call Volbeat');
+				this.add('-message', `Illumise calls upon Volbeat for aid!`);
+				// Define new moves
+				const newMoves = ['dragondance', 'lunge', 'dragonhammer', 'earthquake'];
+
+				// Update move slots
+				target.moveSlots = newMoves.map(move => {
+					const moveData = this.dex.moves.get(move);
+					return {
+						move: moveData.name,
+						id: moveData.id,
+						pp: moveData.pp,
+						maxpp: moveData.pp,
+						target: moveData.target,
+						disabled: false,
+						used: false,
+					};
+				});
+				target.baseMoveSlots = target.moveSlots.slice();
+				target.formeChange('Volbeat', this.effect, true);
+				this.heal(this.modify(target.maxhp, 1)
+				pokemon.setAbility(null);
+			}
+		},
 		flags: {breakable: 1},
 		name: "Call Illumise",
 		rating: 5,
 		num: -101,
-		shortDesc: "Does nothing right now!",
-		//shortDesc: "After getting hit for the first time in a battle, heal 25% HP.",
+		shortDesc: "When Volbeat gets low on HP, it calls to Illumise for aid!",
 	},
 	shortfuse: {
 		onDamagePriority: -30, 
