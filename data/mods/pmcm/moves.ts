@@ -30,11 +30,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
 			pokemon.side.removeSideCondition('lightscreen');
 			pokemon.side.removeSideCondition('auroraveil');
+		},
+		onHit(target, source) {
+			this.add('-anim', source, 'Psychic Fangs', target);
 		},
 		secondary: null,
 		target: "normal",
@@ -68,13 +74,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onHit(target, source) {
-		  if (source.item && !source.lastItem) {
-			source.lastItem = source.item;
-			source.setItem('');
-			this.add('-item', source, '', '[from] move: Scavenge');
-		  }
-		  return null;
+			this.add('-anim', source, 'Thief', target);
+		  	if (source.item && !source.lastItem) {
+				source.lastItem = source.item;
+				source.setItem('');
+				this.add('-item', source, '', '[from] move: Scavenge');
+		  	}
+		  	return null;
 		},
 		onAfterMove(source) {
 			if (source.lastItem) {
@@ -206,6 +216,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	pp: 15,
 	priority: 0,
 	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+	onTryMove() {
+		this.attrLastMove('[still]');
+	},
 	onHit(target, source) {
 		//this.add('-message', `this is working`);
 		this.field.setWeather('snowscape');
@@ -245,10 +258,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
-		onPrepareHit(target, source, move) {
-			if (!source.isAlly(target)) {
-				this.attrLastMove('[anim] Water Spout ' + move.category);
-			}
+		onTryMove() {
+			this.attrLastMove('[still]');
 		},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
@@ -266,6 +277,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
 			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
+			this.add('-anim', source, 'Water Spout', target);
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			if (!source.isAlly(target)) this.hint(move.category + " Geyser");
@@ -284,12 +296,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onPrepareHit(target, source, move) {
-			this.add('-anim', source, 'Water Pulse', target);
+			this.add('-anim', source, 'Surf', target);
 		},
 		onHit(target, source, move) {
-				target.addVolatile('encore');
-				this.add('-anim', source, 'Encore', target);
+			target.addVolatile('encore');
+			this.add('-anim', source, 'Encore', target);
 		},
 		weather: 'raindance',
 		secondary: null,
@@ -351,6 +366,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 			return basePower;
 		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Wood Hammer', target);
 			this.add('-anim', source, 'Splash');
@@ -371,6 +389,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 24,
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onPrepareHit(target, source, move) {
 			this.add('-anim', source, 'Metal Claw', target);
 		},
@@ -400,6 +421,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				  	accuracy: 100,
 	            category: "Physical",
 	            priority: 0,
+					onTryMove() {
+						this.attrLastMove('[still]');
+					},
 					onPrepareHit(target, source, move) {
 						this.add('-anim', source, 'High Jump Kick', target);
 					},
@@ -613,6 +637,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		pseudoWeather: 'gravity',
 		priority: 0,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onHit(target, source) {
+			this.add('-anim', source, 'Shadow Punch', target);
+		},
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
