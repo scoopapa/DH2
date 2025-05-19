@@ -7585,6 +7585,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bulkup: ["9L1"],
 			burningjealousy: ["9L1"],
 			confide: ["9L1"],
+			eruption: ["9L1"],
 			facade: ["9L1"],
 			magmasurge: ["9L1"],
 			fireblast: ["9L1"],

@@ -377,7 +377,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			num: 1016,
 			rating: 4,
 		},
-		voltabsorb: {
+	heatsink: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -387,7 +387,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {breakable: 1},
-		name: "Volt Absorb",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Fire moves; Fire immunity.",
+		name: "Heat Sink",
 		rating: 3.5,
 		num: 1017,
 	},
@@ -405,7 +406,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			return this.chainModify(0.75);
 		},
 		flags: {},
-		name: "Sword of Ruin",
+		name: "Rusted Gale",
+		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 1018,
 	},
