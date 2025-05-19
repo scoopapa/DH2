@@ -47,6 +47,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.cureStatus();
 				target.clearBoosts();
+				// forces the UI to update part II
 				this.add('-clearboost', target, '[from] ability: Call Illumise', '[silent]');
 				for (const volatile in target.volatiles) {
 					this.add('-end', target, volatile);
@@ -60,23 +61,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage - damage;
 			}
 		},
-		/*
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-message', `volatile really active`);
-			},
-			onEnd(pokemon) {
-				if (pokemon.ability !== "callillumise") {
-					this.boost({ spe: 1 });
-					pokemon.clearBoosts();
-					pokemon.clearVolatile();
-					pokemon.cureStatus();
-					this.add('-message', `volatile removed`);
-				}
-			}
-		},
-		*/
 		flags: {},
 		name: "Call Illumise",
 		rating: 5,
@@ -117,6 +101,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.clearStatus();
 				target.clearBoosts();
+				// forces the UI to update part II
 				this.add('-clearboost', target, '[from] ability: Call Volbeat', `[silent]`);
 				for (const volatile in target.volatiles) {
 					this.add('-end', target, volatile);
@@ -130,23 +115,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage - damage;
 			}
 		},
-		/*
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-message', `volatile really active`);
-			},
-			onEnd(pokemon) {
-				if (pokemon.ability !== "callvolbeat") {
-					pokemon.clearBoosts();
-					this.boost({ spe: 1 });
-					pokemon.clearVolatile();
-					pokemon.cureStatus();
-					this.add('-message', `volatile removed`);
-				}
-			}
-		},
-  */
 		flags: {},
 		name: "Call Volbeat",
 		rating: 5,
