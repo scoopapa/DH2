@@ -388,6 +388,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 				pokemon.setAbility("Perish Body");
 			}
+			if (pokemon.species.id === 'mimikyubusted' && pokemon.ability === 'disguise') {
+				pokemon.setAbility("Perish Body");
+			}
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,
@@ -417,6 +420,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	asoneglastrier: {
 		inherit: true,
+		// removing these flags allows Frozen Armor to work
 		flags: {},
 	}
 };
