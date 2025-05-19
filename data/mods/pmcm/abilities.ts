@@ -51,9 +51,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.add('-activate', target, 'ability: Tinted Lens');
 				target.baseAbility = target.ability;
 				this.add('-message', `does anything actually happen here ` + target);
-				target.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
-				target.status = '';
-				target.volatiles = {};
+				target.clearBoosts();
+				//target.status = '';
+				//target.volatiles = {};
 				return damage - damage;
 			}
 		},
@@ -98,9 +98,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
 				this.add('-message', `does anything actually happen here ` + target);
-				target.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
-				target.status = '';
-				target.volatiles = {};
+				target.clearBoosts();
+				//target.status = '';
+				//target.volatiles = {};
 				return damage - damage;
 			}
 		},
