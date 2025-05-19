@@ -46,11 +46,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', this.effect, true);
 				this.heal(this.modify(target.maxhp, 1))
-				pokemon.setAbility(null);
+				target.setAbility(null);
 			}
 		},
 		flags: {breakable: 1},
-		name: "Call Volbeat",
+		name: "Call Illumise",
 		rating: 5,
 		num: -100,
 		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid",
@@ -85,11 +85,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', this.effect, true);
 				this.heal(this.modify(target.maxhp, 1))
-				pokemon.setAbility(null);
+				target.setAbility(null);
 			}
 		},
 		flags: {breakable: 1},
-		name: "Call Illumise",
+		name: "Call Volbeat",
 		rating: 5,
 		num: -101,
 		shortDesc: "When Volbeat gets low on HP, it calls to Illumise for aid!",
