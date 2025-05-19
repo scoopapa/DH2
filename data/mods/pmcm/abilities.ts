@@ -50,8 +50,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.cureStatus();
 				target.clearBoosts();
-				this.add('-clearboost', target, '[from] ability: Call Illumise', `[of] ${target}`);
+				this.add('-clearboost', target, '[from] ability: Call Illumise', '[silent]');
 				target.clearVolatile(false);
+				this.add('-end', target, '[from] ability: Call Illumise', '[silent]');
 				target.formeChange('Illumise', target, true);
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Tinted Lens');
@@ -117,8 +118,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.clearStatus();
 				target.clearBoosts();
-				this.add('-clearboost', target, '[from] ability: Call Volbeat', `[of] ${target}`);
+				this.add('-clearboost', target, '[from] ability: Call Volbeat', `[silent]`);
 				target.clearVolatile(false);
+				this.add('-end', target, '[from] ability: Call Volbeat', `[silent]`);
 				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Swarm');
