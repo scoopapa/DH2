@@ -143,8 +143,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				let invertedBoosts: SparseBoostsTable = {};
 				for (const stat in source.boosts) {
 					if (source.boosts[stat] > 0) {
-						//invertedBoosts[stat] = -2 * source.boosts[stat]; 
-						this.boost((-2 * source.boosts[stat]), source);
+						this.add('-message', `Boost detected`);
+						invertedBoosts[stat] = -2 * source.boosts[stat]; 
+						this.boost((invertedBoosts[stat], source);
 					}
 				}
 				this.add('-ability', target, 'Flip Flop');
