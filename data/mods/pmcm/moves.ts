@@ -208,7 +208,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 	onHit(target, source) {
 		this.field.setWeather('snowscape');
-		this.add('-anim', source, 'Swords Dance');
+		this.add('-anim', source, 'Ice Shard', target);
+		this.add('-anim', source, 'Ice Shard', target);
 		this.add('-anim', source, 'Ice Shard', target);
 	},
 	secondary: null,
