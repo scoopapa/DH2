@@ -414,5 +414,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 			return;
 		},
+	},
+	asoneglastrier: {
+		inherit: true,
+		flags: {},
 	}
 };
