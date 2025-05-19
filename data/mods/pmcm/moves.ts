@@ -495,7 +495,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1 },
 		condition: {
 			duration: 2,
-			onSwitchInPriority: 3,
+			onSwitchInPriority: -1,
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
@@ -512,6 +512,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					// adds volatile ordered, which prevents the order up effect from occuring again until Dondozo switches out
 					pokemon.addVolatile('ordered');
 					// removes the side condition
+					pokemon.side.removeSideCondition('orderup');
 				}
 				// after Dondozo switches out, this happens to the next pokemon that is switched in
 				else {
@@ -531,9 +532,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     				}
 					this.effectState.eatenBoost = highestStat;
 				}
-			},
-			onAfterSwitchInSelf(pokemon) {
-				pokemon.side.removeSideCondition('orderup');
 			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
 			//onFaint(pokemon) {
