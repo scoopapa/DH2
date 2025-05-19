@@ -1,7 +1,6 @@
 export const Conditions: { [k: string]: ConditionData; } = {
 	frz: {
 		inherit: true,
-		onBeforeMove(pokemon, target, move) {},
 		onResidualOrder: 10,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 16);
@@ -13,8 +12,6 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-start', pokemon, 'Frostbite');
 			this.add('-message', `${target.name} was frostbitten! Special Attack halved! (Stat change not visible)`);
 		},
-		onDamagingHit(damage, target, source, move) {},
-		onAfterMoveSecondary(target, source, move) {},
 	},
 	snow: {
 		inherit: true,
@@ -105,7 +102,22 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} is afflicted with Stench! Held item disabled!`);
 			this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
-			}
+			},
+		onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		onBeforeMovePriority: 5,
+		onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
 		},
 	fatigue: {
 		name: 'Fatigue',
@@ -117,7 +129,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onDeductPP(pokemon) {
 				return 1;
 			},
-		},
+	},
 	bleeding: {
 		name: 'Bleeding',
 		duration: 4,
@@ -131,4 +143,83 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 	},
-	}
+	snowman: {
+		name: 'Snowman',
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Snowman');
+			this.add('-message', `${pokemon.name} is a Snowman! Unable to move.`);
+		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['defrost']) return;
+			if (this.randomChance(1, 5)) {
+				pokemon.cureStatus();
+				return;
+			}
+			this.add('cant', pokemon, 'frz');
+			return false;
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['defrost']) {
+				this.add('-curestatus', pokemon, 'frz', '[from] move: ' + move);
+				pokemon.clearStatus();
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (move.thawsTarget) {
+				target.cureStatus();
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire' && move.category !== 'Status') {
+				target.cureStatus();
+			}
+		},
+	},
+	rust: {
+		name: 'Rusted',
+		duration: 4,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Rusted');
+			this.add('-message', `${pokemon.name} is Rusted! Steel-Type moves weakened! Does residual damage if Steel-Type!`);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Rust weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Rust weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Steel']) ? 4 : 8));
+			},
+	},
+	dragonblight: {
+		name: 'Dragonblight',
+		effectType: 'Status',
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Dragonblight');
+			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
+		},
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 16);
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				if (stab === 2) {
+					return 1;
+				}
+				return 1;
+			}
+		},
+	},
+}

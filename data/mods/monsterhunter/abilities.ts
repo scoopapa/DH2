@@ -411,6 +411,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4.5,
 		num: 1018,
 	},
+	frostnip: {
+		shortDesc: "This Pokemon's moves have 1.3x power against frostbitten targets.",
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender && ['frz'].includes(defender.status)) return this.chainModify(1.3);
+		},
+		name: "Frostnip",
+		rating: 4,
+		num: 1019,
+	},
 	/*
 	Edits
 	*/
