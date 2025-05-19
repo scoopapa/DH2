@@ -146,6 +146,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 			multihit: 2,
+			type: 'Steel',
 			secondary: {
 				chance: 30,
 				volatileStatus: 'flinch',
