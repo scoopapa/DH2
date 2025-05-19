@@ -532,7 +532,7 @@
         ]
     },
     "masquerainmega": {
-        "level": 80,
+        "level": 84,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -543,7 +543,7 @@
         ]
     },
     "kyuremblack": {
-        "level": 84,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -604,7 +604,7 @@
         ]
     },
     "kleavor": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -665,7 +665,7 @@
         ]
     },
     "phione": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -680,7 +680,13 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
+                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake", "Wood Hammer", "Head Smash"],
+                "abilities": ["Pseudowoodo"],
+                "teraTypes": ["Rock", "Grass"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Bonsai Bounce", "Earthquake", "Wood Hammer", "Head Smash"],
                 "abilities": ["Pseudowoodo"],
                 "teraTypes": ["Rock", "Grass"]
             }
