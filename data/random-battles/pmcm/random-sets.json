@@ -419,9 +419,9 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Stealth Rock", "Salt Cure", "Sand Tomb", "Slack Off", "Whirlwind"],
+                "movepool": ["Stealth Rock", "Salt Cure", "Sand Tomb", "Slack Off"],
                 "abilities": ["Earth Eater"],
-                "teraTypes": ["Ground"]
+                "teraTypes": ["Steel"]
             }
         ]
     },
