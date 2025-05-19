@@ -46,9 +46,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
-				target.clearBoosts(true);
-				target.cureStatus(true);
-				target.clearVolatile(true);
+				target.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
+				target.status = '';
+				target.volatiles = {};
 				this.heal(this.modify(target.maxhp, 1))
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
@@ -93,9 +93,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1))
-				target.clearBoosts(true);
-				target.cureStatus(true);
-				target.clearVolatile(true);
+				target.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
+				target.status = '';
+				target.volatiles = {};
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
