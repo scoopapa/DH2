@@ -391,5 +391,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Disguise",
 		rating: 3.5,
 		num: 209,
+	},
+	gulpmissile: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water' && target.species.id === 'cramorantgulping') {
+				if (!this.boost({ spa: 1 })) {
+					this.add('-immune', target, '[from] ability: Gulp Missile');
+				}
+			}
+			if (target !== source && move.type === 'Electric' && target.species.id === 'cramorantgorging') {
+				if (!this.boost({ spa: 1 })) {
+					this.add('-immune', target, '[from] ability: Gulp Missile');
+				}
+			}
+			return null;
+		},
 	}
 };
