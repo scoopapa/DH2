@@ -19,9 +19,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	callillumise: {
 		onTryHit(target, source, move) {
-			target.side.addSideCondition('callillumise')
-			if (target.side.getSideCondition('callillumise')) {
-				this.add('-message', `side condition added successfully`);
+			target.addVolatile('callillumise')
+			if (target.getVolatile('callillumise')) {
+				this.add('-message', `volatile added successfully`);
 			}
 		},
 		onDamagePriority: -30, 
@@ -62,14 +62,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
-				this.add('-message', `side condition really active`)
+				this.add('-message', `volatile really active`);
 			},
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callillumise") {
 					pokemon.clearBoosts();
 					pokemon.clearVolatile();
 					pokemon.cureStatus();
-					this.add('-message', `side condition removed`);
+					this.add('-message', `volatile removed`);
 				}
 			}
 		},
@@ -81,9 +81,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	callvolbeat: {
 		onTryHit(target, source, move) {
-			target.side.addSideCondition('callvolbeat')
-			if (target.side.getSideCondition('callvolbeat')) {
-				this.add('-message', `side condition added successfully`);
+			target.addVolatile('callvolbeat')
+			if (target.getVolatile('callvolbeat')) {
+				this.add('-message', `volatile added successfully`);
 			}
 		},
 		onDamagePriority: -30, 
@@ -125,14 +125,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
-				this.add('-message', `side condition really active`)
+				this.add('-message', `volatile really active`);
 			},
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callvolbeat") {
 					pokemon.clearBoosts();
 					pokemon.clearVolatile();
 					pokemon.cureStatus();
-					this.add('-message', `side condition removed`);
+					this.add('-message', `volatile removed`);
 				}
 			}
 		},
