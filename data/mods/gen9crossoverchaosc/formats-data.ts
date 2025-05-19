@@ -99,4 +99,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	radiance: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	sophie: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	ragman: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };
