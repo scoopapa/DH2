@@ -60,7 +60,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			duration: 0,
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-message', `side condition really active`)
+			},
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callillumise") {
 					pokemon.clearBoosts();
@@ -120,7 +123,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {
-			duration: 0,
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-message', `side condition really active`)
+			},
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callvolbeat") {
 					pokemon.clearBoosts();
