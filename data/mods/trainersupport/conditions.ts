@@ -164,7 +164,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onStart(source) {
 			if (!source.hasType('Psychic') && !source.terastallized) {
 				let futuresight = false;
-				for (const moveSlot of target.moveSlots) {
+				for (const moveSlot of source.moveSlots) {
 					if (moveSlot.id === 'futuresight') {
 						if (source.addType('Psychic')) this.add('-start', source, 'typeadd', 'Psychic');
 					}
