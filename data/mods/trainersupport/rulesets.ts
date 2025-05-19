@@ -52,6 +52,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						side.trainerBoost = 'sidney';
 						break;
 					case 'brycen-man':
+					case 'brycen man':
 					case 'brycenman':
 						this.add('-message', `${side.name}'s Trainer Support:`);
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/brycenman.png" height="80" width="80">`);
