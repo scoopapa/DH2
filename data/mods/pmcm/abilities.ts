@@ -60,6 +60,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				pokemon.clearVolatile();
 				pokemon.cureStatus();
 				pokemon.side.removeSideCondition('callillumise');
+			},
+			onEnd(pokemon) {
+				this.add('-message', `side condition removed`);
 			}
 		},
 		flags: {},
@@ -112,6 +115,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				pokemon.clearVolatile();
 				pokemon.cureStatus();
 				pokemon.side.removeSideCondition('callvolbeat');
+			},
+			onEnd(pokemon) {
+				this.add('-message', `side condition removed`);
 			}
 		},
 		flags: {},
