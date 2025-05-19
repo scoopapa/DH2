@@ -392,7 +392,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 50,
 		category: "Physical",
 		name: "Iron Strike",
-		pp: 24,
+		pp: 15,
 		priority: 0,
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		onTryMove() {
