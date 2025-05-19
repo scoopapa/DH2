@@ -40,7 +40,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			pokemon.side.removeSideCondition('auroraveil');
 		},
 		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Psychic Fangs', target);
+			this.add('-anim', source, 'Crunch', target);
+			this.add('-anim', source, 'Rock Slide', target);
 		},
 		secondary: null,
 		target: "normal",
