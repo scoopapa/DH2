@@ -125,7 +125,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Frozen Armor",
 		rating: 5,
 		num: -105,
