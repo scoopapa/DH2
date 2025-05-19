@@ -31,7 +31,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 	},
 	roxanneboost: {
-		name: 'roxieboost',
+		name: 'roxanneboost',
 		noCopy: true,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.type === 'Rock') return this.chainModify([4915, 4096]);
