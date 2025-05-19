@@ -43,8 +43,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						used: false,
 					};
 				});
+				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
+				target.clearBoosts();
+				target.cureStatus();
+				target.clearVolatile();
 				this.heal(this.modify(target.maxhp, 1))
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
@@ -85,9 +89,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						used: false,
 					};
 				});
+				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1))
+				target.clearBoosts();
+				target.cureStatus();
+				target.clearVolatile();
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
