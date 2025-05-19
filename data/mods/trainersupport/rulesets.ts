@@ -83,6 +83,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/youngster-gen4.png" height="80" width="80">`);
 						side.trainerBoost = 'joey';
 						break;
+					case 'lacey':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/lacey.png" height="80" width="80">`);
+						side.trainerBoost = 'lacey';
+						break;
+					case 'will':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/will.png" height="80" width="80">`);
+						side.trainerBoost = 'will';
+						break;
+					case 'marshal':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/marshal.png" height="80" width="80">`);
+						side.trainerBoost = 'marshal';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
@@ -136,6 +151,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'joey':
 					pokemon.addVolatile('joeyboost');
+					break;
+				case 'lacey':
+					pokemon.addVolatile('laceyboost');
+					break;
+				case 'will':
+					pokemon.addVolatile('willboost');
+					break;
+				case 'marshal':
+					pokemon.addVolatile('marshalboost');
 					break;
 			}
 		}

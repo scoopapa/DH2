@@ -151,6 +151,27 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	laceyboost: {
+		name: 'laceyboost',
+		noCopy: true,
+		onModifyMove(move) {
+			if (move.type === 'Fairy' || move.type === 'Ground') move.ignoreAbility = true;
+		},
+	},
+	willboost: {
+		name: 'willboost',
+		noCopy: true,
+		onStart(source) {
+			if (!source.hasType('Psychic') && !source.terastallized) {
+				let futuresight = false;
+				for (const moveSlot of target.moveSlots) {
+					if (moveSlot.id === 'futuresight') {
+						if (source.addType('Psychic')) this.add('-start', source, 'typeadd', 'Psychic');
+					}
+				}
+			}
+		},
+	},
 	
 	//vanilla
 	sandstorm: {
