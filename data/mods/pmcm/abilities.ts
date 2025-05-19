@@ -52,6 +52,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Illumise', target, true);
+				this.boost({ spe: 1 });
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
@@ -66,6 +67,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			},
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callillumise") {
+					this.boost({ spe: 1 });
 					pokemon.clearBoosts();
 					pokemon.clearVolatile();
 					pokemon.cureStatus();
@@ -115,6 +117,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				// this forces the UI to update
 				target.baseMoveSlots = target.moveSlots.slice();
 				target.formeChange('Volbeat', target, true);
+				this.boost({ spe: 1 });
 				this.heal(this.modify(target.maxhp, 1));
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
@@ -130,6 +133,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			onEnd(pokemon) {
 				if (pokemon.ability !== "callvolbeat") {
 					pokemon.clearBoosts();
+					this.boost({ spe: 1 });
 					pokemon.clearVolatile();
 					pokemon.cureStatus();
 					this.add('-message', `volatile removed`);
