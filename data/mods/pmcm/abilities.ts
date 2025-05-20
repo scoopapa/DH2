@@ -182,9 +182,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (pokemon.species !== 'Calyrex-Ice' && pokemon.ability === 'frozenarmor') {
 					pokemon.formeChange('Calyrex-Ice', pokemon, true);
 					this.add('-message', `Glastrier's Frozen Armor has shattered!`);
-					pokemon.setAbility('As One (Glastrier)');
+					//pokemon.setAbility('As One (Glastrier)');
 					pokemon.baseAbility = pokemon.ability;
-					this.add('-ability', pokemon, 'As One');
+					//this.add('-ability', pokemon, 'As One');
 				}
 			}
 		},
@@ -455,13 +455,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
-				// sets ability to Perish Body
+			}
+			// sets ability to perish body
+			if (pokemon.species.id === 'mimikyubusted' && pokemon.ability === 'disguise') {
 				pokemon.setAbility("Perish Body");
 				pokemon.baseAbility = pokemon.ability;
 			}
-			//if (pokemon.species.id === 'mimikyubusted' && pokemon.ability === 'disguise') {
-				//pokemon.setAbility("Perish Body");
-			//}
 		},
 		// cantsuppress flag removed to allow for ability change
 		flags: {
