@@ -541,9 +541,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'blastblight',
+		secondary: null,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(3, 10)) {
+				target.addVolatile('blastblight');
+			}
 		},
 		shortDesc: "30% chance to inflict Blastblight.",
 		target: "normal",
@@ -559,9 +561,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
-		secondary: {
-			chance: 10,
-			volatileStatus: 'blastblight',
+		secondary: null,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(1, 10)) {
+				target.addVolatile('blastblight');
+			}
 		},
 		shortDesc: "10% chance to inflict Blastblight.",
 		target: "normal",

@@ -244,9 +244,5 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
 		},
-		onSwitchIn() {
-			this.add('-start', pokemon, 'Dragonblight');
-			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
-		},
 	},
 }
