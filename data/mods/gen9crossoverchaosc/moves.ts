@@ -627,6 +627,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Psychic",
+		contestType: "Tough",
 	},
 
 	// Altering Pre-Existing Moves
