@@ -3,6 +3,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		category: "Physical",
 		secondary: null,
+		// Ancient Power is physical and boosts on-kill
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1,}, pokemon, pokemon, move);
 		},
@@ -50,7 +51,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		shortDesc: "Breaks Screens.",
 	},
 	steelwing: {
-		//Buffed secondary chance to 50%
+		// Buffed secondary chance to 50%
 		inherit: true,
 		secondary: {
 			chance: 50,
@@ -61,7 +62,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 		},
 	},
-	
 	scavenge: {
 		num: -102,
 		accuracy: 100,
@@ -81,14 +81,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Thief', target);
 		},
-		onHit(target, source) {
-		  	if (source.item && !source.lastItem) {
-				source.lastItem = source.item;
-				source.setItem('');
-				this.add('-item', source, '', '[from] move: Scavenge');
-		  	}
-		  	return null;
-		},
 		onAfterMove(source) {
 			if (source.lastItem) {
 				const item = source.lastItem;
@@ -96,6 +88,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				source.setItem(item);
 				this.add('-item', source, this.dex.items.get(item), '[from] move: Scavenge');
 		  	}
+			else {
+				return null;
+			}
 		},
 		shortDesc: "User regains their last used item, similar to Recycle.",
 	},	  
@@ -149,96 +144,80 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		desc: "Changes the move's and user's forme to the most effective against the target (Water, Fighting, Fire, or Normal).",
 		
 		beforeMoveCallback(source, target, move) {
-		  const typeEffectiveness = {
-			Water: this.dex.getEffectiveness('Water', target),
-			Fighting: this.dex.getEffectiveness('Fighting', target),
-			Fire: this.dex.getEffectiveness('Fire', target),
-			Normal: this.dex.getEffectiveness('Normal', target),
+		  	const typeEffectiveness = {
+				Water: this.dex.getEffectiveness('Water', target),
+				Fighting: this.dex.getEffectiveness('Fighting', target),
+				Fire: this.dex.getEffectiveness('Fire', target),
+				Normal: this.dex.getEffectiveness('Normal', target),
 			};
 		  
-		  let bestType = 'Normal';
-		  let maxEffectiveness = -Infinity;
-		  
-		  for (const type in typeEffectiveness) {
-			if (typeEffectiveness[type] > maxEffectiveness) {
-			  maxEffectiveness = typeEffectiveness[type];
-			  bestType = type;
-			}
-		  }
+		  	let bestType = 'Normal';
+		  	let maxEffectiveness = -Infinity;
+		  	// gets most effective type against target (defaults to normal)
+		  	for (const type in typeEffectiveness) {
+				if (typeEffectiveness[type] > maxEffectiveness) {
+			  		maxEffectiveness = typeEffectiveness[type];
+			  		bestType = type;
+				}
+		  	}
+	  		// changes form to match most effective type
+		  	if (bestType === 'Water') {
+				source.formeChange('Tauros-Paldea-Aqua');
+				source.setAbility('Adaptability');
+				this.add('-ability', source, 'Adaptability');
+		  	} else if (bestType === 'Fighting') {
+				source.formeChange('Tauros-Paldea-Combat');
+				source.setAbility('Adaptability');
+				this.add('-ability', source, 'Adaptability');
+		  	} else if (bestType === 'Fire') {
+				source.formeChange('Tauros-Paldea-Blaze');
+				source.setAbility('Adaptability');
+				this.add('-ability', source, 'Adaptability');
+		  	} else {
+				source.formeChange('Tauros');
+				source.setAbility('Adaptability');
+				this.add('-ability', source, 'Adaptability');
+		  	}
 	  
-		  if (bestType === 'Water') {
-			source.formeChange('Tauros-Paldea-Aqua');
-			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');
-		  } else if (bestType === 'Fighting') {
-			source.formeChange('Tauros-Paldea-Combat');
-			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');
-		  } else if (bestType === 'Fire') {
-			source.formeChange('Tauros-Paldea-Blaze');
-			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');
-		  } else {
-			source.formeChange('Tauros');
-			source.setAbility('Adaptability');
-			this.add('-ability', source, 'Adaptability');
-		  }
-	  
-		  source.m.ragingBullMoveType = bestType;
+		  	source.m.ragingBullMoveType = bestType;
 		},
-	  
+	  	// animation was remnant of Techno Blast code being copied, decided to keep because funny
 		onPrepareHit(target, source, move) {
-		  this.add('-anim', source, 'Techno Blast', target);
+		  	this.add('-anim', source, 'Techno Blast', target);
 		},
-	  
+	  	// sets type properly (failsafe)
 		onModifyType(move, pokemon, target) {
-		  if (pokemon.m.ragingBullMoveType) {
-			move.type = pokemon.m.ragingBullMoveType;
-		  }
+		  	if (pokemon.m.ragingBullMoveType) {
+				move.type = pokemon.m.ragingBullMoveType;
+		  	}
 		},
-	  
 		target: "normal",
 	}, 
-	metalclaw: {
-		inherit: true,
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					atk: 1,
-				},
-			},
-		},
-  	},
 	iciclestorm: {
-	num: -1044,
-	accuracy: 95,
-	basePower: 90,
-	category: "Physical",
-	name: "Icicle Storm",
-	pp: 15,
-	priority: 0,
-	flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-	onTryMove() {
-		this.attrLastMove('[still]');
-	},
-	onPrepareHit(target, source) {
-		this.add('-anim', source, 'Ice Shard', target);
-		this.add('-anim', source, 'Ice Shard', target);
-		this.add('-anim', source, 'Ice Shard', target);
-	},
-	onHit(target, source) {
-		//this.add('-message', `this is working`);
-		this.field.setWeather('snowscape');
-		//if (this.field.getWeather().id === 'snowscape') {
-			//this.add('-message', `Snow is set`);
-		//}
-	},
-	secondary: null,
-	target: "normal",
-	type: "Ice",
-	contestType: "Clever",
-	shortDesc: "Sets Snowscape.",
+		num: -1044,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Icicle Storm",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Ice Shard', target);
+			this.add('-anim', source, 'Ice Shard', target);
+			this.add('-anim', source, 'Ice Shard', target);
+		},
+		onHit(target, source) {
+			this.field.setWeather('snowscape');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+		shortDesc: "Sets Snowscape.",
 	},
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
@@ -249,11 +228,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		}
 	},
+	// Poison type now
 	spitup: {
 		inherit: true,
 		type: "Poison",
 	},
-	// clone of shell side arm
+	// clone of shell side arm (modified to be base Physical so the randbats algorithm gives Attack EVs to Phione
 	geyser: {
 		num: -104,
 		accuracy: 100,
@@ -294,6 +274,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		shortDesc: "This move is Physical + contact if it would be stronger.",
 	},
+	// Encore + Rain Dance
 	tidalsurge: {
 		num: -105,
 		accuracy: 100,
@@ -321,6 +302,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 		shortDesc: "Encore + Rain Dance",
 	},
+	// prio + double power if opponent is using a water move
 	bonsaibounce: {
 		num: -106,
 		accuracy: 100,
@@ -332,14 +314,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source) {
+			this.effectState.doNotRepeat = 0
 			// stops this from repeating for no reason because im tired and dont want to fix the actual problem
-			if (this.effectState.doNotRepeatThisForNoReason === 1) return;
+			if (this.effectState.doNotRepeat === 1) return;
 			// gets current foe in singles
-			// bonsaiCheck ensures that the onBasePower function is skipped if Priority is not modified
     		const foe = source.side.foe.active[0];
     		if (!foe || foe.fainted) {
 				return priority;
 			}
+			// gets attack of foe this turn
     		const action = this.queue.willMove(foe);
     		if (!action || action.choice !== 'move') {
 				return priority;
@@ -347,7 +330,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     		const move = action.move;
     		if (move?.type === 'Water') {
         		this.add('-message', `Sudowoodo draws power from the water!`);
-				this.effectState.doNotRepeatThisForNoReason = 1;
+				this.effectState.doNotRepeat = 1;
         		return priority + 1;
     		}
 			else {
@@ -355,6 +338,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
     		return priority;
 		},
+		// modifies base power
 		onBasePower(basePower, source, target) {
 			const foe = source.side.foe.active[0];
 			if (!foe || foe.fainted) {
@@ -414,13 +398,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			// random # 0 or 1
 		   const randomNum = Math.round(Math.random());
+			// 50% chance to drop def
 		   if (randomNum === 0) {
 		      if (target.boosts.def !== -6) {
 		         this.boost({def: -1}, target, source, move);
 		   	}
 		   }
+			// if not def drop, does thunder kick
 			else {
 		      this.add('-message', `${source.name} follows up with a Thunder Kick!`);
+				// defines Thunder Kick
 		      const thunderKick = {
 		         name: "Thunder Kick",
 		         type: "Electric",
@@ -437,6 +424,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					},
 		         flags: {contact: true, protect: true},
 		      };
+				// uses Thunder Kick
 		      this.actions.useMove(thunderKick, source, target);
 		   }
 		},
@@ -458,11 +446,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
+				// hardcode to prevent hazard damage during Order Up switches + enforce hazard damage while King of the Hill is active
 				if ((pokemon.hasItem('heavydutyboots') && !pokemon.side.getSideCondition('kingofthehill')) || pokemon.side.getSideCondition('orderup')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 			},
-			// iron strike functionality
+			// iron strike functionality (reapplies stealth rock damage when hit with Iron Strike)
 			onHit(pokemon, source, move) {
 				if (move.id === 'ironstrike') {
 					if (pokemon.hasItem('heavydutyboots')) return;
@@ -499,6 +488,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
+				// Order Up + king of the hill functionality
 				if (((!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) && !pokemon.side.getSideCondition('kingofthehill')) || pokemon.side.getSideCondition('orderup')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
@@ -534,6 +524,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
 					this.add('-message', `Dondozo enjoyed its meal!`);
+					// applies boost based on eaten mon stats
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
 						this.boost({ atk: 3 }, pokemon);
 					}
@@ -606,10 +597,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
+				// hardcode for King of the Hill
 				if (!pokemon.isGrounded() && !pokemon.side.getSideCondition('kingofthehill')) return;
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
 					pokemon.side.removeSideCondition('toxicspikes');
+					// hardcode for King of the Hill and Order Up
 				} else if (pokemon.hasType('Steel') || (pokemon.hasItem('heavydutyboots') && !pokemon.side.getSideCondition('kingofthehill')) || pokemon.side.getSideCondition('orderup')) {
 					// do nothing
 				} else if (this.effectState.layers >= 2) {
@@ -627,6 +620,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn(pokemon) {
+				// king of the hill
 				if ((!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) && !pokemon.side.getSideCondition('kingofthehill')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
