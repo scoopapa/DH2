@@ -314,9 +314,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, contact: 1, mirror: 1, metronome: 1 },
 		// checks for water move usage from opponent
 		onModifyPriority(priority, source) {
-			this.effectState.doNotRepeat = 0
-			// stops this from repeating for no reason because im tired and dont want to fix the actual problem
-			if (this.effectState.doNotRepeat === 1) return;
 			// gets current foe in singles
     		const foe = source.side.foe.active[0];
     		if (!foe || foe.fainted) {
@@ -329,8 +326,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
     		const move = action.move;
     		if (move?.type === 'Water') {
-        		this.add('-message', `Sudowoodo draws power from the water!`);
-				this.effectState.doNotRepeat = 1;
         		return priority + 1;
     		}
 			else {
@@ -350,6 +345,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 			const move = action.move;
 			if (move?.type === 'Water') {
+				this.add('-message', `Sudowoodo draws power from the water!`);
 				return basePower + 70;
 			}
 			else {
@@ -361,7 +357,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source, move) {
-			this.add('-anim', source, 'Wood Hammer', target);
+			this.add('-anim', source, 'Ivy Cudgel Rock', target);
 			this.add('-anim', source, 'Splash');
 		},
 		secondary: null,
