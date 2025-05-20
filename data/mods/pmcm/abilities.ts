@@ -1,6 +1,6 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
-	//placeholder
 	thickfat: {
+		// prevents burning
 		inherit: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
@@ -43,8 +43,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						used: false,
 					};
 				});
-				// this forces the UI to update
+				// this forces the UI to update move slots visually
 				target.baseMoveSlots = target.moveSlots.slice();
+				// removes status/boosts
 				target.cureStatus();
 				target.clearBoosts();
 				// forces the UI to update part II
@@ -53,11 +54,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					this.add('-end', target, volatile);
 				}
 				target.clearVolatile(true);
+				// form change + heal
 				target.formeChange('Illumise', target, true);
 				this.heal(this.modify(target.maxhp, 1));
+				// sets new ability
 				target.setAbility('Tinted Lens');
 				this.add('-activate', target, 'ability: Tinted Lens');
 				target.baseAbility = target.ability;
+				// prevents damage from reapplying after form change
 				return damage - damage;
 			}
 		},
@@ -97,8 +101,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						used: false,
 					};
 				});
-				// this forces the UI to update
+				// this forces the UI to update move slots visually
 				target.baseMoveSlots = target.moveSlots.slice();
+				// removes status/boosts
 				target.clearStatus();
 				target.clearBoosts();
 				// forces the UI to update part II
@@ -107,11 +112,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					this.add('-end', target, volatile);
 				}
 				target.clearVolatile(false);
+				// form change + heal
 				target.formeChange('Volbeat', target, true);
 				this.heal(this.modify(target.maxhp, 1));
+				// sets new ability
 				target.setAbility('Swarm');
 				target.baseAbility = target.ability;
 				this.add('-activate', target, 'ability: Swarm');
+				// prevents damage from reapplying after form change
 				return damage - damage;
 			}
 		},
@@ -143,7 +151,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Short Fuse",
 		rating: 5,
 		num: -102,
-		//shortDesc: "Does nothing right now!",
 		shortDesc: "When this Pokemon would be KOed, it instead uses Explosion.",
 	},
 	hydroelectricdam: {
@@ -160,52 +167,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "When this Pokemon is hit by an attack, the effect of Rain Dance begins.",
 	},
 	frozenarmor: {
-		//Code stolen from Shields Down
 		onTryHit(target, source, move) {
 			if(move.category != 'Status') {
 				this.add('-ability', target, 'Frozen Armor');
+				// reduces base power of incoming moves by 20 (math.max prevents base power from reducing below 0)
 				move.basePower = Math.max(move.basePower - 20, 0);
 			}
 		},
 		onSwitchInPriority: -1,
 		onUpdate(pokemon) {
+			// checks if Glastrier is below 50% HP, if so transforms into Caly-Ice and sets ability to As One
 			if (pokemon.species.id !== 'glastrier' || !pokemon.hp) return;
 			if (pokemon.hp < pokemon.maxhp / 2) {
-				if (pokemon.species !== 'Calyrex-Ice') {
-					pokemon.formeChange('Calyrex-Ice');
+				if (pokemon.species !== 'Calyrex-Ice' && pokemon.ability === 'frozenarmor') {
+					pokemon.formeChange('Calyrex-Ice', pokemon, true);
 					this.add('-message', `Glastrier's Frozen Armor has shattered!`);
 					pokemon.setAbility('As One (Glastrier)');
+					pokemon.baseAbility = pokemon.ability;
 					this.add('-ability', pokemon, 'As One');
 				}
 			}
 		},
-			/*else {
-				if (pokemon.species.forme === 'Calyrex-Ice') {
-					pokemon.formeChange(pokemon.set.species);
-					this.add('-ability', pokemon, 'As One (Glastrier)');
-				}
-			}
-		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.hp < pokemon.maxhp / 2) {
-				if (pokemon.species !== 'Calyrex-Ice') {
-					pokemon.formeChange('Calyrex-Ice');
-					this.add('-ability', pokemon, 'Frozen Armor');
-					pokemon.setAbility('As One (Glastrier)');
-					this.add('-ability', pokemon, 'As One');
-					return;
-				}
-			} else {
-				if (pokemon.species.forme === 'Calyrex-Ice') {
-					pokemon.formeChange(pokemon.set.species);
-					this.add('-ability', pokemon, 'Frozen Armor');
-					pokemon.setAbility('As One (Glastrier)');
-					this.add('-ability', pokemon, 'As One');
-				}
-			}
-		},*/
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Frozen Armor",
 		rating: 5,
@@ -219,10 +201,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				let invertedBoosts: SparseBoostsTable = {};
 				for (const stat in source.boosts) {
 					if (source.boosts[stat] > 0) {
+						// checks for boosts on source of move, inverts boosts and adds them to invertedBoosts table
 						this.add('-message', `Boost detected`);
 						invertedBoosts[stat] = -2 * source.boosts[stat]; 
 					}
 				}
+				// applies boosts
 				this.boost(invertedBoosts, source);
 				this.add('-ability', target, 'Flip Flop');
 			}
@@ -243,9 +227,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	aquaveil: {
 		onSwitchInPriority: -1,
+		// fakes the effect of aqua ring volatile lel
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Aqua Ring');
 		},
+		// provides effects of Water Bubble because Aqua Ring is modified to provide Water Bubble.
 		onResidualOrder: 6,
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
@@ -277,6 +263,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -106,
 		shortDesc: "Starts Aqua Ring on switch in.",
 	},
+	// unaware + water absorb
 	stillwater: {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
@@ -308,7 +295,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "This ability provides the effects of Unaware and Water Absorb.",
 	},
 	kingofthehill: {
-		//sharpness + mountaineer, still working on the custom part
+		//sharpness + mountaineer + prevents hazard immunity
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
 				return false;
@@ -320,6 +307,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return null;
 			}
 		},
+		// sharpness
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
@@ -327,6 +315,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return this.chainModify(1.5);
 			}
 		},
+		// starts side condition for foes, side condition interacts with hazard effects
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of the Hill');
 			for (const side of pokemon.side.foeSidesWithConditions()) {
@@ -347,6 +336,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -108,
 		shortDesc: "Provides the effects of Mountaineer and Sharpness. Additionally, opposing Pokemon cannot avoid entry hazards by any means, including Boots, Flying-type, or Magic Guard.",
 	},
+	// stockpile on hit
 	omnivore: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -360,6 +350,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -109,
 		shortDesc: "This Pokemon gains a Stockpile charge upon being hit by a damaging attack.",
 	},
+	// disguise clone
 	pseudowoodo: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -410,6 +401,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	magicguard: {
 		onDamage(damage, target, source, effect) {
+			// prevents magic guard from blocking hazard damage while King of the Hill is active
 			if (target.side.getSideCondition('kingofthehill')) {
             const hazards = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'];
             if (effect && hazards.includes(effect.id)) {
@@ -463,12 +455,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+				// sets ability to Perish Body
 				pokemon.setAbility("Perish Body");
+				pokemon.baseAbility = pokemon.ability;
 			}
-			if (pokemon.species.id === 'mimikyubusted' && pokemon.ability === 'disguise') {
-				pokemon.setAbility("Perish Body");
-			}
+			//if (pokemon.species.id === 'mimikyubusted' && pokemon.ability === 'disguise') {
+				//pokemon.setAbility("Perish Body");
+			//}
 		},
+		// cantsuppress flag removed to allow for ability change
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,
 			breakable: 1, notransform: 1,
@@ -480,12 +475,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	gulpmissile: {
 		inherit: true,
 		onTryHit(target, source, move) {
+			// Storm Drain effect while cramorant-gulping
 			if (target !== source && move.type === 'Water' && target.species.id === 'cramorantgulping') {
 				if (!this.boost({ spa: 1 })) {
 					this.add('-immune', target, '[from] ability: Gulp Missile');
 				}
 				return null;
 			}
+			// Lightning Rod effect while cramorant-gorging
 			if (target !== source && move.type === 'Electric' && target.species.id === 'cramorantgorging') {
 				if (!this.boost({ spa: 1 })) {
 					this.add('-immune', target, '[from] ability: Gulp Missile');
@@ -497,7 +494,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	asoneglastrier: {
 		inherit: true,
-		// removing these flags allows Frozen Armor to work
+		// removing these flags allows Frozen Armor to correctly set Caly-Ice ability as As One
 		flags: {},
 	}
 };
