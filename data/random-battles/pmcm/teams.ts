@@ -732,12 +732,14 @@ export class RandomTeams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// PMCM hardcodes (reserve these to when absolutely necessary, let the script do most of the work)
+		// forces Splash on Chi-Yu's moveset, since it uses Z-Splash
 		if (species.id === 'chiyu') {
 			if (movePool.includes('splash')) {
 				counter = this.addMove('splash', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
 			}
 		}
+		// 33% chance to force Dragon Dance on Mega Altaria, since it otherwise never gets it due to teambuilder shenanigans
 		if (species.id === 'altariamega') {
 			if (movePool.includes('dragondance')) {
 				const altariaNum = Math.floor(Math.random() * 3) + 1
