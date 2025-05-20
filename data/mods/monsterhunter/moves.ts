@@ -583,7 +583,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'defdown',
+			volatileStatus: 'defensedown',
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
 		target: "allAdjacentFoes",
@@ -635,7 +635,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'rust',
+			volatileStatus: 'rusted',
 		},
 		shortDesc: "30% chance to inflict Rust.",
 		target: "any",
