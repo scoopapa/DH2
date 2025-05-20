@@ -19,7 +19,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			if (type === 'brn') return false;
 		},
 	},
-	heatres: {
+	heatresistance: {
 		name: 'Heat Resistance',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'HeatRes');
@@ -31,7 +31,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 	},
-	coldres: {
+	coldresistance: {
 		name: 'Cold Resistance',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'ColdRes');
@@ -52,7 +52,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
             }
         },
     },
-	parares: {
+	paralysisresistance: {
 		name: 'Paralysis Resistance',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'ParaRes');
@@ -86,7 +86,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Bubbled');
 		},
 		},
-	defdown: {
+	defensedown: {
 		name: 'Defense Down',
 		duration: 4,
 		onStart(pokemon) {
@@ -193,7 +193,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Snowman');
 		},
 	},
-	rust: {
+	rusted: {
 		name: 'Rusted',
 		duration: 4,
 		onStart(pokemon) {
