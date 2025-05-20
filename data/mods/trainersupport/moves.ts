@@ -50,8 +50,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	futuresight: {
 		inherit: true,
-		onBasePower(basePower, pokemon, target) {
-			if (pokemon.volatiles['willboost']) return this.chainModify(1.3);
+		onTry(source, target) {
+			let bp = 120;
+			if (pokemon.volatiles['willboost']) bp *= 1.3;
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'futuresight',
+				source,
+				moveData: {
+					id: 'futuresight',
+					name: "Future Sight",
+					accuracy: 100,
+					basePower: bp,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Psychic',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
 		},
 	},
 };
