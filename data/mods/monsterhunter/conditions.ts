@@ -68,7 +68,10 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onDamagingHit(damage, target, source, move) {
 			this.damage(target.baseMaxhp / 8, target, source);
 			target.removeVolatile('blastblight');
-			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Blasted');
+		},
 		},
 	bubbleblight: {
 		name: 'Bubbleblight',
@@ -80,7 +83,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onEnd(pokemon) {
 			this.boost({spe: -1, accuracy: 1}, pokemon);
-			},
+			this.add('-end', pokemon, 'Bubbled');
+		},
 		},
 	defdown: {
 		name: 'Defense Down',
@@ -92,7 +96,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onEnd(pokemon) {
 			this.boost({def: 1, spd: 1}, pokemon);
-			}
+			this.add('-end', pokemon, 'Defense Down');
+		},
 		},
 	stench: {
 		name: 'Stench',
@@ -102,7 +107,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} is afflicted with Stench! Held item disabled!`);
 			this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
-			},
+		},
 		onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.id);
@@ -110,14 +115,17 @@ export const Conditions: { [k: string]: ConditionData; } = {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
-			},
+		},
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
 				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
 				}
-			},
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Stench');
+		},
 		},
 	fatigue: {
 		name: 'Fatigue',
@@ -128,7 +136,10 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onDeductPP(pokemon) {
 				return 1;
-			},
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Fatigue');
+		},
 	},
 	bleeding: {
 		name: 'Bleeding',
@@ -141,6 +152,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag) {
 				this.damage(source.baseMaxhp / 10, source, source);
 			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Bleeding');
 		},
 	},
 	snowman: {
@@ -175,6 +189,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				target.cureStatus();
 			}
 		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Snowman');
+		},
 	},
 	rust: {
 		name: 'Rusted',
@@ -200,7 +217,10 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onResidualOrder: 13,
 			onResidual(pokemon) {
 				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Steel']) ? 4 : 8));
-			},
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Rusted');
+		},
 	},
 	dragonblight: {
 		name: 'Dragonblight',
@@ -220,6 +240,13 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				}
 				return 1;
 			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Dragonblight');
+		},
+		onSwitchIn() {
+			this.add('-start', pokemon, 'Dragonblight');
+			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
 		},
 	},
 }
