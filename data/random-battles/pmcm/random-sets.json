@@ -345,6 +345,12 @@
                 "movepool": ["Swords Dance", "Close Combat", "Icicle Crash", "High Horsepower", "Heavy Slam"],
                 "abilities": ["Frozen Armor"],
                 "teraTypes": ["Water"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Close Combat", "Icicle Crash", "High Horsepower", "Heavy Slam"],
+                "abilities": ["Frozen Armor"],
+                "teraTypes": ["Water"]
             }
         ]
     },
