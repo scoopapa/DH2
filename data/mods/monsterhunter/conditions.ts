@@ -156,12 +156,12 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				pokemon.cureStatus();
 				return;
 			}
-			this.add('cant', pokemon, 'frz');
+			this.add('cant', pokemon, 'snowman');
 			return false;
 		},
 		onModifyMove(move, pokemon) {
 			if (move.flags['defrost']) {
-				this.add('-curestatus', pokemon, 'frz', '[from] move: ' + move);
+				this.add('-curestatus', pokemon, 'snowman', '[from] move: ' + move);
 				pokemon.clearStatus();
 			}
 		},

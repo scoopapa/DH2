@@ -420,6 +420,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: 1019,
 	},
+	lingeringstench: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('stench', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		shortDesc: "30% chance of stenching Pokemon if they make contact.",
+		name: "Lingering Stench",
+		rating: 0.5,
+		num: 1020,
+	},
 	/*
 	Edits
 	*/

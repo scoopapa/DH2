@@ -301,7 +301,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-activate', source, 'move: Aromatherapy');
 				for (const ally of source.side.pokemon) {
 					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
-						continue;
 					}
 					ally.cureStatus();
 				}
@@ -470,7 +469,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "C-Fatalis: Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, contact: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -533,6 +532,129 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		contestType: "Tough",
 	},
+	hellfirerifle: {
+		num: 2027,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Hellfire Rifle",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'blastblight',
+		},
+		shortDesc: "30% chance to inflict Blastblight.",
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	slimepunch: {
+		num: 2028,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Slime Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'blastblight',
+		},
+		shortDesc: "10% chance to inflict Blastblight.",
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	slimyspit: {
+		num: 2029,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Slimy Spit",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'defdown',
+		},
+		shortDesc: "100% chance to inflict Defense Down.",
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	sweetlick: {
+		num: 2030,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Sweet Lick",
+		pp: 30,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Inflicts Fatigue.",
+		volatileStatus: 'fatigue',
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cute",
+	},
+	snowballcannon: {
+		num: 2031,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Snowball Cannon",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'snowman',
+		},
+		shortDesc: "10% chance to trap the foe in a Snowman.",
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	oxideairraid: {
+		num: 2032,
+		accuracy: 95,
+		basePower: 75,
+		category: "Physical",
+		name: "Oxide Airraid",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'rust',
+		},
+		shortDesc: "30% chance to inflict Rust.",
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	dracophage: {
+		num: 2033,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Dracophage",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		shortDesc: "Dragonblights the opponent.",
+		status: 'dragonblight',
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {boost: {atk: 1}},
+		contestType: "Beautiful",
+	},
 	/*
 	Edits
 	*/
@@ -571,6 +693,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		onModifyType(move, pokemon) {},
+	},
+	aquacutter: {
+		inherit: true,
+		shortDesc: "High critical hit ratio. 10% chance to inflict bleed.",
+		secondary: {
+			chance: 10,
+			volatileStatus: 'bleeding',
+		},
+	},
+	bubblebeam: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'bubbleblight',
+		},
 	},
 	/*
 	TORQUES

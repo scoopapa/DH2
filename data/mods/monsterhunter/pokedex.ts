@@ -1758,7 +1758,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Volvidon",
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 60, atk: 72, def: 120, spa: 82, spd: 106, spe: 86},
-		abilities: {0: "Stench", 1: "Neutralizing Gas"},
+		abilities: {0: "Stench", 1: "Neutralizing Gas", H: "Lingering Stench"},
 		heightm: 1.0,
 		weightkg: 58.0,
 		color: "Black",

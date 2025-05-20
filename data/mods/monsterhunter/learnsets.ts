@@ -3142,6 +3142,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bittermalice: ["9L1"],
 			shadowclaw: ["9L1"],
 			workup: ["9M"],
+			hellfirerifle: ["9M"],
 			},
 		},
 	raknakadaki: {
@@ -3551,6 +3552,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acidspray: ["9M"],
 			astonish: ["9L1"],
+			slimyspit: ["9L1"],
+			sweetlick: ["9L1"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
 			courtchange: ["9M"],
@@ -3727,6 +3730,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			whirlwind: ["9L1"],
 			wideguard: ["9L1"],
+			oxideairraid: ["9L1"],
 		},
 	},
 	teostra: {
@@ -5137,6 +5141,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			voltswitch: ["9L1"],
 			coldsnap: ["9L1"],
 			volttackle: ["9L1"],
+			dracophage: ["9L1"],
 		},
 	},
 	banbaro: {
@@ -5362,6 +5367,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			upperhand: ["9L1"],
 			uturn: ["9L1"],
 			willowisp: ["9L1"],
+			slimepunch: ["9L1"],
 		},
 	},
 	bulldrome: {
@@ -6238,6 +6244,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			terablast: ["9L1"],
 			zenheadbutt: ["9L1"],
+			snowballcannon: ["9L1"],
 		},
 	},
 	gendrome: {

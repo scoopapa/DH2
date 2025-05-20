@@ -237,6 +237,45 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "At the end of each turn, tries to freeze the holder.",
 		shortDesc: "At the end of each turn, tries to freeze the holder.",
 		num: 1015,
-		gen: 4,
+		gen: 9,
+	},
+	hotdrink: {
+		name: "Hot Drink",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			pokemon.addVolatile('heatres');
+		},
+		shortDesc: "Grants the user Heat Resistance.",
+		num: 1016,
+		gen: 9,
+	},
+	colddrink: {
+		name: "Cold Drink",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			pokemon.addVolatile('coldres');
+		},
+		shortDesc: "Grants the user Heat Resistance.",
+		num: 1017,
+		gen: 9,
+	},
+	paradrink: {
+		name: "Para Drink",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			pokemon.addVolatile('parares');
+		},
+		shortDesc: "Grants the user Heat Resistance.",
+		num: 1018,
+		gen: 9,
 	}
 };
