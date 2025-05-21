@@ -3993,6 +3993,12 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
+		onBegin() {
+			this.add('-message', `Welcome to Pet Mods Chat Mod randbats (name change soon)!`);
+			this.add('-message', `We host events periodically in the Pet Mods room on PS where we collaboratively create a randbats set for a random pokemon, changing anything we want, creating custom moves, abilities, and even custom Mega forms.`);
+			this.add('-message', `You can find all the sets and mechanical changes on our forums thread: `);
+			this.add('-message', `https://www.smogon.com/forums/threads/pet-mods-chat-mod.3760234`);
+		},
 	},
 	{
 		name: "[Gen 9] Pokémon North, South, East, West",
