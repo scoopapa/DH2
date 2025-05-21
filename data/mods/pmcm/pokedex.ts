@@ -249,8 +249,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	araquanid: {
 		inherit: true,
-		baseStats: { hp: 1, atk: 140, def: 92, spa: 50, spd: 132, spe: 42 },
-		maxHP: 1,
+		baseStats: { hp: 2, atk: 140, def: 92, spa: 50, spd: 132, spe: 42 },
+		maxHP: 16,
 	},
 	avalugghisui: {
 		inherit: true,
