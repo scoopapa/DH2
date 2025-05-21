@@ -157,7 +157,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Copied from the code for Sand Spit
 		onDamagingHit(damage, target, source, move) {
 			this.field.setWeather('raindance');
-			this.add('-ability', pokemon, 'Hydroelectric Dam');
 			this.add('-message', `Archaludon releases a deluge!`);
 		},
 		flags: {},
