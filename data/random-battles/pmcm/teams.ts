@@ -77,8 +77,9 @@ const SPECIAL_SETUP = [
 	'calmmind', 'chargebeam', 'geomancy', 'nastyplot', 'quiverdance', 'tailglow', 'takeheart', 'torchsong',
 ];
 // Moves that boost Attack AND Special Attack:
+// Dragon Dance is here to force Altaria to get it
 const MIXED_SETUP = [
-	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup',
+	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance',
 ];
 // Some moves that only boost Speed:
 const SPEED_SETUP = [
@@ -88,7 +89,7 @@ const SPEED_SETUP = [
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'clangoroussoul', 'coil', 'cosmicpower', 'curse', 'dragondance',
 	'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch', 'quiverdance',
-	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'workup', 'victorydance',
+	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'trick room', 'workup', 'victorydance',
 ];
 const SPEED_CONTROL = [
 	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'stringshot', 'tailwind', 'thunderwave', 'trickroom',
@@ -731,10 +732,21 @@ export class RandomTeams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// PMCM hardcodes (reserve these to when absolutely necessary, let the script do most of the work)
+		// forces Splash on Chi-Yu's moveset, since it uses Z-Splash
 		if (species.id === 'chiyu') {
 			if (movePool.includes('splash')) {
 				counter = this.addMove('splash', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
+			}
+		}
+		// 33% chance to force Dragon Dance on Mega Altaria, since it otherwise never gets it due to teambuilder shenanigans
+		if (species.id === 'altariamega') {
+			if (movePool.includes('dragondance')) {
+				const altariaNum = Math.floor(Math.random() * 3) + 1
+				if (altariaNum === 1) {
+					counter = this.addMove('dragondance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
 			}
 		}
 
@@ -1167,6 +1179,16 @@ export class RandomTeams {
 		if (species.id === 'smeargle') return 'Focus Sash';
 
 		// PMCM hardcodes
+		if (species.id === 'volcarona') return 'Heavy-Duty Boots';
+		if (species.id === 'golemalola') return 'Life Orb';
+		if (species.id === 'ironcrown') return this.sample(['Chesto Berry', 'Leftovers']);
+		if (species.id === 'lurantis') return this.sample(['Life Orb', 'Leftovers']);
+		if (species.id === 'carbink') return 'Leftovers';
+		if (species.id === 'moltres') return 'Life Orb';
+		if (species.id === 'kommoo') return 'Throat Spray';
+		if (species.id === 'volbeat') return 'Focus Sash';
+		if (species.id === 'illumise') return 'Focus Sash';
+		if (species.id === 'abomasnow') return 'Light Clay';
 		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
 		if (species.id === 'dugtrio') return 'Choice Band';
 		if (species.id === 'altaria') return 'Heavy-Duty Boots';

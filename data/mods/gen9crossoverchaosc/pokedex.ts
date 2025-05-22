@@ -189,6 +189,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		mayafey: {
 		num: 22,
 		name: "Maya Fey",
+		gender: "M",
 		types: ["Psychic", "Water"],
 		baseStats: {hp: 80, atk: 55, def: 100, spa: 105, spd: 75, spe: 110},
 		abilities: {0: "Magic Guard", 1: "Inner Focus", H: "Friend Guard"},
@@ -197,6 +198,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	pit: {
 		num: 23,
 		name: "Pit",
+		gender: "M",
 		types: ["Flying", "Fairy"],
 		baseStats: {hp: 70, atk: 85, def: 75, spa: 85, spd: 75, spe: 115},
 		abilities: {0: "Justified", 1: "Reckless", H: "Gluttony"},
@@ -207,6 +209,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	pitmega: {
 		num: 23,
 		name: "Pit-Mega",
+		gender: "M",
 		baseSpecies: "Pit",
 		forme: "Mega",
 		types: ["Steel", "Fairy"],
@@ -218,10 +221,37 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	nifl: {
 		num: 24,
 		name: "Nifl",
+		gender: "F",
 		types: ["Ice", "Dragon"],
 		baseStats: {hp: 95, atk: 110, def: 90, spa: 55, spd: 80, spe: 106},
 		abilities: {0: "Domain of Ice"},
 		weightkg: 58,
 	},
-
+	radiance: {
+		num: 25,
+		name: "Radiance",
+		gender: "F",
+		types: ["Bug", "Psychic"],
+		baseStats: {hp: 100, atk: 86, def: 100, spa: 90, spd: 105, spe: 85},
+		abilities: {0: "Blinding Light"},
+		weightkg: 80,
+	},
+	sophie: {
+		num: 26,
+		name: "Sophie",
+		gender: "F",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 97, atk: 45, def: 95, spa: 108, spd: 98, spe: 70},
+		abilities: {0: "Filter", 1: "Flash Fire", H: "Effect Spore"},
+		weightkg: 15,
+	},
+	ragman: {
+		num: 27,
+		name: "Ragman",
+		gender: "M",
+		types: ["Ghost"],
+		baseStats: {hp: 100, atk: 70, def: 95, spa: 105, spd: 85, spe: 70},
+		abilities: {0: "Mummy", 1: "Rattled", H: "Regenerator"},
+		weightkg: 15,
+	},
 };

@@ -606,6 +606,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	infecteddreams: {
+		num: -20,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Infected Dreams",
+		shortDesc: "100% par. 2x power if target already paralyzed.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {

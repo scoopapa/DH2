@@ -29,14 +29,7 @@
                 "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
                 "abilities": ["Contrary"],
                 "teraTypes": ["Ice"]
-            },
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
-                "abilities": ["Contrary"],
-                "teraTypes": ["Ice"]
             }
-            
         ]
     },
     "ironcrown": {
@@ -118,7 +111,7 @@
         ]
     },
     "illumise": {
-        "level": 94,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -129,7 +122,7 @@
         ]
     },
     "volbeat": {
-        "level": 92,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -193,7 +186,7 @@
         "level": 84,
         "sets": [
             {
-                "role": "Bulky Setup",
+                "role": "Setup Sweeper",
                 "movepool": ["Beak Blast", "Roost", "Return", "Dragon Dance", "Earthquake", "Draco Meteor", "Explosion"],
                 "abilities": ["Fluffy"],
                 "teraTypes": ["Normal"]
@@ -352,6 +345,12 @@
                 "movepool": ["Swords Dance", "Close Combat", "Icicle Crash", "High Horsepower", "Heavy Slam"],
                 "abilities": ["Frozen Armor"],
                 "teraTypes": ["Water"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Close Combat", "Icicle Crash", "High Horsepower", "Heavy Slam"],
+                "abilities": ["Frozen Armor"],
+                "teraTypes": ["Water"]
             }
         ]
     },
@@ -426,9 +425,9 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Stealth Rock", "Salt Cure", "Sand Tomb", "Slack Off", "Whirlwind"],
+                "movepool": ["Stealth Rock", "Salt Cure", "Sand Tomb", "Slack Off"],
                 "abilities": ["Earth Eater"],
-                "teraTypes": ["Ground"]
+                "teraTypes": ["Steel"]
             }
         ]
     },
@@ -458,7 +457,7 @@
         "level": 86,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Fast Attacker",
                 "movepool": ["Hydro Pump", "Draco Meteor", "Rain Dance", "Nasty Plot", "Rapid Spin"],
                 "abilities": ["Dry Skin"],
                 "teraTypes": ["Water"]
@@ -532,7 +531,7 @@
         ]
     },
     "masquerainmega": {
-        "level": 80,
+        "level": 84,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -543,10 +542,10 @@
         ]
     },
     "kyuremblack": {
-        "level": 84,
+        "level": 80,
         "sets": [
             {
-                "role": "Bulky Attacker",
+                "role": "Wallbreaker",
                 "movepool": ["Fusion Bolt", "Ice Hammer", "Dragon Hammer", "Earthquake", "Rock Slide", "Roost"],
                 "abilities": ["Teravolt"],
                 "teraTypes": ["Ice"]
@@ -604,7 +603,7 @@
         ]
     },
     "kleavor": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -665,7 +664,7 @@
         ]
     },
     "phione": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -680,7 +679,13 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake"],
+                "movepool": ["Bonsai Bounce", "Synthesis", "Curse", "Stealth Rock", "Earthquake", "Wood Hammer", "Head Smash"],
+                "abilities": ["Pseudowoodo"],
+                "teraTypes": ["Rock", "Grass"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Bonsai Bounce", "Earthquake", "Wood Hammer", "Head Smash"],
                 "abilities": ["Pseudowoodo"],
                 "teraTypes": ["Rock", "Grass"]
             }

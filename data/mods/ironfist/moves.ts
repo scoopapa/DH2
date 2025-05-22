@@ -4748,6 +4748,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	fling: {
 		inherit: true,
+		onModifyPriority(priority, source, target, move) {
+			if (source.ignoringItem()) return;
+			const item = source.getItem();
+			if (item.fling.priority) {
+				return item.fling.priority;
+			}
+		},
 		onPrepareHit(target, source, move) {
 			if (source.ignoringItem()) return false;
 			const item = source.getItem();
@@ -4757,7 +4764,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			move.basePower = item.fling.basePower;
 			if (item.fling.damageCallback) move.damageCallback = item.fling.damageCallback;
 			if (item.fling.multihit) move.multihit = item.fling.multihit;
-			if (item.fling.priority) move.prioty = item.fling.priority;
+			if (item.fling.priority) move.priority = item.fling.priority;
+			if (item.fling.type) move.type = item.fling.type;
 			
 			this.debug('BP: ' + move.basePower);
 			if (item.isBerry) {
