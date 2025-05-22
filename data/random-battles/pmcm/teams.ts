@@ -1642,7 +1642,8 @@ export class RandomTeams {
 			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
-		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime') {
+		// prevents Illumise (who can turn into Volbeat with Physical moves) from having 0 Atk EVs
+		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime' && species.id !== 'illumise') {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
