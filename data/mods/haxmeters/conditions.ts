@@ -36,4 +36,22 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}*/
 		},
 	},
+	stall: {
+		inherit: true,
+		onStallMove(pokemon) {
+			// this.effectState.counter should never be undefined here.
+			// However, just in case, use 1 if it is undefined.
+			const counter = this.effectState.counter || 1;
+			this.debug(`Success chance: ${Math.round(100 / counter)}%`);
+			
+			let success = true;
+			pokemon.side.addMiss((((counter - 1) / counter) * 100).toFixed(2));
+			if (pokemon.side.miss >= 100) {
+				pokemon.side.subtractMiss(100);
+				success = false;
+			}
+			if (!success) delete pokemon.volatiles['stall'];
+			return success;
+		},
+	},
 };

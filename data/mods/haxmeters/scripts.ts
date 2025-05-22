@@ -24,11 +24,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addCrit(amount) {
 			if (amount === 0) return;
 			this.crit += amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: +${amount} -> ${this.crit})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: +${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
 		},
 		subtractCrit(amount) {
 			this.crit -= amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: -${amount} -> ${this.crit})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: -${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
 		},
 		addStatus(amount) {
 			if (amount === 0) return;
@@ -308,8 +308,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const secondaries: Dex.SecondaryEffect[] =
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
-					source.side.addEffect(secondary.chance);
-					if (typeof secondary.chance === 'undefined' || source.side.effect >= 100) {
+					if (secondary.status && target.status) continue;
+					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
+					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
 						source.side.subtractEffect(100);
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}

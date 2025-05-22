@@ -16,7 +16,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 		onResidual(pokemon) {
-			this.add('-message', `${pokemon.side.name}\nMiss: ${pokemon.side.miss}\nEffect: ${pokemon.side.effect}\nCritcal Hit: ${pokemon.side.crit}\nStatus: ${pokemon.side.status}`);
+			this.add('-message', `${pokemon.side.name}\nMiss: ${pokemon.side.miss.toFixed(2)}\nEffect: ${pokemon.side.effect.toFixed(2)}\nCritcal Hit: ${pokemon.side.crit.toFixed(2)}\nStatus: ${pokemon.side.status.toFixed(2)}`);
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
