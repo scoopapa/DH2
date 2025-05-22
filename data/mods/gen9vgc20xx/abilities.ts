@@ -81,7 +81,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
     },
 	//
 	desertmirage: {
-		desc: "Sand: Ground/Flying, Rain: Ground/Water, Sun: Ground/Fire, Snow: Ground/Ice.",
+		desc: "Sand: Ground/Flying, Rain: Ground/Water, Sun: Ground/Fire, Snow: Ground/Ice, Acidic Rain: Ground/Poison.",
 		shortDesc: "Gains additional type in weather.",
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
@@ -117,6 +117,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (pokemon.species.id !== 'dustformsandy') {
 					forme = 'Dustform-Sandy';
 					newTypes = ['Ground', 'Flying'];
+				}
+				break;
+			case 'acidicrain':
+				if (pokemon.species.id !== 'dustformacidic') {
+					forme = 'Dustform-Acidic';
+					newTypes = ['Ground', 'Poison'];
 				}
 				break;
 			default:
