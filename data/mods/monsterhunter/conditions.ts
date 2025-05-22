@@ -2,6 +2,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	frz: {
 		inherit: true,
 		onResidualOrder: 10,
+		onBeforeMove(pokemon, target, move) {},
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 16);
 		},
