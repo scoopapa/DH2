@@ -3487,6 +3487,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	},
+	{
+		name: "[Gen 9] Hax Meters",
+		mod: 'haxmeters',
+		ruleset: ['Standard', 'Hax Meter Rule', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Moves Clause', '!Evasion Items Clause'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
@@ -3992,6 +3998,12 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+		onBegin() {
+			this.add('-message', `Welcome to Pet Mods Chat Mod randbats (name change soon)!`);
+			this.add('-message', `We host events periodically in the Pet Mods room on PS where we collaboratively create a randbats set for a random pokemon, changing anything we want, creating custom moves, abilities, and even custom Mega forms.`);
+			this.add('-message', `You can find all the sets and mechanical changes on our forums thread: `);
+			this.add('-message', `https://www.smogon.com/forums/threads/pet-mods-chat-mod.3760234`);
 		},
 	},
 	{
