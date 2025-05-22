@@ -235,6 +235,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Earth Eater"},
 		types: ["Normal", "Ground"],
 	},
+	dudunsparcethreesegment: {
+		inherit: true,
+		abilities: {0: "Earth Eater"},
+		types: ["Normal", "Ground"],
+	},
 	chienpao: {
 		inherit: true,
 		abilities: {0: "Tablets of Ruin"},
