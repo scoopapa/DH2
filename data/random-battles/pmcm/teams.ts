@@ -749,6 +749,19 @@ export class RandomTeams {
 				}
 			}
 		}
+		if (species.id === 'mesprit') {
+			if (movePool.includes('psychicnoise')) {
+				const mespritNum = Math.round(Math.random())
+				if (mespritNum === 0) {
+					counter = this.addMove('psychicnoise', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+				else {
+					counter = this.addMove('torchsong', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+			}
+		}
 
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
