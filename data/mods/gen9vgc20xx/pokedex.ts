@@ -1244,7 +1244,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Cacmora",
 		
 		types: ["Grass", "Dark"],
-		baseStats: {hp: 90, atk: 130, def: 80, spa: 130, spd: 80, spe: 45},
+		baseStats: {hp: 90, atk: 130, def: 80, spa: 130, spd: 80, spe: 40},
 		abilities: {0: "Transmutation", 1: "Coup de Grass", H: "Water Absorb"},
 		heightm: 2.1,
 		weightkg: 77.4,
