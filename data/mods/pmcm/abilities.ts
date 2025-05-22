@@ -494,5 +494,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		inherit: true,
 		// removing these flags allows Frozen Armor to correctly set Caly-Ice ability as As One
 		flags: {},
+	},
+	protean: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		rating: 4.5,
 	}
 };
