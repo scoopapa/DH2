@@ -33,7 +33,7 @@
         ]
     },
     "ironcrown": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -266,7 +266,7 @@
         ]
     },
     "chiyu": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -277,7 +277,7 @@
         ]
     },
     "wochien": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -288,7 +288,7 @@
         ]
     },
     "staraptor": {
-        "level": 86,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -366,7 +366,7 @@
         ]
     },
     "lycanrocmidnight": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -377,7 +377,7 @@
         ]
     },
     "lycanroc": {
-        "level": 86,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Support",
@@ -575,7 +575,7 @@
         ]
     },
     "chienpao": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Setup",
