@@ -88,10 +88,10 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	defensedown: {
 		name: 'Defense Down',
-		duration: 3,
+		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 4 turns!`);
 		},
 		onResidual(pokemon) {
 			this.boost({def: -1, spd: -1}, pokemon);
