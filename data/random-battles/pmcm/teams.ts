@@ -879,7 +879,8 @@ export class RandomTeams {
 		for (const type of types) {
 			// Moltres already has STAB, so ignore this block
 			if (species.id === 'moltres') break;
-
+			// prevents Meowscarada from being enforced stab moves
+			if (species.id === 'meowscarada') break;
 			// Check if a STAB move of that type should be required
 			const stabMoves = [];
 			for (const moveid of movePool) {
@@ -918,6 +919,8 @@ export class RandomTeams {
 		if (!counter.get('stab')) {
 			const stabMoves = [];
 			for (const moveid of movePool) {
+				// prevents Meowscarada from being enforced stab moves (since it has Protean and doesn't care)
+				if (species.id === 'meowscarada') break;
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && types.includes(moveType)) {
@@ -1241,6 +1244,7 @@ export class RandomTeams {
 		if (species.id === 'sudowoodo') return 'Choice Band';
 		if (species.id === 'dondozo') return 'Leftovers';
 		if (species.id === 'golurk') return this.sample(['Life Orb', 'Punching Glove', 'Colbur Berry']);
+		if (species.id === 'meowscarada') return 'Heavy-Duty Boots';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
