@@ -2001,16 +2001,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['devour'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to devour');
+				const sourceSlot = pokemon.volatiles['devour'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Devour');
+					this.add('-end', pokemon, 'devour');
+					pokemon.removeVolatile('devour');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -3489,16 +3492,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['brainage'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to drain');
+				const sourceSlot = pokemon.volatiles['brainage'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Brainage');
+					this.add('-end', pokemon, 'brainage');
+					pokemon.removeVolatile('brainage');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
