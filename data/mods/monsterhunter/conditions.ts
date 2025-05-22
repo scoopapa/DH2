@@ -66,7 +66,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} has Blastblight! Next hit will incur chip damage!`);
 		},
 		onDamagingHit(damage, target, source, move) {
-			this.damage(target.baseMaxhp / 8, target, source);
+			this.damage(target.baseMaxhp / 6, target, source);
 			target.removeVolatile('blastblight');
 		},
 		onEnd(pokemon) {
@@ -88,14 +88,16 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	defensedown: {
 		name: 'Defense Down',
-		duration: 4,
+		duration: 3,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
+		},
+		onResidual(pokemon) {
 			this.boost({def: -1, spd: -1}, pokemon);
 		},
 		onEnd(pokemon) {
-			this.boost({def: 1, spd: 1}, pokemon);
+			this.boost({def: 3, spd: 3}, pokemon);
 			this.add('-end', pokemon, 'Defense Down');
 		},
 		},

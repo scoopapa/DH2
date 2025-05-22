@@ -136,7 +136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, slicing: 1},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'flinch',
+			volatileStatus: 'bleeding',
 		},
 		target: "normal",
 		type: "Flying",
@@ -532,10 +532,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		contestType: "Tough",
 	},
+	/*
+	Monhun Status
+	*/
 	hellfirerifle: {
 		num: 2027,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
 		name: "Hellfire Rifle",
 		pp: 15,
@@ -543,11 +546,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
 		secondary: null,
 		onAfterMove(pokemon, target, move) {
-			if (this.randomChance(3, 10)) {
+			if (this.randomChance(2, 10)) {
 				target.addVolatile('blastblight');
 			}
 		},
-		shortDesc: "30% chance to inflict Blastblight.",
+		shortDesc: "20% chance to inflict blastblight.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -563,19 +566,140 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
 		secondary: null,
 		onAfterMove(pokemon, target, move) {
-			if (this.randomChance(1, 10)) {
+			if (this.randomChance(5, 10)) {
 				target.addVolatile('blastblight');
 			}
 		},
-		shortDesc: "10% chance to inflict Blastblight.",
+		shortDesc: "50% chance to inflict blastblight.",
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
 	},
+	powderkeg: {
+		num: 93,
+		accuracy: 100,
+		basePower: 20,
+		category: "Special",
+		name: "Powderkeg",
+		pp: 25,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, powder: 1},
+		secondary: null,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(10, 10)) {
+				target.addVolatile('blastblight');
+			}
+		},
+		shortDesc: "Inflicts blastblight.",
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	blastbite: {
+		num: 424,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Fire Fang",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondaries: [
+			{
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(1, 10)) {
+				target.addVolatile('blastblight');
+			}
+		},
+		shortDesc: "10% chance to inflict blast. 10% chance to flinch.",
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	abyssaleruption: {
+		num: 434,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Abyssal Eruption",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(2, 10)) {
+				target.addVolatile('blastblight');
+			}
+		},
+		shortDesc: "Reduces Sp. Atk by 2. 20% chance to inflict blast.",
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	supremacysquall: {
+		num: 568,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Supremacy Squall",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		secondary: null,
+		shortDesc: "Inflicts defense down.",
+		volatileStatus: 'defensedown',
+		target: "allAdjacentFoes",
+		type: "Flying",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
+	harshsting: {
+		num: 40,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Harsh Sting",
+		pp: 35,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			status: 'defensedown',
+		},
+		shortDesc: "Inflicts defense down.",
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	decayduster: {
+		num: 57,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Decay Duster",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'defensedown',
+		shortDesc: "Hits adjacent pokemon. Inflicts defense down.",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Bug",
+		contestType: "Beautiful",
+	},
 	slimyspit: {
 		num: 2029,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 50,
 		category: "Special",
 		name: "Slimy Spit",
 		pp: 30,
@@ -590,6 +714,59 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Clever",
 	},
+	stinkbomb: {
+		num: 188,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Stink Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'stench',
+		},
+		shortDesc: "30% chance to inflict stench.",
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	perfumepulse: {
+		num: 2014,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Perfume Bomb",
+		shortDesc: "30% chance to inflict Stench.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1, pulse: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'stench',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	phlegmshot: {
+		num: 441,
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		name: "Phlegm Shot",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'fatigue',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
 	sweetlick: {
 		num: 2030,
 		accuracy: 100,
@@ -600,16 +777,99 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		shortDesc: "Inflicts Fatigue.",
-		volatileStatus: 'fatigue',
-		secondary: null,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'fatigue',
+		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
 	},
+	roughhouse: {
+		num: 583,
+		accuracy: 90,
+		basePower: 95,
+		category: "Physical",
+		name: "Roughhouse",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 50,
+			volatileStatus: 'bleeding',
+		},
+		shortDesc: "50% chance to inflict bleeding.",
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cute",
+	},
+	cruelclaw: {
+		num: 306,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Cruel Claw",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondaries: [
+			{
+				chance: 50,
+				boosts: {
+					def: -1,
+				},
+			}, {
+				chance: 30,
+				volatileStatus: 'bleeding',
+			},
+		],
+		shortDesc: "50% chance to lower Defense, 30% to bleed.",
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	brimstoneblade: {
+		num: 348,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Leaf Blade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'bleeding',
+		},
+		shortDesc: "High crit ratio. 10% chance to bleed.",
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	thousandblades: {
+		num: 348,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Thousand Blades",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 20,
+			volatileStatus: 'bleeding',
+		},
+		shortDesc: "High crit ratio. 20% chance to bleed.",
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 	snowballcannon: {
 		num: 2031,
 		accuracy: 95,
-		basePower: 85,
+		basePower: 90,
 		category: "Physical",
 		name: "Snowball Cannon",
 		pp: 10,
@@ -624,12 +884,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	oxideairraid: {
+	glacialgale: {
+		num: 59,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Glacial Gale",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'snowman',
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	oxideairstrike: {
 		num: 2032,
 		accuracy: 95,
 		basePower: 75,
 		category: "Physical",
-		name: "Oxide Airraid",
+		name: "Oxide Airstrike",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
@@ -659,11 +936,63 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
 	},
+	devilsjaw: {
+		num: 2014,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Devil's Jaw",
+		shortDesc: "100% chance to inflict Dragonblight.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		secondary: {
+			chance: 100,
+			status: 'dragonblight',
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+	},
+	seraphicshift: {
+		num: 547,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Seraphic Shift",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bypasssub: 1},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
+		onHit(target, pokemon, move) {
+			if (pokemon.baseSpecies.baseSpecies === 'Disufiroa' && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				const meloettaForme = pokemon.species.id === 'disufiroasol' ? '' : '-Sol';
+				pokemon.formeChange('Disufiroa' + meloettaForme, this.effect, false, '[msg]');
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+		},
+		shortDesc: "Changes Disufiroa's form. Combines Fire in its type effectiveness.",
+		target: "allAdjacentFoes",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 	/*
 	Edits
 	*/
 	swift: {
 		inherit: true,
+		desc: "This move does not check accuracy. Usually goes first.",
+		shortDesc: "This move does not check accuracy. Usually goes first.",
 		priority: 1,
 	},
 	healorder: {
@@ -698,16 +1027,39 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyType(move, pokemon) {},
 	},
-	aquacutter: {
+	razorshell: {
 		inherit: true,
-		shortDesc: "High critical hit ratio. 10% chance to inflict bleed.",
+		desc: "20% chance to inflict Bleed",
+		shortDesc: "20% chance to inflict bleed.",
 		secondary: {
-			chance: 10,
+			chance: 20,
+			volatileStatus: 'bleeding',
+		},
+	},
+	razorleaf: {
+		inherit: true,
+		basePower: 60,
+		desc: "High critical hit ratio. 30% chance to inflict bleed.",
+		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
+		secondary: {
+			chance: 30,
+			volatileStatus: 'bleeding',
+		},
+	},
+	razorwind: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {},
+		desc: "High critical hit ratio. 30% chance to inflict bleed.",
+		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
+		secondary: {
+			chance: 30,
 			volatileStatus: 'bleeding',
 		},
 	},
 	bubblebeam: {
 		inherit: true,
+		desc: "10% chance to inflict Bubbleblight.",
+		shortDesc: "10% chance to inflict Bubbleblight.",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'bubbleblight',

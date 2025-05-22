@@ -434,6 +434,107 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0.5,
 		num: 1020,
 	},
+	oilslick: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Oilslick', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+		name: "Oilslick",
+		rating: 3.5,
+		num: 1021,
+	},
+	airbag: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category !== 'Physical') return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.dex.getEffectiveness(move, target) === -1) return;
+			return 0;
+		},
+		name: "Airbag",
+		rating: 4,
+		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
+		num: 1022,
+	},
+	itembag: {
+		name: "Itembag",
+		desc: "At the end of each turn, if it doesn't have an held item, the user acquires a random item. (Leftovers, Sitrus Berry, Lum Berry, Figy Berry, Choice Band, Choice Specs, Choice Scarf, Flame Orb, Frost Orb, Toxic Orb, Light Ball, Iron Ball, Rocky Helmet, Heavy-Duty Boots)",
+		shortDesc: "Gets a random item from a list at the end of the turn if the user doesn't already have one.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'choiceband', 'choicespecs', 'choicescarf', 'flameorb', 'frostaorb', 'toxicorb', 'lightball', 'ironball', 'rockyhelmet', 'heavydutyboots'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Itembag');
+			}
+		},
+		rating: 3,
+		num: 1023,
+	},
+	generalist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.hasType(move.type)) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Generalist",
+		shortDesc: "Non-STAB moves have 1.3x power.",
+		rating: 4.5,
+		num: 1024,
+	},
+	frozencalamity: {
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Frozen Calamity');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onResidual(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Frozen Calamity');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen && move.type === 'Ice') {
+				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
+				this.debug(`Pyre boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Frozen Calamity",
+		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Ice-type moves power is increased by 5% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, Ice-type power +5%.",
+		rating: 4,
+		num: 1025,
+	},
 	/*
 	Edits
 	*/
