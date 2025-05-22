@@ -132,7 +132,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	shortfuse: {
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && effect && effect.effectType === 'Move') {
+			if (damage >= target.hp && effect) {
 				this.add('-ability', target, 'Short Fuse');
 		
 				// Keep the Pokémon at 1 HP instead of fainting immediately
