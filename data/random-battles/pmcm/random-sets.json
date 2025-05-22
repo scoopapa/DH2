@@ -33,7 +33,7 @@
         ]
     },
     "ironcrown": {
-        "level": 82,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -50,7 +50,7 @@
         ]
     },
     "mamoswine": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -89,7 +89,7 @@
         ]
     }, 
     "moltres": {
-        "level": 78,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -100,7 +100,7 @@
         ]
     },
     "kommoo": {
-        "level": 74,
+        "level": 72,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -111,7 +111,7 @@
         ]
     },
     "illumise": {
-        "level": 88,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -255,7 +255,7 @@
         ]
     },
     "taurospaldeacombat": {
-        "level": 84,
+        "level": 80,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -316,7 +316,7 @@
         ]
     },
     "malamar": {
-        "level": 90,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -388,7 +388,7 @@
         ]
     },
     "lycanrocdusk": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -520,7 +520,7 @@
         ]
     },
     "masquerain": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -542,7 +542,7 @@
         ]
     },
     "kyuremblack": {
-        "level": 80,
+        "level": 76,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -642,7 +642,7 @@
         ]
     },
     "swalot": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -716,6 +716,17 @@
                 "movepool": ["Trick Room", "Headlong Rush", "Shattered Seal", "Ice Punch", "Dynamic Punch"],
                 "abilities": ["Iron Fist"],
                 "teraTypes": ["Fighting", "Ground"]
+            }
+        ]
+    },
+    "meowscarada": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Flower Trick", "Spectral Thief", "Knock Off", "U-turn", "Encore", "Spikes", "Toxic Spikes"],
+                "abilities": ["Protean"],
+                "teraTypes": ["Ghost"]
             }
         ]
     }
