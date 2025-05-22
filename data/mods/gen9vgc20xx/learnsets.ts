@@ -1039,6 +1039,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			allyswitch: ["9M"],
 			attract: ["9M"],
 			bodypress: ["9M"],
+			brainage: ["9M"],
 			bugbuzz: ["9M"],
 			calmmind: ["9M"],
 			confusion: ["9M"],
