@@ -441,6 +441,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	zorahmagdaros: {
+		tier: "MHUU",
+	},
+	lalabarina: {
+		tier: "MHUU",
+	},
+	balahara: {
+		tier: "MHUU",
+	},
+	doshaguma: {
+		tier: "MHUU",
+	},
+	rompopolo: {
+		tier: "MHUU",
+	},
+	palico: {
+		tier: "MHUU",
+	},
+	palamute: {
+		tier: "MHRU",
+	},
+	disufiroa: {
+		tier: "MHOU",
+	},
+	disufiroasol: {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
