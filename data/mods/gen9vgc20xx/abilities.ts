@@ -565,6 +565,95 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -20,
 	},
+	//
+	vigorsurge: {
+		desc: "On switch-in, this Pokémon summons Vigorr Terrain for 5 turns. During the effect, grounded Fighting Pokémon have +1 crit and 10% acc. Fighting moves of grounded Pokémon grant +1 Atk if the user moved last. Camouflage transforms the user into a Fighting-type. Lasts for 8 turns if the user is holding a Terrain Extender (such as through Skill Swap).",
+		shortDesc: "Sets Vigor Terrain on switch-in.",
+		onStart(source) {
+			this.field.setTerrain('vigorterrain');
+		},
+		flags: {},
+		name: "Vigor Surge",
+		rating: 3,
+		num: -21,
+	},
+	photolysis: {
+		desc: "On switch-in, the weather becomes Acidic Rain. It lasts for 5 turns. During this effect, Steel Pokémon become vulnerable to damaging Poison moves. At the end of each turn, non Poison Pokémon loose 1/16 of their HP.",
+		shortDesc: "On switch-in, sets Acidic Rain.",
+		onStart(source) {
+			this.field.setWeather('acidicrain');
+		},
+		flags: {},
+		name: "Photolysis",
+		rating: 3,
+		num: -22,
+	},
+	//
+	transmutation: {
+		desc: "At the end of the turn, if Acidic Rain is active, boosts user's worst stat by 1 stage. Immunity to 1/16 chip damage from this weather.",
+		shortDesc: "Boosts worst stat in Acidic Rain every turn.",
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			if (this.field.isWeather('acidicrain')) {
+				const stats = ['atk', 'def', 'spa', 'spd', 'spe'] as const;
+				const statValues = stats.map(stat => pokemon.getStat(stat));
+				const minValue = Math.min(...statValues);
+				
+				let worstStat = null;
+	
+				// Find the worst stat based on current values
+				for (const stat of stats) {
+					if (pokemon.getStat(stat) === minValue) {
+						worstStat = stat;
+						break; // Only boost the first worst stat found
+					}
+				}
+	
+				if (worstStat) {
+					this.boost({ [worstStat]: 1 }, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Transmutation",
+		rating: 3,
+		num: -23,
+	},
+	//
+	coupdegrass: {
+		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		shortDesc: "Moves first in prio bracket if target's HP: 1/2 or less.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			// Check if the target's HP is at or below half
+			if (target.hp <= Math.floor(target.maxhp / 2)) {
+				// Check if the move is not a spread move
+				if (action.move.target !== 'allAdjacent' && action.move.target !== 'all') {
+					pokemon.addVolatile('coupdegrass');
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Coup de Grass');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		flags: {},
+		name: "Coup de Grass",
+		rating: 3,
+		num: -24,
+	},
 	// end
 
 	// Changes to abilities
@@ -701,6 +790,47 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Leaf Guard",
 		rating: 0.5,
 		num: 102,
+	},
+	//
+	mimicry: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			case 'vigorterrain':
+				types = ['Fighting'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
+		flags: {},
+		name: "Mimicry",
+		rating: 0,
+		num: 250,
 	},
 	//
 	normalize: {
