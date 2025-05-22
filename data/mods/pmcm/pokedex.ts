@@ -302,4 +302,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	golurk: {
 		inherit: true,
 	},
+	meowscarada: {
+		inherit: true,
+	}
 };
