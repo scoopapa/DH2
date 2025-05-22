@@ -212,7 +212,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		self: {
 			onHit(source) {
-				this.field.setWeather('snowscape');
+				this.field.setWeather('hail');
 			}
 		},
 		secondary: null,
