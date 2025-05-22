@@ -8,9 +8,16 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onModifySpA(spa, pokemon) {
 			return this.chainModify(0.5);
 		},
-		onStart(target, source, sourceEffect, pokemon) {
-			this.add('-start', pokemon, 'Frostbite');
+		onStart(target, source, sourceEffect) {
 			this.add('-message', `${target.name} was frostbitten! Special Attack halved! (Stat change not visible)`);
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'frz');
+			}
+			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
+				target.formeChange('Shaymin', this.effect, true);
+			}
 		},
 	},
 	snow: {
@@ -91,7 +98,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 4 turns!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
 		},
 		onResidual(pokemon) {
 			this.boost({def: -1, spd: -1}, pokemon);

@@ -224,7 +224,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	frostorb: {
 		name: "Frost Orb",
-		spritenum: 515,
 		fling: {
 			basePower: 30,
 			status: 'frz',
@@ -239,43 +238,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1015,
 		gen: 9,
 	},
-	hotdrink: {
-		name: "Hot Drink",
-		spritenum: 515,
-		fling: {
-			basePower: 30,
-		},
-		onStart(pokemon) {
-			pokemon.addVolatile('heatres');
-		},
-		shortDesc: "Grants the user Heat Resistance.",
-		num: 1016,
-		gen: 9,
-	},
-	colddrink: {
-		name: "Cold Drink",
-		spritenum: 515,
-		fling: {
-			basePower: 30,
-		},
-		onStart(pokemon) {
-			pokemon.addVolatile('coldres');
-		},
-		shortDesc: "Grants the user Heat Resistance.",
-		num: 1017,
-		gen: 9,
-	},
-	paradrink: {
-		name: "Para Drink",
-		spritenum: 515,
-		fling: {
-			basePower: 30,
-		},
-		onStart(pokemon) {
-			pokemon.addVolatile('parares');
-		},
-		shortDesc: "Grants the user Heat Resistance.",
-		num: 1018,
-		gen: 9,
-	}
 };

@@ -711,7 +711,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
 		target: "allAdjacentFoes",
-		type: "Poison",
+		type: "Water",
 		contestType: "Clever",
 	},
 	stinkbomb: {
