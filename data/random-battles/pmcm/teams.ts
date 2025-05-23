@@ -749,6 +749,19 @@ export class RandomTeams {
 				}
 			}
 		}
+		if (species.id === 'mesprit') {
+			if (movePool.includes('psychicnoise')) {
+				const mespritNum = Math.round(Math.random())
+				if (mespritNum === 0) {
+					counter = this.addMove('psychicnoise', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+				else {
+					counter = this.addMove('torchsong', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+			}
+		}
 
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
@@ -879,7 +892,8 @@ export class RandomTeams {
 		for (const type of types) {
 			// Moltres already has STAB, so ignore this block
 			if (species.id === 'moltres') break;
-
+			// prevents Meowscarada from being enforced stab moves
+			if (species.id === 'meowscarada') break;
 			// Check if a STAB move of that type should be required
 			const stabMoves = [];
 			for (const moveid of movePool) {
@@ -918,6 +932,8 @@ export class RandomTeams {
 		if (!counter.get('stab')) {
 			const stabMoves = [];
 			for (const moveid of movePool) {
+				// prevents Meowscarada from being enforced stab moves (since it has Protean and doesn't care)
+				if (species.id === 'meowscarada') break;
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && types.includes(moveType)) {
@@ -1241,6 +1257,7 @@ export class RandomTeams {
 		if (species.id === 'sudowoodo') return 'Choice Band';
 		if (species.id === 'dondozo') return 'Leftovers';
 		if (species.id === 'golurk') return this.sample(['Life Orb', 'Punching Glove', 'Colbur Berry']);
+		if (species.id === 'meowscarada') return 'Heavy-Duty Boots';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
@@ -1625,7 +1642,8 @@ export class RandomTeams {
 			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
-		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime') {
+		// prevents Illumise (who can turn into Volbeat with Physical moves) from having 0 Atk EVs
+		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime' && species.id !== 'illumise') {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}

@@ -50,7 +50,7 @@
         ]
     },
     "mamoswine": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -89,7 +89,7 @@
         ]
     }, 
     "moltres": {
-        "level": 78,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -100,7 +100,7 @@
         ]
     },
     "kommoo": {
-        "level": 74,
+        "level": 72,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -111,7 +111,7 @@
         ]
     },
     "illumise": {
-        "level": 88,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -255,7 +255,7 @@
         ]
     },
     "taurospaldeacombat": {
-        "level": 84,
+        "level": 80,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -266,7 +266,7 @@
         ]
     },
     "chiyu": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -277,7 +277,7 @@
         ]
     },
     "wochien": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -288,7 +288,7 @@
         ]
     },
     "staraptor": {
-        "level": 86,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -316,7 +316,7 @@
         ]
     },
     "malamar": {
-        "level": 90,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -366,7 +366,7 @@
         ]
     },
     "lycanrocmidnight": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -377,7 +377,7 @@
         ]
     },
     "lycanroc": {
-        "level": 86,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Support",
@@ -388,7 +388,7 @@
         ]
     },
     "lycanrocdusk": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -520,7 +520,7 @@
         ]
     },
     "masquerain": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -542,7 +542,7 @@
         ]
     },
     "kyuremblack": {
-        "level": 80,
+        "level": 76,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -575,7 +575,7 @@
         ]
     },
     "chienpao": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -642,7 +642,7 @@
         ]
     },
     "swalot": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -716,6 +716,17 @@
                 "movepool": ["Trick Room", "Headlong Rush", "Shattered Seal", "Ice Punch", "Dynamic Punch"],
                 "abilities": ["Iron Fist"],
                 "teraTypes": ["Fighting", "Ground"]
+            }
+        ]
+    },
+    "meowscarada": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Flower Trick", "Spectral Thief", "Knock Off", "U-turn", "Encore", "Spikes", "Toxic Spikes"],
+                "abilities": ["Protean"],
+                "teraTypes": ["Ghost"]
             }
         ]
     }

@@ -547,8 +547,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Brown",
 		eggGroups: ["Fairy", "Amorphous"],
 
-		otherFormes: ["Dustform-Sunny", "Dustform-Rainy", "Dustform-Snowy", "Dustform-Sandy"],
-		formeOrder: ["Dustform", "Dustform-Sunny", "Dustform-Rainy", "Dustform-Snowy", "Dustform-Sandy"],
+		otherFormes: ["Dustform-Sunny", "Dustform-Rainy", "Dustform-Snowy", "Dustform-Sandy", "Dustform-Acidic"],
+		formeOrder: ["Dustform", "Dustform-Sunny", "Dustform-Rainy", "Dustform-Snowy", "Dustform-Sandy", "Dustform-Acidic"],
 	},
 	dustformsunny: {
 		num: -1025,
@@ -608,6 +608,23 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Sandy",
 		
 		types: ["Ground", "Flying"],
+		baseStats: {hp: 105, atk: 35, def: 70, spa: 105, spd: 70, spe: 35},
+		abilities: {0: "Desert Mirage"},
+		heightm: 0.3,
+		weightkg: 0.8,
+		color: "Brown",
+		eggGroups: ["Fairy", "Amorphous"],
+
+		requiredAbility: "Desert Mirage",
+		battleOnly: "Dustform",
+	},
+	dustformacidic: {
+		num: -1025,
+		name: "Dustform-Acidic",
+		baseSpecies: "Dustform",
+		forme: "Sandy",
+		
+		types: ["Ground", "Poison"],
 		baseStats: {hp: 105, atk: 35, def: 70, spa: 105, spd: 70, spe: 35},
 		abilities: {0: "Desert Mirage"},
 		heightm: 0.3,
@@ -1143,6 +1160,104 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	deermetrius: {
+		num: -1054,
+		name: "Deermetrius",
+		types: ["Fighting", "Fairy"],
+		baseStats: {hp: 85, atk: 110, def: 75, spa: 55, spd: 85, spe: 125},
+		abilities: {0: "Justified", 1: "Grass Pelt", H: "Vigor Surge"},
+	//	category: "",
+	//	heightm: ,
+		weightkg: 150.0,
+		color: "Purple",
+		eggGroups: ["Fairy", "Field"],
+	//	creator: "Cyaneedle",
+	},
+	// end
+
+	// start
+	wresteddy: {
+		num: -1055,
+		name: "Wresteddy",
+		types: ["Fighting", "Normal"],
+		baseStats: {hp: 110, atk: 115, def: 85, spa: 60, spd: 80, spe: 50},
+		abilities: {0: "Iron Fist", 1: "Cute Charm", H: "Analytic"},
+	//	category: "",
+	//	heightm: ,
+		weightkg: 95.0,
+		color: "Brown",
+		eggGroups: ["Field"],
+	//	creator: "Cyaneedle",
+	},
+	// end
+
+	// start
+	arbok: {
+		inherit: true,
+		evos: ["Orasundra"],
+	},
+	orasundra: {
+		num: -1056,
+		name: "Orasundra",
+
+		types: ["Poison", "Psychic"],
+		baseStats: {hp: 100, atk: 120, def: 84, spa: 90, spd: 94, spe: 60},
+		abilities: {0: "Intimidate", 1: "Photolysis", H: "Rattled"},
+	//	category: "Messenger",
+		heightm: 4.5,
+		weightkg: 100.0,
+		color: "Purple",
+		eggGroups: ["Field", "Dragon"],
+
+		prevo: "Arbok",
+		evoType: "other",
+		evoCondition: "at level 50 in Sun",
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	tokujira: {
+		num: -1057,
+		name: "Tokujira",
+
+		types: ["Poison", "Water"],
+		gender: "N",
+		baseStats: {hp: 170, atk: 125, def: 65, spa: 90, spd: 65, spe: 85},
+		abilities: {0: "Transmutation"},
+	//	category: "Kaiju",
+		heightm: 25.1,
+		weightkg: 874.1,
+		color: "Black",
+		eggGroups: ["Undiscovered"],
+	//	creator: "BlueRay",
+	},
+    // end
+
+	// start
+	cacturne: {
+		inherit: true,
+		evos: ["Cacmora"],
+	},
+	cacmora: {
+		num: -1058,
+		name: "Cacmora",
+		
+		types: ["Grass", "Dark"],
+		baseStats: {hp: 90, atk: 130, def: 80, spa: 130, spd: 80, spe: 40},
+		abilities: {0: "Transmutation", 1: "Coup de Grass", H: "Water Absorb"},
+		heightm: 2.1,
+		weightkg: 77.4,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+
+		prevo: "Cacturne",
+		evoType: "other",
+		evoCondition: "at level 50 in Sandstorm",
+		//	creator: "BlueRay",
+	},
+
+	// start
 	ledian: {
 		inherit: true,
 		evos: ["Ledellar"],
@@ -1264,7 +1379,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	flygon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Tinted Lens"},
+		abilities: {0: "Levitate", H: "Archetype"},
 	},
 	// end
 

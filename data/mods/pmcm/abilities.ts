@@ -132,7 +132,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	shortfuse: {
 		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && effect && effect.effectType === 'Move') {
+			if (damage >= target.hp && effect) {
 				this.add('-ability', target, 'Short Fuse');
 		
 				// Keep the Pokémon at 1 HP instead of fainting immediately
@@ -157,7 +157,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//Copied from the code for Sand Spit
 		onDamagingHit(damage, target, source, move) {
 			this.field.setWeather('raindance');
-			this.add('-ability', pokemon, 'Hydroelectric Dam');
 			this.add('-message', `Archaludon releases a deluge!`);
 		},
 		flags: {},
@@ -495,5 +494,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		inherit: true,
 		// removing these flags allows Frozen Armor to correctly set Caly-Ice ability as As One
 		flags: {},
+	},
+	protean: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		rating: 4.5,
 	}
 };
