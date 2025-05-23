@@ -988,6 +988,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	nethercurrent: {
+		num: 2050,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Nether Current",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		shortDesc: "Prevents the target from switching out.",
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
 	/*
 	Edits
 	*/

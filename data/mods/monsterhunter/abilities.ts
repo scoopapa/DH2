@@ -549,14 +549,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		desc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
-		shortDesc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		desc: "If any foe is trapped by a non-damaging move, the foe loses 1/8 of its max HP; heals by that amount.",
+		shortDesc: "If foe is trapped by a non-damaging move, foe loses 1/8 of its max HP; user heals 1/8th.",
 		name: "Riptide",
 		rating: 3,
 		num: 1026,
 	},
 	ragingrebel: {
-		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops; attack can't lowered.",
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			let rebel = null;
@@ -569,6 +569,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (rebel) {
 				this.debug('Rebel boost');
 				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.atk && boost.atk < 0) {
+				delete boost.atk;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Raging Rebel", "[of] " + target);
+				}
 			}
 		},
 		name: "Raging Rebel",

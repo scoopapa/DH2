@@ -7511,6 +7511,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	lagiacrus: {
 		learnset: {
 			agility: ["9L1"],
+			nethercurrent: ["9L1"],
 			chillingwater: ["9L1"],
 			boltbreath: ["9L1"],
 			cyclonerend: ["9L1"],
