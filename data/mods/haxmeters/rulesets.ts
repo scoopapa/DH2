@@ -5,10 +5,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			for (const side of this.sides) {
-				side.miss = 20;
-				side.effect = 20;
-				side.crit = 20;
-				side.status = 20;
+				side.miss = 30;
+				side.effect = 30;
+				side.crit = 30;
+				side.status = 30;
 				this.add('-message', `${side.name}\nMiss: ${side.miss}\nEffect: ${side.effect}\nCritcal Hit: ${side.crit}\nStatus: ${side.status}`);
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
@@ -20,10 +20,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
-			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
-			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
 			if (pokemon.volatiles['attract']) pokemon.statuses.push('Attract');
+			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
+			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
