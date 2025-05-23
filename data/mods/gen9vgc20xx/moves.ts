@@ -68,16 +68,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['brainage'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to drain');
+				const sourceSlot = pokemon.volatiles['brainage'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Brainage');
+					this.add('-end', pokemon, 'brainage');
+					pokemon.removeVolatile('brainage');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -865,6 +868,189 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Grass",
 	},		  
+	//
+	oilspill: {
+		num: -28,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Dual Poison & Water move that poisons in Acidic Rain.",
+		name: "Oil Spill",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Water', type);
+		},
+		secondary: {chance: 100,
+			onHit(target, source, move) {
+				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+				if (this.field.isWeather('acidicrain')) {
+				target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Tough",
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Muddy Water', target);	
+		},
+	},
+	//
+	acidicrain: {
+		num: -29,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Acidic Rain",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1},
+		shortDesc: "Sets Acidic Rain, which lasts for 5 turns.",
+		weather: 'Acidic Rain',
+		secondary: null,
+		target: "all",
+		type: "Poison",
+		zMove: {boost: {spa: 1}},
+		contestType: "Tough",
+	},	  
+	//
+	acidicbreath: {
+		num: -30,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		shortDesc: "Skips in Acidic Rain. Burns target.",
+		name: "Acidic Breath",
+		pp: 5,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, 'Charge');
+			if (this.field.isWeather('acidicrain')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, 'Acid Downpour', defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	//
+	vigorterrain: {
+		num: -31,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Sets Vigor Terrain, which lasts for 5 turns.",
+		name: "Vigor Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'vigorterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSourceModifyAccuracyPriority: -1,
+			onSourceModifyAccuracy(accuracy, source, target) {
+				if (typeof accuracy !== 'number') return;
+				if (source.hasType('Fighting') && source.isGrounded() && !source.isSemiInvulnerable()) {
+					this.debug('Vigor Terrain - enhancing accuracy');
+					return this.chainModify(1.1);
+				}
+				return accuracy;
+			},
+			onModifyCritRatio(critRatio, source) {
+				if (source.isGrounded() && source.hasType('Fighting') && !source.isSemiInvulnerable()) {
+					return critRatio + 1;
+				}
+			},
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.fainted) {
+					// Check if the user moved last
+					if (!this.queue.willAct()) {
+						// Fighting moves give +1 Attack if user moved last
+						if (move.type === 'Fighting') {
+							this.boost({atk: 1}, pokemon);
+						//	this.add('-boost', pokemon, 'atk', 1, '[from] Vigor Terrain');
+						}
+					}
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Vigor Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-message', "Grounded Fighting Pokémon have +1 crit ratio and 10% accuracy more.");
+					this.add('-message', "Fighting moves of grounded Pokémon give +1 Atk if user moved last.");
+				} else {
+					this.add('-fieldstart', 'move: Vigor Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Vigor Terrain');
+			},
+ 		},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	//
+	recklesslariat: {
+		num: -32,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Reckless Lariat",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		tracksTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	//
+	enzymaticbite: {
+		num: -33,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Recovers half of damage done to target, 3/4 in Psychic Terrain.",
+		name: "Enzymatic Bite",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1},
+		drain: [1, 2],
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('psychicterrain')) move.drain = [3, 4];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
 	//
 	
 	// start
@@ -1962,6 +2148,81 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Tough",
 	},
 	//
+	solarbeam: {
+		num: 76,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Solar Beam",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidicrain'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	solarblade: {
+		num: 669,
+		accuracy: 100,
+		basePower: 125,
+		category: "Physical",
+		name: "Solar Blade",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1, slicing: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidicrain'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	//
 	submission: {
 		num: 66,
 		accuracy: 80,
@@ -1978,6 +2239,48 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+	},
+	//
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			case 'vigorterrain':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+				this.debug('BP doubled in Terrain');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
 	},
 	//
 	triplekick: {
@@ -2074,6 +2377,68 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		contestType: "Beautiful",
+	},
+	//
+	weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			case 'acidicrain':
+				move.type = 'Poison';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			case 'acidicrain':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
 		contestType: "Beautiful",
 	},
 	//
