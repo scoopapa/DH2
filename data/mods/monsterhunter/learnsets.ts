@@ -3318,6 +3318,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			cutwingbarrage: ["9L1"],
 			thousandblades: ["9L1"],
 			acupressure: ["9M"],
+			uturn: ["9M"],
+			pursuit: ["9M"],
+			ceaselessedge: ["9M"],
 			aerialace: ["9M"],
 			agility: ["9M", "9L16"],
 			aircutter: ["9M"],
@@ -6087,6 +6090,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tripleaxel: ["9L1"],
 			vcreate: ["9L1"],
 			willowisp: ["9L1"],
+			seraphicshift: ["9L1"],
 		},
 	},
 	fatalis: {
