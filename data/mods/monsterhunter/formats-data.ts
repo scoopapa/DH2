@@ -468,51 +468,57 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	boltreaverastalos: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	massacrediablos: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	primozeno: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	redhelmarzuros: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	scornedmagnamalo: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	seethingbazelgeuse: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	snowbaronlagombi: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	soulseermizutsune: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	furiousrajang: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	dreadqueenrathian: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	dreadkingrathalos: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	thunderlordzinogre: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	crimsonglowvalstrax: {
-		tier: "MHOU",
+		tier: "MEGAS",
+	},
+	ragingbrachydios: {
+		tier: "MEGAS",
+	},
+	abyssallagiacrus: {
+		tier: "MEGAS",
 	},
 	crimsonfatalis: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 	whitefatalis: {
-		tier: "MHOU",
+		tier: "MEGAS",
 	},
 };

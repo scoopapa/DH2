@@ -535,6 +535,78 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: 1025,
 	},
+	riptide: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.volatiles['trapped']) {
+					const damage = this.damage(pokemon.baseMaxhp / 8, target, pokemon);
+					if (damage) {
+						this.heal(damage, pokemon, pokemon);
+					}
+				}
+			}
+		},
+		flags: {},
+		desc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		shortDesc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		name: "Riptide",
+		rating: 3,
+		num: 1026,
+	},
+	ragingrebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		name: "Raging Rebel",
+		rating: 2.5,
+		num: 1027,
+	},
+	silversubsume: {
+		onAnyTryMove(target, source, effect) {
+			if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.boost({atk: 1}, source);
+				this.add('cant', this.effectState.target, 'ability: Silver Subsume', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		name: "Silver Subsume",
+		shortDesc: "If a hazard move is used on this Pokemon, it fails and this Pokemon's Attack is raised by 1.",
+		rating: 3.5,
+		num: 1028,
+	},
+	strafe: {
+		shortDesc: "When taking damages, this Pokemon adds 20% of its Speed to its corresponding defense.",
+		name: "Strafe",
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newDef = def + (spe / 5);
+			return newDef;
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newSpD = spd + (spe / 5);
+			return newSpD;
+		},
+		rating: 3.5,
+		num: 1029,
+	},
 	/*
 	Edits
 	*/

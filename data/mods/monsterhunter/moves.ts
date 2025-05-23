@@ -576,7 +576,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	powderkeg: {
-		num: 93,
+		num: 2029,
 		accuracy: 100,
 		basePower: 20,
 		category: "Special",
@@ -596,7 +596,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	blastbite: {
-		num: 424,
+		num: 2030,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -621,7 +621,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	abyssaleruption: {
-		num: 434,
+		num: 2031,
 		accuracy: 90,
 		basePower: 130,
 		category: "Special",
@@ -646,7 +646,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	supremacysquall: {
-		num: 568,
+		num: 2032,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -663,7 +663,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	harshsting: {
-		num: 40,
+		num: 2033,
 		accuracy: 100,
 		basePower: 15,
 		category: "Physical",
@@ -681,7 +681,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	decayduster: {
-		num: 57,
+		num: 2034,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -697,7 +697,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	slimyspit: {
-		num: 2029,
+		num: 2035,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -715,7 +715,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	stinkbomb: {
-		num: 188,
+		num: 2036,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -733,7 +733,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	perfumepulse: {
-		num: 2014,
+		num: 2037,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -751,7 +751,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	phlegmshot: {
-		num: 441,
+		num: 2038,
 		accuracy: 80,
 		basePower: 120,
 		category: "Physical",
@@ -769,7 +769,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	sweetlick: {
-		num: 2030,
+		num: 2039,
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
@@ -787,7 +787,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	roughhouse: {
-		num: 583,
+		num: 2040,
 		accuracy: 90,
 		basePower: 95,
 		category: "Physical",
@@ -805,7 +805,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	cruelclaw: {
-		num: 306,
+		num: 2041,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -830,7 +830,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	brimstoneblade: {
-		num: 348,
+		num: 2042,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -849,7 +849,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	thousandblades: {
-		num: 348,
+		num: 2043,
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
@@ -868,7 +868,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	snowballcannon: {
-		num: 2031,
+		num: 2044,
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
@@ -886,7 +886,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	glacialgale: {
-		num: 59,
+		num: 2045,
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
@@ -904,7 +904,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	oxideairstrike: {
-		num: 2032,
+		num: 2046,
 		accuracy: 95,
 		basePower: 75,
 		category: "Physical",
@@ -922,7 +922,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	dracophage: {
-		num: 2033,
+		num: 2047,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -939,7 +939,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	devilsjaw: {
-		num: 2014,
+		num: 2048,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -957,7 +957,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	seraphicshift: {
-		num: 547,
+		num: 2049,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",

@@ -168,7 +168,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1011,
 			gen: 9,
 	},
-		valstraxite: {
+	valstraxite: {
 			name: "Valstraxite",
 			shortDesc: "If held by Valstrax, this item allows it to Mega Evolve in battle.",
 			spritenum: 605,
@@ -180,6 +180,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return true;
 			},
 			num: 1012,
+			gen: 9,
+	},
+	lagialite: {
+			name: "Lagialite",
+			shortDesc: "If held by Lagiacrus, this item allows it to Mega Evolve in battle.",
+			spritenum: 585,
+			megaStone: "Abyssal Lagiacrus",
+			megaEvolves: "Lagiacrus",
+			itemUser: ["Lagiacrus"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1016,
+			gen: 9,
+	},
+	brachylite: {
+			name: "Brachylite",
+			shortDesc: "If held by Brachydios, this item allows it to Mega Evolve in battle.",
+			spritenum: 613,
+			megaStone: "Raging Brachydios",
+			megaEvolves: "Brachydios",
+			itemUser: ["Brachydios"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1017,
 			gen: 9,
 	},
 	crimsongem: {
