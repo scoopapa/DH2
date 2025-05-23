@@ -7541,6 +7541,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			growl: ["9L1"],
 			leer: ["9L1"],
 			risingvoltage: ["9L1"],
+			meanlook: ["9L1"],
 			swagger: ["9L1"],
 			whirlpool: ["9L1"],
 			supercellslam: ["9L1"],
