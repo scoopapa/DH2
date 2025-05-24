@@ -4507,6 +4507,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "RU",
 		doublesTier: "DUU",
 	},
+	quaquavalmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	lechonk: {
 		tier: "LC",
 	},
