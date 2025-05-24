@@ -1175,7 +1175,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	sunflora: {
-		tier: "UU",
+		tier: "(OU)",
 		doublesTier: "DOU",
 	},
 	yanma: {
@@ -1427,7 +1427,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	blazikenmega: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	mudkip: {
@@ -1441,7 +1441,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	swampertmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	poochyena: {
@@ -1516,7 +1516,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	pelipper: {
-		tier: "UU",
+		tier: "(OU)",
 		doublesTier: "DOU",
 	},
 	ralts: {
@@ -1733,7 +1733,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	torkoal: {
-		tier: "RU",
+		tier: "(OU)",
 		doublesTier: "DOU",
 	},
 	spoink: {
@@ -1804,7 +1804,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	solrock: {
-		tier: "RU",
+		tier: "(OU)",
 		doublesTier: "(DUU)",
 	},
 	barboach: {
@@ -2057,7 +2057,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	deoxysspeed: {
-		tier: "UU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	turtwig: {
@@ -3902,7 +3902,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	solgaleo: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	lunala: {
@@ -4480,7 +4480,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	meowscarada: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	meowscaradamega: {
@@ -4789,7 +4789,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	roaringmoon: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	irontreads: {
@@ -4955,7 +4955,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "Illegal",
 	},
 	archaludon: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	hydrapple: {
