@@ -1513,7 +1513,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	tyranitarmega: {
 		inherit: true,
-		abilities: {0: "Volt Absorb", H: "Technician"},
+		abilities: {0: "Sand Stream", H: "Unnerve"},
 		// requiredItem: null,
 		// requiredItems: ["Tyranitarite", "Parallel Mega Orb"],
 	},
@@ -1626,7 +1626,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	abomasnowmega: {
 		inherit: true,
-		abilities: {0: "Volt Absorb", H: "Technician"},
+		abilities: {0: "Snow Warning", H: "Soundproof"},
 		// requiredItem: null,
 		// requiredItems: ["Abomasite", "Parallel Mega Orb"],
 	},
