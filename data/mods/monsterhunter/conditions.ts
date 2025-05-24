@@ -3,7 +3,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onStart(target, source, sourceEffect) {
 			this.add('-message', `${target.name} was Frostbitten! Special Attack halved! (Stat Change not visible)`);
 			if (sourceEffect && sourceEffect.id === 'frostorb') {
-				this.add('-status', target, 'brn', '[from] item: Frost Orb');
+				this.add('-status', target, 'frz', '[from] item: Frost Orb');
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -251,7 +251,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Steel']) ? 4 : 8));
+				if (pokemon.hastype(['steel'])) this.damage(pokemon.baseMaxhp / 4)
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');
