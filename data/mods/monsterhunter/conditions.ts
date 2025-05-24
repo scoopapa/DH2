@@ -1,30 +1,28 @@
 export const Conditions: { [k: string]: ConditionData; } = {
 	frz: {
-		inherit: true,
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name} was Frostbitten! Special Attack halved! (Stat Change not visible)`);
+			if (sourceEffect && sourceEffect.id === 'frostorb') {
+				this.add('-status', target, 'brn', '[from] item: Frost Orb');
+			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'frz');
+			}
+		},
 		onResidualOrder: 10,
-		onBeforeMove(pokemon, target, move) {},
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 16);
 		},
 		onModifySpA(spa, pokemon) {
 			return this.chainModify(0.5);
 		},
-		onStart(target, source, sourceEffect) {
-			this.add('-message', `${target.name} was frostbitten! Special Attack halved! (Stat change not visible)`);
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else {
-				this.add('-status', target, 'frz');
-			}
-			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
-				target.formeChange('Shaymin', this.effect, true);
-			}
-		},
 	},
 	slp: {
         name: 'slp',
         effectType: 'Status',
         onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name} is Drowsy! 1.2x from damage, 25% chance of not moving!`);
             if (sourceEffect && sourceEffect.effectType === 'Ability') {
                 this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
             } else if (sourceEffect && sourceEffect.effectType === 'Move') {
@@ -38,7 +36,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
             }
         },
         onSourceModifyDamage(damage, source, target, move) {
-            return this.chainModify(1.3);
+            return this.chainModify(1.2);
         },
         onBeforeMovePriority: 10,
         onBeforeMove(pokemon) {
