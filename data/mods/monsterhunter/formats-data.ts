@@ -447,7 +447,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	balahara: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	doshaguma: {
 		tier: "MHUU",
