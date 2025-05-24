@@ -21,6 +21,27 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 	},
+	slp: {
+        name: 'slp',
+        effectType: 'Status',
+        onStart(target, source, sourceEffect) {
+            if (sourceEffect && sourceEffect.effectType === 'Ability') {
+                this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+            } else {
+                this.add('-status', target, 'slp');
+            }
+        },
+        onSourceModifyDamage(damage, source, target, move) {
+            return this.chainModify(1.3);
+        },
+        onBeforeMovePriority: 1,
+        onBeforeMove(pokemon) {
+            if (this.randomChance(1, 4)) {
+                this.add('cant', pokemon, 'slp');
+                return false;
+            }
+        },
+    },
 	snow: {
 		inherit: true,
 		onImmunity(type) {
