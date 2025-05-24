@@ -5379,7 +5379,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			poisonjab: ["9L1"],
 			noretreat: ["9L1"],
 			protect: ["9L1"],
-			ragefist: ["9L1"],
 			ragingfury: ["9L1"],
 			rest: ["9L1"],
 			rockslide: ["9L1"],
