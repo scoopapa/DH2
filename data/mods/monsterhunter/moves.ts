@@ -133,7 +133,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "May cause flinching.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, slicing: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'bleeding',
@@ -741,7 +741,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to inflict Stench.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1, pulse: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'stench',
@@ -947,7 +947,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to inflict Dragonblight.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, bite: 1},
 		secondary: {
 			chance: 100,
 			status: 'dragonblight',

@@ -10472,7 +10472,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aurorabeam: ["9L1"],
 			blazeball: ["9L1"],
 			blizzard: ["9L1"],
-			burningbulkwark: ["9L1"],
+			burningbulwark: ["9L1"],
 			breakingswipe: ["9L1"],
 			burnup: ["9L1"],
 			calmmind: ["9L1"],
