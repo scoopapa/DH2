@@ -411,6 +411,211 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4.5,
 		num: 1018,
 	},
+	frostnip: {
+		shortDesc: "This Pokemon's moves have 1.3x power against frostbitten targets.",
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender && ['frz'].includes(defender.status)) return this.chainModify(1.3);
+		},
+		name: "Frostnip",
+		rating: 4,
+		num: 1019,
+	},
+	pungency: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('stench', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		shortDesc: "30% chance of inflicting Stench on a Pokemon if they make contact.",
+		name: "Pungency",
+		rating: 0.5,
+		num: 1020,
+	},
+	oilslick: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Oilslick', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+		name: "Oilslick",
+		rating: 3.5,
+		num: 1021,
+	},
+	airbag: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category !== 'Physical') return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.dex.getEffectiveness(move, target) === -1) return;
+			return 0;
+		},
+		name: "Airbag",
+		rating: 4,
+		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
+		num: 1022,
+	},
+	itembag: {
+		name: "Itembag",
+		desc: "At the end of each turn, if it doesn't have an held item, the user acquires a random item. (Leftovers, Sitrus Berry, Lum Berry, Figy Berry, Choice Band, Choice Specs, Choice Scarf, Flame Orb, Frost Orb, Toxic Orb, Light Ball, Iron Ball, Rocky Helmet, Heavy-Duty Boots)",
+		shortDesc: "Gets a random item from a list at the end of the turn if the user doesn't already have one.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'choiceband', 'choicespecs', 'choicescarf', 'flameorb', 'frostaorb', 'toxicorb', 'lightball', 'ironball', 'rockyhelmet', 'heavydutyboots'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Itembag');
+			}
+		},
+		rating: 3,
+		num: 1023,
+	},
+	generalist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.hasType(move.type)) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Generalist",
+		shortDesc: "Non-STAB moves have 1.3x power.",
+		rating: 4.5,
+		num: 1024,
+	},
+	frozencalamity: {
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Frozen Calamity');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onResidual(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Frozen Calamity');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen && move.type === 'Ice') {
+				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
+				this.debug(`Pyre boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Frozen Calamity",
+		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Ice-type moves power is increased by 5% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, Ice-type power +5%.",
+		rating: 4,
+		num: 1025,
+	},
+	riptide: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.volatiles['trapped']) {
+					const damage = this.damage(pokemon.baseMaxhp / 8, target, pokemon);
+					if (damage) {
+						this.heal(damage, pokemon, pokemon);
+					}
+				}
+			}
+		},
+		flags: {},
+		desc: "If any foe is trapped by a non-damaging move, the foe loses 1/8 of its max HP; heals by that amount.",
+		shortDesc: "If foe is trapped by a non-damaging move, foe loses 1/8 of its max HP; user heals 1/8th.",
+		name: "Riptide",
+		rating: 3,
+		num: 1026,
+	},
+	ragingrebel: {
+		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops; attack can't lowered.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			let rebel = null;
+			for (const pokemon of this.getAllActive()) {
+				let statDrop: BoostName;
+				for (statDrop in pokemon.boosts) {
+					if (pokemon.boosts[statDrop] < 0) rebel = true;
+				}
+			}
+			if (rebel) {
+				this.debug('Rebel boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.atk && boost.atk < 0) {
+				delete boost.atk;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Raging Rebel", "[of] " + target);
+				}
+			}
+		},
+		name: "Raging Rebel",
+		rating: 2.5,
+		num: 1027,
+	},
+	silversubsume: {
+		onAnyTryMove(target, source, effect) {
+			if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.boost({atk: 1}, source);
+				this.add('cant', this.effectState.target, 'ability: Silver Subsume', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		name: "Silver Subsume",
+		shortDesc: "If a hazard move is used on this Pokemon, it fails and this Pokemon's Attack is raised by 1.",
+		rating: 3.5,
+		num: 1028,
+	},
+	strafe: {
+		shortDesc: "When taking damages, this Pokemon adds 20% of its Speed to its corresponding defense.",
+		name: "Strafe",
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newDef = def + (spe / 5);
+			return newDef;
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newSpD = spd + (spe / 5);
+			return newSpD;
+		},
+		rating: 3.5,
+		num: 1029,
+	},
 	/*
 	Edits
 	*/
