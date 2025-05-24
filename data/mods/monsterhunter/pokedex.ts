@@ -305,7 +305,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Brachydios",
 		forme: "Mega",
 		types: ["Fighting", "Poison"],
-		baseStats: {hp: 92, atk: 135, def: 117, spa: 102, spd: 104, spe: 104},
+		baseStats: {hp: 92, atk: 135, def: 117, spa: 102, spd: 102, spe: 102},
 		abilities: {0: "Raging Rebel"},
 		heightm: 1.0,
 		weightkg: 105.0,
