@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 60,
 		name: "Alatreon",
 		types: ["Dragon"],
-		baseStats: {hp: 105, atk: 105, def: 105, spa: 105, spd: 105, spe: 105},
+		baseStats: {hp: 100, atk: 105, def: 105, spa: 105, spd: 105, spe: 105},
 		abilities: {0: "Protean"},
 		heightm: 1.0,
 		weightkg: 210.0,
