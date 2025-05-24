@@ -192,14 +192,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 		onDamagingHit(damage, target, source, move) {
-			this.add('-enditem', target, 'Air Balloon');
-			target.item = '';
-			target.itemState = {id: '', target};
-			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+			if (target.getMoveHitData(move).crit) {
+				this.add('-enditem', target, 'Air Balloon');
+				target.item = '';
+				target.itemState = {id: '', target};
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+			}
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
-			if (effect.effectType === 'Move') {
+			if (effect.effectType === 'Move' && target.getMoveHitData(move).crit) {
 				this.add('-enditem', target, 'Air Balloon');
 				target.item = '';
 				target.itemState = {id: '', target};
@@ -208,6 +210,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 541,
 		gen: 5,
+		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is crit.",
 	},
 	alakazite: {
 		name: "Alakazite",
@@ -1621,12 +1624,13 @@ export const Items: {[itemid: string]: ItemData} = {
 					for (const pokemon of this.getAllActive()) {
 						if (pokemon.switchFlag === true) return;
 					}
-					if (target.useItem()) target.switchFlag = true;
+					target.switchFlag = true;
 				}
 			}
 		},
 		num: 1119,
 		gen: 8,
+		shortDesc: "If the holder's stat stages are lowered, it switches to a chosen ally.",
 	},
 	electirizer: {
 		name: "Electirizer",
@@ -3742,15 +3746,16 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 				this.effectState.lastMove = move.id;
 			},
-			onModifyDamage(damage, source, target, move) {
-				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
-				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			onModifyDamage(damage, source, target, move) { // only up to 15 right now
+				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192, 9011, 9830, 10650, 11469, 12288, 13107, 13926, 14746, 15565, 16384];
+				const numConsecutive = this.effectState.numConsecutive > 15 ? 15 : this.effectState.numConsecutive;
 				this.debug(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
 				return this.chainModify([dmgMod[numConsecutive], 4096]);
 			},
 		},
 		num: 277,
 		gen: 4,
+		shortDesc: "Damage of moves hit consecutively is increased. ",
 	},
 	mewniumz: {
 		name: "Mewnium Z",

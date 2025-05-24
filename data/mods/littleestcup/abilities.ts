@@ -1643,10 +1643,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	grasspelt: {
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+			if (!this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 		},
 		flags: {breakable: 1},
 		name: "Grass Pelt",
+		shortDesc: "If Grassy Terrain isn't active, this Pokemon's Defense is multiplied by 1.5.",
 		rating: 0.5,
 		num: 179,
 	},
@@ -2433,18 +2434,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (target !== source && move.category !== 'Status') {
-				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
-				const yourItem = target.takeItem(source);
-				if (!yourItem) return;
-				if (!source.setItem(yourItem)) {
-					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
-					return;
-				}
-				this.add('-item', source, yourItem, '[from] ability: Magician', '[of] ' + target);
+				if (source.item || !target.item || source.volatiles['gem'] || move.id === 'fling') return;
+					this.actions.useMove("Trick", source);
 			}
 		},
 		flags: {},
 		name: "Magician",
+		shortDesc: "If the target has an item, it Tricks the item off a Pokemon it hits with an attack.",
 		rating: 1,
 		num: 170,
 	},
@@ -4220,7 +4216,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	slowstart: {
 		onStart(pokemon) {
+			if (this.effectState.slowStart) return;
 			pokemon.addVolatile('slowstart');
+			this.effectState.slowStart = true;
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['slowstart'];
@@ -4246,6 +4244,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Slow Start",
+		shortDesc: "On switch-in, this Pokemon's Attack and Speed are halved for 5 turns. Once per battle.",
 		rating: -1,
 		num: 112,
 	},
@@ -4276,16 +4275,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'snow'])) {
-				this.debug('Snow Cloak - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
-			}
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) { // code in weather ball, aurora veil, and blizzard functions if this wins
+			if (!this.field.isWeather('snow') && pokemon.hasType('Ice')) return this.chainModify(1.5);
 		},
-		flags: {breakable: 1},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('snowcloak - enhancing accuracy');
+			return this.chainModify([5120, 4096]);
+		},
+		flags: {},
 		name: "Snow Cloak",
+		shortDesc: "Act like if Snow is active; the Pokémon’s accuracy is 1.25x.",
 		rating: 1.5,
 		num: 81,
 	},
@@ -4670,12 +4672,33 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	surgesurfer: {
 		onModifySpe(spe) {
-			if (this.field.isTerrain('electricterrain')) {
-				return this.chainModify(2);
+			return this.chainModify(2);
+		},
+		onStart(source) {
+			if (this.field.setTerrain('electricterrain')) {
+				this.field.terrainState.duration = 0;
+			} else if (this.field.isTerrain('electricterrain') && this.field.terrainState.duration !== 0) {
+				this.add('-ability', source, 'Surge Surfer');
+				this.field.terrainState.source = source;
+				this.field.terrainState.duration = 0;
 			}
+		},
+		onEnd(pokemon) {
+			if (this.field.terrainState.source !== pokemon || !this.field.isTerrain('electricterrain')) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('surgesurfer')) {
+					this.field.terrainState.source = target;
+					return;
+				}
+			}
+			pokemon.m.forceCustomBlock = true;
+			this.field.clearTerrain();
+			pokemon.m.forceCustomBlock = null;
 		},
 		flags: {},
 		name: "Surge Surfer",
+		shortDesc: "Electric Terrain is active; this Pokemon's Spe is doubled.",
 		rating: 3,
 		num: 207,
 	},
@@ -4753,9 +4776,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	synchronize: {
 		onAfterSetStatus(status, target, source, effect) {
-			if (!source || source === target) return;
+			if (!source) return;
 			if (effect && effect.id === 'toxicspikes') return;
-			if (status.id === 'slp' || status.id === 'frz') return;
 			this.add('-activate', target, 'ability: Synchronize');
 			// Hack to make status-prevention abilities think Synchronize is a status move
 			// and show messages when activating against it.
@@ -4763,6 +4785,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Synchronize",
+		shortDesc: "If this Pokemon is statused, its opponent also gets that status.",
 		rating: 2,
 		num: 28,
 	},
