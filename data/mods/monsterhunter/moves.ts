@@ -1068,6 +1068,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'bleeding',
 		},
 	},
+	rest: {
+		inherit: true,
+		cantusetwice: 1,
+		desc: "User sleeps 2 turns and restores HP and status. Can't use Twice",
+	},
 	razorwind: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {},
