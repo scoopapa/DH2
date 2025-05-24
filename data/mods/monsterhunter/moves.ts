@@ -1071,7 +1071,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	rest: {
 		inherit: true,
 		cantusetwice: 1,
-		desc: "User sleeps 2 turns and restores HP and status. Can't use Twice",
+		desc: "User sleeps 2 turns and Heals HP/Status. Can't use on consecutive turns.",
 	},
 	razorwind: {
 		inherit: true,
