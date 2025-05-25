@@ -1053,7 +1053,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Lala Barina",
 		types: ["Bug", "Grass"],
 		baseStats: {hp: 83, atk: 94, def: 102, spa: 92, spd: 103, spe: 83},
-		abilities: {0: "Dancer", H: "Tinted Lens"},
+		abilities: {0: "Dancer", 1: "Flower Veil", H: "Tinted Lens"},
 		heightm: 1.0,
 		weightkg: 50.0,
 		color: "Black",
