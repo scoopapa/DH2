@@ -959,16 +959,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 	seraphicshift: {
 		num: 2049,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 95,
 		category: "Special",
 		name: "Seraphic Shift",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1},
-		secondary: {
-			chance: 10,
-			status: 'slp',
-		},
 		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Disufiroa' && !pokemon.transformed) {
 				move.willChangeForme = true;
@@ -980,10 +976,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.formeChange('Disufiroa' + meloettaForme, this.effect, false, '[msg]');
 			}
 		},
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Fire', type);
-		},
-		shortDesc: "Changes Disufiroa's form. Fire + Ice Effectiveness.",
+		shortDesc: "Changes Disufiroa's form.",
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",

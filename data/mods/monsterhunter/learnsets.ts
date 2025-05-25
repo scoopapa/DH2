@@ -10139,6 +10139,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			pollenpuff: ["9L1"],
 			protect: ["9L1"],
 			quiverdance: ["9L1"],
+			firstimpression: ["9L1"],
 			rapidspin: ["9L1"],
 			reflecttype: ["9L1"],
 			rest: ["9L1"],
