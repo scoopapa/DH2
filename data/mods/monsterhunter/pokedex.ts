@@ -887,7 +887,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Field"],
 	},
 	jyuratodus: {
-		num: 102,
+		num: 1022,
 		name: "Jyuratodus",
 		types: ["Ground", "Water"],
 		baseStats: {hp: 126, atk: 70, def: 60, spa: 114, spd: 95, spe: 75},
