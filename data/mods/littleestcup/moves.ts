@@ -3494,21 +3494,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Curses if else, Ghost -1 Spe, +1 Atk, +1 Def.",
+		shortDesc: "Curses if Ghost, else -1 Spe, +1 Atk, +1 Def.",
 		name: "Curse",
 		pp: 10,
 		priority: 0,
 		flags: {bypasssub: 1, metronome: 1},
 		volatileStatus: 'curse',
 		onModifyMove(move, source, target) {
-			if (source.hasType('Ghost')) {
+			if (!source.hasType('Ghost')) {
 				move.target = move.nonGhostTarget as MoveTarget;
 			} else if (source.isAlly(target)) {
 				move.target = 'randomNormal';
 			}
 		},
 		onTryHit(target, source, move) {
-			if (source.hasType('Ghost')) {
+			if (!source.hasType('Ghost')) {
 				delete move.volatileStatus;
 				delete move.onHit;
 				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
@@ -5810,7 +5810,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		shortDesc: "Use without Grass or Water Pledge for added effect.",
+		shortDesc: "Use with Grass or Water Pledge for added effect.",
 		name: "Fire Pledge",
 		pp: 10,
 		priority: 0,
@@ -5841,13 +5841,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.forceSTAB = true;
 				move.sideCondition = 'firepledge';
 			}
-		},
-		self: {
-			onHit(source) {
-				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('firepledge');
-				}
-			},
 		},
 		condition: {
 			duration: 4,
@@ -8460,7 +8453,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "If the user faints, attacker freezes and the attack used loses all its PP.",
+		shortDesc: "If the user faints, the attack used loses all its PP.",
 		isNonstandard: "Past",
 		name: "Grudge",
 		pp: 5,
@@ -8477,7 +8470,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					let move: Move = source.lastMove;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 
-					source.trySetStatus('frz', target);
 					for (const moveSlot of source.moveSlots) {
 						if (moveSlot.id === move.id) {
 							moveSlot.pp = 0;
@@ -10162,7 +10154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 55,
 		category: "Special",
-		shortDesc: "100% chance to lower the foe(s) Stats by 1.",
+		shortDesc: "100% chance to lower the foe(s) Speed by 1.",
 		name: "Icy Wind",
 		pp: 15,
 		priority: 0,
@@ -10170,13 +10162,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			boosts: {
-				atk: -1,
-				def: -1,
 				spe: -1,
-				spa: -1,
-				spd: -1,
-				accuracy: -1,
-				evasion: -1,
 			},
 		},
 		target: "allAdjacentFoes",
@@ -17839,35 +17825,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Fire",
-		contestType: "Clever",
-	},
-	skatch: {
-		num: 166,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "Uses the last move used in the battle. Usually goes first.",
-		name: "Skatch",
-		pp: 5,
-		priority: 1,
-		flags: {
-			bypasssub: 1, allyanim: 1, failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1,
-		},
-		onHit(pokemon) {
-			let move: Move | ActiveMove | null = this.lastMove;
-			if (!move) return;
-
-			if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
-			if (move.flags['failcopycat'] || move.isZ || move.isMax) {
-				return false;
-			}
-			this.actions.useMove(move.id, pokemon);
-		},
-		noSketch: true,
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
 	sketch: {

@@ -4808,12 +4808,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Removes 3 PP from the target's last move.",
+		shortDesc: "Removes 3 BP from the target's last move.",
 		name: "Eerie Spell",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		secondary: {
+		secondary: { // come back later
 			chance: 100,
 			onHit(target) {
 				if (!target.hp) return;
