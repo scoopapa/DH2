@@ -420,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	impalpable: {
 		onSourceModifyDamage(damage, target, source, move) {
-			if (source.hasType(move.type) && target !== source) {
+			if ((source.hasType(move.type) || target.hasType(move.type)) && target !== source) {
 				return this.chainModify(0.5);
 			}
 		},
