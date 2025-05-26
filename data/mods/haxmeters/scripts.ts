@@ -6,11 +6,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addMiss(amount) {
 			if (amount === 0) return;
 			this.miss += amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: +${amount} -> ${this.miss})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: +${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
 		},
 		subtractMiss(amount) {
 			this.miss -= amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: -${amount} -> ${this.miss})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: -${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
 		},
 		addEffect(amount) {
 			if (amount === 0) return;
@@ -139,6 +139,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 			let hit: number;
+			
+			let moveName = (move.name.split(" ")[1]) ? move.name.split(" ")[1].toLowerCase() : move.name.toLowerCase();
+			let suffix = "1st " + moveName;
+			let accuracies = [(move.accuracy / 100)];
+			
 			for (hit = 1; hit <= targetHits; hit++) {
 				if (damage.includes(false)) break;
 				if (hit > 1 && pokemon.status === 'slp' && (!isSleepUsable || this.battle.gen === 4)) break;
@@ -186,7 +191,33 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
 					if (!move.alwaysHit) {
 						accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
-						pokemon.side.addMiss(100 - accuracy);
+						
+						let ordinal = "";
+						switch (hit % 10) {
+							case 1:
+								ordinal = "st";
+								break;
+							case 2:
+								ordinal = "nd";
+								break;
+							case 3:
+								ordinal = "rd";
+								break;
+							default:
+								ordinal = "th";
+								break;
+						}
+						
+						suffix += " hit + " + hit + ordinal + " " + moveName;
+						let multiplication = "";
+						for (const acc of accuracies) {
+							multiplication += (acc + " * ");
+						}
+						let product = accuracies.reduce((accumulator, current) => accumulator * current, 1) * (100 - accuracy);
+						this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${product.toFixed(2)})`);
+						pokemon.side.addMiss(product);
+						accuracies.push(accuracy / 100);
+						
 						if (accuracy !== true && pokemon.side.miss >= 100) {
 							pokemon.side.subtractMiss(100);
 							break;
