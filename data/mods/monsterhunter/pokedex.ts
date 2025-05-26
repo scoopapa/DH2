@@ -1939,7 +1939,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Zamtrios",
 		types: ["Water"],
 		baseStats: {hp: 110, atk: 90, def: 105, spa: 90, spd: 105, spe: 60},
-		abilities: {0: "Ice-Armor", H: "Puff-Up"},
+		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
 		heightm: 1.0,
 		weightkg: 90,
 		color: "Black",
