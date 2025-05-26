@@ -671,7 +671,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 
 	// start
 	cacmora: {
-        learnset: {
+         learnset: {
+			dynamicpunch: ['9M'],
       },
    },
 	// end
