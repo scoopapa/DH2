@@ -173,7 +173,59 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	cguysboost: {
+		name: 'cguysboost',
+		noCopy: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (['Grass', 'Fire', 'Water'].includes(move.type)) return this.chainModify([4505, 4096]);
+		},
+	},
+	lysandreboost: {
+		name: 'lysandreboost',
+		noCopy: true,
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			//console.log(target.baseSpecies.name + " " + move.name + " " + target.getMoveHitData(move).typeMod);
+			if (target === source || move.category === 'Status' || target.getMoveHitData(move).typeMod < 0) return;
+			if (!move.auraBooster?.volatiles['lysandreboost']) move.auraBooster = this.effectState.target;
+			//if (move.auraBooster) console.log(move.auraBooster.baseSpecies.name);
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([5448, 4096]);
+		},
+	},
+	whitneyboost: {
+		name: 'whitneyboost',
+		noCopy: true,
+		onStart(pokemon) {
+			this.effectState.lastMove = '';
+			this.effectState.numConsecutive = 0;
+		},
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (move.callsMove) return;
+			if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				this.effectState.numConsecutive++;
+			} else if (pokemon.volatiles['twoturnmove']) {
+				if (this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
+				} else {
+					this.effectState.numConsecutive++;
+				}
+			} else {
+				this.effectState.numConsecutive = 0;
+			}
+			this.effectState.lastMove = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			const dmgMod = [4096, 4505, 4915, 5324, 5734, 6144];
+			const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			//console.log(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
+			return this.chainModify([dmgMod[numConsecutive], 4096]);
+		},
+	},
 	
+		
 	//vanilla
 	sandstorm: {
 		inherit: true,
