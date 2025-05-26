@@ -9459,7 +9459,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			eeriespell: ["9L1"],
 			electricterrain: ["9L1"],
 			energyball: ["9L1"],
-			expandingforce: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
 			focusblast: ["9L1"],
