@@ -142,7 +142,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			
 			let moveName = (move.name.split(" ")[1]) ? move.name.split(" ")[1].toLowerCase() : move.name.toLowerCase();
 			let suffix = "1st " + moveName;
-			let accuracies = [(move.accuracy / 100)];
+			let accuracies = [];
+			let change = false;
 			
 			for (hit = 1; hit <= targetHits; hit++) {
 				if (damage.includes(false)) break;
@@ -208,15 +209,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 								break;
 						}
 						
-						suffix += " hit + " + hit + ordinal + " " + moveName;
-						let multiplication = "";
-						for (const acc of accuracies) {
-							multiplication += (acc + " * ");
-						}
-						let product = accuracies.reduce((accumulator, current) => accumulator * current, 1) * (100 - accuracy);
-						this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${product.toFixed(2)})`);
-						pokemon.side.addMiss(product);
+						if (accuracies[accuracies.length - 1] && accuracy / 100 !== accuracies[accuracies.length - 1]) change = true;
 						accuracies.push(accuracy / 100);
+						let product = accuracies.reduce((accumulator, current) => accumulator * current, 1) * (100 - accuracy);
+						if (targetHits > 3) {
+							suffix = (hit - 1) + " " + moveName + "s hit + " + hit + ordinal + " " + moveName;
+							
+							if (!change) {
+								let multiplication = "(" + (accuracy / 100) + ")^" + (hit - 1) + " * " + (100 - accuracy);
+								this.battle.add('-message', `(${suffix} miss: ${multiplication} = ${product.toFixed(2)})`);
+							} else this.battle.add('-message', `(${suffix} miss: ${product.toFixed(2)})`);
+						} else {
+							suffix += " hit + " + hit + ordinal + " " + moveName;
+							let multiplication = "";
+							for (const acc of accuracies) {
+								multiplication += (acc + " * ");
+							}
+							this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${product.toFixed(2)})`);
+						}
+						pokemon.side.addMiss(product);
 						
 						if (accuracy !== true && pokemon.side.miss >= 100) {
 							pokemon.side.subtractMiss(100);
