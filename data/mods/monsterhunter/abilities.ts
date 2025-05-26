@@ -550,7 +550,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		desc: "If any foe is trapped by a non-damaging move, the foe loses 1/8 of its max HP; heals by that amount.",
-		shortDesc: "If foe is trapped by a non-damaging move, foe loses 1/8 of its max HP; user heals 1/8th.",
+		shortDesc: "If foe is hit by non-residual trapping move, foe loses 1/8 of max HP; user heals 1/8th.",
 		name: "Riptide",
 		rating: 3,
 		num: 1026,

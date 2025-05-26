@@ -133,7 +133,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "May cause flinching.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, slicing: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'bleeding',
@@ -741,7 +741,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to inflict Stench.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1, pulse: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'stench',
@@ -947,7 +947,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to inflict Dragonblight.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, bite: 1},
 		secondary: {
 			chance: 100,
 			status: 'dragonblight',
@@ -959,16 +959,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 	seraphicshift: {
 		num: 2049,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 95,
 		category: "Special",
 		name: "Seraphic Shift",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1},
-		secondary: {
-			chance: 10,
-			status: 'slp',
-		},
 		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Disufiroa' && !pokemon.transformed) {
 				move.willChangeForme = true;
@@ -980,10 +976,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.formeChange('Disufiroa' + meloettaForme, this.effect, false, '[msg]');
 			}
 		},
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Fire', type);
-		},
-		shortDesc: "Changes Disufiroa's form. Fire + Ice Effectiveness.",
+		shortDesc: "Changes Disufiroa's form.",
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -1013,6 +1006,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	*/
 	swift: {
 		inherit: true,
+		viable:true,
 		desc: "This move does not check accuracy. Usually goes first.",
 		shortDesc: "This move does not check accuracy. Usually goes first.",
 		priority: 1,
@@ -1051,6 +1045,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorshell: {
 		inherit: true,
+		viable:true,
 		desc: "20% chance to inflict Bleed",
 		shortDesc: "20% chance to inflict bleed.",
 		secondary: {
@@ -1061,6 +1056,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	razorleaf: {
 		inherit: true,
 		basePower: 60,
+		viable:true,
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
 		secondary: {
@@ -1075,6 +1071,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorwind: {
 		inherit: true,
+		viable:true,
 		onTryMove(attacker, defender, move) {},
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",

@@ -670,6 +670,13 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end	
 
 	// start
+	cacmora: {
+        learnset: {
+      },
+   },
+	// end
+
+	// start
 	araneidos: {
 		learnset: {
 		crunch: ["9M"],

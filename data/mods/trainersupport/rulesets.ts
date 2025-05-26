@@ -99,6 +99,40 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/marshal.png" height="80" width="80">`);
 						side.trainerBoost = 'marshal';
 						break;
+					case 'chili':
+					case 'cilan':
+					case 'cress':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/${side.pokemon[0].name.toLowerCase()}.png" height="80" width="80">`);
+						let grass = false;
+						let fire = false;
+						let water = false;
+						for (const pokemon of side.pokemon) {
+							if (!grass && pokemon.hasType('Grass')) {
+								grass = true;
+								continue;
+							}
+							if (!fire && pokemon.hasType('Fire')) {
+								fire = true;
+								continue;
+							}
+							if (!water && pokemon.hasType('Water')) {
+								water = true;
+								continue;
+							}
+						}
+						if (grass && fire && water) side.trainerBoost = 'cguys';
+						break;
+					case 'lysandre':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/lysandre.png" height="80" width="80">`);
+						side.trainerBoost = 'lysandre';
+						break;
+					case 'whitney':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/whitney.png" height="80" width="80">`);
+						side.trainerBoost = 'whitney';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
@@ -161,6 +195,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'marshal':
 					pokemon.addVolatile('marshalboost');
+					break;
+				case 'cguys':
+					pokemon.addVolatile('cguysboost');
+					break;
+				case 'lysandre':
+					pokemon.addVolatile('lysandreboost');
+					break;
+				case 'whitney':
+					pokemon.addVolatile('whitneyboost');
 					break;
 			}
 		}
