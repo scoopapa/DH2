@@ -2193,13 +2193,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Reckless", 1: "Sap Sipper", H: "Fluffy"},
 	},
+	rufflet: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Keen Eye"},
+	},
 	braviary: {
 		inherit: true,
 		types: ["Fighting", "Flying"],
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Defiant"},
 	},
 	braviaryhisui: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 63, def: 70, spa: 112, spd: 70, spe: 85},
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Tinted Lens"},
 	},
 	heatmor: {
 		inherit: true,
