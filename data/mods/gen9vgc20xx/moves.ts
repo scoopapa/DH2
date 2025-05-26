@@ -1022,6 +1022,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
+		shortDesc: "Punch move that ignores redirection.",
 		name: "Reckless Lariat",
 		pp: 15,
 		priority: 0,
