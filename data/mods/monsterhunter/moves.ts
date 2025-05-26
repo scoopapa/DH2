@@ -1006,6 +1006,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	*/
 	swift: {
 		inherit: true,
+		viable:true,
 		desc: "This move does not check accuracy. Usually goes first.",
 		shortDesc: "This move does not check accuracy. Usually goes first.",
 		priority: 1,
@@ -1044,6 +1045,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorshell: {
 		inherit: true,
+		viable:true,
 		desc: "20% chance to inflict Bleed",
 		shortDesc: "20% chance to inflict bleed.",
 		secondary: {
@@ -1054,6 +1056,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	razorleaf: {
 		inherit: true,
 		basePower: 60,
+		viable:true,
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
 		secondary: {
@@ -1068,6 +1071,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorwind: {
 		inherit: true,
+		viable:true,
 		onTryMove(attacker, defender, move) {},
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
