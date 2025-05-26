@@ -223,6 +223,20 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			//console.log(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
 			return this.chainModify([dmgMod[numConsecutive], 4096]);
 		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && (target === source || target.gender !== 'F')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost");
+			}
+		},
 	},
 	
 		
