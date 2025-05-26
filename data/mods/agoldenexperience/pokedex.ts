@@ -753,7 +753,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	espeon: {
 		inherit: true,
-		abilities: {0: "Synchronize", 1: "Telepathy", H: "Magic Bounce"},
+		abilities: {0: "Synchronize", 1: "Solar Power", H: "Magic Bounce"},
 	},
 	umbreon: {
 		inherit: true,
