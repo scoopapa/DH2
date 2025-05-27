@@ -9,14 +9,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = 30;
 				side.crit = 30;
 				side.status = 30;
-				this.add('-message', `${side.name}\nMiss: ${side.miss}\nEffect: ${side.effect}\nCritcal Hit: ${side.crit}\nStatus: ${side.status}`);
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
 			}
+			const sideOne = this.sides[0];
+			const sideTwo = this.sides[1];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${sideOne.miss.toFixed(2)}</td><td>Miss:</td><td>${sideTwo.miss.toFixed(2)}</td></tr><<td>Effect:</td><td>${sideOne.effect.toFixed(2)}</td><<td>Effect:</td><td>${sideTwo.effect.toFixed(2)}</td></tr><tr><td>Critical Hit:</td><td>${sideOne.crit.toFixed(2)}</td><td>Critical Hit:</td><td>${sideTwo.crit.toFixed(2)}</td></tr><<td>Status:</td><td>${sideOne.status.toFixed(2)}</td><td>Status:</td><td>${sideTwo.status.toFixed(2)}</td></tr></tbody></table></div></summary>`);
 		},
 		onResidual(pokemon) {
-			this.add('-message', `${pokemon.side.name}\nMiss: ${pokemon.side.miss.toFixed(2)}\nEffect: ${pokemon.side.effect.toFixed(2)}\nCritcal Hit: ${pokemon.side.crit.toFixed(2)}\nStatus: ${pokemon.side.status.toFixed(2)}`);
+			const sideOne = this.sides[0];
+			const sideTwo = this.sides[1];
+			if (pokemon.side !== sideOne) return;
+			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${sideOne.miss.toFixed(2)}</td><td>Miss:</td><td>${sideTwo.miss.toFixed(2)}</td></tr><<td>Effect:</td><td>${sideOne.effect.toFixed(2)}</td><<td>Effect:</td><td>${sideTwo.effect.toFixed(2)}</td></tr><tr><td>Critical Hit:</td><td>${sideOne.crit.toFixed(2)}</td><td>Critical Hit:</td><td>${sideTwo.crit.toFixed(2)}</td></tr><<td>Status:</td><td>${sideOne.status.toFixed(2)}</td><td>Status:</td><td>${sideTwo.status.toFixed(2)}</td></tr></tbody></table></div></summary>`);
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];

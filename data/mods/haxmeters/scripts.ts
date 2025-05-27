@@ -353,7 +353,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (secondary.status && target.status) continue;
 					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
 					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
-						source.side.subtractEffect(100);
+						if (source.side.effect >= 100) source.side.subtractEffect(100);
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}
 				}
