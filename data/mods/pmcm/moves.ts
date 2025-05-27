@@ -531,6 +531,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
+					// reapplies volatiles and stat boosts
 					if (pokemon.storedVolatiles) {
   						for (const volatile in pokemon.storedVolatiles) {
     						pokemon.addVolatile(volatile);
@@ -583,6 +584,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				const side = pokemon.side;
 				const dondozo = side.pokemon.find(p => p.species.name === 'Dondozo' && !p.fainted);
 				if (!dondozo) return;
+				// forces Dondozo in after the eaten mon faints
 				this.queue.insertChoice({
       			choice: 'switch',
       			pokemon: pokemon,
@@ -595,6 +597,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
+			// stores stat changes and volatiles to reapply after switch
 			source.storedBoosts = { ...source.boosts };
 			source.storedVolatiles = {};
 			for (const volatile in source.volatiles) {
