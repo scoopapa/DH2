@@ -566,6 +566,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					this.effectState.eatenBoost = highestStat;
 				}
 			},
+			onFaint(pokemon) {
+				this.add('-message', `yes`);
+			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
 			//onFaint(pokemon) {
     			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
