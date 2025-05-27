@@ -1854,7 +1854,10 @@ export class RandomTeams {
 
 			// The Pokemon of the Day
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
-			if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'dondozo';
+			
+			// Code to enforce a mon on teams for testing
+			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'testedMon';
+			
 			let set: RandomTeamsTypes.RandomSet;
 
 			if (leadsRemaining) {
