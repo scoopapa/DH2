@@ -569,14 +569,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onFaint(pokemon) {
 				const side = pokemon.side;
 				const dondozo = side.pokemon.find(p => p.species.name === 'Dondozo' && !p.fainted);
+				this.add('-message', `this: ` + dondozo);
 				if (!dondozo) return;
 				this.add('-message', `switch go brrr`);
-				this.makeRequest('switch');
-				this.queue.insertChoice({
-					choice: 'switch',
-					pokemon: dondozo.position,
+				this.effectState.dondozoSwitch = true;
+				this.queue.addChoice({
+					choice: 'instaswitch',
+					pokemon: dondozo,
+					target: dondozo,
 				});
 			}
+			
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
 			//onFaint(pokemon) {
     			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
