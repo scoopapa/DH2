@@ -573,10 +573,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				if (!dondozo) return;
 				this.add('-message', `switch go brrr`);
 				this.effectState.dondozoSwitch = true;
+				const faintedSlot = pokemon.position;
+				const dondozoSlot = side.pokemon.indexOf(dondozo);
 				this.queue.addChoice({
 					choice: 'instaswitch',
-					pokemon: dondozo,
-					target: dondozo,
+					pokemon: faintedSlot,
+					target: dondozoSlot,
 				});
 			}
 			
