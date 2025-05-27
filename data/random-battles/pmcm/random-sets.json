@@ -33,7 +33,7 @@
         ]
     },
     "ironcrown": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -89,7 +89,7 @@
         ]
     }, 
     "moltres": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -100,7 +100,7 @@
         ]
     },
     "kommoo": {
-        "level": 72,
+        "level": 70,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -111,7 +111,7 @@
         ]
     },
     "illumise": {
-        "level": 92,
+        "level": 94,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -144,7 +144,7 @@
         ]
     },
     "abomasnowmega": {
-        "level": 82,
+        "level": 84,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -227,7 +227,7 @@
         ]
     },
     "mesprit": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -266,7 +266,7 @@
         ]
     },
     "chiyu": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -366,7 +366,7 @@
         ]
     },
     "lycanrocmidnight": {
-        "level": 86,
+        "level": 90,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -380,7 +380,7 @@
         "level": 88,
         "sets": [
             {
-                "role": "Fast Support",
+                "role": "Fast Attacker",
                 "movepool": ["Stone Edge", "Fire Lash", "U-turn", "Spikes", "Close Combat", "Stealth Rock", "Accelerock"],
                 "abilities": ["Drought"],
                 "teraTypes": ["Water", "Fire"]
@@ -487,7 +487,7 @@
         ]
     },
     "milotic": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -498,7 +498,7 @@
         ]
     },
     "gogoat": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -509,7 +509,7 @@
         ]
     },
     "clodsire": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -553,7 +553,7 @@
         ]
     },
     "ironthorns": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -575,7 +575,7 @@
         ]
     },
     "chienpao": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -620,7 +620,7 @@
         ]
     },
     "araquanid": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -675,7 +675,7 @@
         ]
     },
     "sudowoodo": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -709,7 +709,7 @@
         ]
     },
     "golurk": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Setup",
