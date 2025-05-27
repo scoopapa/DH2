@@ -566,7 +566,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					this.effectState.eatenBoost = highestStat;
 				}
 			},
-			onAfterFaint(pokemon) {
+			onFaint(pokemon) {
 				this.add('-message', `switchin in?`);
 				this.runSwitch('dondozo');
 			},
