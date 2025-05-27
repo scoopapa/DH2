@@ -568,7 +568,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onFaint(pokemon) {
 				this.add('-message', `switchin in?`);
-				this.choice.push({ choice: 'runSwitch', pokemon: 'dondozo' })
+				this.choice({ choice: 'runSwitch', pokemon: 'dondozo' })
 			},
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
 			//onFaint(pokemon) {
