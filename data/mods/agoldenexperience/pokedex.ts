@@ -954,26 +954,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 70, atk: 135, def: 75, spa: 120, spd: 85, spe: 145},
 		abilities: {0: "Sharpness"},
 	},
-	torchic: {
-		inherit: true,
-		baseStats: {hp: 45, atk: 60, def: 40, spa: 50, spd: 50, spe: 65},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	combusken: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 60, spa: 65, spd: 60, spe: 75},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	blaziken: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 70, spa: 90, spd: 70, spe: 100},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	blazikenmega: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 140, def: 85, spa: 130, spd: 85, spe: 110},
-		abilities: {0: "Reckless"},
-	},
 	mightyena: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 100, def: 70, spa: 60, spd: 60, spe: 90},
@@ -3290,7 +3270,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Intimidate"},
+		abilities: {0: "Protosynthesis", H: "Moxie"},
 	},
 	ironvaliant: {
 		inherit: true,
@@ -4272,7 +4252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Nopainnogain",
 		types: ["Fighting", "Psychic"],
 		baseStats: {hp: 130, atk: 75, def: 70, spa: 80, spd: 75, spe: 85},
-		abilities: {0: "Regenerator", H: "Rick Roll"},
+		abilities: {0: "Rick Roll"},
 		heightm: 1.6,
 		weightkg: 34,
 		eggGroups: ["Human-Like"],
