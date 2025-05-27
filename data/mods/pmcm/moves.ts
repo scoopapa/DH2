@@ -579,7 +579,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
       			choice: 'switch',
       			pokemon: dondozo,
     			});
-				checkFainted();
+				this.checkFainted();
 				//this.queue.addChoice({
 					//choice: 'instaswitch',
 					//slot: faintedSlot,
