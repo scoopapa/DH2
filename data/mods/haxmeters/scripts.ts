@@ -1,3 +1,7 @@
+export function roundNum(n: number): number {
+	return Math.round((n + Number.EPSILON) * 100) / 100;
+}
+
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
@@ -6,38 +10,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addMiss(amount) {
 			if (amount === 0) return;
 			this.miss += amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: +${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: +${roundNum(amount)} -> ${roundNum(this.miss)})`);
 		},
 		subtractMiss(amount) {
 			this.miss -= amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: -${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: -${roundNum(amount)} -> ${roundNum(this.miss)})`);
 		},
 		addEffect(amount) {
 			if (amount === 0) return;
 			this.effect += amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: +${amount} -> ${this.effect})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: +${roundNum(amount)} -> ${roundNum(this.effect)})`);
 		},
 		subtractEffect(amount) {
 			this.effect -= amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: -${amount} -> ${this.effect})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: -${roundNum(amount)} -> ${roundNum(this.effect)})`);
 		},
 		addCrit(amount) {
 			if (amount === 0) return;
 			this.crit += amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: +${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: +${roundNum(amount)} -> ${roundNum(this.crit)})`);
 		},
 		subtractCrit(amount) {
 			this.crit -= amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: -${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: -${roundNum(amount)} -> ${roundNum(this.crit)})`);
 		},
 		addStatus(amount) {
 			if (amount === 0) return;
 			this.status += amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: +${amount} -> ${this.status})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: +${roundNum(amount)} -> ${roundNum(this.status)})`);
 		},
 		subtractStatus(amount) {
 			this.status -= amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: -${amount} -> ${this.status})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
 		},
 	},
 	actions: {
