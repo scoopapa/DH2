@@ -531,6 +531,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
+					if (pokemon.storedVolatiles) {
+  						for (const volatile in pokemon.storedVolatiles) {
+    						pokemon.addVolatile(volatile);
+						}
+					}
+					if (pokemon.storedBoosts) {
+  						for (const stat in pokemon.storedBoosts) {
+    						const change = pokemon.storedBoosts[stat];
+    						if (change !== 0) {
+      						this.boost({[stat]: change}, pokemon);
+    						}
+ 						}
+					}
 					this.add('-message', `Dondozo enjoyed its meal!`);
 					// applies boost based on eaten mon stats
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
@@ -569,40 +582,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onFaint(pokemon) {
 				const side = pokemon.side;
 				const dondozo = side.pokemon.find(p => p.species.name === 'Dondozo' && !p.fainted);
-				this.add('-message', `this: ` + dondozo);
 				if (!dondozo) return;
-				this.add('-message', `switch go brrr`);
-				this.effectState.dondozoSwitch = true;
-				const faintedSlot = pokemon.position;
-				const dondozoSlot = side.pokemon.indexOf(dondozo);
 				this.queue.insertChoice({
       			choice: 'switch',
       			pokemon: pokemon,
 					target: dondozo,
     			});
 				this.checkFainted();
-				//this.queue.addChoice({
-					//choice: 'instaswitch',
-					//slot: faintedSlot,
-					//target: dondozo,
-				//});
 			}
-			
-			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
-			//onFaint(pokemon) {
-    			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
-    			//if (dondozo && !dondozo.fainted) {
-        			//dondozo.switchFlag = true;
-    			//}
-			//}
 		},
 		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
+			pokemon.storedBoosts = { ...pokemon.boosts };
+			pokemon.storedVolatiles = {};
+			for (const volatile in pokemon.volatiles) {
+  				pokemon.storedVolatiles[volatile] = pokemon.volatiles[volatile];
+			}
 			if (source.side.getSideCondition('orderup')) {
 				this.add('-ability', source, 'Order Up');
-				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move. After it faints, please switch in Dondozo or the move will not function successfully.`);
+				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move.`);
 			}
 			source.switchFlag = true;
 		},
