@@ -595,10 +595,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
-			pokemon.storedBoosts = { ...pokemon.boosts };
-			pokemon.storedVolatiles = {};
-			for (const volatile in pokemon.volatiles) {
-  				pokemon.storedVolatiles[volatile] = pokemon.volatiles[volatile];
+			source.storedBoosts = { ...source.boosts };
+			source.storedVolatiles = {};
+			for (const volatile in source.volatiles) {
+  				source.storedVolatiles[volatile] = source.volatiles[volatile];
 			}
 			if (source.side.getSideCondition('orderup')) {
 				this.add('-ability', source, 'Order Up');
