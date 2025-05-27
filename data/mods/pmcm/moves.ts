@@ -575,11 +575,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.effectState.dondozoSwitch = true;
 				const faintedSlot = pokemon.position;
 				const dondozoSlot = side.pokemon.indexOf(dondozo);
-				this.queue.addChoice({
-					choice: 'instaswitch',
-					slot: faintedSlot,
-					target: dondozo,
-				});
+				this.queue.insertChoice({
+      			choice: 'switch',
+      			pokemon: dondozo.position,
+    			});
+				checkFainted();
+				//this.queue.addChoice({
+					//choice: 'instaswitch',
+					//slot: faintedSlot,
+					//target: dondozo,
+				//});
 			}
 			
 			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
