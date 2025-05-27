@@ -144,9 +144,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Raging Bull",
 		type: "Normal",
 		effectType: "Move",
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		shortDesc: "Changes type to the most effective against the target (Water, Fighting, Fire, or Normal).",
 		desc: "Changes the move's and user's forme to the most effective against the target (Water, Fighting, Fire, or Normal).",
-		
 		beforeMoveCallback(source, target, move) {
 		  	const typeEffectiveness = {
 				Water: this.dex.getEffectiveness('Water', target),
