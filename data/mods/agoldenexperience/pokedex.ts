@@ -3056,11 +3056,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	basculegion: {
 		inherit: true,
-		abilities: {0: "Rattled", 1: "Adaptability", H: "Reckless"}, 
+		abilities: {0: "Swift Swim", 1: "Adaptability", H: "Reckless"}, 
 	},
 	basculegionf: {
 		inherit: true,
-		abilities: {0: "Rattled", 1: "Adaptability", H: "Rock Head"},
+		abilities: {0: "Swift Swim", 1: "Adaptability", H: "Rock Head"},
 	},
 	sneasler: {
 		inherit: true,
@@ -4174,7 +4174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Sithbull",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 120, atk: 140, def: 90, spa: 60, spd: 75, spe: 45},
-		abilities: {0: "Intimidate", 1: "Shadow Tag", H: "Cursed Body"},
+		abilities: {0: "Intimidate", 1: "Shadow Tag", H: "Rattled"},
 		heightm: 1.71,
 		weightkg: 123,
 		prevo: "Granbull",
