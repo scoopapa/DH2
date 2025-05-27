@@ -577,7 +577,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				const dondozoSlot = side.pokemon.indexOf(dondozo);
 				this.queue.insertChoice({
       			choice: 'switch',
-      			pokemon: dondozo,
+      			pokemon: pokemon,
+					target: dondozo,
     			});
 				this.checkFainted();
 				//this.queue.addChoice({
