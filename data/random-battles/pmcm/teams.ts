@@ -1763,7 +1763,7 @@ export class RandomTeams {
 				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
-			let species = this.sample(currentSpeciesPool);
+			const species = this.sample(currentSpeciesPool);
 
 			//let species = this.dex.species.get(this.sample(pokemonPool[baseSpecies]));
 
