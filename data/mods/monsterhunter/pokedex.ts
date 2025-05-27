@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Balahara",
 		types: ["Ground", "Water"],
 		baseStats: {hp: 87, atk: 109, def: 93, spa: 104, spd: 74, spe: 80},
-		abilities: {0: "Sand Rush", H: "Oil Slick"},
+		abilities: {0: "Sand Rush", H: "Oilslick"},
 		heightm: 1.0,
 		weightkg: 50.0,
 		color: "Black",
