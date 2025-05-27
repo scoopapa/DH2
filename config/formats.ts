@@ -3558,7 +3558,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Hax Meters",
 		mod: 'gen8haxmeters',
-		ruleset: ['Standard', 'Hax Meter Rule', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Moves Clause', '!Evasion Items Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Hax Meter Rule', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
     {
