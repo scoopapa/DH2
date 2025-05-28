@@ -2835,7 +2835,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			echoedvoice: ["9M"],
 			endure: ["9M"],
 			facade: ["9M"],
-			fireblast: ["9M"],
 			flashcannon: ["9M"],
 			focusblast: ["9M"],
 			focusenergy: ["9L1", "9M"],
