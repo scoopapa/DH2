@@ -339,10 +339,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	omnivore: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
+			if (!pokemon.hp) return;
+			this.add('-activate', target, 'ability: Omnivore');
 			target.addVolatile('stockpile');
-			if (damage < target.hp) {
-				this.add('-activate', target, 'ability: Omnivore');
-			}
 		},
 		flags: {},
 		name: "Omnivore",
