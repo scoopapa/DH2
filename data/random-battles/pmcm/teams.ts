@@ -1268,7 +1268,7 @@ export class RandomTeams {
 		if (species.id === 'dondozo') return 'Leftovers';
 		if (species.id === 'golurk') return this.sample(['Life Orb', 'Punching Glove', 'Colbur Berry']);
 		if (species.id === 'meowscarada') return 'Heavy-Duty Boots';
-		if (species.id === 'golurk') return this.sample(['Life Orb', 'Sitrus Berry', 'Air Balloon']);
+		if (species.id === 'infernape') return this.sample(['Life Orb', 'Sitrus Berry', 'Air Balloon']);
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
