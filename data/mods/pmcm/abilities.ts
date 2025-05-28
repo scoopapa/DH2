@@ -511,11 +511,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	berserk: {
 		onUpdate(pokemon) {
-			this.effectState.berserk = false;
+			if (!pokemon.berserk) {
+				pokemon.berserk = false;
+			}
 			if (pokemon.species.id !== 'infernape' || !pokemon.hp) return;
-			if (pokemon.hp < pokemon.maxhp / 2 && this.effectState.berserk === false) {
+			if (pokemon.hp < pokemon.maxhp / 2 && pokemon.berserk === false) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
-				this.effectState.berserk = true;
+				pokemon.berserk = true;
 			}
 		},
 		flags: {},
