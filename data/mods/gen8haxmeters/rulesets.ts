@@ -1,7 +1,3 @@
-export function roundNum(n: number): number {
-	return Math.round((n + Number.EPSILON) * 100) / 100;
-}
-
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	haxmeterrule: {
         effectType: 'Rule',
@@ -13,19 +9,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = 30;
 				side.crit = 30;
 				side.status = 30;
+				this.add('-message', `${side.name}\nMiss: ${side.miss}\nEffect: ${side.effect}\nCritcal Hit: ${side.crit}\nStatus: ${side.status}`);
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
 			}
-			const sideOne = this.sides[0];
-			const sideTwo = this.sides[1];
-			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
 		},
 		onResidual(pokemon) {
-			const sideOne = this.sides[0];
-			const sideTwo = this.sides[1];
-			if (pokemon.side !== sideOne) return;
-			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
+			this.add('-message', `${pokemon.side.name}\nMiss: ${pokemon.side.miss.toFixed(2)}\nEffect: ${pokemon.side.effect.toFixed(2)}\nCritcal Hit: ${pokemon.side.crit.toFixed(2)}\nStatus: ${pokemon.side.status.toFixed(2)}`);
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];

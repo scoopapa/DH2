@@ -62,6 +62,10 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				}
 			}
 		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Dark') return this.chainModify([4505, 4096]);
+		},
 	},
 	brycenmanboost: {
 		name: 'brycenmanboost',

@@ -97,7 +97,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Trash Compactor",
-		shortDesc: "Restores 25% of the user's max HP. If hazards are active on the user's side of the field, instead restores 50% of the user's max HP.",
+		shortDesc: "Restores 25% HP; 50% if hazards are on your side.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},

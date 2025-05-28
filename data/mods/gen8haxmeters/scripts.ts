@@ -1,47 +1,43 @@
-export function roundNum(n: number): number {
-	return Math.round((n + Number.EPSILON) * 100) / 100;
-}
-
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	gen: 9,
+	gen: 8,
 	
 	side: {
 		addMiss(amount) {
 			if (amount === 0) return;
 			this.miss += amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: +${roundNum(amount)} -> ${roundNum(this.miss)})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: +${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
 		},
 		subtractMiss(amount) {
 			this.miss -= amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: -${roundNum(amount)} -> ${roundNum(this.miss)})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: -${amount.toFixed(2)} -> ${this.miss.toFixed(2)})`);
 		},
 		addEffect(amount) {
 			if (amount === 0) return;
 			this.effect += amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: +${roundNum(amount)} -> ${roundNum(this.effect)})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: +${amount} -> ${this.effect})`);
 		},
 		subtractEffect(amount) {
 			this.effect -= amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: -${roundNum(amount)} -> ${roundNum(this.effect)})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: -${amount} -> ${this.effect})`);
 		},
 		addCrit(amount) {
 			if (amount === 0) return;
 			this.crit += amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: +${roundNum(amount)} -> ${roundNum(this.crit)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: +${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
 		},
 		subtractCrit(amount) {
 			this.crit -= amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: -${roundNum(amount)} -> ${roundNum(this.crit)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: -${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
 		},
 		addStatus(amount) {
 			if (amount === 0) return;
 			this.status += amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: +${roundNum(amount)} -> ${roundNum(this.status)})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: +${amount} -> ${this.status})`);
 		},
 		subtractStatus(amount) {
 			this.status -= amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: -${amount} -> ${this.status})`);
 		},
 	},
 	actions: {
@@ -357,7 +353,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (secondary.status && target.status) continue;
 					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
 					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
-						if (source.side.effect >= 100) source.side.subtractEffect(100);
+						source.side.subtractEffect(100);
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}
 				}
