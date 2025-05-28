@@ -729,5 +729,16 @@
                 "teraTypes": ["Ghost"]
             }
         ]
+    },
+    "infernape": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["All-Out Assault", "Mind Blown", "Bitter Blade", "Grass Knot", "Gunk Shot", "Earthquake", "Vacuum Wave", "U-turn"],
+                "abilities": ["Berserk"],
+                "teraTypes": ["Fire", "Stellar"]
+            }
+        ]
     }
 }
