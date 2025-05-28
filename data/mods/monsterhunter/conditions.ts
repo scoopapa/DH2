@@ -22,7 +22,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
         name: 'slp',
         effectType: 'Status',
         onStart(target, source, sourceEffect) {
-			this.add('-message', `${target.name} is Drowsy! 1.2x from damage, 25% chance of not moving!`);
+			this.add('-message', `${target.name} is Drowsy! 1.2x from damage, can't use same attack twice!`);
             if (sourceEffect && sourceEffect.effectType === 'Ability') {
                 this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
             } else if (sourceEffect && sourceEffect.effectType === 'Move') {
@@ -38,13 +38,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
         onSourceModifyDamage(damage, source, target, move) {
             return this.chainModify(1.2);
         },
-        onBeforeMovePriority: 10,
-        onBeforeMove(pokemon) {
-            if (this.randomChance(1, 4)) {
-                this.add('cant', pokemon, 'slp');
-                return false;
-            }
-        },
+        onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
     },
 	snow: {
 		inherit: true,
