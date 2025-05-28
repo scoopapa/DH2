@@ -514,7 +514,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.effectState.berserk = false;
 			if (pokemon.species.id !== 'infernape' || !pokemon.hp) return;
 			if (pokemon.hp < pokemon.maxhp / 2 && this.effectState.berserk === false) {
-				this.boost({ spa: 1 }, target, target);
+				this.boost({ spa: 1 }, pokemon, pokemon);
 				this.effectState.berserk = true;
 			}
 		},
