@@ -742,8 +742,7 @@ export class RandomTeams {
 		// 33% chance to force Dragon Dance on Mega Altaria, since it otherwise never gets it due to teambuilder shenanigans
 		if (species.id === 'altariamega') {
 			if (movePool.includes('dragondance')) {
-				const altariaNum = Math.floor(Math.random() * 3) + 1
-				if (altariaNum === 1) {
+				if (this.randomChance(1, 3)) {
 					counter = this.addMove('dragondance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 						movePool, teraType, role);
 				}
@@ -752,8 +751,7 @@ export class RandomTeams {
 		// enforces a sound move on Mesprit with Throat Spray
 		if (species.id === 'mesprit') {
 			if (movePool.includes('psychicnoise')) {
-				const mespritNum = Math.round(Math.random())
-				if (mespritNum === 0) {
+				if (this.randomChance(1, 2)) {
 					counter = this.addMove('psychicnoise', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 						movePool, teraType, role);
 				}
@@ -925,6 +923,8 @@ export class RandomTeams {
 		if (!counter.get('stabtera') && !['Bulky Support', 'Doubles Support'].includes(role)) {
 			const stabMoves = [];
 			for (const moveid of movePool) {
+				// prevents Meowscarada from being enforced stab moves (since it has Protean and doesn't care)
+				if (species.id === 'meowscarada') break;
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && teraType === moveType) {
@@ -1763,7 +1763,8 @@ export class RandomTeams {
 			let canMega = false;
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
-				if (!hasMega && species.isMega) canMega = true;
+				// randomchance allows non-mega sets of mons with megas to appear even if team has no megas
+				if (!hasMega && species.isMega && this.randomChance(1, 2)) canMega = true;
 			}
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
