@@ -149,10 +149,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		desc: "Changes the move's and user's forme to the most effective against the target (Water, Fighting, Fire, or Normal).",
 		beforeMoveCallback(source, target, move) {
 		  	const typeEffectiveness = {
+				Normal: this.dex.getEffectiveness('Normal', target),
 				Water: this.dex.getEffectiveness('Water', target),
 				Fighting: this.dex.getEffectiveness('Fighting', target),
 				Fire: this.dex.getEffectiveness('Fire', target),
-				Normal: this.dex.getEffectiveness('Normal', target),
 			};
 		  
 		  	let bestType = 'Normal';
