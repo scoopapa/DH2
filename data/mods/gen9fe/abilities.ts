@@ -1295,7 +1295,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp/4);
+				this.heal(pokemon.baseMaxhp/4);
 				pokemon.cureStatus();
 			}
 		},
