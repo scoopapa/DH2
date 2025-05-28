@@ -4,7 +4,7 @@ import { actionHandlers } from "../../../server/chat-plugins/helptickets-auto";
 import TeamGenerator from "../../cg-teams";
 import { learnsetUpdate } from "../gen3hoenngaiden/learnsetupdate";
 
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: { [k: string]: LearnsetData; } = {
 	// Kanto Dex
 	beldumkanto: {
 		learnset: {
@@ -1010,7 +1010,14 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["8M", "7M"],
 		},
 	},
-	
+	coramata: {
+		learnset: {
+			powergem: ["9L1"],
+			wavecrash: ["9L1"],
+			irondefense: ["9L1"],
+		},
+	},
+
 	// Hoenn Dex
 	diodactyl: {
 		learnset: {
@@ -1331,7 +1338,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	},
 	altilazzle: {
-		learnsets: {
+		learnset: {
 			cosmicpower: ["9M"],
 			meteormash: ["9M"],
 			flashcannon: ["9M"],
@@ -1485,7 +1492,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			alluringvoice: ["9M"],
 		},
 	},
-	
+
 	// Hisui Dex
 	shroomishhisui: {
 		learnset: {
@@ -1797,7 +1804,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 
 	// Unova Dex
 
-	pachirisu: {
+	pachirisuunova: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9M"],
@@ -2109,7 +2116,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			pounce: ["7L50", "6L50"],
 			lunge: ["7L50", "6L50"],
 			// thief: ["7L50", "6L50"],
-			elementalfangs: ["7L50", "6L50"],
+			icefang: ["7L50", "6L50"],
+			thunderfang: ["7L50", "6L50"],
+			firefang: ["7L50", "6L50"],
 			lowsweep: ["7L50", "6L50"],
 			// uturn: ["7L50", "6L50"],
 			bulkup: ["7L50", "6L50"],
@@ -5516,7 +5525,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			poisonfang: ["8L1"],
 			quash: ["8L1"],
 			slam: ["8L1"],
-		}, 
+		},
 	},
 	inciscyon: {
 		learnset: {

@@ -665,6 +665,33 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "staraptor").learnset.swordsdance = ["9L1"];
 		this.modData("Learnsets", "staraptor").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "staraptor").learnset.defog = ["9L1"];
+		
+		this.modData("Learnsets", "glaceon").learnset.earthpower = ["9L1"];
+		
+		this.modData("Learnsets", "golem").learnset.clusterexplosion = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.headsmash = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.knockoff = ["9L1"];
+		
+		this.modData("Learnsets", "drapion").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "drapion").learnset.suckerpunch = ["9L1"];
+		this.modData("Learnsets", "drapion").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "drapion").learnset.jawlock = ["9L1"];
+		
+		this.modData("Learnsets", "electrodehisui").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "electrodehisui").learnset.overheat = ["9L1"];
+		this.modData("Learnsets", "electrodehisui").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "electrodehisui").learnset.thundercage = ["9L1"];
+		
+		this.modData("Learnsets", "bellibolt").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.thunderclap = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.perishsong = ["9L1"];
+		this.modData("Learnsets", "bellibolt").learnset.mirrorcoat = ["9L1"];
 
 		delete this.modData('Learnsets', 'bellossom').learnset.sleeppowder;
 		delete this.modData('Learnsets', 'gloom').learnset.sleeppowder;

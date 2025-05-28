@@ -86,6 +86,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		gen: 1,
 	},
+	spariel: {
+		num: 3007,
+		name: "Spariel",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 58, atk: 61, def: 44, spa: 61, spd: 61, spe: 52},
+		abilities: {0: "No Ability"},
+		heightm: 0.1, // placeholder
+		weightkg: 0.1, // placeholder
+		color: "Purple",
+		evos: ["Sparophim"],
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
 	sparophim: {
 		num: 2006,
 		name: "Sparophim",
@@ -95,6 +108,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.1, // placeholder
 		weightkg: 0.1, // placeholder
 		color: "Purple",
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
+	doduo: {
+		inherit: true,
+		evos: ["Dodrio", "Roaduo"],
+	},
+	roaduo: {
+		num: 2007,
+		name: "Roaduo",
+		types: ["Ground", "Flying"],
+		baseStats: {hp: 75, atk: 100, def: 100, spa: 50, spd: 50, spe: 75},
+		abilities: {0: "No Ability"},
+		heightm: 1.4, // placeholder
+		weightkg: 87, // placeholder
+		color: "Brown",
+		prevo: "Doduo",
+		evoType: "trade",
 		eggGroups: ["Flying"],
 		gen: 1,
 	},

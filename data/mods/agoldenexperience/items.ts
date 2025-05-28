@@ -48,33 +48,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//mega stones
-	meteorfragment: {
-		name: "Meteor Fragment",
-		spritenum: 578,
-		megaStone: "Rayquaza-Mega",
-		megaEvolves: "Rayquaza",
-		itemUser: ["Rayquaza"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -4,
-		gen: 9,
-		desc: "If held by a Rayquaza, this item allows it to Mega Evolve in battle.",
-	},
-	necrosolunite: {
-		name: "Necrosolunite",
-		spritenum: 687,
-		megaStone: "Necrozma-Ultra",
-		itemUser: ["Necrozma-Ultra"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5,
-		gen: 9,
-		desc: "If held by a Necrozma-Dusk-Mane, this item allows it to Ultra Burst in battle.",
-	},
 	butterfrite: {
 		name: "Butterfrite",
 		spritenum: 578,
@@ -618,36 +591,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Clamperl", "Huntail"],
 	},
 	// sandwiches
-	mightysandwichkoraidon: {
-		name: "Mighty Sandwich (Koraidon)",
-		shortDesc: "Allows Koraidon to be its strongest version.",
-		// spritenum: 699,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1007) || pokemon.baseSpecies.num === 1007) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Koraidon",
-		itemUser: ["Koraidon"],
-		num: -41,
-		gen: 9,
-	},
-	mightysandwichmiraidon: {
-		name: "Mighty Sandwich (Miraidon)",
-		shortDesc: "Allows Miraidon to be its strongest version.",
-		// spritenum: 699,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1008) || pokemon.baseSpecies.num === 1008) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Miraidon",
-		itemUser: ["Miraidon"],
-		num: -42,
-		gen: 9,
-	},
+	// mightysandwichkoraidon: {
+	// 	name: "Mighty Sandwich (Koraidon)",
+	// 	shortDesc: "Allows Koraidon to be its strongest version.",
+	// 	// spritenum: 699,
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.num === 1007) || pokemon.baseSpecies.num === 1007) {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	forcedForme: "Koraidon",
+	// 	itemUser: ["Koraidon"],
+	// 	num: -41,
+	// 	gen: 9,
+	// },
+	// mightysandwichmiraidon: {
+	// 	name: "Mighty Sandwich (Miraidon)",
+	// 	shortDesc: "Allows Miraidon to be its strongest version.",
+	// 	// spritenum: 699,
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.num === 1008) || pokemon.baseSpecies.num === 1008) {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	forcedForme: "Miraidon",
+	// 	itemUser: ["Miraidon"],
+	// 	num: -42,
+	// 	gen: 9,
+	// },
 	awakeningeye: {
 		name: "Awakening Eye",
 		shortDesc: "If held by a Meowstic, its Sp. Atk and its Sp. Def are x1.5.",
@@ -668,52 +641,52 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -43,
 		gen: 9,
 	},
-	icemane: {
-		name: "Ice Mane",
-		spritenum: 715,
-		fling: {
-			basePower: 80,
-		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.name === 'Calyrex-Ice') || pokemon.baseSpecies.name === 'Calyrex-Ice') {
-				return false;
-			}
-			return true;
-		},
-		onDamage(damage, target, source, effect) {
-			if (source && source.baseSpecies.name === 'Calyrex-Ice' && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
-				return false;
-			}
-		},
-		itemUser: ["Calyrex-Ice"],
-		desc: "Allows Calyrex to turn into Calyrex-Ice. The holder is immune to entry hazards.",
-		num: -44,
-		gen: 9,
-	},
-	phantommane: {
-		name: "Phantom Mane",
-		spritenum: 663,
-		fling: {
-			basePower: 30,
-		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.name === 'Calyrex-Shadow') || pokemon.baseSpecies.name === 'Calyrex-Shadow') {
-				return false;
-			}
-			return true;
-		},
-		onModifyMove(move) {
-			delete move.flags['contact'];
-		},
-		itemUser: ["Calyrex-Shadow"],
-		desc: "Allows Calyrex to turn into Calyrex-Shadow. The holder's contact moves are not contact.",
-		num: -45,
-		gen: 9,
-	},
+	// icemane: {
+	// 	name: "Ice Mane",
+	// 	spritenum: 715,
+	// 	fling: {
+	// 		basePower: 80,
+	// 	},
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.name === 'Calyrex-Ice') || pokemon.baseSpecies.name === 'Calyrex-Ice') {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	onDamage(damage, target, source, effect) {
+	// 		if (source && source.baseSpecies.name === 'Calyrex-Ice' && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
+	// 			return false;
+	// 		}
+	// 	},
+	// 	itemUser: ["Calyrex-Ice"],
+	// 	desc: "Allows Calyrex to turn into Calyrex-Ice. The holder is immune to entry hazards.",
+	// 	num: -44,
+	// 	gen: 9,
+	// },
+	// phantommane: {
+	// 	name: "Phantom Mane",
+	// 	spritenum: 663,
+	// 	fling: {
+	// 		basePower: 30,
+	// 	},
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.name === 'Calyrex-Shadow') || pokemon.baseSpecies.name === 'Calyrex-Shadow') {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	onModifyMove(move) {
+	// 		delete move.flags['contact'];
+	// 	},
+	// 	itemUser: ["Calyrex-Shadow"],
+	// 	desc: "Allows Calyrex to turn into Calyrex-Shadow. The holder's contact moves are not contact.",
+	// 	num: -45,
+	// 	gen: 9,
+	// },
 	identitycard: { 
 		name: "Identity Card",
-		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
-		// Edited in moves.ts
+		shortDesc: "Holder's typing cannot be changed by any move.",
+		// Edited in scripts.ts
 		num: -46,
 		gen: 9,
 	},
@@ -765,40 +738,173 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
-	cornerstonemask: {
-		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Cornerstone')) {
-				return this.chainModify(1.2);
+	phonebooth: {
+		name: "Phone Booth",
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Palafin') {
+				pokemon.formeChange('Palafin-Hero');
 			}
 		},
-	},
-	hearthflamemask: {
-		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Palafin') return false;
+			return true;
 		},
-		onModifyAtkPriority: 6,
+		itemUser: ["Palafin", "Palafin-Hero"],
+		num: -50,
+		gen: 9,
+		desc: "If held by Palafin: Hero Forme on entry.",
+	},
+	lightball: {
+		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
-				return this.chainModify(1.2);
+			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
+			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
+			if (pokemon.baseSpecies.baseSpecies.includes(group1)) {
+				return this.chainModify(2);
 			}
+			else if (pokemon.baseSpecies.baseSpecies.includes(group2)) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpA(spa, pokemon) {
+			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
+			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
+			if (pokemon.baseSpecies.baseSpecies.includes(group1)) {
+				return this.chainModify(2);
+			}
+			else if (pokemon.baseSpecies.baseSpecies.includes(group2)) {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World",
+			"Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru", "Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"
+		],
+		shortDesc: "If held by a Pikachu, or a Pikaclone, its Attack and Sp. Atk are doubled or multiplied by 1.5.",
+	},
+	leek: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return 5;
+			}
+		},
+		shortDesc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
+		desc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
+	},
+	greninjinite: {
+		name: "Greninjinite",
+		megaStone: "Greninja-Mega",
+		megaEvolves: "Greninja",
+		itemUser: ["Greninja"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -51,
+		gen: 9,
+		desc: "If held by a Greninja, this item allows it to Mega Evolve in battle.",
+	},
+	meowscaradite: {
+		name: "Meowscaradite",
+		megaStone: "Meowscarada-Mega",
+		megaEvolves: "Meowscarada",
+		itemUser: ["Meowscarada"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -52,
+		gen: 9,
+		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
+	},
+	quaquavite: {
+		name: "Quaquavite",
+		megaStone: "Quaquaval-Mega",
+		megaEvolves: "Quaquaval",
+		itemUser: ["Quaquaval"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -54,
+		gen: 9,
+		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
+	},
+	// everlasting winter
+	safetygoggles: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter' || type === 'powder') return false;
 		},
 	},
-	wellspringmask: {
+
+	// Silvally Memories section
+	bugmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifySpDPriority: 6,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Wellspring')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
+	},
+	dragonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	electricmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fightingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	firememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	flyingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	ghostmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	grassmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	groundmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	icememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	poisonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	psychicmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	rockmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	steelmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	watermemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
 	},
 }

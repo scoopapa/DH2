@@ -97,7 +97,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Trash Compactor",
-		shortDesc: "Restores 25% of the user's max HP. If hazards are active on the user's side of the field, instead restores 50% of the user's max HP.",
+		shortDesc: "Restores 25% HP; 50% if hazards are on your side.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
@@ -163,7 +163,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's SpA by 1.",
+		shortDesc: "100% chance to raise the user's SpA by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -172,7 +172,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		    this.add('-anim', source, "Paleo Wave", target);
 		},
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					spa: 1,
@@ -191,6 +191,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Psycho Cut", target);
+		},
 		secondary: null,
 		self: {
 			volatileStatus: 'ivoryslash',
@@ -233,10 +237,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Silver Wind", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
+	},
+	hemlockhit: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Hemlock Hit",
+		shortDesc: "30% chance to poison the target.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Poison Jab", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Grass",
 	},
 	
 	//edited vanilla moves

@@ -332,4 +332,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	staraptor: {
 		tier: "MetaMons",
 	},
+	glaceon: {
+		tier: "MetaMons",
+	},
+	golem: {
+		tier: "MetaMons",
+	},
+	drapion: {
+		tier: "MetaMons",
+	},
+	electrodehisui: {
+		tier: "MetaMons",
+	},
+	bellibolt: {
+		tier: "MetaMons",
+	},
+	furret: {
+		tier: "MetaMons",
+	},
 };

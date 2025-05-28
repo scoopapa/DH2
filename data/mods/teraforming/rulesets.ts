@@ -3,7 +3,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		effectType: 'Rule',
 		name: 'Terastal Clause',
 		desc: "Only Pok&eacute;mon with TeraForms can Terastallize",
-		banlist: ['Samurott-Base + Tera Shard', 'Samurott-Base + Poke Ball'],
+		banlist: ['Samurott-Base + Tera Shard', 'Samurott-Base + Poke Ball', 'Weezing-Base + Tera Shard', 'Weezing-Base + Poke Ball', 'Basculegion-Base + Tera Shard', 'Basculegion-Base + Poke Ball', 'Goodra-Hisui + Tera Shard', 'Goodra-Hisui + Poke Ball', 'Avalugg-Hisui + Tera Shard', 'Avalugg-Hisui + Poke Ball'],
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 				pokemon.canTerastallize = null;

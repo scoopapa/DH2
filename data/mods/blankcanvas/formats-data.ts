@@ -163,4 +163,76 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	geoporka: {
 		tier: "BC OU",
 	},
+	seaode: {
+		tier: "BC OU",
+	},
+	plasmage: {
+		tier: "BC OU",
+	},
+	porcupyre: {
+		tier: "BC OU",
+	},
+	bellolysk: {
+		tier: "BC OU",
+	},
+	tryonite: {
+		tier: "BC OU",
+	},
+	scarachnid: {
+		tier: "BC OU",
+	},
+	geigeramp: {
+		tier: "BC OU",
+	},
+	maldractice: {
+		tier: "BC OU",
+	},
+	serpvoltidae: {
+		tier: "BC OU",
+	},
+	sheepquake: {
+		tier: "BC OU",
+	},
+	bufferfly: {
+		tier: "BC OU",
+	},
+	dastard: {
+		tier: "BC OU",
+	},
+	cottentration: {
+		tier: "BC OU",
+	},
+	sorrowcean: {
+		tier: "BC OU",
+	},
+	psyllapse: {
+		tier: "BC OU",
+	},
+	haarstorm: {
+		tier: "BC OU",
+	},
+	borealis: {
+		tier: "BC OU",
+	},
+	bazhigangquan: {
+		tier: "BC OU",
+	},
+	leechmonner: {
+		tier: "BC OU",
+	},
+	ironcrest: {
+		tier: "BC OU",
+	},
+	odonata: {
+		tier: "BC OU",
+	},
+	hebicikuga: {
+		tier: "BC OU",
+	},
+	devestial: {
+		tier: "BC OU",
+	},
+	lundicare: {
+		tier: "BC OU",
+	},
 };

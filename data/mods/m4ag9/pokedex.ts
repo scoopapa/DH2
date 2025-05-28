@@ -61,7 +61,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	samurotthisui: {
 		inherit: true,
 		abilities: {0: "Torrent", H: "Sharpness"},
-		isNonstandard: null,
 	},
 	braviaryhisui: {
 		inherit: true,

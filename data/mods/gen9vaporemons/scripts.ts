@@ -2,25 +2,25 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	pokemon: {
 		ignoringAbility() {
-			let neutralizinggas = false;
+			if (this.battle.gen >= 5 && !this.isActive) return true;
+	
+			// Certain Abilities won't activate while Transformed, even if they ordinarily couldn't be suppressed (e.g. Disguise)
+			if (this.getAbility().flags['notransform'] && this.transformed) return true;
+			if (this.getAbility().flags['cantsuppress']) return false;
+			if (this.volatiles['gastroacid']) return true;
+			if (this.volatiles['counteract']) return true;
+	
+			// Check if any active pokemon have the ability Neutralizing Gas
+			if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID)) return false;
 			for (const pokemon of this.battle.getAllActive()) {
-				if (pokemon.ability === ('neutralizinggas' as ID) ||
-					(
-						pokemon.ability === ('powerofalchemyweezing' as ID) &&
-						!pokemon.volatiles['gastroacid'] &&
-						!pokemon.volatiles['counteract'] &&
-						!pokemon.abilityState.ending
-					)
-				) {
-					neutralizinggas = true;
-					break;
+				// can't use hasAbility because it would lead to infinite recursion
+				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.volatiles['counteract'] &&
+					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
+					return true;
 				}
 			}
-			return !!(
-				(this.battle.gen >= 5 && !this.isActive) ||
-				((this.volatiles['gastroacid'] || this.volatiles['counteract'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)))
-				&& !this.getAbility().isPermanent)
-			);
+	
+			return false;
 		},
 		runEffectiveness(move: ActiveMove) {
 			let totalTypeMod = 0;
@@ -1823,7 +1823,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "lanturn").learnset.lifedew = ["9L1"];
 		this.modData("Learnsets", "lanturn").learnset.washaway = ["9L1"];
 		this.modData("Learnsets", "lanturn").learnset.softwarecrash = ["9L1"];
-		this.modData("Learnsets", "lanturn").learnset.chainlighting = ["9L1"];
+		this.modData("Learnsets", "lanturn").learnset.chainlightning = ["9L1"];
 		this.modData("Learnsets", "lanturn").learnset.signalbeam = ["9L1"];
 		this.modData("Learnsets", "lanturn").learnset.frostbreath = ["9L1"];
 		this.modData("Learnsets", "snubbull").learnset.skullbash = ["9L1"];

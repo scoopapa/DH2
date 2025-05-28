@@ -1,9 +1,8 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
-		excludeStandardTiers: true,
-		customTiers: ['Mega', 'Paldea', 'Paldea (NFE)'],
-		customDoublesTiers: ['Mega', 'Paldea', 'Paldea (NFE)'],
+		customTiers: ['Mega'],
+		customDoublesTiers: ['Mega'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
@@ -49,14 +48,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
-    // this is where form-specific Megas are defined when that becomes relevant
-    /* examples:
-		if (item.name === "Wormadamite") {
-			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";
+		if (item.name === "Ninetalesite" && pokemon.species.id === "Ninetales-Alola") return null;
+		if (item.name === "Dugtrionite") {
+			if (pokemon.species.name === "Dugtrio-Alola") return "Dugtrio-Alola-Mega";
 			else return null;
 		}
-		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
-    */
+		if (item.name === "Arcanite" && pokemon.species.name === "Arcanine-Hisui") return null;
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) return null;
 		return item.megaStone;
 	},

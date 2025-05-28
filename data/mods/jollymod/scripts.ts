@@ -15,7 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.modData("Learnsets", pokemon).learnset.bakecookie = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.buildsnowman = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.christmastree = ["9L1"];
-				this.modData("Learnsets", pokemon).learnset.cookiesandmilk = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.milkandcookies = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.hug = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.niceball = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.nicebeam = ["9L1"];
@@ -217,15 +217,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.add('-message', "But there was no one home...");
 				return;
 			}
+			//const n = 1;
 			const n = this.battle.random(100);
 			const pokemon = this.active[0];
 			if (n < 30) {
 				this.battle.add('-message', `Santa gave ${pokemon.name} a snack!`);
-				if(!pokemon.item) this.battle.add('-message', `But ${pokemon.name} didn't have room for one!`);
+				if(pokemon.item) this.battle.add('-message', `But ${pokemon.name} didn't have room for one!`);
 				else {
 					const items = ['aguavberry', 'figyberry', 'iapapaberry', 'magoberry', 'wikiberry', 'sitrusberry', 'lumberry', 'custapberry', 'salacberry', 'starfberry', 'keeberry', 'marangaberry', 'jabocaberry', 'rowapberry', 'candycane', 'gingerbreadman', 'pokedoll'];
-					const item = this.dex.items.get(this.sample(items));
-					this.add('-item', pokemon, item, '[from] move: Bake Cookie', '[of] ' + pokemon);
+					const item = this.battle.dex.items.get(this.sample(items));
+					this.add('-item', pokemon, item);
 					target.setItem(item);
 				}
 			} else if (n < 50) {
@@ -285,7 +286,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.boost({[bestStat]: -1}, pokemon);
 			} else if (n < 80) {
 				this.battle.add('-message', `Santa sent a chilling breeze!`);
-				this.battle.add('-message', `${pokemon.name} became weak to Ice!`);
 				pokemon.addVolatile('hypothermia');
 			} else if (n < 90) {
 				this.battle.add('-message', `Santa passed down chilling judgement!`);
@@ -378,23 +378,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return false;
 			}
 			
-			
-
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
-				// the game currently never ignores immunities
-				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
-					this.battle.debug('immune to status');
-					if ((sourceEffect as Move)?.status) {
-						this.battle.add('-immune', this);
-					}
-					return false;
-				}
-			}
 			if (!ignoreImmunities && status.id &&
 					!(source?.hasAbility('permafrost') && ['frz', 'fsb'].includes(status.id))) {
 				// the game currently never ignores immunities
-				if (!this.runStatusImmunity('frz')) {
+				if (!this.runStatusImmunity('fsb')) {
 					this.battle.debug('immune to status');
 					if ((sourceEffect as Move)?.status) {
 						this.battle.add('-immune', this);

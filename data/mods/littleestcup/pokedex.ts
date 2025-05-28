@@ -3589,7 +3589,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 171,
 		name: "Lanturn",
 		types: ["Water", "Electric"],
-		baseStats: {hp: 125, atk: 58, def: 58, spa: 76, spd: 76, spe: 67},
+		baseStats: {hp: 235, atk: 58, def: 58, spa: 76, spd: 76, spe: 67},
 		abilities: {0: "Volt Absorb", 1: "Illuminate", H: "Water Absorb"},
 		heightm: 1.2,
 		weightkg: 22.5,

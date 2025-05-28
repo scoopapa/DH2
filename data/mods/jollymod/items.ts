@@ -104,4 +104,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Holiday"],
 	},
+	eviolite: {
+		inherit: true,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || ['Jolliv', 'Pikachu-Holiday', 'Hisuian Sneasel'].includes(pokemon.baseSpecies)) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || ['Jolliv', 'Pikachu-Holiday', 'Hisuian Sneasel'].includes(pokemon.baseSpecies)) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 }

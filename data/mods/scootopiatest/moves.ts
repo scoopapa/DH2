@@ -13,6 +13,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'cursedfield',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onSwitchIn(pokemon) {
 				let dmgDiv = 8;
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
@@ -32,8 +35,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualSubOrder: 3,
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "cursedfield") {
-					pokemon.m.lastField = "cursedfield";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
 				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
@@ -65,9 +67,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'blessedfield',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onSwitchIn(pokemon) {
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon,'blessedfield')) return;
 				this.heal(pokemon.maxhp / 8);
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -81,15 +87,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualSubOrder: 9,
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "blessedfield") {
-					pokemon.m.lastField = "blessedfield";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'blessedfield')) return; //what the fuck
 				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
 				pokemon.m.fieldTurns++;
 				if (pokemon.m.fieldTurns === 3) {
 					pokemon.cureStatus();
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 			},
 			onFieldEnd() {
@@ -114,6 +119,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'rainofmeteors',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Rain of Meteors', '[from] ability: ' + effect, '[of] ' + source);
@@ -128,12 +136,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				// let pokemon = field.battle.activePokemon;
 				// if (!pokemon) return;
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofmeteors") {
-					pokemon.m.lastField = "rainofmeteors";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofmeteors')) return;
 				let dmgDiv = 8;
-				if (pokemon.hasAbility("overcoat") || pokemon.hasType("Rock") || pokemon.hasType("Steel")) dmgDiv = 16;
+				if (pokemon.hasType("Steel") || pokemon.hasType("Rock") || pokemon.hasAbility("Overcoat")) dmgDiv = 16;
 				console.log(dmgDiv + ' ' + pokemon.name);
 				this.damage(pokemon.maxhp / dmgDiv);
 			},
@@ -159,6 +166,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'rainofdew',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onFieldStart(field, source, effect) {
 				console.log('hi');
 				if (effect?.effectType === 'Ability') {
@@ -172,8 +182,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualSubOrder: 9,
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofdew") {
-					pokemon.m.lastField = "rainofdew";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofdew')) return;
 				let dmgDiv = 16;
@@ -222,6 +231,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onBeforeMovePriority: 6,
 			onBeforeMove(pokemon, target, move) {
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
@@ -239,8 +251,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "silentdomain") {
-					pokemon.m.lastField = "silentdomain";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				const toBoost = {};
 				for (const boost in pokemon.boosts) {
@@ -271,6 +282,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'stellaralignment',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Stellar Alignment', '[from] ability: ' + effect, '[of] ' + source);
@@ -287,8 +301,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualSubOrder: 9,
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "stellaralignment") {
-					pokemon.m.lastField = "stellaralignment";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'stellaralignment')) return;
 				pokemon.m.fieldTurns++;
@@ -323,6 +336,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'chaoticweather',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Chaotic Weather', '[from] ability: ' + effect, '[of] ' + source);
@@ -384,6 +400,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'chaoticterrain',
 		condition: {
 			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Chaotic Terrain', '[from] ability: ' + effect, '[of] ' + source);
@@ -410,8 +429,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onResidual(pokemon) {
 				if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticterrain") {
-					pokemon.m.lastField = "chaoticterrain";
-					pokemon.m.fieldTurns = 0;
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticterrain')) return;
 				if (!this.field.terrain && pokemon.isGrounded()) {
@@ -429,34 +447,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	// World Effect-Related Moves
 	rebalance: {
 		num: 432,
-		shortDesc: "Clears World Effects. Lowers foe's SpA.",
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		shortDesc: "Clears World Effects. Fails if no World Effect",
+		category: "Special",
 		name: "Rebalance",
-		pp: 15,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Expanding Force ' + move.type);
+		},
+		accuracy: 100,
+		basePower: 110,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
-		onHit(target, source, move) {
-			let success = false;
-			let w = this.dex.dataCache.scootopia.getWorldEffect(target)
-			while(w){
-				this.dex.dataCache.scootopia.getWorldEffect(target)
-				this.field.removePseudoWeather(w);
-				success = true;
-			}
-			if (success) {
-				for (const side of source.battle.sides) {
-					for (const pokemon of side.active) {
-						pokemon.m.fieldTurns = 0;
-					}
-				}
-			}
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({spa:-1});
-			return success;
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(pokemon) {
+			return !!this.dex.dataCache.scootopia.getWorldEffect(pokemon);
+		},
+		onTryHit(pokemon) {
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(pokemon));
+		},
+		onAfterSubDamage(pokemon) {
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(pokemon));
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacent",
 		type: "Psychic",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
@@ -499,6 +511,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "User switches. Sets World Effect from user's moveset.",
 		category: "Status",
 		name: "Legacy Shade",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Chilly Reception ' + move.type);
+		},
 		pp: 5,
 		priority: 0,
 		flags: {},
@@ -562,7 +577,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -588,7 +603,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -618,7 +633,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.type = 'Ice';
 				break;
 			}
-			if (move.type == 'Normal' && this.dex.dataCache.scootopia.getWorldEffect() === 'rainofdew') move.type = 'Water';
+			if (move.type == 'Normal' && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.type = 'Water';
 		},
 		onModifyMove(move, pokemon) {
 			switch (pokemon.effectiveWeather()) {
@@ -639,7 +654,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			}
 			this.debug('BP: ' + move.basePower);
-			if (move.basePower == 50 && this.dex.dataCache.scootopia.getWorldEffect() === 'rainofdew') move.basePower *= 2;
+			if (move.basePower == 50 && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.basePower *= 2;
 		},
 	},
 	
@@ -650,7 +665,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -670,7 +685,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -788,18 +803,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	grasswhistle: {
 		inherit: true,
@@ -807,6 +825,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	
 	

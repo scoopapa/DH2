@@ -1,22 +1,22 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	hazardabsorb: {
+	magmaticentrance: {
     	// implemented in moves.ts
 		flags: {},
 		shortDesc: "This Pokemon doesn't take damage from hazards.",
-		name: "Hazard Absorb",
+		name: "Magmatic Entrance",
 		rating: 4,
 	},
-	proteangen7: {
+	entertainer: {
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Protean (Gen 7)');
+				this.add('-start', source, 'typechange', type, '[from] ability: Entertainer');
 			}
 		},
 		flags: {},
-		name: "Protean (Gen 7)",
+		name: "Entertainer",
 		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
 		rating: 4,
 		num: -168,
@@ -164,5 +164,115 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Effects of Fluffy and Electromorphosis.",
 		name: "Fluffy Charger",
 		rating: 4,
+	},
+	supremesurvivor: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Supreme Survivor');
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				if (stab === 2) {
+					return 2.25;
+				}
+				return 2;
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+		flags: {},
+		shortDesc: "Effects of Adaptability and Protean.",
+		name: "Supreme Survivor",
+		rating: 5,
+	},
+	momentummori: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		flags: {},
+		name: "Momentum Mori",
+		rating: 4,
+		shortDesc: "Effects of Infiltrator and Speed Boost.",
+	},
+	sevenlives: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Seven Lives');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Seven Lives');
+				return target.hp - 1;
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {breakable: 1},
+		name: "Seven Lives",
+		rating: 4.5,
+		shortDesc: "Effects of Sturdy and Regenerator.",
+	},
+	juggernaut: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Juggernaut');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Juggernaut weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Juggernaut weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Juggernaut",
+		rating: 3,
+		shortDesc: "Effects of Bulletproof and Thick Fat.",
+	},
+	fauxfur: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def) {
+			return this.chainModify(2);
+		},
+		flags: {breakable: 1},
+		name: "Faux Fur",
+		rating: 4,
+		shortDesc: "Effects of Fur Coat and Dazzling.",
 	},
 };

@@ -36,7 +36,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyType(move, pokemon) {
 			if (move.flags['sound']) {
 				move.type = 'Ice';
-				move.kindanice = true;
+				move.flags.kindanice = 1;
 			}
 		},
 		flags: {},
@@ -165,7 +165,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	grinchsapprentice: {
 		onModifyMove(move) {
-			move.naughty = true;
+			move.flags.naughty = 1;
 		},
 		flags: {},
 		name: "Grinch's Apprentice",
@@ -207,9 +207,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Face",
 		shortDesc: "If Eiscue, changes Forme to Noice before attacks and base before Protect.",
 	},
+	jinglebells: {
+		onModifyMove(move) {
+			if(move.flags['sound']) move.flags.nice = 1;
+		},
+		flags: {},
+		name: "Jolly Spirit",
+		shortDesc: "This Pokemon's sound moves increase its karma by 1.",
+	},
 	jollyspirit: {
 		onModifyMove(move) {
-			if(move.flags['nice']) move.extranice = true;
+			if(move.flags['nice']) move.flags.extranice = 1;
 		},
 		flags: {},
 		name: "Jolly Spirit",
@@ -281,18 +289,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zenmode: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zen Galarian Darmanitan' || pokemon.transformed) {
+			if (target.baseSpecies.baseSpecies !== 'Zen Galarian Darmanitan' || target.transformed) {
 				return;
 			}
-			if (pokemon.species.id !== 'zengalariandarmanitanzen') pokemon.formeChange('Zen Galarian Darmanitan-Zen');
+			if (target.species.id !== 'zengalariandarmanitanzen') target.formeChange('Zen Galarian Darmanitan-Zen');
 		},
 		name: "Zen Mode",
 		shortDesc: "If Zen Galarian Darmanitan, change Mode to Zen when damaged by an attack.",
 	},
 	moody: {
 		onModifyMove(move) {
-			if(this.randomChance(1, 2)) move.naughty = true;
-			else move.extranice = true;
+			if(this.randomChance(1, 2)) move.flags.naughty = 1;
+			else move.flags.extranice = 1;
 		},
 		flags: {},
 		name: "Moody",

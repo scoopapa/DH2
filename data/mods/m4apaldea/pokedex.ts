@@ -429,7 +429,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "hydrapplemega",
 		megaName: "Hydrapple-Mega",
-		megaType: ["Grass", "Dragon"],
 		megaAbility: {0: "Sugar Rush"},
 		megaStats: {hp: 106, atk: 100, def: 150, spa: 130, spd: 110, spe: 44},
 		megaStone: "Hydrapplinite",
@@ -445,6 +444,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaAbility: {0: "Residual Drain"},
 		megaStats: {hp: 80, atk: 70, def: 98, spa: 130, spd: 120, spe: 117},
 		megaStone: "Tentacruelinite",
+		movepoolAdditions: ["scald"],
 		megaCreator: "Lord Pxperto & BlueRay",
 	},
 
@@ -536,5 +536,74 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Wochienite",
 		movepoolAdditions: ["strengthsap"],
 		megaCreator: "lydian",
+	},
+
+	// slate 12
+
+	ludicolo: {
+		inherit: true,
+		mega: "ludicolomega",
+		megaName: "Ludicolo-Mega",
+		megaAbility: {0: "Magic Bounce"},
+		megaStats: {hp: 80, atk: 70, def: 110, spa: 110, spd: 120, spe: 90},
+		megaStone: "Ludicolinite",
+		movepoolAdditions: ["flipturn"],
+		megaCreator: "okispokis",
+	},
+
+	skeledirge: {
+		inherit: true,
+		mega: "skeledirgemega",
+		megaName: "Skeledirge-Mega",
+		megaAbility: {0: "Haunting Melody"},
+		megaStats: {hp: 104, atk: 80, def: 140, spa: 125, spd: 110, spe: 71},
+		megaStone: "Skeledite",
+		megaCreator: "jazzmat",
+	},
+
+	bellibolt: {
+		inherit: true,
+		mega: "belliboltmega",
+		megaName: "Bellibolt-Mega",
+		megaType: ["Electric", "Water"],
+		megaAbility: {0: "Liquidate"},
+		megaStats: {hp: 109, atk: 79, def: 126, spa: 123, spd: 103, spe: 55},
+		megaStone: "Belliboltite",
+		movepoolAdditions: ["surf"],
+		megaCreator: "War Incarnate",
+	},
+
+	// slate 13
+
+	arcanine: {
+		inherit: true,
+		mega: "arcaninemega",
+		megaName: "Arcanine-Mega",
+		megaType: ["Fire", "Dragon"],
+		megaAbility: {0: "Supreme Overlord"},
+		megaStats: {hp: 90, atk: 130, def: 90, spa: 120, spd: 100, spe: 125},
+		megaStone: "Arcanite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	mabosstiff: {
+		inherit: true,
+		mega: "mabosstiffmega",
+		megaName: "Mabosstiff-Mega",
+		megaAbility: {0: "Regenerator"},
+		megaStats: {hp: 80, atk: 155, def: 120, spa: 65, spd: 90, spe: 95},
+		megaStone: "Mabosstite",
+		movepoolAdditions: ["partingshot"],
+		megaCreator: "okispokis",
+	},
+
+	okidogi: {
+		inherit: true,
+		mega: "okidogimega",
+		megaName: "Okidogi-Mega",
+		megaAbility: {0: "Toxic Gains"},
+		megaStats: {hp: 88, atk: 138, def: 160, spa: 78, spd: 111, spe: 80},
+		megaStone: "Okidogite",
+		megaCreator: "DrPumpkinz",
 	},
 };
