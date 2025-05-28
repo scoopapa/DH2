@@ -340,7 +340,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			target.addVolatile('stockpile');
-			if (!damage >= target.hp && effect) {
+			if (!damage >= target.hp) {
 				this.add('-activate', target, 'ability: Omnivore');
 			}
 		},
