@@ -7,7 +7,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1,}, pokemon, pokemon, move);
 		},
-		shortDesc: "If this move causes the opponent to faint, raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
+		desc: "If this move causes the opponent to faint, raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
+		shortDesc: "Raise all stats by 1 if this move KOs the target.",
 	},
 	sandsearstorm: {
 		//Now always hits in Sand in addition to Rain
@@ -49,6 +50,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Rock",
 		contestType: "Clever",
 		shortDesc: "Breaks Screens.",
+		desc: "Breaks Screens.",
 	},
 	steelwing: {
 		// Buffed secondary chance to 50%
@@ -93,6 +95,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		shortDesc: "User regains their last used item, similar to Recycle.",
+		desc: "If the user has consumed their item, it will be restored."
 	},	  
 	aquaring: {
 		inherit: true,
@@ -127,7 +130,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 		},
-		shortDesc: "User recovers 1/16 max HP per turn. While this is active, this Pokemon's Water power is 2x and Fire power against it is halved. ",
+		shortDesc: "User Water power 2x, takes 0.5x Fire damage. Recover 1/16 max HP per turn.",
+		desc: "User recovers 1/16 max HP per turn. While this is active, this Pokemon's Water power is 2x and Fire power against it is halved.",
 	},
 
 	ragingbull: {
@@ -140,9 +144,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Raging Bull",
 		type: "Normal",
 		effectType: "Move",
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		shortDesc: "Changes type to the most effective against the target (Water, Fighting, Fire, or Normal).",
 		desc: "Changes the move's and user's forme to the most effective against the target (Water, Fighting, Fire, or Normal).",
-		
 		beforeMoveCallback(source, target, move) {
 		  	const typeEffectiveness = {
 				Water: this.dex.getEffectiveness('Water', target),
@@ -219,7 +223,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
-		shortDesc: "Sets Snowscape.",
+		desc: "Sets Snow on-hit.",
+		shortDesc: "Sets Snow.",
 	},
 	springtidestorm: {
 		//Now always hits in Sand in addition to Rain
@@ -274,7 +279,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
-		shortDesc: "This move is Physical + contact if it would be stronger.",
+		desc: "This move is Special + no contact if it would be stronger.",
+		shortDesc: "This move is Special + no contact if it would be stronger.",
 	},
 	// Encore + Rain Dance
 	tidalsurge: {
@@ -302,6 +308,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		zMove: { boost: { atk: 1 } },
 		contestType: "Beautiful",
+		desc: "Encore + Rain Dance",
 		shortDesc: "Encore + Rain Dance",
 	},
 	// prio + double power if opponent is using a water move
@@ -366,7 +373,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
-		shortDesc: "If the target uses a Water-type move, this attack gains +1 Priority and doubled Power.",
+		shortDesc: "+1 Priority and 2x power if target is using a Water move.",
+		desc: "If the target is using a Water type move, this move will always move first and gains double power.",
 	},
 	ironstrike: {
 		//implemented via changes to Stealth Rocks and Spikes
@@ -388,7 +396,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
-		shortDesc: "Target takes damage from all entry hazards on their side of the field, unless they are immune.",
+		shortDesc: "Inflicts damage from hazards on target's side.",
+		desc: "Target takes damage from all entry hazards on their side of the field, unless they are immune.",
 	},
 	thunderouskick: {
 		inherit: true,
@@ -426,7 +435,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		      this.actions.useMove(thunderKick, source, target);
 		   }
 		},
-		shortDesc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
+		desc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
+		shortDesc: "50% -1 Defense, 50% extra 50 BP Electric damage.",
 	},
 	stealthrock: {
 		num: 446,
@@ -521,6 +531,20 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSwitchIn(pokemon) {
 				// when Dondozo switches back in after eating, it gains boost
 				if (pokemon.baseSpecies.baseSpecies == 'Dondozo') {
+					// reapplies volatiles and stat boosts
+					if (pokemon.storedVolatiles) {
+  						for (const volatile in pokemon.storedVolatiles) {
+    						pokemon.addVolatile(volatile);
+						}
+					}
+					if (pokemon.storedBoosts) {
+  						for (const stat in pokemon.storedBoosts) {
+    						const change = pokemon.storedBoosts[stat];
+    						if (change !== 0) {
+      						this.boost({[stat]: change}, pokemon);
+    						}
+ 						}
+					}
 					this.add('-message', `Dondozo enjoyed its meal!`);
 					// applies boost based on eaten mon stats
 					if (this.effectState.eatenBoost === 'atk' || this.effectState.eatenBoost === 'spa') {
@@ -556,21 +580,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					this.effectState.eatenBoost = highestStat;
 				}
 			},
-			// forces Dondozo in when a mon faints while orderup side condition is active (which can only happen when the eaten mon faints
-			//onFaint(pokemon) {
-    			//const dondozo = pokemon.side.pokemon.find(pkmn => pkmn.name === 'Dondozo');
-    			//if (dondozo && !dondozo.fainted) {
-        			//dondozo.switchFlag = true;
-    			//}
-			//}
+			onFaint(pokemon) {
+				const side = pokemon.side;
+				const dondozo = side.pokemon.find(p => p.species.name === 'Dondozo' && !p.fainted);
+				if (!dondozo) return;
+				// forces Dondozo in after the eaten mon faints
+				this.queue.insertChoice({
+      			choice: 'switch',
+      			pokemon: pokemon,
+					target: dondozo,
+    			});
+				this.checkFainted();
+			}
 		},
 		// when order up hits, first checks for volatile ordered to ensure that Order Up has not already been used, then starts orderup side condition and switches Dondozo out
 		onHit(target, source, move) {
 			if (source.volatiles['ordered']) return;
 			source.side.addSideCondition('orderup');
+			// stores stat changes and volatiles to reapply after switch
+			source.storedBoosts = { ...source.boosts };
+			source.storedVolatiles = {};
+			for (const volatile in source.volatiles) {
+  				source.storedVolatiles[volatile] = source.volatiles[volatile];
+			}
 			if (source.side.getSideCondition('orderup')) {
 				this.add('-ability', source, 'Order Up');
-				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move. After it faints, please switch in Dondozo or the move will not function successfully.`);
+				this.add('-message', `Select the Pokemon you would like to eat. Its highest base stat affects the boost you gain from this move.`);
 			}
 			source.switchFlag = true;
 		},
@@ -578,6 +613,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		hasSheerForce: true,
 		target: "normal",
 		type: "Dragon",
+		desc: "Dondozo eats a mon on the user's team, KOing it. Dondozo then gains a stat boost depending on the eaten mon's highest stat: +3 Attack for Atk/SpA, +2 Def/+2 SpD for Def/SpD, and +3 Speed for Speed.",
 		shortDesc: "Dondozo orders up a meal. Dondozo gains stat boosts based on the highest stat of the Pokemon it eats.",
 	},
 	toxicspikes: {
@@ -646,6 +682,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		desc: "Sets gravity.",
 		shortDesc: "Sets gravity.",
 	}
 };
