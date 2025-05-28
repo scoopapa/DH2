@@ -791,19 +791,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 		desc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 	},
-	meowscaradite: {
-		name: "Meowscaradite",
-		megaStone: "Meowscarada-Mega",
-		megaEvolves: "Meowscarada",
-		itemUser: ["Meowscarada"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -51,
-		gen: 9,
-		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
-	},
 	greninjinite: {
 		name: "Greninjinite",
 		megaStone: "Greninja-Mega",
@@ -813,9 +800,35 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -52,
+		num: -51,
 		gen: 9,
 		desc: "If held by a Greninja, this item allows it to Mega Evolve in battle.",
+	},
+	meowscaradite: {
+		name: "Meowscaradite",
+		megaStone: "Meowscarada-Mega",
+		megaEvolves: "Meowscarada",
+		itemUser: ["Meowscarada"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -52,
+		gen: 9,
+		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
+	},
+	quaquavite: {
+		name: "Quaquavite",
+		megaStone: "Quaquaval-Mega",
+		megaEvolves: "Quaquaval",
+		itemUser: ["Quaquaval"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -54,
+		gen: 9,
+		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
 	},
 	// everlasting winter
 	safetygoggles: {

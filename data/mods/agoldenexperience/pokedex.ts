@@ -753,7 +753,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	espeon: {
 		inherit: true,
-		abilities: {0: "Synchronize", 1: "Telepathy", H: "Magic Bounce"},
+		abilities: {0: "Synchronize", 1: "Solar Power", H: "Magic Bounce"},
 	},
 	umbreon: {
 		inherit: true,
@@ -953,26 +953,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 135, def: 75, spa: 120, spd: 85, spe: 145},
 		abilities: {0: "Sharpness"},
-	},
-	torchic: {
-		inherit: true,
-		baseStats: {hp: 45, atk: 60, def: 40, spa: 50, spd: 50, spe: 65},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	combusken: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 60, spa: 65, spd: 60, spe: 75},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	blaziken: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 70, spa: 90, spd: 70, spe: 100},
-		abilities: {0: "Blaze", H: "Striker"},
-	},
-	blazikenmega: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 140, def: 85, spa: 130, spd: 85, spe: 110},
-		abilities: {0: "Reckless"},
 	},
 	mightyena: {
 		inherit: true,
@@ -2193,13 +2173,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Reckless", 1: "Sap Sipper", H: "Fluffy"},
 	},
+	rufflet: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Keen Eye"},
+	},
 	braviary: {
 		inherit: true,
 		types: ["Fighting", "Flying"],
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Defiant"},
 	},
 	braviaryhisui: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 63, def: 70, spa: 112, spd: 70, spe: 85},
+		abilities: {0: "Hustle", 1: "Sheer Force", H: "Tinted Lens"},
 	},
 	heatmor: {
 		inherit: true,
@@ -3070,11 +3056,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	basculegion: {
 		inherit: true,
-		abilities: {0: "Rattled", 1: "Adaptability", H: "Reckless"}, 
+		abilities: {0: "Swift Swim", 1: "Adaptability", H: "Reckless"}, 
 	},
 	basculegionf: {
 		inherit: true,
-		abilities: {0: "Rattled", 1: "Adaptability", H: "Rock Head"},
+		abilities: {0: "Swift Swim", 1: "Adaptability", H: "Rock Head"},
 	},
 	sneasler: {
 		inherit: true,
@@ -3100,6 +3086,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Green",
 		eggGroups: ["Field", "Grass"],
 		requiredItem: "Meowscaradite",
+	},
+	quaquaval: {
+		inherit: true,
+		otherFormes: ["Quaquaval-Mega"],
+		formeOrder: ["Quaquaval", "Quaquaval-Mega"],
+	},
+	quaquavalmega: {
+		num: 914,
+		name: "Quaquaval-Mega",
+		baseSpecies: "Quaquaval",
+		forme: "Mega",
+		types: ["Water", "Fighting"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 85, atk: 130, def: 110, spa: 85, spd: 105, spe: 115},
+		abilities: {0: "Cute Charm"},
+		heightm: 1.8,
+		weightkg: 61.9,
+		color: "Blue",
+		prevo: "Quaxwell",
+		evoLevel: 36,
+		eggGroups: ["Flying", "Water 1"],
+		requiredItem: "Quaquavite",
 	},
 	oinkologne: {
 		inherit: true,
@@ -3262,7 +3270,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Intimidate"},
+		abilities: {0: "Protosynthesis", H: "Moxie"},
 	},
 	ironvaliant: {
 		inherit: true,
@@ -4166,7 +4174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Sithbull",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 120, atk: 140, def: 90, spa: 60, spd: 75, spe: 45},
-		abilities: {0: "Intimidate", 1: "Shadow Tag", H: "Cursed Body"},
+		abilities: {0: "Intimidate", 1: "Shadow Tag", H: "Rattled"},
 		heightm: 1.71,
 		weightkg: 123,
 		prevo: "Granbull",
@@ -4244,7 +4252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Nopainnogain",
 		types: ["Fighting", "Psychic"],
 		baseStats: {hp: 130, atk: 75, def: 70, spa: 80, spd: 75, spe: 85},
-		abilities: {0: "Regenerator", H: "Rick Roll"},
+		abilities: {0: "Rick Roll"},
 		heightm: 1.6,
 		weightkg: 34,
 		eggGroups: ["Human-Like"],
