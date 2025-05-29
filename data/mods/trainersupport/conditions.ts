@@ -126,13 +126,9 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.debug('Shield Dust prevent secondary');
 			return secondaries.filter(effect => !!effect.self);
 		},
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if (boost.spe && boost.spe < 0) {
-				delete boost.spe;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Speed");
-				}
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.secondaries) {
+				return this.chainModify(0.9);
 			}
 		},
 	},
@@ -161,6 +157,15 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		noCopy: true,
 		onModifyMove(move) {
 			if (move.type === 'Fairy' || move.type === 'Ground') move.ignoreAbility = true;
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
 		},
 	},
 	willboost: {

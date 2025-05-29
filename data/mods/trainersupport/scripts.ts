@@ -4,6 +4,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
 	
 	},
+	battle: {
+		checkMoveMakesContact(move: ActiveMove, attacker: Pokemon, defender: Pokemon, announcePads = false) {
+			if (move.flags['contact']) {
+				if (attacker.hasItem('protectivepads')) {
+					if (announcePads) {
+						this.add('-activate', defender, this.effect.fullname);
+						this.add('-activate', attacker, 'item: Protective Pads');
+					}
+				} else if (attacker.volatiles['marshal'] && !['brycenmanboost', 'pickpocket'].includes(this.effect)) {
+					if (announcePads) {
+						this.add('-activate', defender, this.effect.fullname);
+						this.add('-activate', attacker, 'item: Marshal');
+					}
+				}
+				return false;
+			}
+			return !!move.flags['contact'];
+		}
+	},
 	actions: {
 		modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
