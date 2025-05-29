@@ -56,6 +56,7 @@ function getDefaultStats() {
 			gen3randombattle: {mons: {}},
 			gen2randombattle: {mons: {}},
 			gen1randombattle: {mons: {}},
+			gen9petmodchatmodrands: {mons: {}},
 		},
 	} as Stats;
 }
