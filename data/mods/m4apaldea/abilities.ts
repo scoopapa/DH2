@@ -742,4 +742,56 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -39,
 	},
+	iceface: {
+		inherit: true,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && (target.species.id === 'eiscue' || (this.effectState.busted == false && target.species.id === 'perrserkermega'))) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && !(this.effectState.busted == false && target.species.id === 'perrserkermega'))) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && !(this.effectState.busted == false && target.species.id === 'perrserkermega'))) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+			else if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'perrserkermega') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+			}
+		},
+	},
+	trickysurge: {
+		onStart(source) {
+			this.add('-activate', source, 'ability: Tricky Surge');
+			this.field.addPseudoWeather('magicroom');
+		},
+		flags: {},
+		name: "Tricky Surge",
+		shortDesc: "On switch-in, set Magic Room for 5 turns.",
+		rating: 4,
+		num: -40,
+	},
 };

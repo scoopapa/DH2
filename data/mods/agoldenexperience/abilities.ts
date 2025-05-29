@@ -2217,22 +2217,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: -71,
 	},
-	zerotohero: {
-		inherit: true,
-		onSwitchOut(pokemon) {},
-		onSwitchIn() {},
-		onStart(pokemon) {},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
-				return;
-			}
-			if (source.species.id === 'palafin' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Zero to Hero');
-				source.formeChange('Palafin-Hero', this.effect, true);
-			}
-		},
-		shortDesc: "If this Pokemon is a Palafin in Zero Form, KOing a foe has it change to Hero Form.",
-	},
 	lusterswap: { // taken from M4A
 		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
 		shortDesc: "On entry: type changes to match its first move that's super effective against an adjacent opponent.",

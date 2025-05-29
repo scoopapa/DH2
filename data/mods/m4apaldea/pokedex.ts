@@ -606,4 +606,39 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Okidogite",
 		megaCreator: "DrPumpkinz",
 	},
+
+	// slate 14
+
+	perrserker: {
+		inherit: true,
+		mega: "perrserkermega",
+		megaName: "Perrserker-Mega",
+		megaAbility: {0: "Ice Face"},
+		megaStats: {hp: 70, atk: 190, def: 100, spa: 50, spd: 70, spe: 60},
+		megaStone: "Perrserkite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	meowscarada: {
+		inherit: true,
+		mega: "meowscaradamega",
+		megaName: "Meowscarada-Mega",
+		megaAbility: {0: "Tricky Surge"},
+		megaStats: {hp: 76, atk: 130, def: 100, spa: 91, spd: 95, spe: 138},
+		megaStone: "Meowscaradite",
+		movepoolAdditions: ["fakeout"],
+		megaCreator: "War Incarnate",
+	},
+
+	maushold: {
+		inherit: true,
+		mega: "mausholdmega",
+		megaName: "Maushold-Mega",
+		megaType: ["Normal", "Fairy"],
+		megaAbility: {0: "Prankster"},
+		megaStats: {hp: 74, atk: 95, def: 120, spa: 65, spd: 110, spe: 101},
+		megaStone: "Mausholdinite",
+		movepoolAdditions: ["moonlight"],
+		megaCreator: "LordThemberchaud",
+	},
 };
