@@ -942,7 +942,6 @@ export const commands: Chat.ChatCommands = {
 	pokemovehelp: [
 		`/pokemove <Pok\u00e9mon> - Shows the Pokemove data for <Pok\u00e9mon>.`,
 	],
-	
 
 	shiny: 'shinymons',
 	shinymons(target, room, user) {
@@ -956,10 +955,14 @@ export const commands: Chat.ChatCommands = {
 		const species = Utils.deepClone(dex.species.get(args[0] + "shiny"));
 		let details: { [k: string]: string } = {};
 
-		if (!species.exists || species.gen > dex.gen) {
+		if (!baseSpecies.exists || baseSpecies.gen > dex.gen) {
 			const monName = species.gen > dex.gen ? species.name : args[0].trim();
 			const additionalReason = species.gen > dex.gen ? ` in Generation ${dex.gen}` : ``;
 			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' not found${additionalReason}.`);
+		}
+		if (!species.exists) {
+			const monName = species.gen > dex.gen ? species.name : args[0].trim();
+			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' does not have a Shiny form.`);
 		}
 		let weighthit = 20;
 		if (species.weighthg >= 2000) {
@@ -990,28 +993,28 @@ export const commands: Chat.ChatCommands = {
 				const condition = evo.evoCondition ? ` ${evo.evoCondition}` : ``;
 				switch (evo.evoType) {
 				case 'levelExtra':
-					evos.push(`${evo.name} (level-up${condition})`);
+					evos.push(`${evo.name}-Shiny (level-up${condition})`);
 					break;
 				case 'levelFriendship':
-					evos.push(`${evo.name} (level-up with high Friendship${condition})`);
+					evos.push(`${evo.name}-Shiny (level-up with high Friendship${condition})`);
 					break;
 				case 'levelHold':
-					evos.push(`${evo.name} (level-up holding ${evo.evoItem}${condition})`);
+					evos.push(`${evo.name}-Shiny (level-up holding ${evo.evoItem}${condition})`);
 					break;
 				case 'useItem':
-					evos.push(`${evo.name} (${evo.evoItem})`);
+					evos.push(`${evo.name}-Shiny (${evo.evoItem})`);
 					break;
 				case 'levelMove':
-					evos.push(`${evo.name} (level-up with ${evo.evoMove}${condition})`);
+					evos.push(`${evo.name}-Shiny (level-up with ${evo.evoMove}${condition})`);
 					break;
 				case 'other':
-					evos.push(`${evo.name} (${evo.evoCondition})`);
+					evos.push(`${evo.name}-Shiny (${evo.evoCondition})`);
 					break;
 				case 'trade':
-					evos.push(`${evo.name} (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
+					evos.push(`${evo.name}-Shiny (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
 					break;
 				default:
-					evos.push(`${evo.name} (${evo.evoLevel}${condition})`);
+					evos.push(`${evo.name}-Shiny (${evo.evoLevel}${condition})`);
 				}
 			}
 		}
