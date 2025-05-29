@@ -183,6 +183,9 @@ async function collectStats(battle: RoomBattle, winner: ID, players: ID[]) {
 	} else if (format.gameType === 'doubles') {
 		// may need to be raised again if ladder takes off further
 		eloFloor = 1400;
+	} else if (format.mod === 'pmcm') {
+		// may need to be raised again if ladder takes off further
+		eloFloor = 1000;
 	}
 	if (!formatData || (format.mod !== 'gen9ssb' && battle.rated < eloFloor) || !winner) return;
 	checkRollover();
