@@ -354,7 +354,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const secondaries: Dex.SecondaryEffect[] =
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
-					if (secondary.status && target.status) continue;
+					if (!secondary.self && !target.hp) continue; //target fainted
+					if (secondary.status) {
+						if (target.status) continue; //target already statused
+						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
+					}
+					if (secondary.volatileStatus === 'flinch' && target.newlySwitched) continue; //flinch on switched target
 					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
 					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
 						if (source.side.effect >= 100) source.side.subtractEffect(100);
