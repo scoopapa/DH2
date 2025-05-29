@@ -43,6 +43,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.status -= amount;
 			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
 		},
+		noChange() {
+			return (this.miss === this.pmiss) && 
+				   (this.effect === this.peffect) && 
+				   (this.crit === this.pcrit) && 
+				   (this.status === this.pstatus);
+		},
 	},
 	actions: {
 		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
