@@ -149,10 +149,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		desc: "Changes the move's and user's forme to the most effective against the target (Water, Fighting, Fire, or Normal).",
 		beforeMoveCallback(source, target, move) {
 		  	const typeEffectiveness = {
+				Normal: this.dex.getEffectiveness('Normal', target),
 				Water: this.dex.getEffectiveness('Water', target),
 				Fighting: this.dex.getEffectiveness('Fighting', target),
 				Fire: this.dex.getEffectiveness('Fire', target),
-				Normal: this.dex.getEffectiveness('Normal', target),
 			};
 		  
 		  	let bestType = 'Normal';
@@ -684,6 +684,36 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 		desc: "Sets gravity.",
 		shortDesc: "Sets gravity.",
+	},
+	alloutassault: {
+		num: -1003,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "All-Out Assault",
+		pp: 5,
+		priority: 0,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'All-Out Pummeling', target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) {
+				this.boost({ atk: 1, }, pokemon, pokemon, move);
+			}
+			else {
+				this.boost({ atk: -1, }, pokemon, pokemon, move);
+			}
+		},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Clever",
+		desc: "If this move KOs the target, raise the user's attack by 1. Otherwise, lower attack by 1.",
+		shortDesc: "On KO: +1 Atk. Otherwise -1 Atk.",
 	}
 };
   

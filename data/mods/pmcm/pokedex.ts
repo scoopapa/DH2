@@ -304,5 +304,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	meowscarada: {
 		inherit: true,
+	},
+	infernape: {
+		inherit: true,
+		abilities: {0: "Berserk"},
 	}
 };

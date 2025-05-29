@@ -339,9 +339,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	omnivore: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			target.addVolatile('stockpile');
-			this.add('-message', `Swalot swallows down the move!`);
+			if (!target.hp) return;
 			this.add('-activate', target, 'ability: Omnivore');
+			target.addVolatile('stockpile');
 		},
 		flags: {},
 		name: "Omnivore",
@@ -507,5 +507,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		rating: 4.5,
 		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
+	},
+	berserk: {
+		onUpdate(pokemon) {
+			if (!pokemon.berserk) {
+				pokemon.berserk = false;
+			}
+			if (pokemon.species.id !== 'infernape' || !pokemon.hp) return;
+			if (pokemon.hp < pokemon.maxhp / 2 && pokemon.berserk === false) {
+				this.boost({ spa: 1 }, pokemon, pokemon);
+				pokemon.berserk = true;
+			}
+		},
+		flags: {},
+		name: "Berserk",
+		rating: 2,
+		num: 201,
 	}
 };

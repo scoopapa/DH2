@@ -62,5 +62,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dondozo: {tier: "PMCM"},
 	golurk: {tier: "PMCM"},
 	meowscarada: {tier: "PMCM"},
+	infernape: {tier: "PMCM"},
 	
 };
