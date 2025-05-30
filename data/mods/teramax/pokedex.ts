@@ -286,7 +286,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	charizardgmax: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 99, def: 85, spa: 109, spd: 85, spe: 113},
-		abilities: {0: "Battle Bond (Charizard)"},
+		abilities: {0: "Mold Breaker"},
 		weightkg: 999.9,
 	},
 	blastoise: {

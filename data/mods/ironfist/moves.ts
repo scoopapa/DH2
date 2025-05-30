@@ -3501,14 +3501,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Fishious Rend damage boost');
-				return move.basePower * 1.6;
+				return move.basePower * 2;
 			}
 			this.debug('Fishious Rend NOT boosted');
 			return move.basePower;
 		},
 		accuracy: 100,
 		pp: 15,
-		shortDesc: "1.6x power if user moves before the target.",
+		shortDesc: "Doubled power if user moves before the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bite: 1},
 		onPrepareHit(target, pokemon, move) {
