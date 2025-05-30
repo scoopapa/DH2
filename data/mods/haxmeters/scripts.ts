@@ -43,6 +43,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.status -= amount;
 			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
 		},
+		noChange() {
+			return (this.miss === this.pmiss) && 
+				   (this.effect === this.peffect) && 
+				   (this.crit === this.pcrit) && 
+				   (this.status === this.pstatus);
+		},
 	},
 	actions: {
 		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
@@ -354,7 +360,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const secondaries: Dex.SecondaryEffect[] =
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
-					if (secondary.status && target.status) continue;
+					if (!secondary.self && !target.hp) continue; //target fainted
+					if (secondary.status) {
+						if (target.status) continue; //target already statused
+						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
+					}
+					if (secondary.volatileStatus === 'flinch' && target.newlySwitched) continue; //flinch on switched target
 					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
 					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
 						if (source.side.effect >= 100) source.side.subtractEffect(100);

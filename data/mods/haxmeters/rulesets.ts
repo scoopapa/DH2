@@ -13,6 +13,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = 30;
 				side.crit = 30;
 				side.status = 30;
+				
+				side.pmiss = 30;
+				side.peffect = 30;
+				side.pcrit = 30;
+				side.pstatus = 30;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
@@ -24,8 +29,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onResidual(pokemon) {
 			const sideOne = this.sides[0];
 			const sideTwo = this.sides[1];
-			if (pokemon.side !== sideOne) return;
+			if (pokemon.hp && pokemon.side !== sideOne) return;
+			if (sideOne.noChange && sideTwo.noChange) return;
 			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
+			for (const side of this.sides) {
+				side.pmiss = side.miss;
+				side.peffect = side.effect;
+				side.pcrit = side.crit;
+				side.pstatus = side.status;
+			}
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
