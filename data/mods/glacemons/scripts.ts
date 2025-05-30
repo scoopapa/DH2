@@ -1,5 +1,8 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	teambuilderConfig: {
+		customTiers: ['Adjusted'],
+	},
 	pokemon: {
 		inherit: true,
 		isGrounded(negateImmunity = false) {
