@@ -1590,7 +1590,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Seregios",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 90, atk: 127, def: 99, spa: 64, spd: 92, spe: 112},
-		abilities: {0: "Weak Armor", H: "Well-Baked Body"},
+		abilities: {0: "Weak Armor", 1: "Iron Barbs", H: "Well-Baked Body"},
 		heightm: 1.0,
 		weightkg: 160.4,
 		color: "Black",
