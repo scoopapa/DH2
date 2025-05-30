@@ -1244,7 +1244,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'suicune').learnset.flipturn = ['9L1'];
 
     // Gen 3:
-    this.modData('Learnsets', 'blaziken').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'mightyena').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'mightyena').learnset.bulkup = ['9L1'];
     this.modData('Learnsets', 'beautifly').learnset.smartstrike = ['9L1'];
@@ -1679,9 +1678,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'stakataka').learnset.zawall = ['9M'];
     this.modData('Learnsets', 'blacephalon').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'blacephalon').learnset.shadowsneak = ['9L1'];
-    delete this.modData('Learnsets', 'poipole').learnset.nastyplot;
-    delete this.modData('Learnsets', 'naganadel').learnset.nastyplot;
-    this.modData('Learnsets', 'naganadel').learnset.roost = ['9L1'];
 
     // Gen 8:
     this.modData('Learnsets', 'greedent').learnset.recycle = ['9L1'];

@@ -992,30 +992,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Iron Fist Slate 8",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
-		],
-		mod: 'ironfistslate8',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule'],
-		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
-		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
-		'Abomasite', 'Absolite', 'Red Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
-		unbanlist: ['Light of Ruin', 'Baddy Bad'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['IF'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Iron Fist.'];
-				}
-			}
-		},
-	},
-	{
 		name: "[Gen 9] Ironmons",
 		desc: ["<b>Ironmons</b>: A OU based Pet Mod that aims to create new Paradox forms for existing Pokemon, both past and future.",
 		      ],
@@ -3495,6 +3471,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Hax Meter Rule', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Moves Clause', '!Evasion Items Clause'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
+	{
+		name: "[Gen 8] Hax Meters",
+		mod: 'gen8haxmeters',
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Hax Meter Rule', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+	},
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
@@ -3801,7 +3783,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Cancel Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod'],
 		banlist: [],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
@@ -3890,8 +3872,8 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		gameType: 'doubles',
 		bestOfDefault: true,
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 
-			'Open Team Sheets', 'Cancel Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 
+			'Open Team Sheets'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
 		onBegin() {
@@ -4254,6 +4236,31 @@ export const Formats: FormatList = [
 		"Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", "Himalao",
 		"Zygola", "Cyrome", "Cyrome-Book", "Stone Husk", "Corundell", "Quadringo", "Kodokai",
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
+	},
+	{
+		name: "[Gen 9] Shinymons",
+		desc: `A Pet Mods Room Mod where every Pokemon receives a new Shiny form.`,
+		mod: 'shinymons',
+		ruleset: ['Standard', 'Data Preview', '!Team Preview'],
+		banlist: ['Uber'],
+		validateSet(set, teamHas) {
+			let speciesName = set.species;
+			if (set.shiny) speciesName += "-Shiny";
+			set.species = speciesName;
+			this.dex.data.Pokedex[this.toID(speciesName)].name = speciesName;
+			return this.validateSet(set, teamHas);
+		},
+		onTeamPreview() {
+			this.add('clearpoke');
+			for (const pokemon of this.getAllPokemon()) {
+				const details = pokemon.details
+					.replace(/(Arceus|Genesect|Gourgeist|Pumpkaboo|Xerneas|Silvally|Urshifu|Dudunsparce)(-[a-zA-Z?-]+)?/g, '$1-*')
+					.replace(/(Zacian|Zamazenta)(?!-Crowned)/g, '$1-*') // Hacked-in Crowned formes will be revealed
+					.replace(/(Greninja)(?!-Ash)/g, '$1-*'); // Hacked-in Greninja-Ash will be revealed
+				this.add('poke', pokemon.side.id, details, pokemon.item ? 'item' : '');
+			}
+			this.makeRequest('teampreview');
+		},
 	},
 	{
         name: "[Gen 9] Spookymod",

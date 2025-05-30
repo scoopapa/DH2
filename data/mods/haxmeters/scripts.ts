@@ -1,3 +1,7 @@
+export function roundNum(n: number): number {
+	return Math.round((n + Number.EPSILON) * 100) / 100;
+}
+
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
@@ -6,38 +10,44 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addMiss(amount) {
 			if (amount === 0) return;
 			this.miss += amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: +${amount} -> ${this.miss})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: +${roundNum(amount)} -> ${roundNum(this.miss)})`);
 		},
 		subtractMiss(amount) {
 			this.miss -= amount;
-			this.battle.add('-message', `(${this.name}'s Miss Meter: -${amount} -> ${this.miss})`);
+			this.battle.add('-message', `(${this.name}'s Miss Meter: -${roundNum(amount)} -> ${roundNum(this.miss)})`);
 		},
 		addEffect(amount) {
 			if (amount === 0) return;
 			this.effect += amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: +${amount} -> ${this.effect})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: +${roundNum(amount)} -> ${roundNum(this.effect)})`);
 		},
 		subtractEffect(amount) {
 			this.effect -= amount;
-			this.battle.add('-message', `(${this.name}'s Effect Meter: -${amount} -> ${this.effect})`);
+			this.battle.add('-message', `(${this.name}'s Effect Meter: -${roundNum(amount)} -> ${roundNum(this.effect)})`);
 		},
 		addCrit(amount) {
 			if (amount === 0) return;
 			this.crit += amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: +${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: +${roundNum(amount)} -> ${roundNum(this.crit)})`);
 		},
 		subtractCrit(amount) {
 			this.crit -= amount;
-			this.battle.add('-message', `(${this.name}'s Crit Meter: -${amount.toFixed(2)} -> ${this.crit.toFixed(2)})`);
+			this.battle.add('-message', `(${this.name}'s Crit Meter: -${roundNum(amount)} -> ${roundNum(this.crit)})`);
 		},
 		addStatus(amount) {
 			if (amount === 0) return;
 			this.status += amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: +${amount} -> ${this.status})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: +${roundNum(amount)} -> ${roundNum(this.status)})`);
 		},
 		subtractStatus(amount) {
 			this.status -= amount;
-			this.battle.add('-message', `(${this.name}'s Status Meter: -${amount} -> ${this.status})`);
+			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
+		},
+		noChange() {
+			return (this.miss === this.pmiss) && 
+				   (this.effect === this.peffect) && 
+				   (this.crit === this.pcrit) && 
+				   (this.status === this.pstatus);
 		},
 	},
 	actions: {
@@ -139,6 +149,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 			let hit: number;
+			
+			let moveName = (move.name.split(" ")[1]) ? move.name.split(" ")[1].toLowerCase() : move.name.toLowerCase();
+			let suffix = "1st " + moveName;
+			let accuracies = [];
+			let change = false;
+			
 			for (hit = 1; hit <= targetHits; hit++) {
 				if (damage.includes(false)) break;
 				if (hit > 1 && pokemon.status === 'slp' && (!isSleepUsable || this.battle.gen === 4)) break;
@@ -186,7 +202,43 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
 					if (!move.alwaysHit) {
 						accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
-						pokemon.side.addMiss(100 - accuracy);
+						
+						let ordinal = "";
+						switch (hit % 10) {
+							case 1:
+								ordinal = "st";
+								break;
+							case 2:
+								ordinal = "nd";
+								break;
+							case 3:
+								ordinal = "rd";
+								break;
+							default:
+								ordinal = "th";
+								break;
+						}
+						
+						if (accuracies[accuracies.length - 1] && accuracy / 100 !== accuracies[accuracies.length - 1]) change = true;
+						accuracies.push(accuracy / 100);
+						let product = accuracies.reduce((accumulator, current) => accumulator * current, 1) * (100 - accuracy);
+						if (targetHits > 3) {
+							suffix = (hit - 1) + " " + moveName + "s hit + " + hit + ordinal + " " + moveName;
+							
+							if (!change) {
+								let multiplication = "(" + (accuracy / 100) + ")^" + (hit - 1) + " * " + (100 - accuracy);
+								this.battle.add('-message', `(${suffix} miss: ${multiplication} = ${product.toFixed(2)})`);
+							} else this.battle.add('-message', `(${suffix} miss: ${product.toFixed(2)})`);
+						} else {
+							suffix += " hit + " + hit + ordinal + " " + moveName;
+							let multiplication = "";
+							for (const acc of accuracies) {
+								multiplication += (acc + " * ");
+							}
+							this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${product.toFixed(2)})`);
+						}
+						pokemon.side.addMiss(product);
+						
 						if (accuracy !== true && pokemon.side.miss >= 100) {
 							pokemon.side.subtractMiss(100);
 							break;
@@ -308,10 +360,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const secondaries: Dex.SecondaryEffect[] =
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
-					if (secondary.status && target.status) continue;
+					if (!secondary.self && !target.hp) continue; //target fainted
+					if (secondary.status) {
+						if (target.status) continue; //target already statused
+						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
+					}
+					if (secondary.volatileStatus === 'flinch' && target.newlySwitched) continue; //flinch on switched target
 					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
 					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
-						source.side.subtractEffect(100);
+						if (source.side.effect >= 100) source.side.subtractEffect(100);
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}
 				}

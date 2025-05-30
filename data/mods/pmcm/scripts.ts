@@ -188,5 +188,10 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.modData('Learnsets', 'meowscarada').learnset.encore = ['9L1'];
 		this.modData('Learnsets', 'meowscarada').learnset.spectralthief  = ['9L1'];
+
+		this.modData('Learnsets', 'infernape').learnset.alloutassault = ['9L1'];
+		this.modData('Learnsets', 'infernape').learnset.mindblown = ['9L1'];
+		this.modData('Learnsets', 'infernape').learnset.bitterblade = ['9L1'];
+		
 	},
 };

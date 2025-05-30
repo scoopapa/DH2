@@ -69,7 +69,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Call Illumise",
 		rating: 5,
 		num: -100,
-		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid",
+		shortDesc: "When Illumise gets low on HP, it calls Volbeat for aid.",
 	},
 	callvolbeat: {
 		onTryHit(target, source, move) {
@@ -127,7 +127,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Call Volbeat",
 		rating: 5,
 		num: -101,
-		shortDesc: "When Volbeat gets low on HP, it calls to Illumise for aid!",
+		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid.",
 	},
 	shortfuse: {
 		onDamagePriority: -30, 
@@ -291,7 +291,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Still Water",
 		rating: 5,
 		num: -107,
-		shortDesc: "This ability provides the effects of Unaware and Water Absorb.",
+		shortDesc: "Unaware + Water Absorb",
 	},
 	kingofthehill: {
 		//sharpness + mountaineer + prevents hazard immunity
@@ -333,15 +333,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "King of the Hill",
 		rating: 5,
 		num: -108,
-		shortDesc: "Provides the effects of Mountaineer and Sharpness. Additionally, opposing Pokemon cannot avoid entry hazards by any means, including Boots, Flying-type, or Magic Guard.",
+		shortDesc: "Mountaineer + Sharpness. Prevents opposing Pokemon from ignoring hazard damage.",
 	},
 	// stockpile on hit
 	omnivore: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			target.addVolatile('stockpile');
-			this.add('-message', `Swalot swallows down the move!`);
+			if (!target.hp) return;
 			this.add('-activate', target, 'ability: Omnivore');
+			target.addVolatile('stockpile');
 		},
 		flags: {},
 		name: "Omnivore",
@@ -396,7 +396,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Pseudowoodo",
 		rating: 5,
 		num: -110,
-		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead. It then switches from a Grass type to a Rock type.",
+		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead and becomes Rock type.",
 	},
 	magicguard: {
 		onDamage(damage, target, source, effect) {
@@ -506,5 +506,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		rating: 4.5,
+		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
+	},
+	berserk: {
+		onUpdate(pokemon) {
+			if (!pokemon.berserk) {
+				pokemon.berserk = false;
+			}
+			if (pokemon.species.id !== 'infernape' || !pokemon.hp) return;
+			if (pokemon.hp < pokemon.maxhp / 2 && pokemon.berserk === false) {
+				this.boost({ spa: 1 }, pokemon, pokemon);
+				pokemon.berserk = true;
+			}
+		},
+		flags: {},
+		name: "Berserk",
+		rating: 2,
+		num: 201,
 	}
 };
