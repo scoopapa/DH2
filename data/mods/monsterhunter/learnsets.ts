@@ -4333,6 +4333,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	lucacuga: {
 		learnset: {
 			acidspray: ["9M"],
+			agility: ["9M"],
 			assurance: ["9L10"],
 			barbbarrage: ["9M"],
 			behemothblade: ["9M"],
@@ -4372,7 +4373,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			shadowball: ["9M"],
 			shadowclaw: ["9M"],
 			shadowsneak: ["9M"],
-			shiftgear: ["9L0"],
 			sleeptalk: ["9M"],
 			spectralthief: ["9M"],
 			spinout: ["9L52"],
