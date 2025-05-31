@@ -668,7 +668,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Insect Armor",
 		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
 		rating: 4.5,
-		num: -9,
+		num: 1031,
+	},
+	dukesbayonet: {
+		shortDesc: "Contact moves bypass Protect. 25% damage instead.",
+		onModifyMove(move, source, target) {
+			if (move.flags['contact']) {
+				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
+				return this.chainModify(0.25);
+			}
+		},
+		flags: {},
+		name: "Duke's Bayonet",
+		rating: 4,
+		num: 1032,
 	},
 	/*
 	Edits
