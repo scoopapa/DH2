@@ -9070,6 +9070,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			stompingtantrum: ["9L1"],
 			stoneedge: ["9L1"],
 			stuffcheeks: ["9L1"],
+			hyperfang: ["9L1"],
 			substitute: ["9L1"],
 			superpower: ["9L1"],
 			swordsdance: ["9L1"],
