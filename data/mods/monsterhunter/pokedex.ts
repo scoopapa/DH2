@@ -1779,7 +1779,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 115,
 		name: "Tzitzi-Ya-Ku",
 		types: ["Fairy", "Psychic"],
-		baseStats: {hp: 59, atk: 70, def: 80, spa: 126, spd: 103, spe: 88},
+		baseStats: {hp: 69, atk: 94, def: 76, spa: 126, spd: 104, spe: 55},
 		abilities: {0: "Dazzling", H: "Anticipation"},
 		heightm: 1.0,
 		weightkg: 40.0,
