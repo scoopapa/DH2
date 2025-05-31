@@ -10531,6 +10531,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dive: ["9L1"],
 			dragontail: ["9L1"],
 			facade: ["9L1"],
+			frozencleave: ["9L1"],
 			fishiousrend: ["9L1"],
 			flipturn: ["9L1"],
 			freezedry: ["9L1"],

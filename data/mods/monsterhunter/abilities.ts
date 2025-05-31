@@ -50,10 +50,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
+			onStart(pokemon) {
+				if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
+					this.add('-ability', pokemon, 'Puff-Up');
+					this.add('-message', `Zamtrios is transforming!`);
+					pokemon.formeChange('zamtriospuffed', this.effect, true);
+				}
+			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Puff-Up",
-		shortDesc: "This pokemon will react to a special attack by puffing up it's body.",
+		shortDesc: "This pokemon will react to a special attack by puffing up it's body. Also activates under Rain.",
 		rating: 3,
 		num: 1002,
 	},
