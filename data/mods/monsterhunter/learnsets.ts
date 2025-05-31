@@ -5841,7 +5841,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	diremiralis: {
 		learnset: {
 			aquatail: ["9L1"],
-			armorcannon: ["9L1"],
+			overheat: ["9L1"],
 			attract: ["9L1"],
 			bodypress: ["9L1"],
 			breakingswipe: ["9L1"],
@@ -5867,10 +5867,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			growl: ["9L1"],
 			grudge: ["9L1"],
 			heavyslam: ["9L1"],
-			hydrosteam: ["9L1"],
 			inferno: ["9L1"],
 			leer: ["9L1"],
-			magmastorm: ["9L1"],
 			meanlook: ["9L1"],
 			meteorbeam: ["9L1"],
 			outrage: ["9L1"],
@@ -5880,7 +5878,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			rockslide: ["9L1"],
 			rockwrecker: ["9L1"],
 			scald: ["9L1"],
-			shelltrap: ["9L1"],
 			slackoff: ["9L1"],
 			spikes: ["9L1"],
 			stealthrock: ["9L1"],
