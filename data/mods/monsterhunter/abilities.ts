@@ -623,6 +623,53 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 1029,
 	},
+	plow: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				this.heal(damage);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Plow",
+		shortDesc: "Heals 1/4 of its max HP when hit by Ground; Ground immunity. Healed by Spikes and Stealth Rock.",
+		rating: 3.5,
+		num: 1030,
+	},
+	insectarmor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Insect Armor",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+		rating: 4.5,
+		num: -9,
+	},
 	/*
 	Edits
 	*/
