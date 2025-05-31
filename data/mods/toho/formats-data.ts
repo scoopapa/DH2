@@ -1,248 +1,508 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	reimuhakurei: {
-		tier: "TH",
+
+reimuhakurei: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	marisakirisame: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	rumia: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	daiyousei: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	cirno: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	cirnotanned: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	hongmeiling: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	koakuma: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	patchouliknowledge: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sakuyaizayoi: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	remiliascarlet: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	flandrescarlet: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	lettywhiterock: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	chen: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	alicemargatroid: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	lilywhite: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lunasaprismriver: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	merlinprismriver: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lyricaprismriver: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	youmukonpaku: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yuyukosaigyouji: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	ranyakumo: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yukariyakumo: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	suikaibuki: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	wrigglenightbug: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	mystialorelei: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	keine: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	keinehakutaku: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	tewiinaba: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
-	reisenudongeininaba: {
-		tier: "TH",
+	reiseninaba: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	eirinyagokoro: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	kaguyahouraisan: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	fujiwaranomokou: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ayashameimaru: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	medecinemelancholy: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yuukakazami: {
-		tier: "TH",
-	},
-	ayashamiemaru: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	komachionozuka: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	eikishiki: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	shizuhaaki: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	minorikoaki: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	hinakagiyama: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	nitorikawashiro: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	momijiinubashiri: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sanaekochiya: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	kanakoyasaka: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	suwakomoriya: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	ikunagae: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	tenshihinanawi: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kisume: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yamamekurodani: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	parseemizuhashi: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yuugihoshiguma: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	satorikomeiji: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	rinkaenbyou: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	utsuhoreiuji: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	koishikomeiji: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	nazrin: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	kogasatatara: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ichirinkumoi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ichirinunzan: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	minamitsumurasa: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	shoutoramaru: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	byakurenhijiri: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	nuehoujuu: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	hatatehimekaidou: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sunnymilk: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lunachild: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	starsapphire: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	kyoukokasodani: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yoshikamiyako: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	seigakaku: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	soganotojiko: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	mononobenofuto: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	toyosatomiminomiko: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	mamizoufutatsuiwa: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kasenibaraki: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hatanokokoro: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	wakasagihime: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sekibanki: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kagerouimaizumi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	benbentsukumo: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	yatsuhashitsukumo: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	seijakijin: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	shinmyoumarusukuna: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	raikohorikawa: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sumirekousami: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	seiran: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ringo: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	doremysweet: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sagumekishin: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	clownpiece: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	junko: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
-	hecatialapislazuli: {
-		tier: "TH",
+	hecatiaotherworld: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	hecatiaearth: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	hecatiamoon: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	joonyorigami: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	shionyorigami: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	eternitylarva: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	nemunosakata: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	aunnkomano: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	narumiyatadera: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	maiteireida: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	satononishida: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	okinamatara: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	eikaebisu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	urumiushizaki: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kutakaniwatari: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yachiekicchou: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mayumijoutouguu: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	keikihaniyasushin: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sakikurokuma: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yuumatoutetsu: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mikegotoukuji: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	takaneyamashiro: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sannyokomakusa: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	misumarutamatsukuri: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tsukasakudamaki: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	megumuiinzumaru: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	chimatatenkyuu: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	momoyohimemushi: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sonbiten: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	enokomitsugashira: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chiyaritenkajin: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hisamiyomotsu: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	zanmunippaku: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	vivit: {
-		tier: "TH",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
+
 };
