@@ -5,7 +5,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['placeholder'],
+		customTiers: ['Toho'],
+		customDoublesTiers: ['DToho'],
 	},	
 	
 	init() {
