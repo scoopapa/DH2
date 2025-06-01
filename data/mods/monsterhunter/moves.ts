@@ -1001,6 +1001,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	frozencleave: {
+			accuracy: 100,
+			basePower: 70,
+			category: "Physical",
+			name: "Frozen Cleave",
+			pp: 20,
+			priority: 0,
+			flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+			onEffectiveness(typeMod, target, type) {
+				if (type === 'Water') return 1;
+			},
+			secondary: {
+				chance: 10,
+				status: 'frz',
+			},
+			target: "normal",
+			shortDesc: "10% chance to freeze. Super effective on Water.",
+			type: "Ice",
+			contestType: "Beautiful",
+		},
 	/*
 	Edits
 	*/

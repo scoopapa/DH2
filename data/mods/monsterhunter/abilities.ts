@@ -50,10 +50,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
+			onStart(pokemon) {
+				if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
+					this.add('-ability', pokemon, 'Puff-Up');
+					this.add('-message', `Zamtrios is transforming!`);
+					pokemon.formeChange('zamtriospuffed', this.effect, true);
+				}
+			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Puff-Up",
-		shortDesc: "This pokemon will react to a special attack by puffing up it's body.",
+		shortDesc: "This pokemon will react to a special attack by puffing up it's body. Also activates under Rain.",
 		rating: 3,
 		num: 1002,
 	},
@@ -615,6 +622,72 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		rating: 3.5,
 		num: 1029,
+	},
+	plow: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				this.heal(damage);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Plow",
+		shortDesc: "Heals 1/4 of its max HP when hit by Ground; Ground immunity. Healed by Spikes and Stealth Rock.",
+		rating: 3.5,
+		num: 1030,
+	},
+	insectarmor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Insect Armor",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+		rating: 4.5,
+		num: 1031,
+	},
+	dukesbayonet: {
+		shortDesc: "Contact moves bypass Protect. 25% damage instead.",
+		onModifyMove(move, source, target) {
+			if (move.flags['contact']) {
+				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Armor Piercer: reduced damage to 25% through Protect');
+				return this.chainModify(0.25);
+			}
+		},
+		flags: {},
+		name: "Duke's Bayonet",
+		rating: 4,
+		num: 1032,
 	},
 	/*
 	Edits
