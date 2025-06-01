@@ -95,7 +95,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Zen Headbutt", target);
 		},
 		flags: {protect: 1, mirror: 1, contact: 1},
-		// effect TBD
+		onModifyPriority(priority, source, target, move) {
+			if (source.allies.filter(p => p.baseSpecies.id === 'ranyakumo').length) {
+				return priority + 1;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -107,14 +111,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Lunatic Bullet",
 		pp: 20,
 		shortDesc: "Moves first in its priority bracket.",
-		priority: 0,
+		priority: 0.1,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Vacuum Wave", target);
 			this.add('-anim', pokemon, "Psychic", target);
 		},
 		flags: {protect: 1, mirror: 1, bullet: 1},
-		// effect TBD
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -311,6 +314,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	excavate: {
 		accuracy: 90,
 		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.side.sideConditions.some(c => sideConditions.includes(c))) return move.basePower * 2;
+			}
+		},
 		category: "Physical",
 		name: "Excavate",
 		pp: 15,
@@ -321,7 +330,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Rock Throw", target);
 		},
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		// the whole removing hazards and doubling in power effect
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', `[of] ${pokemon}`);
+					}
+				}
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",

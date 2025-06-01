@@ -98,7 +98,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifySpe(spe, pokemon) {
 			if(pokemon.adjacentFoes().length == 0) return;
 			let target = this.sample(pokemon.adjacentFoes());
-			if (target.status) {
+			if (target.status === 'brn') {
 				return this.chainModify(2);
 			}
 		},
@@ -510,25 +510,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, sets Gravity for 5 turns.",
 	},
 	marchingorders: {
-		onAllyAfterMove(pokemon) {
-			const ally = pokemon.allies()[0];
+		onAllyAfterMove(ally) {
 			if (!ally.lastMove || ally.lastMove.priority > 0) return;
-			const action = pokemon.lastMove;
-			console.log(pokemon.activeMove + " " + pokemon.lastMove + " " + this.queue.willMove(pokemon));
+			const pokemon = this.effectState.target;
+			if (!pokemon) return;
+			const action = this.queue.willMove(pokemon);
 			if (action) {
 				this.add('-activate', pokemon, 'ability: Marching Orders');
-				this.actions.useMove(action, pokemon);
-				pokemon.addVolatile('marchingorders');
+				this.queue.prioritizeAction(action);
 			} else {
 				return;
 			}
-		},
-		condition: {
-			duration: 1,
-			noCopy: true,
-			onBeforeMove(pokemon, target, move) {
-				return null;
-			},
 		},
 		flags: {},
 		name: "Marching Orders",
