@@ -252,7 +252,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		noCopy: true,
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			if (!this.field.isWeather(['hail', 'snowscape']) return;
+			if (!this.field.isWeather(['hail', 'snowscape'])) return;
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
