@@ -108,10 +108,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},
-	keinehakutaku: {
-		tier: "Toho",
-		doublesTier: "DToho",
-	},
 	tewiinaba: {
 		tier: "Toho",
 		doublesTier: "DToho",
@@ -369,14 +365,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DToho",
 	},
 	hecatiaotherworld: {
-		tier: "Toho",
-		doublesTier: "DToho",
-	},
-	hecatiaearth: {
-		tier: "Toho",
-		doublesTier: "DToho",
-	},
-	hecatiamoon: {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},

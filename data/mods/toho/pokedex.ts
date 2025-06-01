@@ -49,6 +49,7 @@ reimuhakurei: {
 		gender: "F",
 		baseStats: {hp: 60, atk: 139, def: 59, spa: 139, spd: 64, spe: 109},
 		abilities: {0: "Drought"},
+		requiredItem: "Summer Backdoor",
 	},
 	hongmeiling: {
 		num: 7,
