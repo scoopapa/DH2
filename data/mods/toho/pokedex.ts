@@ -473,7 +473,7 @@ reimuhakurei: {
 		baseStats: {hp: 75, atk: 80, def: 55, spa: 45, spd: 65, spe: 85},
 		abilities: {0: "Summon Nyuudou"},
 	},
-	ichirinunzan: {
+	ichirinandunzan: {
 		num: 60,
 		name: "Ichirin and Unzan",
 		baseSpecies: "Ichirin Kumoi",
