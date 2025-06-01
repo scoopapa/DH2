@@ -74,4 +74,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return this.NOT_FAIL;
 		},
 	},
+	poltergeist: {
+		inherit: true,
+		onTry(source, target) {
+			return !!target.item && !target.volatiles['ltsurgeboost'];
+		},
+	},	
+	knockoff: {
+		inherit: true,
+		onBasePower(basePower, source, target, move) {
+			if (target.volatiles['ltsurgeboost']) return;
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 };
