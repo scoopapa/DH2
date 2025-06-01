@@ -247,7 +247,46 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
-	
+	mikuiceboost: {
+		name: 'mikuiceboost',
+		noCopy: true,
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (!this.field.isWeather(['hail', 'snowscape'])) return;
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+	},
+	ltsurgeboost: {
+		name: 'ltsurgeboost',
+		noCopy: true,
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Hold');
+				return false;
+			}
+		},
+	},
+	rileyboost: {
+		name: 'rileyboost',
+		noCopy: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Fighting' && pokemon.hp < pokemon.baseMaxhp / 2) return this.chainModify([5324, 4096]);
+		},
+	},
 		
 	//vanilla
 	sandstorm: {

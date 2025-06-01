@@ -133,6 +133,25 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/whitney.png" height="80" width="80">`);
 						side.trainerBoost = 'whitney';
 						break;
+					case 'mikuice':
+					case 'miku ice':
+					case 'miku-ice':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/miku-ice.png" height="80" width="80">`);
+						side.trainerBoost = 'miku-ice';
+						break;
+					case 'ltsurge':
+					case 'lt.surge':
+					case 'lt. surge':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/ltsurge.png" height="80" width="80">`);
+						side.trainerBoost = 'ltsurge';
+						break;
+					case 'riley':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/riley.png" height="80" width="80">`);
+						side.trainerBoost = 'riley';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
@@ -204,6 +223,18 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'whitney':
 					pokemon.addVolatile('whitneyboost');
+					break;
+				case 'cguys':
+					pokemon.addVolatile('cguysboost');
+					break;
+				case 'miku-ice':
+					pokemon.addVolatile('mikuiceboost');
+					break;
+				case 'ltsurge':
+					if (pokemon.hasType('Electric')) pokemon.addVolatile('ltsurgeboost');
+					break;
+				case 'riley':
+					pokemon.addVolatile('rileyboost');
 					break;
 			}
 		}
