@@ -168,6 +168,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 80, atk: 95, def: 80, spa: 105, spd: 90, spe: 110},
 		abilities: {0: "Mold Breaker", H: "Merciless"},
+		changesFrom: null,
 	},
 	ogerponhearthflametera: {
 		inherit: true,
@@ -177,6 +178,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
 		abilities: {0: "Water Absorb", H: "Flower Veil"},
+		changesFrom: null,
 	},
 	ogerponwellspringtera: {
 		inherit: true,
@@ -186,6 +188,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 80, atk: 120, def: 104, spa: 40, spd: 96, spe: 110},
 		abilities: {0: "Sturdy", H: "Sand Rush"},
+		changesFrom: null,
 	},
 	ogerponcornerstonetera: {
 		inherit: true,
