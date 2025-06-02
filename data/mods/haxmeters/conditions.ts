@@ -10,6 +10,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			*/
 		},
 	},
+	frz: {
+		inherit: true,
+		onBeforeMove(pokemon) {
+		
+		},
+	},
 	confusion: {
 		inherit: true,
 		onBeforeMove(pokemon) {

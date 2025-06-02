@@ -86,8 +86,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	netherworldsspring: {
 		onResidual(pokemon) {
-			if (pokemon.hp && pokemon.hp < pokemon.baseMaxhp && this.field.isWeather('snowscape')) {
-				if (this.field.clearWeather()) pokemon.heal(pokemon.baseMaxhp / 3);
+			console.log(this.field.weather + " " + pokemon.hp + " " + pokemon.baseMaxhp);
+			if (pokemon.hp && pokemon.hp < pokemon.baseMaxhp && this.field.isWeather('snow')) {
+				if (this.field.clearWeather()) this.heal(pokemon.baseMaxhp / 3);
 			}
 		},
 		flags: {},
@@ -270,6 +271,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Ichirin Kumoi') return;
 			if (pokemon.species.forme !== 'Unzan') {
 				pokemon.formeChange('Ichirin and Unzan', this.effect, true);
+				pokemon.set.ability = 'Iron Fist';
 			}
 		},
 		onSwitchIn(pokemon) {

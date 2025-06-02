@@ -361,7 +361,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
 					if (!target) continue;
-					if (!secondary.self && (target.volatiles['substitute'] || !target.hp)) continue; //target behind sub or fainted
+					if (!secondary.self && !target.hp) continue; //target behind sub or fainted
 					if (secondary.status) {
 						if (target.status) continue; //target already statused
 						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status

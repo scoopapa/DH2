@@ -58,6 +58,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						toAdd = 25;
 						break;
 					case 'Freeze':
+						if (move.flags['defrost']) break;
 						toAdd = 80;
 						break;
 					case 'Confusion':

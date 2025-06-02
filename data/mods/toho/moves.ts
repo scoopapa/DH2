@@ -317,8 +317,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
-				if (pokemon.side.sideConditions.some(c => sideConditions.includes(c))) return move.basePower * 2;
+				if (pokemon.side.sideConditions[condition]) return move.basePower * 2;
 			}
+			return move.basePower;
 		},
 		category: "Physical",
 		name: "Excavate",
