@@ -435,4 +435,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(source) {
+			if (source.species.name === 'Junko') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Junko can use this move.");
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
+		},
+	},
 };
