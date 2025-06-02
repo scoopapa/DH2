@@ -1487,7 +1487,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1"],
 			lastresort: ["9L1"],
 			doubleedge: ["9L1"],
-			heatbutt: ["9L1"],
+			headbutt: ["9L1"],
 			facade: ["9L1"],
 			feint: ["9L1"],
 			outrage: ["9L1"],
