@@ -1308,7 +1308,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			strength: ["9L1"],
 			facade: ["9L1"],
 			hornattack: ["9L1"],
-			vicegrip: ["9L1"],
+			visegrip: ["9L1"],
 			doublehit: ["9L1"],
 			calmmind: ["9L1"],
 			gravity: ["9L1"],
