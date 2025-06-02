@@ -2136,7 +2136,6 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			solarblade: ["9L1"],
 			stompingtantrum: ["9M"],
 			highhorsepower: ["9M"],
-			growth: ["9M"],
 			leafblade: ["9M"],
 			leafstorm: ["9M"],
 			flamethrower: ["9M"],
