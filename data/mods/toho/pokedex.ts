@@ -277,7 +277,7 @@ reimuhakurei: {
 		baseStats: {hp: 66, atk: 100, def: 72, spa: 100, spd: 72, spe: 165},
 		abilities: {0: "Infiltrator", 1: "Early Bird", H: "Forewarn"},
 	},
-	medecinemelancholy: {
+	medicinemelancholy: {
 		num: 35,
 		name: "Medecine Melancholy",
 		types: ["Poison"],
