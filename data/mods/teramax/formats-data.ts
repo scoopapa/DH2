@@ -2983,6 +2983,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	archaludon: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
 	urshifu: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
@@ -3091,6 +3095,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
+	giratinaorigin: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
 	arceus: {
 		tier: "TMUber",
 		doublesTier: "TMUber",
@@ -3145,7 +3153,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	necrozma: {
 		tier: "TMOU",
-		doublesTier: "TMUber",
+		doublesTier: "TMOU",
 	},
 	necrozmaduskmane: {
 		tier: "TMUber",
