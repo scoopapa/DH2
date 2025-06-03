@@ -482,7 +482,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 265,
 		shortDesc: "After hitting an attack, this Pokemons heals 12.5% of its max HP.",
 	},
-	asoneglastrier: {
+	/*asoneglastrier: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Unnerve');
@@ -537,7 +537,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "As One (Spectrier)",
 		rating: 3.5,
 		num: 267,
-	},
+	},*/
 	poisonpuppeteer: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
