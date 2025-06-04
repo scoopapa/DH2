@@ -714,6 +714,127 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 		desc: "If this move KOs the target, raise the user's attack by 1. Otherwise, lower attack by 1.",
 		shortDesc: "On KO: +1 Atk. Otherwise -1 Atk.",
+	},
+	wickedblow: {
+		num: 817,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Wicked Blow",
+		pp: 5,
+		priority: 0,
+		beforeMoveCallback(source, target, move) {
+			this.add('-anim', source, 'Techno Blast', target);
+		  	const typeEffectiveness = {
+				Water: this.dex.getEffectiveness('Water', target),
+				Dark: this.dex.getEffectiveness('Dark', target),
+			};
+		  
+		  	let bestType = 'Water';
+		  	let maxEffectiveness = -Infinity;
+		  	// gets most effective type against target (defaults to the current type)
+		  	for (const type in typeEffectiveness) {
+				if (typeEffectiveness[type] > maxEffectiveness) {
+			  		maxEffectiveness = typeEffectiveness[type];
+			  		bestType = type;
+				}
+		  	}
+	  		// changes form to match most effective type
+		  	if (bestType === 'Dark') {
+				this.add('-message', `Urshifu takes pity on its foe and transforms into a weaker type!`);
+				source.formeChange('Urshifu-Rapid-Strike');
+				source.setAbility('Sniper');
+				this.add('-ability', source, 'Sniper');
+				const oldMove = 'wickedblow';
+				const newMove = 'surgingstrikes';
+
+				const oldMoveId = this.toID(oldMove);
+				const newMoveData = this.dex.moves.get(newMove);
+
+				for (const slot of target.moveSlots) {
+					if (slot.id === oldMoveId) {
+						slot.move = newMoveData.name;
+						slot.id = newMoveData.id;
+						slot.pp = newMoveData.pp;
+						slot.maxpp = newMoveData.pp;
+						slot.target = newMoveData.target;
+						slot.disabled = false;
+						slot.used = false;
+						break;
+					}
+				}
+				this.actions.useMove('surgingstrikes', source, target);
+				return null;
+		  	}
+	  		
+		},
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	surgingstrikes: {
+		num: 818,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Surging Strikes",
+		pp: 5,
+		priority: 0,
+		beforeMoveCallback(source, target, move) {
+			this.add('-anim', source, 'Techno Blast', target);
+		  	const typeEffectiveness = {
+				Dark: this.dex.getEffectiveness('Dark', target),
+				Water: this.dex.getEffectiveness('Water', target),
+			};
+		  
+		  	let bestType = 'Dark';
+		  	let maxEffectiveness = -Infinity;
+		  	// gets most effective type against target (defaults to the current type)
+		  	for (const type in typeEffectiveness) {
+				if (typeEffectiveness[type] > maxEffectiveness) {
+			  		maxEffectiveness = typeEffectiveness[type];
+			  		bestType = type;
+				}
+		  	}
+	  		// changes form to match most effective type
+		  	if (bestType === 'Water') {
+				this.add('-message', `Urshifu takes pity on its foe and transforms into a weaker type!`);
+				source.formeChange('Urshifu');
+				source.setAbility('Sniper');
+				this.add('-ability', source, 'Sniper');
+				const oldMove = 'surgingstrikes';
+				const newMove = 'wickedblow';
+
+				const oldMoveId = this.toID(oldMove);
+				const newMoveData = this.dex.moves.get(newMove);
+
+				for (const slot of target.moveSlots) {
+					if (slot.id === oldMoveId) {
+						slot.move = newMoveData.name;
+						slot.id = newMoveData.id;
+						slot.pp = newMoveData.pp;
+						slot.maxpp = newMoveData.pp;
+						slot.target = newMoveData.target;
+						slot.disabled = false;
+						slot.used = false;
+						break;
+					}
+				}
+				this.actions.useMove('wickedblow', source, target);
+				return null;
+		  	}
+	  		
+		},
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
+		willCrit: true,
+		multihit: 3,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: { basePower: 140 },
+		maxMove: { basePower: 130 },
 	}
 };
   
