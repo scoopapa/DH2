@@ -543,9 +543,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		// applies move lock
-		onAfterMoveSecondary(target, source, move) {
-			if (source && source !== target) return;
-			source.addVolatile('lockedmove');
+		onAfterMoveSelf(target, source, move) {
+			if (source && source === target) return;
+			source.addVolatile('lockedmove', source, move.id);
 			this.add('-start', source, 'lockedmove');
 		},
 		flags: {},
