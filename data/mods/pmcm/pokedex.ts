@@ -308,5 +308,20 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	infernape: {
 		inherit: true,
 		abilities: {0: "Berserk"},
+	},
+	salamence: {
+		inherit: true,
+	},
+	salamencemega: {
+		inherit: true,
+		abilities: {0: "Blood-Soaked Crescent"},
+	},
+	urshifu: {
+		inherit: true,
+		abilities: {0: "Sniper"},
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		abilities: {0: "Sniper"},
 	}
 };
