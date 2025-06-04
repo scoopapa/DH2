@@ -527,7 +527,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	bloodsoakedcrescent: {
 		// modifies atk
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'ability: Blood-Soaked Crescent');
+			this.add('-ability', pokemon, 'Blood-Soaked Crescent');
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
