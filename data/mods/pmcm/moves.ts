@@ -743,7 +743,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	  		// changes form to match most effective type
 		  	if (bestType === 'Dark') {
 				this.add('-message', `Urshifu takes pity on its foe and transforms into a weaker type!`);
-				source.formeChange('Urshifu-Rapid-Strike');
+				source.formeChange('Urshifu-Rapid-Strike', source, true);
 				source.setAbility('Sniper');
 				this.add('-ability', source, 'Sniper');
 				const oldMove = 'wickedblow';
@@ -809,7 +809,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	  		// changes form to match most effective type
 		  	if (bestType === 'Water') {
 				this.add('-message', `Urshifu takes pity on its foe and transforms into a weaker type!`);
-				source.formeChange('Urshifu');
+				source.formeChange('Urshifu', source, true);
 				source.setAbility('Sniper');
 				this.add('-ability', source, 'Sniper');
 				const oldMove = 'surgingstrikes';
