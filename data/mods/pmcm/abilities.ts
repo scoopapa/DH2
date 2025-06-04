@@ -526,6 +526,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	bloodsoakedcrescent: {
 		// modifies atk
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Blood-Soaked Crescent');
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
@@ -536,11 +539,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onAfterMove(pokemon) {
 			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
 				pokemon.removeVolatile('lockedmove');
+				this.add('-end', pokemon, 'lockedmove');
 			}
 		},
 		// applies move lock
-		onHit(target, source, move) {
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target) return;
 			source.addVolatile('lockedmove');
+			this.add('-start', source, 'lockedmove');
 		},
 		flags: {},
 		name: "Blood-Soaked Crescent",
