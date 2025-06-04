@@ -545,6 +545,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		// applies move lock
 		onAfterMoveSelf(target, source, move) {
 			if (source && source === target) return;
+			this.add('-message', `hi this is working trust`);
 			source.addVolatile('lockedmove', source, move.id);
 			this.add('-start', source, 'lockedmove');
 		},
