@@ -549,7 +549,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		condition: {
 			// Outrage, Thrash, Petal Dance...
-			name: 'bloodsoakedcrescent',
 			duration: 2,
 			onResidual(target) {
 				if (target.status === 'slp') {
