@@ -49,6 +49,7 @@ reimuhakurei: {
 		gender: "F",
 		baseStats: {hp: 60, atk: 139, def: 59, spa: 139, spd: 64, spe: 109},
 		abilities: {0: "Drought"},
+		requiredItem: "Summer Backdoor",
 	},
 	hongmeiling: {
 		num: 7,
@@ -276,7 +277,7 @@ reimuhakurei: {
 		baseStats: {hp: 66, atk: 100, def: 72, spa: 100, spd: 72, spe: 165},
 		abilities: {0: "Infiltrator", 1: "Early Bird", H: "Forewarn"},
 	},
-	medecinemelancholy: {
+	medicinemelancholy: {
 		num: 35,
 		name: "Medecine Melancholy",
 		types: ["Poison"],
@@ -473,7 +474,7 @@ reimuhakurei: {
 		baseStats: {hp: 75, atk: 80, def: 55, spa: 45, spd: 65, spe: 85},
 		abilities: {0: "Summon Nyuudou"},
 	},
-	ichirinunzan: {
+	ichirinandunzan: {
 		num: 60,
 		name: "Ichirin and Unzan",
 		baseSpecies: "Ichirin Kumoi",

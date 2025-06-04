@@ -317,8 +317,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
-				if (pokemon.side.sideConditions.some(c => sideConditions.includes(c))) return move.basePower * 2;
+				if (pokemon.side.sideConditions[condition]) return move.basePower * 2;
 			}
+			return move.basePower;
 		},
 		category: "Physical",
 		name: "Excavate",
@@ -432,6 +433,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
 			},
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(source) {
+			if (source.species.name === 'Junko') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Junko can use this move.");
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
 		},
 	},
 };

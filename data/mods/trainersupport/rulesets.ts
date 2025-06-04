@@ -224,9 +224,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				case 'whitney':
 					pokemon.addVolatile('whitneyboost');
 					break;
-				case 'cguys':
-					pokemon.addVolatile('cguysboost');
-					break;
 				case 'miku-ice':
 					pokemon.addVolatile('mikuiceboost');
 					break;
