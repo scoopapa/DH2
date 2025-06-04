@@ -539,14 +539,45 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onAfterMove(pokemon) {
 			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
 				pokemon.removeVolatile('lockedmove');
-				this.add('-end', pokemon, 'lockedmove');
 			}
 		},
 		// applies move lock
-		onAfterMoveSecondarySelf(pokemon, source, move) {
-			this.add('-message', `hi this is working trust`);
-			pokemon.addVolatile('lockedmove', pokemon, move.id);
-			this.add('-start', pokemon, 'lockedmove');
+		//onAfterMoveSecondarySelf(pokemon, source, move) {
+			//this.add('-message', `hi this is working trust`);
+			//pokemon.addVolatile('lockedmove', pokemon, move.id);
+			//this.add('-start', pokemon, 'lockedmove');
+		//},
+		self: {
+			volatileStatus: 'bloodsoakedcrescent',
+		},
+		condition: {
+			// Outrage, Thrash, Petal Dance...
+			name: 'bloodsoakedcrescent',
+			duration: 2,
+			onResidual(target) {
+				if (target.status === 'slp') {
+					// don't lock, and bypass confusion for calming
+					delete target.volatiles['bloodsoakedcrescent'];
+				}
+				this.effectState.trueDuration--;
+			},
+			onStart(target, source, effect) {
+				this.effectState.trueDuration = this.random(2, 4);
+				this.effectState.move = effect.id;
+			},
+			onRestart() {
+				if (this.effectState.trueDuration >= 2) {
+					this.effectState.duration = 2;
+				}
+			},
+			onEnd(target) {
+				if (this.effectState.trueDuration > 1) return;
+				target.addVolatile('confusion');
+			},
+			onLockMove(pokemon) {
+				if (pokemon.volatiles['dynamax']) return;
+				return this.effectState.move;
+			},
 		},
 		flags: {},
 		name: "Blood-Soaked Crescent",
