@@ -741,6 +741,17 @@
             }
         ]
     },
+    "salamence": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dragon Ascent", "Dragon Claw", "Earthquake", "U-turn", "Dragon Dance"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
     "salamencemega": {
         "level": 80,
         "sets": [
