@@ -543,11 +543,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		// applies move lock
-		onAfterMoveSecondarySelf(target, source, move) {
-			if (source && source === target) return;
+		onAfterMoveSecondarySelf(pokemon, source, move) {
 			this.add('-message', `hi this is working trust`);
-			this.addVolatile('lockedmove', source, move.id);
-			this.add('-start', source, 'lockedmove');
+			pokemon.addVolatile('lockedmove', pokemon, move.id);
+			this.add('-start', pokemon, 'lockedmove');
 		},
 		flags: {},
 		name: "Blood-Soaked Crescent",
