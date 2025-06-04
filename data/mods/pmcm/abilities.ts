@@ -523,5 +523,29 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Berserk",
 		rating: 2,
 		num: 201,
+	},
+	bloodsoakedcrescent: {
+		// modifies atk
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			this.debug('bsc Attack boost');
+			return this.chainModify(1.5);
+		},
+		// ends move lock properly
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		// applies move lock
+		onHit(target, source, move) {
+			source.addVolatile('lockedmove');
+		},
+		flags: {},
+		name: "Blood-Soaked Crescent",
+		rating: 5,
+		num: -111,
+		shortDesc: "1.5x Attack, but attacks have the Outrage effect.",
 	}
 };
