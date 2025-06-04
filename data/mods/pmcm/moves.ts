@@ -770,7 +770,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  	}
 	  		
 		},
-		onTryHit(target, source, move) {
+		onTry(source, target, move) {
 			if (this.effectState.surgingStrikesAlreadyUsed === 1) {
 				return null;
 			}
@@ -836,7 +836,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  	}
 	  		
 		},
-		onTryHit(target, source, move) {
+		onTry(source, target, move) {
 			if (this.effectState.wickedBlowAlreadyUsed === 1) {
 				return null;
 			}
