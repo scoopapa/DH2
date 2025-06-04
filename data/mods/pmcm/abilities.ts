@@ -544,7 +544,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		// applies move lock
 		onAfterMoveSecondarySelf(pokemon, source, move) {
 			this.add('-message', `hi this is working trust`);
-			pokemon.addVolatile('bloodsoakedcrescent', pokemon, this.effect, {move: move.id});
+			pokemon.addVolatile('bloodsoakedcrescent');
 			this.add('-start', pokemon, 'lockedmove');
 		},
 		condition: {
@@ -559,7 +559,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			},
 			onStart(target, source, effect) {
 				this.effectState.trueDuration = this.random(2, 4);
-				this.effectState.move = effect?.move;
+				this.effectState.move = this.activeMove;
 			},
 			onRestart() {
 				if (this.effectState.trueDuration >= 2) {
