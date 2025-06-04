@@ -537,15 +537,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		// ends move lock properly
 		onAfterMove(pokemon) {
-			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
-				pokemon.removeVolatile('lockedmove');
+			if (pokemon.volatiles['bloodsoakedcrescent'] && pokemon.volatiles['bloodsoakedcrescent'].duration === 1) {
+				pokemon.removeVolatile('bloodsoakedcrescent');
+				this.add('-end', pokemon, 'Blood-Soaked Rage');
 			}
 		},
 		// applies move lock
 		onAfterMoveSecondarySelf(pokemon, source, move) {
-			this.add('-message', `hi this is working trust`);
+			if (move.id === 'dragondance') return;
 			pokemon.addVolatile('bloodsoakedcrescent');
-			this.add('-start', pokemon, 'lockedmove');
+			this.add('-start', pokemon, 'Blood-Soaked Rage');
 		},
 		condition: {
 			// Outrage, Thrash, Petal Dance...
