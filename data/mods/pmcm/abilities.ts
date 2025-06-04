@@ -542,13 +542,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		// applies move lock
-		//onAfterMoveSecondarySelf(pokemon, source, move) {
-			//this.add('-message', `hi this is working trust`);
-			//pokemon.addVolatile('lockedmove', pokemon, move.id);
-			//this.add('-start', pokemon, 'lockedmove');
-		//},
-		self: {
-			volatileStatus: 'bloodsoakedcrescent',
+		onAfterMoveSecondarySelf(pokemon, source, move) {
+			this.add('-message', `hi this is working trust`);
+			pokemon.addVolatile('bloodsoakedcrescent', pokemon, this.effect, {move: move.id});
+			this.add('-start', pokemon, 'lockedmove');
 		},
 		condition: {
 			// Outrage, Thrash, Petal Dance...
@@ -563,7 +560,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			},
 			onStart(target, source, effect) {
 				this.effectState.trueDuration = this.random(2, 4);
-				this.effectState.move = effect.id;
+				this.effectState.move = effect?.move;
 			},
 			onRestart() {
 				if (this.effectState.trueDuration >= 2) {
