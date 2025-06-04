@@ -545,9 +545,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		// applies move lock
 		onAfterMoveSecondarySelf(pokemon, source, move) {
 			if (move.id === 'dragondance') return;
-			pokemon.addVolatile('bloodsoakedcrescent');
-			this.add('-start', pokemon, 'Blood-Soaked Rage');
+			if (!pokemon.volatiles['bloodsoakedcrescent']) {
+				this.add('-start', pokemon, 'Blood-Soaked Rage');
+				pokemon.addVolatile('bloodsoakedcrescent');
+			}
 		},
+		// condition is just lockedmove with some changes
 		condition: {
 			// Outrage, Thrash, Petal Dance...
 			duration: 2,
