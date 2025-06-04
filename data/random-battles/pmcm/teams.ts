@@ -1870,7 +1870,8 @@ export class RandomTeams {
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 			
 			// Code to enforce a mon on teams for testing
-			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'testedMon';
+			if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
+			if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
 			
 			let set: RandomTeamsTypes.RandomSet;
 
