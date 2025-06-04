@@ -279,7 +279,7 @@ reimuhakurei: {
 	},
 	medicinemelancholy: {
 		num: 35,
-		name: "Medecine Melancholy",
+		name: "Medicine Melancholy",
 		types: ["Poison"],
 		gender: "F",
 		baseStats: {hp: 74, atk: 75, def: 135, spa: 100, spd: 83, spe: 58},
@@ -813,7 +813,7 @@ reimuhakurei: {
 		types: ["Ice", "Rock"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 65, def: 70, spa: 120, spd: 70, spe: 100},
-		abilities: {0: "Study", H: "Winter Hearth"},
+		abilities: {0: "Sturdy", H: "Winter Hearth"},
 	},
 	maiteireida: {
 		num: 102,
