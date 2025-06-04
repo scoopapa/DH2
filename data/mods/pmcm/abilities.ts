@@ -547,8 +547,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (move.id === 'dragondance') return;
 			if (!pokemon.volatiles['bloodsoakedcrescent']) {
 				this.add('-start', pokemon, 'Blood-Soaked Rage');
-				pokemon.addVolatile('bloodsoakedcrescent');
 			}
+			pokemon.addVolatile('bloodsoakedcrescent');
 		},
 		// condition is just lockedmove with some changes
 		condition: {
