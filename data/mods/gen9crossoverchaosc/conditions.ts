@@ -918,7 +918,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'Pivot Suppression',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Pivot Suppression');
-		}
+		},
 		onEnd(target) {
 			this.add('-end', target, 'Pivot Suppression');
 		},
