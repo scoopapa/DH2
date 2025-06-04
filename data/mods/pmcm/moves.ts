@@ -724,6 +724,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 0,
 		beforeMoveCallback(source, target, move) {
+			this.effectState.surgingStrikesAlreadyUsed = 0;
 			this.add('-anim', source, 'Techno Blast', target);
 		  	const typeEffectiveness = {
 				Water: this.dex.getEffectiveness('Water', target),
@@ -751,7 +752,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				const oldMoveId = this.toID(oldMove);
 				const newMoveData = this.dex.moves.get(newMove);
 
-				for (const slot of target.moveSlots) {
+				for (const slot of source.moveSlots) {
 					if (slot.id === oldMoveId) {
 						slot.move = newMoveData.name;
 						slot.id = newMoveData.id;
@@ -763,10 +764,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 						break;
 					}
 				}
+				source.baseMoveSlots = source.moveSlots.slice();
 				this.actions.useMove('surgingstrikes', source, target);
-				return null;
+				this.effectState.surgingStrikesAlreadyUsed = 1;
 		  	}
 	  		
+		},
+		onTryHit(target, source, move) {
+			if (this.effectState.surgingStrikesAlreadyUsed === 1) {
+				return null;
+			}
 		},
 		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
 		willCrit: true,
@@ -783,6 +790,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 0,
 		beforeMoveCallback(source, target, move) {
+			this.effectState.wickedBlowAlreadyUsed = 0;
 			this.add('-anim', source, 'Techno Blast', target);
 		  	const typeEffectiveness = {
 				Dark: this.dex.getEffectiveness('Dark', target),
@@ -810,7 +818,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				const oldMoveId = this.toID(oldMove);
 				const newMoveData = this.dex.moves.get(newMove);
 
-				for (const slot of target.moveSlots) {
+				for (const slot of source.moveSlots) {
 					if (slot.id === oldMoveId) {
 						slot.move = newMoveData.name;
 						slot.id = newMoveData.id;
@@ -822,10 +830,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 						break;
 					}
 				}
+				source.baseMoveSlots = source.moveSlots.slice();
 				this.actions.useMove('wickedblow', source, target);
-				return null;
+				this.effectState.wickedBlowAlreadyUsed = 1;
 		  	}
 	  		
+		},
+		onTryHit(target, source, move) {
+			if (this.effectState.wickedBlowAlreadyUsed === 1) {
+				return null;
+			}
 		},
 		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
 		willCrit: true,
