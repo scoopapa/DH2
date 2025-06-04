@@ -265,6 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'nanoboost',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('nanoboosted');
@@ -425,6 +426,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'dimensionalcape',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('hazardshield');
@@ -601,6 +603,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon, target) {
 			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Blizzard", source);
+			this.add('-anim', source, "Dragon Breath", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -621,6 +628,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.chainModify(2);
 			}
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Infestation", target);
+			this.add('-anim', source, "Nightmare", target);
+		},
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -628,6 +640,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
+	},
+	bubbleswathe: {
+		num: -21,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Bubble Swathe",
+		shortDesc: "Suppresses pivoting effects of target's moves for 2 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sucker Punch", target);
+			this.add('-anim', target, "Aqua Ring", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (!target.volatiles['pivotsuppression']) {
+					target.addVolatile('pivotsuppression');
+				}
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
 	},
 
 	// Altering Pre-Existing Moves

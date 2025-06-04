@@ -914,4 +914,17 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-anim', pokemon, "Baneful Bunker", pokemon);
 		},
 	},
+	pivotsuppression: {
+		name: 'Pivot Suppression',
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Pivot Suppression');
+		}
+		onEnd(target) {
+			this.add('-end', target, 'Pivot Suppression');
+		},
+		duration: 2,
+		onModifyMove(move, pokemon, target) {
+			move.selfSwitch = false;
+		},
+	},
 };
