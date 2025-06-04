@@ -56,7 +56,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	maidstrick: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move.flags[slicing] && pokemon.hp === pokemon.maxhp) return priority + 1;
+			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
 		flags: {},
 		name: "Maid's Trick",
@@ -530,7 +530,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	blacksmoke: {
 		onAnyTryBoost(boost, target, source, effect) {
-			if (target === source || !target.runStatusImmunity('powder')) return;
+			if (target === this.effectState.target || !target.runStatusImmunity('powder')) return;
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -540,7 +540,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "boost", "[from] ability: Black Smoke", `[of] ${target}`);
+				this.add("-fail", target, "boost", "[from] ability: Black Smoke", `[of] ${this.effectState.target}`);
 			}
 		},
 		flags: {},
