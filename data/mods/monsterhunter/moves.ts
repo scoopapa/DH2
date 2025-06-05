@@ -1038,20 +1038,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	hyperspacefury: {
 		inherit: true,
 		breaksProtect: true,
-		onTry(source) {
-			if (source.species.name === 'Plesioth') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is Plesioth can use this move.");
-			if (source.species.name === 'Plesioth') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
-				return null;
-			}
-			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Hyperspace Fury');
-			return null;
-		},
+		onTry(source) {},
 	},
 	ivycudgel: {
 		inherit: true,
@@ -1108,6 +1095,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 10,
 			volatileStatus: 'bubbleblight',
 		},
+	},
+	/*
+	DROWSY EDITS
+	*/
+	darkvoid: {
+		inherit: true,
+		viable:true,
+		accuracy: 80,
+		onTry(source, target, move) {},
+	},
+	hypnosis: {
+		inherit: true,
+		accuracy: 85,
+	},
+	sing: {
+		inherit: true,
+		accuracy: 80,
 	},
 	/*
 	TORQUES
