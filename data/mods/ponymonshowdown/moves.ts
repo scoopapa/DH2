@@ -971,12 +971,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 70,
 		category: "Physical",
 		name: "Ornithian Blade",
-		desc: "This move ignores the target’s abilities.",
-		shortDesc: "This move ignores the target’s abilities.",
-		pp: 10,
+		desc: "Ignores defense boosts. Cannot miss.",
+		shortdesc: "Ignores defense boosts. Cannot miss.",
+		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1},
-		ignoreAbility: true,
+		flags: {protect: 1, metronome: 1, slicing: 1},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -1063,5 +1064,69 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Dark",
 		zMove: {boost: {spdef: 1}},
 		contestType: "Beautiful",
+	},
+	guilttrip: {
+		num: -35,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Guilt Trip",
+		desc: "Lowers Attack and Special Attack by 2 stages.",
+		shortDesc: "Lowers Attack and Special Attack by 2 stages.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			const success = this.boost({atk: -2, spa: -2}, target, source)
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Cool",
+	},
+	crystalheartblessing: {
+		num: -36,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crystal Heart Blessing",
+		desc: "Cures team of status. Heals user by 33%.",
+		shortDesc: "Cures team of status. Heals user by 33%.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onHit(target, source) {
+			this.add('-activate', source, 'move: Heal Bell');
+			let success = false;
+			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
+			for (const ally of allies) {
+				if (ally !== source && ally.hasAbility('soundproof')) continue;
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
+		heal: [1, 3],
+		target: "allyTeam",
+		type: "Fairy",
+		zMove: {effect: 'heal'},
+		contestType: "Beautiful",
+	},
+	furioustalons: {
+		num: -37,
+		accuracy: 100,
+		basePower: 35,
+		category: "Physical",
+		name: "Furious Talons",
+		desc: "Hits twice.",
+		shortDesc: "Hits twice.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, metronome: 1, slicing: 1, contact: 1},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
 	},
 };

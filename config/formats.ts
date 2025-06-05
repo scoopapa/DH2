@@ -974,7 +974,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Mega Rayquaza Clause', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule', 'Mario Kart Wii Clause'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
 		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
-		'Absolite', 'Houndoominite', 'Red Orb', 'Blue Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
+		'Absolite', 'Houndoominite', 'Red Orb', 'Blue Orb', 'Fish', 'Diamond Hand', 'Hoenn'],
 		unbanlist: ['Light of Ruin', 'Baddy Bad'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -1643,10 +1643,8 @@ export const Formats: FormatList = [
 		mod: 'teramax',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [
-			'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Stellar Shift', 'Stellar Shell', 'King\'s Rock', 'Baton Pass',
-			'Last Respects', 'Shed Tail', 'Wishing Stone > 1', 'Light Clay', 'Melmetal-Gmax', 'Ogerpon-Hearthflame + Close Combat',
-			'Ogerpon-Hearthflame + Rock Blast', 'Ogerpon-Wellspring + Close Combat', 'Ogerpon-Wellspring + Rock Blast',
-			'Ogerpon-Cornerstone + Rock Blast', 'Volcarona', 'Roaring Moon', 'Espathra', 'Baxcalibur',
+			'Arena Trap', 'Power Construct', 'Moody', 'Shadow Tag', 'Stellar Shift', 'Stellar Shell', 'King\'s Rock', 'Baton Pass',
+			'Last Respects', 'Shed Tail', 'Wishing Stone > 1', 'Light Clay',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -1693,6 +1691,22 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'triplethreat',
+	},
+	{
+		name: "[Gen 9] Two-Step Mons v3",
+		mod: 'twostepmonsv3',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if ( template.tier !== 'TSMv3') {
+					return [set.species + ' is not usable in Two-Step Mons v3.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Ubermons",
@@ -4087,6 +4101,14 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex Ubers',
 	},
 	{
+		name: "[Gen 9] Ponymon UU",
+		mod: 'ponymonshowdown',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: ['NDOU', 'UUBL', 'ND Uber', 'ND AG'],
+		unbanlist: ['Regieleki', 'Shedinja', 'Banette-Mega', 'Ceruledge', 'Clodsire', 'Corviknight', 'Dondozo', 'Garganacl', 'Glimmora', 'Gyarados', 'Iron Crown', 'Iron Hands', 'Latios', 'Pinsir-Mega', 'Tapu Lele', 'Thundurus-Therian', 'Zapdos-Galar'],
+		teambuilderFormat: 'National Dex UU',
+	},
+	{
 		name: "[Gen 9] National Dex Strongest State",
 		threads: [
 		],
@@ -4375,37 +4397,32 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'toho',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem'],
+		unbanlist: ['Light of Ruin'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			for (const set of team) {
+				if (set.species == 'Cirno-Tanned' && set.ability !== 'Drought')
+					 return ["Cirno-Tanned can only have Drought as its ability."]
+				if ((set.species !== 'Cirno-Tanned' && set.species !== 'Cirno') && set.ability === 'Drought')
+					 return ["Only Cirno-Tanned can have Drought as its ability."]
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Touhoumons Doubles",
+		desc: `2hu`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
+		],
+		mod: 'toho',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [],
 		unbanlist: [],
 		teambuilderFormat: 'National Dex',
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'Cirno' || set.species === 'Cirno-Tanned') {
-				if (item === 'summerbackdoor') {
-					set.species = 'Cirno-Tanned';
-					set.ability = 'Drought';
-					let moonblast = set.moves.indexOf('moonblast');
-					if (moonblast >= 0) {
-						set.moves[moonblast] = 'solarbeam';
-					}
-					let playrough = set.moves.indexOf('playrough');
-					if (playrough >= 0) {
-						set.moves[playrough] = 'powerwhip';
-					}
-					let chillingwater = set.moves.indexOf('chillingwater');
-					if (chillingwater >= 0) {
-						set.moves[chillingwater] = 'trailblaze';
-					}
-					let waterpledge = set.moves.indexOf('waterpledge');
-					if (waterpledge >= 0) {
-						set.moves[waterpledge] = 'grasspledge';
-					}
-				} else {
-					set.species = 'Cirno';
-				}
-			}
-		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			for (const set of team) {
@@ -4868,7 +4885,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule', 'I love refrigerators Rule', 'Mario Kart Wii Clause'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
 		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
-		'Abomasite', 'Absolite', 'Red Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
+		'Abomasite', 'Absolite', 'Red Orb', 'Fish', 'Diamond Hand', 'Hoenn'],
 		unbanlist: ['Light of Ruin', 'Baddy Bad'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

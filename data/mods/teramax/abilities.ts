@@ -482,6 +482,62 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 265,
 		shortDesc: "After hitting an attack, this Pokemons heals 12.5% of its max HP.",
 	},
+	/*asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			this.heal(target.baseMaxhp / 8, target, target);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "As One (Glastrier)",
+		rating: 3.5,
+		num: 266,
+	},
+	asonespectrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "As One (Spectrier)",
+		rating: 3.5,
+		num: 267,
+	},*/
 	poisonpuppeteer: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {

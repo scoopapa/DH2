@@ -30,7 +30,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			const sideOne = this.sides[0];
 			const sideTwo = this.sides[1];
 			if (pokemon.hp && pokemon.side !== sideOne) return;
-			if (sideOne.noChange && sideTwo.noChange) return;
+			//if (sideOne.noChange && sideTwo.noChange) return;
 			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
 			for (const side of this.sides) {
 				side.pmiss = side.miss;
@@ -58,10 +58,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						toAdd = 25;
 						break;
 					case 'Freeze':
+						if (move.flags['defrost']) break;
 						toAdd = 80;
 						break;
 					case 'Confusion':
-						toAdd = 33;
+						if (pokemon.volatiles['confusion']) toAdd = 33;
 						break;
 					case 'Attract':
 						toAdd = 50;
@@ -73,9 +74,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					suffix = toAdd;
 				} else {
 					prefix += (' + ' + status);
-					suffix = multiplier + ' * ' + toAdd + ' = ' + product;
+					suffix = roundNum(multiplier) + ' * ' + roundNum(toAdd) + ' = ' + product;
 				}
-				this.add('-message', `(${prefix}: ${suffix})`);
+				if (toAdd > 0) this.add('-message', `(${prefix}: ${suffix})`);
 				pokemon.side.addStatus(product);
 				multiplier *= (1 - (toAdd / 100));
 				if (pokemon.side.status >= 100) {

@@ -10,6 +10,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			*/
 		},
 	},
+	frz: {
+		inherit: true,
+		onBeforeMove(pokemon) {
+		
+		},
+	},
 	confusion: {
 		inherit: true,
 		onBeforeMove(pokemon) {
@@ -45,7 +51,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.debug(`Success chance: ${Math.round(100 / counter)}%`);
 			
 			let success = true;
-			pokemon.side.addMiss((((counter - 1) / counter) * 100).toFixed(2));
+			pokemon.side.addMiss(((counter - 1) / counter) * 100);
 			if (pokemon.side.miss >= 100) {
 				pokemon.side.subtractMiss(100);
 				success = false;

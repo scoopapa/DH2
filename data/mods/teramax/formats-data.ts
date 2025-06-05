@@ -2456,8 +2456,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	volcarona: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	talonflame: {
 		tier: "TMOU",
@@ -2572,19 +2572,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	roaringmoon: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	ironvaliant: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	koraidon: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	miraidon: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	walkingwake: {
@@ -2700,8 +2700,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	espathra: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	tinkaton: {
 		tier: "TMFE",
@@ -2808,23 +2808,23 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	baxcalibur: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	zacian: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	zaciancrowned: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	zamazentacrowned: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	eternatus: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	squirtle: {
@@ -2856,7 +2856,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMLC",
 	},
 	melmetal: {
-		tier: "Uber",
+		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
 	froakie: {
@@ -2955,17 +2955,37 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
+	ogerpontealtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	ogerponcornerstone: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
+	},
+	ogerponcornerstonetera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	ogerponwellspring: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
+	ogerponwellspringtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	ogerponhearthflame: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
+	},
+	ogerponhearthflametera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	archaludon: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	urshifu: {
 		tier: "TMOU",
@@ -3075,6 +3095,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
+	giratinaorigin: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
 	arceus: {
 		tier: "TMUber",
 		doublesTier: "TMUber",
@@ -3129,7 +3153,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	necrozma: {
 		tier: "TMOU",
-		doublesTier: "TMUber",
+		doublesTier: "TMOU",
 	},
 	necrozmaduskmane: {
 		tier: "TMUber",
@@ -3149,134 +3173,172 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	venusaurgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	charizardgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	blastoisegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	butterfreegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	pikachugmax: {
 		isNonstandard: null,
 		tier: "TMNFE",
+		doublesTier: "TMNFE",
 	},
 	meowthgmax: {
 		isNonstandard: null,
 		tier: "TMLC",
+		doublesTier: "TMLC",
 	},
 	machampgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	gengargmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	kinglergmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	laprasgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	eeveegmax: {
 		isNonstandard: null,
 		tier: "TMLC",
+		doublesTier: "TMLC",
 	},
 	snorlaxgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	garbodorgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	melmetalgmax: {
+		isNonstandard: null,
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	rillaboomgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	cinderacegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	inteleongmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	corviknightgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	orbeetlegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	drednawgmax: {
 		isNonstandard: null,
 		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	coalossalgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	flapplegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	appletungmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	sandacondagmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	toxtricitygmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	toxtricitylowkeygmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	centiskorchgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	hatterenegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	grimmsnarlgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	alcremiegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	copperajahgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	duraludongmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifugmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifurapidstrikegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 };

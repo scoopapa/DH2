@@ -24,6 +24,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	cutecharm: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
+			if (!source.runStatusImmunity('attract') || source.volatiles['attract']) return;
+			if (!(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) return;
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-message', `(${target.name}'s Ability: 30)`);
 				target.side.addEffect(30);
@@ -37,7 +39,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	flamebody: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target) && !source.status) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('brn')) {
 				this.add('-message', `(${target.name}'s Ability: 30)`);
 				target.side.addEffect(30);
 				if (target.side.effect >= 100) {
@@ -50,7 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	poisonpoint: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target) && !source.status) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('psn')) {
 				this.add('-message', `(${target.name}'s Ability: 30)`);
 				target.side.addEffect(30);
 				if (target.side.effect >= 100) {
@@ -64,9 +66,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
-			if (this.checkMoveMakesContact(move, target, source) && !target.status) {
-				this.add('-message', `(${target.name}'s Ability: 30)`);
+			if (!target.hp || target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source) && !target.status && target.runStatusImmunity('psn')) {
+				this.add('-message', `(${source.name}'s Ability: 30)`);
 				source.side.addEffect(30);
 				if (source.side.effect >= 100) {
 					source.side.subtractEffect(100);
@@ -107,7 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	static: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target) && !source.status) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('par')) {
 				this.add('-message', `(${target.name}'s Ability: 30)`);
 				target.side.addEffect(30);
 				if (target.side.effect >= 100) {
@@ -121,9 +123,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (!target.hp || target.hasAbility('shielddust') || target.hasItem('covertcloak') || target.status || !target.runStatusImmunity('tox')) return;
 			this.add('-message', `(${target.name}'s Ability: 30)`);
-			if (!target.status) source.side.addEffect(30);
+			source.side.addEffect(30);
 			if (source.side.effect >= 100) {
 				source.side.subtractEffect(100);
 				target.trySetStatus('tox', source);

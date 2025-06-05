@@ -144,7 +144,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
-			copen: ["9L1"],
 			hoenn: ["9L1"],
 		},
 	},
@@ -3655,7 +3654,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
-			copen: ["9L1"],
 		},
 	},
 	phish: {
@@ -4113,7 +4111,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
 			blazeball: ["9L1"],
-			copen: ["9L1"],
 		},
 	},
 	tangetteeternal: {
@@ -6242,7 +6239,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
-			copen: ["9L1"],
 			racism2: ["9L1"],
 		},
 	},
@@ -6270,7 +6266,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
-			copen: ["9L1"],
 		},
 	},
 	fishfactory: {
@@ -11151,7 +11146,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			terrainpulse: ["9L1"],
 			courtchange: ["9L1"],
-			copen: ["9L1"],
 		},
 	},
 	skibidragon: {
