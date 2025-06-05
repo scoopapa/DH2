@@ -24,7 +24,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	cutecharm: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['attract']) return;
+			if (!source.runStatusImmunity('attract') || source.volatiles['attract']) return;
+			if (!(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) return;
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-message', `(${target.name}'s Ability: 30)`);
 				target.side.addEffect(30);

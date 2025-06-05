@@ -4368,24 +4368,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	copen: {
-		name: "Copen",
-		type: "Poison",
-		category: "Status",
-		basePower: 0,
-		accuracy: true,
-		pp: 1,
-		shortDesc: "Designates Copen Pokemon",
-		viable: false,
-		priority: 0,
-		flags: {},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "", target);
-		},
-		secondary: null,
-		target: "normal",
-	},
 	insanity: {
 		accuracy: true,
 		basePower: 0,

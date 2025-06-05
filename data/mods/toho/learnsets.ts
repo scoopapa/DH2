@@ -1917,7 +1917,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			protect: ["9L1"],
 		},
 	},
-	medecinemelancholy: {
+	medicinemelancholy: {
 		learnset: {
 			sludgewave: ["9L1"],
 			sludgebomb: ["9L1"],
@@ -2418,7 +2418,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			wideguard: ["9L1"],
 			aquaring: ["9L1"],
 			raindance: ["9L1"],
-			subsitute: ["9L1"],
+			substitute: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
@@ -2758,7 +2758,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
-			protec: ["9L1"],
+			protect: ["9L1"],
 		},
 	},
 	parseemizuhashi: {
@@ -4283,7 +4283,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			perishsong: ["9L1"],
 			auroraveil: ["9L1"],
 			snowscape: ["9L1"],
-			subsitute: ["9L1"],
+			substitute: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
@@ -4668,6 +4668,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	seiran: {
 		learnset: {
+			focusenergy: ["9L1"],
 			steelbeam: ["9L1"],
 			flashcannon: ["9L1"],
 			mirrorshot: ["9L1"],

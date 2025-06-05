@@ -132,7 +132,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},
-	medecinemelancholy: {
+	medicinemelancholy: {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},
