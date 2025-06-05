@@ -2,11 +2,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	agnaktor: {
 		tier: "MHUU",
 	},
+	agnaktorex: {
+		tier: "MHOU",
+	},
 	ahtalka: {
 		tier: "MHOU",
 	},
 	akantor: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	aknosom: {
 		tier: "MHRU",
@@ -18,7 +21,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	magmadron: {
-		tier: "MHUU",
+		tier: "MHOU",
 	},
 	amatsu: {
 		tier: "MHOU",
@@ -162,7 +165,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	greatizuchi: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	greatjaggi: {
 		tier: "MHRU",
@@ -180,7 +183,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	gypceros: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	harudomerugu: {
 		tier: "MHOU",
@@ -198,7 +201,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	jyuratodus: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	kechawacha: {
 		tier: "MHRU",
@@ -213,7 +216,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	kuluyaku: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	kulvetaroth: {
 		tier: "MHOU",
@@ -360,7 +363,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	auroracanth: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	spiribird: {
 		tier: "MHRU",
@@ -390,7 +393,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	tzitziyaku: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	ukanlos: {
 		tier: "MHOU",
@@ -399,7 +402,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	vaalhazak: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	valstrax: {
 		tier: "MHOU",
@@ -468,6 +471,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
+		tier: "MEGAS",
+	},
+	nightcloakmalfestio: {
 		tier: "MEGAS",
 	},
 	boltreaverastalos: {
