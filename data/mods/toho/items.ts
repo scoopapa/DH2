@@ -1,6 +1,8 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	summerbackdoor: {
 		name: "Summer Backdoor",
+		spritenum: 751,
+		shortDesc: "If held by a Cirno, this item changes its forme to Tanned.",
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 5) || pokemon.baseSpecies.num === 5) {
 				return false;
@@ -11,8 +13,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	jeweledpagoda: {
 		name: "Jeweled Pagoda",
+		spritenum: 92,
+		shortDesc: "Nazrin, Shou Toramaru: Fairy moves have 1.5x power.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
+			if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(pokemon.baseSpecies.num === 57 || pokemon.baseSpecies.num === 62))) return;
 			if (move && move.type === 'Fairy') {
 				return this.chainModify(1.5);
 			}
