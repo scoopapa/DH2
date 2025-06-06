@@ -4725,11 +4725,11 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	koraidon: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	miraidon: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	tinkatink: {
 		inherit: true,
