@@ -210,6 +210,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1017,
 			gen: 9,
 	},
+	malfestite: {
+			name: "Malfestite",
+			shortDesc: "If held by Malfestio, this item allows it to Mega Evolve in battle.",
+			spritenum: 577,
+			megaStone: "Nightcloak Malfestio",
+			megaEvolves: "Malfestio",
+			itemUser: ["Malfestio"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1018,
+			gen: 9,
+	},
 	crimsongem: {
 		name: "Crimson Gem",
 		shortDesc: "If held by Fatalis, this item triggers its Crimson Form in battle.",
