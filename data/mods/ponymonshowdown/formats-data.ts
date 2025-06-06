@@ -1,5 +1,5 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
-bulbasaur: {
+	bulbasaur: {
 		inherit: true,
 		tier: "LC",
 	},
