@@ -293,6 +293,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.actions.runMegaEvoY?.(action.pokemon);
 				break;
 			case 'runDynamax':
+				console.log(action.pokemon.baseSpecies.name + action.pokemon.canDynamax());
+				if (!action.pokemon.canDynamax()) break;
 				action.pokemon.addVolatile('dynamax');
 				action.pokemon.side.dynamaxUsed = true;
 				if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = true;
