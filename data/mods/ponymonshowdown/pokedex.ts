@@ -617,7 +617,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Sweetie Belle",
 		types: ["Fairy"],
 		gender: "F",
-		baseStats: {hp: 84, atk: 54, def: 76, spa: 110, spd: 110, spe: 96},
+		baseStats: {hp: 84, atk: 74, def: 76, spa: 100, spd: 100, spe: 96},
 		abilities: {0: "Magic Guard", 1: "Heart of Diamond", H: "Punk Rock"},
 		heightm: 0.5,
 		weightkg: 20,
