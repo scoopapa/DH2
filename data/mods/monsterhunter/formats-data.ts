@@ -470,6 +470,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	disufiroasol: {
 		tier: "MHOU",
 	},
+	reydau: {
+		tier: "MHOU",
+	},
+	hirabami: {
+		tier: "MHRU",
+	},
+	nuudra: {
+		tier: "MHOU",
+	},
+	nightlumu: {
+		tier: "MHUU",
+	},
+	acidinus: {
+		tier: "MHOU",
+	},
+	molgrex: {
+		tier: "MHOU",
+	},
+	blackblos: {
+		tier: "MHUU",
+	},
+	sandrioth: {
+		tier: "MHUU",
+	},
 	allmothernarwa: {
 		tier: "MEGAS",
 	},
@@ -527,4 +551,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	whitefatalis: {
 		tier: "MEGAS",
 	},
+	plesiothz: {
+		tier: "MEGAS",
+	}
 };
