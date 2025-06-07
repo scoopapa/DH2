@@ -41,11 +41,11 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			return this.chainModify(1.2);
         },
         onDisableMove(pokemon) {
-				if (!pokemon.hasAbility('dozer')) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+				else { (!pokemon.hasAbility('dozer')); 
 					return;
 				}
-				(pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-		},
+			},
     },
 	snow: {
 		inherit: true,
