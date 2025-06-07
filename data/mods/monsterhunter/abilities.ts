@@ -845,7 +845,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1038,
 		rating: 2.5,
 	},
-	dozer: {
+	dozing: {
 		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when drowsy; immune to drowsy drawbacks.",
 		onResidual(pokemon) {
 			if (pokemon.status === 'slp') {
@@ -854,7 +854,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		num: 1039,
-		name: "Dozer",
+		name: "Dozing",
 	},
 	perforating: {
 		onModifyMovePriority: -5,
