@@ -846,7 +846,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 	},
 	dozing: {
-		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when drowsy; immune to drowsy drawbacks.",
+		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when drowsy; ignores drawbacks.",
 		onResidual(pokemon) {
 			if (pokemon.status === 'slp') {
 				this.heal(pokemon.baseMaxhp / 12);
@@ -871,7 +871,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Perforating",
-		shortDesc: "Poison moves deal 2x damage if resisted; can poison Steel types; Poison moves hit Steel types",
+		shortDesc: "Poison moves deal 2x damage if resisted; Can hit and poison Steel types.",
 		rating: 3,
 		num: 1040,
 	},
@@ -922,19 +922,5 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
 		rating: 3,
 		num: 310,
-	},
-	flareboost: {
-		inherit: true,
-		shortDesc: "While this Pokemon is burned, the power of its special attacks is doubled.",
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.status === 'brn' && move.category === 'Special') {
-				return this.chainModify(2);
-			}
-		},
-		flags: {},
-		name: "Flare Boost",
-		rating: 2,
-		num: 138,
 	},
 }
