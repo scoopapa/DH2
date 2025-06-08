@@ -6687,6 +6687,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			terablast: ["9L1"],
 			shoreup: ["9L1"],
+			wideguard: ["9L1"],
 			magmastorm: ["9L1"],
 			trickroom: ["9L1"],
 		},
