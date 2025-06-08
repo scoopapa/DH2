@@ -1192,6 +1192,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			protect: ["9M"],
 			quash: ["9M"],
 			raindance: ["9M"],
+			recover: ["9M"],
 			rapidspin: ["9M"],
 			razorshell: ["9M"],
 			rest: ["9M"],
