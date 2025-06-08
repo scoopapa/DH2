@@ -701,7 +701,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Acidinus",
 		types: ["Poison", "Rock"],
 		baseStats: {hp: 99, atk: 134, def: 105, spa: 71, spd: 80, spe: 94},
-		abilities: {0: "Perforating", H: "Intrepid Sword"},
+		abilities: {0: "Perforating", 1: "Toxic Debris", H: "Intrepid Sword"},
 		heightm: 1.0,
 		weightkg: 80.0,
 		color: "Black",
