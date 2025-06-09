@@ -10317,6 +10317,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tearfullook: ["9L1"],
 			terablast: ["9L1"],
 			thief: ["9L1"],
+			taunt: ["9L1"],
 			tickle: ["9L1"],
 			tidyup: ["9L1"],
 			trailblaze: ["9L1"],
