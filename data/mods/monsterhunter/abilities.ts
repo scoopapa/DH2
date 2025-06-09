@@ -713,11 +713,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
 	},
 	twilightdust: {
-		onStart(pokemon) {
+		onStart(pokemon, source) {
 			if (pokemon.swordBoost) return;
 			pokemon.swordBoost = true;
 			this.add('-activate', source, 'ability: Twilight Dust');
-			this.field.addPseudoWeather('trickroom');
+			this.field.addPseudoWeather('trickroom')
 		},
 		flags: {},
 		name: "Twilight Dust",
@@ -798,6 +798,105 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1036,
 		shortDesc: "Sunny Day active, Booster Energy used or HP drops below 1/3 max HP: highest stat is 1.3x, or 1.5x if Speed.",
 	},
+	icebreaker: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('snow')) {
+				this.debug('Ice Breaker boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'snow') return false;
+		},
+		name: "Ice Breaker",
+		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
+		shortDesc: "This Pokemon's attacks have 1.3x power in snow; immunity to it.",
+        flags: {},
+		rating: 2.5,
+		num: 1037,
+	},
+	oilmucus: {
+		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Bask');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			if (move.type === 'Water') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Oilmucus",
+		num: 1038,
+		rating: 2.5,
+	},
+	dozing: {
+		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when drowsy; ignores drawbacks.",
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 12);
+			}
+		},
+		flags: {},
+		num: 1039,
+		name: "Dozing",
+	},
+	perforating: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0 && (move.type === 'Poison')) {
+				this.debug('Perforating boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Perforating",
+		shortDesc: "Poison moves deal 2x damage if resisted; Can hit and poison Steel types.",
+		rating: 3,
+		num: 1040,
+	},
+	gravedrum: {
+		onModifySpe(spe, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Gravedrum",
+		shortDesc: "Speed is doubled if an opponent is burned.",
+	},
+	blindrage: {
+		onDamagingHit(damage, target, source, move) {
+			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+				this.boost({ atk: 1 });
+			}
+		},
+		name: "Blind Rage",
+		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
+		rating: 3.5,
+	},
 	/*
 	Edits
 	*/
@@ -823,19 +922,5 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
 		rating: 3,
 		num: 310,
-	},
-	flareboost: {
-		inherit: true,
-		shortDesc: "While this Pokemon is burned, the power of its special attacks is doubled.",
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.status === 'brn' && move.category === 'Special') {
-				return this.chainModify(2);
-			}
-		},
-		flags: {},
-		name: "Flare Boost",
-		rating: 2,
-		num: 138,
 	},
 }
