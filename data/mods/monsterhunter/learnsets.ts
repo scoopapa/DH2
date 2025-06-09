@@ -7757,7 +7757,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			helpinghand: ["9L1"],
 			hex: ["9L1"],
 			hurricane: ["9L1"],
-			instruct: ["9L1"],
 			leer: ["9L1"],
 			lightscreen: ["9L1"],
 			lockon: ["9L1"],
