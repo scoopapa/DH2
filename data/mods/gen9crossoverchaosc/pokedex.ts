@@ -259,6 +259,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	ranno: {
 		num: 28,
 		name: "Ranno",
+		gender: "M",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 75, atk: 120, def: 94, spa: 43, spd: 109, spe: 89},
 		abilities: {0: "Poison Touch", H: "No Guard"},
@@ -267,6 +268,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	medic: {
 		num: 29,
 		name: "Medic",
+		gender: "M",
 		types: ["Dark"],
 		baseStats: {hp: 80, atk: 85, def: 100, spa: 85, spd: 93, spe: 107},
 		abilities: {0: "Healer", H: "Natural Cure"},

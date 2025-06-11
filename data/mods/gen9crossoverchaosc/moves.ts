@@ -366,6 +366,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Mad Milk');
 			},
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Mad Milk');
+			},
 			onSideRestart(side) {
 				if (side.sideConditions['madmilk']) return false;
 			},
