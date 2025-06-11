@@ -924,7 +924,10 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		duration: 2,
 		onModifyMove(move, pokemon, target) {
-			move.selfSwitch = false;
+			// Check if a move is given the pivoting tag for technical reasons rather than literal reasons (ie. Revival Blessing)
+			if(!move.flags['falseswitch']) {
+				move.selfSwitch = false;
+			}
 		},
 	},
 };

@@ -668,6 +668,58 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+	bonesaw: {
+		num: -22,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Bonesaw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Slash", target);
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	medigun: {
+		num: -23,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Medi-Gun",
+		pp: 5,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {heal: 1, nosketch: 1, falseswitch: 1},
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => !ally.fainted).length) {
+				return false;
+			}
+		},
+		onHit(source) {
+			// Move needs to borrow the properties of revival blessing given I can't alter action types as far as I am aware
+			source.side.addSlotCondition(source, 'revivalblessing');
+		},
+		slotCondition: 'medigun',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a healthy party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// healing implemented in side.ts & battle.ts
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
@@ -905,5 +957,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	revivalblessing: {
+		num: 863,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Revival Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {heal: 1, nosketch: 1, falseswitch: 1},
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
+				return false;
+			}
+		},
+		slotCondition: 'revivalblessing',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a fainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// reviving implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 };

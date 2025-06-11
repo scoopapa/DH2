@@ -111,4 +111,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	ranno: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	medic: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	plaguerat: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };
