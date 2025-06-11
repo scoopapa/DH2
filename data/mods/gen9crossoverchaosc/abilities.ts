@@ -120,9 +120,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSourceModifyAtkPriority: 6,
-			onStart(target) {
-				this.add('-start', target, 'ability: Domain of Ice');
-			},
 			onSourceModifyAtk(atk, attacker, defender, move) {
 				defender.removeVolatile('domainofice');
 				if (!move.ignoreAbility) {
@@ -137,9 +134,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.debug('Domain of Ice weaken');
 					return this.chainModify(0.5);
 				}
-			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Domain of Ice');
 			},
 		},
 		flags: {breakable: 1},
