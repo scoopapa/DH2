@@ -700,7 +700,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {heal: 1, nosketch: 1, falseswitch: 1},
 		onTryHit(source) {
-			if (!source.side.pokemon.filter(ally => !ally.fainted).length) {
+			if (!source.side.pokemon.filter(ally => ally !== source && !ally.fainted).length) {
 				return false;
 			}
 		},

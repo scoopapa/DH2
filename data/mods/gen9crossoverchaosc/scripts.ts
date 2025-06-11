@@ -146,7 +146,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 					if (this.slotConditions[pokemon.position]['revivalblessing'] && this.slotConditions[pokemon.position]['medigun']) {
 						slot = 0;
-						while (this.pokemon[slot].fainted) slot++;
+						while (this.pokemon[slot].fainted || this.pokemon[slot] === pokemon) slot++;
 					}
 					else if (this.slotConditions[pokemon.position]['revivalblessing']) {
 						slot = 0;
@@ -174,7 +174,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if (slot >= this.pokemon.length) {
 					return this.emitChoiceError(`Can't switch: You do not have a Pokémon in slot ${slot + 1} to switch to`);
-				} else if (slot < this.active.length && !this.slotConditions[pokemon.position]['revivalblessing']) {
+				} else if (slot < this.active.length && !(this.slotConditions[pokemon.position]['revivalblessing'] || (this.slotConditions[pokemon.position]['medigun'] && this.pokemon[slot] !== pokemon))) {
 					return this.emitChoiceError(`Can't switch: You can't switch to an active Pokémon`);
 				} else if (this.choice.switchIns.has(slot)) {
 					return this.emitChoiceError(`Can't switch: The Pokémon in slot ${slot + 1} can only switch in once`);
@@ -184,6 +184,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (this.slotConditions[pokemon.position]['medigun']) {
 						if(targetPokemon.fainted) {
 							return this.emitChoiceError(`Can't switch: You have to pass to a non-fainted Pokémon`);
+						}
+						if(targetPokemon === pokemon) {
+							return this.emitChoiceError(`Can't switch: Medi-Gun cannot heal the user`);
 						}
 					}
 					else {
