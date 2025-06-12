@@ -1517,6 +1517,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 86, atk: 65, def: 75, spa: 92, spd: 72, spe: 101},
 		abilities: {0: "Keen Eye", 1: "Cacophony", H: "Big Pecks"},
 	},
+	garchompmega: {
+		inherit: true,
+		abilities: {0: "Unconcerned"},
+	},
 	lucario: {
 		inherit: true,
 		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
@@ -2593,12 +2597,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lycanroc: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Sturdy"},
+		types: ["Rock", "Ground"],
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Technician"},
 	},
 	lycanrocmidnight: {
 		inherit: true,
 		types: ["Rock", "Dark"],
 		abilities: {0: "Keen Eye", 1: "Fur Coat", H: "No Guard"},
+	},
+	lycanrocdusk: {
+		inherit: true,
+		types: ["Rock", "Fighting"],
 	},
 	mudsdale: {
 		inherit: true,
