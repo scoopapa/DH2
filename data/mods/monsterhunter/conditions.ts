@@ -35,15 +35,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
             }
         },
         onSourceModifyDamage(damage, source, target, move, pokemon) {
-			if (!pokemon.hasAbility('dozer')) {
+			if (!pokemon.hasAbility('dozing')) {
 				return this.chainModify(1.0);
 			}
 			return this.chainModify(1.2);
         },
         onDisableMove(pokemon) {
 				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-				else { (!pokemon.hasAbility('dozer')); 
-					return;
+				else { (!pokemon.hasAbility('dozing')); 
+				return;
 				}
 			},
     },
