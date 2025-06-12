@@ -65,8 +65,6 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	wizardlordphoenix: {
 		num: 8,
 		name: "Wizard Lord-Phoenix",
-		baseSpecies: "Wizard Lord",
-		forme: "Phoenix",
 		types: ["Fire", "Psychic"],
 		baseStats: {hp: 80, atk: 70, def: 80, spa: 110, spd: 100, spe: 90},
 		abilities: {0: "Regenerator", H: "Psychic Surge"},
