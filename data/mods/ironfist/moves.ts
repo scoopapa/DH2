@@ -308,7 +308,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if(target.baseSpecies.baseSpecies === 'Feebas') {
 				const targetSide = target.side;
 				if (targetSide.fishingTokens > 0) {
-					const boosts = Math.floor(Math.min(targetSide.fishingTokens, 6) / 2);
+					const boosts = Math.floor(targetSide.fishingTokens / 2);
 					target.side.removeFishingTokens(targetSide.fishingTokens);
 					this.boost({atk: boosts, def: boosts, spa: boosts, spd: boosts, spe: boosts}, target, target, move);
 				} else targetSide.addFishingTokens(1);
@@ -3163,7 +3163,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		onPrepareHit(target, source) {
+		onPrepareHit(target, source, move) {
+			if (!source.side.trumpcard) source.side.trumpcard = 0;
+			source.side.trumpcard ++;
+			console.log(source.name + " " + source.side.trumpcard);
+		},
+		onTryHit(target, source, move) {
+			if (!move.multihit) return;
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
 			console.log(source.name + " " + source.side.trumpcard);
