@@ -91,4 +91,93 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.volatiles['bugsyboost']) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['bugsyboost']) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		onSwitchIn(pokemon) {
+			if (!pokemon.isGrounded() || pokemon.volatiles['bugsyboost']) return;
+			if (pokemon.hasType('Poison')) {
+				this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+				pokemon.side.removeSideCondition('toxicspikes');
+			} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+				// do nothing
+			} else if (this.effectState.layers >= 2) {
+				pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+			} else {
+				pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+			}
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['bugsyboost']) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	asa: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "asa",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		sideCondition: 'asa',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'asa', '[silent]');
+			},
+			onEntryHazard(pokemon) {
+				this.heal(pokemon.maxhp / 10);
+				pokemon.side.removeSideCondition('asa');
+				this.add('-sideend', pokemon.side, 'move: asa', '[of] ' + pokemon, '[silent]');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Ghost",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 };

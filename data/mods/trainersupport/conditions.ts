@@ -287,6 +287,27 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (move.type === 'Fighting' && pokemon.hp < pokemon.baseMaxhp / 2) return this.chainModify([5324, 4096]);
 		},
 	},
+	lusamineboost: {
+		name: 'lusamineboost',
+		noCopy: true,
+		onModifyMove(move, pokemon) {
+			if (move.type !== 'Psychic') return;
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+			else if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				return this.chainModify(1.1);
+			}
+		},
+	},
+	asaboost: {
+		name: 'asaboost',
+		noCopy: true,
+		onSwitchOut(pokemon) {
+			pokemon.side.addSideCondition('asa');
+		},
+	},
 		
 	//vanilla
 	sandstorm: {
