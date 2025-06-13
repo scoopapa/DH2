@@ -2757,6 +2757,20 @@ export const Formats: FormatList = [
 		}
   },
 	{
+		name: "[Gen 5] Best Wishes from YB",
+		desc: [
+			"<b>Best Wishes from YB</b>: A Gen 5 Solomod where are only Unovan Pokemon are allowed, with them getting many changes.",
+		],
+		threads: [ //placeholder until i post
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3666724/">BW2 OU Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3686880/">BW2 OU Sample Teams</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3668699/">BW2 OU Viability Rankings</a>`,
+		],
+		mod: 'gen5unovayb',
+		ruleset: ['Standard', 'Sleep Moves Clause', 'Swagger Clause', 'Data Mod'],
+		banlist: ['Uber', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Assist', 'Hidden Power', 'Baton Pass'],
+	},
+	{
         name: "[Gen 9] Climate Change",
         desc: [
             "weather war",
