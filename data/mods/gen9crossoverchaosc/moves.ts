@@ -608,8 +608,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Blizzard", source);
-			this.add('-anim', source, "Dragon Breath", target);
+			this.add('-anim', source, "Frost Breath", target);
 		},
 		secondary: null,
 		target: "normal",
