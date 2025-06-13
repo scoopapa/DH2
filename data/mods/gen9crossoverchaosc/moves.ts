@@ -608,8 +608,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Blizzard", source);
-			this.add('-anim', source, "Dragon Breath", target);
+			this.add('-anim', source, "Frost Breath", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -697,28 +696,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Medi-Gun",
-		shortDesc: "Heals a non-fainted pokemon for 25% & cures status.",
+		shortDesc: "Next hurt ally healed for 25% & status cured",
 		pp: 5,
-		noPPBoosts: true,
 		priority: 0,
-		flags: {heal: 1, nosketch: 1, falseswitch: 1},
-		onTryHit(source) {
-			if (!source.side.pokemon.filter(ally => ally !== source && !ally.fainted).length) {
-				return false;
-			}
-		},
-		onHit(source) {
-			// Move needs to borrow the properties of revival blessing given I can't alter action types as far as I am aware
-			source.side.addSlotCondition(source, 'revivalblessing');
-		},
+		flags: {snatch: 1, heal: 1, metronome: 1},
 		slotCondition: 'medigun',
-		// No this not a real switchout move
-		// This is needed to trigger a switch protocol to choose a healthy party member
-		// Feel free to refactor
-		selfSwitch: true,
 		condition: {
-			duration: 1,
-			// healing implemented in side.ts & battle.ts
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					const damage = this.heal(target.baseMaxhp / 4, target, target);
+					target.clearStatus();
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
+					target.side.removeSlotCondition(target, 'medigun');
+				}
+			},
 		},
 		secondary: null,
 		target: "self",

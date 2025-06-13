@@ -186,7 +186,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Anticipation", 1: "Hustle", H: "Serene Grace"},
 		weightkg: 10,
 	},
-		mayafey: {
+	mayafey: {
 		num: 22,
 		name: "Maya Fey",
 		gender: "M",
