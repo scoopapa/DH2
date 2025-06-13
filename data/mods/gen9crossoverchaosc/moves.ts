@@ -705,7 +705,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onSwap(target) {
 				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					const source = this.effectState.source;
 					const damage = this.heal(target.baseMaxhp / 4, target, target);
 					target.clearStatus();
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
