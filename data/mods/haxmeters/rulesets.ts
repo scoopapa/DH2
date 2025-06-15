@@ -41,14 +41,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
-			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
-			if (pokemon.volatiles['attract']) pokemon.statuses.push('Attract');
-			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
+			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
+			if (pokemon.volatiles['attract']) pokemon.statuses.push('Infatuation');
+			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
+			let clauses = 0;
 			let prefix = "";
 			let suffix = "";
 			for (const status of pokemon.statuses) {
@@ -56,29 +57,38 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				switch(status) {
 					case 'Paralysis':
 						toAdd = 25;
+						clauses ++;
 						break;
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
+						clauses ++;
 						break;
 					case 'Confusion':
-						if (pokemon.volatiles['confusion']) toAdd = 33;
+						if (pokemon.volatiles['confusion']) {
+							toAdd = 33;
+							clauses ++;
+						}
 						break;
-					case 'Attract':
+					case 'Infatuation':
 						toAdd = 50;
+						clauses ++;
 						break;
 				}
 				let product = toAdd * multiplier;
 				if (prefix.length === 0) {
 					prefix = status;
 					suffix = toAdd;
-				} else {
-					prefix += (' + ' + status);
-					suffix = roundNum(multiplier) + ' * ' + roundNum(toAdd) + ' = ' + product;
+				} else suffix = roundNum(multiplier) + ' * ' + roundNum(toAdd) + ' = ' + product;
+				if (toAdd > 0) {
+					if (clauses === 1) this.add('-message', `(${status}: ${suffix})`);
+					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);
 				}
-				if (toAdd > 0) this.add('-message', `(${prefix}: ${suffix})`);
 				pokemon.side.addStatus(product);
 				multiplier *= (1 - (toAdd / 100));
+				if (prefix.length !== 0 && prefix !== status) {
+					prefix += (' + No ' + status);
+				}
 				if (pokemon.side.status >= 100) {
 					pokemon.side.subtractStatus(100);
 					switch(status) {
@@ -95,7 +105,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
 							this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 							break;
-						case 'Attract':
+						case 'Infatuation':
 							this.add('cant', pokemon, 'Attract');
 							break;
 					}
