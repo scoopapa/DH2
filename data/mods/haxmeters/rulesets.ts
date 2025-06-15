@@ -41,10 +41,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
-			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
-			if (pokemon.volatiles['attract']) pokemon.statuses.push('Attract');
-			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
+			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
+			if (pokemon.volatiles['attract']) pokemon.statuses.push('Infatuation');
+			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
@@ -95,7 +95,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
 							this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 							break;
-						case 'Attract':
+						case 'Infatuation':
 							this.add('cant', pokemon, 'Attract');
 							break;
 					}
