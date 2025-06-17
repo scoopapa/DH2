@@ -746,9 +746,9 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Dragon Ascent", "Dragon Claw", "Earthquake", "U-turn", "Dragon Dance"],
-                "abilities": ["Intimidate"],
-                "teraTypes": ["Normal"]
+                "movepool": ["Blood Moon", "Hyper Voice", "Hydro Pump", "Fire Blast", "Roost", "Twister"],
+                "abilities": ["Aerilate"],
+                "teraTypes": ["Steel", "Flying"]
             }
         ]
     },
@@ -794,6 +794,17 @@
                 "movepool": ["Surging Strikes", "Close Combat", "Aqua Jet", "Sucker Punch", "Swords Dance", "Agility"],
                 "abilities": ["Sniper"],
                 "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+    "stonjourner": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Rock Wrecker", "Giga Impact", "Meteor Assault", "Sky Attack", "Solar Blade", "Victory Dance"],
+                "abilities": ["Power Spot"],
+                "teraTypes": ["Rock", "Grass", "Fighting"]
             }
         ]
     }
