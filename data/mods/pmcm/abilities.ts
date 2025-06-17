@@ -595,11 +595,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (pokemon.getVolatile('mustrecharge')) {
 				pokemon.removeVolatile('mustrecharge')
+				this.add('-end', pokemon, 'mustrecharge');
 			}
 		},
 		flags: {},
 		name: "Power Spot",
 		rating: 5,
 		num: 249,
+		shortDesc: "Moves ignore charge/recharge turns.",
 	}
 };
