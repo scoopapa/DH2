@@ -780,6 +780,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
+		desc: "This move will transform into Rapid Strike Urshifu/Surging Strikes if it would be less effective against the target.",
+		shortDesc: "Becomes Surging Strikes if it would be less effective.",
 	},
 	surgingstrikes: {
 		num: 818,
@@ -849,6 +851,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		zMove: { basePower: 140 },
 		maxMove: { basePower: 130 },
+		desc: "This move will transform into Single Strike Urshifu/Wicked Blow if it would be less effective against the target.",
+		shortDesc: "Becomes Wicked Blow if it would be less effective.",
 	},
 	twister: {
 		num: 239,
@@ -883,6 +887,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
+		desc: "Removes hazards, side conditions, and terrain. Lowers Evasion by 1.",
+		shortDesc: "-1 evasion; ends user and target hazards/terrain.",
 	}
 };
   
