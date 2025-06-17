@@ -311,6 +311,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	salamence: {
 		inherit: true,
+		abilities: {0: "Aerilate"},
 	},
 	salamencemega: {
 		num: 373,
@@ -333,5 +334,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	urshifurapidstrike: {
 		inherit: true,
 		abilities: {0: "Sniper"},
+	},
+	stonjourner: {
+		inherit: true,
 	}
 };
