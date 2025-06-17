@@ -584,5 +584,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -111,
 		shortDesc: "1.5x Attack, but attacks have the Outrage effect.",
+	},
+	powerspot: {
+		onChargeMove(pokemon, target, move) {
+			this.debug('power spot - remove charge turn for ' + move.id);
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false; // skip charge turn
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.getVolatile('mustrecharge') {
+				pokemon.removeVolatile('mustrecharge')
+			}
+		},
+		flags: {},
+		name: "Power Spot",
+		rating: 5,
+		num: 249,
 	}
 };
