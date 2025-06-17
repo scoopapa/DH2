@@ -1779,7 +1779,7 @@ export class RandomTeams {
 				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
-			let species = this.sample(currentSpeciesPool);
+			const species = this.sample(currentSpeciesPool);
 
 			//let species = this.dex.species.get(this.sample(pokemonPool[baseSpecies]));
 
@@ -1872,9 +1872,9 @@ export class RandomTeams {
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 			
 			// Code to enforce a mon on teams for testing
-			if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
-			if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
-			if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'stonjourner';
+			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
+			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
+			//if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'stonjourner';
 			
 			let set: RandomTeamsTypes.RandomSet;
 
