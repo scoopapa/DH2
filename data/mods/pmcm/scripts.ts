@@ -195,12 +195,18 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.modData('Learnsets', 'salamence').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'salamence').learnset.dragonascent = ['9L1'];
+		this.modData('Learnsets', 'salamence').learnset.bloodmoon = ['9L1'];
 
 		this.modData('Learnsets', 'urshifu').learnset.agility = ['9L1'];
 		this.modData('Learnsets', 'urshifu').learnset.aquajet = ['9L1'];
 
 		this.modData('Learnsets', 'urshifurapidstrike').learnset.agility = ['9L1'];
 		this.modData('Learnsets', 'urshifurapidstrike').learnset.suckerpunch = ['9L1'];
-		
+
+		this.modData('Learnsets', 'stonjourner').learnset.rockwrecker = ['9L1'];
+		this.modData('Learnsets', 'stonjourner').learnset.meteorassault = ['9L1'];
+		this.modData('Learnsets', 'stonjourner').learnset.skyattack = ['9L1'];
+		this.modData('Learnsets', 'stonjourner').learnset.victorydance = ['9L1'];
+		this.modData('Learnsets', 'stonjourner').learnset.solarblade = ['9L1'];
 	},
 };
