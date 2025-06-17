@@ -593,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			return false; // skip charge turn
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (pokemon.getVolatile('mustrecharge') {
+			if (pokemon.getVolatile('mustrecharge')) {
 				pokemon.removeVolatile('mustrecharge')
 			}
 		},
