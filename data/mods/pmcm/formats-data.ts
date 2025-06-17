@@ -67,5 +67,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	salamencemega: {tier: "PMCM"},
 	urshifu: {tier: "PMCM"},
 	urshifurapidstrike: {tier: "PMCM"},
+	stonjourner: {tier: "PMCM"},
 	
 };
