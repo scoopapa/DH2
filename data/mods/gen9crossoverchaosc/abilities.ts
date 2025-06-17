@@ -23,6 +23,8 @@ Ratings and how they work:
 	ex. Imposter, Shadow Tag
 */
 
+import { onDatabaseStart } from "../../../server/private-messages/database";
+
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	bloodfueled: {
 		shortDesc: "Restores 1/8 of own max HP, rounded down, upon hitting another Pokemon with a contact move.",
@@ -119,19 +121,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSourceModifyAtkPriority: 6,
 			onSourceModifyAtk(atk, attacker, defender, move) {
+				defender.removeVolatile('domainofice');
 				if (!move.ignoreAbility) {
 					this.debug('Domain of Ice weaken');
 					return this.chainModify(0.7);
 				}
-				defender.removeVolatile('domainofice');
 			},
 			onSourceModifySpAPriority: 5,
 			onSourceModifySpA(spa, attacker, defender, move) {
+				defender.removeVolatile('domainofice');
 				if (!move.ignoreAbility) {
 					this.debug('Domain of Ice weaken');
 					return this.chainModify(0.5);
 				}
-				defender.removeVolatile('domainofice');
 			},
 		},
 		flags: {breakable: 1},

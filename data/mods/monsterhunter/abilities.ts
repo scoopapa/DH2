@@ -160,23 +160,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Tempest Force",
 	},
 	mightywall: {
-		onModifyDefPriority: 5,
-		onModifyDef(def, pokemon) {
-			if (!(pokemon.activeMoveActions > 1)) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpDPriority: 5,
-		onModifySpD(spd, pokemon) {
-			if (!(pokemon.activeMoveActions > 1)) {
-				return this.chainModify(1.5);
-			}
-		},
-		desc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
-		shortDesc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
 		name: "Mighty Wall",
-		rating: 4,
+		flags: {},
+		rating: 1,
 		num: 1007,
+		shortDesc: "This Pokemon takes half damage from attacks when switching in.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns) {
+				this.debug('Mighty Wall weaken');
+				return this.chainModify(0.5);
+			}
+		},
 	},
 	ignite: {
 		desc: "This Pokémon's Normal-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
@@ -688,6 +682,220 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Duke's Bayonet",
 		rating: 4,
 		num: 1032,
+	},
+	watercompaction: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({ def: 2 })) {
+					this.add('-immune', target, '[from] ability: Water Compaction');
+				}
+				return null;
+			}
+		},
+		name: "Water Compaction",
+		desc: "This Pokemon is immune to Water-type moves and raises its Def by 2 stages when hit by an Water-type move.",
+		shortDesc: "This Pokemon's Defense is raised 2 stages if hit by an Water move; Water immunity.",
+		rating: 3,
+		num: 1033,
+	},
+	escaton: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Escaton');
+			}
+		},
+		flags: {},
+		name: "Escaton",
+		rating: 1034,
+		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
+	},
+	twilightdust: {
+		onStart(pokemon, source) {
+			if (pokemon.swordBoost) return;
+			pokemon.swordBoost = true;
+			this.add('-activate', source, 'ability: Twilight Dust');
+			this.field.addPseudoWeather('trickroom')
+		},
+		flags: {},
+		name: "Twilight Dust",
+		rating: 4,
+		num: 1035,
+		shortDesc: "On activation, this Pokemon summons Trick Room; Once per battle.",
+	},
+	protopyre: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protopyre');
+			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
+				pokemon.removeVolatile('protopyre');
+			}
+		},
+		onUpdate(pokemon) {
+			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protopyre');
+			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
+				pokemon.removeVolatile('protopyre');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protopyre'];
+			this.add('-end', pokemon, 'Protopyre', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protopyre', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protopyre');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protopyre atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protopyre def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protopyre spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protopyre spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Protopyre spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosynthesis');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Protopyre",
+		num: 1036,
+		shortDesc: "Sunny Day active, Booster Energy used or HP drops below 1/3 max HP: highest stat is 1.3x, or 1.5x if Speed.",
+	},
+	icebreaker: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('snow')) {
+				this.debug('Ice Breaker boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'snow') return false;
+		},
+		name: "Ice Breaker",
+		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
+		shortDesc: "This Pokemon's attacks have 1.3x power in snow; immunity to it.",
+        flags: {},
+		rating: 2.5,
+		num: 1037,
+	},
+	oilmucus: {
+		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Bask');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			if (move.type === 'Water') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Oilmucus",
+		num: 1038,
+		rating: 2.5,
+	},
+	dozing: {
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when drowsy; ignores drawbacks.",
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		num: 1039,
+		name: "Dozing",
+	},
+	perforating: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0 && (move.type === 'Poison')) {
+				this.debug('Perforating boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Perforating",
+		shortDesc: "Poison moves deal 2x damage if resisted; Can hit and poison Steel types.",
+		rating: 3,
+		num: 1040,
+	},
+	gravedrum: {
+		onModifySpe(spe, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Gravedrum",
+		shortDesc: "Speed is doubled if an opponent is burned.",
+	},
+	blindrage: {
+		onDamagingHit(damage, target, source, move) {
+			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+				this.boost({ atk: 1 });
+			}
+		},
+		name: "Blind Rage",
+		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
+		rating: 3.5,
 	},
 	/*
 	Edits

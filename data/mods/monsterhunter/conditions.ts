@@ -30,17 +30,22 @@ export const Conditions: { [k: string]: ConditionData; } = {
             } else {
                 this.add('-status', target, 'slp');
             }
-            
             if (target.removeVolatile('nightmare')) {
                 this.add('-end', target, 'Nightmare', '[silent]');
             }
         },
-        onSourceModifyDamage(damage, source, target, move) {
-            return this.chainModify(1.2);
+        onSourceModifyDamage(damage, source, target, move, pokemon) {
+			if (!pokemon.hasAbility('dozing')) {
+				return this.chainModify(1.0);
+			}
+			return this.chainModify(1.2);
         },
         onDisableMove(pokemon) {
 				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-		},
+				else { (!pokemon.hasAbility('dozing')); 
+				return;
+				}
+			},
     },
 	snow: {
 		inherit: true,

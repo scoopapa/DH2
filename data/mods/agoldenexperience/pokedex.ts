@@ -1083,7 +1083,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		forme: "Mega",
 		types: ["Bug", "Electric"],
 		gender: "M",
-		baseStats: {hp: 65, atk: 130, def: 50, spa: 130, spd: 50, spe: 105},
+		baseStats: {hp: 65, atk: 123, def: 50, spa: 137, spd: 50, spe: 105},
 		abilities: {0: "Infiltrator"},
 		heightm: 0.7,
 		weightkg: 17.7,
@@ -1103,9 +1103,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Illumise-Mega",
 		baseSpecies: "Illumise",
 		forme: "Mega",
-		types: ["Bug", "Psychic"],
+		types: ["Bug", "Fairy"],
 		gender: "F",
-		baseStats: {hp: 65, atk: 50, def: 140, spa: 50, spd: 140, spe: 85},
+		baseStats: {hp: 65, atk: 47, def: 140, spa: 53, spd: 140, spe: 85},
 		abilities: {0: "Regenerator"},
 		heightm: 0.6,
 		weightkg: 17.7,
@@ -1516,6 +1516,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 86, atk: 65, def: 75, spa: 92, spd: 72, spe: 101},
 		abilities: {0: "Keen Eye", 1: "Cacophony", H: "Big Pecks"},
+	},
+	garchompmega: {
+		inherit: true,
+		abilities: {0: "Unconcerned"},
 	},
 	lucario: {
 		inherit: true,
@@ -2593,12 +2597,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lycanroc: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Sturdy"},
+		types: ["Rock", "Ground"],
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Technician"},
 	},
 	lycanrocmidnight: {
 		inherit: true,
 		types: ["Rock", "Dark"],
 		abilities: {0: "Keen Eye", 1: "Fur Coat", H: "No Guard"},
+	},
+	lycanrocdusk: {
+		inherit: true,
+		types: ["Rock", "Fighting"],
 	},
 	mudsdale: {
 		inherit: true,
@@ -2849,7 +2858,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	orbeetle: {
 		inherit: true,
-		abilities: {0: "Neuroforce", 1: "Regenerator", H: "Psychic Surge"},
+		abilities: {0: "Swarm", 1: "Neuroforce", H: "Psychic Surge"},
 	},
 	nickit: {
 		inherit: true,
@@ -3271,7 +3280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Moxie"},
+		abilities: {0: "Protosynthesis", H: "Aerilate"},
 	},
 	ironvaliant: {
 		inherit: true,

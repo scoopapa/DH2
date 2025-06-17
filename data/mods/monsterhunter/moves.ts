@@ -546,11 +546,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
 		secondary: null,
 		onAfterMove(pokemon, target, move) {
-			if (this.randomChance(2, 10)) {
+			if (this.randomChance(3, 10)) {
 				target.addVolatile('blastblight');
 			}
 		},
-		shortDesc: "20% chance to inflict blastblight.",
+		shortDesc: "30% chance to inflict blastblight.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -578,7 +578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	powderkeg: {
 		num: 2029,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 45,
 		category: "Special",
 		name: "Powderkeg",
 		pp: 25,
@@ -606,7 +606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		secondaries: [
 			{
-				chance: 10,
+				chance: 100,
 				volatileStatus: 'flinch',
 			},
 		],
@@ -615,7 +615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
-		shortDesc: "10% chance to inflict blast. 10% chance to flinch.",
+		shortDesc: "Inflicts blast. 10% chance to flinch.",
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
@@ -636,11 +636,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		onAfterMove(pokemon, target, move) {
-			if (this.randomChance(2, 10)) {
+			if (this.randomChance(5, 10)) {
 				target.addVolatile('blastblight');
 			}
 		},
-		shortDesc: "Reduces Sp. Atk by 2. 20% chance to inflict blast.",
+		shortDesc: "Reduces Sp. Atk by 2. 50% chance to inflict blast.",
 		target: "normal",
 		type: "Dark",
 		contestType: "Beautiful",
@@ -848,6 +848,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+	sulfurousblade: {
+		num: 2042,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Sulfurous Blade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'defensedown',
+		},
+		shortDesc: "High crit ratio. 30% chance to inflict Def. Down.",
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
 	thousandblades: {
 		num: 2043,
 		accuracy: 100,
@@ -1020,7 +1039,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 			shortDesc: "10% chance to freeze. Super effective on Water.",
 			type: "Ice",
 			contestType: "Beautiful",
+	},
+	boomblast: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Boomblast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		secondary: null,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(5, 10)) {
+				target.addVolatile('blastblight');
+			}
 		},
+		shortDesc: "50% chance to Blast. Hits adjacent Pokemon.",
+		target: "allAdjacent",
+		type: "Fire",
+		contestType: "Tough",
+	},
 	/*
 	Edits
 	*/
@@ -1038,20 +1076,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	hyperspacefury: {
 		inherit: true,
 		breaksProtect: true,
-		onTry(source) {
-			if (source.species.name === 'Plesioth') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is Plesioth can use this move.");
-			if (source.species.name === 'Plesioth') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
-				return null;
-			}
-			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Hyperspace Fury');
-			return null;
-		},
+		onTry(source) {},
 	},
 	ivycudgel: {
 		inherit: true,
@@ -1108,6 +1133,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 10,
 			volatileStatus: 'bubbleblight',
 		},
+	},
+	/*
+	DROWSY EDITS
+	*/
+	darkvoid: {
+		inherit: true,
+		viable:true,
+		accuracy: 80,
+		onTry(source, target, move) {},
+	},
+	hypnosis: {
+		inherit: true,
+		accuracy: 85,
+	},
+	sing: {
+		inherit: true,
+		accuracy: 80,
 	},
 	/*
 	TORQUES

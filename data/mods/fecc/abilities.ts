@@ -2399,9 +2399,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					if(target.lastMove) {
-						target.addVolatile('disable');
+					if (target.lastMove) {
 						this.add('-message', `${pokemon.name} Biden Blasted ${target.name}!`);
+						target.addVolatile('disable');
 					}
 				}
 			}

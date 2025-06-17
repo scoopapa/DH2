@@ -265,6 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'nanoboost',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('nanoboosted');
@@ -365,6 +366,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Mad Milk');
 			},
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Mad Milk');
+			},
 			onSideRestart(side) {
 				if (side.sideConditions['madmilk']) return false;
 			},
@@ -425,6 +429,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'dimensionalcape',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('hazardshield');
@@ -601,6 +606,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon, target) {
 			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Frost Breath", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -621,6 +630,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.chainModify(2);
 			}
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Infestation", target);
+			this.add('-anim', source, "Nightmare", target);
+		},
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -628,6 +642,79 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
+	},
+	bubbleswathe: {
+		num: -21,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Bubble Swathe",
+		shortDesc: "Suppresses pivoting effects of target's moves for 2 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sucker Punch", target);
+			this.add('-anim', target, "Aqua Ring", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (!target.volatiles['pivotsuppression']) {
+					target.addVolatile('pivotsuppression');
+				}
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	bonesaw: {
+		num: -22,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Bonesaw",
+		shortDesc: "High critical hit ratio.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Slash", target);
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	medigun: {
+		num: -23,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Medi-Gun",
+		shortDesc: "Next hurt ally healed for 25% & status cured",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		slotCondition: 'medigun',
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					const damage = this.heal(target.baseMaxhp / 4, target, target);
+					target.clearStatus();
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
+					target.side.removeSlotCondition(target, 'medigun');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		contestType: "Clever",
 	},
 
 	// Altering Pre-Existing Moves
@@ -866,5 +953,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	revivalblessing: {
+		num: 863,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Revival Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {heal: 1, nosketch: 1, falseswitch: 1},
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
+				return false;
+			}
+		},
+		slotCondition: 'revivalblessing',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a fainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// reviving implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 };

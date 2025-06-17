@@ -3157,7 +3157,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sushistorm: {
 		shortDesc: "Sturdy + Storm Drain",
 		onTryHit(pokemon, target, move) {
-			if (target !== source && move.type === 'Water') {
+			if (target !== pokemon && move.type === 'Water') {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Sushi Storm');
 				}

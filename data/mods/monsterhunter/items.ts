@@ -210,6 +210,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1017,
 			gen: 9,
 	},
+	malfestite: {
+			name: "Malfestite",
+			shortDesc: "If held by Malfestio, this item allows it to Mega Evolve in battle.",
+			spritenum: 577,
+			megaStone: "Nightcloak Malfestio",
+			megaEvolves: "Malfestio",
+			itemUser: ["Malfestio"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1018,
+			gen: 9,
+	},
+	plesite: {
+			name: "Plesite",
+			shortDesc: "If held by Plesioth, this item allows it to Mega Evolve in battle.",
+			spritenum: 803,
+			megaStone: "Plesioth-Z",
+			megaEvolves: "Plesioth",
+			itemUser: ["Plesioth"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1019,
+			gen: 9,
+	},
 	crimsongem: {
 		name: "Crimson Gem",
 		shortDesc: "If held by Fatalis, this item triggers its Crimson Form in battle.",
@@ -265,5 +293,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "At the end of each turn, tries to freeze the holder.",
 		num: 1015,
 		gen: 9,
+	},
+	boosterenergy: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (!this.field.isWeather('sunnyday')) {
+				for (const proto of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis']) { 
+					if (pokemon.hasAbility(proto)) {
+						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
+							pokemon.addVolatile(proto);
+						}
+						return;
+					}
+				}
+			}
+			if (!this.field.isTerrain('electricterrain')) {
+				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
+											'magicdrive', 'phantomdrive', 'toxicdrive']) { 
+					if (pokemon.hasAbility(quark)) {
+						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
+							pokemon.addVolatile(quark);
+						}
+						return;
+					}
+				}
+			}
+		},
+		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
 };

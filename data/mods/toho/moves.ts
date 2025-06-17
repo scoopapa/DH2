@@ -191,7 +191,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	waterplates: {
 		accuracy: 90,
 		basePower: 50,
-		category: "Special",
+		category: "Physical",
 		name: "Water Plates",
 		pp: 15,
 		shortDesc: "Hits twice, high critical hit rate.",
