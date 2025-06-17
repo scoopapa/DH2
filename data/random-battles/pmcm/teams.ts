@@ -1767,8 +1767,7 @@ export class RandomTeams {
 			let canMega = false;
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
-				// randomchance allows non-mega sets of mons with megas to appear even if team has no megas
-				if (!hasMega && species.isMega && this.randomChance(1, 2)) canMega = true;
+				if (!hasMega && species.isMega) canMega = true;
 			}
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
@@ -1776,7 +1775,7 @@ export class RandomTeams {
 				if (hasMega && species.isMega) continue;
 				// Prevent base forme, if a mega is available
 				// Added Abomasnow exception
-				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
+				// if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
 			const species = this.sample(currentSpeciesPool);
