@@ -849,6 +849,40 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		zMove: { basePower: 140 },
 		maxMove: { basePower: 130 },
+	},
+	twister: {
+		num: 239,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Twister",
+		pp: 20,
+		priority: 0,
+		onHit(target, source, move) {
+			let success = !!this.boost({ evasion: -1 });
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			const removeTarget = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', ...removeAll];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', `[of] ${source}`);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', `[of] ${source}`);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		flags: { protect: 1, mirror: 1, metronome: 1, wind: 1 },
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+		contestType: "Cool",
 	}
 };
   
