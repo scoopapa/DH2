@@ -5768,7 +5768,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pelipperpitohui: {
 		learnset: {
 			banefulbunker: ["9L1"],
-			toxic: ["9L1"],
 			sludgewave: ["9L1"],
 			haze: ["9L1"],
 			hex: ["9L1"],
@@ -6500,7 +6499,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			crabhammer: ["9L45"],
 			crosspoison: ["9E", "7E", "6E", "5E", "4E"],
 			crunch: ["9M"],
-			curse: ["9V"],
 			cut: ["9V", "6M", "5M", "4M", "3M"],
 			darkpulse: ["9M", "7M", "6M", "5T", "4M"],
 			defog: ["9T", "4M"],
@@ -7912,7 +7910,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	absoljaded: {
 		learnset: {
 			accelerock: ["9L1"],
-			stoneedge: ["9L1"],
 			psychicfangs: ["9L1"],
 			ironhead: ["9L1"],
 			trailblaze: ["9L1"],
@@ -8037,7 +8034,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			alluringvoice: ["9L1"],
 			moonblast: ["9L1"],
 			drainingkiss: ["9L1"],
-			alluringvoice: ["9M"],
 			bite: ["9L15"],
 			blastburn: ["9M"],
 			bodyslam: ["9M"],
@@ -8525,7 +8521,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			flamethrower: ["9L1"],
 			flashcannon: ["9L1"],
 			energyball: ["9L1"],
-			ironhead: ["9L1"],
 			alluringvoice: ["9M"],
 			aquaring: ["9L12", "8L12", "7L17", "6L21", "5L49", "4L49"],
 			aquatail: ["9L32", "8L32", "7T", "7L31", "6T", "6L29", "5T", "5L29", "4T", "4L29"],
