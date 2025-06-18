@@ -1,5 +1,5 @@
-export function roundNum(n: number): number {
-	return Math.round((n + Number.EPSILON) * 100) / 100;
+export function roundNum(n: number, places: number): number {
+	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
 }
 
 export const Rulesets: {[k: string]: ModdedFormatData} = {
@@ -24,14 +24,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 			const sideOne = this.sides[0];
 			const sideTwo = this.sides[1];
-			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
+			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
 		},
 		onResidual(pokemon) {
 			const sideOne = this.sides[0];
 			const sideTwo = this.sides[1];
 			if (pokemon.hp && pokemon.side !== sideOne) return;
 			//if (sideOne.noChange && sideTwo.noChange) return;
-			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status)}</td></tr></tbody></table></div></summary>`);
+			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
 			for (const side of this.sides) {
 				side.pmiss = side.miss;
 				side.peffect = side.effect;
@@ -66,11 +66,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						break;
 					case 'Confusion':
 						if (pokemon.volatiles['confusion']) {
+							this.add('-activate', pokemon, 'confusion');
 							toAdd = 33;
 							clauses ++;
-						}
-						break;
+							break;
+						} else continue;
 					case 'Infatuation':
+						this.add('-activate', pokemon, 'move: Attract', '[of] ' + target);
 						toAdd = 50;
 						clauses ++;
 						break;
@@ -79,7 +81,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				if (prefix.length === 0) {
 					prefix = status;
 					suffix = toAdd;
-				} else suffix = roundNum(multiplier) + ' * ' + roundNum(toAdd) + ' = ' + product;
+				} else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
 				if (toAdd > 0) {
 					if (clauses === 1) this.add('-message', `(${status}: ${suffix})`);
 					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);

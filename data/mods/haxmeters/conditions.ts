@@ -19,12 +19,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	confusion: {
 		inherit: true,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles['confusion'].time--;
+			if (!['frz', 'slp'].includes(pokemon.status)) pokemon.volatiles['confusion'].time--;
 			if (!pokemon.volatiles['confusion'].time) {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
-			this.add('-activate', pokemon, 'confusion');
+			//this.add('-activate', pokemon, 'confusion');
 			/*
 			if (!pokemon.statuses) pokemon.statuses = [];
 			console.log(pokemon.name + ": " + pokemon.statuses.includes('confusion'));
