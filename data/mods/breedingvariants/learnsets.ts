@@ -5567,4 +5567,331 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			thunderwave: ["9M"],
 		},
 	},
+	lopunnybara: {
+		learnset: {
+			stompingtantrum: ["9L1"],
+			scorchingsands: ["9L1"],
+			smackdown: ["9L1"],
+			foulplay: ["9L1"],
+			superfang: ["9L1"],
+		},
+	},
+	golisopodgreatguzma: {
+		learnset: {
+			axekick: ["9L1"],
+			lowkick: ["9L1"],
+			lunge: ["9L1"],
+			thief: ["9L1"],
+			uturn: ["9L1"],
+		},
+	},
+	pelipperpitohui: {
+		learnset: {
+			banefulbunker: ["9L1"],
+			toxic: ["9L1"],
+			sludgewave: ["9L1"],
+			haze: ["9L1"],
+			hex: ["9L1"],
+		},
+	},
+	brambleghastfungal: {
+		learnset: {
+			toxic: ["9L1"],
+			stunspore: ["9L1"],
+			clearsmog: ["9L1"],
+			synthesis: ["9L1"],
+			stompingtantrum: ["9L1"],
+		},
+	},
+	mismagiusswampwitch: {
+		learnset: {
+			earthpower: ["9L1"],
+			counter: ["9L1"],
+			recover: ["9L1"],
+			stealthrock: ["9L1"],
+			earthquake: ["9L1"],
+		},
+	},
+	sceptileiron: {
+		learnset: {
+			bodypress: ["9L1"],
+			flamethrower: ["9L1"],
+			flashcannon: ["9L1"],
+			ironhead: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	sceptileironmega: {
+		learnset: {
+			bodypress: ["9L1"],
+			flamethrower: ["9L1"],
+			flashcannon: ["9L1"],
+			ironhead: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	lycanrocmidnightpyjama: {
+		learnset: {
+			drainpunch: ["9L1"],
+			earthquake: ["9L1"],
+			babydolleyes: ["9L1"],
+			hammerarm: ["9L1"],
+			darkestlariat: ["9L1"],
+		},
+	},
+	slowkingoverfished: {
+		learnset: {
+			willowisp: ["9L1"],
+			earthpower: ["9L1"],
+			nightshade: ["9L1"],
+		},
+	},
+	dudunsparcezoomer: {
+		learnset: {
+			shiftgear: ["9L1"],
+			uturn: ["9L1"],
+			temperflare: ["9L1"],
+			dracometeor: ["9L1"],
+			dragonpulse: ["9L1"],
+		},
+	},
+	gligarrazorwing: {
+		learnset: {
+			bulletpunch: ["9L1"],
+			ironhead: ["9L1"],
+			curse: ["9L1"],
+			trailblaze: ["9L1"],
+			closecombat: ["9L1"],
+		},
+	},
+	flygonaxe: {
+		learnset: {
+			stoneaxe: ["9L1"],
+			swordsdance: ["9L1"],
+			closecombat: ["9L1"],
+			defogregardingsv: ["9L1"],
+			morningsun: ["9L1"],
+		},
+	},
+	doubladeclubs: {
+		learnset: {
+			saltcure: ["9L1"],
+			bodypress: ["9L1"],
+			earthquake: ["9L1"],
+			stealthrock: ["9L1"],
+		},
+	},
+	glalieseaglass: {
+		learnset: {
+			takeheart: ["9L1"],
+			surf: ["9L1"],
+			flipturn: ["9L1"],
+			hydropump: ["9L1"],
+			energyball: ["9L1"],
+		},
+	},
+	glalieseaglassmega: {
+		learnset: {
+			takeheart: ["9L1"],
+			surf: ["9L1"],
+			flipturn: ["9L1"],
+			hydropump: ["9L1"],
+			energyball: ["9L1"],
+		},
+	},
+	dachsbunfrozenpastry: {
+		learnset: {
+			highhorsepower: ["9L1"],
+			icespinner: ["9L1"],
+			mountaingale: ["9L1"],
+			rapidspin: ["9L1"],
+			recover: ["9L1"],
+		},
+	},
+	gardevoirgenius: {
+		learnset: {
+			barrier: ["9L1"],
+			foulplay: ["9L1"],
+			recover: ["9L1"],
+			takedown: ["9L1"],
+			triattack: ["9L1"],
+		},
+	},
+	gardevoirgeniusmega: {
+		learnset: {
+			barrier: ["9L1"],
+			foulplay: ["9L1"],
+			recover: ["9L1"],
+			takedown: ["9L1"],
+			triattack: ["9L1"],
+		},
+	},
+	metagrossbattlebot: {
+		learnset: {
+			highhorsepower: ["9L1"],
+			partingshot: ["9L1"],
+			shiftgear: ["9L1"],
+			spinout: ["9L1"],
+			temperflare: ["9L1"],
+		},
+	},
+	chesnaughtvanguard: {
+		learnset: {
+			psyshieldbash: ["9L1"],
+			thunderwave: ["9L1"],
+			lunge: ["9L1"],
+			megahorn: ["9L1"],
+		},
+	},
+	primarinafatladysings: {
+		learnset: {
+			thunderwave: ["9L1"],
+			roost: ["9L1"],
+			dragontail: ["9L1"],
+			dragonpulse: ["9L1"],
+		},
+	},
+	infernapemimic: {
+		learnset: {
+			reflect: ["9L1"],
+			lightscreen: ["9L1"],
+			thunderbolt: ["9L1"],
+			suckerpunch: ["9L1"],
+			psychic: ["9L1"],
+		},
+	},
+	altariapredator: {
+		learnset: {
+			swordsdance: ["9L1"],
+			stealthrock: ["9L1"],
+			stoneedge: ["9L1"],
+			earthpower: ["9L1"],
+			ironhead: ["9L1"],
+		},
+	},
+	altariapredatormega: {
+		learnset: {
+			swordsdance: ["9L1"],
+			stealthrock: ["9L1"],
+			stoneedge: ["9L1"],
+			earthpower: ["9L1"],
+			ironhead: ["9L1"],
+		},
+	},
+	weavilerustler: {
+		learnset: {
+			flareblitz: ["9L1"],
+			temperflare: ["9L1"],
+			closecombat: ["9L1"],
+			earthquake: ["9L1"],
+			ironhead: ["9L1"],
+		},
+	},
+	cryogonalmeth: {
+		learnset: {
+			sludgewave: ["9L1"],
+			mortalspin: ["9L1"],
+			earthpower: ["9L1"],
+			toxicspikes: ["9L1"],
+			stealthrock: ["9L1"],
+		},
+	},
+	froslasszero: {
+		learnset: {
+			nastyplot: ["9L1"],
+			conversion: ["9L1"],
+			recover: ["9L1"],
+			agility: ["9L1"],
+			triattack: ["9L1"],
+		},
+	},
+	absoljaded: {
+		learnset: {
+			accelerock: ["9L1"],
+			stoneedge: ["9L1"],
+			psychicfangs: ["9L1"],
+			ironhead: ["9L1"],
+			trailblaze: ["9L1"],
+		},
+	},
+	absoljadedmega: {
+		learnset: {
+			accelerock: ["9L1"],
+			stoneedge: ["9L1"],
+			psychicfangs: ["9L1"],
+			ironhead: ["9L1"],
+			trailblaze: ["9L1"],
+		},
+	},
+	skeledirgehyperpop: {
+		learnset: {
+			wish: ["9L1"],
+			alluringvoice: ["9L1"],
+			moonblast: ["9L1"],
+			drainingkiss: ["9L1"],
+		},
+	},
+	golurkoverclocked: {
+		learnset: {
+			agility: ["9L1"],
+			explosion: ["9L1"],
+			supercellslam: ["9L1"],
+			voltswitch: ["9L1"],
+			zapcannon: ["9L1"],
+		},
+	},
+	steelixmagiclamp: {
+		learnset: {
+			hyperspacefury: ["9L1"],
+			knockoff: ["9L1"],
+			shadowball: ["9L1"],
+			thunderbolt: ["9L1"],
+			trickroom: ["9L1"],
+		},
+	},
+	steelixmagiclampmega: {
+		learnset: {
+			hyperspacefury: ["9L1"],
+			knockoff: ["9L1"],
+			shadowball: ["9L1"],
+			thunderbolt: ["9L1"],
+			trickroom: ["9L1"],
+		},
+	},
+	farigirafstonewall: {
+		learnset: {
+			bodypress: ["9L1"],
+			gyroball: ["9L1"],
+			meteorbeam: ["9L1"],
+			rockslide: ["9L1"],
+			stealthrock: ["9L1"],
+		},
+	},
+	miltankmoosquito: {
+		learnset: {
+			drainpunch: ["9L1"],
+			closecombat: ["9L1"],
+			darkestlariat: ["9L1"],
+			poisonjab: ["9L1"],
+		},
+	},
+	miloticdownpour: {
+		learnset: {
+			airslash: ["9L1"],
+			flamethrower: ["9L1"],
+			flashcannon: ["9L1"],
+			energyball: ["9L1"],
+			ironhead: ["9L1"],
+		},
+	},
+	comfeyfeatherdeath: {
+		learnset: {
+			oblivionwing: ["9L1"],
+			suckerpunch: ["9L1"],
+			darkpulse: ["9L1"],
+			lashout: ["9L1"],
+			dreameater: ["9L1"],
+		},
+	},
+
 };
