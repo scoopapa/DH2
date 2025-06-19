@@ -308,5 +308,34 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	infernape: {
 		inherit: true,
 		abilities: {0: "Berserk"},
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Aerilate"},
+	},
+	salamencemega: {
+		num: 373,
+		name: "Salamence-Mega",
+		baseSpecies: "Salamence",
+		forme: "Mega",
+		types: ["Dragon", "Flying"],
+		baseStats: { hp: 95, atk: 145, def: 130, spa: 120, spd: 90, spe: 120 },
+		abilities: { 0: "Blood-Soaked Crescent" },
+		heightm: 1.8,
+		weightkg: 112.6,
+		color: "Blue",
+		eggGroups: ["Dragon"],
+		requiredItem: "Salamencite",
+	},
+	urshifu: {
+		inherit: true,
+		abilities: {0: "Sniper"},
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		abilities: {0: "Sniper"},
+	},
+	stonjourner: {
+		inherit: true,
 	}
 };
