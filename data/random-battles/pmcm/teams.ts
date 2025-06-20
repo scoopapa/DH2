@@ -1269,6 +1269,10 @@ export class RandomTeams {
 		if (species.id === 'golurk') return this.sample(['Life Orb', 'Punching Glove', 'Colbur Berry']);
 		if (species.id === 'meowscarada') return 'Heavy-Duty Boots';
 		if (species.id === 'infernape') return this.sample(['Life Orb', 'Sitrus Berry', 'Air Balloon']);
+		if (species.id === 'urshifu') return this.sample(['Life Orb', 'Protective Pads']);
+		if (species.id === 'urshifurapidstrike') return this.sample(['Life Orb', 'Protective Pads']);
+		if (species.id === 'salamence') return this.sample(['Life Orb', 'Heavy-Duty Boots', 'Sky Plate']);
+		if (species.id === 'stonjourner') return 'Life Orb';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
@@ -1763,8 +1767,7 @@ export class RandomTeams {
 			let canMega = false;
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
-				// randomchance allows non-mega sets of mons with megas to appear even if team has no megas
-				if (!hasMega && species.isMega && this.randomChance(1, 2)) canMega = true;
+				if (!hasMega && species.isMega) canMega = true;
 			}
 			for (const poke of pokemonPool[baseSpecies]) {
 				const species = this.dex.species.get(poke);
@@ -1772,7 +1775,7 @@ export class RandomTeams {
 				if (hasMega && species.isMega) continue;
 				// Prevent base forme, if a mega is available
 				// Added Abomasnow exception
-				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
+				// if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
 			const species = this.sample(currentSpeciesPool);
@@ -1868,7 +1871,9 @@ export class RandomTeams {
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 			
 			// Code to enforce a mon on teams for testing
-			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'testedMon';
+			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
+			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
+			//if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'stonjourner';
 			
 			let set: RandomTeamsTypes.RandomSet;
 

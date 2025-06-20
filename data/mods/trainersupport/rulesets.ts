@@ -152,6 +152,28 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/riley.png" height="80" width="80">`);
 						side.trainerBoost = 'riley';
 						break;
+					case 'lusamine':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/lusamine.png" height="80" width="80">`);
+						side.trainerBoost = 'lusamine';
+						break;
+					case 'mikughost':
+					case 'miku ghost':
+					case 'miku-ghost':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/miku-ghost.png" height="80" width="80">`);
+						side.trainerBoost = 'mikughost';
+						break;
+					case 'bugsy':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://play.pokemonshowdown.com/sprites/trainers/bugsy.png" height="80" width="80">`);
+						side.trainerBoost = 'bugsy';
+						break;
+					case 'asa':
+						this.add('-message', `${side.name}'s Trainer Support:`);
+						this.add(`raw|<img src="https://archives.bulbagarden.net/media/upload/7/75/Conquest_Warrior_F_02.png" height="80" width="47.2483221">`);
+						side.trainerBoost = 'asa';
+						break;
 					default:
 						this.add('-message', `Note: ${side.name} does not a trainer support.`);
 				}
@@ -232,6 +254,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					break;
 				case 'riley':
 					pokemon.addVolatile('rileyboost');
+					break;
+				case 'mikughost':
+					if (pokemon.hasType('Ghost')) {
+						pokemon.addVolatile('ability:pressure');
+						pokemon.addVolatile('ability:perishbody');
+					}
+					break;
+				case 'bugsy':
+					if (pokemon.hasType('Bug')) pokemon.addVolatile('bugsyboost');
+					break;
+				case 'lusamine':
+					pokemon.addVolatile('lusamineboost');
+					break;
+				case 'asa':
+					if (pokemon.hasType('Ghost') || pokemon.hasType('Poison')) pokemon.addVolatile('asaboost');
 					break;
 			}
 		}

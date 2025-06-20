@@ -186,7 +186,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Anticipation", 1: "Hustle", H: "Serene Grace"},
 		weightkg: 10,
 	},
-		mayafey: {
+	mayafey: {
 		num: 22,
 		name: "Maya Fey",
 		gender: "M",
@@ -253,5 +253,31 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 100, atk: 70, def: 95, spa: 105, spd: 85, spe: 70},
 		abilities: {0: "Mummy", 1: "Rattled", H: "Regenerator"},
 		weightkg: 15,
+	},
+	ranno: {
+		num: 28,
+		name: "Ranno",
+		gender: "M",
+		types: ["Poison", "Water"],
+		baseStats: {hp: 75, atk: 120, def: 94, spa: 43, spd: 109, spe: 89},
+		abilities: {0: "Poison Touch", H: "No Guard"},
+		weightkg: 62,
+	},
+	medic: {
+		num: 29,
+		name: "Medic",
+		gender: "M",
+		types: ["Dark"],
+		baseStats: {hp: 80, atk: 85, def: 100, spa: 85, spd: 93, spe: 107},
+		abilities: {0: "Healer", H: "Natural Cure"},
+		weightkg: 80,
+	},
+	plaguerat: {
+		num: 30,
+		name: "Plague Rat",
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 82, atk: 102, def: 93, spa: 60, spd: 77, spe: 105},
+		abilities: {0: "Strong Jaw", 1: "Super Luck", H: "Guts"},
+		weightkg: 80,
 	},
 };

@@ -523,5 +523,85 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Berserk",
 		rating: 2,
 		num: 201,
+	},
+	bloodsoakedcrescent: {
+		// modifies atk
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Blood-Soaked Crescent');
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			this.debug('bsc Attack boost');
+			return this.chainModify(1.5);
+		},
+		// ends move lock properly
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['bloodsoakedcrescent'] && pokemon.volatiles['bloodsoakedcrescent'].duration === 1) {
+				pokemon.removeVolatile('bloodsoakedcrescent');
+				this.add('-end', pokemon, 'Blood-Soaked Rage');
+			}
+		},
+		// applies move lock
+		onAfterMoveSecondarySelf(pokemon, source, move) {
+			if (move.id === 'dragondance') return;
+			if (!pokemon.volatiles['bloodsoakedcrescent']) {
+				this.add('-start', pokemon, 'Blood-Soaked Rage');
+			}
+			pokemon.addVolatile('bloodsoakedcrescent');
+		},
+		// condition is just lockedmove with some changes
+		condition: {
+			// Outrage, Thrash, Petal Dance...
+			duration: 2,
+			onResidual(target) {
+				if (target.status === 'slp') {
+					// don't lock, and bypass confusion for calming
+					delete target.volatiles['bloodsoakedcrescent'];
+				}
+				this.effectState.trueDuration--;
+			},
+			onStart(target, source, effect) {
+				this.effectState.trueDuration = this.random(2, 4);
+				this.effectState.move = this.activeMove;
+			},
+			onRestart() {
+				if (this.effectState.trueDuration >= 2) {
+					this.effectState.duration = 2;
+				}
+			},
+			onEnd(target) {
+				if (this.effectState.trueDuration > 1) return;
+				target.addVolatile('confusion');
+			},
+			onLockMove(pokemon) {
+				if (pokemon.volatiles['dynamax']) return;
+				return this.effectState.move;
+			},
+		},
+		flags: {},
+		name: "Blood-Soaked Crescent",
+		rating: 5,
+		num: -111,
+		shortDesc: "1.5x Attack, but attacks have the Outrage effect.",
+	},
+	powerspot: {
+		onChargeMove(pokemon, target, move) {
+			this.debug('power spot - remove charge turn for ' + move.id);
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false; // skip charge turn
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (pokemon.getVolatile('mustrecharge')) {
+				pokemon.removeVolatile('mustrecharge')
+				this.add('-end', pokemon, 'mustrecharge');
+			}
+		},
+		flags: {},
+		name: "Power Spot",
+		rating: 5,
+		num: 249,
+		shortDesc: "Moves ignore charge/recharge turns.",
 	}
 };

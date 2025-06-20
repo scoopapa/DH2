@@ -1643,6 +1643,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'crabominable').learnset.hammerarm = ['9L1'];
     this.modData('Learnsets', 'oricorio').learnset.healingwish = ['9L1'];
     this.modData('Learnsets', 'oricorio').learnset.destinybond = ['9L1'];
+    this.modData('Learnsets', 'lycanroc').learnset.bonerush = ['9L1'];
     this.modData('Learnsets', 'lycanrocmidnight').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'lycanrocmidnight').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.blizzard = ['9L1'];

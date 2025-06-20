@@ -2600,10 +2600,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	ragefist: {
 		inherit: true,
 		basePowerCallback(pokemon) {
-			return Math.min(200, 50 + 25 * pokemon.timesAttacked);
+			return Math.min(100, 50 + 50 * pokemon.timesAttacked);
 		},
-		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
-		desc: "Power increases by 25 for each time the user was hit this turn. Max 6 hits.",
+		shortDesc: "+50 power for each time user was hit. Max 100 BP.",
+		desc: "Power increases by 50 for each time the user was hit this turn. Max 100 BP.",
 	},
 	gigatonhammer: {
 		inherit: true,

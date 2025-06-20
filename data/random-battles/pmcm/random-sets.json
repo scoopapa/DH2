@@ -133,7 +133,7 @@
         ]
     },
     "abomasnow": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -144,7 +144,7 @@
         ]
     },
     "abomasnowmega": {
-        "level": 84,
+        "level": 86,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -277,7 +277,7 @@
         ]
     },
     "wochien": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -299,7 +299,7 @@
         ]
     },
     "archaludon": {
-        "level": 82,
+        "level": 0,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -355,7 +355,7 @@
         ]
     },
     "regieleki": {
-        "level": 80,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -476,7 +476,7 @@
         ]
     },
     "roaringmoon": {
-        "level": 80,
+        "level": 78,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -575,7 +575,7 @@
         ]
     },
     "chienpao": {
-        "level": 80,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -738,6 +738,73 @@
                 "movepool": ["All-Out Assault", "Mind Blown", "Bitter Blade", "Grass Knot", "Gunk Shot", "Earthquake", "Vacuum Wave", "U-turn"],
                 "abilities": ["Berserk"],
                 "teraTypes": ["Fire", "Stellar"]
+            }
+        ]
+    },
+    "salamence": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Blood Moon", "Hyper Voice", "Hydro Pump", "Fire Blast", "Roost", "Twister"],
+                "abilities": ["Aerilate"],
+                "teraTypes": ["Steel", "Flying"]
+            }
+        ]
+    },
+    "salamencemega": {
+        "level": 78,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dragon Ascent", "Dragon Claw", "Earthquake", "U-turn", "Dragon Dance"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+    "urshifu": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Wicked Blow", "Close Combat", "Aqua Jet", "Sucker Punch", "U-turn"],
+                "abilities": ["Sniper"],
+                "teraTypes": ["Stellar"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Wicked Blow", "Close Combat", "Aqua Jet", "Sucker Punch", "Swords Dance", "Agility"],
+                "abilities": ["Sniper"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+    "urshifurapidstrike": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Surging Strikes", "Close Combat", "Aqua Jet", "Sucker Punch", "U-turn"],
+                "abilities": ["Sniper"],
+                "teraTypes": ["Stellar"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Surging Strikes", "Close Combat", "Aqua Jet", "Sucker Punch", "Swords Dance", "Agility"],
+                "abilities": ["Sniper"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+    "stonjourner": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Rock Wrecker", "Giga Impact", "Meteor Assault", "Sky Attack", "Solar Blade", "Victory Dance"],
+                "abilities": ["Power Spot"],
+                "teraTypes": ["Rock", "Grass", "Fighting"]
             }
         ]
     }

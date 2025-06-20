@@ -1,5 +1,5 @@
 export function roundNum(n: number): number {
-	return Math.round((n + Number.EPSILON) * 100) / 100;
+	return Math.round((n + Number.EPSILON) * 1000) / 1000;
 }
 
 import {Dex} from '../../../sim/dex';

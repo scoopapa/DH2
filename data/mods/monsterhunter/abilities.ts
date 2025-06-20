@@ -846,10 +846,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 	},
 	dozing: {
-		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when drowsy; ignores drawbacks.",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when drowsy; ignores drawbacks.",
 		onResidual(pokemon) {
 			if (pokemon.status === 'slp') {
-				this.heal(pokemon.baseMaxhp / 12);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		flags: {},
