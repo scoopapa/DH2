@@ -99,7 +99,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				console.log("Base form Ability is  " + baseFormAbility);
 				const allAbilities = species.abilities;
 				console.log("All abilities " + allAbilities);
-				this.baseAbility = toID(species.abilities['0']);
 			}
 			return true;
 		},
