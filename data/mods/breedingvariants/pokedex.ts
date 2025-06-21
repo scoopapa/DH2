@@ -61,7 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	flygonaxe: {
 		num: 330,
-		species: "Flygon-Axe",
+		name: "Flygon-Axe",
 		baseSpecies: "Flygon",
 		forme: "Axe",
 		types: ["Dragon", "Rock"],
@@ -440,7 +440,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	infernapemimic: {
 		num: 392,
-		species: "Infernape-Mimic",
+		name: "Infernape-Mimic",
 		baseSpecies: "Infernape",
 		forme: "Mimic",
 		types: ["Psychic", "Fighting"],
@@ -479,7 +479,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	glalieseaglass: {
 		num: 362,
-		species: "Glalie-Seaglass",
+		name: "Glalie-Seaglass",
 		baseSpecies: "Glalie",
 		forme: "Seaglass",
 		types: ["Ice", "Water"],
@@ -489,7 +489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	glalieseaglassmega: {
 		num: 362,
-		species: "Glalie-Seaglass-Mega",
+		name: "Glalie-Seaglass-Mega",
 		baseSpecies: "Glalie",
 		forme: "Seaglass-Mega",
 		types: ["Ice", "Water"],
@@ -516,10 +516,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	froslasszero: {
 		num: 478,
-		species: "Froslass-Zero",
+		name: "Froslass-Zero",
 		baseSpecies: "Froslass",
 		forme: "Zero",
-		types: ["Normal", "Poison"],
+		types: ["Normal", "Ghost"],
 		baseStats: {hp: 70, atk: 80, def: 70, spa: 108, spd: 70, spe: 110},
 		abilities: {0: "Adaptability", H: "Cursed Body"},
 		prevo: "Snorunt",
@@ -864,7 +864,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	slowkingoverfished: {
 		num: 199,
-		species: "Slowking-Overfished",
+		name: "Slowking-Overfished",
 		baseSpecies: "Slowking",
 		forme: "Overfished",
 		types: ["Poison", "Ghost"],
@@ -1255,7 +1255,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lopunnybara: {
 		num: 428,
-		species: "Lopunny-Bara",
+		name: "Lopunny-Bara",
 		baseSpecies: "Lopunny",
 		forme: "Bara",
 		types: ["Ground", "Normal"],
@@ -1265,7 +1265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lopunnybaramega: {
 		num: 428,
-		species: "Lopunny-Bara-Mega",
+		name: "Lopunny-Bara-Mega",
 		baseSpecies: "Lopunny",
 		forme: "Bara-Mega",
 		types: ["Ground", "Fighting"],
@@ -1284,7 +1284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	golisopodgreatguzma: {
 		num: 768,
-		species: "Golisopod-GreatGuzma",
+		name: "Golisopod-GreatGuzma",
 		baseSpecies: "Golisopod",
 		forme: "GreatGuzma",
 		types: ["Bug", "Dark"],
@@ -1303,7 +1303,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pelipperpitohui: {
 		num: 279,
-		species: "Pelipper-Pitohui",
+		name: "Pelipper-Pitohui",
 		baseSpecies: "Pelipper",
 		forme: "Pitohui",
 		types: ["Flying", "Poison"],
@@ -1322,7 +1322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	brambleghastfungal: {
 		num: 947,
-		species: "Brambleghast-Fungal",
+		name: "Brambleghast-Fungal",
 		baseSpecies: "Brambleghast",
 		forme: "Fungal",
 		types: ["Grass", "Ghost"],
@@ -1341,7 +1341,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mismagiusswampwitch: {
 		num: 429,
-		species: "Mismagius-SwampWitch",
+		name: "Mismagius-SwampWitch",
 		baseSpecies: "Mismagius",
 		forme: "SwampWitch",
 		types: ["Ghost", "Ground"],
@@ -1360,7 +1360,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sceptileiron: {
 		num: 254,
-		species: "Sceptile-Iron",
+		name: "Sceptile-Iron",
 		baseSpecies: "Sceptile",
 		forme: "Iron",
 		types: ["Steel", "Grass"],
@@ -1370,7 +1370,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sceptileironmega: {
 		num: 254,
-		species: "Sceptile-Iron-Mega",
+		name: "Sceptile-Iron-Mega",
 		baseSpecies: "Sceptile",
 		forme: "Iron-Mega",
 		types: ["Steel", "Dragon"],
@@ -1389,7 +1389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lycanrocmidnightpyjama: {
 		num: 745,
-		species: "Lycanroc-Midnight-Pyjama",
+		name: "Lycanroc-Midnight-Pyjama",
 		baseSpecies: "Lycanroc",
 		forme: "Midnight-Pyjama",
 		types: ["Rock", "Fighting"],
@@ -1407,7 +1407,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dudunsparcezoomer: {
 		num: 982,
-		species: "Dudunsparce-Zoomer",
+		name: "Dudunsparce-Zoomer",
 		baseSpecies: "Dudunsparce",
 		forme: "Zoomer",
 		types: ["Normal", "Dragon"],
@@ -1422,7 +1422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gligarrazorwing: {
 		num: 207,
-		species: "Gligar-Razorwing",
+		name: "Gligar-Razorwing",
 		baseSpecies: "Gligar",
 		forme: "Razorwing",
 		types: ["Flying", "Steel"],
@@ -1441,7 +1441,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	doubladeclubs: {
 		num: 680,
-		species: "Doublade-Clubs",
+		name: "Doublade-Clubs",
 		baseSpecies: "Doublade",
 		forme: "Clubs",
 		types: ["Ghost", "Rock"],
@@ -1461,7 +1461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dachsbunfrozenpastry: {
 		num: 927,
-		species: "Dachsbun-FrozenPastry",
+		name: "Dachsbun-FrozenPastry",
 		baseSpecies: "Dachsbun",
 		forme: "FrozenPastry",
 		types: ["Fairy", "Ice"],
@@ -1480,7 +1480,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gardevoirgenius: {
 		num: 282,
-		species: "Gardevoir-Genius",
+		name: "Gardevoir-Genius",
 		baseSpecies: "Gardevoir",
 		forme: "Genius",
 		types: ["Psychic", "Fairy"],
@@ -1490,7 +1490,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gardevoirgeniusmega: {
 		num: 282,
-		species: "Gardevoir-Genius-Mega",
+		name: "Gardevoir-Genius-Mega",
 		baseSpecies: "Gardevoir",
 		forme: "Genius-Mega",
 		types: ["Psychic", "Fairy"],
@@ -1509,7 +1509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	metagrossbattlebot: {
 		num: 376,
-		species: "Metagross-BattleBot",
+		name: "Metagross-BattleBot",
 		baseSpecies: "Metagross",
 		forme: "BattleBot",
 		types: ["Steel", "Psychic"],
@@ -1528,7 +1528,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	chesnaughtvanguard: {
 		num: 652,
-		species: "Chesnaught-Vanguard",
+		name: "Chesnaught-Vanguard",
 		baseSpecies: "Chesnaught",
 		forme: "Vanguard",
 		types: ["Fighting", "Psychic"],
@@ -1547,7 +1547,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	primarinafatladysings: {
 		num: 1022,
-		species: "Primarina-FatLadySings",
+		name: "Primarina-FatLadySings",
 		baseSpecies: "Primarina",
 		forme: "FatLadySings",
 		types: ["Dragon", "Fairy"],
@@ -1566,7 +1566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	altariapredator: {
 		num: 334,
-		species: "Altaria-Predator",
+		name: "Altaria-Predator",
 		baseSpecies: "Altaria",
 		forme: "Predator",
 		types: ["Ground", "Dragon"],
@@ -1576,7 +1576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	altariapredatormega: {
 		num: 334,
-		species: "Altaria-Predator-Mega",
+		name: "Altaria-Predator-Mega",
 		baseSpecies: "Altaria",
 		forme: "Predator-Mega",
 		types: ["Ground", "Fairy"],
@@ -1595,7 +1595,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	weavilerustler: {
 		num: 461,
-		species: "Weavile-Rustler",
+		name: "Weavile-Rustler",
 		baseSpecies: "Weavile",
 		forme: "Rustler",
 		types: ["Ice", "Fire"],
@@ -1609,7 +1609,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cryogonalmeth: {
 		num: 615,
-		species: "Cryogonal-Meth",
+		name: "Cryogonal-Meth",
 		baseSpecies: "Cryogonal",
 		forme: "Meth",
 		types: ["Ice", "Poison"],
@@ -1623,7 +1623,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	absoljaded: {
 		num: 359,
-		species: "Absol-Jaded",
+		name: "Absol-Jaded",
 		baseSpecies: "Absol",
 		forme: "Jaded",
 		types: ["Dark", "Rock"],
@@ -1632,7 +1632,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	absoljadedmega: {
 		num: 359,
-		species: "Absol-Jaded-Mega",
+		name: "Absol-Jaded-Mega",
 		baseSpecies: "Absol",
 		forme: "Jaded-Mega",
 		types: ["Dark", "Rock"],
@@ -1651,7 +1651,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	skeledirgehyperpop: {
 		num: 911,
-		species: "Skeledirge-Hyperpop",
+		name: "Skeledirge-Hyperpop",
 		baseSpecies: "Skeledirge",
 		forme: "Hyperpop",
 		types: ["Fire", "Fairy"],
@@ -1670,7 +1670,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	golurkoverclocked: {
 		num: 623,
-		species: "Golurk-Overclocked",
+		name: "Golurk-Overclocked",
 		baseSpecies: "Golurk",
 		forme: "Overclocked",
 		types: ["Ground", "Electric"],
@@ -1689,7 +1689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	steelixmagiclamp: {
 		num: 208,
-		species: "Steelix-MagicLamp",
+		name: "Steelix-MagicLamp",
 		baseSpecies: "Steelix",
 		forme: "MagicLamp",
 		types: ["Dark", "Ground"],
@@ -1699,7 +1699,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	steelixmagiclampmega: {
 		num: 208,
-		species: "Steelix-MagicLamp-Mega",
+		name: "Steelix-MagicLamp-Mega",
 		baseSpecies: "Steelix",
 		forme: "MagicLamp-Mega",
 		types: ["Dark", "Ground"],
@@ -1718,7 +1718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	farigirafstonewall: {
 		num: 981,
-		species: "Farigiraf-Stonewall",
+		name: "Farigiraf-Stonewall",
 		baseSpecies: "Farigiraf",
 		forme: "Stonewall",
 		types: ["Psychic", "Rock"],
@@ -1733,7 +1733,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	miltankmoosquito: {
 		num: 241,
-		species: "Miltank-Moosquito",
+		name: "Miltank-Moosquito",
 		baseSpecies: "Miltank",
 		forme: "Moosquito",
 		types: ["Normal", "Fighting"],
@@ -1751,7 +1751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	miloticdownpour: {
 		num: 350,
-		species: "Milotic-Downpour",
+		name: "Milotic-Downpour",
 		baseSpecies: "Milotic",
 		forme: "Downpour",
 		types: ["Water", "Flying"],
@@ -1766,7 +1766,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	comfeyfeatherdeath: {
 		num: 764,
-		species: "Comfey-Featherdeath",
+		name: "Comfey-Featherdeath",
 		baseSpecies: "Comfey",
 		forme: "Featherdeath",
 		types: ["Flying", "Fairy"],
