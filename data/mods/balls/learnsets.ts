@@ -1460,6 +1460,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			toxicspikes: ["9L1"],
 			zenheadbutt: ["9L1"],
+		},
+	},
 	"watergun": {
 		learnset: {
 			aquajet: ["9L1"],
