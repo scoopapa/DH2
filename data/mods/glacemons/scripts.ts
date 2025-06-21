@@ -92,9 +92,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.knownType = true;
 				this.apparentType = this.terastallized;
 			}
-			console.log("This is " + this + "; " + this.isMega);
+			console.log("This is " + this + "; " + source + ";" + source?.effectType === 'item' && !source.zMove && !source.onPrimal);
 			// Glacemons - Mega evolution abilities
-			if (this.isMega) {
+			if (source?.effectType === 'item' && !source.zMove && !source.onPrimal) {
 				const baseFormAbility = this.getAbility();
 				console.log("Base form Ability is  " + baseFormAbility);
 				const allAbilities = species.abilities;
