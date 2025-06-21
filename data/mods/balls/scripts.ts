@@ -1,7 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
+		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
-		customTiers: ['Balls', 'Guns'],
+		// only to specify the order of custom tiers
+		customTiers: ['IDK', 'EF'],
 	},
 };

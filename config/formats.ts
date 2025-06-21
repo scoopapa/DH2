@@ -2716,15 +2716,15 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Balls",
 		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['Balls'];
+			let allowedTiers = ['Balls', 'Guns'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return ['Balls ' + set.species + ' doesnt exist.'];
+					return [set.species + ' doesnt exist.'];
 				}
 			}
 		},
@@ -3604,15 +3604,6 @@ export const Formats: FormatList = [
         },
         mod: 'jollymod',
     },
-	{
-		name: "[Gen 1] Jumpstarted",
-		threads: [
-			
-		],
-		mod: 'gen1jumpstarted',
-		ruleset: ['Standard', 'Data Mod', 'Allow Tradeback'],
-		banlist: ['Uber'],
-	},
 	{
 		name: "[Gen 1] Kanto Expansion Pak OU",
 		threads: [

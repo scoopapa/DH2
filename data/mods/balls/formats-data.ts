@@ -131,7 +131,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	57rock: {
+	rok: {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},

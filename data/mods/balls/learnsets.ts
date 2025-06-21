@@ -258,6 +258,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			iceball: ["9L1"],
 			icebeam: ["9L1"],
 			ironhead: ["9L1"],
+			leechseed: ["9L1"],
 			liquidation: ["9L1"],
 			protect: ["9L1"],
 			raindance: ["9L1"],
@@ -1328,7 +1329,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["9L1"],
 		},
 	},
-	57rock: {
+	lasergun: {
 		learnset: {
 			agility: ["9L1"],
 			aurasphere: ["9L1"],
@@ -1382,7 +1383,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	nailgun: {
+	rok: {
 		learnset: {
 			accelerock: ["9L1"],
 			bodypress: ["9L1"],
@@ -1424,7 +1425,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	watergun: {
+	nailgun: {
 		learnset: {
 			autotomize: ["9L1"],
 			bodypress: ["9L1"],
@@ -1459,6 +1460,45 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			toxicspikes: ["9L1"],
 			zenheadbutt: ["9L1"],
+	watergun: {
+		learnset: {
+			aquajet: ["9L1"],
+			aquaring: ["9L1"],
+			aurasphere: ["9L1"],
+			brine: ["9L1"],
+			calmmind: ["9L1"],
+			chillingwater: ["9L1"],
+			darkpulse: ["9L1"],
+			doubleedge: ["9L1"],
+			dragonpulse: ["9L1"],
+			energyball: ["9L1"],
+			flipturn: ["9L1"],
+			focusblast: ["9L1"],
+			headbutt: ["9L1"],
+			hydropump: ["9L1"],
+			hypervoice: ["9L1"],
+			icebeam: ["9L1"],
+			icespinner: ["9L1"],
+			liquidation: ["9L1"],
+			nastyplot: ["9L1"],
+			playrough: ["9L1"],
+			protect: ["9L1"],
+			raindance: ["9L1"],
+			rest: ["9L1"],
+			scald: ["9L1"],
+			sleeptalk: ["9L1"],
+			steameruption: ["9L1"],
+			substitute: ["9L1"],
+			surf: ["9L1"],
+			tackle: ["9L1"],
+			taunt: ["9L1"],
+			thunderbolt: ["9L1"],
+			watergun: ["9L1"],
+			waterpulse: ["9L1"],
+			waterfall: ["9L1"],
+			wavecrash: ["9L1"],
+			whirlpool: ["9L1"],
+			wildcharge: ["9L1"],
 		},
 	},
-};
+},
