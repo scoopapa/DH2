@@ -2281,6 +2281,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			gravity: ["9L1"],
 			haze: ["9L1"],
 			healpulse: ["9L1"],
+			highwater: ["9M"],
 			hydropump: ["9M", "9L58"],
 			hyperbeam: ["9M"],
 			icebeam: ["9M"],

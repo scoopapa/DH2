@@ -2564,4 +2564,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -86,
 	},
+	surgesurfer: {
+		inherit: true,
+		onModifySpe(spe) {
+			if (this.field.isTerrain('')) {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
+	},
 };

@@ -1137,7 +1137,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'arcaninehisui').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.lifedew = ['9L1'];
-    delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
     this.modData('Learnsets', 'machamp').learnset.machpunch = ['9L1'];
     this.modData('Learnsets', 'machamp').learnset.drainpunch = ['9L1'];
     this.modData('Learnsets', 'victreebel').learnset.solarblade = ['9L1'];

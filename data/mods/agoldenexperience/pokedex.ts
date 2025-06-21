@@ -936,6 +936,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Inner Focus", H: "Mental Fortitude"},
 	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", H: "Guts"}
+	},
 	// Gen 3 :
 	treecko: {
 		inherit: true,
