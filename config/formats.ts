@@ -3605,6 +3605,15 @@ export const Formats: FormatList = [
         mod: 'jollymod',
     },
 	{
+		name: "[Gen 1] Jumpstarted",
+		threads: [
+			
+		],
+		mod: 'gen1jumpstarted',
+		ruleset: ['Standard', 'Data Mod', 'Allow Tradeback'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 1] Kanto Expansion Pak OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9233581">Post in Solomods Megathread</a>`,
