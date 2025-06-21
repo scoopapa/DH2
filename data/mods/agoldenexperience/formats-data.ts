@@ -433,7 +433,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	alakazammega: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	machop: {
