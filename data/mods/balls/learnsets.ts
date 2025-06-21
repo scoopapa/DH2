@@ -682,7 +682,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	scorpiongun: {
+	"scorpiongun": {
 		learnset: {
 			bite: ["9L1"],
 			bodyslam: ["9L1"],
@@ -741,7 +741,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	tommygun: {
+	"tommygun": {
 		learnset: {
 			beatup: ["9L1"],
 			bodyslam: ["9L1"],
@@ -782,7 +782,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	dracogun: {
+	"dracogun": {
 		learnset: {
 			bodyslam: ["9L1"],
 			breakingswipe: ["9L1"],
@@ -843,7 +843,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	railgun: {
+	"railgun": {
 		learnset: {
 			charge: ["9L1"],
 			darkpulse: ["9L1"],
@@ -883,7 +883,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	toygun: {
+	"toygun": {
 		learnset: {
 			agility: ["9L1"],
 			bodyslam: ["9L1"],
@@ -928,7 +928,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	shotgun: {
+	"shotgun": {
 		learnset: {
 			armthrust: ["9L1"],
 			aurasphere: ["9L1"],
@@ -976,7 +976,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	flamethrower: {
+	"flamethrower": {
 		learnset: {
 			armorcannon: ["9L1"],
 			darkpulse: ["9L1"],
@@ -1012,7 +1012,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	airgun: {
+	"airgun": {
 		learnset: {
 			acrobatics: ["9L1"],
 			aeroblast: ["9L1"],
@@ -1052,7 +1052,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wingattack: ["9L1"],
 		},
 	},
-	protonpack: {
+	"protonpack": {
 		learnset: {
 			aircutter: ["9L1"],
 			airslash: ["9L1"],
@@ -1097,7 +1097,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["9L1"],
 		},
 	},
-	crossbow: {
+	"crossbow": {
 		learnset: {
 			brickbreak: ["9L1"],
 			doubleedge: ["9L1"],
@@ -1139,7 +1139,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["9L1"],
 		},
 	},
-	grenadelauncher: {
+	"grenadelauncher": {
 		learnset: {
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -1180,7 +1180,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["9L1"],
 		},
 	},
-	freezegun: {
+	"freezegun": {
 		learnset: {
 			aurasphere: ["9L1"],
 			aurorabeam: ["9L1"],
@@ -1224,7 +1224,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	handgun: {
+	"handgun": {
 		learnset: {
 			agility: ["9L1"],
 			bodypress: ["9L1"],
@@ -1274,7 +1274,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	blowgun: {
+	"blowgun": {
 		learnset: {
 			acid: ["9L1"],
 			acidspray: ["9L1"],
@@ -1329,7 +1329,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["9L1"],
 		},
 	},
-	lasergun: {
+	"lasergun": {
 		learnset: {
 			agility: ["9L1"],
 			aurasphere: ["9L1"],
@@ -1383,7 +1383,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	rok: {
+	"rok": {
 		learnset: {
 			accelerock: ["9L1"],
 			bodypress: ["9L1"],
@@ -1425,7 +1425,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	nailgun: {
+	"nailgun": {
 		learnset: {
 			autotomize: ["9L1"],
 			bodypress: ["9L1"],
@@ -1460,7 +1460,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			toxicspikes: ["9L1"],
 			zenheadbutt: ["9L1"],
-	watergun: {
+	"watergun": {
 		learnset: {
 			aquajet: ["9L1"],
 			aquaring: ["9L1"],
@@ -1501,4 +1501,4 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["9L1"],
 		},
 	},
-},
+};
