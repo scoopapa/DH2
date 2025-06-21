@@ -250,7 +250,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rok: {
 		num: 1016,
-		name: "5.7 Rock",
+		// name: "5.7 Rock",
+		name: "Rok",
 		types: ["Rock"],
 		baseStats: {hp: 90, atk: 125, def: 110, spa: 65, spd: 100, spe: 110},
 		abilities: {0: "Guts", 1: "Sand Rush", H: "Rock Head"},
