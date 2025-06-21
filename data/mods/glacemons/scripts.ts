@@ -92,6 +92,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.knownType = true;
 				this.apparentType = this.terastallized;
 			}
+			console.log("please print this");
 			console.log("This is " + this + "; " + source + ";" + source?.effectType === 'item' && !source.zMove && !source.onPrimal);
 			// Glacemons - Mega evolution abilities
 			if (source?.effectType === 'item' && !source.zMove && !source.onPrimal) {
