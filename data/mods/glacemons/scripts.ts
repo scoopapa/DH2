@@ -84,9 +84,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.ability = ''; // Don't allow Illusion to wear off
 				}
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
-				// However, its ability does reset upon switching out
-				this.baseAbility = toID(species.abilities['0']);
+				// if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
+				// // However, its ability does reset upon switching out
+				// this.baseAbility = toID(species.abilities['0']);
 			}
 			if (this.terastallized) {
 				this.knownType = true;
