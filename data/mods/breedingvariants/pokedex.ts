@@ -1627,8 +1627,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Absol",
 		forme: "Jaded",
 		types: ["Dark", "Rock"],
-		baseStats: {hp: 65, atk: 150, def: 60, spa: 115, spd: 60, spe: 128},
-		abilities: {0: "Magic Bounce"},
+		baseStats: {hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 88},
+		abilities: {0: "Pressure", 1: "Tough Claws", H: "Justified"},
 	},
 	absoljadedmega: {
 		num: 359,
