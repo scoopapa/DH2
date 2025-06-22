@@ -39,5 +39,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
 
