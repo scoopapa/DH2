@@ -791,7 +791,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	scizor: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	scizormega: {
@@ -1049,7 +1049,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	typhlosionhisuimega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	totodile: {
@@ -2816,7 +2816,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	zoroarkmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	zoroarkhisui: {
@@ -3807,7 +3807,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	silvallysteel: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	silvallywater: {
@@ -3978,7 +3978,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	zeraora: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	meltan: {
@@ -4614,7 +4614,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	verivavroomsegin: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	verivavroomschedar: {
@@ -4622,7 +4622,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	verivavroomnavi: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	verivavroomruchbah: {
@@ -5049,7 +5049,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	paranormear: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	mossiden: {
@@ -5146,7 +5146,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	drinferno: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	hydrookie: {
