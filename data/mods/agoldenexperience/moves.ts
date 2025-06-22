@@ -1166,7 +1166,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.flags['pulse'] && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+				if ((move.type === 'Fighting' || move.flags['pulse']) && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
 					this.debug('chakra terrain boost');
 					return this.chainModify([0x14CD, 0x1000]);
 				}
