@@ -1376,7 +1376,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	"rok": {
+	'5.7rock': {
 		learnset: {
 			accelerock: ["9L1"],
 			bodypress: ["9L1"],
