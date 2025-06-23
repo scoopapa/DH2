@@ -410,7 +410,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["1M"],
 			drillpeck: ["1M"],
 			hyperbeam: ["1M"],
-			swordsdance: ["1M"],
+			//swordsdance: ["1M"],
 			thunderouskick: ["1M"],
 			bide: ["1M"],
 			counter: ["1M"],
