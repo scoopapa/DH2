@@ -162,7 +162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dracogun",
 		types: ["Dragon"],
 		baseStats: {hp: 105, atk: 105, def: 70, spa: 125, spd: 70, spe: 125},
-		abilities: {0: "Dragons Maw", 1: "Beast Boost", H: "Flare Boost"},
+		abilities: {0: "Dragon's Maw", 1: "Beast Boost", H: "Flare Boost"},
 	},
 	"railgun": {
 		num: 1004,
