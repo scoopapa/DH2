@@ -1417,29 +1417,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "If this Pokemon is an Eiscue, the first hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
 		shortDesc: "If Eiscue, the first hit it takes deals 0 damage. Effect is restored in Snow.",
 	},
-	battlebond: {
-		inherit: true,
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
-				return;
-			}
-			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.formeChange('Greninja-Ash', this.effect, true);
-			}
-		},
-		onModifyMovePriority: -1,
-		onModifyMove(move, attacker) {
-			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
-				!attacker.transformed) {
-				move.multihit = 3;
-			}
-		},
-		shortDesc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
-		desc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
-		isNonstandard: null,
-		rating: 4,
-	},
 	powerspot: {
 		inherit: true,
 		onAllyBasePower(basePower, attacker, defender, move) {
@@ -2127,7 +2104,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sharpness: {
 		inherit: true,
-		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
+		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.3.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
@@ -2239,22 +2216,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's contact moves lower the target's Speed by one stage.",
 		rating: 2,
 		num: -71,
-	},
-	zerotohero: {
-		inherit: true,
-		onSwitchOut(pokemon) {},
-		onSwitchIn() {},
-		onStart(pokemon) {},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
-				return;
-			}
-			if (source.species.id === 'palafin' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Zero to Hero');
-				source.formeChange('Palafin-Hero', this.effect, true);
-			}
-		},
-		shortDesc: "If this Pokemon is a Palafin in Zero Form, KOing a foe has it change to Hero Form.",
 	},
 	lusterswap: { // taken from M4A
 		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
@@ -2425,7 +2386,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAnyModifyDef(def, target, source, move) {
 			const abilityHolder = this.effectState.target;
 			if (target.side === source.side) return;
-			if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
+			if (!move.ruinedDef) move.ruinedDef = abilityHolder;
 			if (move.ruinedDef !== abilityHolder) return;
 			this.debug('Lingering Aroma Def drop');
 			return this.chainModify(0.75);
@@ -2551,5 +2512,65 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {breakable: 1},
 		desc: "Bug/Ghost/Dark resistances. This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon affected this Pokemon with the Intimidate Ability.",
 		shortDesc: "Bug/Ghost/Dark resistances. Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated.",
+	},
+	bitterhatred: {
+		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
+		onStart(pokemon) {
+			if (!pokemon.hp) return;
+			let attacked = pokemon.timesAttacked;
+			if (attacked > 0) {
+				this.effectState.fallen = attacked > 5 ? 5 : attacked;
+				this.add('-start', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+			} else {
+				this.effectState.fallen = 0;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp || this.effectState.fallen >= 5) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.effectState.fallen) {
+					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
+				}
+				this.effectState.fallen++;
+				this.add('-activate', target, 'ability: Emperor\'s Clothes');
+				this.add('-start', target, `fallen${this.effectState.fallen}`, '[silent]');
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Bitter Hatred",
+		num: -85,
+	},
+	ninjagaiden: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Ninja Gaiden');
+			}
+		},
+		flags: {},
+		name: "Ninja Gaiden",
+		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
+		rating: 4.5,
+		num: -86,
+	},
+	surgesurfer: {
+		inherit: true,
+		onModifySpe(spe) {
+			if (this.field.isTerrain('')) {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
 	},
 };

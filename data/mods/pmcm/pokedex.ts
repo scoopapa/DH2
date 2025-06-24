@@ -202,4 +202,140 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Still Water"},
 	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	masquerainmega: {
+		num: -999,
+		name: "Masquerain-Mega",
+		baseSpecies: "Masquerain",
+		forme: "Mega",
+		types: ["Bug", "Dark"],
+		genderRatio: { M: 0.5, F: 0.5 },
+		baseStats: { hp: 70, atk: 60, def: 82, spa: 140, spd: 82, spe: 120 },
+		abilities: { 0: "Primordial Sea" },
+		heightm: 0.8,
+		weightkg: 3.6,
+		color: "Blue",
+		eggGroups: ["Water 1", "Bug"],
+		requiredItem: "Masquerainite",
+	},
+	kyuremblack: {
+		inherit: true,
+		abilities: {0: "Teravolt"},
+		types: ["Dragon", "Ice", "Electric"],
+	},
+	ironthorns: {
+		inherit: true,
+		abilities: {0: "Iron Barbs"},
+	},
+	dudunsparce: {
+		inherit: true,
+		abilities: {0: "Earth Eater"},
+		types: ["Normal", "Ground"],
+	},
+	dudunsparcethreesegment: {
+		inherit: true,
+		abilities: {0: "Earth Eater"},
+		types: ["Normal", "Ground"],
+	},
+	chienpao: {
+		inherit: true,
+		abilities: {0: "Tablets of Ruin"},
+	},
+	pelipper: {
+		inherit: true,
+	},
+	kleavor: {
+		inherit: true,
+		abilities: {0: "King of the Hill"},
+		baseStats: { hp: 120, atk: 135, def: 95, spa: 45, spd: 75, spe: 85 },
+	},
+	araquanid: {
+		inherit: true,
+		baseStats: { hp: 2, atk: 140, def: 92, spa: 50, spd: 132, spe: 42 },
+		maxHP: 16,
+	},
+	avalugghisui: {
+		inherit: true,
+		abilities: {0: "Multiscale"},
+		baseStats: { hp: 95, atk: 127, def: 184, spa: 68, spd: 72, spe: 76 },
+	},
+	swalot: {
+		inherit: true,
+		abilities: {0: "Omnivore"},
+	},
+	zapdosgalar: {
+		inherit: true,
+		types: ["Electric", "Fighting"],
+	},
+	phione: {
+		inherit: true,
+	},
+	sudowoodo: {
+		inherit: true,
+		abilities: {0: "Pseudowoodo"},
+		types: ["Grass"],
+		baseForme: "Grass",
+		otherFormes: ["Sudowoodo-Rock"],
+		formeOrder: ["Sudowoodo", "Sudowoodo-Rock"],
+	},
+	sudowoodorock: {
+		num: 185,
+		name: "Sudowoodo-Rock",
+		baseSpecies: "Sudowoodo",
+		forme: "Rock",
+		types: ["Rock"],
+		baseStats: { hp: 70, atk: 100, def: 110, spa: 30, spd: 65, spe: 30 },
+		abilities: { 0: "Pseudowoodo" },
+		heightm: 1.7,
+		weightkg: 38,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+		requiredAbility: "Pseudowoodo",
+		battleOnly: "Sudowoodo",
+	},
+	dondozo: {
+		inherit: true,
+	},
+	golurk: {
+		inherit: true,
+	},
+	meowscarada: {
+		inherit: true,
+	},
+	infernape: {
+		inherit: true,
+		abilities: {0: "Berserk"},
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Aerilate"},
+	},
+	salamencemega: {
+		num: 373,
+		name: "Salamence-Mega",
+		baseSpecies: "Salamence",
+		forme: "Mega",
+		types: ["Dragon", "Flying"],
+		baseStats: { hp: 95, atk: 145, def: 130, spa: 120, spd: 90, spe: 120 },
+		abilities: { 0: "Blood-Soaked Crescent" },
+		heightm: 1.8,
+		weightkg: 112.6,
+		color: "Blue",
+		eggGroups: ["Dragon"],
+		requiredItem: "Salamencite",
+	},
+	urshifu: {
+		inherit: true,
+		abilities: {0: "Sniper"},
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		abilities: {0: "Sniper"},
+	},
+	stonjourner: {
+		inherit: true,
+	}
 };

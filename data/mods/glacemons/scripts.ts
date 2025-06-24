@@ -1,5 +1,8 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	teambuilderConfig: {
+		customTiers: ['Adjusted'],
+	},
 	pokemon: {
 		inherit: true,
 		isGrounded(negateImmunity = false) {
@@ -25,6 +28,81 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.hasItem('Neutralizer') && totalTypeMod > 0) return 0;
 			return totalTypeMod;
 		},
+		// formeChange(
+		// 	speciesId: string | Species, source: Effect | null = this.battle.effect,
+		// 	isPermanent?: boolean, message?: string
+		// ) {
+		// 	const rawSpecies = this.battle.dex.species.get(speciesId);
+
+		// 	const species = this.setSpecies(rawSpecies, source);
+		// 	if (!species) return false;
+
+		// 	if (this.battle.gen <= 2) return true;
+
+		// 	// The species the opponent sees
+		// 	const apparentSpecies =
+		// 		this.illusion ? this.illusion.species.name : species.baseSpecies;
+		// 	if (isPermanent) {
+		// 		this.baseSpecies = rawSpecies;
+		// 		this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+		// 			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
+		// 		let details = (this.illusion || this).details;
+		// 		if (this.terastallized) details += `, tera:${this.terastallized}`;
+		// 		this.battle.add('detailschange', this, details);
+		// 		if (!source) {
+		// 			// Tera forme
+		// 			// Ogerpon/Terapagos text goes here
+		// 		} else if (source.effectType === 'Item') {
+		// 			this.canTerastallize = null; // National Dex behavior
+		// 			if (source.zMove) {
+		// 				this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
+		// 				this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
+		// 			} else if (source.onPrimal) {
+		// 				if (this.illusion) {
+		// 					this.ability = '';
+		// 					this.battle.add('-primal', this.illusion, species.requiredItem);
+		// 				} else {
+		// 					this.battle.add('-primal', this, species.requiredItem);
+		// 				}
+		// 			} else {
+		// 				this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
+		// 				this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
+		// 			}
+		// 		} else if (source.effectType === 'Status') {
+		// 			// Shaymin-Sky -> Shaymin
+		// 			this.battle.add('-formechange', this, species.name, message);
+		// 		}
+		// 	} else {
+		// 		if (source?.effectType === 'Ability') {
+		// 			this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
+		// 		} else {
+		// 			this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
+		// 		}
+		// 	}
+		// 	if (isPermanent && (!source || !['disguise', 'iceface'].includes(source.id))) {
+		// 		if (this.illusion) {
+		// 			this.ability = ''; // Don't allow Illusion to wear off
+		// 		}
+		// 		// Ogerpon's forme change doesn't override permanent abilities
+		// 		// if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
+		// 		// // However, its ability does reset upon switching out
+		// 		// this.baseAbility = toID(species.abilities['0']);
+		// 	}
+		// 	if (this.terastallized) {
+		// 		this.knownType = true;
+		// 		this.apparentType = this.terastallized;
+		// 	}
+		// 	console.log("please print this");
+		// 	console.log("This is " + this + "; " + source + ";" + source?.effectType === 'item' && !source.zMove && !source.onPrimal);
+		// 	// Glacemons - Mega evolution abilities
+		// 	if (source?.effectType === 'item' && !source.zMove && !source.onPrimal) {
+		// 		const baseFormAbility = this.getAbility();
+		// 		console.log("Base form Ability is  " + baseFormAbility);
+		// 		const allAbilities = species.abilities;
+		// 		console.log("All abilities " + allAbilities);
+		// 	}
+		// 	return true;
+		// },
 	},
 
 	actions: {
@@ -178,6 +256,27 @@ export const Scripts: ModdedBattleScriptsData = {
 				return altForme.name;
 			}
 			return item.megaStone;
+		},
+		runMegaEvo(pokemon: Pokemon) {
+			const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+			if (!speciesid) return false;
+	
+			this.battle.runEvent('BeforeMega', pokemon);
+			
+			pokemon.formeChange(speciesid, pokemon.getItem(), true); 
+	
+			// Limit one mega evolution
+			const wasMega = pokemon.canMegaEvo;
+			for (const ally of pokemon.side.pokemon) {
+				if (wasMega) {
+					ally.canMegaEvo = null;
+				} else {
+					ally.canUltraBurst = null;
+				}
+			}
+	
+			this.battle.runEvent('AfterMega', pokemon);
+			return true;
 		},
 	},
 
@@ -2364,7 +2463,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'toxtricity').learnset.paraboliccharge = ['9L1'];
 		// Slate 9
 		this.modData('Learnsets', 'eevee').learnset.slackoff = ['9L1'];
-		this.modData('Learnsets', 'eevee').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgebomb = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgewave = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.toxicspikes = ['9L1'];
@@ -2977,5 +3075,49 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'shuckle').learnset.syrupbomb = ['9M'];
 		this.modData('Learnsets', 'slurpuff').learnset.syrupbomb = ['9M'];
 		this.modData('Learnsets', 'toedscool').learnset.syrupbomb = ['9M'];
+		// april 29 2025
+		this.modData('Learnsets', 'sandyshocks').learnset.nastyplot = ['9M'];
+		this.modData('Learnsets', 'taurospaldeaaqua').learnset.swordsdance = ['9M'];
+		this.modData('Learnsets', 'taurospaldeablaze').learnset.swordsdance = ['9M'];
+		this.modData('Learnsets', 'taurospaldeacombat').learnset.swordsdance = ['9M'];
+		this.modData('Learnsets', 'ironboulder').learnset.accelerock = ['9M'];
+		this.modData('Learnsets', 'ironboulder').learnset.knockoff = ['9M'];
+		this.modData('Learnsets', 'ironboulder').learnset.supercellslam = ['9M'];
+		this.modData('Learnsets', 'ironboulder').learnset.voltswitch = ['9M'];
+		this.modData('Learnsets', 'ironthorns').learnset.shiftgear = ['9M'];
+		this.modData('Learnsets', 'ironthorns').learnset.icespinner = ['9M'];
+		this.modData('Learnsets', 'ironthorns').learnset.superpower = ['9M'];
+		this.modData('Learnsets', 'ironjugulis',).learnset.calmmind = ['9M'];
+		this.modData('Learnsets', 'genesect',).learnset.caltrops = ['9M'];
+		this.modData('Learnsets', 'genesect',).learnset.encore = ['9M'];
+		this.modData('Learnsets', 'obstagoon',).learnset.flexoff = ['9M'];
+		this.modData('Learnsets', 'bewear',).learnset.slackoff = ['9M'];
+		this.modData('Learnsets', 'regirock',).learnset.bulkup = ['9M'];
+		this.modData('Learnsets', 'registeel',).learnset.railgun = ['9M'];
+		this.modData('Learnsets', 'regieleki',).learnset.earthpower = ['9M'];
+		this.modData('Learnsets', 'regieleki',).learnset.grassknot = ['9M'];
+		this.modData('Learnsets', 'regidrago',).learnset.aurasphere = ['9M'];
+		this.modData('Learnsets', 'regidrago',).learnset.darkpulse = ['9M'];
+		this.modData('Learnsets', 'regidrago',).learnset.swordsdance = ['9M'];
+		this.modData('Learnsets', 'guzzlord',).learnset.swordsdance = ['9M'];
+		this.modData('Learnsets', 'guzzlord',).learnset.coil = ['9M'];
+		this.modData('Learnsets', 'guzzlord',).learnset.suckerpunch = ['9M'];
+		this.modData('Learnsets', 'larvitar',).learnset.pebblestorm = ['9M'];
+		this.modData('Learnsets', 'dracovish').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'greattusk').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'lycanrocdusk').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'lopunny').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'jangmoo').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'mawile').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'zarude').learnset.hyperfang = ['9M'];
+		this.modData('Learnsets', 'clodsire').learnset.poisonfang = ['9M'];
+		this.modData('Learnsets', 'slowpokegalar').learnset.poisonfang = ['9M'];
+		this.modData('Learnsets', 'umbreon').learnset.poisonfang = ['9M'];
+		this.modData('Learnsets', 'venipede').learnset.poisonfang = ['9M'];
+		this.modData('Learnsets', 'corviknight').learnset.railgun = ['9M'];
+		this.modData('Learnsets', 'heatran').learnset.railgun = ['9M'];
+		this.modData('Learnsets', 'meltan').learnset.railgun = ['9M'];
+		this.modData('Learnsets', 'melmetal').learnset.railgun = ['9M'];
+		this.modData('Learnsets', 'registeel').learnset.railgun = ['9M'];
 	}
 };

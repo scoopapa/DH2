@@ -2,6 +2,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	crystalcrown: {
 		name: "Crystal Crown",
 		num: -1,
+		spritenum: 236,
+		rating: 3,
 		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera. Attack = -1/8 HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
@@ -68,212 +70,212 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	bugmemory: {
 		inherit: true,
-		shortDesc: "Bug-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Bug type.",
+		shortDesc: "Bug-type attacks: 1.2x power, 0.67x from other types. Multi-Attack is Bug type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Bug') return this.chainModify(0.67);
+			if (!move.type === 'Bug') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Bug') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	dragonmemory: {
 		inherit: true,
-		shortDesc: "Dragon-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Dragon type.",
+		shortDesc: "Dragon-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Dragon type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Dragon') return this.chainModify(0.67);
+			if (!move.type === 'Dragon') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dragon') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	electricmemory: {
 		inherit: true,
-		shortDesc: "Electric-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Electric type.",
+		shortDesc: "Electric-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Electric type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Electric') return this.chainModify(0.67);
+			if (!move.type === 'Electric') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Electric') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	fightingmemory: {
 		inherit: true,
-		shortDesc: "Fighting-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Fighting type.",
+		shortDesc: "Fighting-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fighting type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Figthing') return this.chainModify(0.67);
+			if (!move.type === 'Figthing') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fighting') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	firememory: {
 		inherit: true,
-		shortDesc: "Fire-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Fire type.",
+		shortDesc: "Fire-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fire type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Fire') return this.chainModify(0.67);
+			if (!move.type === 'Fire') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fire') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	flyingmemory: {
 		inherit: true,
-		shortDesc: "Flying-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Flying type.",
+		shortDesc: "Flying-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Flying type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Flying') return this.chainModify(0.67);
+			if (!move.type === 'Flying') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Flying') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	ghostmemory: {
 		inherit: true,
-		shortDesc: "Ghost-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Ghost type.",
+		shortDesc: "Ghost-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ghost type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Ghost') return this.chainModify(0.67);
+			if (!move.type === 'Ghost') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ghost') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	grassmemory: {
 		inherit: true,
-		shortDesc: "Grass-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Grass type.",
+		shortDesc: "Grass-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Grass type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Grass') return this.chainModify(0.67);
+			if (!move.type === 'Grass') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Grass') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	groundmemory: {
 		inherit: true,
-		shortDesc: "Ground-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Ground type.",
+		shortDesc: "Ground-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ground type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Ground') return this.chainModify(0.67);
+			if (!move.type === 'Ground') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ground') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	icememory: {
 		inherit: true,
-		shortDesc: "Ice-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Ice type.",
+		shortDesc: "Ice-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ice type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Ice') return this.chainModify(0.67);
+			if (!move.type === 'Ice') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ice') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	poisonmemory: {
 		inherit: true,
-		shortDesc: "Poison-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Poison type.",
+		shortDesc: "Poison-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Poison type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Poison') return this.chainModify(0.67);
+			if (!move.type === 'Poison') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	psychicmemory: {
 		inherit: true,
-		shortDesc: "Psychic-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Psychic type.",
+		shortDesc: "Psychic-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Psychic type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Psychic') return this.chainModify(0.67);
+			if (!move.type === 'Psychic') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Psychic') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	rockmemory: {
 		inherit: true,
-		shortDesc: "Rock-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Rock type.",
+		shortDesc: "Rock-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Rock type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Rock') return this.chainModify(0.67);
+			if (!move.type === 'Rock') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Rock') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	steelmemory: {
 		inherit: true,
-		shortDesc: "Steel-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Steel type.",
+		shortDesc: "Steel-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Steel type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Steel') return this.chainModify(0.67);
+			if (!move.type === 'Steel') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Steel') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	watermemory: {
 		inherit: true,
-		shortDesc: "Water-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Water type.",
+		shortDesc: "Water-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Water type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Water') return this.chainModify(0.67);
+			if (!move.type === 'Water') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Water') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	fairymemory: {
 		inherit: true,
-		shortDesc: "Fairy-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Fairy type.",
+		shortDesc: "Fairy-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fairy type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Fairy') return this.chainModify(0.67);
+			if (!move.type === 'Fairy') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fairy') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	darkmemory: {
 		inherit: true,
-		shortDesc: "Dark-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Dark type.",
+		shortDesc: "Dark-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Dark type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Dark') return this.chainModify(0.67);
+			if (!move.type === 'Dark') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dark') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 	},
 	normalmemory: {
 		name: "Normal Memory",
 		onMemory: 'Normal',
-		shortDesc: "Normal-type attacks: 1.1x power, 0.67x damage taken. Multi-Attack is Normal type.",
+		shortDesc: "Normal-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Normal type.",
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
@@ -281,11 +283,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Normal') return this.chainModify(0.67);
+			if (!move.type === 'Normal') return this.chainModify(0.67);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Normal') {
-				return this.chainModify([4505, 4096]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		forcedForme: "Silvally",
@@ -316,10 +318,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -3,
 		gen: 9,
+		spritenum: 61,
 		rating: 3,
 	},
 	iceaxe: {
 		name: "Ice Axe",
+		spritenum: 305,
 		shortDesc: "The holder's Ice moves are guaranteed to critically hit while Snow is active.",
 		onModifyMove(move) {
 			if (this.field.isWeather('snow') && move.type === 'Ice') {
@@ -365,13 +369,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpAPriority: 2,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		num: 538,
 		gen: 5,
 		rating: 3,
-		shortDesc: "If holder's species can evolve, its Def, Sp. Atk and Sp. Def is 1.5x.",
+		shortDesc: "If holder's species can evolve, its Def/SpD is 1.5x, SpA is 1.3x.",
 	},
 	trainingwheels: {
 		name: "Training Wheels",
@@ -382,7 +386,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyAtkPriority: 2,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpePriority: 2,
@@ -394,7 +398,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -6,
 		gen: 9,
 		rating: 3,
-		shortDesc: "If holder's species can evolve, its Atk and Speed is 1.5x.",
+		shortDesc: "If holder's species can evolve, its Spe is 1.5x, Atk 1.3x.",
 	},
 	palettecleanser: {
 		name: "Palette Cleanser",
@@ -489,7 +493,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	speedingticket: {
 		name: "Speeding Ticket",
-		spritenum: 130,
+		spritenum: 461,
 		fling: {
 			basePower: 40,
 		},
@@ -535,6 +539,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -9,
 		gen: 9,
 		rating: 3,
+		spritenum: 537,
 		shortDesc: "If Psychic-type, super effective moves deal 1.3x damage. If not: 0.67x damage.",
 	},
 	utilityumbrella: {
@@ -702,6 +707,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	indecisiveorb: {
 		name: "Indecisive Orb",
+		spritenum: 742,
 		fling: {
 			basePower: 30,
 		},
@@ -759,6 +765,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	cursedbranch: {
 		num: -11,
 		name: "Cursed Branch",
+		spritenum: 29,
 		fling: {
 			basePower: 30,
 		},
@@ -772,6 +779,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	knightsarmor: {
 		num: -12,
+		spritenum: 753, 
 		name: "Knight's Armor",
 		fling: {
 			basePower: 200,
@@ -791,10 +799,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	laggingtail: {
 		inherit: true,
-		shortDesc: "Moves last in priority bracket, but attacks have their power boosted by 30%.",
+		shortDesc: "The holder's Speed is halved, but its attacks have 1.3x power.",
 		rating: 3,
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify([5324, 4096]);
+		},
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
 		},
 	},
 
@@ -889,6 +900,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		name: "Puppet Strings",
 		num: -14,
 		rating: 3,
+		spritenum: 179,
 	},
 	pikaniumz: {
 		inherit: true,
@@ -1056,12 +1068,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	friedrice: {
 		name: "Fried Rice",
+		spritenum: 531,
 		fling: {
 			basePower: 30,
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.id === 'waterpulse') return this.chainModify([4915, 4096]);
+			if (move.id === 'waterpulse') return this.chainModify([5324, 4096]);
 		},
 		basePowerCallback(pokemon, target, move) {
 			if (move.id === 'waterpulse' && pokemon.baseSpecies.baseSpecies === 'Clawitzer') {
@@ -1078,7 +1091,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer') return this.chainModify(1.5);
 		},
-		shortDesc: "Pulse damage is x1.2. If Clawitzer: becomes Water/Dragon, Speed is 1.5x, and Water Pulse is 80 BP.",
+		shortDesc: "Pulse damage is x1.3. If Clawitzer: becomes Water/Dragon, Speed is 1.5x, Water Pulse is 80 BP.",
 		num: -14,
 		onTakeItem(item, source){
 			if (source.baseSpecies.baseSpecies === 'Clawitzer') return false;
@@ -1115,35 +1128,36 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 	},
 	// Slate 6
-	parallelmegaorb: { 
-		name: "Parallel Mega Orb",
-		onTakeItem: false,
-		onBeforeMega(pokemon) {
-			pokemon.addVolatile('gastroacid');
-		},
-		onAfterMega(pokemon) {
-			let newAbility = pokemon.set.ability
-			const oldAbility = pokemon.setAbility(newAbility);
-			pokemon.removeVolatile('gastroacid');
-			return oldAbility as false | null;
-		},
-		onPreStart(pokemon) {
-			pokemon.addVolatile('gastroacid');
-		},
-		onStart(pokemon) {
-			let newAbility = pokemon.set.ability
-			const oldAbility = pokemon.setAbility(newAbility);
-			pokemon.removeVolatile('gastroacid');
-			return oldAbility as false | null;
-		},
-		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -15,
-		gen: 9,
-		rating: 3,
-	},
+	// parallelmegaorb: { 
+	// 	name: "Parallel Mega Orb",
+	// 	spritenum: 578,
+	// 	onTakeItem: false,
+	// 	// onBeforeMega(pokemon) {
+	// 	// 	pokemon.addVolatile('gastroacid');
+	// 	// },
+	// 	// onAfterMega(pokemon) {
+	// 	// 	let newAbility = pokemon.set.ability
+	// 	// 	const oldAbility = pokemon.setAbility(newAbility);
+	// 	// 	pokemon.removeVolatile('gastroacid');
+	// 	// 	return oldAbility as false | null;
+	// 	// },
+	// 	// onPreStart(pokemon) {
+	// 	// 	pokemon.addVolatile('gastroacid');
+	// 	// },
+	// 	// onStart(pokemon) {
+	// 	// 	let newAbility = pokemon.set.ability
+	// 	// 	const oldAbility = pokemon.setAbility(newAbility);
+	// 	// 	pokemon.removeVolatile('gastroacid');
+	// 	// 	return oldAbility as false | null;
+	// 	// },
+	// 	shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+	// 	num: -15,
+	// 	gen: 9,
+	// 	rating: 3,
+	// },
 	legendplate: {
 		name: "Legend Plate",
-		spritenum: 658,
+		spritenum: 225,
 		onTakeItem: false,
 		onStart(pokemon) {
 			const type = pokemon.teraType;
@@ -1174,6 +1188,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	baseball: {
 		name: "Baseball",
+		spritenum: 345,
 		fling: {
 			basePower: 50,
 			secondary: {
@@ -1224,6 +1239,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		name: "Neutralizer",
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
+		spritenum: 119,
 		rating: 3,
 	},
 	dreamcatcher: { // WIP, doesn't work currently
@@ -1239,7 +1255,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -20,
 		gen: 9,
-		shortDesc: "(Not working) If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
+		shortDesc: "Bugged; do not use in PMPL!",
 	},
 	greniniumz: {
 		name: "Greninium Z",
@@ -1269,14 +1285,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			if (source && source !== target && source.hp && target.hp && target.hp <= target.maxhp / 2 && move && move.category !== 'Status') {
 				if (target.volatiles['yellowcard']) {
 					this.add('-enditem', target, this.effect, '[weaken]');
-					target.removeVolatile('yellowcard');
 					this.boost({atk: -1, def: -1}, source, target);
 				}
 			}
 		},
 		num: -22,
 		gen: 9,
-		shortDesc: "If holder is below 1/2 max HP, opponent: -1 Atk and Def. Once per switch-in.",
+		shortDesc: "If holder is below 1/2 max HP, opponent: -1 Atk and Def.",
 		rating: 3,
 	},
 	babiriberry: {
@@ -1649,17 +1664,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.effectState.lastMove = move.id;
 			},
 			onModifyDamage(damage, source, target, move) {
-				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+				const dmgMod = [4096, 5120, 6144, 7168, 8192];
 				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
 				this.debug(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
 				return this.chainModify([dmgMod[numConsecutive], 4096]);
 			},
 		},
-		shortDesc: "Consecutive moves (even if fail) power increases. Max 2x after 5 turns.",
+		shortDesc: "Consecutive moves (even if fail) power increases. Max 2x after 4 turns.",
 		rating: 3,
 	},
 	enginebreaker: {
 		name: "Engine Breaker",
+		spritenum: 113,
 		fling: {
 			basePower: 20,
 		},
@@ -1670,12 +1686,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.volatiles['enginebreaker']) {
 				move.ignoreAbility = true;
-				pokemon.removeVolatile('enginebreaker');
 			}
 		},
 		num: -23,
 		gen: 9,
-		shortDesc: "Holder's moves ignore abilities once. Once per switch-in.",
+		shortDesc: "Holder's moves ignore abilities once.",
 		rating: 3,
 	},
 	redlicorice: {
@@ -1705,7 +1720,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -24,
 		gen: 9,
-		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use.",
+		shortDesc: "Holder's contact moves have 1.2x power and trap the target. Single use.",
+		spritenum: 388,
 		rating: 3,
 	},
 	pokerusvaccine: {
@@ -1751,11 +1767,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -25,
 		gen: 9,
 		shortDesc: "Gains a status; 1/2 Poison-type damage and poison immunity. Once per switch-in.",
+		spritenum: 343,
 		rating: 3,
 	},
 	frozenorb: {
 		name: "Frozen Orb",
-		spritenum: 515,
+		spritenum: 741,
 		fling: {
 			basePower: 30,
 			status: 'frz',
@@ -1837,10 +1854,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		desc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
 		shortDesc: "On switch-in, reveals held items of all foes; negates the effects for two turns.",
 		num: -29,
+		sprite: 609,
 		rating: 3,
 	},
 	silverpowder: {
 		inherit: true,
+		rating: 3,
 		onBasePower(basePower, user, target, move) {},
 		onDamage(damage, target, source, effect) {
 			if ((effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge') && source?.hasType('Bug')) {
@@ -1869,6 +1888,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	protector: {
 		inherit: true,
+		rating: 3,
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Protector');
 			this.add('-message', `${pokemon.name} is holding a Protector!`);
@@ -1889,9 +1909,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	expertbelt: {
 		inherit: true,
-		onModifyDamage(damage, source, target, move) {
-			if (move && (target.getMoveHitData(move).typeMod > 0 || source.volatiles('expertbelt'))) {
-				if (source.volatiles('expertbelt')) {
+		onModifyDamage(damage, pokemon, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || pokemon.volatiles('expertbelt'))) {
+				if (pokemon.volatiles('expertbelt')) {
 					pokemon.removeVolatile('expertbelt');
 				}
 				else {
@@ -1930,7 +1950,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		flags: {},
 		desc: "Normal Moves transform into the primary type of the user if they are in the first moveslot, or the secondary type if they are in the second moveslot. Announces on switch in / Displayed.",
-		shortDesc: "Normal Moves transform into the primary type of the user if they are in the first moveslot, or the secondary type if they are in the second moveslot. Announces on switch in / Displayed.",
+		shortDesc: "Normal-type moves turn into primary type of holder, or secondary depending on slot.",
 		num: -31,
 		rating: 3,
 	},
@@ -1973,15 +1993,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		rating: 3,
 		desc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
-		shortDesc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
+		shortDesc: "If statused, attacks deal 1.3x damage; holder heals 1/8th max HP per turn. Ignores stat drops.",
 	},
 	dungeonslooplet: {
 		name: "Dungeon's Looplet",
 		spritenum: 747,
 		num: -31,
 		gen: 9,
-		desc: "",
-		shortDesc: "",
+		shortDesc: "Bugged; do not use in PMPL!",
 	},
 	surprisebomb: {
 		name: "Surprise Bomb",
@@ -1990,8 +2009,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		rating: 3,
 		onStart(pokemon) {
-			this.actions.useMove("surprise", pokemon, "normal", "[from] item: Surprise Bomb")
-			this.actions.runEvent("EatItem", pokemon)
+			this.actions.useMove("surprise", pokemon)
+			this.add('-enditem', pokemon, "Surprise Bomb");
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

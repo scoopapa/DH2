@@ -1166,7 +1166,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.flags['pulse'] && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+				if ((move.type === 'Fighting' || move.flags['pulse']) && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
 					this.debug('chakra terrain boost');
 					return this.chainModify([0x14CD, 0x1000]);
 				}
@@ -2600,10 +2600,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	ragefist: {
 		inherit: true,
 		basePowerCallback(pokemon) {
-			return Math.min(200, 50 + 25 * pokemon.timesAttacked);
+			return Math.min(100, 50 + 50 * pokemon.timesAttacked);
 		},
-		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
-		desc: "Power increases by 25 for each time the user was hit this turn. Max 6 hits.",
+		shortDesc: "+50 power for each time user was hit. Max 100 BP.",
+		desc: "Power increases by 50 for each time the user was hit this turn. Max 100 BP.",
 	},
 	gigatonhammer: {
 		inherit: true,
@@ -3405,6 +3405,91 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		contestType: "Clever",
 		desc: "Fails if the target did not select a physical attack, special attack, or Me First for use this turn, or if the target moves before the user.",
 		shortDesc: "Usually goes first. Fails if target is not attacking.",
+	},
+	razorwind: {
+		inherit: true,
+		basePower: 120,
+		type: "Flying",
+	},
+	befuddlepowder: {
+		num: -81,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Befuddle Powder",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, powder: 1 },
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Befuddle", target);
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+		contestType: "Cool",
+		shortDesc: "Double damage on targets that resist.",
+	},
+	piercingdart: {
+		desc: "Hits Steel types for super effective damages.",
+		shortDesc: "Super effective on Steel targets.",
+		num: -82,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Piercing Dart",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, slicing: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pin Missile", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	hindenburg: {
+		num: -83,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item || pokemon.status === 'brn') {
+				this.debug("BP doubled");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Drop", target);
+			this.add('-anim', source, "Explosion", target);
+		},
+		category: "Special",
+		name: "Hindenburg",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "any",
+		type: "Ghost",
+		contestType: "Cool",
+		shortDesc: "Power doubles if the user has no held item or is burned.",
 	},
 	// Everlasting Winter field
 	auroraveil: {

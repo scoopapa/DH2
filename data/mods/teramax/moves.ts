@@ -1004,6 +1004,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {punch: 1},
+		onBasePower(basePower, pokemon, target) {
+			return 35;
+		},
 		multihit: 3,
 		isMax: "Urshifu-Rapid-Strike",
 		secondary: null,

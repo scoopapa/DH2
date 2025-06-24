@@ -77,8 +77,9 @@ const SPECIAL_SETUP = [
 	'calmmind', 'chargebeam', 'geomancy', 'nastyplot', 'quiverdance', 'tailglow', 'takeheart', 'torchsong',
 ];
 // Moves that boost Attack AND Special Attack:
+// Dragon Dance is here to force Altaria to get it
 const MIXED_SETUP = [
-	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup',
+	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance',
 ];
 // Some moves that only boost Speed:
 const SPEED_SETUP = [
@@ -88,7 +89,7 @@ const SPEED_SETUP = [
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'clangoroussoul', 'coil', 'cosmicpower', 'curse', 'dragondance',
 	'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch', 'quiverdance',
-	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'workup', 'victorydance',
+	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'trick room', 'workup', 'victorydance',
 ];
 const SPEED_CONTROL = [
 	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'stringshot', 'tailwind', 'thunderwave', 'trickroom',
@@ -731,9 +732,41 @@ export class RandomTeams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// PMCM hardcodes (reserve these to when absolutely necessary, let the script do most of the work)
+		// forces Splash on Chi-Yu's moveset, since it uses Z-Splash
 		if (species.id === 'chiyu') {
 			if (movePool.includes('splash')) {
 				counter = this.addMove('splash', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+		}
+		// 33% chance to force Dragon Dance on Mega Altaria, since it otherwise never gets it due to teambuilder shenanigans
+		if (species.id === 'altariamega') {
+			if (movePool.includes('dragondance')) {
+				if (this.randomChance(1, 3)) {
+					counter = this.addMove('dragondance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+			}
+		}
+		// enforces a sound move on Mesprit with Throat Spray
+		if (species.id === 'mesprit') {
+			if (movePool.includes('psychicnoise')) {
+				if (this.randomChance(1, 2)) {
+					counter = this.addMove('psychicnoise', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+				else {
+					counter = this.addMove('torchsong', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+						movePool, teraType, role);
+				}
+			}
+		}
+		// enforces both primary stabs on Infernape
+		if (species.id === 'infernape') {
+			if (movePool.includes('mindblown')) {
+				counter = this.addMove('mindblown', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+				counter = this.addMove('alloutassault', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
 			}
 		}
@@ -867,7 +900,8 @@ export class RandomTeams {
 		for (const type of types) {
 			// Moltres already has STAB, so ignore this block
 			if (species.id === 'moltres') break;
-
+			// prevents Meowscarada from being enforced stab moves
+			if (species.id === 'meowscarada') break;
 			// Check if a STAB move of that type should be required
 			const stabMoves = [];
 			for (const moveid of movePool) {
@@ -889,6 +923,8 @@ export class RandomTeams {
 		if (!counter.get('stabtera') && !['Bulky Support', 'Doubles Support'].includes(role)) {
 			const stabMoves = [];
 			for (const moveid of movePool) {
+				// prevents Meowscarada from being enforced stab moves (since it has Protean and doesn't care)
+				if (species.id === 'meowscarada') break;
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && teraType === moveType) {
@@ -906,6 +942,8 @@ export class RandomTeams {
 		if (!counter.get('stab')) {
 			const stabMoves = [];
 			for (const moveid of movePool) {
+				// prevents Meowscarada from being enforced stab moves (since it has Protean and doesn't care)
+				if (species.id === 'meowscarada') break;
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && types.includes(moveType)) {
@@ -1167,6 +1205,16 @@ export class RandomTeams {
 		if (species.id === 'smeargle') return 'Focus Sash';
 
 		// PMCM hardcodes
+		if (species.id === 'volcarona') return 'Heavy-Duty Boots';
+		if (species.id === 'golemalola') return 'Life Orb';
+		if (species.id === 'ironcrown') return this.sample(['Chesto Berry', 'Leftovers']);
+		if (species.id === 'lurantis') return this.sample(['Life Orb', 'Leftovers']);
+		if (species.id === 'carbink') return 'Leftovers';
+		if (species.id === 'moltres') return 'Life Orb';
+		if (species.id === 'kommoo') return 'Throat Spray';
+		if (species.id === 'volbeat') return 'Focus Sash';
+		if (species.id === 'illumise') return 'Focus Sash';
+		if (species.id === 'abomasnow') return 'Light Clay';
 		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
 		if (species.id === 'dugtrio') return 'Choice Band';
 		if (species.id === 'altaria') return 'Heavy-Duty Boots';
@@ -1200,6 +1248,31 @@ export class RandomTeams {
 		if (species.id === 'milotic') return 'Rocky Helmet';
 		if (species.id === 'gogoat') return 'Leftovers';
 		if (species.id === 'clodsire') return this.sample(['Leftovers', 'Rocky Helmet']);
+		if (species.id === 'masquerain') return 'Heavy-Duty Boots';
+		if (species.id === 'kyuremblack' && moves.has('roost')) return 'Heavy-Duty Boots';
+		if (species.id === 'kyuremblack') return this.sample(['Choice Band', 'Heavy-Duty Boots']);
+		if (species.id === 'ironthorns') return 'Rocky Helmet';
+		if (species.id === 'dudunsparce') return 'Leftovers';
+		if (species.id === 'chienpao') return 'Heavy Duty Boots';
+		if (species.id === 'pelipper' && moves.has('roost')) return 'Heavy-Duty Boots';
+		if (species.id === 'pelipper') return 'Choice Specs';
+		if (species.id === 'kleavor') return 'Choice Scarf';
+		if (species.id === 'araquanid') return 'Heavy-Duty Boots';
+		if (species.id === 'avalugghisui') return 'Heavy-Duty Boots';
+		if (species.id === 'swalot') return 'Leftovers';
+		if (species.id === 'zapdosgalar') return this.sample(['Choice Scarf', 'Expert Belt']);
+		if (species.id === 'phione') return 'Leftovers';
+		if (species.id === 'sudowoodo' && moves.has('synthesis')) return this.sample(['Red Card', 'Leftovers']);
+		if (species.id === 'sudowoodo' && moves.has('curse')) return this.sample(['Red Card', 'Leftovers']);
+		if (species.id === 'sudowoodo') return 'Choice Band';
+		if (species.id === 'dondozo') return 'Leftovers';
+		if (species.id === 'golurk') return this.sample(['Life Orb', 'Punching Glove', 'Colbur Berry']);
+		if (species.id === 'meowscarada') return 'Heavy-Duty Boots';
+		if (species.id === 'infernape') return this.sample(['Life Orb', 'Sitrus Berry', 'Air Balloon']);
+		if (species.id === 'urshifu') return this.sample(['Life Orb', 'Protective Pads']);
+		if (species.id === 'urshifurapidstrike') return this.sample(['Life Orb', 'Protective Pads']);
+		if (species.id === 'salamence') return this.sample(['Life Orb', 'Heavy-Duty Boots', 'Sky Plate']);
+		if (species.id === 'stonjourner') return 'Life Orb';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
@@ -1584,7 +1657,8 @@ export class RandomTeams {
 			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
-		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime') {
+		// prevents Illumise (who can turn into Volbeat with Physical moves) from having 0 Atk EVs
+		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime' && species.id !== 'illumise') {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
@@ -1701,7 +1775,7 @@ export class RandomTeams {
 				if (hasMega && species.isMega) continue;
 				// Prevent base forme, if a mega is available
 				// Added Abomasnow exception
-				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
+				// if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
 			const species = this.sample(currentSpeciesPool);
@@ -1709,7 +1783,7 @@ export class RandomTeams {
 			//let species = this.dex.species.get(this.sample(pokemonPool[baseSpecies]));
 
 			if (!species.exists) continue;
-
+			
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
 
@@ -1795,7 +1869,12 @@ export class RandomTeams {
 
 			// The Pokemon of the Day
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
-
+			
+			// Code to enforce a mon on teams for testing
+			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
+			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
+			//if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'stonjourner';
+			
 			let set: RandomTeamsTypes.RandomSet;
 
 			if (leadsRemaining) {

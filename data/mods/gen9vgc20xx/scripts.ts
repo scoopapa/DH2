@@ -23,7 +23,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dottler").learnset.paranoia = ['9M'];
 		this.modData("Learnsets", "dottler").learnset.passiveaggressive = ['9M'];
 		this.modData("Learnsets", "gyarados").learnset.aircannon = ['9M'];
-        this.modData("Learnsets", "milotic").learnset.calmmind = ['9M'];
+		this.modData("Learnsets", "gyarados").learnset.wavecrash = ['9M'];
+      this.modData("Learnsets", "milotic").learnset.calmmind = ['9M'];
 		this.modData("Learnsets", "beartic").learnset.iceshard = ['9M'];
 		this.modData("Learnsets", "rotom").learnset.recalibration = ['9M'];
 	   this.modData("Learnsets", "reuniclus").learnset.passiveaggressive = ['9M'];
@@ -47,6 +48,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tinkatink").learnset.dazzlinggleam = ['9M'];
 		this.modData("Learnsets", "tinkatink").learnset.batonpass = ['9M'];
 		this.modData("Learnsets", "perrserker").learnset.bulletpunch = ['9M'];
+		this.modData("Learnsets", "cacnea").learnset.acidicrain = ['9M'];
+		this.modData("Learnsets", "cacnea").learnset.assurance = ['9M'];
+		this.modData("Learnsets", "cacnea").learnset.brine = ['9M'];
+		this.modData("Learnsets", "cacnea").learnset.oilspill = ['9M'];
 	//	delete this.modData('Learnsets', "smeargle").learnset.magicpowder;
 
 		for (const id in this.dataCache.Pokedex) {

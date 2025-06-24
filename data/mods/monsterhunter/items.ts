@@ -2,6 +2,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 
 		narwanite: {
 			name: "Narwanite",
+			shortDesc: "If held by Narwa, this item allows it to Mega Evolve in battle.",
 			spritenum: 596,
 			megaStone: "Allmother Narwa",
 			megaEvolves: "Narwa",
@@ -10,11 +11,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1001,
+			num: 1000,
 			gen: 9,
 	},
 		magnamalite: {
 			name: "Magnamalite",
+			shortDesc: "If held by Magnamalo, this item allows it to Mega Evolve in battle.",
 			spritenum: 614,
 			megaStone: "Scorned Magnamalo",
 			megaEvolves: "Magnamalo",
@@ -23,11 +25,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1003,
+			num: 1001,
 			gen: 9,
 	},
 		astalite: {
 			name: "Astalite",
+			shortDesc: "If held by Astalos, this item allows it to Mega Evolve in battle.",
 			spritenum: 613,
 			megaStone: "Boltreaver Astalos",
 			megaEvolves: "Astalos",
@@ -36,11 +39,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1004,
+			num: 1002,
 			gen: 9,
 	},
 		mizutsunite: {
 			name: "Mizutsunite",
+			shortDesc: "If held by Mizutsune, this item allows it to Mega Evolve in battle.",
 			spritenum: 624,
 			megaStone: "Soulseer Mizutsune",
 			megaEvolves: "Mizutsune",
@@ -54,6 +58,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rajanite: {
 			name: "Rajanite",
+			shortDesc: "If held by Rajang, this item allows it to Mega Evolve in battle.",
 			spritenum: 602,
 			megaStone: "Furious Rajang",
 			megaEvolves: "Rajang",
@@ -67,6 +72,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rathianite: {
 			name: "Rathianite",
+			shortDesc: "If held by Rathian, this item allows it to Mega Evolve in battle.",
 			spritenum: 607,
 			megaStone: "Dreadqueen Rathian",
 			megaEvolves: "Rathian",
@@ -80,6 +86,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		rathalosite: {
 			name: "Rathalosite",
+			shortDesc: "If held by Rathalos, this item allows it to Mega Evolve in battle.",
 			spritenum: 586,
 			megaStone: "Dreadking Rathalos",
 			megaEvolves: "Rathalos",
@@ -93,6 +100,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		zinogrite: {
 			name: "Zinogrite",
+			shortDesc: "If held by Zinogre, this item allows it to Mega Evolve in battle.",
 			spritenum: 590,
 			megaStone: "Thunderlord Zinogre",
 			megaEvolves: "Zinogre",
@@ -106,6 +114,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		arzurite: {
 			name: "Arzurite",
+			shortDesc: "If held by Arzuros, this item allows it to Mega Evolve in battle.",
 			spritenum: 585,
 			megaStone: "Redhelm Arzuros",
 			megaEvolves: "Arzuros",
@@ -119,6 +128,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		lagombite: {
 			name: "Lagombite",
+			shortDesc: "If held by Lagombi, this item allows it to Mega Evolve in battle.",
 			spritenum: 583,
 			megaStone: "Snowbaron Lagombi",
 			megaEvolves: "Lagombi",
@@ -132,6 +142,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 		bazelnite: {
 			name: "Bazelnite",
+			shortDesc: "If held by Bazelgeuse, this item allows it to Mega Evolve in battle.",
 			spritenum: 591,
 			megaStone: "Seething Bazelgeuse",
 			megaEvolves: "Bazelgeuse",
@@ -145,6 +156,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		diablite: {
 			name: "Diablite",
+			shortDesc: "If held by Diablos, this item allows it to Mega Evolve in battle.",
 			spritenum: 589,
 			megaStone: "Massacre Diablos",
 			megaEvolves: "Diablos",
@@ -153,11 +165,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1012,
+			num: 1011,
 			gen: 9,
 	},
-		valstraxite: {
+	valstraxite: {
 			name: "Valstraxite",
+			shortDesc: "If held by Valstrax, this item allows it to Mega Evolve in battle.",
 			spritenum: 605,
 			megaStone: "Crimson Glow Valstrax",
 			megaEvolves: "Valstrax",
@@ -166,12 +179,107 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1011,
+			num: 1012,
 			gen: 9,
+	},
+	lagialite: {
+			name: "Lagialite",
+			shortDesc: "If held by Lagiacrus, this item allows it to Mega Evolve in battle.",
+			spritenum: 585,
+			megaStone: "Abyssal Lagiacrus",
+			megaEvolves: "Lagiacrus",
+			itemUser: ["Lagiacrus"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1016,
+			gen: 9,
+	},
+	brachylite: {
+			name: "Brachylite",
+			shortDesc: "If held by Brachydios, this item allows it to Mega Evolve in battle.",
+			spritenum: 613,
+			megaStone: "Raging Brachydios",
+			megaEvolves: "Brachydios",
+			itemUser: ["Brachydios"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1017,
+			gen: 9,
+	},
+	malfestite: {
+			name: "Malfestite",
+			shortDesc: "If held by Malfestio, this item allows it to Mega Evolve in battle.",
+			spritenum: 577,
+			megaStone: "Nightcloak Malfestio",
+			megaEvolves: "Malfestio",
+			itemUser: ["Malfestio"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1018,
+			gen: 9,
+	},
+	plesite: {
+			name: "Plesite",
+			shortDesc: "If held by Plesioth, this item allows it to Mega Evolve in battle.",
+			spritenum: 803,
+			megaStone: "Plesioth-Z",
+			megaEvolves: "Plesioth",
+			itemUser: ["Plesioth"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1019,
+			gen: 9,
+	},
+	crimsongem: {
+		name: "Crimson Gem",
+		shortDesc: "If held by Fatalis, this item triggers its Crimson Form in battle.",
+		spritenum: 141,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Crimson-Fatalis', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
+			return true;
+		},
+		itemUser: ["Fatalis"],
+		num: 1013,
+		gen: 9,
+	},
+		whitegem: {
+		name: "White Gem",
+		shortDesc: "If held by Fatalis, this item triggers its White Form in battle.",
+		spritenum: 307,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('White-Fatalis', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
+			return true;
+		},
+		itemUser: ["Fatalis"],
+		num: 1014,
+		gen: 9,
 	},
 	frostorb: {
 		name: "Frost Orb",
-		spritenum: 515,
 		fling: {
 			basePower: 30,
 			status: 'frz',
@@ -183,7 +291,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "At the end of each turn, tries to freeze the holder.",
 		shortDesc: "At the end of each turn, tries to freeze the holder.",
-		num: -26,
-		gen: 4,
-	}
+		num: 1015,
+		gen: 9,
+	},
+	boosterenergy: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (!this.field.isWeather('sunnyday')) {
+				for (const proto of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis']) { 
+					if (pokemon.hasAbility(proto)) {
+						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
+							pokemon.addVolatile(proto);
+						}
+						return;
+					}
+				}
+			}
+			if (!this.field.isTerrain('electricterrain')) {
+				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
+											'magicdrive', 'phantomdrive', 'toxicdrive']) { 
+					if (pokemon.hasAbility(quark)) {
+						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
+							pokemon.addVolatile(quark);
+						}
+						return;
+					}
+				}
+			}
+		},
+		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
+	},
 };

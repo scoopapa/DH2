@@ -1295,7 +1295,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp/4);
+				this.heal(pokemon.baseMaxhp/4);
 				pokemon.cureStatus();
 			}
 		},
@@ -3157,7 +3157,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sushistorm: {
 		shortDesc: "Sturdy + Storm Drain",
 		onTryHit(pokemon, target, move) {
-			if (target !== source && move.type === 'Water') {
+			if (target !== pokemon && move.type === 'Water') {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Sushi Storm');
 				}

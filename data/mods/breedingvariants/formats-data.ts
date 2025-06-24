@@ -99,7 +99,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	rapidashmeowundefined: {
+	rapidashmeow: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -252,6 +252,158 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	archaludonbifrost: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lopunnybara: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lopunnybaramega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	golisopodgreatguzma: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	pelipperpitohui: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	brambleghastfungal: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mismagiusswampwitch: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sceptileiron: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sceptileironmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lycanrocmidnightpyjama: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slowkingoverfished: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dudunsparcezoomer: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gligarrazorwing: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	flygonaxe: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	doubladeclubs: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	glalieseaglass: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	glalieseaglassmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	dachsbunfrozenpastry: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gardevoirgenius: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	gardevoirgeniusmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	metagrossbattlebot: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chesnaughtvanguard: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	primarinafatladysings: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	infernapemimic: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	altariapredator: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	altariapredatormega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	weavilerustler: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cryogonalmeth: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	froslasszero: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	absoljaded: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	absoljadedmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	skeledirgehyperpop: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	golurkoverclocked: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	steelixmagiclamp: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	steelixmagiclampmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	farigirafstonewall: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	miltankmoosquito: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	miloticdownpour: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	comfeyfeatherdeath: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

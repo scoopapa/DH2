@@ -13,11 +13,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				// otherwise floette's learnset gets modified before eternal floette accessess it
 
 				const learnset = this.dataCache.Learnsets[id].learnset;
-				const latestGen = 7;
+				const latestGen = 9;
 				
 				for (const moveid in learnset) { // filter only to allow moves from the latest gen
 					this.modData('Learnsets', "floetteeternal").learnset[moveid] = learnset[moveid].filter(
-						(method) => parseInt(method[0]) == latestGen
+						(method) => parseInt(method[0]) == latestGen && method[1] != "V"
 					);
 				}
 
@@ -78,8 +78,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				let currentGen, latestGen = 0;
 				for (const moveid in learnset) { // determine what the latest gen is for this pokémon
 					for (const method in learnset[moveid]) {
-						currentGen = parseInt(learnset[moveid][method][0])
-						if (currentGen > latestGen) latestGen = currentGen;
+						// only looks at non-virtual console moves
+						if (learnset[moveid][method][1] != "V") {
+							currentGen = parseInt(learnset[moveid][method][0])
+							if (currentGen > latestGen) latestGen = currentGen;
+						}
 					}
 				}
 				
@@ -95,7 +98,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					const prevoLearnset = this.dataCache.Learnsets[this.toID(copyData.prevo.toLowerCase())].learnset;
 					for (const moveid in prevoLearnset) { // filter only to allow moves from the latest gen
 						this.modData('Learnsets', id).learnset[moveid] = prevoLearnset[moveid].filter(
-							(method) => parseInt(method[0]) == latestGen
+							(method) => parseInt(method[0]) == latestGen && method[1] != "V"
 						);
 					}
 				}

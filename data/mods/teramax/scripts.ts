@@ -3,11 +3,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
+		customDoublesTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 	},
 	init() {
-		for (const i in this.data.FormatsData) {
-			if (i.endsWith('gmax')) this.modData('FormatsData', i).tier = "TMFE";
-		}
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.iceshard = ["9L1"];
@@ -315,8 +313,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "spectrier").learnset.mysticalfire = ["9L1"];
 		this.modData("Learnsets", "spectrier").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "spectrier").learnset.topsyturvy = ["9L1"];
-		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
-		delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
+		//this.modData("Learnsets", "calyrexicerider").learnset.iceshard = ["9L1"];
+		//this.modData("Learnsets", "calyrexshadowrider").learnset.mysticalfire = ["9L1"];
+		//this.modData("Learnsets", "calyrexshadowrider").learnset.moonblast = ["9L1"];
+		//this.modData("Learnsets", "calyrexshadowrider").learnset.topsyturvy = ["9L1"];
+		//delete this.modData('Learnsets', 'calyrexshadowrider').learnset.nastyplot;
 		this.modData("Learnsets", "okidogi").learnset.ruthlessfist = ["9L1"];
 		this.modData("Learnsets", "okidogi").learnset.earthquake = ["9L1"];
 		this.modData("Learnsets", "okidogi").learnset.circlethrow = ["9L1"];
@@ -457,7 +458,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
-			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar' && pokemon.hasAbility('stellarshell')) {
 				pokemon.formeChange('Terapagos-Stellar', null, true);
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100

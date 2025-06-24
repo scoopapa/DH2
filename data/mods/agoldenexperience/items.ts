@@ -738,21 +738,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
-	phonebooth: {
-		name: "Phone Booth",
+	relicsheet: {
+		name: "Relic Sheet",
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Palafin') {
-				pokemon.formeChange('Palafin-Hero');
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Palafin') return false;
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
 			return true;
 		},
-		itemUser: ["Palafin", "Palafin-Hero"],
+		itemUser: ["Meloetta", "Meloetta-Pirouette"],
 		num: -50,
 		gen: 9,
-		desc: "If held by Palafin: Hero Forme on entry.",
+		desc: "If held by Meloetta: Pirouette form on entry.",
 	},
 	lightball: {
 		inherit: true,
@@ -790,6 +790,45 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		shortDesc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 		desc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
+	},
+	greninjinite: {
+		name: "Greninjinite",
+		megaStone: "Greninja-Mega",
+		megaEvolves: "Greninja",
+		itemUser: ["Greninja"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -51,
+		gen: 9,
+		desc: "If held by a Greninja, this item allows it to Mega Evolve in battle.",
+	},
+	meowscaradite: {
+		name: "Meowscaradite",
+		megaStone: "Meowscarada-Mega",
+		megaEvolves: "Meowscarada",
+		itemUser: ["Meowscarada"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -52,
+		gen: 9,
+		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
+	},
+	quaquavite: {
+		name: "Quaquavite",
+		megaStone: "Quaquaval-Mega",
+		megaEvolves: "Quaquaval",
+		itemUser: ["Quaquaval"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -54,
+		gen: 9,
+		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
 	},
 	// everlasting winter
 	safetygoggles: {

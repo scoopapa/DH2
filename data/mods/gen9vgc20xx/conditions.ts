@@ -55,8 +55,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				} else {
 					this.add('-status', target, 'slp');
 				}
-				// 1-3 turns
-				this.effectState.startTime = 2;
+				// 2 turns
+				this.effectState.startTime = 3;
 				this.effectState.time = this.effectState.startTime;
 	
 				if (target.removeVolatile('nightmare')) {
@@ -717,6 +717,63 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-weather', 'none');
 			},
 		},
+	   //
+	   acidicrain: {
+			name: 'Acidic Rain',
+			effectType: 'Weather',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('corrosiverock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					if (this.gen <= 5) this.effectState.duration = 0;
+					this.add('-weather', 'Acidic Rain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-weather', 'Acidic Rain');
+				}
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(move, source, target) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Poison'] = true;
+				}
+			},
+			onTryHit(target, source, move) {
+				if (move.type === 'Poison') {
+					if ((target.hasItem('safetygoggles') || target.hasAbility('overcoat')) && !this.dex.getImmunity('Poison', target)) {
+						this.add('-immune', target);
+						this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
+						return null;
+					}
+				}
+			},
+			onFieldResidualOrder: 1,
+			onFieldResidual() {
+				this.add('-weather', 'Acidic Rain', '[upkeep]');
+				if (this.field.isWeather('acidicrain')) this.eachEvent('Weather');
+			},
+			onWeather(target) {
+				// Check if the Pokémon has an immunity or ability that negates the effect
+				if (
+					!target.hasAbility('poisonheal') &&
+					!target.hasAbility('transmutation') &&
+				//	!target.hasType('Poison') && // handled in type charts
+					!target.hasAbility('immunity')
+				) {
+					// Apply 1/16 chip damage if no immunity active
+					this.damage(target.baseMaxhp / 16, target);
+				}
+			},
+			onFieldEnd() {
+				this.add('-weather', 'none');
+			},
+		},
+	   //
 		deltastream: {
 			name: 'DeltaStream',
 			effectType: 'Weather',
@@ -814,6 +871,51 @@ export const Conditions: {[k: string]: ConditionData} = {
 			},
 		},
 		// end*/
+
+		feigndeath: {
+			name: 'FeignDeath',
+			noCopy: true,
+			onSourceModifyAtkPriority: 6,
+			onSourceModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Ghost' && defender.side.pokemon.some(
+					p => p !== defender && !p.fainted && p.hasAbility('feigndeath')
+				)) {
+					this.debug('FeignDeath weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Ghost' && defender.side.pokemon.some(
+					p => p !== defender && !p.fainted && p.hasAbility('feigndeath')
+				)) {
+					this.debug('FeignDeath weaken');
+					return this.chainModify(0.5);
+				}
+			},
+    		onDamagePriority: -30,    
+    		onDamage(damage, target, source, effect) {
+				if (target.volatiles['feigndeath']) {
+        				
+            		// If the target's HP is full and the damage would normally faint them
+            		if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+                
+            			// Check for a non-fainted ally with the 'Feign Death' ability
+            			const allyWithFeignDeath = target.side.pokemon.find(
+                			ally => !ally.fainted && ally.hasAbility('feigndeath')
+            			);
+
+                		// If there is such an ally, prevent fainting (set HP to 1)
+                		if (allyWithFeignDeath) {
+                			return target.hp - 1;  // Prevent fainting by leaving the target with 1 HP
+               	 		}
+					}
+        	
+        		}
+        		// If no conditions are met, the normal damage is returned
+        		return damage;
+    		}
+		},
 		// Start
 		fungus: {
 			name: 'Fungus',

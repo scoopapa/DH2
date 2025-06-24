@@ -56,7 +56,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-		shortDesc: "Traps user + target; pseudo Leech Seed.",
+		shortDesc: "Traps user + target; Leech Seed if trapped.",
 		name: "Brainage",
 		pp: 10,
 		priority: 0,
@@ -68,16 +68,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['brainage'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to drain');
+				const sourceSlot = pokemon.volatiles['brainage'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Brainage');
+					this.add('-end', pokemon, 'brainage');
+					pokemon.removeVolatile('brainage');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -99,7 +102,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
-		shortDesc: "Double damage against grounded target.",
+		shortDesc: "Double damage against grounded target. Fails in Gravity.",
 		name: "Flying Dive",
 		pp: 5,
 		priority: 0,
@@ -150,9 +153,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.category === 'Status') {
-					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
-					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+				if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+
+				// Let Z or Max moves through, but mark them
+				if (move.isZ || move.isMax) {
+					target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
 				if (move.smartTarget) {
@@ -316,7 +321,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Boost acc and another stat based on target's best stat.",
+		shortDesc: "+1 acc, +2 other stat based on target's best stat.",
 		name: "Recalibration",
 		pp: 10,
 		priority: 0,
@@ -380,9 +385,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	swarmingstrike: {
 		num: -13,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 60,
 		category: "Physical",
-		shortDesc: "+30 for each other unfainted Bug on the team.",
+		shortDesc: "+20 for each other unfainted Bug on the team.",
 		name: "Swarming Strike",
 		pp: 10,
 		priority: 0,
@@ -405,8 +410,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 	
-			// Add 30 base power for each Bug-type Pokémon in the party (excluding the user)
-			return basePower + bugCount * 30;
+			// Add 20 base power for each Bug-type Pokémon in the party (excluding the user)
+			return basePower + bugCount * 20;
 		},
 		secondary: null,
 		target: "normal",
@@ -813,6 +818,241 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
+	shellsight: {
+		num: -27,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Shell Sight",
+		shortDesc: "Rock Soak; -1 Spe Octolock; doesn't hurt ally.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Bomb", target);
+		},
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
+		},
+		onHit(target) {
+			if (target.getTypes().join() === 'Rock' || !target.setType('Rock')) {
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Rock');
+		},
+		volatileStatus: 'shellsight',
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: Shell Sight', '[of] ' + source);
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				const source = this.effectState.source;
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['shellsight'];
+					this.add('-end', pokemon, 'Shell Sight', '[partiallytrapped]', '[silent]');
+					return;
+				}
+				this.boost({spe: -1}, pokemon);
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},		  
+	//
+	oilspill: {
+		num: -28,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Dual Poison & Water move that poisons in Acidic Rain.",
+		name: "Oil Spill",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Water', type);
+		},
+		secondary: {chance: 100,
+			onHit(target, source, move) {
+				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+				if (this.field.isWeather('acidicrain')) {
+				target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Tough",
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Muddy Water', target);	
+		},
+	},
+	//
+	acidicrain: {
+		num: -29,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Acidic Rain",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1},
+		shortDesc: "Sets Acidic Rain, which lasts for 5 turns.",
+		weather: 'Acidic Rain',
+		secondary: null,
+		target: "all",
+		type: "Poison",
+		zMove: {boost: {spa: 1}},
+		contestType: "Tough",
+	},	  
+	//
+	acidicbreath: {
+		num: -30,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		shortDesc: "Skips in Acidic Rain. Burns target.",
+		name: "Acidic Breath",
+		pp: 5,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, 'Charge');
+			if (this.field.isWeather('acidicrain')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, 'Acid Downpour', defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	//
+	vigorterrain: {
+		num: -31,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Sets Vigor Terrain, which lasts for 5 turns.",
+		name: "Vigor Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'vigorterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSourceModifyAccuracyPriority: -1,
+			onSourceModifyAccuracy(accuracy, source, target) {
+				if (typeof accuracy !== 'number') return;
+				if (source.hasType('Fighting') && source.isGrounded() && !source.isSemiInvulnerable()) {
+					this.debug('Vigor Terrain - enhancing accuracy');
+					return this.chainModify(1.1);
+				}
+				return accuracy;
+			},
+			onModifyCritRatio(critRatio, source) {
+				if (source.isGrounded() && source.hasType('Fighting') && !source.isSemiInvulnerable()) {
+					return critRatio + 1;
+				}
+			},
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.fainted) {
+					// Check if the user moved last
+					if (!this.queue.willAct()) {
+						// Fighting moves give +1 Attack if user moved last
+						if (move.type === 'Fighting') {
+							this.boost({atk: 1}, pokemon);
+						//	this.add('-boost', pokemon, 'atk', 1, '[from] Vigor Terrain');
+						}
+					}
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Vigor Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-message', "Grounded Fighting Pokémon have +1 crit ratio and 10% accuracy more.");
+					this.add('-message', "Fighting moves of grounded Pokémon give +1 Atk if user moved last.");
+				} else {
+					this.add('-fieldstart', 'move: Vigor Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Vigor Terrain');
+			},
+ 		},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	//
+	recklesslariat: {
+		num: -32,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Punch move that ignores redirection.",
+		name: "Reckless Lariat",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		tracksTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	//
+	enzymaticbite: {
+		num: -33,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Recovers half of damage done to target, 3/4 in Psychic Terrain.",
+		name: "Enzymatic Bite",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1},
+		drain: [1, 2],
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('psychicterrain')) move.drain = [3, 4];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	//
 	
 	// start
 	autotomize: {
@@ -852,6 +1092,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
+		shortDesc: "Consumes berry before attacking.",
 		name: "Belch",
 		pp: 10,
 		priority: 0,
@@ -894,7 +1135,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target) {
 			// Check if the user has the Selfish ability
 			if (target.hasAbility('selfish')) {
-				const ally = target.side.active.find(pokemon => pokemon && pokemon !== target && !pokemon.fainted);
+				const ally = target.side.active.find(pokemon => pokemon && pokemon !== target && !pokemon.fainted && !pokemon.hasAbility('selfish'));
 				if (ally) {
 					// If an ally exists, it loses 50% of its HP
 					this.directDamage(ally.maxhp / 2, ally, target);
@@ -928,6 +1169,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
+		shortDesc: "User can't move next turn. Physical if Atk > SpA.",
 		name: "Blast Burn",
 		pp: 5,
 		priority: 0,
@@ -1007,6 +1249,24 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		contestType: "Tough",
+	},
+	//
+	chipaway: {
+		num: 498,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		isNonstandard: null,
+		name: "Chip Away",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		ignoreDefensive: true,
+		ignoreEvasion: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 		contestType: "Tough",
 	},
 	//
@@ -1113,7 +1373,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (source.hasType('Ghost')) {
 				// Check if the user has the Selfish ability
 				if (source.hasAbility('selfish')) {
-					const ally = source.side.active.find(pokemon => pokemon && pokemon !== source && !pokemon.fainted);
+					const ally = source.side.active.find(pokemon => pokemon && pokemon !== source && !pokemon.fainted && !pokemon.hasAbility('selfish'));
 					if (ally) {
 						this.directDamage(ally.maxhp / 2, ally, source);
 						this.add('-message', `${ally.name} lost HP due to ${source.name}'s Selfish ability!`);
@@ -1205,6 +1465,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 250,
 		category: "Physical",
+		shortDesc: "Hits adjacent Pkm; user faints; guaranteed crit.",
 		name: "Explosion",
 		pp: 5,
 		priority: 0,
@@ -1222,20 +1483,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		basePowerCallback(target, source, move) {
-			// Check if the sourceEffect is a non-status, single-target Grass or Water move
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				(sourceMove.type === 'Grass' || sourceMove.type === 'Water') &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
+			if (['grasspledge', 'waterpledge'].includes(move.sourceEffect)) {
 				this.add('-combine');
 				return 150;
 			}
 			return move.basePower;
 		},
 		category: "Special",
+		shortDesc: "Combo with Grass/Water Pledge. Physical if Atk > SpA.",
 		name: "Fire Pledge",
 		pp: 10,
 		priority: 0,
@@ -1248,12 +1503,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				) {
 					continue;
 				}
-				const partnerMove = this.dex.moves.get(action.move.id);
-				if (
-					action.pokemon.isAlly(source) &&
-					partnerMove.category !== 'Status' &&
-					['Water', 'Grass'].includes(partnerMove.type)
-				) {
+				if (action.pokemon.isAlly(source) && ['grasspledge', 'waterpledge'].includes(action.move.id)) {
 					this.queue.prioritizeAction(action, move);
 					this.add('-waiting', source, action.pokemon);
 					return null;
@@ -1261,22 +1511,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onModifyMove(move, source) {
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
-				if (sourceMove.type === 'Water') {
-					move.type = 'Water';
-					move.forceSTAB = true;
-					move.sideCondition = 'waterpledge';
-				}
-				if (sourceMove.type === 'Grass') {
-					move.type = 'Fire';
-					move.forceSTAB = true;
-					move.self = {sideCondition: 'firepledge'};
-				}
+			if (move.sourceEffect === 'waterpledge') {
+				move.type = 'Water';
+				move.forceSTAB = true;
+				move.self = {sideCondition: 'waterpledge'};
+			}
+			if (move.sourceEffect === 'grasspledge') {
+				move.type = 'Fire';
+				move.forceSTAB = true;
+				move.sideCondition = 'firepledge';
 			}
 			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
@@ -1305,7 +1548,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	flameburst: {
 		num: 481,
 		accuracy: 100,
-		basePower:80,
+		basePower: 80,
 		category: "Special",
 		isNonstandard: null,
 		name: "Flame Burst",
@@ -1376,6 +1619,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
+		shortDesc: "User can't move next turn. Physical if Atk > SpA.",
 		name: "Frenzy Plant",
 		pp: 5,
 		priority: 0,
@@ -1397,20 +1641,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		basePowerCallback(target, source, move) {
-			// Check if the sourceEffect is a non-status, single-target Water or Fire move
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				(sourceMove.type === 'Water' || sourceMove.type === 'Fire') &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
+			if (['waterpledge', 'firepledge'].includes(move.sourceEffect)) {
 				this.add('-combine');
 				return 150;
 			}
 			return move.basePower;
 		},
 		category: "Special",
+		shortDesc: "Combo with Fire/Water Pledge. Physical if Atk > SpA.",
 		name: "Grass Pledge",
 		pp: 10,
 		priority: 0,
@@ -1423,12 +1661,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				) {
 					continue;
 				}
-				const partnerMove = this.dex.moves.get(action.move.id);
-				if (
-					action.pokemon.isAlly(source) &&
-					partnerMove.category !== 'Status' &&
-					['Water', 'Fire'].includes(partnerMove.type)
-				) {
+				if (action.pokemon.isAlly(source) && ['waterpledge', 'firepledge'].includes(action.move.id)) {
 					this.queue.prioritizeAction(action, move);
 					this.add('-waiting', source, action.pokemon);
 					return null;
@@ -1436,22 +1669,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onModifyMove(move, source) {
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
-				if (sourceMove.type === 'Water') {
-					move.type = 'Grass';
-					move.forceSTAB = true;
-					move.sideCondition = 'grasspledge';
-				}
-				if (sourceMove.type === 'Fire') {
-					move.type = 'Fire';
-					move.forceSTAB = true;
-					move.self = {sideCondition: 'firepledge'};
-				}
+			if (move.sourceEffect === 'waterpledge') {
+				move.type = 'Grass';
+				move.forceSTAB = true;
+				move.sideCondition = 'grasspledge';
+			}
+			if (move.sourceEffect === 'firepledge') {
+				move.type = 'Fire';
+				move.forceSTAB = true;
+				move.sideCondition = 'firepledge';
 			}
 			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
@@ -1504,6 +1730,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
+		shortDesc: "User can't move next turn. Physical if Atk > SpA.",
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
@@ -1600,6 +1827,22 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
+	magnetbomb: {
+		num: 443,
+		accuracy: true,
+		basePower: 60,
+		category: "Physical",
+		isNonstandard: null,
+		name: "Magnet Bomb",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	//
 	meditate: {
 		num: 96,
 		accuracy: true,
@@ -1670,6 +1913,57 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "allAdjacentFoes",
 		type: "Poison",
+	},
+	//
+	psychoshift: {
+		num: 375,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Psycho Shift",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (!source.status) return false;
+			move.status = source.status;
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.cureStatus();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+	},
+
+	//
+	punishment: {
+		num: 386,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			let power = 60 + 20 * target.positiveBoosts();
+			if (power > 200) power = 200;
+			this.debug('BP: ' + power);
+			return power;
+		},
+		category: "Physical",
+		isNonstandard: null,
+		name: "Punishment",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
 	},
 	//
 	purify: {
@@ -1751,6 +2045,42 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
+	rototiller: {
+		num: 563,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Rototiller",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1},
+		onHitField(target, source) {
+			const targets: Pokemon[] = [];
+			let anyAirborne = false;
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.runImmunity('Ground')) {
+					this.add('-immune', pokemon);
+					anyAirborne = true;
+					continue;
+				}
+				if (pokemon.hasType('Grass')) {
+					// This move affects every grounded Grass-type Pokemon in play.
+					targets.push(pokemon);
+				}
+			}
+			if (!targets.length && !anyAirborne) return false; // Fails when there are no grounded Grass types or airborne Pokemon
+			for (const pokemon of targets) {
+				this.boost({atk: 1, spa: 1}, pokemon, source);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+		zMove: {boost: {atk: 1}},
+		contestType: "Tough",
+	},
+	//
 	sharpen: {
 		num: 159,
 		accuracy: true,
@@ -1818,37 +2148,80 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	// end
-
-	// start: modifying Soak for Aegislash-Light to account for form change, letting it stay mono Water
-	soak: {
-		num: 487,
+	//
+	solarbeam: {
+		num: 76,
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Soak",
-		pp: 20,
+		basePower: 120,
+		category: "Special",
+		name: "Solar Beam",
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
-		onHit(target) {
-			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
-				// Soak should animate even when it fails.
-				// Returning false would suppress the animation.
-				this.add('-fail', target);
-				return null;
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
 			}
-			this.add('-start', target, 'typechange', 'Water');
-			
-			// Apply soaktypedenial volatile if the target is Aegislash-Light or Grinsegrin
-			if (target.species.name === 'Aegislash-Light' || target.species.name === 'Aegislash-Blade-Light') {
-				target.addVolatile('soaktypedenial');
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidicrain'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
 			}
 		},
 		secondary: null,
 		target: "normal",
-		type: "Water",
-		zMove: {boost: {spa: 1}},
-		contestType: "Cute",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	solarblade: {
+		num: 669,
+		accuracy: 100,
+		basePower: 125,
+		category: "Physical",
+		name: "Solar Blade",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1, slicing: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidicrain'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
 	},
 	//
 	submission: {
@@ -1856,6 +2229,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
+		shortDesc: "Has 1/2 recoil.",
 		isNonstandard: null,
 		name: "Submission",
 		pp: 20,
@@ -1866,6 +2240,48 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+	},
+	//
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			case 'vigorterrain':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+				this.debug('BP doubled in Terrain');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
 	},
 	//
 	triplekick: {
@@ -1890,7 +2306,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
-	/*waterpledge: {
+	waterpledge: {
 		num: 518,
 		accuracy: 100,
 		basePower: 80,
@@ -1902,6 +2318,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return move.basePower;
 		},
 		category: "Special",
+		shortDesc: "Combo with Grass/Fire Pledge. Physical if Atk > SpA.",
 		name: "Water Pledge",
 		pp: 10,
 		priority: 0,
@@ -1917,103 +2334,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				) {
 					continue;
 				}
-				const partnerMove = this.dex.moves.get(otherMove.id);
-				if (
-					otherMoveUser.isAlly(source) &&
-					partnerMove.category !== 'Status' &&
-					['Fire', 'Grass'].includes(partnerMove.type)
-				) {
-					this.queue.prioritizeAction(action, move);
-					this.add('-waiting', source, otherMoveUser);
-					return null;
-				}
-			}
-		},
-		onModifyMove(move) {
-			if (move.sourceEffect) {
-				const partnerMove = this.dex.moves.get(move.sourceEffect);
-				if (partnerMove.type === 'Grass') {
-					move.type = 'Grass';
-					move.forceSTAB = true;
-					move.sideCondition = 'grasspledge';
-				}
-				if (partnerMove.type === 'Fire') {
-					move.type = 'Water';
-					move.forceSTAB = true;
-					move.self = {sideCondition: 'waterpledge'};
-				}
-			}
-		},
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'Water Pledge');
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 7,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'Water Pledge');
-			},
-			onModifyMove(move, pokemon) {
-				if (move.secondaries && move.id !== 'secretpower') {
-					this.debug('doubling secondary chance');
-					for (const secondary of move.secondaries) {
-						if (pokemon.hasAbility('serenegrace') && secondary.volatileStatus === 'flinch') continue;
-						if (secondary.chance) secondary.chance *= 2;
-					}
-					if (move.self?.chance) move.self.chance *= 2;
-				}
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Beautiful",
-	},*/
-	//
-	waterpledge: {
-		num: 518,
-		accuracy: 100,
-		basePower: 80,
-		basePowerCallback(target, source, move) {
-			// Check if the sourceEffect is a non-status, single-target Fire or Grass move
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				(sourceMove.type === 'Fire' || sourceMove.type === 'Grass') &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
-				this.add('-combine');
-				return 150;
-			}
-			return move.basePower;
-		},
-		category: "Special",
-		name: "Water Pledge",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, pledgecombo: 1},
-		onPrepareHit(target, source, move) {
-			for (const action of this.queue) {
-				if (action.choice !== 'move') continue;
-				const otherMove = action.move;
-				const otherMoveUser = action.pokemon;
-				if (
-					!otherMove || !action.pokemon || !otherMoveUser.isActive ||
-					otherMoveUser.fainted || action.maxMove || action.zmove
-				) {
-					continue;
-				}
-				// Check if the other move is a non-status, single-target Fire or Grass move
-				const otherMoveData = this.dex.moves.get(otherMove.id);
-				if (
-					otherMoveUser.isAlly(source) &&
-					otherMoveData &&
-					(otherMoveData.type === 'Fire' || otherMoveData.type === 'Grass') &&
-					otherMoveData.category !== 'Status' &&
-					otherMoveData.target === 'normal'
-				) {
+				if (otherMoveUser.isAlly(source) && ['firepledge', 'grasspledge'].includes(otherMove.id)) {
 					this.queue.prioritizeAction(action, move);
 					this.add('-waiting', source, otherMoveUser);
 					return null;
@@ -2021,22 +2342,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onModifyMove(move, source) {
-			const sourceMove = this.dex.moves.get(move.sourceEffect);
-			if (
-				sourceMove &&
-				sourceMove.category !== 'Status' &&
-				sourceMove.target === 'normal'
-			) {
-				if (sourceMove.type === 'Grass') {
-					move.type = 'Grass';
-					move.forceSTAB = true;
-					move.sideCondition = 'grasspledge';
-				}
-				if (sourceMove.type === 'Fire') {
-					move.type = 'Water';
-					move.forceSTAB = true;
-					move.self = {sideCondition: 'waterpledge'};
-				}
+			if (move.sourceEffect === 'grasspledge') {
+				move.type = 'Grass';
+				move.forceSTAB = true;
+				move.sideCondition = 'grasspledge';
+			}
+			if (move.sourceEffect === 'firepledge') {
+				move.type = 'Water';
+				move.forceSTAB = true;
+				move.self = {sideCondition: 'waterpledge'};
 			}
 			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
@@ -2064,6 +2378,68 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		contestType: "Beautiful",
+	},
+	//
+	weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			case 'acidicrain':
+				move.type = 'Poison';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			case 'acidicrain':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
 		contestType: "Beautiful",
 	},
 	//

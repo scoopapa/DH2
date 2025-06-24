@@ -81,7 +81,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
     },
 	//
 	desertmirage: {
-		desc: "Sand: Ground/Flying, Rain: Ground/Water, Sun: Ground/Fire, Snow: Ground/Ice.",
+		desc: "Sand: Ground/Flying, Rain: Ground/Water, Sun: Ground/Fire, Snow: Ground/Ice, Acidic Rain: Ground/Poison.",
 		shortDesc: "Gains additional type in weather.",
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
@@ -89,31 +89,56 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Dustform' || pokemon.transformed) return;
 			let forme = null;
+			let newTypes = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'dustformsunny') forme = 'Dustform-Sunny';
+				if (pokemon.species.id !== 'dustformsunny') {
+					forme = 'Dustform-Sunny';
+					newTypes = ['Ground', 'Fire'];
+				}
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.species.id !== 'dustformrainy') forme = 'Dustform-Rainy';
+				if (pokemon.species.id !== 'dustformrainy') {
+					forme = 'Dustform-Rainy';
+					newTypes = ['Ground', 'Water'];
+				}
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'dustformsnowy') forme = 'Dustform-Snowy';
+				if (pokemon.species.id !== 'dustformsnowy') {
+					forme = 'Dustform-Snowy';
+					newTypes = ['Ground', 'Ice'];
+				}
 				break;
 			case 'sandstorm':
 			case 'desertgales':
-				if (pokemon.species.id !== 'dustformsandy') forme = 'Dustform-Sandy';
+				if (pokemon.species.id !== 'dustformsandy') {
+					forme = 'Dustform-Sandy';
+					newTypes = ['Ground', 'Flying'];
+				}
+				break;
+			case 'acidicrain':
+				if (pokemon.species.id !== 'dustformacidic') {
+					forme = 'Dustform-Acidic';
+					newTypes = ['Ground', 'Poison'];
+				}
 				break;
 			default:
-				if (pokemon.species.id !== 'dustform') forme = 'Dustform';
+				if (pokemon.species.id !== 'dustform') {
+					forme = 'Dustform';
+					newTypes = ['Ground'];
+				}
 				break;
 			}
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (newTypes) {
+					this.add('-start', pokemon, 'typechange', newTypes.join('/'), '[from] Desert Mirage');
+				}
 			}
-		},
+		},	
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Desert Mirage",
 		rating: 2,
@@ -190,7 +215,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType !== 'Move') {
 				const ally = target.side.active.find(ally => ally && ally !== target && !ally.fainted);
-				if (ally) {
+				if (ally && !ally.hasAbility('selfish')) {
 					this.add('-ability', target, 'Selfish');
 					this.add('-message', `${target.name}'s Selfish redirects the damage to ${ally.name}!`);
 					this.damage(damage, ally, source, effect);
@@ -335,7 +360,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	weightbreaker: {
 		shortDesc: "Double damage if user's weight < target's weight.",
 		onModifyDamage(damage, source, target, move) {
-			if (source.weighthg < target.weighthg) {
+			const sourceWeight = source.getWeight();
+			const targetWeight = target.getWeight();
+			if (sourceWeight < targetWeight) {
 				this.debug('Weight Breaker boost');
 				return this.chainModify(2);
 			}
@@ -529,6 +556,110 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -19,
 	},
+	//
+	feigndeath: {
+		shortDesc: "Ally can't faint from full HP + takes 0.5 from Ghost moves.",
+		onUpdate(pokemon) {
+			for (const ally of pokemon.side.pokemon) {
+				if (ally !== pokemon && !ally.fainted && !ally.volatiles['feigndeath']) {
+					ally.addVolatile('feigndeath');
+				}
+			}
+		},
+		flags: {},
+		name: "Feign Death",
+		rating: 5,
+		num: -20,
+	},
+	//
+	vigorsurge: {
+		desc: "On switch-in, this Pokémon summons Vigorr Terrain for 5 turns. During the effect, grounded Fighting Pokémon have +1 crit and 10% acc. Fighting moves of grounded Pokémon grant +1 Atk if the user moved last. Camouflage transforms the user into a Fighting-type. Lasts for 8 turns if the user is holding a Terrain Extender (such as through Skill Swap).",
+		shortDesc: "Sets Vigor Terrain on switch-in.",
+		onStart(source) {
+			this.field.setTerrain('vigorterrain');
+		},
+		flags: {},
+		name: "Vigor Surge",
+		rating: 3,
+		num: -21,
+	},
+	photolysis: {
+		desc: "On switch-in, the weather becomes Acidic Rain. It lasts for 5 turns. During this effect, Steel Pokémon become vulnerable to damaging Poison moves. At the end of each turn, non Poison Pokémon loose 1/16 of their HP.",
+		shortDesc: "On switch-in, sets Acidic Rain.",
+		onStart(source) {
+			this.field.setWeather('acidicrain');
+		},
+		flags: {},
+		name: "Photolysis",
+		rating: 3,
+		num: -22,
+	},
+	//
+	transmutation: {
+		desc: "At the end of the turn, if Acidic Rain is active, boosts user's worst stat by 1 stage. Immunity to 1/16 chip damage from this weather.",
+		shortDesc: "Boosts worst stat in Acidic Rain every turn.",
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			if (this.field.isWeather('acidicrain')) {
+				const stats = ['atk', 'def', 'spa', 'spd', 'spe'] as const;
+				const statValues = stats.map(stat => pokemon.getStat(stat));
+				const minValue = Math.min(...statValues);
+				
+				let worstStat = null;
+	
+				// Find the worst stat based on current values
+				for (const stat of stats) {
+					if (pokemon.getStat(stat) === minValue) {
+						worstStat = stat;
+						break; // Only boost the first worst stat found
+					}
+				}
+	
+				if (worstStat) {
+					this.boost({ [worstStat]: 1 }, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Transmutation",
+		rating: 3,
+		num: -23,
+	},
+	//
+	coupdegrass: {
+		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		shortDesc: "Moves first in prio bracket if target's HP: 1/2 or less.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			// Check if the target's HP is at or below half
+			if (target.hp <= Math.floor(target.maxhp / 2)) {
+				// Check if the move is not a spread move
+				if (action.move.target !== 'allAdjacent' && action.move.target !== 'all') {
+					pokemon.addVolatile('coupdegrass');
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Coup de Grass');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		flags: {},
+		name: "Coup de Grass",
+		rating: 3,
+		num: -24,
+	},
 	// end
 
 	// Changes to abilities
@@ -557,7 +688,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	//
 	cutecharm: {
 		shortDesc: "50% damage reduction if move's type = user's type.",
-		onModifyDamage(damage, source, target, move) {
+		onSourceModifyDamage(damage, source, target, move) {
 			// Check if the move's type matches the defender's type
 			if (target.hasType(move.type)) {
 				this.debug('Cute Charm reducing damage due to type match');
@@ -665,6 +796,47 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Leaf Guard",
 		rating: 0.5,
 		num: 102,
+	},
+	//
+	mimicry: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			case 'vigorterrain':
+				types = ['Fighting'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
+		flags: {},
+		name: "Mimicry",
+		rating: 0,
+		num: 250,
 	},
 	//
 	normalize: {
@@ -826,6 +998,55 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Torrent",
 		rating: 2,
 		num: 67,
+	},
+	//
+	zenmode: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			// Updated condition to allow Solastor and Lullux
+			if (!['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (['Darmanitan', 'Solastor', 'Lullux'].includes(pokemon.species.baseSpecies) && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				// Handle forme changes for custom Pokémon
+				const zenFormes: {[k: string]: string} = {
+					'darmanitan': 'Darmanitan-Zen',
+					'darmanitangalar': 'Darmanitan-Galar-Zen',
+					'solastor': 'Solastor-Zen',
+					'lullux': 'Lullux-Zen',
+				};
+				const baseId = pokemon.species.id;
+				if (zenFormes[baseId]) {
+					pokemon.formeChange(zenFormes[baseId]);
+				}
+			},
+			onEnd(pokemon) {
+				const zenFormes = ['Zen', 'Galar-Zen'];
+				if (zenFormes.includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
 	},
 	// End
 	

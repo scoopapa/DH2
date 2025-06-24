@@ -359,4 +359,44 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW6",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	nostjing: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	bryoking: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	tyujin: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	taraguisa: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	monula: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	faragraph: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jiduaejebo: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	mokagami: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yokosura: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jackoyaku: {
+		tier: "NSEW7",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }

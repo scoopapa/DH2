@@ -83,4 +83,44 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	mayafey: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	pit: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	pitmega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	nifl: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	radiance: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	sophie: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	ragman: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	ranno: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	medic: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	plaguerat: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };

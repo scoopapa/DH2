@@ -742,7 +742,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	gulpin: {
 		//tier: "DoNU Uber",
-		tier: "Restricted",
+		tier: "DDoNU",
 		isNonstandard: null,
 	},
 	goomy: {
