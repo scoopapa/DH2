@@ -896,6 +896,102 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
 		rating: 3.5,
 	},
+	oceanicveil: {
+		shortDesc: "On switch-in, this Pokemon uses Aqua Ring.",
+		onStart(source) {
+			this.useMove("Aqua Ring", source);
+		},
+		name: "Oceanic Veil",
+		rating: 3,
+	},
+	pathogenic: {
+		onDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'pathogenic') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('pathogenic', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: pathogenic', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.hasType('Poison')) {
+				return;
+			} 
+			if (pokemon.baseSpecies.name !== "Blackveil Hazak") {
+				return;
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Pathogenic",
+		shortDesc: "Contact changes attacker's ability to Pathogenic; non-Poison Pokemon are hurt.",
+		rating: 2,
+	},
+	incandescant: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescant Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescant Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				return null;
+			}
+		},
+		name: "Incandescant",
+		shortDesc: "User gains STAB on Fire moves; Immune to Fire.",
+		rating: 4.5,
+	},
+	maddragon: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Mad Dragon boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Mad Dragon boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Grass') {
+				this.debug('Mad Dragon weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Grass') {
+				this.debug('Mad Dragon weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Mad Dragon",
+		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
+		rating: 3.5,
+	},
 	/*
 	Edits
 	*/

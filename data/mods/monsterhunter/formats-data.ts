@@ -494,6 +494,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sandrioth: {
 		tier: "MHUU",
 	},
+	uthduna: {
+		tier: "MHOU",
+	},
+	blackveilhazak: {
+		tier: "MHOU",
+	},
+	silvalos: {
+		tier: "MHOU",
+	},
+	goldthian: {
+		tier: "MHOU",
+	},
+	greencuga: {
+		tier: "MHOU",
+	},
 	allmothernarwa: {
 		tier: "MEGAS",
 	},
@@ -549,6 +564,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MEGAS",
 	},
 	whitefatalis: {
+		tier: "MEGAS",
+	},
+	savagedeviljho: {
 		tier: "MEGAS",
 	},
 	plesiothz: {
