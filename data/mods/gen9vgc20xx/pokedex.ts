@@ -1311,6 +1311,73 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	snomxelian: {
+		num: -1059,
+		name: "Snom-Xelian",
+		forme: "Xelian",
+		types: ["Normal", "Bug"],
+		baseStats: {hp: 30, atk: 15, def: 40, spa: 45, spd: 30, spe: 25},
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+	//	category: "Mimicry",
+		heightm: 0.3,
+		weightkg: 3.8,
+		color: "White",
+		eggGroups: ["Bug"],
+
+		evos: ["Frosmoth-Xelian"],
+		//	creator: "BlueRay",
+	},
+	frosmothxelian: {
+		num: -1060,
+		name: "Frosmoth-Xelian",
+		forme: "Xelian",
+		types: ["Normal", "Bug"],
+		baseStats: {hp: 70, atk: 45, def: 70, spa: 125, spd: 90, spe: 75},
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+	//	category: "Mimicry",
+		heightm: 1.3,
+		weightkg: 42.0,
+		color: "White",
+		eggGroups: ["Bug"],
+
+		prevo: "Snom-Xelian",
+		evoType: "levelFriendship",
+		//	creator: "BlueRay",
+	},
+	//
+
+	//
+	golduckxelian: {
+		num: -1061,
+		name: "Golduck-Xelian",
+		forme: "Xelian",
+		types: ["Electric", "Water"],
+		baseStats: {hp: 70, atk: 92, def: 68, spa: 95, spd: 70, spe: 105},
+		abilities: {0: "Thundercloud", 1: "Damp", H: "Forewarn"},
+	//	category: "",
+	//	heightm: ,
+		weightkg: 72.2,
+		color: "Yellow",
+		eggGroups: ["Water 1"],
+	//	creator: "Samtendo09",
+	},
+	//
+	avigutaw: {
+		num: -1062,
+		name: "Avigutaw",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 100, atk: 72, def: 95, spa: 52, spd: 125, spe: 61},
+		abilities: {0: "Levitate"},
+	//	category: "",
+	//	heightm: ,
+		weightkg: 11.0,
+		color: "Purple",
+		eggGroups: ["Flying"],
+	//	creator: "Genuine_Angus_B33F",
+	},
+	//  end
+
 	// Changes
 	// start
 	shiftry: {

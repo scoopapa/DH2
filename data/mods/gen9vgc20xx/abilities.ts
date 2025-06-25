@@ -660,6 +660,71 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -24,
 	},
+	//
+	thundercloud: {
+		onPrepareHit(source, target, move) {
+			if (!move || !source || !source.isActive) return;
+
+			// Only apply Thundercloud if the move is coming from the Pokémon with the ability
+			if (source.getAbility().name !== 'Thundercloud') return;
+
+			const field = source.side.battle.field;
+
+			// Water-type move → set Electric Terrain (if not already active)
+			if (move.type === 'Water' && field.terrain !== 'electricterrain') {
+				if (field.setTerrain('electricterrain')) {
+				//	this.add('-ability', source, 'Thundercloud');
+					this.add('-fieldstart', 'Electric Terrain');
+				}	
+			}
+
+			// Electric-type move → set Rain (if not already active)
+			else if (move.type === 'Electric' && field.weather !== 'raindance') {
+				if (field.setWeather('raindance')) {
+				//	this.add('-ability', source, 'Thundercloud');
+					this.add('-weather', 'RainDance', '[from] ability: Thundercloud', '[of] ' + source);
+				}
+			}
+		},
+		name: "Thundercloud",
+		shortDesc: "When using Water or Electric move: sets Electric Terrain or Rain (if not active).",
+		rating: 3,
+		num: -25,
+	},
+	//
+	scaleshift: {
+		shortDesc: "In a double battle, the Pokémon copies its partner's first type.",
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted) return; // should activate *after* Data Mod
+	
+			let newtype = null;
+			for (const ally of pokemon.side.active) {
+				if (ally && ally !== pokemon && !ally.fainted && !ally.hasAbility('scaleshift') &&
+					ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]) {
+					newtype = ally.types[0];
+					break;
+				}
+			}
+	
+			if (newtype) {
+				const typecombo = [newtype, pokemon.baseSpecies.types[1]];
+				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
+				this.add('-ability', pokemon, 'Scale Shift');
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			}
+			
+		},
+		onEnd(pokemon) {
+			if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
+			this.add('-ability', pokemon, 'Scale Shift');
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+		},
+		flags: {},
+		name: "Scale Shift",
+		rating: 3,
+		num: -26,
+	},
 	// end
 
 	// Changes to abilities
