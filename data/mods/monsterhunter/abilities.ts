@@ -318,7 +318,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
-				if (!this.boost({atk: 1})) {
+				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Centrifuge');
 				}
 				return null;
@@ -397,6 +397,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Rusted Gale');
+			this.add('-message', `${pokemon.name}'s gale lowered all defense on the field!`);
+
 		},
 		onAnyModifyDef(def, target, source, move) {
 			const abilityHolder = this.effectState.target;
@@ -618,6 +620,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1029,
 	},
 	plow: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Plow');
+				}
+				return null;
+			}
+		},
 		onDamage(damage, target, source, effect) {
 			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
 				this.heal(damage);
@@ -844,17 +854,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Oilmucus",
 		num: 1038,
 		rating: 2.5,
-	},
-	dozing: {
-		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when drowsy; ignores drawbacks.",
-		onResidual(pokemon) {
-			if (pokemon.status === 'slp') {
-				this.heal(pokemon.baseMaxhp / 8);
-			}
-		},
-		flags: {},
-		num: 1039,
-		name: "Dozing",
 	},
 	perforating: {
 		onModifyMovePriority: -5,
