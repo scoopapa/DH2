@@ -921,8 +921,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			if(pokemon.hasType('Poison') || pokemon.baseSpecies.name === 'Blackveil Hazak') {
-				this.add('-ability', pokemon, 'Pathogenic');
+				this.debug('Immune to Pathogenic');
 			} else { 
+				this.add('-message', `${pokemon.name} is hurt by the Pathogen!`);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
