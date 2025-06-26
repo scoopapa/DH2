@@ -2346,7 +2346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('screamcormorant', move);
-				delete target.volatiles['prehistorichunter'];
+				target.removeVolatile('prehistorichunter');
 			}
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
@@ -2372,8 +2372,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['prehistorichunter'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
+			pokemon.removeVolatile('prehistorichunter');
+			this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2428,7 +2432,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
+				this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},

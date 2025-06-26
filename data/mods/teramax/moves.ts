@@ -1197,16 +1197,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 					// Run through each action in queue to check if the G-Max Snooze user is supposed to Mega Evolve this turn.
 					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
-								this.queue.list.splice(actionIndex, 1);
-								break;
-							}
+					for (const [actionIndex, action] of this.queue.entries()) {
+						if (action.pokemon === source && action.choice === 'runDynamax') {
+							action.pokemon.addVolatile('dynamax');
+							action.pokemon.side.dynamaxUsed = true;
+							break;
 						}
 					}
-					this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
+					const snooze = this.dex.getActiveMove('gmaxsnooze');
+					const falsesurrender = source.moveSlots.filter(m => m.id === 'falsesurrender');
+					this.actions.useMove(snooze, source, pokemon);
+					source.deductPP('gmaxsnooze', 1);
+					
+					//this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
 				}
 			},
 		},
