@@ -1244,13 +1244,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "allAdjacent",
 		type: "Dark",
-		shortDesc: "Hits all adjacent. User gains Stall ability after use.",
+		shortDesc: "Hits all adjacent. User gains Stall ability after successful hit.",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, 'Outrage', target);
+			this.add('-anim', source, 'Earthquake', target);
 		},
-		onAfterMove(source, target, move) {
-			if (source.getAbility().id !== 'stall') {
+		onAfterHit(target, source, move) {
+			const blockedAbilities = ['asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'desertmirage', 'disguise', 'gulpmissile', 'iceface', 'multitype', 'powerconstruct', 'rewind', 'rkssystem', 'schooling', 'sharedmindset', 'shieldsdown', 'stancechange', 'terashift', 'zenmode', 'zerotohero'];
+			const currentAbility = source.getAbility().id;
+
+			if (currentAbility !== 'stall' && !blockedAbilities.includes(currentAbility)) {
+				const oldAbility = source.setAbility('stall');
+				if (oldAbility) {
+					this.add('-ability', source, 'Stall');
+					this.add('-message', `${source.name} became slower due to its rampage!`);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			const blockedAbilities = ['asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'desertmirage', 'disguise', 'gulpmissile', 'iceface', 'multitype', 'powerconstruct', 'rewind', 'rkssystem', 'schooling', 'sharedmindset', 'shieldsdown', 'stancechange', 'terashift', 'zenmode', 'zerotohero'];
+			const currentAbility = source.getAbility().id;
+
+			if (currentAbility !== 'stall' && !blockedAbilities.includes(currentAbility)) {
 				const oldAbility = source.setAbility('stall');
 				if (oldAbility) {
 					this.add('-ability', source, 'Stall');
