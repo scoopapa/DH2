@@ -748,8 +748,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				for (const pokemon of source.foes()) {
 					let movePP = 0;
 					for (const moveSlot of pokemon.moveSlots) {
-						const targetmove = this.dex.moves.get(moveSlot.move);
-						movePP += (targetmove.pp * 1.6);
+						movePP += moveSlot.pp;
 					}
 					const damage = this.heal(movePP * 2, source, source);
 					if (damage) {
