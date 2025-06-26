@@ -10986,6 +10986,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			snarl: ["9L1"],
 			soak: ["9L1"],
 			sparklingaria: ["9L1"],
+			bellydrum: ["9L1"],
 			spiritbreak: ["9L1"],
 			splash: ["9L1"],
 			strength: ["9L1"],
@@ -10995,7 +10996,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			watergun: ["9L1"],
 			waterfall: ["9L1"],
 			wavecrash: ["9L1"],
-			yawn: ["9L1"],
+			knockoff: ["9L1"],
+			coldsnap: ["9L1"],
 		},
 	},
 	blackveilhazak: {
