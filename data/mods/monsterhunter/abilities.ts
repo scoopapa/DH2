@@ -920,10 +920,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if(pokemon.hasType(‘Poison’) || pokemon.baseSpecies.name === “Blackveil Hazak”) {
-				this.damage()
+			if(pokemon.hasType('Poison') || pokemon.baseSpecies.name === 'Blackveil Hazak') {
+				this.add('-ability', pokemon, 'Pathogenic');
+			} else { 
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
-			this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 		},
 		flags: {},
 		name: "Pathogenic",
