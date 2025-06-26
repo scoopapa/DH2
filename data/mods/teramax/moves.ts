@@ -744,16 +744,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {},
 		isMax: "Duraludon",
 		self: {
-			onHit(source) {
+			onHit(source, target, sourceMove) {
 				for (const pokemon of source.foes()) {
+					let movePP = 0;
 					for (const moveSlot of pokemon.moveSlots) {
 						const targetmove = this.dex.moves.get(moveSlot.move);
-						const movePP = targetmove.pp;
-						const damage = this.heal(movePP * 2, source, source);
-						if (damage) {
-							this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
-						}
+						movePP += (targetmove.pp * 1.6);
 					}
+					const damage = this.heal(movePP * 2, source, source);
+					if (damage) {
+						this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
+					}
+					
 					let move: Move | ActiveMove | null = pokemon.lastMove;
 					if (!move || move.isZ) continue;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
