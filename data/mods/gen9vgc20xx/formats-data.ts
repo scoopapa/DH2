@@ -31,6 +31,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	shroomish: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	breloom: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	matokoda: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -307,6 +315,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	avigutaw: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	rotom: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -359,11 +371,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	golduckxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	wizareetin: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	wizareetingravelord: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	abra: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	kadabra: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	alakazam: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -384,6 +412,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	reuniclus: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	espurr: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	meowstic: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -579,6 +615,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	rufflet: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	braviary: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	snomxelian: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	frosmothxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	conotox: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -640,6 +692,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	weavile: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	vullaby: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	mandibuzz: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},

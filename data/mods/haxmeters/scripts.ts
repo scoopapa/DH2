@@ -227,15 +227,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							
 							if (!change) {
 								let multiplication = "(" + (accuracy / 100) + ")^" + (hit - 1) + " * " + (100 - accuracy);
-								this.battle.add('-message', `(${suffix} miss: ${multiplication} = ${product.toFixed(2)})`);
-							} else this.battle.add('-message', `(${suffix} miss: ${product.toFixed(2)})`);
+								this.battle.add('-message', `(${suffix} miss: ${multiplication} = ${roundNum(product)})`);
+							} else this.battle.add('-message', `(${suffix} miss: ${roundNum(product)})`);
 						} else {
 							suffix += " hit + " + hit + ordinal + " " + moveName;
 							let multiplication = "";
 							for (const acc of accuracies) {
 								multiplication += (acc + " * ");
 							}
-							this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${product.toFixed(2)})`);
+							this.battle.add('-message', `(${suffix} miss: ${multiplication}${(100 - accuracy)} = ${roundNum(product)})`);
 						}
 						pokemon.side.addMiss(product);
 						
