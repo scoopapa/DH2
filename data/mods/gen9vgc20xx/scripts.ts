@@ -28,7 +28,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		oilspill: ['cacnea'],
 		paranoia: ['golisopod', 'orbeetle', 'flygon'],
 		partingshot: ['arbok'],
-		passiveaggressive: ['orbeetle', 'reuniclus', 'farigiraf', 'delcatty'],
+		passiveaggressive: ['espurr', 'orbeetle', 'reuniclus', 'farigiraf', 'delcatty'],
 		poisonjab: ['vespiquen'],
 		rampage: ['gyarados', 'beartic', 'golurk', 'perrserker'],
 		recalibration: ['rotom', 'golurk'],
