@@ -227,10 +227,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	plesite: {
 			name: "Plesite",
 			shortDesc: "If held by Plesioth, this item allows it to Mega Evolve in battle.",
-			spritenum: 803,
+			spritenum: 621,
 			megaStone: "Plesioth-Z",
 			megaEvolves: "Plesioth",
 			itemUser: ["Plesioth"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1019,
+			gen: 9,
+	},
+	devilite: {
+			name: "Devilite",
+			shortDesc: "If held by Deviljho, this item allows it to Mega Evolve in battle.",
+			spritenum: 584,
+			megaStone: "Savage Deviljho",
+			megaEvolves: "Deviljho",
+			itemUser: ["Deviljho"],
 			onTakeItem(item, source) {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
