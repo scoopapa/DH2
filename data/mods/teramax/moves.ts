@@ -744,16 +744,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {},
 		isMax: "Duraludon",
 		self: {
-			onHit(source) {
+			onHit(source, target, sourceMove) {
 				for (const pokemon of source.foes()) {
+					let movePP = 0;
 					for (const moveSlot of pokemon.moveSlots) {
-						const targetmove = this.dex.moves.get(moveSlot.move);
-						const movePP = targetmove.pp;
-						const damage = this.heal(movePP * 2, source, source);
-						if (damage) {
-							this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
-						}
+						movePP += moveSlot.pp;
 					}
+					const damage = this.heal(movePP * 2, source, source);
+					if (damage) {
+						this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
+					}
+					
 					let move: Move | ActiveMove | null = pokemon.lastMove;
 					if (!move || move.isZ) continue;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -1197,16 +1198,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 					// Run through each action in queue to check if the G-Max Snooze user is supposed to Mega Evolve this turn.
 					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
-								this.queue.list.splice(actionIndex, 1);
-								break;
-							}
+					for (const [actionIndex, action] of this.queue.entries()) {
+						if (action.pokemon === source && action.choice === 'runDynamax') {
+							action.pokemon.addVolatile('dynamax');
+							action.pokemon.side.dynamaxUsed = true;
+							break;
 						}
 					}
-					this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
+					const snooze = this.dex.getActiveMove('gmaxsnooze');
+					const falsesurrender = source.moveSlots.filter(m => m.id === 'falsesurrender');
+					this.actions.useMove(snooze, source, pokemon);
+					source.deductPP('gmaxsnooze', 1);
+					
+					//this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
 				}
 			},
 		},
