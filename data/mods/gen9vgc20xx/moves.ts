@@ -879,10 +879,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, 'Muddy Water', target);
-		},
+	//	onPrepareHit(target, source, move) {
+	//		this.attrLastMove('[still]');
+		//	this.add('-anim', source, 'Muddy Water', target);
+	//	},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Water', type);
 		},
