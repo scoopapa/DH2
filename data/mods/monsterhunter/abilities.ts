@@ -896,14 +896,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
 		rating: 3.5,
 	},
-	oceanicveil: {
-		shortDesc: "On switch-in, this Pokemon uses Aqua Ring.",
-		onStart(source) {
-			this.useMove("Aqua Ring", source);
-		},
-		name: "Oceanic Veil",
-		rating: 3,
-	},
 	pathogenic: {
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
@@ -932,18 +924,43 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Contact changes attacker's ability to Pathogenic; non-Poison Pokemon are hurt.",
 		rating: 2,
 	},
-	incandescant: {
+	oceanicveil: {
+		onStart(source) {
+			//this.actions.useMove("Aqua Ring", source);
+			this.add('-ability', source, 'Water Veil');
+			source.addVolatile('aquaring');
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Oceanic Veil",
+		rating: 2,
+		num: 41,
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+	},
+	incandescent: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Incandescant Boost');
+				this.debug('Incandescent Boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Incandescant Boost');
+				this.debug('Incandescent Boost');
 				return this.chainModify(1.5);
 			}
 		},
@@ -952,7 +969,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		name: "Incandescant",
+		name: "Incandescent",
 		shortDesc: "User gains STAB on Fire moves; Immune to Fire.",
 		rating: 4.5,
 	},
@@ -1015,5 +1032,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
 		rating: 3,
 		num: 310,
+	},
+	raindish: {
+		inherit: true,
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
 	},
 }
