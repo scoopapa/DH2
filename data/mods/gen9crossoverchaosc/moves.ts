@@ -253,8 +253,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {},
-		onTryHit(source) {
-			if (!this.canSwitch(source.side)) {
+		onTryHit(source, move) {
+			if (!this.canSwitch(source.side) || !move.selfSwitch) {
 				source.addVolatile('nanoboosted');
 				return this.NOT_FAIL;
 			}
