@@ -282,8 +282,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			shortDesc: "If held by Kushala, this item allows it to Mega Evolve in battle.",
 			spritenum: 590,
 			megaStone: "Risen Kushala",
-			megaEvolves: "Kushala",
-			itemUser: ["Kushala"],
+			megaEvolves: "Kushala Daora",
+			itemUser: ["Kushala Daora"],
 			onTakeItem(item, source) {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;

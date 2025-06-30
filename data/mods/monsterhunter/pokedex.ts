@@ -1048,7 +1048,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	risenkushala: {
 		num: 36,
 		name: "Risen Kushala",
-		baseSpecies: "Kushala Doara",
+		baseSpecies: "Kushala Daora",
 		forme: "Mega",
 		types: ["Flying", "Steel"],
 		baseStats: {hp: 95, atk: 90, def: 110, spa: 135, spd: 137, spe: 73},
