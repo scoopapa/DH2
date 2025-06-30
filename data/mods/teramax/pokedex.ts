@@ -176,7 +176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	ogerponwellspring: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
+		baseStats: {hp: 80, atk: 115, def: 94, spa: 65, spd: 101, spe: 100},
 		abilities: {0: "Water Absorb", H: "Flower Veil"},
 		changesFrom: null,
 	},
