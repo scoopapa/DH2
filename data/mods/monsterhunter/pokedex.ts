@@ -2025,7 +2025,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Glowstrax",
 		types: ["Dragon"],
 		baseStats: {hp: 95, atk: 85, def: 80, spa: 115, spd: 105, spe: 131},
-		abilities: {0: "Overload", H: "Strafe"},
+		abilities: {0: "Strafe"},
 		heightm: 1.0,
 		weightkg: 130.0,
 		color: "Black",
