@@ -11506,6 +11506,16 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			xscissor: ["9L1"],
 		},
 	},
+	glowstrax: {
+		learnset: {
+			tackle: ["9L1"],
+		},
+	},
+	bluekutku: {
+		learnset: {
+			tackle: ["9L1"],
+		},
+	},
 	zamtrios: {
 		learnset: {
 			ancientpower: ["9L1"],
