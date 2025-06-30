@@ -966,6 +966,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
+				this.add('-immune', target, '[from] ability: Incandescent');
 				return null;
 			}
 		},
@@ -1005,6 +1006,94 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Mad Dragon",
 		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
+		rating: 3.5,
+	},
+	risenburst: {
+		shortDesc: "This Pokemon retaliates with Risen Burst whenever it is damaged by an attack.",
+		onStart(pokemon) {
+			let targetSide = null;
+			const sides = [this.sides[0], this.sides[1]];
+			for (const side of sides) {
+  				if(pokemon.side !== side) {
+    				targetSide = side;
+  				}
+			}
+			if (pokemon.swordBoost) return;
+			pokemon.swordBoost = true;
+			this.actions.useMove({
+						id: 'risenburst',
+						name: "Risen Burst",
+						accuracy: true,
+						basePower: 60,
+						category: "Special",
+						priority: 0,
+						flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, noreaction: 1},
+						onModifyMove(move, pokemon, target) {
+							move.type = '???';
+							this.add('-activate', pokemon, 'move: Risen Burst');
+						if (!target) return;
+						const atk = pokemon.getStat('atk', false, true);
+						const spa = pokemon.getStat('spa', false, true);
+						const def = target.getStat('def', false, true);
+						const spd = target.getStat('spd', false, true);
+						const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+						const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+						if (physical > special || (physical === special && this.random(2) === 0)) {
+							move.category = 'Physical';
+							move.flags.contact = 1;
+						}
+						},
+						effectType: 'Move',
+						type: 'Dark',
+						}, targetSide.active[pokemon.position], pokemon);
+		},
+		onDamagingHitOrder: 3,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.flags['noreaction'] && target.hp && source.hp && move.type === 'Dark') {
+				this.actions.useMove({
+						id: 'risenburst',
+						name: "Risen Burst",
+						accuracy: true,
+						basePower: 60,
+						category: "Special",
+						priority: 0,
+						flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, noreaction: 1},
+						onModifyMove(move, pokemon, target) {
+							move.type = '???';
+							this.add('-activate', pokemon, 'move: Risen Burst');
+						if (!target) return;
+						const atk = pokemon.getStat('atk', false, true);
+						const spa = pokemon.getStat('spa', false, true);
+						const def = target.getStat('def', false, true);
+						const spd = target.getStat('spd', false, true);
+						const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+						const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+						if (physical > special || (physical === special && this.random(2) === 0)) {
+							move.category = 'Physical';
+							move.flags.contact = 1;
+						}
+						},
+						effectType: 'Move',
+						type: 'Dark',
+						}, target, source);
+				}
+				},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Risen Burst",
 		rating: 3.5,
 	},
 	/*
