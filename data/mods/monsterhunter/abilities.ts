@@ -1020,9 +1020,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 			if (pokemon.risenBurst) return;
 			pokemon.risenBurst = true;
-			if (!move.noreact && target.hp && source.hp && move.type === 'Dark') {
+			if (target.hp && source.hp) {
 				const reaction = this.dex.getActiveMove('risenburst');
-				reaction.noreact = true;
 				this.actions.useMove(reaction, targetSide.active[pokemon.position], pokemon);
 			}
 		},
