@@ -43,7 +43,7 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 				}
 			}
 			if (!this.field.isTerrain('electricterrain')) {
-				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
+				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker',
 											'faultyphoton', 'firewall', 'innovate', 'baryonblade']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!(pokemon.volatiles['quarkdrive'] || pokemon.volatiles[quark]) && pokemon.useItem()) {
