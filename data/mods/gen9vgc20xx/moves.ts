@@ -897,9 +897,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
-		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Muddy Water', target);	
-		},
 	},
 	//
 	acidicrain: {
