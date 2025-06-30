@@ -1010,7 +1010,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	risenburst: {
 		shortDesc: "This Pokemon retaliates with Risen Burst whenever it is damaged by an attack.",
-		onStart(pokemon, move, target, source) {
+		onStart(pokemon) {
 			let targetSide = null;
 			const sides = [this.sides[0], this.sides[1]];
 			for (const side of sides) {
@@ -1020,10 +1020,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 			if (pokemon.risenBurst) return;
 			pokemon.risenBurst = true;
-			if (target.hp && source.hp) {
-				const reaction = this.dex.getActiveMove('risenburst');
-				this.actions.useMove(reaction, targetSide.active[pokemon.position], pokemon);
-			}
+            	const reaction = this.dex.getActiveMove('risenburst');
+            	reaction.noreact = true;
+            	this.actions.useMove(reaction, targetSide.active[pokemon.position], pokemon);
 		},
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
