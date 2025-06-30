@@ -231,10 +231,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
-	eleffigyzen: {
-		tier: "Paleomons",
-		doublesTier: "Daleomons",
-	},
 	icaruff: {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",

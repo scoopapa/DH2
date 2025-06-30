@@ -805,7 +805,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Goomba"],
 		onTakeItem(item, source) {
-			if (item.itemUser === source.baseSpecies.baseSpecies) return false;
+			if (item.itemUser == source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 	},
