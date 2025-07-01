@@ -1022,7 +1022,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			pokemon.risenBurst = true;
             	const reaction = this.dex.getActiveMove('risenburst');
             	reaction.noreact = true;
-            	this.actions.useMove(reaction, targetSide.active[pokemon.position], pokemon);
+            	this.actions.useMove(reaction, pokemon, targetSide.active[pokemon.position]);
 		},
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
