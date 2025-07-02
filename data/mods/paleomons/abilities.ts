@@ -126,6 +126,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 
 	zenmode: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Eleffigy' || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.species.forme !== 'Zen') {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.species.forme === 'Zen') {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Eleffigy' || pokemon.transformed) {
@@ -152,7 +163,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				if (pokemon.species.forme === 'Zen') {
-					pokemon.formeChange(pokemon.species.battleOnly as string);
+					pokemon.formeChange('eleffigy');
 				}
 			},
 		},
