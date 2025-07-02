@@ -249,7 +249,45 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;
 			},
-			num: 1019,
+			gen: 9,
+	},
+	risenitec: {
+			name: "Risenite-C",
+			shortDesc: "If held by Chameleos, this item allows it to Mega Evolve in battle.",
+			spritenum: 590,
+			megaStone: "Risen Chameleos",
+			megaEvolves: "Chameleos",
+			itemUser: ["Chameleos"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			gen: 9,
+	},
+	risenitet: {
+			name: "Risenite-T",
+			shortDesc: "If held by Teostra, this item allows it to Mega Evolve in battle.",
+			spritenum: 590,
+			megaStone: "Risen Teostra",
+			megaEvolves: "Teostra",
+			itemUser: ["Teostra"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			gen: 9,
+	},
+	risenitek: {
+			name: "Risenite-K",
+			shortDesc: "If held by Kushala, this item allows it to Mega Evolve in battle.",
+			spritenum: 590,
+			megaStone: "Risen Kushala",
+			megaEvolves: "Kushala Daora",
+			itemUser: ["Kushala Daora"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
 			gen: 9,
 	},
 	crimsongem: {

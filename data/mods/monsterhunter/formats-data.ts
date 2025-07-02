@@ -407,6 +407,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	valstrax: {
 		tier: "MHOU",
 	},
+	glowstrax: {
+		tier: "MHOU",
+	},
 	velkhana: {
 		tier: "MHOU",
 	},
@@ -429,6 +432,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	yiankutku: {
+		tier: "MHRU",
+	},
+	bluekutku: {
 		tier: "MHRU",
 	},
 	zamtrios: {
@@ -551,9 +557,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	thunderlordzinogre: {
 		tier: "MEGAS",
 	},
-	crimsonglowvalstrax: {
-		tier: "MEGAS",
-	},
 	ragingbrachydios: {
 		tier: "MEGAS",
 	},
@@ -570,6 +573,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MEGAS",
 	},
 	plesiothz: {
+		tier: "MEGAS",
+	},
+	risenchameleos: {
+		tier: "MEGAS",
+	},
+	risenteostra: {
+		tier: "MEGAS",
+	},
+	risenkushala: {
 		tier: "MEGAS",
 	}
 };

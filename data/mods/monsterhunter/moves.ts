@@ -1115,6 +1115,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Grass",
 	},
+	risenburst: {
+		accuracy: true,
+		basePower: 60,
+		category: "Special",
+		name: "Risen Burst",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			move.type = '???';
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+				if (physical > special || (physical === special && this.random(2) === 0)) {
+					move.category = 'Physical';
+					move.flags.contact = 1;
+				}
+		},
+		type: 'Dark',
+		secondary: null,
+		target: "allAdjacent",
+	},
 	/*
 	Edits
 	*/

@@ -966,6 +966,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
+				this.add('-immune', target, '[from] ability: Incandescent');
 				return null;
 			}
 		},
@@ -1006,6 +1007,62 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Mad Dragon",
 		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
 		rating: 3.5,
+	},
+	risenburst: {
+		shortDesc: "This Pokemon retaliates with Risen Burst whenever it is damaged by an attack.",
+		onStart(pokemon) {
+			let targetSide = null;
+			const sides = [this.sides[0], this.sides[1]];
+			for (const side of sides) {
+  				if(pokemon.side !== side) {
+    				targetSide = side;
+  				}
+			}
+			if (pokemon.risenBurst) return;
+			pokemon.risenBurst = true;
+            	const reaction = this.dex.getActiveMove('risenburst');
+            	reaction.noreact = true;
+            	this.actions.useMove(reaction, pokemon, targetSide.active[pokemon.position]);
+		},
+		onDamagingHitOrder: 3,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.noreact && target.hp && source.hp && move.type === 'Dark') {
+				const reaction = this.dex.getActiveMove('risenburst');
+				reaction.noreact = true;
+				this.actions.useMove(reaction, target, source);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Risen Burst",
+		rating: 3.5,
+	},
+	overload: {
+		name: "Overload",
+		shortDesc: "All Dragon moves used by the user are 1.4x Base Power but have 20% recoil.",
+		onModifyMove(move) {
+			if(move.type === 'Dragon' && move.category === 'Physical' && move.category === 'Special') {
+				if (!move.recoil) move.recoil = [1, 5];
+			}
+		},
+		onBasePower(move) {
+			if(move.type === 'Dragon' && move.category === 'Physical' && move.category === 'Special') {
+				return this.chainModify(1.4);
+			}
+		},
 	},
 	/*
 	Edits
