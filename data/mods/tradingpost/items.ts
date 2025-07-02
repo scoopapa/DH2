@@ -425,7 +425,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	glassknuckles: {
 		name: "Glass Knuckles",
-		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from damaging effects.",
+		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from indirect damage.",
 		spritenum: 261,
 		fling: {
             basePower: 30,
