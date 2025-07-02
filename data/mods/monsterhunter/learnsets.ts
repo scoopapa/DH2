@@ -9753,7 +9753,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tickle: ["9L1"],
 			trailblaze: ["9L1"],
 			trick: ["9L1"],
-			tripleaxel: ["9L1"],
 			willowisp: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
