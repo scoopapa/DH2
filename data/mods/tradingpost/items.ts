@@ -19,6 +19,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 4);
 		},
+		rating: 2,
 	},
 	lifeinsurance: {
 		name: "Life Insurance",
