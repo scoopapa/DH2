@@ -172,7 +172,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	absorber: {
 		name: "Absorber",
 		shortDesc: "Holder heals 1/8 max HP when hit by an attack it resists.",
-		spritenum: 750,
+		spritenum: 249,
 		fling: {
 			basePower: 80,
 		},
