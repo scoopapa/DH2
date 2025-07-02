@@ -23,6 +23,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lifeinsurance: {
 		name: "Life Insurance",
 		shortDesc: "When holder faints, replacement healed for 1/4 holder's HP, status cured.",
+		spritenum: 609,
 		fling: {
 			basePower: 30,
 			effect(target, source) {
@@ -159,6 +160,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	cloudsail: {
 		name: "Cloud Sail",
 		shortDesc: "Sets Tailwind when at 1/4 max HP or less. Single use.",
+		spritenum: 385,
 		fling: {
 			basePower: 10,
 		},
@@ -171,6 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	absorber: {
 		name: "Absorber",
 		shortDesc: "Holder heals 1/8 max HP when hit by an attack it resists.",
+		spritenum: 750,
 		fling: {
 			basePower: 80,
 		},
@@ -181,6 +184,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	diregemstone: {
 		name: "Dire Gemstone",
 		shortDesc: "Holder's next Rock-type attack crits and never misses after getting hit with an attack.",
+		spritenum: 187,
 		fling: {
 			basePower: 130,
 		},
@@ -353,6 +357,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	madnesshelmet: {
 		name: "Madness Helmet",
 		shortDesc: "Holder's attacks have 1.3x power, but it can't use moves twice in a row.",
+		spritenum: 417,
 		fling: {
             basePower: 60,
             volatileStatus: 'torment',
@@ -385,6 +390,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	suppressingarmor: {
 		name: "Suppressing Armor",
 		shortDesc: "Holder's ability is suppressed.",
+		spritenum: 753,
 		fling: {
 			basePower: 80,
 		},
@@ -420,6 +426,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	glassknuckles: {
 		name: "Glass Knuckles",
 		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from damaging effects.",
+		spritenum: 663,
 		fling: {
             basePower: 30,
         },
