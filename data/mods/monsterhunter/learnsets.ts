@@ -11518,7 +11518,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			incinerate: ["9L1"],
 			magnetrise: ["9L1"],
 			meteorbeam: ["9L1"],
-			morningsun: ["9L1"],
 			overheat: ["9L1"],
 			protect: ["9L1"],
 			psychup: ["9L1"],
