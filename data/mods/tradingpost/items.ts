@@ -109,7 +109,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	poisonbarb: {
 		inherit: true,
-		shortDesc: "Holder's Poison-type attacks has 1.3x power.",
+		shortDesc: "Holder's Poison-type attacks have 1.3x power.",
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
 				return this.chainModify([5324, 4096]);
