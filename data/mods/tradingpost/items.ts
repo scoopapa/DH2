@@ -519,6 +519,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	itembox: {
 		name: "Item Box",
 		shortDesc: "Holder's attacks deal 1.1x more damage for each itemless ally. On switchin, itemless allies get a random item.",
+		fling: {
+			basePower: 50,
+		},
 		onStart(pokemon) {
 			const itemless = pokemon.side.pokemon.filter(p => p != pokemon && !p.item);
 			console.log(itemless);
