@@ -1601,11 +1601,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
+			if (target.hasType('Ground') && !target.hasItem('ringtarget')) return;
 			for (const target of pokemon.side.foe.active) {
 			const type1 = 'Bug';
 			const type2 = 'Electric';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					if (!target.hasType('Ground')/* && !target.hasItem('ringtarget')*/) {
+					if (!target.hasType('Ground') && !target.hasItem('ringtarget')) {
 						move.type = 'Electric';
 					}
 				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
