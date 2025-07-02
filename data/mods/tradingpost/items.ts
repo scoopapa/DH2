@@ -160,7 +160,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	cloudsail: {
 		name: "Cloud Sail",
 		shortDesc: "Sets Tailwind when at 1/4 max HP or less. Single use.",
-		spritenum: 385,
 		fling: {
 			basePower: 10,
 		},
@@ -184,7 +183,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	diregemstone: {
 		name: "Dire Gemstone",
 		shortDesc: "Holder's next Rock-type attack crits and never misses after getting hit with an attack.",
-		spritenum: 187,
 		fling: {
 			basePower: 130,
 		},
@@ -239,6 +237,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	sugarbag: {
 		name: "Sugar Bag",
 		shortDesc: "The holder's Speed is 1.5x on their first full turn.",
+		spritenum: 51,
 		fling: {
 			basePower: 10,
 			effect(pokemon) {
@@ -280,7 +279,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onModifyPriority(priority, source, target, move) {
-			if ((move.sideCondition || move.weather || move.terrain) && source.hp < source.maxhp) {
+			if (move.sideCondition || move.weather || move.terrain) {
 				source.addVolatile('paintingkit');
 				return priority + 1;
 			}
@@ -318,6 +317,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	oricoriofeather: {
 		name: "Oricorio Feather",
 		shortDesc: "Holder's Normal-type moves become its primary typing.",
+		spritenum: 754,
 		fling: {
 			basePower: 20,
 		},
@@ -357,7 +357,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	madnesshelmet: {
 		name: "Madness Helmet",
 		shortDesc: "Holder's attacks have 1.3x power, but it can't use moves twice in a row.",
-		spritenum: 417,
 		fling: {
             basePower: 60,
             volatileStatus: 'torment',
@@ -401,6 +400,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	beastite: {
 		name: "Beastite",
 		shortDesc: "Holder's moves deal 1.1x more damage for every fainted Pokemon on the opposing team.",
+		spritenum: 661,
 		fling: {
 			basePower: 80,
 		},
@@ -426,7 +426,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	glassknuckles: {
 		name: "Glass Knuckles",
 		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from damaging effects.",
-		spritenum: 663,
+		spritenum: 261,
 		fling: {
             basePower: 30,
         },
@@ -462,6 +462,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	wildcoil: {
 		name: "Wild Coil",
 		shortDesc: "Holder blocks one Status move and bounces them back to the user. Single use.",
+		spritenum: 747,
 		fling: {
 			basePower: 20,
 		},
@@ -497,7 +498,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	baseball: {
 		name: "Baseball",
-		spritenum: 345,
+		spritenum: 363,
 		fling: {
 			basePower: 50,
 			secondary: {
