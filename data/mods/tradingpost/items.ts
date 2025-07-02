@@ -19,6 +19,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 4);
 		},
+		rating: 2,
 	},
 	lifeinsurance: {
 		name: "Life Insurance",
@@ -109,7 +110,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	poisonbarb: {
 		inherit: true,
-		shortDesc: "Holder's Poison-type attacks has 1.3x power.",
+		shortDesc: "Holder's Poison-type attacks have 1.3x power.",
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
 				return this.chainModify([5324, 4096]);
@@ -425,7 +426,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	glassknuckles: {
 		name: "Glass Knuckles",
-		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from damaging effects.",
+		shortDesc: "Holder's attacks have 1.3x power, but it takes 3x from indirect damage.",
 		spritenum: 261,
 		fling: {
             basePower: 30,
@@ -799,6 +800,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	medichamite: null,
 	mentalherb: null,
 	metagrossite: null,
+	metalalloy: null,
 	metalcoat: null,
 	metalpowder: null,
 	metronome: null,
