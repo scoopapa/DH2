@@ -799,6 +799,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	medichamite: null,
 	mentalherb: null,
 	metagrossite: null,
+	metalalloy: null,
 	metalcoat: null,
 	metalpowder: null,
 	metronome: null,
