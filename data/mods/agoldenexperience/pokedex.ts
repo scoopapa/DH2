@@ -2844,6 +2844,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Prism Armor", H: "Neuroforce"},
 	},
+	zeraora: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", H: "Iron Fist"},
+	},
 
 	// Gen 8 :
 	meltan: {
