@@ -1052,15 +1052,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	overload: {
 		name: "Overload",
-		shortDesc: "All Dragon moves used by the user are 1.4x Power but have 10% recoil.",
+		shortDesc: "All Dragon moves used by the user are 1.4x Power but have 20% recoil.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon') {
-				if (!move.recoil) move.recoil = [1, 10];
+				if (!move.recoil) move.recoil = [1, 5];
 			}
 		},
 		onBasePower(move) {
 			if(move.type === 'Dragon') {
-				return this.chainModify(1.4);
+				return this.chainModify(1.3);
 			}
 		},
 	},

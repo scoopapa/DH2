@@ -11500,6 +11500,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			cosmicpower: ["9L1"],
 			doubleteam: ["9L1"],
 			dracometeor: ["9L1"],
+			dragonenergy: ["9L1"],
 			dracophage: ["9L1"],
 			dragonclaw: ["9L1"],
 			dragonpulse: ["9L1"],

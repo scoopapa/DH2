@@ -2014,7 +2014,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Valstrax",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 95, atk: 105, def: 115, spa: 80, spd: 85, spe: 135},
-		abilities: {0: "Prism Armor", H: "Strafe"},
+		abilities: {0: "Power Spot", H: "Strafe"},
 		heightm: 1.0,
 		weightkg: 130.0,
 		color: "Black",
