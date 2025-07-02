@@ -1060,7 +1060,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onBasePower(move) {
 			if(move.type === 'Dragon') {
-				return this.chainModify(1.3);
+				return this.chainModify(1.4);
 			}
 		},
 	},
