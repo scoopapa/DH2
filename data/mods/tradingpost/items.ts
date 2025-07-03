@@ -390,7 +390,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	suppressingarmor: {
 		name: "Suppressing Armor",
 		shortDesc: "Holder's ability is suppressed.",
-		spritenum: 753,
 		fling: {
 			basePower: 80,
 		},
