@@ -144,7 +144,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			if (move.type === 'Rock' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Rock' && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Steel';
 				move.typeChangerBoosted = this.effect;
 			}
