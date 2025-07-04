@@ -11644,6 +11644,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			thunder: ["9L1"],
 			thunderrush: ["9L1"],
+			irontail: ["9L1"],
+			ironhead: ["9L1"],
 			thunderbolt: ["9L1"],
 			thundercage: ["9L1"],
 			thunderclap: ["9L1"],
