@@ -168,6 +168,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			num: 1011,
 			gen: 9,
 	},
+	valstraxite: {
+			name: "Valstraxite",
+			shortDesc: "If held by Valstrax, this item allows it to Mega Evolve in battle.",
+			spritenum: 605,
+			megaStone: "Crimson Glow Valstrax",
+			megaEvolves: "Valstrax",
+			itemUser: ["Valstrax"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1012,
+			gen: 9,
+	},
 	lagialite: {
 			name: "Lagialite",
 			shortDesc: "If held by Lagiacrus, this item allows it to Mega Evolve in battle.",

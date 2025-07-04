@@ -1216,10 +1216,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'bubbleblight',
 		},
 	},
-	irontail: {
-		inherit: true,
-		accuracy: 90,
-	},
 	/*
 	DROWSY EDITS
 	*/
