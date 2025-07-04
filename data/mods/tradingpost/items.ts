@@ -7,6 +7,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	*/
 	heavydutyboots: {
 		inherit: true,
+		consumable: true,
 		shortDesc: "Holder is immune to hazards. 1/4 max HP: eats item to heal 1/4 max HP.",
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
@@ -23,6 +24,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	lifeinsurance: {
 		name: "Life Insurance",
+		consumable: true,
 		shortDesc: "When holder faints, replacement healed for 1/4 holder's HP, status cured.",
 		spritenum: 609,
 		fling: {
@@ -160,6 +162,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	cloudsail: {
 		name: "Cloud Sail",
+		consumable: true,
 		shortDesc: "Sets Tailwind when at 1/4 max HP or less. Single use.",
 		fling: {
 			basePower: 10,
@@ -335,8 +338,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	bottledlightning: {
         name: "Bottled Lightning",
+		consumable: true,
 		shortDesc: "Paralyzes the attacker if they try to remove this item. Single use. Can't be recycled.",
-        // spritenum: [insert spritenumber here],
         fling: {
             basePower: 30,
             status: 'par',
@@ -468,6 +471,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	wildcoil: {
 		name: "Wild Coil",
+		consumable: true,
 		shortDesc: "Holder blocks one Status move and bounces them back to the user. Single use.",
 		spritenum: 747,
 		fling: {
@@ -545,10 +549,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
 			}
-			const items = this.dex.items.all();
+			const items = this.dex.items.all().filter(i => i.consumable);
 			for (const pkmn of itemless) {
 				let item = this.sample(items);
-				console.log(pkmn.baseSpecies.name + " " + item);
 				if (pkmn.setItem(item)) this.add('-message', `${pkmn.name} gained a ${item}!`);
 			}
 		},
