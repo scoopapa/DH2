@@ -11627,7 +11627,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			nethercurrent: ["9L1"],
 			paraboliccharge: ["9L1"],
 			protect: ["9L1"],
-			quicksandbreath: ["9L1"],
 			glare: ["9L1"],
 			bodyslam: ["9L1"],
 			coil: ["9L1"],
