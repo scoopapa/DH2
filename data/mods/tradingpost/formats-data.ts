@@ -2,6 +2,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swampertmega: {
 		tier: "OU",
 	},
+	ogerponhearthflame: {
+		tier: "Illegal",
+	},
+	ogerponhearthflametera: {
+		tier: "Illegal",
+	},
 	ogerponwellspring: {
 		tier: "Illegal",
 	},
@@ -12,6 +18,57 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	ogerponcornerstonetera: {
+		tier: "Illegal",
+	},
+	arceusbug: {
+		tier: "Illegal",
+	},
+	arceusdark: {
+		tier: "Illegal",
+	},
+	arceusdragon: {
+		tier: "Illegal",
+	},
+	arceuselectric: {
+		tier: "Illegal",
+	},
+	arceusfairy: {
+		tier: "Illegal",
+	},
+	arceusfighting: {
+		tier: "Illegal",
+	},
+	arceusfire: {
+		tier: "Illegal",
+	},
+	arceusflying: {
+		tier: "Illegal",
+	},
+	arceusghost: {
+		tier: "Illegal",
+	},
+	arceusgrass: {
+		tier: "Illegal",
+	},
+	arceusground: {
+		tier: "Illegal",
+	},
+	arceusice: {
+		tier: "Illegal",
+	},
+	arceuspoison: {
+		tier: "Illegal",
+	},
+	arceuspsychic: {
+		tier: "Illegal",
+	},
+	arceusrock: {
+		tier: "Illegal",
+	},
+	arceussteel: {
+		tier: "Illegal",
+	},
+	arceuswater: {
 		tier: "Illegal",
 	},
 };
