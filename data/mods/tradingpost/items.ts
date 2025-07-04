@@ -451,6 +451,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[silent]');
 			}
 		},
+		onEnd(pokemon) {
+			if (pokemon.baseSpecies.types.includes('Grass')) return;
+			let newType = pokemon.getTypes().filter(t => t !== 'Grass');
+			if (pokemon.setType(newType)) {
+				this.add('-start', pokemon, 'typeadd', newType.join('/'), '[silent]');
+			}
+		},
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
 			if(!pokemon.baseSpecies.types.includes('Grass')) return this.chainModify(1.5);
