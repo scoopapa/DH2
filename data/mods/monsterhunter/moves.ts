@@ -145,7 +145,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	thunderrush: {
 		num: 2007,
 		accuracy: 100,
-		basePower: 55,
+		basePower: 60,
 		category: "Physical",
 		name: "Thunder Rush",
 		shortDesc: "Always crits.",
