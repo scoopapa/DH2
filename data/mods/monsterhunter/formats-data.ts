@@ -230,9 +230,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lagiacrus: {
 		tier: "MHOU",
 	},
-	ivogiacrus: {
-		tier: "MHOU",
-	},
 	lagombi: {
 		tier: "MHRU",
 	},
@@ -453,7 +450,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	zorahmagdaros: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	lalabarina: {
 		tier: "MHUU",

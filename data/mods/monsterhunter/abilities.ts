@@ -315,7 +315,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1013,
 	},
 	centrifuge: {
-		shortDesc: "The Pokémon draws Ground moves to itself to raise Spa. Attack by 1; Ground immunity.",
+		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
 				if (!this.boost({spa: 1})) {
@@ -332,7 +332,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.effectState.target;
 			}
 		},
-		flags: {breakable: 1},
 		name: "Centrifuge",
 		rating: 3,
 		num: 1014,
@@ -832,7 +831,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Oilmucus');
+					this.add('-immune', target, '[from] ability: Bask');
 				}
 				return null;
 			}
@@ -852,7 +851,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
-		flags: {breakable: 1},
 		name: "Oilmucus",
 		num: 1038,
 		rating: 2.5,
@@ -972,7 +970,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
 		name: "Incandescent",
 		shortDesc: "User gains STAB on Fire moves; Immune to Fire.",
 		rating: 4.5,
@@ -1006,13 +1003,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Mad Dragon",
 		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
 		rating: 3.5,
 	},
 	risenburst: {
-		shortDesc: "On Mega-Evo; uses Risen Burst (60BP, Typeless). Grants dark res + stab. Uses R.Burst when hit by a dark attack.",
+		shortDesc: "This Pokemon retaliates with Risen Burst whenever it is damaged by an attack.",
 		onStart(pokemon) {
 			let targetSide = null;
 			const sides = [this.sides[0], this.sides[1]];
@@ -1049,28 +1046,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('Risen Burst boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('Risen Burst boost');
-				return this.chainModify(1.5);
-			}
-		},
 		flags: {},
 		name: "Risen Burst",
 		rating: 3.5,
 	},
 	overload: {
 		name: "Overload",
-		rating: 3.5,
-		flags: {},
 		shortDesc: "All Dragon moves used by the user are 1.4x Base Power but have 20% recoil.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon' && move.category === 'Physical' && move.category === 'Special') {
@@ -1082,36 +1063,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(1.4);
 			}
 		},
-	},
-	terrestrial: {
-		onSourceModifyAtkPriority: 5,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Ground') {
-				return this.chainModify(0.5);
-			}
-		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Ground') {
-				return this.chainModify(0.5);
-			}
-		},
-		name: "Terrestrial",
-		rating: 3.5,
-		flags: {breakable: 1},
-		shortDesc: "Ground attacks do neutral damage.",
-	},
-	densecortex: {
-		onTryHit(pokemon, target, move) {
-			if (move.flags['slicing']) {
-				this.add('-immune', pokemon, '[from] ability: Dense Cortex');
-				return null;
-			}
-		},
-		flags: {breakable: 1},
-		name: "Dense Cortex",
-		shortDesc: "Immune to slicing moves.",
-		rating: 3,
 	},
 	/*
 	Edits
