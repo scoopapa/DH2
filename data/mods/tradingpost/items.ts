@@ -52,7 +52,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	treasurechest: {
 		name: "Treasure Chest",
-		shortDesc: "Holder's highest non-HP/Spe stat is 1.2x. If an attacker without an item hits the holder, they steal this item.",
+		shortDesc: "Holder's highest non-HP/Spe stat is 1.2x. Gets stolen by itemless attacker.",
 		fling: {
 			basePower: 80,
 		},
@@ -196,7 +196,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				this.add('-start', pokemon, 'Dire Gemstone');
+				this.add('-message', `${pokemon.name}'s Dire Gemstone is dire!`);
+				this.add('-start', pokemon, 'Dire Gemstone', '[silent]');
 			},
 			onRestart(pokemon) {
 				this.add('-start', pokemon, 'Dire Gemstone');
@@ -267,7 +268,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	paintingkit: {
 		name: "Painting Kit",
-		shortDesc: "Hazard/field effect/terrain/weather moves have priority +1 and heal user 50%. Single use.",
+		shortDesc: "Hazard/field effect/terrain/weather moves: priority +1 and heal user 50%. Single use.",
 		fling: {
 			basePower: 60,
 			effect(pokemon) {
@@ -402,7 +403,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	beastite: {
 		name: "Beastite",
-		shortDesc: "Holder's moves deal 1.1x more damage for every fainted Pokemon on the opposing team.",
+		shortDesc: "Holder's moves deal 1.1x more damage for every fainted Pokemon on enemy team.",
 		spritenum: 661,
 		fling: {
 			basePower: 80,
@@ -537,7 +538,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	itembox: {
 		name: "Item Box",
-		shortDesc: "Holder's attacks deal 1.1x more damage for each itemless ally. On switchin, itemless allies get a random item.",
+		shortDesc: "Holder: 1.1x BP for each itemless ally. Gives them random consumables on switch.",
 		fling: {
 			basePower: 50,
 		},
