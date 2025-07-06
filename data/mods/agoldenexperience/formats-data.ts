@@ -138,10 +138,9 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	arbok: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
-	arbokmega: {
+	adnocagem: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
@@ -419,7 +418,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	politoed: {
-		tier: "(OU)",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	abra: {
@@ -1175,7 +1174,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	sunflora: {
-		tier: "(OU)",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	yanma: {
@@ -1291,7 +1290,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	megacargo: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	swinub: {
@@ -1517,7 +1516,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	pelipper: {
-		tier: "(OU)",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	ralts: {
@@ -1671,21 +1670,22 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	volbeat: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+	fiyounfly: {
+		tier: "LC",
 	},
-	volbeatmega: {
-		tier: "NU",
-		doublesTier: "DUU",
+	volbeat: {
+		tier: "NFE",
+	},
+	glowtaire: {
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	illumise: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
-	illumisemega: {
-		tier: "NU",
-		doublesTier: "DUU",
+	illumight: {
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	budew: {
 		tier: "LC",
@@ -1734,7 +1734,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	torkoal: {
-		tier: "(OU)",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	spoink: {
@@ -1769,15 +1769,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	cacturnemegax: {
+	cacturnemega: {
 		tier: "RU",
 		doublesTier: "DOU",
 	},
-	cacturnemegayday: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	cacturnemegaynight: {
+	cacturnemeganight: {
 		tier: "RU",
 		doublesTier: "DOU",
 	},
@@ -1805,7 +1801,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	solrock: {
-		tier: "(OU)",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	barboach: {
@@ -5029,9 +5025,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	snobberaven: {
 		tier: "RU",
 		doublesTier: "DUU",
-	},
-	fiyounfly: {
-		tier: "LC",
 	},
 	ledixy: {
 		tier: "NU",

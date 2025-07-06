@@ -3116,7 +3116,22 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			thief: ["9M"],
 			uturn: ["9M"],
 			helpinghand: ["9M"],
-
+		},
+	},
+	glowtaire: {
+		learnset: {
+			voltswitch: ["9M"],
+			swarming: ["9M"],
+			psychic: ["9L4"],
+			psyshock: ["9L7"],
+		},
+	},
+	illumight: {
+		learnset: {
+			sweetheart: ["9M"],
+			swarming: ["9M"],
+			psychic: ["9L4"],
+			psyshock: ["9L7"],
 		},
 	},
 	ledixy: {
@@ -6288,6 +6303,13 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			painsplit: ["9L1"],
 			explosion: ["9L1"],
 			destinybond: ["9L1"],
+		},
+	},
+	adnocagem: {
+		learnset: {
+			dragondance: ["9L1"],
+			earthquake: ["9L1"],
+			partingshot: ["9L1"],
 		},
 	},
 	truelewoodo: {
