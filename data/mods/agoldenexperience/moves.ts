@@ -2587,16 +2587,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
-	lastrespects: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			return 50 + 25 * pokemon.side.totalFainted
-		},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
-		},
-		shortDesc: "+25 power for each time an ally fainted. Special if user's SpA > Atk.",
-	},
 	ragefist: {
 		inherit: true,
 		basePowerCallback(pokemon) {
