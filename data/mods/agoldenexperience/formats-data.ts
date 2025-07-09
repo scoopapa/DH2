@@ -1150,7 +1150,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	truelewoodo: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	hoppip: {
@@ -3293,11 +3293,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	aegislash: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	aegislashblade: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	spritzee: {

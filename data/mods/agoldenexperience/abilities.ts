@@ -459,13 +459,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sundownswitch: {
 		name: "Sundown Switch",
-		desc: "If Cacturne-Mega-Y: Changes to Day form before using Grass move; to Night before using Dark move.",
+		desc: "If Cacturne-Mega: Changes to Day form before using Grass move; to Night before using Dark move.",
 		num: -25,
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Cacturne' || attacker.transformed) return;
 			if (move.type !== 'Grass' && move.type !== 'Dark') return;
-			const targetForme = (move.type === 'Grass' ? 'Cacturne-Mega-Y-Day' : 'Cacturne-Mega-Y-Night');
+			const targetForme = (move.type === 'Grass' ? 'Cacturne-Mega' : 'Cacturne-Mega-Night');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 		},
