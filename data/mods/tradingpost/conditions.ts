@@ -1,7 +1,7 @@
 export const Conditions: {[id: string]: ModdedConditionData} = {
 	deoxys: {
 		name: 'deoxys',
-		duration: 2,
+		duration: 1,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'Deoxys');
 		},
@@ -15,12 +15,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return Math.trunc(Math.trunc(2 * 150 + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(target) {
-			this.add('-end', pokemon, 'Deoxys');
+			this.add('-end', target, 'Deoxys');
 		},
 	},
 	deoxysatk: {
 		name: 'deoxysatk',
-		duration: 2,
+		duration: 1,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'Deoxys-Attack');
 		},
@@ -31,12 +31,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return Math.trunc(Math.trunc(2 * 180 + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(target) {
-			this.add('-end', pokemon, 'Deoxys-Attack');
+			this.add('-end', target, 'Deoxys-Attack');
 		},
 	},
 	deoxysdef: {
 		name: 'deoxysdef',
-		duration: 2,
+		duration: 1,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'Deoxys-Defense');
 		},
@@ -47,12 +47,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return Math.trunc(Math.trunc(2 * 160 + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(target) {
-			this.add('-end', pokemon, 'Deoxys-Defense');
+			this.add('-end', target, 'Deoxys-Defense');
 		},
 	},
 	deoxysspe: {
 		name: 'deoxysspe',
-		duration: 2,
+		duration: 1,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'Deoxys-Speed');
 		},
@@ -63,7 +63,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return Math.trunc(Math.trunc(2 * 180 + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(target) {
-			this.add('-end', pokemon, 'Deoxys-Speed');
+			this.add('-end', target, 'Deoxys-Speed');
 		},
 	},
 };

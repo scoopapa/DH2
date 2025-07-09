@@ -400,6 +400,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onStart(pokemon) {
 			if(!pokemon.getAbility().flags['cantsuppress']) pokemon.addVolatile('gastroacid');
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('gastroacid');
+		},
 	},
 	beastite: {
 		name: "Beastite",
