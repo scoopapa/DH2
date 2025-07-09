@@ -2722,7 +2722,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	darmanitan: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	darmanitanzen: {
