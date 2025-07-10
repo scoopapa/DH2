@@ -46,7 +46,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.category === 'Special') {
-				if (move.pp > 1) move.pp --;
+				for (const moveSlot of attacker.moveSlots) {
+					if (moveSlot.id == move.id) moveSlot.pp --;
+				}
 				return this.chainModify(1.2);
 			}
 		},

@@ -104,7 +104,7 @@ reimuhakurei: {
 		name: "Letty Whiterock",
 		types: ["Ice"],
 		gender: "F",
-		baseStats: {hp: 132, atk: 60, def: 104, spa: 95, spd: 84, spe: 54},
+		baseStats: {hp: 132, atk: 70, def: 104, spa: 95, spd: 64, spe: 54},
 		abilities: {0: "Snow Warning", H: "Heatproof"},
 	},
 	chen: {
@@ -168,7 +168,7 @@ reimuhakurei: {
 		name: "Yuyuko Saigyouji",
 		types: ["Ghost", "Fairy"],
 		gender: "F",
-		baseStats: {hp: 115, atk: 81, def: 83, spa: 106, spd: 95, spe: 60},
+		baseStats: {hp: 115, atk: 91, def: 73, spa: 96, spd: 85, spe: 60},
 		abilities: {0: "Gluttony", 1: "Netherworld's Spring", H: "Flower Veil"},
 	},
 	ranyakumo: {
@@ -283,7 +283,7 @@ reimuhakurei: {
 		types: ["Poison"],
 		gender: "F",
 		baseStats: {hp: 74, atk: 75, def: 135, spa: 100, spd: 83, spe: 58},
-		abilities: {0: "Liquid Ooze", 1: "Poison Point", H: "Soul Heart"},
+		abilities: {0: "Liquid Ooze", 1: "Poison Point", H: "Soul-Heart"},
 	},
 	yuukakazami: {
 		num: 36,
@@ -670,6 +670,7 @@ reimuhakurei: {
 	shinmyoumarusukuna: {
 		num: 84,
 		name: "Shinmyoumaru Sukuna",
+		canDynamax: true,
 		types: ["Steel", "Fairy"],
 		gender: "F",
 		baseStats: {hp: 20, atk: 105, def: 130, spa: 35, spd: 170, spe: 90},
@@ -704,7 +705,7 @@ reimuhakurei: {
 		name: "Ringo",
 		types: ["Grass"],
 		gender: "F",
-		baseStats: {hp: 72, atk: 120, def: 72, spa: 66, spd: 93, spe: 77},
+		baseStats: {hp: 87, atk: 120, def: 72, spa: 66, spd: 93, spe: 77},
 		abilities: {0: "Cheek Pouch", H: "Dango Influence"},
 	},
 	doremysweet: {
