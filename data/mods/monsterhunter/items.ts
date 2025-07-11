@@ -276,6 +276,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 			gen: 9,
 	},
+	harudomerite: {
+			name: "Harudomerite",
+			shortDesc: "If held by Harudomerugu, this item allows it to Mega Evolve in battle.",
+			spritenum: 578,
+			megaStone: "Harudomerugu-Z",
+			megaEvolves: "Harudomerugu",
+			itemUser: ["Harudomerugu"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			gen: 9,
+	},
 	crimsongem: {
 		name: "Crimson Gem",
 		shortDesc: "If held by Fatalis, this item triggers its Crimson Form in battle.",

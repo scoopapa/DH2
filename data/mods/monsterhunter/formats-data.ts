@@ -533,7 +533,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	primozeno: {
 		tier: "MHOU",
 	},
+	arkveld: {
+		tier: "MHOU",
+	},
+	chatacabra: {
+		tier: "MHRU",
+	},
+	quematrice: {
+		tier: "MHRU",
+	},
+	pokaradon: {
+		tier: "MHRU",
+	},
+	inagami: {
+		tier: "MHOU",
+	},
+	shroudcylla: {
+		tier: "MHRU",
+	},
 	redhelmarzuros: {
+		tier: "MEGAS",
+	},
+	harudomeruguz: {
 		tier: "MEGAS",
 	},
 	scornedmagnamalo: {

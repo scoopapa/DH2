@@ -532,6 +532,132 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		contestType: "Tough",
 	},
+	sedativespine: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Sedative Spine",
+		shortDesc: "100% chance to make the foe drowsy.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			status: 'slp',
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	hellflare: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Hellflare",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'hellflare',
+				source: source,
+				moveData: {
+					id: 'hellflare',
+					name: "Hellflare",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Fire',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	boulderpunch: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Boulder Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		shortDesc: "50% chance to lower the target's defense.",
+		secondary: {
+			chance: 50,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	dragoncharge: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dragon Charge",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'dragoncharge',
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Wyversion'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Dragon Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Dragon Charge');
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Wyversion'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Dragon Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Dragon Charge');
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon') {
+					this.debug('dragoncharge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Dragon' && move.id !== 'dragoncharge') {
+					pokemon.removeVolatile('dragoncharge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Dragon' && move.id !== 'dragoncharge') {
+					pokemon.removeVolatile('dragoncharge');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Dragon Charge', '[silent]');
+			},
+		},
+		boosts: {
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Dragon",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
 	/*
 	Monhun Status
 	*/
@@ -578,7 +704,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	powderkeg: {
 		num: 2029,
 		accuracy: 100,
-		basePower: 45,
+		basePower: 50,
 		category: "Special",
 		name: "Powderkeg",
 		pp: 25,
@@ -1146,7 +1272,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	*/
 	swift: {
 		inherit: true,
-		viable:true,
+		viable: true,
 		desc: "This move does not check accuracy. Usually goes first.",
 		shortDesc: "This move does not check accuracy. Usually goes first.",
 		priority: 1,
@@ -1172,7 +1298,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	razorshell: {
 		inherit: true,
-		viable:true,
+		viable: true,
 		desc: "20% chance to inflict Bleed",
 		shortDesc: "20% chance to inflict bleed.",
 		secondary: {
@@ -1183,7 +1309,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	razorleaf: {
 		inherit: true,
 		basePower: 60,
-		viable:true,
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
 		secondary: {
@@ -1194,11 +1319,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	rest: {
 		inherit: true,
 		cantusetwice: 1,
-		desc: "User sleeps 2 turns and Heals HP/Status. Can't use on consecutive turns.",
+		desc: "Induces Drowsy; Heals HP/Status. Can't use consecutively.",
 	},
 	razorwind: {
 		inherit: true,
-		viable:true,
+		viable: true,
 		onTryMove(attacker, defender, move) {},
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
@@ -1220,22 +1345,348 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		accuracy: 90,
 	},
+	chipaway: {
+		inherit: true,
+		viable: true,
+		basePower: 90,
+	},
+	tailslap: {
+		inherit: true,
+		accuracy: 90,
+	},
+	crushclaw: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 85,
+	},
+	cut: {
+		accuracy: 100,
+		inherit: true,
+		viable: true,
+		category: "Physical",
+		isNonstandard: false,
+		name: "Cut",
+		pp: 30,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'bleeding',
+		},
+		shortDesc: "Inflicts bleed.",
+	},
+	doublehit: {
+		inherit: true,
+		viable: true,
+		basePower: 40,
+		multihit: 2,
+	},
+	megakick: {
+		inherit: true,
+		viable: true,
+		accuracy: 85,
+	},
+	megapunch: {
+		inherit: true,
+		viable: true,
+		accuracy: 90,
+		basePower: 100,
+	},
+	stomp: {
+		inherit: true,
+		viable: true,
+		basePower: 80,
+	},
+	takedown: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 100,
+	},
+	headcharge: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 150,
+		pp: 5,
+		recoil: [1, 2],
+	},
+	blazekick: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+	},
+	aquatail: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+	},
+	wildcharge: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 100,
+	},
+	paraboliccharge: {
+		inherit: true,
+		viable: true,
+		basePower: 75,
+	},
+	seedbomb: {
+		inherit: true,
+		basePower: 85,
+	},
+	tropkick: {
+		inherit: true,
+		viable: true,
+		basePower: 90,
+	},
+	glaciate: {
+		inherit: true,
+		viable: true,
+		basePower: 80,
+	},
+	doublekick: {
+		inherit: true,
+		viable: true,
+		basePower: 40,
+	},
+	forcepalm: {
+		inherit: true,
+		viable: true,
+		basePower: 80,
+	},
+	submission: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 100,
+	},
+	skyuppercut: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				let applies = false;
+				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
+				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
+					this.field.getPseudoWeather('gravity')) applies = false;
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					applies = true;
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+				}
+				if (pokemon.volatiles['magnetrise']) {
+					applies = true;
+					delete pokemon.volatiles['magnetrise'];
+				}
+				if (pokemon.volatiles['telekinesis']) {
+					applies = true;
+					delete pokemon.volatiles['telekinesis'];
+				}
+				if (!applies) return false;
+				this.add('-start', pokemon, 'Smack Down');
+			},
+			onRestart(pokemon) {
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+					this.add('-start', pokemon, 'Smack Down');
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+		},
+	},
+	poisontail: {
+		inherit: true,
+		viable: true,
+		basePower: 90,
+		pp: 15,
+		critRatio: false,
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+	},
+	zenheadbutt: {
+		inherit: true,
+		basePower: 100,
+	},
+	steamroller: {
+		inherit: true,
+		viable: true,
+		basePower: 95,
+		onAfterHit(target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+	},
+	twineedle: {
+		inherit: true,
+		viable: true,
+		basePower: 45,
+	},
+	shadowpunch: {
+		inherit: true,
+		viable: true,
+		willCrit: true,
+	},
+	dragonrush: {
+		inherit: true,
+		viable: true,
+		accuracy: 90,
+	},
+	geargrind: {
+		inherit: true,
+		viable: true,
+		accuracy: 90,
+	},
+	spinout: {
+		inherit: true,
+		viable: true,
+		basePower: 110,
+		accuracy: 100,
+	},
+	steelwing: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 80,
+		pp: 10,
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+	},
+	firefang: {
+		inherit: true,
+		basePower: 70,
+	},
+	icefang: {
+		inherit: true,
+		basePower: 70,
+		shortDesc: "10% chance to frostbite. 10% chance to flinch.",
+	},
+	thunderfang: {
+		inherit: true,
+		basePower: 70,
+	},
+	poisonfang: {
+		inherit: true,
+		basePower: 70,
+	},
 	/*
 	DROWSY EDITS
 	*/
 	darkvoid: {
 		inherit: true,
-		viable:true,
+		shortDesc: "Makes the foe(s) drowsy",
+		viable: true,
 		accuracy: 80,
 		onTry(source, target, move) {},
 	},
+	direclaw: {
+		inherit: true,
+		shortDesc: "50% chance to poison, paralyze, or make the target drowsy.",
+	},
+	dreameater: {
+		inherit: true,
+		shortDesc: "User gains 1/2 HP inflicted. Drowsy target only.",
+	},
+	electricterrain: {
+		inherit: true,
+		shortDesc: "5 turns. Grounded: +Electric power, can't be drowsy.",
+	},
+	grasswhistle: {
+		inherit: true,
+		shortDesc: "Makes the target drowsy.",
+	},
 	hypnosis: {
 		inherit: true,
+		shortDesc: "Makes the target drowsy.",
 		accuracy: 85,
+	},
+	lovelykiss: {
+		inherit: true,
+		shortDesc: "Makes the target drowsy.",
+	},
+	nightmare: {
+		inherit: true,
+		shortDesc: "A drowsy target is hurt by 1/4 max HP per turn.",
+	},
+	relicsong: {
+		inherit: true,
+		shortDesc: "10% chance to make foe(s) drowsy.",
 	},
 	sing: {
 		inherit: true,
+		shortDesc: "Makes the target drowsy.",
 		accuracy: 80,
+	},
+	sleeppowder: {
+		inherit: true,
+		shortDesc: "A drowsy target is hurt by 1/4 max HP per turn.",
+	},
+	sleeptalk: {
+		inherit: true,
+		shortDesc: "User must be drowsy. Uses another known move.",
+	},
+	snore: {
+		inherit: true,
+		shortDesc: "User must be drowsy. 30% chance to flinch the target.",
+	},
+	uproar: {
+		inherit: true,
+		shortDesc: "Last 3 turns. Active Pokemon cannot become drowsy.",
+	},
+	wakeupslap: {
+		inherit: true,
+		shortDesc: "Power doubles if target is drowsy, and wakes it.",
+	},
+	yawn: {
+		inherit: true,
+		shortDesc: "Makes the target drowsy after 1 turn.",
+	},
+	/*
+	Frostbite Edits
+	*/
+	blizzard: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite foe(s). Can't miss in Snow.",
+	},
+	freezedry: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite. Super effective on Water.",
+	},
+	freezingglare: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite the target.",
+	},
+	icebeam: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite the target.",
+	},
+	icepunch: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite the target.",
+	},
+	powdersnow: {
+		inherit: true,
+		shortDesc: "10% chance to frostbite foe(s).",
+	},
+	triattack: {
+		inherit: true,
+		shortDesc: "20% chance to paralyze, burn, or frostbite target.",
 	},
 	/*
 	TORQUES
@@ -1303,6 +1754,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Noxious Torque",
+		shortDesc: "10% chance to make the target drowsy.",
 		pp: 10,
 		priority: 0,
 		flags: {

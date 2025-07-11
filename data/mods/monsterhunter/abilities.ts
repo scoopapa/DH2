@@ -1113,6 +1113,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Immune to slicing moves.",
 		rating: 3,
 	},
+	wyversion: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('dragoncharge');
+		},
+		flags: {},
+		name: "Wyversion",
+		shortDesc: "This Pokemon gains a (Dragon-type) Charge effect when it takes a hit from an attack.",
+		rating: 3,
+	},
+	steelsurge: {
+		onStart(pokemon, source) {
+			if (pokemon.swordBoost) return;
+			pokemon.swordBoost = true;
+			for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxsteelsurge');
+			}
+		},
+		flags: {},
+		shortDesc: "On activation, this Pokemon sets up G-Max Steelsurge.",
+		name: "Steelsurge",
+		rating: 4,
+	},
 	/*
 	Edits
 	*/
