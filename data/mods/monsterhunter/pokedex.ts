@@ -919,7 +919,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		forme: "Mega",
 		types: ["Steel", "Psychic"],
 		baseStats: {hp: 90, atk: 130, def: 130, spa: 90, spd: 100, spe: 110},
-		abilities: {0: "Steelsurge"},
+		abilities: {0: "Stealth Silver"},
 		heightm: 1.0,
 		weightkg: 300.0,
 		requiredItem: "Harudomerite",

@@ -1503,7 +1503,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 90,
 		basePower: 100,
-		shortDesc: "30% chance to lower the target's Defense by 1.",
+		shortDesc: "30% chance to lower the target's Attack by 1.",
 		pp: 15,
 		critRatio: 1,
 		secondary: {
@@ -1594,7 +1594,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		basePower: 70,
 		secondary: {},
-		shortDesc: "10% chance to freeze. 10% chance to flinch.",
+		shortDesc: "10% chance to poison. 10% chance to flinch.",
 		secondaries: [
 			{
 				chance: 10,

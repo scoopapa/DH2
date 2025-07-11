@@ -1123,15 +1123,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon gains a (Dragon-type) Charge effect when it takes a hit from an attack.",
 		rating: 3,
 	},
-	steelsurge: {
+	stealthsilver: {
 		onStart(pokemon, source) {
-			if (pokemon.steelsurge) return;
-			pokemon.steelsurge = true;
+			if (pokemon.stealthsilver) return;
+			pokemon.stealthsilver = true;
 			pokemon.side.foe.addsidecondition('gmaxsteelsurge');
 		},
 		flags: {},
-		shortDesc: "On activation, this Pokemon sets up G-Max Steelsurge.",
-		name: "Steelsurge",
+		shortDesc: "On activation, this Pokemon sets steel-type hazards.",
+		name: "Stealth Silver",
 		rating: 4,
 	},
 	/*
