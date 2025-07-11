@@ -1127,7 +1127,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon, source) {
 			if (pokemon.stealthsilver) return;
 			pokemon.stealthsilver = true;
-			pokemon.side.foe.addsidecondition('gmaxsteelsurge');
+			pokemon.side.foe.addSideCondition('gmaxsteelsurge');
 		},
 		flags: {},
 		shortDesc: "On activation, this Pokemon sets steel-type hazards.",
