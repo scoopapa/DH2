@@ -10909,7 +10909,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metalburst: ["9L1"],
 			mightycleave: ["9L1"],
 			nightslash: ["9L1"],
-			poisontail: ["9L1"],
 			protect: ["9L1"],
 			psyblade: ["9L1"],
 			rest: ["9L1"],
@@ -12043,7 +12042,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	lunastra: {
 		learnset: {
 			agility: ["9L1"],
-			ally: ["9L1"],
 			aurasphere: ["9L1"],
 			bestow: ["9L1"],
 			blazekick: ["9L1"],

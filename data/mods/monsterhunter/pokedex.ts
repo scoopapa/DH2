@@ -2327,7 +2327,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 518,
 		name: "Pokaradon",
 		types: ["Water", "Ice"],
-		baseStats: {hp: 110, atk: 80, def: 90, spa: 105, spd: 90, spe: 68},
+		baseStats: {hp: 110, atk: 105, def: 90, spa: 80, spd: 90, spe: 68},
 		abilities: {0: "Thick Fat", H: "Ice Breaker"},
 		heightm: 1.0,
 		weightkg: 80.0,

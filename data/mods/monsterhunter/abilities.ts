@@ -1125,11 +1125,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	steelsurge: {
 		onStart(pokemon, source) {
-			if (pokemon.swordBoost) return;
-			pokemon.swordBoost = true;
-			for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('gmaxsteelsurge');
-			}
+			if (pokemon.steelsurge) return;
+			pokemon.steelsurge = true;
+			pokemon.side.foe.addsidecondition('gmaxsteelsurge');
 		},
 		flags: {},
 		shortDesc: "On activation, this Pokemon sets up G-Max Steelsurge.",

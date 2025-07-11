@@ -554,6 +554,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Hellflare",
+		shortDesc: "Hits two turns after being used.",
 		pp: 10,
 		priority: 0,
 		flags: {allyanim: 1, metronome: 1, futuremove: 1},
@@ -1378,7 +1379,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	doublehit: {
 		inherit: true,
 		viable: true,
-		basePower: 40,
+		basePower: 50,
 		multihit: 2,
 	},
 	megakick: {
@@ -1405,6 +1406,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	headcharge: {
 		inherit: true,
 		accuracy: 100,
+		shortDesc: "Has 1/2 recoil.",
 		basePower: 150,
 		pp: 5,
 		recoil: [1, 2],
@@ -1461,6 +1463,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	skyuppercut: {
 		inherit: true,
 		viable: true,
+		shortDesc: "Removes the target's Ground immunity.",
 		accuracy: 100,
 		condition: {
 			noCopy: true,
@@ -1498,9 +1501,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	poisontail: {
 		inherit: true,
 		viable: true,
-		basePower: 90,
+		accuracy: 90,
+		basePower: 100,
+		shortDesc: "30% chance to lower the target's Defense by 1.",
 		pp: 15,
-		critRatio: false,
+		critRatio: 1,
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -1510,11 +1515,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	zenheadbutt: {
 		inherit: true,
-		basePower: 100,
+		accuracy: 100,
+
 	},
 	steamroller: {
 		inherit: true,
 		viable: true,
+		shortDesc: "Ends the effects of Terrain.",
 		basePower: 95,
 		onAfterHit(target, source) {
 			if (source.hp) {
@@ -1535,6 +1542,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shadowpunch: {
 		inherit: true,
 		viable: true,
+		shortDesc: "Always results in a critical hit.",
 		willCrit: true,
 	},
 	dragonrush: {
@@ -1557,6 +1565,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		accuracy: 100,
+		shortDesc: "50% chance to raise the users's Defense by 1.",
 		basePower: 80,
 		pp: 10,
 		secondary: {
@@ -1584,6 +1593,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	poisonfang: {
 		inherit: true,
 		basePower: 70,
+		secondary: {},
+		shortDesc: "10% chance to freeze. 10% chance to flinch.",
+		secondaries: [
+			{
+				chance: 10,
+				status: 'psn',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
 	},
 	/*
 	DROWSY EDITS
