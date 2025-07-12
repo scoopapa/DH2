@@ -77,11 +77,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
-			console.log(species.id);
 			if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
-				console.log("base.abilities " + base.abilities['H']);
-				console.log("this.ability " + this.ability);
 				if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
 					this.setAbility(species.abilities['H'], null, true);
 				} else if (species.abilities['1'] && this.ability === base.abilities['1'].replace(/\s/g, "").toLowerCase()) {
