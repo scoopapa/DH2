@@ -80,6 +80,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			console.log(species.id);
 			if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
+				console.log("base.abilities " + base.abilities['H']);
+				console.log("this.ability " + this.ability);
 				if (this.ability === toID(base.abilities['H']) && species.abilities['H']) {
 					this.setAbility(species.abilities['H'], null, true);
 				} else if (this.ability === toID(base.abilities['1']) && species.abilities['1']) {
