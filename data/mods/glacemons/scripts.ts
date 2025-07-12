@@ -82,9 +82,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				console.log("base.abilities " + base.abilities['H']);
 				console.log("this.ability " + this.ability);
-				if (this.ability === toID(base.abilities['H']) && species.abilities['H']) {
+				if (this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase() && species.abilities['H']) { //stupid ass function because apparently toID doesn't work
 					this.setAbility(species.abilities['H'], null, true);
-				} else if (this.ability === toID(base.abilities['1']) && species.abilities['1']) {
+				} else if (this.ability === base.abilities['1'].replace(/\s/g, "").toLowerCase() && species.abilities['1']) {
 					this.setAbility(species.abilities['0'], null, true);
 				} else {
 					this.setAbility(species.abilities['0'], null, true);
