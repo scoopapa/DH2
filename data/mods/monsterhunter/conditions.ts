@@ -73,20 +73,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	par: {
         inherit: true,
-			onBeforeMove(pokemon) {
-            if (!pokemon.volatiles['parares'] && this.randomChance(1, 4)) {
-                this.add('cant', pokemon, 'par');
-                return false;
-            }
-        },
+		onBeforeMove(pokemon) {},
     },
-	paralysisresistance: {
-		name: 'Paralysis Resistance',
-		onStart(pokemon) {
-			this.add('-start', pokemon, 'ParaRes');
-			this.add('-message', `${pokemon.name} gained Paralysis Resistance! Cannot be fully-paralyzed!`);
-		},
-	},
 	blastblight: {
 		name: 'Blastblight',
 		onStart(pokemon) {
