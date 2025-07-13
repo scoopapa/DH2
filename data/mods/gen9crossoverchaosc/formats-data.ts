@@ -3,7 +3,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	hinakagiyama: {
+	hina: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	suwakomoriya: {
+	suwako: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -35,7 +35,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	wrigglenightbug: {
+	wriggle: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},

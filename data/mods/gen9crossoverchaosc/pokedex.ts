@@ -8,9 +8,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Pressure", 1: "Queenly Majesty", H: "Telepathy"},
 		weightkg: 244,
 	},
-	hinakagiyama: {
+	hina: {
 		num: 2,
-		name: "Hina Kagiyama",
+		name: "Hina",
 		types: ["Poison", "Dark"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 110, def: 75, spa: 50, spd: 120, spe: 45},
@@ -44,9 +44,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Tough Claws", H: "Electric Surge"},
 		weightkg: 244,
 	},
-	suwakomoriya: {
+	suwako: {
 		num: 6,
-		name: "Suwako Moriya",
+		name: "Suwako",
 		gender: "F",
 		types: ["Ground", "Water"],
 		baseStats: {hp: 85, atk: 115, def: 120, spa: 115, spd: 70, spe: 65},
@@ -79,9 +79,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Sturdy", 1: "Rock Head", H: "Skill Link"},
 		weightkg: 885.0,
 	},
-	wrigglenightbug: {
+	wriggle: {
 		num: 10,
-		name: "Wriggle Nightbug",
+		name: "Wriggle",
 		gender: "F",
 		types: ["Bug"],
 		baseStats: {hp: 70, atk: 105, def: 70, spa: 100, spd: 80, spe: 105},

@@ -86,7 +86,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hypervoice: ["9L1"],
 		},
 	},
-	hinakagiyama: {
+	hina: {
 		learnset: {
 			lashout: ["9L1"],
 			knockoff: ["9L1"],
@@ -301,7 +301,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			blizzard: ["9L1"],
 		},
 	},
-	suwakomoriya: {
+	suwako: {
 		learnset: {
 			scald: ["9L1"],
 			earthpower: ["9L1"],
@@ -531,7 +531,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			woodhammer: ["9L1"],
 		},
 	},
-	wrigglenightbug: {
+	wriggle: {
 		learnset: {
 			lunge: ["9L1"],
 			xscissor: ["9L1"],
