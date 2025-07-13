@@ -542,7 +542,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	magnezone: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	farfetchd: {
@@ -3164,7 +3164,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	chesnaughtmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	fennekin: {
@@ -3489,7 +3489,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	volcanion: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	rowlet: {
@@ -4707,7 +4707,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	glimmora: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	shroodle: {
