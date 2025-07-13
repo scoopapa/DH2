@@ -1413,7 +1413,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	sceptilemega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	torchic: {
