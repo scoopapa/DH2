@@ -449,7 +449,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Galaxia Darkness",
-		shortDesc: "User becomes semi-invulnerable for one turn and slicing attacks used next turn have damaged doubled & crit",
+		shortDesc: "User becomes semi-invulnerable for one turn and slicing attacks used next turn have damaged doubled",
 		pp: 1,
 		priority: 0,
 		flags: {},
