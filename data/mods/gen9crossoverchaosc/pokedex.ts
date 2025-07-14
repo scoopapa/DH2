@@ -269,7 +269,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		gender: "M",
 		types: ["Dark"],
 		baseStats: {hp: 80, atk: 85, def: 100, spa: 85, spd: 93, spe: 107},
-		abilities: {0: "Healer", H: "Natural Cure"},
+		abilities: {0: "Healer", 1: "Prankster", H: "Natural Cure"},
 		weightkg: 80,
 	},
 	plaguerat: {

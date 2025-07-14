@@ -1597,6 +1597,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	medic: {
 		learnset: {
+			haze: ["9L1"],
+			heartstamp: ["9L1"],
 			pollenpuff: ["9L1"],
 			healingwish: ["9L1"],
 			psychic: ["9L1"],
@@ -1630,7 +1632,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			confuseray: ["9L1"],
 			chargebeam: ["9L1"],
 			scaryface: ["9L1"],
-			heartswap: ["9L1"],
 			takeheart: ["9L1"],
 			leechseed: ["9L1"],
 			worryseed: ["9L1"],
