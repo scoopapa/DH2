@@ -102,8 +102,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Berdly",
 		gender: "M",
 		types: ["Flying", "Electric"],
-		baseStats: {hp: 83, atk: 77, def: 72, spa: 102, spd: 92, spe: 88},
-		abilities: {0: "Early Bird", 1: "Big Pecks", H: "Tinted Lens"},
+		baseStats: {hp: 83, atk: 81, def: 72, spa: 102, spd: 92, spe: 88},
+		abilities: {0: "Early Bird", 1: "Big Pecks", H: "Competitive"},
 		weightkg: 40,
 	},
 	jackfrost: {
