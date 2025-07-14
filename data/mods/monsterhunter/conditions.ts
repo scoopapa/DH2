@@ -47,6 +47,18 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			if (type === 'brn') return false;
 		},
 	},
+	par: {
+        inherit: true,
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${pokemon.name} is Paralyzed! Speed is halved! (Full Paralysis is removed)`);
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'par');
+			}
+		},
+		onBeforeMove(pokemon) {},
+    },
 	heatresistance: {
 		name: 'Heat Resistance',
 		onStart(pokemon) {
@@ -69,22 +81,6 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			if (effect && effect.id === 'frz') {
 				return false;
 			}
-		},
-	},
-	par: {
-        inherit: true,
-			onBeforeMove(pokemon) {
-            if (!pokemon.volatiles['parares'] && this.randomChance(1, 4)) {
-                this.add('cant', pokemon, 'par');
-                return false;
-            }
-        },
-    },
-	paralysisresistance: {
-		name: 'Paralysis Resistance',
-		onStart(pokemon) {
-			this.add('-start', pokemon, 'ParaRes');
-			this.add('-message', `${pokemon.name} gained Paralysis Resistance! Cannot be fully-paralyzed!`);
 		},
 	},
 	blastblight: {

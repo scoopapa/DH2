@@ -1113,6 +1113,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Immune to slicing moves.",
 		rating: 3,
 	},
+	wyversion: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('dragoncharge');
+		},
+		flags: {},
+		name: "Wyversion",
+		shortDesc: "This Pokemon gains a (Dragon-type) Charge effect when it takes a hit from an attack.",
+		rating: 3,
+	},
+	stealthsilver: {
+		onStart(pokemon, source) {
+			if (pokemon.stealthsilver) return;
+			pokemon.stealthsilver = true;
+			pokemon.side.foe.addSideCondition('gmaxsteelsurge');
+		},
+		flags: {},
+		shortDesc: "On activation, this Pokemon sets steel-type hazards.",
+		name: "Stealth Silver",
+		rating: 4,
+	},
 	/*
 	Edits
 	*/
