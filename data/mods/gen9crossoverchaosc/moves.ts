@@ -522,7 +522,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 95,
 		category: "Physical",
 		name: "Upperdash Arm",
-		shortDesc: "Halves damage recieved from special attacks before user moves.",
+		shortDesc: "Halves damage from special attacks before user moves.",
 		pp: 15,
 		priority: -3,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1, punch: 1},
