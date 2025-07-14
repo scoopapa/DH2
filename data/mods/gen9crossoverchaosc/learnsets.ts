@@ -223,7 +223,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			focusblast: ["9L1"],
 			pinmissile: ["9L1"],
 			lashout: ["9L1"],
-			knockoff: ["9L1"],
 			megapunch: ["9L1"],
 			cometpunch: ["9L1"],
 			suckerpunch: ["9L1"],

@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "V1",
 		gender: "N",
 		types: ["Steel", "Fighting"],
-		baseStats: {hp: 70, atk: 110, def: 70, spa: 85, spd: 70, spe: 125},
+		baseStats: {hp: 70, atk: 110, def: 70, spa: 75, spd: 70, spe: 125},
 		abilities: {0: "Mold Breaker", 1: "Sniper", H: "Blood-Fueled"},
 		weightkg: 190,
 	},
