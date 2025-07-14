@@ -929,7 +929,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	porygonz: {
-		tier: "UU",
+		tier: "RUBL",
 		doublesTier: "(DUU)",
 	},
 	omanyte: {
