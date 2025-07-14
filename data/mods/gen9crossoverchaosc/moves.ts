@@ -604,10 +604,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	infecteddreams: {
 		num: -20,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Special",
 		name: "Infected Dreams",
-		shortDesc: "100% par. 2x power if target already paralyzed.",
+		shortDesc: "30% par. 2x power if target already paralyzed.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -622,7 +622,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Nightmare", target);
 		},
 		secondary: {
-			chance: 100,
+			chance: 30,
 			status: 'par',
 		},
 		target: "normal",
