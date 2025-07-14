@@ -86,7 +86,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hypervoice: ["9L1"],
 		},
 	},
-	hinakagiyama: {
+	hina: {
 		learnset: {
 			lashout: ["9L1"],
 			knockoff: ["9L1"],
@@ -223,7 +223,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			focusblast: ["9L1"],
 			pinmissile: ["9L1"],
 			lashout: ["9L1"],
-			knockoff: ["9L1"],
 			megapunch: ["9L1"],
 			cometpunch: ["9L1"],
 			suckerpunch: ["9L1"],
@@ -301,7 +300,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			blizzard: ["9L1"],
 		},
 	},
-	suwakomoriya: {
+	suwako: {
 		learnset: {
 			scald: ["9L1"],
 			earthpower: ["9L1"],
@@ -531,7 +530,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			woodhammer: ["9L1"],
 		},
 	},
-	wrigglenightbug: {
+	wriggle: {
 		learnset: {
 			lunge: ["9L1"],
 			xscissor: ["9L1"],
@@ -1142,7 +1141,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			quickguard: ["9L1"],
 			rest: ["9L1"],
 			agility: ["9L1"],
-			swordsdance: ["9L1"],
 			safeguard: ["9L1"],
 			laserfocus: ["9L1"],
 			substitute: ["9L1"],
@@ -1259,7 +1257,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pit: {
 		learnset: {
-			guardianorbitars: ["9L1"],
+			upperdasharm: ["9L1"],
 			finalstrike: ["9L1"],
 			fairywind: ["9L1"],
 			dazzlinggleam: ["9L1"],
@@ -1268,7 +1266,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			moonblast: ["9L1"],
 			hurricane: ["9L1"],
 			bravebird: ["9L1"],
-			roost: ["9L1"],
 			aerialace: ["9L1"],
 			acrobatics: ["9L1"],
 			flashcannon: ["9L1"],
@@ -1600,6 +1597,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	medic: {
 		learnset: {
+			haze: ["9L1"],
+			heartstamp: ["9L1"],
 			pollenpuff: ["9L1"],
 			healingwish: ["9L1"],
 			psychic: ["9L1"],
@@ -1633,7 +1632,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			confuseray: ["9L1"],
 			chargebeam: ["9L1"],
 			scaryface: ["9L1"],
-			heartswap: ["9L1"],
 			takeheart: ["9L1"],
 			leechseed: ["9L1"],
 			worryseed: ["9L1"],
