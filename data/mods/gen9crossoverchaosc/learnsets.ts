@@ -1257,7 +1257,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	pit: {
 		learnset: {
-			guardianorbitars: ["9L1"],
+			upperdasharm: ["9L1"],
 			finalstrike: ["9L1"],
 			fairywind: ["9L1"],
 			dazzlinggleam: ["9L1"],
@@ -1266,7 +1266,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			moonblast: ["9L1"],
 			hurricane: ["9L1"],
 			bravebird: ["9L1"],
-			roost: ["9L1"],
 			aerialace: ["9L1"],
 			acrobatics: ["9L1"],
 			flashcannon: ["9L1"],

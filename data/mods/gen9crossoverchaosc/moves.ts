@@ -516,56 +516,38 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Beautiful",
 	},
-	guardianorbitars: {
+	upperdasharm: {
 		num: -17,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Guardian Orbitars",
-		shortDesc: "Special attacks targeting the user's side get reflected for the rest of the turn.",
-		pp: 20,
-		priority: 4,
-		flags: {metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Magic Coat", source);
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Upperdash Arm",
+		shortDesc: "Halves damage recieved from special attacks before user moves.",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1, punch: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('upperdasharm');
 		},
-		volatileStatus: 'guardianorbiters',
 		condition: {
 			duration: 1,
-			onStart(target, source, effect) {
-				this.add('-singleturn', target, 'move: Guardian Orbiters');
-				if (effect?.effectType === 'Move') {
-					this.effectState.pranksterBoosted = effect.pranksterBoosted;
-				}
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Upperdash Arm');
 			},
-			onTryHitPriority: 2,
-			onTryHit(target, source, move) {
-				if (target === source || move.hasBounced || !move.category === 'Special') {
-					return;
-				}
-				const newMove = this.dex.getActiveMove(move.id);
-				newMove.hasBounced = true;
-				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
-				this.actions.useMove(newMove, target, source);
-				return null;
-			},
-			onAllyTryHitSide(target, source, move) {
-				if (target.isAlly(source) || move.hasBounced || !move.category === 'Special') {
-					return;
-				}
-				const newMove = this.dex.getActiveMove(move.id);
-				newMove.hasBounced = true;
-				newMove.pranksterBoosted = false;
-				this.actions.useMove(newMove, this.effectState.target, source);
-				return null;
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(spa, attacker, defender, move) {
+				this.debug('Upperdash Arm weaken');
+				return this.chainModify(0.5);
 			},
 		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('upperdasharm')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('upperdasharm');
+		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Fairy",
-		zMove: {boost: {spd: 1}},
-		contestType: "Clever",
+		contestType: "Tough",
 	},
 	finalstrike: {
 		num: -18,
