@@ -1796,8 +1796,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.knockoff = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
-    delete this.modData('Learnsets', 'flittle').learnset.storedpower;
-    delete this.modData('Learnsets', 'espathra').learnset.storedpower;
 
     //Return and Frustration
     const noLearn = ["Beldum", "Burmy", "Cascoon", "Caterpie", "Combee", "Cosmoem", "Cosmog", "Ditto", "Kakuna", "Kricketot", "Magikarp", "Metapod", "Pyukumuku", "Scatterbug", 
