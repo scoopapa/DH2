@@ -532,6 +532,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
+				this.add('-anim', source, "Defense Curl", source);
 				this.add('-singleturn', pokemon, 'move: Upperdash Arm');
 			},
 			onSourceModifySpAPriority: 5,
@@ -543,6 +544,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('upperdasharm')},
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('upperdasharm');
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Uppercut", target);
 		},
 		secondary: null,
 		target: "normal",
