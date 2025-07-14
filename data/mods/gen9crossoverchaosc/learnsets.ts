@@ -1141,7 +1141,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			quickguard: ["9L1"],
 			rest: ["9L1"],
 			agility: ["9L1"],
-			swordsdance: ["9L1"],
 			safeguard: ["9L1"],
 			laserfocus: ["9L1"],
 			substitute: ["9L1"],

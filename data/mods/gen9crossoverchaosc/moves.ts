@@ -478,7 +478,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				attacker.removeVolatile('galaxiadarkness');
 				if (move.flags['slicing']) {
 					this.debug('Galaxia Darkness boost');
-					move.willCrit = true;
 					return this.chainModify(2);
 				}
 			},
