@@ -513,7 +513,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Disufiroa",
 		baseForme: "Fire",
 		types: ["Dragon", "Fire"],
-		baseStats: {hp: 101, atk: 94, def: 92, spa: 118, spd: 105, spe: 100},
+		baseStats: {hp: 101, atk: 92, def: 90, spa: 118, spd: 105, spe: 104},
 		abilities: {0: "Frozen Calamity"},
 		heightm: 1.0,
 		weightkg: 180.0,
