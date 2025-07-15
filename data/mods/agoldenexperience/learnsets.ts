@@ -3026,6 +3026,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			roost: ["9L1"],
 			defog: ["9L1"],
 			downdraft: ["9L1"],
+			flipturn: ["9L1"],
 		},
 	},
 	magthief: {

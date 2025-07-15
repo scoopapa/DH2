@@ -2084,7 +2084,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	empoleon: {
-		tier: "NU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	starly: {
@@ -4797,7 +4797,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	ironjugulis: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	ironthorns: {
