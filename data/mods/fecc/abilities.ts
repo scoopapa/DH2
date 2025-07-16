@@ -2143,7 +2143,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'As One (Gears)');
 		},
 		onFoeDamage(damage, source, target, effect) {
-			if (damage > source.hp && effect && effect.effectType === 'Move') {
+			if (damage >= source.hp && effect && effect.effectType === 'Move') {
 				this.add('-message', `${source.name} was spared!`);
 				return (source.hp == 1) ? 0 : source.hp - 1;
 			}
