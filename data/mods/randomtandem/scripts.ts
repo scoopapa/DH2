@@ -5,7 +5,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		inherit: true,
 		pickedTeamSize() {
 			return 6;
-		}
+		},
 		chooseTeam(data = '') {
 			if (this.requestState !== 'teampreview') {
 				return this.emitChoiceError(`Can't choose for Team Preview: You're not in a Team Preview phase`);
