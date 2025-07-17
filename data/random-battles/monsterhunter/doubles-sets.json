@@ -723,7 +723,7 @@
         ]
     },
 	"nargacuga": {
-        "level": 88,
+        "level": 86,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -741,7 +741,7 @@
         ]
     },
     "lucacuga": {
-        "level": 88,
+        "level": 86,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -759,7 +759,7 @@
         ]
     },
     "greencuga": {
-        "level": 88,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1514,7 +1514,7 @@
         ]
     },
     "gossharag": {
-        "level": 94,
+        "level": 88,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1550,7 +1550,7 @@
     }, 
 
     "greatizuchi": {
-        "level": 100,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1608,7 +1608,7 @@
         ]
     },
 	"kuluyaku": {
-        "level": 100,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1723,7 +1723,7 @@
         ]
     },
 	"odogaron": {
-        "level": 94,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1846,7 +1846,7 @@
         ]
     },
 	"seltasqueen": {
-        "level": 92,
+        "level": 90,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1905,7 +1905,7 @@
         ]
     },
 	"tzitziyaku": {
-        "level": 100,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -2071,7 +2071,7 @@
         ]
     },
 	"blangonga": {
-        "level": 96,
+        "level": 90,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -2144,7 +2144,7 @@
         ]
     },
 	"gendrome": {
-        "level": 100,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -2155,7 +2155,7 @@
         ]
     },
 	"giadrome": {
-        "level": 100,
+        "level": 96,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2206,7 +2206,7 @@
         ]
     },
 	"greatgirros": {
-        "level": 100,
+        "level": 96,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2217,7 +2217,7 @@
         ]
     },
 	"greatjaggi": {
-        "level": 100,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -2228,7 +2228,7 @@
         ]
     },
 	"greatjagras": {
-        "level": 100,
+        "level": 94,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2239,7 +2239,7 @@
         ]
     },
 	"greatmaccao": {
-        "level": 100,
+        "level": 90,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2602,7 +2602,7 @@
         ]
     }, 
     "velocidrome": {
-        "level": 100,
+        "level": 94,
         "sets": [
             {
                 "role": "Fast Attacker",
