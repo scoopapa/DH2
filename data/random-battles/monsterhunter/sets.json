@@ -770,7 +770,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Swords Dance", "Power Whip", "Iron Tail", "Meteor Mash", "X-Scissor", "Psycho Cut", "Dual Wingbeat"],
-                "abilities": ["Technician", "Screen Cleaner"],
+                "abilities": ["Screen Cleaner"],
                 "teraTypes": ["Normal"]
             }
         ]
