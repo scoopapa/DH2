@@ -3979,6 +3979,23 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Monster Hunter Randoms",
+		mod: 'monsterhunter',
+		team: 'random',
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass'],
+		onBegin() {
+			this.add('-message', `Welcome to Monster Hunter Showdown!`);
+			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
+			this.add('-message', `Community Discord can be found here:`);
+			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
+			this.add('-message', `Format Wikia can be found here:`);
+			this.add('-message', `https://tinyurl.com/MonHunShow`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+		},
+	},
+	{
 		name: "[Gen 9] Monster Hunter UU",
 		teambuilderFormat: 'National Dex',
 		threads: [],
