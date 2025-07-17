@@ -226,7 +226,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							suffix = (hit - 1) + " " + moveName + ((hit - 1) === 1 ? " hit + " : "s hit + ") + hit + ordinal + " " + moveName;
 							
 							if (!change) {
-								let multiplication = "(" + (accuracy / 100) + ")^" + (hit - 1) + " * " + (100 - accuracy);
+								let multiplication = (accuracy / 100) + "^" + (hit - 1) + " * " + (100 - accuracy);
 								this.battle.add('-message', `(${suffix} miss: ${multiplication} = ${roundNum(product)})`);
 							} else this.battle.add('-message', `(${suffix} miss: ${roundNum(product)})`);
 						} else {

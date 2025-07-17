@@ -8,6 +8,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.addVolatile('firstflight');
 			}
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('firstflight');
+		},
 		condition: {
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
