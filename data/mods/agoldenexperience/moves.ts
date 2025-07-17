@@ -3239,11 +3239,11 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
 			spe: 2,
-			atk: 1,
+			spa: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Rock Blast", target);
+			this.add('-anim', source, "Rock Polish", source);
 		},
 		secondary: null,
 		target: "self",
@@ -3280,7 +3280,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},		
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Rock Blast", target);
+			this.add('-anim', source, "Iron Defense", source);
 		},
 		secondary: null,
 		target: "allies",
