@@ -579,8 +579,8 @@ export class RandomTeams {
 
 			// These status moves are redundant with each other
 			['taunt', 'disable'],
-			[['thunderwave', 'toxic'], ['thunderwave', 'willowisp']],
-			[['thunderwave', 'toxic', 'willowisp'], 'toxicspikes'],
+			[['thunderwave', 'toxic'], ['thunderwave', 'willowisp'], ['thunderwave', 'coldsnap'], ['thunderwave', 'dracophage']],
+			[['thunderwave', 'toxic', 'willowisp', 'coldsnap', 'dracophage'], 'toxicspikes'],
 
 			// This space reserved for assorted hardcodes that otherwise make little sense out of context
 			// Landorus and Thundurus
