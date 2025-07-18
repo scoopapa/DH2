@@ -4769,7 +4769,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	screamtail: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	fluttermane: {
