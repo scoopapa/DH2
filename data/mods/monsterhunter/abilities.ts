@@ -1084,7 +1084,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "All Dragon moves used by the user are 1.4x Base Power but have 20% recoil.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon' && move.category === 'Physical' && move.category === 'Special') {
-				if (!move.recoil) move.recoil = [1, 5];
+				return move.recoil = [1, 5];
 			}
 		},
 		onBasePower(move) {

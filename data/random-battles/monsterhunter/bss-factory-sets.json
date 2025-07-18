@@ -1445,7 +1445,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Headlong Rush", "Close Combat", "Upper Hand"],
+                "movepool": ["Swords Dance", "Headlong Rush", "Close Combat", "Rock Slide", "Crunch"],
                 "abilities": ["Blind Rage"],
                 "teraTypes": ["Normal"]
             },
@@ -1744,7 +1744,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Healing Wish", "Spikes", "Tidy Up", "Knock Off", "Fake Out", "Foul Play"],
+                "movepool": ["Healing Wish", "Spikes", "Tidy Up", "Knock Off", "Fake Out", "Foul Play", "Trick"],
                 "abilities": ["Prankster"],
                 "teraTypes": ["Normal"]
             }

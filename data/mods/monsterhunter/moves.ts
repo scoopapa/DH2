@@ -1274,8 +1274,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	swift: {
 		inherit: true,
 		viable: true,
-		desc: "This move does not check accuracy. Usually goes first.",
-		shortDesc: "This move does not check accuracy. Usually goes first.",
+		desc: "Does not check accuracy. Usually goes first.",
+		shortDesc: "Does not check accuracy. Usually goes first.",
 		priority: 1,
 	},
 	healorder: {
@@ -1655,7 +1655,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	sleeppowder: {
 		inherit: true,
-		shortDesc: "A drowsy target is hurt by 1/4 max HP per turn.",
+		shortDesc: "Makes the target drowsy.",
 	},
 	sleeptalk: {
 		inherit: true,

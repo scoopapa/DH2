@@ -4948,7 +4948,6 @@ export const Formats: FormatList = [
 		column: 3,
 		// name: "monsterhuntersolomod",
 	},
-	/*
 	{
 		name: "[Gen 9] Monster Hunter Randoms",
 		mod: 'monsterhunter',
@@ -4996,7 +4995,6 @@ export const Formats: FormatList = [
 			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
 		},
 	},
- */
 	{
 		name: "[Gen 9] Monster Hunter AG",
 		teambuilderFormat: 'National Dex',
