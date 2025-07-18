@@ -4948,11 +4948,12 @@ export const Formats: FormatList = [
 		column: 3,
 		// name: "monsterhuntersolomod",
 	},
+	/*
 	{
 		name: "[Gen 9] Monster Hunter Randoms",
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['!Team Preview', 'Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -4968,7 +4969,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['!Team Preview', 'Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -4984,7 +4985,7 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['!Team Preview', 'Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -4995,6 +4996,7 @@ export const Formats: FormatList = [
 			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
 		},
 	},
+ */
 	{
 		name: "[Gen 9] Monster Hunter AG",
 		teambuilderFormat: 'National Dex',
