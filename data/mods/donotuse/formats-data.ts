@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 94
 	},
 	bidoof: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["return", "crunch", "quickattack", "swordsdance", "curse", "stealthrock"]
@@ -163,7 +163,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	happiny: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["seismictoss", "rest", "sleeptalk", "thunderwave"],
@@ -547,7 +547,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["earthquake", "iciclecrash", "iceshard", "superpower", "stealthrock"]
 	},
 	tadbulb: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["acidspray", "paraboliccharge", "muddywater", "voltswitch"]
