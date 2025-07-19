@@ -2680,6 +2680,26 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Smeargle + Ingrain', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Swagger', 'Metal Powder'],
 		desc: `<b>ADV TTP</b> is a rebalancing of ADV OU with Move buffs, Stat buffs, and different abilities. The aim of this metagame is to create an ADV OU metagame that is even more diverse and fun than it is already. It is limited to Pokemon found in Kanto-Hoenn. Moreover, all Gen 3 mechanics are unchanged.`,
 	},
+		{
+		name: "[Gen 9] Animemons",
+		teambuilderFormat: 'National Dex',
+		desc: `A micrometa full of anime characters.`,
+		mod: 'animemons',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod'],
+		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['AOU', 'AWIP'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not in this format.'];
+				}
+			}
+		},
+	},
 	{
 		name: "[Gen 9] Bad 'n Boosted",
 		desc: `Base stats of 70 and lower get doubled.`,
