@@ -1040,7 +1040,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			takedown: ["9L1"],
 		},
 	},
-	minotchi: {
+	/* minotchi: {
 		learnset: {
 			stickyweb: ["9L1"],
 			bugbuzz: ["9L1"],
@@ -1065,7 +1065,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			substitute: ["9L1"],
 			takedown: ["9L1"],
 		},
-	},
+	}, */
 	mushibatchi: {
 		learnset: {
 			bugbuzz: ["9L1"],
