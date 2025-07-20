@@ -257,7 +257,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	nidoking: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	cleffa: {
@@ -577,7 +577,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	muk: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	mukalola: {
@@ -2042,7 +2042,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	deoxys: {
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	deoxysattack: {
@@ -4674,7 +4674,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	kilowattrel: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	bombirdier: {
@@ -4769,7 +4769,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	screamtail: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	fluttermane: {

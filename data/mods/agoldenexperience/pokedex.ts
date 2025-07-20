@@ -334,7 +334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	muk: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sticky Hold", H: "Poison Touch"},
+		abilities: {0: "Corrosion", 1: "Sticky Hold", H: "Pollution"},
 	},
 	mukalola: {
 		inherit: true,
@@ -1268,7 +1268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	metagrossmega: {
 		inherit: true,
-		abilities: {0: "Cosmic Energy"},
+		abilities: {0: "Clear Body"},
 	},
 	regirock: {
 		inherit: true,
@@ -3076,6 +3076,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	kilowattrel: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 60, spa: 115, spd: 60, spe: 125},
+		abilities: {0: "Wind Power", 1: "Volt Absorb", H: "No Guard"},
 	},
 	grafaiai: {
 		inherit: true,
@@ -3136,6 +3137,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	screamtail: {
 		inherit: true,
+		types: ["Fairy", "Dragon"],
 		abilities: {0: "Protosynthesis", H: "Friend Guard"},
 	},
 	brutebonnet: {
