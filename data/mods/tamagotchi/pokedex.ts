@@ -311,14 +311,6 @@ mametchi: {
 		baseStats: {hp: 37, atk: 127, def: 73, spa: 73, spd: 73, spe: 127},
 		abilities: {0: "Swarm", 1: "Shield Dust", H: "Sturdy"},
 	},
-	minotchi: {
-		num: 88,
-		name: "Minotchi",
-		gender: "M",
-		types: ["Bug"],
-		baseStats: {hp: 98, atk: 68, def: 99, spa: 76, spd: 97, spe: 72},
-		abilities: {0: "Shed Skin", 1: "Tangled Feet", H: "Unburden"},
-	},
 	mushibatchi: {
 		num: 41,
 		name: "Mushibatchi",
