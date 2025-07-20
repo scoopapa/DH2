@@ -6761,7 +6761,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			snowscape: ["9L1"],
 			iciclespear: ["9L1"],
 			icespinner: ["9L1"],
-			snowscape: ["9L1"],
 			auroraveil: ["9L1"],
 			aurasphere: ["9L1"],
 			attract: ["9L1"],
