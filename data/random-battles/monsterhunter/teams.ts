@@ -125,12 +125,12 @@ const MOVE_PAIRS = [
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
 const PRIORITY_POKEMON = [
-	'Greencuga',
+	'breloom', 'brutebonnet', 'cacturne', 'honchkrow', 'mimikyu', 'ragingbolt', 'scizor',
 ];
 
 /** Pokemon who should never be in the lead slot */
 const NO_LEAD_POKEMON = [
-	'Glavenus',
+	'Zacian', 'Zamazenta',
 ];
 const DOUBLES_NO_LEAD_POKEMON = [
 	'Basculegion', 'Houndstone', 'Iron Bundle', 'Roaring Moon', 'Zacian', 'Zamazenta',
@@ -610,7 +610,7 @@ export class RandomTeams {
 		if (!abilities.includes('Prankster')) this.incompatibleMoves(moves, movePool, 'thunderwave', 'yawn');
 
 		// This space reserved for assorted hardcodes that otherwise make little sense out of context
-		if (species.id === 'gravios') this.incompatibleMoves(moves, movePool, 'rapidspin', 'mortalspin');
+		if (species.id === 'cyclizar') this.incompatibleMoves(moves, movePool, 'taunt', 'knockoff');
 		if (species.id === 'mesprit') this.incompatibleMoves(moves, movePool, 'healingwish', 'uturn');
 		if (species.id === 'camerupt') this.incompatibleMoves(moves, movePool, 'roar', 'willowisp');
 		if (species.id === 'coalossal') this.incompatibleMoves(moves, movePool, 'flamethrower', 'overheat');
@@ -1127,7 +1127,7 @@ export class RandomTeams {
 			if (role === 'Fast Bulky Setup' && (ability === 'Quark Drive' || ability === 'Protosynthesis')) {
 				return 'Booster Energy';
 			}
-			if (species.id === 'lalabarina') {
+			if (species.id === 'lokix') {
 				return (role === 'Fast Attacker') ? 'Silver Powder' : 'Life Orb';
 			}
 		}
@@ -1147,7 +1147,6 @@ export class RandomTeams {
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
 		) return 'Wide Lens';
 		if (moves.has('clangoroussoul') || (species.id === 'toxtricity' && moves.has('shiftgear'))) return 'Throat Spray';
-		if ((species.id === 'gypceros' && moves.has('trick')) ||(species.id === 'tobikadachi' && moves.has('trick'))) return 'Lagging Tail';
 		if (
 			(species.baseSpecies === 'Magearna' && role === 'Tera Blast user') ||
 			species.id === 'necrozmaduskmane' || (species.id === 'calyrexice' && isDoubles)
@@ -1190,12 +1189,10 @@ export class RandomTeams {
 		if (ability === 'Anger Shell') return this.sample(['Rindo Berry', 'Passho Berry', 'Scope Lens', 'Sitrus Berry']);
 		if (moves.has('dragondance') && isDoubles) return 'Clear Amulet';
 		if (counter.get('skilllink') && ability !== 'Skill Link' && species.id !== 'breloom') return 'Loaded Dice';
-		if (counter.get('technician') && ability !== 'Technician' && species.id !== 'greencuga') return 'Loaded Dice';
 		if (ability === 'Unburden') {
 			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
 		}
 		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
-		if (moves.has('devour') && ability !== 'unburden') return 'Liechi Berry';
 		if (moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
