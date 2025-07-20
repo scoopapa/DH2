@@ -414,7 +414,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	glacienant: {
 		learnset: {
 			gravechill: ["1L1"],
-			bide: ["1L1"],
 			confuseray: ["1L1"],
 			nightshade: ["1L1"],
 			teleport: ["1L4", "1M"],
