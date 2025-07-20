@@ -155,10 +155,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
-	minotchi: {
-		tier: "Go! Go! Tamagotchi!",
-		doublesTier: "Go! Go! Tamagotchi Doubles",
-	},
 	mushibatchi: {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
