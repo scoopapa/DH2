@@ -1653,7 +1653,7 @@
             {
                 "role": "Fast Attacker", 
                 "movepool": ["Hyper Voice", "Bleakwind Storm", "Aura Sphere", "U-turn"],
-                "abilities": ["Refrigerate"],
+                "abilities": ["Aerilate"],
                 "teraTypes": ["Normal"]
             },
             {
