@@ -267,7 +267,7 @@
     	"sets": [
         		{
             	    "role": "Wallbreaker",
-            	    "movepool": ["Armor Cannon", "Blizzard", "Glacial Lance", "Magma Surge", "Magma Storm", "Pyro Ball", "V-create", "Ice Shard"],
+            	    "movepool": ["Armor Cannon", "Blizzard", "Frozen Cleave", "Magma Surge", "Magma Storm", "Pyro Ball", "V-create", "Ice Shard"],
                     "abilities": ["Heat Sink", "Permafrost"],
             	    "teraTypes": ["Normal"]
         		}
@@ -597,7 +597,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Spikes", "Stealth Rock", "Protect", "High Horsepower", "Magma Surge", "Body Press", "Rapid Spin"],
+                "movepool": ["Spikes", "Stealth Rock", "Protect", "Earthquake", "Magma Surge", "Body Press", "Rapid Spin"],
                 "abilities": ["Earth Eater", "Flash Fire"],
                 "teraTypes": ["Normal"]
             }
@@ -627,13 +627,13 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Apex Burst", "Dark Pulse", "Dragon Pulse", "Shadow Ball", "Hyper Voice", "Secret Sword"],
-                "abilities": ["Vampirism", "Multiscale"],
+                "abilities": ["Multiscale"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Apex Burst", "Dark Pulse", "Dragon Pulse", "Shadow Ball", "Hyper Voice", "Secret Sword"],
-                "abilities": ["Vampirism", "Multiscale"],
+                "abilities": ["Multiscale"],
                 "teraTypes": ["Normal"]
 
             }
@@ -690,20 +690,20 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Trick Room", "Dynamax Cannon", "Moongeist Boom", "Sludge Wave", "Thunderbolt", "Aura Sphere", "Earth Power", "Flamethrower"],
+                "movepool": ["Trick Room", "Dynamax Cannon", "Moongeist Beam", "Sludge Wave", "Thunderbolt", "Aura Sphere", "Earth Power", "Flamethrower"],
                 "abilities": ["Vessel of Ruin"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Wallbreaker",
-                "movepool": ["Dynamax Cannon", "Moongeist Boom", "Sludge Wave", "Thunderbolt", "Aura Sphere", "Earth Power", "Flamethrower"],
+                "movepool": ["Dynamax Cannon", "Moongeist Beam", "Sludge Wave", "Thunderbolt", "Aura Sphere", "Earth Power", "Flamethrower"],
                 "abilities": ["Vessel of Ruin"],
                 "teraTypes": ["Normal"]
 
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Dynamax Cannon", "Moongeist Boom", "Earth Power", "Flamethrower"],
+                "movepool": ["Calm Mind", "Dynamax Cannon", "Moongeist Beam", "Earth Power", "Flamethrower"],
                 "abilities": ["Vessel of Ruin"],
                 "teraTypes": ["Normal"]
 
@@ -1313,7 +1313,7 @@
             }
         ]
     },
-	"Barioth": {
+	"barioth": {
         "level": 91,
         "sets": [ 
             {
@@ -1945,7 +1945,7 @@
             {
                 "role": "Bulky Support", 
                 "movepool": ["Nature's Madness", "Hex", "Baneful Bunker", "Recover", "Clear Smog", "Toxic Spikes"],
-                "abilities": ["Toxic Chain, Perish Body"],
+                "abilities": ["Toxic Chain", "Perish Body"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -2192,8 +2192,14 @@
                 "teraTypes": ["Normal"]
             },
             {
+                "role": "Bulky Attacker", 
+                "movepool": ["Trick Room", "Tail Glow", "Shadow Ball", "Hydro Pump"],
+                "abilities": ["Mimicry", "Color Change"],
+                "teraTypes": ["Normal"]
+            },
+            {
                 "role": "Bulky Support",
-                "movepool": ["Trick Room", "Cold Snap", "Haze", "Recover", "Hydro Pump", "Shadow Ball"],
+                "movepool": ["Cold Snap", "Haze", "Recover", "Hydro Pump", "Shadow Ball"],
                 "abilities": ["Mimicry", "Color Change"],
                 "teraTypes": ["Normal"]
 
@@ -2217,7 +2223,7 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Nuzzle", "Play Rough", "Bolt Beak", "Population Bomb", "Psychic Fangs", "Chip Away"],
-                "abilities": ["XX", "XX"],
+                "abilities": ["Intimidate", "Static"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -2379,7 +2385,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Thunder Wave", "Magma Surge", "Morning Sun", "Recover", "Blaze Kick", "Knock Off"],
+                "movepool": ["Thunder Wave", "Magma Surge", "Recover", "Blaze Kick", "Knock Off"],
                 "abilities": ["Flame Body"],
                 "teraTypes": ["Normal"]
             }
