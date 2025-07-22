@@ -1647,12 +1647,22 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	meditite: {
 		tier: "LC",
 	},
+	medititehisui: {
+		tier: "LC",
+	},
 	medicham: {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	medichamhisui: {
+		tier: "NFE",
+	},
 	medichammega: {
 		tier: "UUBL",
+		doublesTier: "(DUU)",
+	},
+	mediyumi: {
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	electrike: {

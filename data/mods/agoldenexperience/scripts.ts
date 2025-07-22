@@ -63,6 +63,9 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Typhlosionite" && pokemon.baseSpecies.name === "Typhlosion-Hisui") {
         return "Typhlosion-Hisui-Mega";
       }
+      else if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Medicham-Hisui") {
+        return null;
+      }
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
         return null;
       }
