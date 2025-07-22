@@ -2910,7 +2910,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		forme: "Gulping-Mega",
 		types: ["Water"],
 		baseStats: {hp: 90, atk: 105, def: 95, spa: 75, spd: 105, spe: 135},
-		abilities: {0: "Gulp Missile"},
+		abilities: {0: "Gulp"},
 		heightm: 0.8,
 		weightkg: 18,
 		color: "Blue",
