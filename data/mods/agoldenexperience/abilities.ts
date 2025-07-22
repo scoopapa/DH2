@@ -2610,4 +2610,84 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -87,
 	},
+	freegullet: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				target.addVolatile('stockpile');
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Free Gullet",
+		rating: 2.5,
+		num: -88,
+		shortDesc: "If the user uses Surf/Dive, it gains the Stockpile effect. Surf/Dive has 1.5x power.",
+	},
+	gulp: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+      	onAfterMove(target, source, move) {
+			if (target !== source && (move.id === 'surf' || move.id === 'dive')) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		onModifyMove(move) {
+			if (move.id === 'surf' || move.id === 'dive') delete move.flags['protect'];
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gulp",
+		rating: 2.5,
+		num: -89,
+		shortDesc: "If the user uses Surf/Dive, the target takes 1/4 max HP on top of the damage. Surf/Dive has 1,5x power. Surf/Dive breaks protection.",
+	},
+	gorge: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				target.addVolatile('charge');
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block the effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				if (this.randomChance(2, 10)) {
+					target.trySetStatus('par', source);
+				}
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gorge",
+		rating: 2.5,
+		num: -90,
+		shortDesc: "If the user uses Surf/Dive, user gains the Charge effect. Surf/Dive has 1,5x power. Surf/Dive has an added 20% chance of paralysis",
+	},
+	blindeye: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && this.dex.getImmunity(move, type) === false) return 3;
+			return -typeMod;
+		},
+		flags: {breakable: 1},
+		name: "Blind Eye",
+		desc: "This Pokemon's affinities are reversed.",
+		shortDesc: "This Pokemon's affinities are reversed.",
+		rating: 4.5,
+		num: -91,
+	},
 };
