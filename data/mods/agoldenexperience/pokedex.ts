@@ -4495,7 +4495,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Red",
 		prevo: "Medicham-Hisui",
 		evoLevel: 87,
-		evos: ["Mediyumi"],
 		eggGroups: ["Human-Like"],
 	},
 	spidops: {

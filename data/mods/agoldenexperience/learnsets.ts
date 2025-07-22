@@ -6253,7 +6253,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			avalanche: ["9L1"],
 			attract: ["9L1"],
 			iciclespear: ["9L1"],
-			secretpower: ["9L1"],
 			frostbreath: ["9L1"],
 			powdersnow: ["9L1"],
 			waterpulse: ["9L1"],
