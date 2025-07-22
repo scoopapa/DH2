@@ -2903,7 +2903,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Water 1", "Flying"],
 		requiredItem: "Cramorantite",
 	},
-	cramorantgulping: {
+	cramorantgulpingmega: {
 		num: 845,
 		name: "Cramorant-Gulping-Mega",
 		baseSpecies: "Cramorant",
