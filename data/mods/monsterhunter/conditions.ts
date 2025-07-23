@@ -33,17 +33,13 @@ export const Conditions: { [k: string]: ConditionData; } = {
             if (target.removeVolatile('nightmare')) {
                 this.add('-end', target, 'Nightmare', '[silent]');
             }
-			target.addVolatile('torment')
         },
         onSourceModifyDamage(damage, source, target, move) {
             return this.chainModify(1.2);
         },
-		onSwitchIn(pokemon) {
-			pokemon.addVolatile('torment')
-		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('torment');
-		},
+		onDisableMove(pokemon) {
+			if (pokemon.lastMove && pokemon.lastmove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		}
     },
 	snow: {
 		inherit: true,
@@ -250,23 +246,17 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-start', pokemon, 'Rusted');
 			this.add('-message', `${pokemon.name} is Rusted! Steel-Type moves weakened! Does residual damage if Steel-Type!`);
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Steel') {
-				this.debug('Rust weaken');
-				return this.chainModify(0.5);
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Is rusted!');
+				return this.chainModify(1.00);
 			}
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Steel') {
-				this.debug('Rust weaken');
-				return this.chainModify(0.5);
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
 			}
-		},
-		onResidualOrder: 13,
-			onResidual(pokemon) {
-				if (pokemon.hastype(['steel'])) this.damage(pokemon.baseMaxhp / 4)
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');

@@ -1241,22 +1241,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 	oxideairstrike: {
 		num: 2046,
 		accuracy: 95,
-		basePower: 75,
+		basePower: 70,
 		category: "Physical",
 		name: "Oxide Airstrike",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
 		secondary: {
-			chance: 30,
+			chance: 100,
 			volatileStatus: 'rusted',
 		},
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Dragon Ascent", target);
         },
-		shortDesc: "30% chance to inflict Rust.",
-		target: "any",
+		shortDesc: "100% chance to inflict Rust.",
+		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
 	},
