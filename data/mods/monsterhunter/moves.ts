@@ -19,6 +19,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return false;
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Torch Song", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -62,6 +66,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fire Lash", target);
+        },
 	},
 	dragonator: {
 		num: 2003,
@@ -76,6 +84,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dragon') return 1;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Gigaton Hammer", target);
+        },
 		secondary: {
 			chance: 10,
 			volatileStatus: 'flinch',
@@ -123,6 +135,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Whirlpool", target);
+        },
 	},
 	cutwingbarrage: {
 		num: 2006,
@@ -138,6 +154,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			volatileStatus: 'bleeding',
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Aerial Ace", target);
+        },
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
@@ -157,6 +177,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Supercell Slam", target);
+        },
 	},
 	frenzyslam: {
 		num: 2008,
@@ -175,6 +199,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Kowtow Cleave", target);
+        },
 	},
 	bewitchedbubble: {
 		num: 2009,
@@ -191,6 +219,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Chilling Water", target);
+        },
 	},
 	creepynoise: {
 		num: 2010,
@@ -209,6 +241,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Bug Buzz", target);
+        },
 	},
 	arcticshriek: {
 		num: 2011,
@@ -226,6 +262,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.clearBoosts();
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Freeze-Dry", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -248,6 +288,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Luster Purge", target);
+        },
 	},
 	mossbomb: {
 		num: 2013,
@@ -263,6 +307,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (target.hasType('Grass')) return null;
 			target.addVolatile('leechseed', source);
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Seed Bomb", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -285,6 +333,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Flame Wheel", target);
+        },
 	},
 	apexburst: {
 		num: 2015,
@@ -306,6 +358,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fleur Cannon", target);
+			this.add('-anim', source, "Aromatherapy", source);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -330,6 +387,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Strange Steam", target);
+        },
 	},
 	psychocrush: {
 		num: 2017,
@@ -348,6 +409,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Psystrike", target);
+        },
 	},
 	biocharge: {
 		num: 2018,
@@ -367,6 +432,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Parabolic Charge", source);
+        },
 	},
 	heatbeam: {
 		num: 2019,
@@ -383,6 +452,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Heat Wave", target);
+        },
 	},
 	boltbreath: {
 		num: 2020,
@@ -396,6 +469,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.debug('Bolt Breath NOT boosted');
 			return move.basePower;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Wildbolt Storm", target);
+        },
 		category: "Special",
 		name: "Bolt Breath",
 		shortDesc: "Power doubles if the user moves before the target.",
@@ -444,6 +521,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Mist", target);
+        },
 	},
 	blazeball: {
 		num: 2023,
@@ -459,6 +540,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Pyro Ball", target);
+        },
 	},
 	crimsondawn: {
 		num: 2024,
@@ -487,6 +572,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-fail', source, 'move: Crimson Dawn');
 			return null;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "V-create", target);
+        },
 	},
 	ancestralthunder: {
 		num: 2025,
@@ -515,6 +604,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-fail', source, 'move: Ancestral Thunder');
 			return null;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Electro Drift", target);
+        },
 	},
 	quicksandbreath: {
 		num: 2026,
@@ -531,6 +624,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Sandsear Storm", target);
+        },
 	},
 	sedativespine: {
 		accuracy: 100,
@@ -548,6 +645,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Leech Life", target);
+        },
 	},
 	hellflare: {
 		accuracy: 100,
@@ -581,6 +682,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'move: Future Sight');
 			return this.NOT_FAIL;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Sacred Fire", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -601,6 +706,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				def: -1,
 			},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Accelerock", target);
+        },
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
@@ -677,6 +786,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Infernal Parade", target);
+        },
 		shortDesc: "30% chance to inflict blastblight.",
 		target: "normal",
 		type: "Ghost",
@@ -697,6 +810,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Shell Side Arm", target);
+        },
 		shortDesc: "50% chance to inflict blastblight.",
 		target: "normal",
 		type: "Poison",
@@ -717,6 +834,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fiery Dance", target);
+        },
 		shortDesc: "Inflicts blastblight.",
 		target: "normal",
 		type: "Fire",
@@ -742,6 +863,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fire Fang", target);
+        },
 		shortDesc: "Inflicts blast. 10% chance to flinch.",
 		target: "normal",
 		type: "Fire",
@@ -767,6 +892,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Black Hole Eclipse", target);
+        },
 		shortDesc: "Reduces Sp. Atk by 2. 50% chance to inflict blast.",
 		target: "normal",
 		type: "Dark",
@@ -788,6 +917,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Bleakwind Storm", source);
+        },
 	},
 	harshsting: {
 		num: 2033,
@@ -806,6 +939,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Leech Life", target);
+        },
 	},
 	decayduster: {
 		num: 2034,
@@ -822,6 +959,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Bug",
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Pollen Puff", target);
+        },
 	},
 	slimyspit: {
 		num: 2035,
@@ -840,6 +981,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Snipe Shot", target);
+        },
 	},
 	stinkbomb: {
 		num: 2036,
@@ -858,6 +1003,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Sludge Bomb", target);
+        },
 	},
 	perfumepulse: {
 		num: 2037,
@@ -873,6 +1022,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			volatileStatus: 'stench',
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Malignant Chain", target);
+        },
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
@@ -890,6 +1043,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			volatileStatus: 'fatigue',
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Gunk Shot", target);
+        },
 		shortDesc: "30% chance to inflict fatigue.",
 		target: "normal",
 		type: "Poison",
@@ -912,6 +1069,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Poison Tail", target);
+        },
 	},
 	roughhouse: {
 		num: 2040,
@@ -930,6 +1091,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cute",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Play Rough", target);
+        },
 	},
 	cruelclaw: {
 		num: 2041,
@@ -955,6 +1120,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dire Claw", target);
+        },
 	},
 	brimstoneblade: {
 		num: 2042,
@@ -974,6 +1143,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Stone Axe", target);
+        },
 	},
 	sulfurousblade: {
 		num: 2042,
@@ -1012,6 +1185,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Triple Arrows", target);
+        },
 	},
 	snowballcannon: {
 		num: 2044,
@@ -1026,6 +1203,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 10,
 			volatileStatus: 'snowman',
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Mountain Gale", target);
+        },
 		shortDesc: "10% chance to trap the foe in a Snowman.",
 		target: "normal",
 		type: "Ice",
@@ -1048,6 +1229,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Blizzard", target);
+        },
 	},
 	oxideairstrike: {
 		num: 2046,
@@ -1062,6 +1247,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			volatileStatus: 'rusted',
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dragon Ascent", target);
+        },
 		shortDesc: "30% chance to inflict Rust.",
 		target: "any",
 		type: "Flying",
@@ -1083,6 +1272,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Spicy Extract", target);
+        },
 	},
 	devilsjaw: {
 		num: 2048,
@@ -1101,6 +1294,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Poison Fang", target);
+        },
 	},
 	seraphicshift: {
 		num: 2049,
@@ -1122,6 +1319,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.formeChange('Disufiroa' + meloettaForme, this.effect, false, '[msg]');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Sheer Cold", target);
+        },
 		shortDesc: "Changes Disufiroa's form.",
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -1146,26 +1347,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Surf", target);
+        },
 	},
 	frozencleave: {
-			accuracy: 100,
-			basePower: 70,
-			category: "Physical",
-			name: "Frozen Cleave",
-			pp: 20,
-			priority: 0,
-			flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
-			onEffectiveness(typeMod, target, type) {
-				if (type === 'Water') return 1;
-			},
-			secondary: {
-				chance: 10,
-				status: 'frz',
-			},
-			target: "normal",
-			shortDesc: "10% chance to freeze. Super effective on Water.",
-			type: "Ice",
-			contestType: "Beautiful",
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Frozen Cleave",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Ice Spinner", target);
+        },
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},	
+		target: "normal",
+		shortDesc: "10% chance to freeze. Super effective on Water.",
+		type: "Ice",
+		contestType: "Beautiful",
 	},
 	boomblast: {
 		accuracy: 100,
@@ -1181,6 +1390,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				target.addVolatile('blastblight');
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fusion Flare", target);
+        },
 		shortDesc: "50% chance to Blast. Hits adjacent Pokemon.",
 		target: "allAdjacent",
 		type: "Fire",

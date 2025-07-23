@@ -1194,6 +1194,7 @@ export class RandomTeams {
 		if (ability === 'Unburden') {
 			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
 		}
+		if (moves.has('devour') && ability !== 'Unburden') return 'Liechi Berry';
 		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
 		if (moves.has('geomancy') || moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';

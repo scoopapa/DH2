@@ -96,7 +96,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Blasted');
 		},
-		},
+	},
 	bubbleblight: {
 		name: 'Bubbleblight',
 		duration: 4,
@@ -169,7 +169,6 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	bleeding: {
 		name: 'Bleeding',
-		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Bleeding');
 			this.add('-message', `${pokemon.name} is afflicted with Bleeding! Will take damage when attacking!`);
