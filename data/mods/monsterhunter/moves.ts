@@ -1166,6 +1166,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Cross Poison", target);
+        },
 	},
 	thousandblades: {
 		num: 2043,

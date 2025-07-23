@@ -57,7 +57,20 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				this.add('-status', target, 'par');
 			}
 		},
-		onBeforeMove(pokemon) {},
+		onResidual(pokemon) {
+            if (pokemon.static === undefined) pokemon.static = 0;
+			pokemon.static ++;
+			this.add('-message', `${pokemon.name} is building static! (Count x)`);
+        },
+		onSwitchout(pokemon) {
+			pokemon.static = 0;
+		},
+		onBeforeMove(pokemon) {
+ 			if (pokemon.static >= 3) {
+				this.add('cant', pokemon, 'par');
+				pokemon.static = 0;
+				return false;
+		}
     },
 	heatresistance: {
 		name: 'Heat Resistance',
