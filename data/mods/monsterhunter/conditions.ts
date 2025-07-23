@@ -49,7 +49,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	par: {
         inherit: true,
-		onStart(target, source, sourceEffect) {
+		onStart(target, source, sourceEffect, pokemon) {
+			pokemon.static = 0;
 			this.add('-message', `${target.name} is Paralyzed! Speed is halved! (Full Paralysis is removed)`);
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
@@ -58,13 +59,12 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 		onResidual(pokemon) {
-			if (pokemon.static === undefined) pokemon.static = 0;
-			if (pokemon.static = 3) {
+			pokemon.static ++;
+			if (pokemon.static >= 3) {
 				this.add('-message', `${pokemon.name} has too much static!`);
 			} else {
 				this.add('-message', `${pokemon.name} is building static!`);
 			}
-			pokemon.static ++;
         },
 		onSwitchout(pokemon) {
 			pokemon.static = 0;
