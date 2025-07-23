@@ -58,9 +58,13 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 		onResidual(pokemon) {
-            if (pokemon.static === undefined) pokemon.static = 0;
+			if (pokemon.static === undefined) pokemon.static = 0;
+			if (pokemon.static = 3) {
+				this.add('-message', `${pokemon.name} has too much static!`);
+			} else {
+				this.add('-message', `${pokemon.name} is building static!`);
+			}
 			pokemon.static ++;
-			this.add('-message', `${pokemon.name} is building static! (Count x)`);
         },
 		onSwitchout(pokemon) {
 			pokemon.static = 0;
