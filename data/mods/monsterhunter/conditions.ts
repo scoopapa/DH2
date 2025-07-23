@@ -50,7 +50,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	par: {
         inherit: true,
 		onStart(target, source, sourceEffect) {
-			this.add('-message', `${target.name} is Paralyzed! Speed is halved! (Full Paralysis is removed)`);
+			this.add('-message', `${target.name} is Paralyzed! Speed halved; will be fully paralyzed every 3 turns!`);
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -67,6 +67,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
         },
 		onSwitchout(pokemon) {
+			pokemon.static = 0;
+		},
+		onSwitchIn(pokemon) {
 			pokemon.static = 0;
 		},
 		onBeforeMove(pokemon) {
