@@ -1184,6 +1184,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	yanmegamega: {
+		tier: "OU",
+		doublesTier: "(DUU)",
+	},
 	wooper: {
 		tier: "LC",
 	},
@@ -1387,7 +1391,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	tyranitarmega: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	lugia: {
@@ -1643,12 +1647,22 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	meditite: {
 		tier: "LC",
 	},
+	medititehisui: {
+		tier: "LC",
+	},
 	medicham: {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	medichamhisui: {
+		tier: "NFE",
+	},
 	medichammega: {
 		tier: "UUBL",
+		doublesTier: "(DUU)",
+	},
+	mediyumi: {
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	electrike: {
@@ -4159,6 +4173,18 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	cramorantmega: {
+		tier: "UU",
+		doublesTier: "(DUU)",
+	},
+	cramorantgulpingmega: {
+		tier: "UU",
+		doublesTier: "(DUU)",
+	},
+	cramorantgorgingmega: {
+		tier: "UU",
+		doublesTier: "(DUU)",
+	},
 	arrokuda: {
 		tier: "LC",
 	},
@@ -4967,7 +4993,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	ironcrown: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "(DUU)",
 	},
 	terapagos: {

@@ -589,7 +589,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	steelix: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	steelixmega: {
 		inherit: true,
@@ -725,7 +725,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kangaskhanmega: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	horsea: {
 		inherit: true,
@@ -861,7 +861,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ditto: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	eevee: {
 		inherit: true,
@@ -1425,7 +1425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lugia: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	hooh: {
 		inherit: true,
@@ -1841,7 +1841,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	altariamega: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	zangoose: {
 		inherit: true,
@@ -2145,7 +2145,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	empoleon: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	starly: {
 		inherit: true,
@@ -2321,11 +2321,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	garchomp: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	garchompmega: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	riolu: {
 		inherit: true,
@@ -2345,7 +2345,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hippowdon: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	skorupi: {
 		inherit: true,
@@ -2477,7 +2477,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shayminsky: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	arceus: {
 		inherit: true,
@@ -3013,7 +3013,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ferrothorn: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	klink: {
 		inherit: true,
@@ -3245,23 +3245,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	genesect: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	genesectburn: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	genesectchill: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	genesectdouse: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	genesectshock: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	chespin: {
 		inherit: true,
@@ -3989,11 +3989,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	nihilego: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	buzzwole: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	pheromosa: {
 		inherit: true,
@@ -4001,15 +4001,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	xurkitree: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	celesteela: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	kartana: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	guzzlord: {
 		inherit: true,
@@ -4049,15 +4049,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stakataka: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	blacephalon: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	zeraora: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	meltan: {
 		inherit: true,
@@ -4265,7 +4265,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hatterene: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	impidimp: {
 		inherit: true,
@@ -4405,7 +4405,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regidrago: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	glastrier: {
 		inherit: true,
@@ -4677,7 +4677,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	glimmora: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	shroodle: {
 		inherit: true,
@@ -4725,7 +4725,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	greattusk: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	brutebonnet: {
 		inherit: true,
@@ -4733,11 +4733,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sandyshocks: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	screamtail: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	fluttermane: {
 		inherit: true,
@@ -4757,7 +4757,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ironmoth: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	ironhands: {
 		inherit: true,
@@ -4765,11 +4765,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ironjugulis: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	ironthorns: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	ironbundle: {
 		inherit: true,
@@ -4777,7 +4777,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ironvaliant: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	tinglu: {
 		inherit: true,
@@ -4785,7 +4785,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	chienpao: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Uber UU",
 	},
 	wochien: {
 		inherit: true,
@@ -4909,7 +4909,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ragingbolt: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 	ironboulder: {
 		inherit: true,
@@ -4921,10 +4921,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	terapagos: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Uber OU",
 	},
 	pecharunt: {
 		inherit: true,
-		tier: "Adjusted",
+		tier: "Uber RU",
 	},
 };
