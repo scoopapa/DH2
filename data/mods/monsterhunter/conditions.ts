@@ -33,12 +33,16 @@ export const Conditions: { [k: string]: ConditionData; } = {
             if (target.removeVolatile('nightmare')) {
                 this.add('-end', target, 'Nightmare', '[silent]');
             }
+			target.addVolatile('torment')
         },
         onSourceModifyDamage(damage, source, target, move) {
             return this.chainModify(1.2);
         },
-        onDisableMove(pokemon) {
-				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		onSwitchIn(pokemon) {
+			pokemon.addVolatile('torment')
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('torment');
 		},
     },
 	snow: {
