@@ -474,7 +474,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Astral Barrage", "Discharge", "Focus Blast", "Mist Ball", "Volt Switch", "Thunderclap", "Electro Drift"],
+                "movepool": ["Astral Barrage", "Thunderbolt", "Focus Blast", "Mist Ball", "Volt Switch", "Electro Drift"],
                 "abilities": ["Grim Neigh"],
                 "teraTypes": ["Normal"]
 
@@ -932,7 +932,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Cloaking Glow", "Spacial Rend", "Psycho Boost", "Moonblast", "Astral Barrage", "Earth Power", "Flamethrower"],
+                "movepool": ["Take Heart", "Cloaking Glow", "Spacial Rend", "Psycho Boost", "Moonblast", "Astral Barrage", "Earth Power", "Flamethrower"],
                 "abilities": ["Multiscale"],
                 "teraTypes": ["Normal"]
 
