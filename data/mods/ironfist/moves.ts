@@ -5014,4 +5014,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			else pokemon.metronome = 0;
 		},
 	},
+	sunnyday: {
+		inherit: true,
+		weather: null,
+		onHitField(target, source) {
+			if (this.field.isTerrain('fishingterrain')) {
+				this.add('-message', 'The fishing terrain blocked out the sun!');
+				return false;
+			}
+			this.field.setWeather('sunnyday');
+		}
+	},
 };
