@@ -74,8 +74,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				this.add('cant', pokemon, 'par');
 				pokemon.static = 0;
 				return false;
-		}
-    },
+			}
+    	}
+	},
 	heatresistance: {
 		name: 'Heat Resistance',
 		onStart(pokemon) {
