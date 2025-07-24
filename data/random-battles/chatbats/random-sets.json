@@ -807,5 +807,66 @@
                 "teraTypes": ["Rock", "Grass", "Fighting"]
             }
         ]
+    },
+    "veluza": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Waterfall", "Rage Fist", "Fillet Away", "Stored Power", "Magical Torque", "Hydro Pump"],
+                "abilities": ["Mold Breaker"],
+                "teraTypes": ["Water", "Ghost", "Fairy", "Psychic", "Dark"]
+            }
+        ]
+    },
+    "ogerponhearthflame": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Focus Energy", "Ivy Cudgel", "Stone Edge", "Leaf Blade", "Crabhammer"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+    "dachsbun": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Nuzzle", "Body Press", "Spirit Break", "Morning Sun"],
+                "abilities": ["Well-Baked Body"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+     "koraidon": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Close Combat", "Flare Blitz", "Outrage", "U-turn"],
+                "abilities": ["Orichalcum Pulse"],
+                "teraTypes": ["Fire"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Collision Course", "Flare Blitz", "Scale Shot", "Swords Dance"],
+                "abilities": ["Orichalcum Pulse"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+    "mew": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Acrobatics", "Air Slash", "Agility", "Avalanche"],
+                "abilities": ["Biogenesis"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
     }
 }
