@@ -3892,7 +3892,7 @@ export const Formats: FormatList = [
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 		onBegin() {
-			his.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
+			this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
 			this.add('-message', `Welcome to ChatBats!`);
 			this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
 			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
