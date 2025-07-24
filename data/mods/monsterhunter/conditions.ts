@@ -244,12 +244,12 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Rusted');
-			this.add('-message', `${pokemon.name} is Rusted! Steel-Type moves weakened! Does residual damage if Steel-Type!`);
+			this.add('-message', `${pokemon.name} is Rusted! Steel-type resistances nullified!`);
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Is rusted!');
-				return this.chainModify(1.00);
+			if (this.dex.types.get('Steel').damageTaken[move.type] == 2) {
+  				this.debug('Is rusted!');
+  				return this.chainModify(1);
 			}
 		},
 		onModifyMove(move) {
