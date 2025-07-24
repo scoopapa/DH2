@@ -3883,19 +3883,20 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Pet Mods Chat Mod Rands",
-		desc: `A Random Battles Solomood made via the Pet Mods chatroom on Showdown.`,
-		mod: 'pmcm',
+		name: "[Gen 9] ChatBats",
+		desc: `A Random Battles Solomod made by the Pet Mods chatroom on Showdown.`,
+		mod: 'chatbats',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 		onBegin() {
-			this.add('-message', `Welcome to Pet Mods Chat Mod randbats (name change soon)!`);
-			this.add('-message', `We host events periodically in the Pet Mods room on PS where we collaboratively create a randbats set for a random pokemon, changing anything we want, creating custom moves, abilities, and even custom Mega forms.`);
-			this.add('-message', `You can find all the sets and mechanical changes on our forums thread: `);
-			this.add('-message', `https://www.smogon.com/forums/threads/pet-mods-chat-mod.3760234`);
+			his.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
+			this.add('-message', `Welcome to ChatBats!`);
+			this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
+			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
+			this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
 		},
 	},
 	{
