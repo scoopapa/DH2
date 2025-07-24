@@ -2678,6 +2678,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -90,
 		shortDesc: "If the user uses Surf/Dive, user gains the Charge effect. Surf/Dive has 1,5x power. Surf/Dive has an added 20% chance of paralysis",
 	},
+	gulpmissile: {
+		inherit: true,
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				source.formeChange('cramorantgorging', effect);
+			}
+		},
+		desc: "If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it uses Dive, or Gorging Form with a Pikachu in its mouth if it uses Surf. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Defense by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",
+		shortDesc: "When hit after Dive/Surf, attacker takes 1/4 max HP and -1 Defense/paralysis.",
+	},
 	blindeye: {
 		onEffectiveness(typeMod, target, type, move) {
 			if (move && this.dex.getImmunity(move, type) === false) return 3;
