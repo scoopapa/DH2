@@ -1238,6 +1238,7 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Blizzard", target);
         },
 	},
+	/*
 	oxideairstrike: {
 		num: 2046,
 		accuracy: 95,
@@ -1260,6 +1261,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
+	*/
 	dracophage: {
 		num: 2047,
 		accuracy: 85,

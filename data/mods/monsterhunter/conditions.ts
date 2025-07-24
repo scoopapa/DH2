@@ -239,6 +239,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Snowman');
 		},
 	},
+	/*
 	rusted: {
 		name: 'Rusted',
 		duration: 4,
@@ -262,6 +263,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Rusted');
 		},
 	},
+	*/
 	dragonblight: {
 		name: 'Dragonblight',
 		effectType: 'Status',
