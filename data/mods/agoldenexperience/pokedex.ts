@@ -2923,7 +2923,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Cramorant",
 		forme: "Gorging-Mega",
 		types: ["Flying", "Electric"],
-		baseStats: {hp: 70, atk: 65, def: 95, spa: 125, spd: 105, spe: 125},
+		baseStats: {hp: 90, atk: 65, def: 95, spa: 125, spd: 105, spe: 125},
 		abilities: {0: "Gorge"},
 		heightm: 0.8,
 		weightkg: 18,
