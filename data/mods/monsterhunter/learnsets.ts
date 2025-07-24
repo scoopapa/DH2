@@ -3778,7 +3778,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			whirlwind: ["9L1"],
 			wideguard: ["9L1"],
-			oxideairstrike: ["9L1"],
+			/*oxideairstrike: ["9L1"],*/
 		},
 	},
 	teostra: {

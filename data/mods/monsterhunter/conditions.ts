@@ -37,9 +37,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
         onSourceModifyDamage(damage, source, target, move) {
             return this.chainModify(1.2);
         },
-        onDisableMove(pokemon) {
-				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-		},
+		onDisableMove(pokemon) {
+			if (pokemon.lastMove && pokemon.lastmove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		}
     },
 	snow: {
 		inherit: true,
@@ -50,15 +50,36 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	par: {
         inherit: true,
 		onStart(target, source, sourceEffect) {
-			this.add('-message', `${target.name} is Paralyzed! Speed is halved! (Full Paralysis is removed)`);
+			this.add('-message', `${target.name} is Paralyzed! Speed halved; will be fully paralyzed every 3 turns!`);
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-status', target, 'par');
 			}
 		},
-		onBeforeMove(pokemon) {},
-    },
+		onResidual(pokemon) {
+			if (pokemon.static === undefined) pokemon.static = 0;
+			pokemon.static ++;
+			if (pokemon.static >= 3) {
+				this.add('-message', `${pokemon.name} has too much static!`);
+			} else {
+				this.add('-message', `${pokemon.name} is building static!`);
+			}
+        },
+		onSwitchout(pokemon) {
+			pokemon.static = 0;
+		},
+		onSwitchIn(pokemon) {
+			pokemon.static = 0;
+		},
+		onBeforeMove(pokemon) {
+ 			if (pokemon.static >= 3) {
+				this.add('cant', pokemon, 'par');
+				pokemon.static = 0;
+				return false;
+			}
+    	}
+	},
 	heatresistance: {
 		name: 'Heat Resistance',
 		onStart(pokemon) {
@@ -218,35 +239,31 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Snowman');
 		},
 	},
+	/*
 	rusted: {
 		name: 'Rusted',
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Rusted');
-			this.add('-message', `${pokemon.name} is Rusted! Steel-Type moves weakened! Does residual damage if Steel-Type!`);
+			this.add('-message', `${pokemon.name} is Rusted! Steel-type resistances nullified!`);
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Steel') {
-				this.debug('Rust weaken');
-				return this.chainModify(0.5);
+		onDamagingHit(damage, source, target, move) {
+			if (this.dex.types.get('Steel').damageTaken[move.type] == 2) {
+  				this.debug('Is rusted!');
+  				return this.chainModify(1);
 			}
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Steel') {
-				this.debug('Rust weaken');
-				return this.chainModify(0.5);
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
 			}
-		},
-		onResidualOrder: 13,
-			onResidual(pokemon) {
-				if (pokemon.hastype(['steel'])) this.damage(pokemon.baseMaxhp / 4)
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');
 		},
 	},
+	*/
 	dragonblight: {
 		name: 'Dragonblight',
 		effectType: 'Status',
