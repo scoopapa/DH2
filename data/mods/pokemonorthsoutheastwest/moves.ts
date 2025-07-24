@@ -1079,7 +1079,7 @@ horseserve: {
 	},
 			holyarrow: {
 		num: 12935,
-		accuracy: true,
+		// accuracy: true,
 					shortDesc: "Ultra effective against Dark.",
 		basePower: 60,
 		accuracy: 100,
