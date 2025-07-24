@@ -246,7 +246,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-start', pokemon, 'Rusted');
 			this.add('-message', `${pokemon.name} is Rusted! Steel-type resistances nullified!`);
 		},
-		onSourceModifyDamage(damage, source, target, move) {
+		onDamagingHit(damage, source, target, move) {
 			if (this.dex.types.get('Steel').damageTaken[move.type] == 2) {
   				this.debug('Is rusted!');
   				return this.chainModify(1);
