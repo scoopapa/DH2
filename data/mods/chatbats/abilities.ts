@@ -666,6 +666,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			});
 			// this forces the UI to update move slots visually
 			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
+			this.add('-ability', pokemon, 'Biogenesis');
+			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
+			pokemon.didRandomMoves = "yes";
+		},
+		onSwitchIn(pokemon) {
 			if (!pokemon) return; // Chat command
 			const attackingMoves = pokemon.baseMoveSlots
   				.map(slot => this.dex.moves.get(slot.id))
@@ -676,13 +681,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
   				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
   				: pokemon.types;
 			pokemon.setType(types);
-			pokemon.species.types = types;
-		},
-		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-			if (pokemon.didRandomMoves === "yes") return;
-			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
-			pokemon.didRandomMoves = "yes";
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
 			breakable: 1, notransform: 1},
