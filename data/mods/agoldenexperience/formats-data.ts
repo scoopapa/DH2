@@ -840,7 +840,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	tauros: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	taurospaldeacombat: {
@@ -1673,7 +1673,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	manectricmega: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	plusle: {
@@ -3324,7 +3324,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	slurpuff: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	inkay: {
@@ -3712,7 +3712,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	comfey: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	oranguru: {
@@ -4189,7 +4189,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	barraskewda: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	toxel: {
@@ -4415,7 +4415,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	regieleki: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	regidrago: {
@@ -4711,7 +4711,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	flamigo: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	klawf: {
@@ -4941,7 +4941,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	ogerpon: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	ogerpontealtera: {
@@ -5121,7 +5121,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	rockstermega: {
-		tier: "UU",
+		tier: "RUBL",
 		doublesTier: "(DUU)",
 	},
 	expecies: {
@@ -5298,7 +5298,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	annoyog: {
-		tier: "NU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	raticket: {
