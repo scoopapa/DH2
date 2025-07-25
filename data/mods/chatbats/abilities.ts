@@ -606,7 +606,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	biogenesis: {
 		onSwitchInPriority: 31,
-		onBeforeSwitchIn(species, target, source, effect) {		
+		onBeforeSwitchIn(pokemon) {	
+			if (pokemon.didRandomMoves === "yes") return;
 			const moves = this.dex.moves.all();
 			let randomMove1 = '';
 			if (moves.length) {
@@ -651,7 +652,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			// Define new moves
 			const newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
 			// Update move slots
-			target.moveSlots = newMoves.map(move => {
+			pokemon.moveSlots = newMoves.map(move => {
 				const moveData = this.dex.moves.get(move);
 				return {
 					move: moveData.name,
@@ -664,18 +665,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				};
 			});
 			// this forces the UI to update move slots visually
-			target.baseMoveSlots = target.moveSlots.slice();
-			if (!target) return; // Chat command
+			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
+			if (!pokemon) return; // Chat command
 			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
-			const attackingMoves = target.baseMoveSlots
+			const attackingMoves = pokemon.baseMoveSlots
   				.map(slot => this.dex.moves.get(slot.id))
   				.filter(move => move.category === 'Physical' || move.category === 'Special');
 
 			// pick types of first 2 attacking moves (failsafe if there are none)
 			const types = attackingMoves.length
   				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
-  				: species.types;
-			return { ...species, types };
+  				: pokemon.types;
+			pokemon.didRandomMoves = "yes";
+			return { ...pokemon, types };
 		},
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
