@@ -610,49 +610,41 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			const moves = this.dex.moves.all();
 			let randomMove1 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove1 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove1) return false;
 			let randomMove2 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove2 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove2) return false;
 			let randomMove3 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove3 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove3) return false;
 			let randomMove4 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove4 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove4) return false;
 			let randomMove5 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove5 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove5) return false;
 			let randomMove6 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove6 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove6) return false;
 			let randomMove7 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove7 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove7) return false;
 			let randomMove8 = '';
 			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
 				randomMove8 = this.sampleNoReplace(moves).id;
 			}
 			if (!randomMove8) return false;
