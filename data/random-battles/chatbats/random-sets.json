@@ -841,23 +841,6 @@
             }
         ]
     },
-     "koraidon": {
-        "level": 80,
-        "sets": [
-            {
-                "role": "Fast Attacker",
-                "movepool": ["Close Combat", "Flare Blitz", "Outrage", "U-turn"],
-                "abilities": ["Orichalcum Pulse"],
-                "teraTypes": ["Fire"]
-            },
-            {
-                "role": "Setup Sweeper",
-                "movepool": ["Collision Course", "Flare Blitz", "Scale Shot", "Swords Dance"],
-                "abilities": ["Orichalcum Pulse"],
-                "teraTypes": ["Fire"]
-            }
-        ]
-    },
     "mew": {
         "level": 84,
         "sets": [
