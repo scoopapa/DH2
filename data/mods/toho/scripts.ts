@@ -13,7 +13,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 	},
 	battle: {
-		inherit: true,
+		//inherit: true,
 		endTurn() {
 			this.turn++;
 			this.lastSuccessfulMoveThisTurn = null;

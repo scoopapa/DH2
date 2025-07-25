@@ -265,7 +265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Fujiwara no Mokou",
 		types: ["Fire", "Fighting"],
 		gender: "F",
-		baseStats: {hp: 100, atk: 133, def: 55, spa: 85, spd: 63, spe: 94},
+		baseStats: {hp: 100, atk: 127, def: 55, spa: 91, spd: 63, spe: 94},
 		abilities: {0: "Regenerator"},
 	},
 	ayashameimaru: {
@@ -352,6 +352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 44,
 		name: "Sanae Kochiya",
 		types: ["Flying", "Water"],
+		gender: "F",
 		baseStats: {hp: 80, atk: 70, def: 80, spa: 95, spd: 90, spe: 75},
 		abilities: {0: "Drizzle", H: "Serene Grace"},
 	},
