@@ -666,11 +666,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			});
 			// this forces the UI to update move slots visually
 			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
-			this.add('-ability', pokemon, 'Biogenesis');
-			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
 			pokemon.didRandomMoves = "yes";
 		},
 		onSwitchIn(pokemon) {
+			this.add('-ability', pokemon, 'Biogenesis');
+			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
 			if (!pokemon) return; // Chat command
 			const attackingMoves = pokemon.baseMoveSlots
   				.map(slot => this.dex.moves.get(slot.id))
