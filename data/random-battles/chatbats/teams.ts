@@ -79,7 +79,7 @@ const SPECIAL_SETUP = [
 // Moves that boost Attack AND Special Attack:
 // Dragon Dance is here to force Altaria to get it
 const MIXED_SETUP = [
-	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance',
+	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance', 'filletaway',
 ];
 // Some moves that only boost Speed:
 const SPEED_SETUP = [
