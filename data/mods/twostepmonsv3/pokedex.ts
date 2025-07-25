@@ -105,5 +105,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 95, atk: 70, def: 80, spa: 100, spd: 120, spe: 50},
 		abilities: {0: "Wonder Skin", 1: "Gooey", H: "Poison Heal"},
 		weightkg: 2.8,
+		evos: null,
 	},
 }
