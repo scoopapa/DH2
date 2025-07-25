@@ -610,42 +610,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			const moves = this.dex.moves.all();
 			let randomMove1 = '';
 			if (moves.length) {
-				randomMove1 = this.sampleNoReplace(moves).id;
+				randomMove1 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove1) return false;
 			let randomMove2 = '';
 			if (moves.length) {
-				randomMove2 = this.sampleNoReplace(moves).id;
+				randomMove2 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove2) return false;
 			let randomMove3 = '';
 			if (moves.length) {
-				randomMove3 = this.sampleNoReplace(moves).id;
+				randomMove3 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove3) return false;
 			let randomMove4 = '';
 			if (moves.length) {
-				randomMove4 = this.sampleNoReplace(moves).id;
+				randomMove4 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove4) return false;
 			let randomMove5 = '';
 			if (moves.length) {
-				randomMove5 = this.sampleNoReplace(moves).id;
+				randomMove5 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove5) return false;
 			let randomMove6 = '';
 			if (moves.length) {
-				randomMove6 = this.sampleNoReplace(moves).id;
+				randomMove6 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove6) return false;
 			let randomMove7 = '';
 			if (moves.length) {
-				randomMove7 = this.sampleNoReplace(moves).id;
+				randomMove7 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove7) return false;
 			let randomMove8 = '';
 			if (moves.length) {
-				randomMove8 = this.sampleNoReplace(moves).id;
+				randomMove8 = this.prng.sampleNoReplace(moves).id;
 			}
 			if (!randomMove8) return false;
 			// Define new moves
