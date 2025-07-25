@@ -212,9 +212,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'veluza').learnset.ragefist = ['9L1'];
 		this.modData('Learnsets', 'veluza').learnset.magicaltorque = ['9L1'];
 
-		this.modData('Learnsets', 'ogerponhearthflame').learnset.leafblade = ['9L1'];
-		this.modData('Learnsets', 'ogerponhearthflame').learnset.crabhammer = ['9L1'];
-		this.modData('Learnsets', 'ogerponhearthflame').learnset.stoneedge = ['9L1'];
+		this.modData('Learnsets', 'ogerpon').learnset.leafblade = ['9L1'];
+		this.modData('Learnsets', 'ogerpon').learnset.crabhammer = ['9L1'];
+		this.modData('Learnsets', 'ogerpon').learnset.stoneedge = ['9L1'];
 
 		this.modData('Learnsets', 'dachsbun').learnset.nuzzle = ['9L1'];
 		this.modData('Learnsets', 'dachsbun').learnset.spiritbreak = ['9L1'];
