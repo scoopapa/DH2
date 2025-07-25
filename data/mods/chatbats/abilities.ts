@@ -606,7 +606,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	biogenesis: {
 		onSwitchInPriority: 31,
-		onSwitchIn(species, target, source, effect) {		
+		onBeforeSwitchIn(species, target, source, effect) {		
 			const moves = this.dex.moves.all();
 			let randomMove1 = '';
 			if (moves.length) {
