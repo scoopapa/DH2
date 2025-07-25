@@ -156,7 +156,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		onTakeItem(item, source) {
-			if (source.hasType('Rock')) return false;
+			if (source.species.hasType('Rock')) return false;
 			return true;
 		},
 	},
