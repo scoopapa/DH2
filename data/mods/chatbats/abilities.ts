@@ -603,5 +603,97 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: 249,
 		shortDesc: "Moves ignore charge/recharge turns.",
+	},
+	biogenesis: {
+		onModifySpeciesPriority: 2,
+		onModifySpecies(species, target, source, effect) {		
+			const moves = this.dex.moves.all();
+			let randomMove1 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove1 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove1) return false;
+			let randomMove2 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove2 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove2) return false;
+			let randomMove3 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove3 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove3) return false;
+			let randomMove4 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove4 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove4) return false;
+			let randomMove5 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove5 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove5) return false;
+			let randomMove6 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove6 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove6) return false;
+			let randomMove7 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove7 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove7) return false;
+			let randomMove8 = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove8 = this.sampleNoReplace(moves).id;
+			}
+			if (!randomMove8) return false;
+			// Define new moves
+			const newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
+			// Update move slots
+			target.moveSlots = newMoves.map(move => {
+				const moveData = this.dex.moves.get(move);
+				return {
+					move: moveData.name,
+					id: moveData.id,
+					pp: moveData.pp,
+					maxpp: moveData.pp,
+					target: moveData.target,
+					disabled: false,
+					used: false,
+				};
+			});
+			// this forces the UI to update move slots visually
+			target.baseMoveSlots = target.moveSlots.slice();
+			if (!target) return; // Chat command
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			const attackingMoves = target.baseMoveSlots
+  				.map(slot => this.dex.moves.get(slot.id))
+  				.filter(move => move.category === 'Physical' || move.category === 'Special');
+
+			// pick types of first 2 attacking moves (failsafe if there are none)
+			const types = attackingMoves.length
+  				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
+  				: species.types;
+			return { ...species, types };
+		},
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1},
+		name: "Biogenesis",
+		rating: 5,
+		num: -112,
+		shortDesc: "This Pokemon receives 8 completely random moves at the start of the game.",
 	}
 };
