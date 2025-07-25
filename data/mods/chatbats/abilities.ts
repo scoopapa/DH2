@@ -605,8 +605,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "Moves ignore charge/recharge turns.",
 	},
 	biogenesis: {
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {		
+		onSwitchInPriority: 31,
+		onSwitchIn(species, target, source, effect) {		
 			const moves = this.dex.moves.all();
 			let randomMove1 = '';
 			if (moves.length) {
