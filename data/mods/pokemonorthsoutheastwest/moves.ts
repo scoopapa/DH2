@@ -164,24 +164,47 @@ horseserve: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-
-	eastseawave: {
-		num: 812,
-                       shortDesc: "User switches out after use. Does not power up on Terrain.",
+eastseawave: {
+		num: -34,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Special",
 		name: "East Sea Wave",
-		pp: 20,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
+		flags: {protect: 1, mirror: 1},
+		target: "allAdjacentFoes",
 		type: "Water",
+		shortDesc: "Hits foes. Extends terrain/weather duration by 1 (max 8).",
+		condition: {
+			duration: 1,
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Surf', target);
+		},
+		onAfterMove(source, target, move) {
+		//  onHit(target, source, move) { 
+			const weather = source.side.battle.field.weather;
+			const terrain = source.side.battle.field.terrain;
+
+			// Extend weather duration
+			if (weather && source.side.battle.field.weatherState.duration < 8) {
+				source.side.battle.field.weatherState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the weather! It will last ${this.field.weatherState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the weather!`);
+			}
+
+			// Extend terrain duration
+			if (terrain && source.side.battle.field.terrainState.duration < 8) {
+				source.side.battle.field.terrainState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the terrain! It will last ${this.field.terrainState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the terrain!`);
+			}
+		},
+		secondary: null,
+		contestType: "Beautiful",
 	},
-
-
 	nighttime: {
 		num: 2421,
                        shortDesc: "For five turns: Dark +50%, Light-50%, Dark is immune to Priority.",
@@ -1191,7 +1214,7 @@ horseserve: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Recover",
+		name: "Renew",
 		pp: 5,
 		priority: 0,
 		flags: { snatch: 1, heal: 1, metronome: 1 },

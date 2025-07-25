@@ -399,4 +399,104 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW7",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	celebcako: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	balanlongg: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	qirauora: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	fengphuang: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	linggaroshi: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wolkhmlasu: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	tuditao: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	clinuyasha: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	biodylia: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yangzancer: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	obakanternoz: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	baodhu: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	walausoleum: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	kosenwoe: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	minowoe: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	meiguyocho: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	shincgod: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sebaigujii: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	xihsiua: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	shaanxqin: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	tigadao: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	qiansenri: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	borelkao: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	breaktarkuxi: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	zhongor: {
+		tier: "NSEW8",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }
