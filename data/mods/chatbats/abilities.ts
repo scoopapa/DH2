@@ -605,7 +605,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "Moves ignore charge/recharge turns.",
 	},
 	biogenesis: {
-		onSwitchInPriority: 31,
+		onSwitchInPriority: -1,
 		onBeforeSwitchIn(pokemon) {	
 			if (pokemon.didRandomMoves === "yes") return;
 			const moves = this.dex.moves.all();
