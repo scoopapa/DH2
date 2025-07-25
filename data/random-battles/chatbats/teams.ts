@@ -1279,6 +1279,10 @@ export class RandomTeams {
 		if (species.id === 'urshifurapidstrike') return this.sample(['Life Orb', 'Protective Pads']);
 		if (species.id === 'salamence') return this.sample(['Life Orb', 'Heavy-Duty Boots', 'Sky Plate']);
 		if (species.id === 'stonjourner') return 'Life Orb';
+		if (species.id === 'veluza') return 'Sitrus Berry';
+		if (species.id === 'ogerponhearthflame') return 'Hearthflame Mask';
+		if (species.id === 'dachsbun') return 'Rocky Helmet';
+		if (species.id === 'mew') return 'Starf Berry';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
