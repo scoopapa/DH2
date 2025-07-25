@@ -675,12 +675,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			const types = attackingMoves.length
   				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
   				: pokemon.types;
-			pokemon.didRandomMoves = "yes";
 			pokemon.setType(types);
 		},
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+			if (pokemon.didRandomMoves === "yes") return;
 			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
+			pokemon.didRandomMoves = "yes";
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
 			breakable: 1, notransform: 1},
