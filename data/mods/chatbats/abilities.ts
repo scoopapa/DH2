@@ -667,7 +667,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			// this forces the UI to update move slots visually
 			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
 			if (!pokemon) return; // Chat command
-			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
 			const attackingMoves = pokemon.baseMoveSlots
   				.map(slot => this.dex.moves.get(slot.id))
   				.filter(move => move.category === 'Physical' || move.category === 'Special');
