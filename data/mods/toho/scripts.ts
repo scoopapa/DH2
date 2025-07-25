@@ -13,7 +13,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 	},
 	battle: {
-		inherit: true,
+		//inherit: true,
 		endTurn() {
 			this.turn++;
 			this.lastSuccessfulMoveThisTurn = null;
@@ -218,6 +218,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Change Zacian/Zamazenta into their Crowned formes
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
+					console.log(pokemon.species.id + " " + pokemon.item);
 					if (pokemon.species.id === 'cirno' && pokemon.item === 'summerbackdoor') {
 						rawSpecies = this.dex.species.get('Cirno-Tanned');
 					} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {

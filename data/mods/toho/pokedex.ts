@@ -1,6 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-
-reimuhakurei: {
+	reimuhakurei: {
 		num: 1,
 		name: "Reimu Hakurei",
 		types: ["Flying", "Fighting"],
@@ -266,7 +265,7 @@ reimuhakurei: {
 		name: "Fujiwara no Mokou",
 		types: ["Fire", "Fighting"],
 		gender: "F",
-		baseStats: {hp: 100, atk: 127, def: 55, spa: 85, spd: 63, spe: 100},
+		baseStats: {hp: 100, atk: 127, def: 55, spa: 91, spd: 63, spe: 94},
 		abilities: {0: "Regenerator"},
 	},
 	ayashameimaru: {
@@ -353,6 +352,7 @@ reimuhakurei: {
 		num: 44,
 		name: "Sanae Kochiya",
 		types: ["Flying", "Water"],
+		gender: "F",
 		baseStats: {hp: 80, atk: 70, def: 80, spa: 95, spd: 90, spe: 75},
 		abilities: {0: "Drizzle", H: "Serene Grace"},
 	},
@@ -893,7 +893,7 @@ reimuhakurei: {
 		name: "Saki Kurokuma",
 		types: ["Fighting", "Flying"],
 		gender: "F",
-		baseStats: {hp: 70, atk: 140, def: 87, spa: 65, spd: 49, spe: 97},
+		baseStats: {hp: 70, atk: 140, def: 87, spa: 85, spd: 49, spe: 97},
 		abilities: {0: "Limber", 1: "No Guard", H: "Beast Boost"},
 	},
 	yuumatoutetsu: {
