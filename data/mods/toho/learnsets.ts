@@ -131,7 +131,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hiddenpower: ["9L1"],
 			crunch: ["9L1"],
 			jawlock: ["9L1"],
-			suckerpunch: ["9L1"],
 			knockoff: ["9L1"],
 			bite: ["9L1"],
 			payback: ["9L1"],
@@ -1014,6 +1013,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	youmukonpaku: {
 		learnset: {
+			icespinner: ["9L1"],
+			icepunch: ["9L1"],
 			focusblast: ["9L1"],
 			secretsword: ["9L1"],
 			aurasphere: ["9L1"],
@@ -2910,7 +2911,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			nightmare: ["9L1"],
 			safeguard: ["9L1"],
 			workup: ["9L1"],
-			imprison: ["9L1"],
 			psychup: ["9L1"],
 			mindreader: ["9L1"],
 			confide: ["9L1"],
@@ -2926,6 +2926,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	rinkaenbyou: {
 		learnset: {
 			overheat: ["9L1"],
+			batonpass: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
 			firepledge: ["9L1"],
