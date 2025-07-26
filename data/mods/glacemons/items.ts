@@ -2000,7 +2000,20 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		spritenum: 747,
 		num: -31,
 		gen: 9,
-		shortDesc: "Bugged; do not use in PMPL!",
+		shortDesc: "All abilities active at once.",
+		onTakeItem: false,
+		onStart(target) {
+			this.add('-item', target, 'Dungeon\'s Looplet');
+			target.m.innates = Object.keys(target.species.abilities)
+					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
+					.filter(ability => ability !== target.ability);
+			if (target.m.innates) {
+				for (const innate of target.m.innates) {
+					if (target.hasAbility(innate)) continue;
+					target.addVolatile("ability:" + innate, target);
+				}
+			}
+		},
 	},
 	surprisebomb: {
 		name: "Surprise Bomb",

@@ -1613,7 +1613,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	rotomfrost: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Refrigerate"},
+		abilities: {0: "Levitate", H: "Snow Warning"},
 	},
 	rotomfan: {
 		inherit: true,
