@@ -2820,7 +2820,7 @@ export const Formats: FormatList = [
 			//this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
 			//this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
 			//this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
-		},
+		//},
 		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
 		onBegin(battle) {
 			this.add('-message', `yes working`);
