@@ -2881,7 +2881,8 @@ export const Formats: FormatList = [
 					}
 				}
 			}
-		},
+		}
+	},
 	{
         name: "[Gen 9] Climate Change",
         desc: [
