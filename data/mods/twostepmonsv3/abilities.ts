@@ -7,9 +7,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onSwitchIn(target) {
-				if (!target.fainted) {
-					const refresh = this.dex.getActiveMove('refresh');
-					this.actions.useMove(refresh, target);;
+				if (!target.fainted && target.status) {
+					target.cureStatus();
+					//const refresh = this.dex.getActiveMove('refresh');
+					//this.actions.useMove(refresh, target);
 					target.side.removeSlotCondition(target, 'miracleremedy');
 				}
 			},

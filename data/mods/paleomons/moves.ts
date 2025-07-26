@@ -2,7 +2,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	bloodstream: {
 		num: 202,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 85,
 		category: "Special",
 		name: "Blood Stream",
 		shortDesc: "User recovers 50% of the damage dealt.",

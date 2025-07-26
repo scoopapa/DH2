@@ -46,7 +46,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.category === 'Special') {
-				if (move.pp > 1) move.pp --;
+				for (const moveSlot of attacker.moveSlots) {
+					if (moveSlot.id == move.id) moveSlot.pp --;
+				}
 				return this.chainModify(1.2);
 			}
 		},
@@ -646,7 +648,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Cactus Drive');
+				this.add('-end', pokemon, 'cactusdriveatk', '[silent]');
+				this.add('-end', pokemon, 'cactusdrivedef', '[silent]');
+				this.add('-end', pokemon, 'cactusdrivespa', '[silent]');
+				this.add('-end', pokemon, 'cactusdrivespd', '[silent]');
+				this.add('-end', pokemon, 'cactusdrivespe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},

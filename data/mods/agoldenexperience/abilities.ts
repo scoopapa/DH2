@@ -459,13 +459,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sundownswitch: {
 		name: "Sundown Switch",
-		desc: "If Cacturne-Mega-Y: Changes to Day form before using Grass move; to Night before using Dark move.",
+		desc: "If Cacturne-Mega: Changes to Day form before using Grass move; to Night before using Dark move.",
 		num: -25,
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Cacturne' || attacker.transformed) return;
 			if (move.type !== 'Grass' && move.type !== 'Dark') return;
-			const targetForme = (move.type === 'Grass' ? 'Cacturne-Mega-Y-Day' : 'Cacturne-Mega-Y-Night');
+			const targetForme = (move.type === 'Grass' ? 'Cacturne-Mega' : 'Cacturne-Mega-Night');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 		},
@@ -2572,5 +2572,132 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		shortDesc: "If any Terrain is active, this Pokemon's Speed is doubled.",
+	},
+	pollution: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Pollution",
+		desc: "Poison Point. This Pokemon's offensive stat is doubled while using a Poison-type attack. If a Pokemon uses a Water-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "Poison Point. This Pokemon's Poison power is 2x; Water power against it is halved.",
+		rating: 4.5,
+		num: -87,
+	},
+	freegullet: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				target.addVolatile('stockpile');
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Free Gullet",
+		rating: 2.5,
+		num: -88,
+		shortDesc: "If the user uses Surf/Dive, it gains the Stockpile effect. Surf/Dive has 1.5x power.",
+	},
+	gulp: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+      	onAfterMove(target, source, move) {
+			if (target !== source && (move.id === 'surf' || move.id === 'dive')) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		onModifyMove(move) {
+			if (move.id === 'surf' || move.id === 'dive') delete move.flags['protect'];
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gulp",
+		rating: 2.5,
+		num: -89,
+		shortDesc: "If the user uses Surf/Dive, the target takes 1/4 max HP on top of the damage. Surf/Dive has 1,5x power. Surf/Dive breaks protection.",
+	},
+	gorge: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id === 'surf' || move.id === 'dive') {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				target.addVolatile('charge');
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block the effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.id === 'surf' || move.id === 'dive') {
+				if (this.randomChance(2, 10)) {
+					target.trySetStatus('par', source);
+				}
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gorge",
+		rating: 2.5,
+		num: -90,
+		shortDesc: "If the user uses Surf/Dive, user gains the Charge effect. Surf/Dive has 1,5x power. Surf/Dive has an added 20% chance of paralysis",
+	},
+	gulpmissile: {
+		inherit: true,
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				source.formeChange('cramorantgorging', effect);
+			}
+		},
+		desc: "If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it uses Dive, or Gorging Form with a Pikachu in its mouth if it uses Surf. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Defense by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",
+		shortDesc: "When hit after Dive/Surf, attacker takes 1/4 max HP and -1 Defense/paralysis.",
+	},
+	blindeye: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && this.dex.getImmunity(move, type) === false) return 3;
+			return -typeMod;
+		},
+		flags: {breakable: 1},
+		name: "Blind Eye",
+		desc: "This Pokemon's affinities are reversed.",
+		shortDesc: "This Pokemon's affinities are reversed.",
+		rating: 4.5,
+		num: -91,
 	},
 };

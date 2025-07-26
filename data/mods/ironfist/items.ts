@@ -138,7 +138,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 640,
 		gen: 6,
-		shortDesc: 'When switching in, any attacker gets Baseballed. Single use.',
+		shortDesc: 'When switching in, an attacker\'s attack fails and it gets Baseballed. Single use.',
 		rating: 3,
 	},
 	ironfist: {
@@ -805,7 +805,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Goomba"],
 		onTakeItem(item, source) {
-			if (item.itemUser === source.baseSpecies.baseSpecies) return false;
+			if (item.itemUser == source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 	},

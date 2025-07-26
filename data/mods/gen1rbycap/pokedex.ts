@@ -129,4 +129,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		gen: 1,
 	},
+	glacienant: {
+		num: 2008,
+		name: "Glacienant",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 80, atk: 134, def: 65, spa: 116, spd: 116, spe: 105},
+		abilities: {0: "No Ability"},
+		heightm: 1.2,
+		weightkg: 0.7,
+		color: "Purple",
+		eggGroups: ["Undiscovered"],
+		gen: 1,
+	},
 };

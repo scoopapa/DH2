@@ -2346,7 +2346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('screamcormorant', move);
-				delete target.volatiles['prehistorichunter'];
+				target.removeVolatile('prehistorichunter');
 			}
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
@@ -2372,8 +2372,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['prehistorichunter'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
+			pokemon.removeVolatile('prehistorichunter');
+			this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2428,7 +2432,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
+				this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
@@ -2750,18 +2758,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	heatproofdrive: {
-		shortDesc: "Heatproof + Quark Drive",
+		shortDesc: "Heatproof effects. If hit by Fire, x1.3 to highest stat (x1.5 instead if Speed)",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				target.addVolatile('heatproofdrive');
+			}
+		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive Atk weaken');
+				this.debug('Heatproof Atk weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive SpA weaken');
+				this.debug('Heatproof SpA weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -2770,20 +2783,56 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return damage / 2;
 			}
 		},
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
-			}
-		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['quarkdrive'];
-			this.add('-end', pokemon, 'Quark Drive', '[silent]');
+			delete pokemon.volatiles['heatproofdrive'];
+			this.add('-end', pokemon, 'Heatproof Drive', '[silent]');
+		},
+		
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'ability: Heatproof Drive');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Heatproof Drive",
@@ -3862,7 +3911,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Unstoppable",
 	},
 	saltedlobster: {
-		shortDesc: "Adaptability + x0.5 damage from STAB; Status immunity",
+		shortDesc: "Adaptability + Purifying Salt",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				return stab === 2 ? 2.25 : 2;
@@ -3882,14 +3931,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (attacker.hasType(move.type)) {
+			if (move.type === 'Ghost') {
 				this.debug('Purifying Salt weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(spa, attacker, defender, move) {
-			if (attacker.hasType(move.type)) {
+			if (move.type === 'Ghost') {
 				this.debug('Purifying Salt weaken');
 				return this.chainModify(0.5);
 			}

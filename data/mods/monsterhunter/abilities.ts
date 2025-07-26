@@ -28,13 +28,23 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.formeChange('zamtriosiced', this.effect, true);
 				}
 			},
-			onStart(pokemon) {
+		onStart(pokemon) {
 				if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'zamtrios') {
 					this.add('-ability', pokemon, 'Ice-Armor');
 					this.add('-message', `Zamtrios is transforming!`);
 					pokemon.formeChange('zamtriosiced', this.effect, true);
 				}
 			},
+			onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'zamtrios') {
+					this.add('-ability', pokemon, 'Ice-Armor');
+					this.add('-message', `Zamtrios is transforming!`);
+					pokemon.formeChange('zamtriosiced', this.effect, true);
+				}
+		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Ice-Armor",
@@ -315,10 +325,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1013,
 	},
 	centrifuge: {
-		shortDesc: "The Pokémon draws Ground moves to itself to raise Attack by 1; Ground immunity.",
+		shortDesc: "The Pokémon draws Ground moves to itself to raise Spa. Attack by 1; Ground immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
-				if (!this.boost({atk: 1})) {
+				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Centrifuge');
 				}
 				return null;
@@ -332,6 +342,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.effectState.target;
 			}
 		},
+		flags: {breakable: 1},
 		name: "Centrifuge",
 		rating: 3,
 		num: 1014,
@@ -397,6 +408,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Rusted Gale');
+			this.add('-message', `${pokemon.name}'s gale lowered all defense on the field!`);
+
 		},
 		onAnyModifyDef(def, target, source, move) {
 			const abilityHolder = this.effectState.target;
@@ -618,6 +631,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 1029,
 	},
 	plow: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Plow');
+				}
+				return null;
+			}
+		},
 		onDamage(damage, target, source, effect) {
 			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
 				this.heal(damage);
@@ -821,7 +842,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Bask');
+					this.add('-immune', target, '[from] ability: Oilmucus');
 				}
 				return null;
 			}
@@ -841,20 +862,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
+		flags: {breakable: 1},
 		name: "Oilmucus",
 		num: 1038,
 		rating: 2.5,
-	},
-	dozing: {
-		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when drowsy; ignores drawbacks.",
-		onResidual(pokemon) {
-			if (pokemon.status === 'slp') {
-				this.heal(pokemon.baseMaxhp / 8);
-			}
-		},
-		flags: {},
-		num: 1039,
-		name: "Dozing",
 	},
 	perforating: {
 		onModifyMovePriority: -5,
@@ -897,6 +908,250 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
 		rating: 3.5,
 	},
+	pathogenic: {
+		onDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'pathogenic') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('pathogenic', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: pathogenic', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if(pokemon.hasType('Poison') || pokemon.baseSpecies.name === 'Blackveil Hazak') {
+				this.debug('Immune to Pathogenic');
+			} else { 
+				this.add('-message', `${pokemon.name} is hurt by the Pathogen!`);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+			}
+		},
+		flags: {},
+		name: "Pathogenic",
+		shortDesc: "Contact changes attacker's ability to Pathogenic; non-Poison Pokemon are hurt.",
+		rating: 2,
+	},
+	oceanicveil: {
+		onStart(source) {
+			//this.actions.useMove("Aqua Ring", source);
+			this.add('-ability', source, 'Water Veil');
+			source.addVolatile('aquaring');
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Oceanic Veil",
+		rating: 2,
+		num: 41,
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+	},
+	incandescent: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				this.add('-immune', target, '[from] ability: Incandescent');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Incandescent",
+		shortDesc: "User gains STAB on Fire moves; Immune to Fire.",
+		rating: 4.5,
+	},
+	maddragon: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Mad Dragon boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Mad Dragon boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Grass') {
+				this.debug('Mad Dragon weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Grass') {
+				this.debug('Mad Dragon weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Mad Dragon",
+		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
+		rating: 3.5,
+	},
+	risenburst: {
+		shortDesc: "On Mega-Evo; uses Risen Burst (60BP, Typeless). Grants dark res + stab. Uses R.Burst when hit by a dark attack.",
+		onStart(pokemon) {
+			let targetSide = null;
+			const sides = [this.sides[0], this.sides[1]];
+			for (const side of sides) {
+  				if(pokemon.side !== side) {
+    				targetSide = side;
+  				}
+			}
+			if (pokemon.risenBurst) return;
+			pokemon.risenBurst = true;
+            	const reaction = this.dex.getActiveMove('risenburst');
+            	reaction.noreact = true;
+            	this.actions.useMove(reaction, pokemon, targetSide.active[pokemon.position]);
+		},
+		onDamagingHitOrder: 3,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.noreact && target.hp && source.hp && move.type === 'Dark') {
+				const reaction = this.dex.getActiveMove('risenburst');
+				reaction.noreact = true;
+				this.actions.useMove(reaction, target, source);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Risen Burst boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Risen Burst",
+		rating: 3.5,
+	},
+	overload: {
+		name: "Overload",
+		rating: 3.5,
+		flags: {},
+		shortDesc: "All Dragon moves used by the user are 1.4x damage but have 20% recoil.",
+		onModifyMove(move) {
+			if(move.type === 'Dragon' && move.category !=='Status') {
+				move.recoil = [1, 5];
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Overload boost');
+				return this.chainModify(1.4);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Overload boost');
+				return this.chainModify(1.4);
+			}
+		},
+	},
+	terrestrial: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Terrestrial",
+		rating: 3.5,
+		flags: {breakable: 1},
+		shortDesc: "Ground attacks do neutral damage.",
+	},
+	densecortex: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['slicing']) {
+				this.add('-immune', pokemon, '[from] ability: Dense Cortex');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Dense Cortex",
+		shortDesc: "Immune to slicing moves.",
+		rating: 3,
+	},
+	wyversion: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('dragoncharge');
+		},
+		flags: {},
+		name: "Wyversion",
+		shortDesc: "This Pokemon gains a (Dragon-type) Charge effect when it takes a hit from an attack.",
+		rating: 3,
+	},
+	stealthsilver: {
+		onStart(pokemon, source) {
+			if (pokemon.stealthsilver) return;
+			pokemon.stealthsilver = true;
+			pokemon.side.foe.addSideCondition('gmaxsteelsurge');
+		},
+		flags: {},
+		shortDesc: "On activation, this Pokemon sets steel-type hazards.",
+		name: "Stealth Silver",
+		rating: 4,
+	},
 	/*
 	Edits
 	*/
@@ -922,5 +1177,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
 		rating: 3,
 		num: 310,
+	},
+	raindish: {
+		inherit: true,
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
 	},
 }
