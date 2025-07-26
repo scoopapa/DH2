@@ -2814,20 +2814,17 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
-		//onBegin() {
-			//this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
-			//this.add('-message', `Welcome to ChatBats!`);
-			//this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
-			//this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
-			//this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
-		//},
 		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
 		onBegin() {
+			this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
+			this.add('-message', `Welcome to ChatBats!`);
+			this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
+			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
+			this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
 			this.add('-message', `yes working`);
 			for (const side of this.sides) {
 				for (const pokemon of side.pokemon) {
 					if (pokemon.species.id === 'dachsbun') {
-						this.add('-message', `yes working`);
 						// Get the opposing side
 						const foeSide = side.foe;
 						// Filter out Dachsbun from opponent's team
@@ -2838,7 +2835,10 @@ export const Formats: FormatList = [
 						randomFoe.setAbility('Orichalcum Pulse');
 						randomFoe.baseAbility = randomFoe.ability;
 						if (this.randomChance(1, 2)) {
-							randomFoe.setItem(this.randomChance(1, 2) ? 'Choice Scarf' : 'Choice Band');
+							randomFoeItem = (this.randomChance(1, 2) ? 'choicescarf' : 'choiceband');
+							randomFoe.item = randomFoeItem;
+							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
+							randomFoe.ignoringItem = false;
 							// Define new moves
 							const newMoves = ['closecombat', 'flareblitz', 'outrage', 'uturn'];
 		
@@ -2857,7 +2857,10 @@ export const Formats: FormatList = [
 							});
 						}
 						else {
-							randomFoe.setItem('Loaded Dice');
+							randomFoeItem = ('loadeddice');
+							randomFoe.item = randomFoeItem;
+							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
+							randomFoe.ignoringItem = false;
 							// Define new moves
 							const newMoves = ['collisioncourse', 'flareblitz', 'scaleshot', 'swordsdance'];
 		
