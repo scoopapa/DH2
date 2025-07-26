@@ -79,7 +79,7 @@ const SPECIAL_SETUP = [
 // Moves that boost Attack AND Special Attack:
 // Dragon Dance is here to force Altaria to get it
 const MIXED_SETUP = [
-	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance',
+	'clangoroussoul', 'growth', 'happyhour', 'holdhands', 'noretreat', 'shellsmash', 'workup', 'dragondance', 'filletaway',
 ];
 // Some moves that only boost Speed:
 const SPEED_SETUP = [
@@ -88,7 +88,7 @@ const SPEED_SETUP = [
 // Conglomerate for ease of access
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'clangoroussoul', 'coil', 'cosmicpower', 'curse', 'dragondance',
-	'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch', 'quiverdance',
+	'filletaway', 'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch', 'quiverdance',
 	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'trick room', 'workup', 'victorydance',
 ];
 const SPEED_CONTROL = [
@@ -606,6 +606,12 @@ export class RandomTeams {
 		if (species.id === 'moltres') this.incompatibleMoves(moves, movePool, 'flareblitz', 'wavecrash');
 		if (species.id === 'kommoo') this.incompatibleMoves(moves, movePool, 'aurasphere', 'closecombat');
 		if (species.id === 'archaludon') this.incompatibleMoves(moves, movePool, 'scald', 'hydropump');
+		if (species.id === 'abomasnowmega') this.incompatibleMoves(moves, movePool, 'iceshard', 'snowscape');
+		if (species.id === 'regieleki') this.incompatibleMoves(moves, movePool, 'blazingtorque', 'soak');
+		if (species.id === 'tatsugiri') this.incompatibleMoves(moves, movePool, 'nastyplot', 'rapidspin');
+		if (species.id === 'golurk') this.incompatibleMoves(moves, movePool, 'icepunch', 'dynamicpunch');
+		if (species.id === 'veluza') this.incompatibleMoves(moves, movePool, 'waterfall', 'hydropump');
+		if (species.id === 'ogerponhearthflame') this.incompatibleMoves(moves, movePool, 'crabhammer', 'stoneedge');
 
 	}
 
@@ -1273,6 +1279,10 @@ export class RandomTeams {
 		if (species.id === 'urshifurapidstrike') return this.sample(['Life Orb', 'Protective Pads']);
 		if (species.id === 'salamence') return this.sample(['Life Orb', 'Heavy-Duty Boots', 'Sky Plate']);
 		if (species.id === 'stonjourner') return 'Life Orb';
+		if (species.id === 'veluza') return 'Sitrus Berry';
+		if (species.id === 'ogerponhearthflame') return 'Hearthflame Mask';
+		if (species.id === 'dachsbun') return 'Rocky Helmet';
+		if (species.id === 'mew') return 'Starf Berry';
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
@@ -1778,7 +1788,8 @@ export class RandomTeams {
 				// if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
-			const species = this.sample(currentSpeciesPool);
+			// change let to const when not testing
+			let species = this.sample(currentSpeciesPool);
 
 			//let species = this.dex.species.get(this.sample(pokemonPool[baseSpecies]));
 
@@ -1871,9 +1882,9 @@ export class RandomTeams {
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 			
 			// Code to enforce a mon on teams for testing
-			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'urshifu';
-			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'salamence';
-			//if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'stonjourner';
+			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'dachsbun';
+			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'ogerponhearthflame';
+			if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'mew';
 			
 			let set: RandomTeamsTypes.RandomSet;
 

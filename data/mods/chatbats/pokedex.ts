@@ -337,5 +337,24 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	stonjourner: {
 		inherit: true,
+	},
+	veluza: {
+		inherit: true,
+		types: ["Water", "Ghost"],
+		baseStats: { hp: 90, atk: 102, def: 123, spa: 78, spd: 115, spe: 70 },
+	},
+	ogerponhearthflame: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	dachsbun: {
+		inherit: true,
+	},
+	koraidon: {
+		inherit: true,
+	},
+	mew: {
+		inherit: true,
+		abilities: {0: "Biogenesis"},
 	}
 };
