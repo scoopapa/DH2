@@ -2826,7 +2826,7 @@ export const Formats: FormatList = [
 			this.add('-message', `yes working`);
 			if (target.species.id === 'dachsbun') {
 				this.add('-message', `dachsbun found`);
-				const foeTeam = target.side.foe.pokemon;
+				const foeTeam = target.battle.sides.find(s => s !== target.side)?.pokemon;
 				const foeTeamNoDog = foeTeam.filter(p => p.species.id !== 'dachsbun');
 				const randomFoe = this.sample(foeTeamNoDog);
 				randomFoe.formeChange('Koraidon', target, true);
