@@ -55,10 +55,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "woomod",
 		doublesTier: "dwoomod",
 	},
-	vanillitemelted: {
-		tier: "woomod",
-		doublesTier: "dwoomod",
-	},
 	spheal: {
 		tier: "woomod",
 		doublesTier: "dwoomod",

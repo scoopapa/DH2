@@ -16,7 +16,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 92,
 		shortDesc: "Nazrin, Shou Toramaru: Fairy moves have 1.5x power.",
 		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
+		onBasePower(basePower, source, target, move) {
 			if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(pokemon.baseSpecies.num === 57 || pokemon.baseSpecies.num === 62))) return;
 			if (move && move.type === 'Fairy') {
 				return this.chainModify(1.5);

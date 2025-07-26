@@ -28,7 +28,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	tacticalretreat: {
 		onAfterMove(source, target, move) {
 			if (!source || !target.hp || !move.totalDamage) return;
-			if (Object.values(move.self.boosts).some(boost => boost < 0)) source.selfSwitch = true;
+			if (Object.values(move.self.boosts).some(boost => boost < 0)) source.switchFlag = true;
 		},
 		flags: {},
 		name: "Tactical Retreat",
@@ -37,6 +37,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	forbiddenjuice: {
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['toxicspikes']) {
+				this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 				pokemon.side.removeSideCondition('toxicspikes');
 				this.boost({def: 1});
 			}
@@ -60,10 +61,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.addVolatile('ability:deltastream');
 			}
 			if (move.category === 'Special') {
-				if (!pokemon.hasType('Flying')) return;
-				let newType = pokemon.getTypes().filter(t => t !== 'Flying');
-				if (pokemon.setType(newType)) {
-					this.add('-start', pokemon, 'typeadd', newType.join('/'), '[silent]');
+				if (!target.hasType('Flying')) return;
+				let newType = target.getTypes().filter(t => t !== 'Flying');
+				if (target.setType(newType)) {
+					this.add('-start', target, 'typechange', newType.join('/'), '[silent]');
 				}
 			}
 		},
@@ -71,7 +72,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Typhoon",
 		shortDesc: "When hit by a physical move, set Delta Stream. When hit by a special move, lose Flying.",
 	},
-	thickfat: {
+	protectiveaura: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ghost' || move.type === 'Dark') {
@@ -209,7 +210,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			
+			const flingable = this.dex.items.all().filter(item => item.fling);
+			pokemon.currentItem = pokemon.item;
+			const newItem = this.sample(flingable);
+			pokemon.setItem(newItem);
+			this.actions.useMove('fling', pokemon);
+			pokemon.setItem(pokemon.currentItem);
 		},
 		flags: {},
 		name: "Magic Bag",
@@ -219,8 +225,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyCritRatio(critRatio, source, target) {
 			let drops = 0;
 			let boost: BoostID;
-			for (boost in this.boosts) {
-				if (this.boosts[boost] < 0) drops -= this.boosts[boost];
+			for (boost in source.boosts) {
+				if (source.boosts[boost] < 0) drops -= source.boosts[boost];
 			}
 			return critRatio + drops;
 		},
@@ -234,16 +240,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onSwap(target) {
-				if (!target.fainted) {
-					target.addVolatile('ability:magicguard');
-					target.addVolatile('ability:levitate');
-				}
+			onSwap(pokemon) {
+				if (!pokemon.fainted) pokemon.side.removeSlotCondition(pokemon, 'phantomchute');
 			},
-		},
-		onEnd(pokemon) {
-			target.removeVolatile('ability:magicguard');
-			target.removeVolatile('ability:levitate');
 		},
 		flags: {},
 		name: "Phantom Chute",
@@ -269,8 +268,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					newType = 'Grass';
 					break;
 			}
-			this.add('-ability', source, 'Masquerade');
-			if(pokemon.addType(newType)) this.add('-start', target, 'typeadd', newType);
+			this.add('-ability', pokemon, 'Masquerade');
+			if(pokemon.addType(newType)) this.add('-start', pokemon, 'typeadd', newType);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Masquerade",

@@ -51,10 +51,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Chingling
 		this.modData("Learnsets", "chingling").learnset.voltswitch = ["9L1"];
 		this.modData("Learnsets", "chingling").learnset.willowisp = ["9L1"];
-		// Baltoy-Gear Rider
-		this.modData("Learnsets", "baltoygearrider").learnset.baltoy+klangmoves = ["9L1"];
-		// Baltoy-Water Rider
-		this.modData("Learnsets", "baltoywaterrider").learnset.baltoy+seadramoves = ["9L1"];
 		// Charmander
 		this.modData("Learnsets", "charmander").learnset.flipturn = ["9L1"];
 		// Nymble
@@ -64,10 +60,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vanillite").learnset.scald = ["9L1"];
 		this.modData("Learnsets", "vanillite").learnset.voltswitch = ["9L1"];
 		this.modData("Learnsets", "vanillite").learnset.vanilliteattackwithtoomanyeffects = ["9L1"];
-		// Vanillite-Melted
-		this.modData("Learnsets", "vanillitemelted").learnset.scald = ["9L1"];
-		this.modData("Learnsets", "vanillitemelted").learnset.voltswitch = ["9L1"];
-		this.modData("Learnsets", "vanillitemelted").learnset.vanilliteattackwithtoomanyeffects = ["9L1"];
 		// Spheal
 		this.modData("Learnsets", "spheal").learnset.hydrosteam = ["9L1"];
 		this.modData("Learnsets", "spheal").learnset.flamethrower = ["9L1"];

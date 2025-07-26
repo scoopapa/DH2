@@ -19,13 +19,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.name === "Farfetch'd") {
+		onBasePower(basePower, source, target, move) {
+			if (source.species.id === "farfetchd") {
 				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.name === 'Ogerpon') return false;
+			if (source.species.id === "farfetchd") return false;
 			return true;
 		},
 		itemUser: ["Farfetch'd"],
@@ -35,12 +35,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Farfetch'd: 1.2x power attacks; Ivy Cudgel is Fire type.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.name === "Farfetch'd") {
+			if (user.species.id === "farfetchd") {
 				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.name === "Farfetch'd") return false;
+			if (source.species.id === "farfetchd") return false;
 			return true;
 		},
 		itemUser: ["Farfetch'd"],
@@ -50,12 +50,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Farfetch'd: 1.2x power attacks; Ivy Cudgel is Water type.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.name === "Farfetch'd") {
+			if (user.species.id === "farfetchd") {
 				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.name === "Farfetch'd") return false;
+			if (source.species.id === "farfetchd") return false;
 			return true;
 		},
 		itemUser: ["Farfetch'd"],
@@ -65,12 +65,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Farfetch'd: 1.2x power attacks; Ivy Cudgel is Rock type.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.name === "Farfetch'd") {
+			if (user.species.id === "farfetchd") {
 				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.name === "Farfetch'd") return false;
+			if (source.species.id === "farfetchd") return false;
 			return true;
 		},
 		itemUser: ["Farfetch'd"],
@@ -78,7 +78,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	leek: {
 		inherit: true,
 		onTakeItem(item, source) {
-			if (source.baseSpecies.name === "Farfetch'd") return false;
+			if (source.species.id === "farfetchd") return false;
 			return true;
 		},
 		itemUser: ["Farfetch'd"],

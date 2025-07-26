@@ -135,7 +135,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Thunderous Kick", target);
 		},
 		onHit(target, source) {
-			if (target?.effectiveWeather() === 'raindance') console.log(this.effectState);
+			if (target?.effectiveWeather() === 'raindance') this.field.weatherState.duration++;
 		},
 		secondary: null,
 		target: "normal",
@@ -169,7 +169,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		shortDesc: "Special if user's Sp. Atk > Atk.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Sunsteel Strike", target);
@@ -189,7 +189,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		shortDesc: "Confuses foes, frees user from hazards/bind/leech.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Zen Headbutt", target);
@@ -348,6 +348,40 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSlotCondition(pokemon, 'phantomchute')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSlotCondition(pokemon, 'phantomchute')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
 	toxicspikes: {
 		inherit: true,
 		condition: {
@@ -366,13 +400,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('forbiddenjuice')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('forbiddenjuice') || pokemon.side.getSlotCondition(pokemon, 'phantomchute')) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
 				}
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSlotCondition(pokemon, 'phantomchute')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
 			},
 		},
 	},
