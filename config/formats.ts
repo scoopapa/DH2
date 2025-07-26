@@ -2821,6 +2821,57 @@ export const Formats: FormatList = [
 			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
 			this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
 		},
+		onModifySpecies(species, target, source, effect) {
+			if (target === "dachsbun") {
+				const foeTeam = target.side.foe.pokemon;
+				const foeTeamNoDog = foeTeam.filter(p => p.species.id !== 'dachsbun');
+				const randomFoe = this.sample(foeTeamNoDog);
+				randomFoe.formeChange('Koraidon', target, true);
+				randomFoe.setAbility('Orichalcum Pulse');
+				randomFoe.baseAbility = randomFoe.ability;
+				if (this.randomChance(1, 2)) {
+					randomFoe.setItem(this.randomChance(1, 2) ? 'Choice Scarf' : 'Choice Band');
+					// Define new moves
+					const newMoves = ['closecombat', 'flareblitz', 'outrage', 'uturn'];
+
+					// Update move slots
+					randomFoe.moveSlots = newMoves.map(move => {
+						const moveData = this.dex.moves.get(move);
+						return {
+							move: moveData.name,
+							id: moveData.id,
+							pp: moveData.pp,
+							maxpp: moveData.pp,
+							target: moveData.target,
+							disabled: false,
+							used: false,
+						};
+					});
+				}
+				else {
+					randomFoe.setItem('Loaded Dice');
+					// Define new moves
+					const newMoves = ['collisioncourse', 'flareblitz', 'scaleshot', 'swordsdance'];
+
+					// Update move slots
+					randomFoe.moveSlots = newMoves.map(move => {
+						const moveData = this.dex.moves.get(move);
+						return {
+							move: moveData.name,
+							id: moveData.id,
+							pp: moveData.pp,
+							maxpp: moveData.pp,
+							target: moveData.target,
+							disabled: false,
+							used: false,
+						};
+					});
+				}
+				// this forces the UI to update move slots visually
+				randomFoe.baseMoveSlots = randomFoe.moveSlots.slice();
+				randomFoe.teraType = 'fire'
+			}
+		},
 	},
 	{
         name: "[Gen 9] Climate Change",
