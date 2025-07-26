@@ -1882,7 +1882,7 @@ export class RandomTeams {
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 			
 			// Code to enforce a mon on teams for testing
-			if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'veluza';
+			if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'dachsbun';
 			if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'ogerponhearthflame';
 			if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'mew';
 			
