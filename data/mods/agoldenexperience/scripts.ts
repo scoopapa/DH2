@@ -476,6 +476,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'chinchou').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'lanturn').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'politoed').learnset.highwater = ['9M'];
+    this.modData('Learnsets', 'swampert').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'seismitoad').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'jellicent').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'eelektross').learnset.highwater = ['9M'];
@@ -825,6 +826,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'glaceon').learnset.chillblain = ['9L1'];
     this.modData('Learnsets', 'mamoswine').learnset.chillblain = ['9L1'];
     this.modData('Learnsets', 'froslass').learnset.chillblain = ['9L1'];
+    this.modData('Learnsets', 'rotom').learnset.chillblain = ['9L1'];
     this.modData('Learnsets', 'castform').learnset.chillblain = ['9L1'];
     this.modData('Learnsets', 'darumakagalar').learnset.chillblain = ['9L1'];
     this.modData('Learnsets', 'darmanitangalar').learnset.chillblain = ['9L1'];
@@ -1424,7 +1426,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'rotom').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'rotomheat').learnset.heatwave = ['9L1'];
     this.modData('Learnsets', 'rotomwash').learnset.whirlpool = ['9L1'];
-    this.modData('Learnsets', 'rotomfrost').learnset.chillblain = ['9L1'];
+    this.modData('Learnsets', 'rotomfrost').learnset.freezedry = ['9L1'];
     this.modData('Learnsets', 'rotomfan').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'rotommow').learnset.leechseed = ['9L1'];
     this.modData('Learnsets', 'uxie').learnset.bodypress = ['9L1'];
@@ -1607,9 +1609,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'aurorus').learnset.powergem = ['9L1'];
     this.modData('Learnsets', 'sylveon').learnset.sparklyswirl = ['9L1'];
     this.modData('Learnsets', 'sylveon').learnset.moonlight = ['9L1'];
-    delete this.modData('Learnsets', 'goomy').learnset.lifedew;
-    delete this.modData('Learnsets', 'sliggoohisui').learnset.lifedew;
-    delete this.modData('Learnsets', 'goodrahisui').learnset.lifedew;
     this.modData('Learnsets', 'goodra').learnset.purify = ['9L1'];
     this.modData('Learnsets', 'goodra').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'goodrahisui').learnset.steelroller = ['9L1'];

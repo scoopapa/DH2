@@ -1500,6 +1500,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			hail: ["9M"],
 			helpinghand: ["9M"],
 			highwater: ["9M"],
+			horndrill: ["9L0"],
 			hydrocannon: ["9M"],
 			hydropump: ["9M", "9L63"],
 			hyperbeam: ["9M"],
