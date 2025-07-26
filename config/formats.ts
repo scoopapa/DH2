@@ -2831,8 +2831,11 @@ export const Formats: FormatList = [
 						const foeTeamNoDog = foeSide.pokemon.filter(p => p.species.id !== 'dachsbun');
 						// Pick a random foe
 						const randomFoe = this.sample(foeTeamNoDog);
-						randomFoe.formeChange('Koraidon', pokemon, true);
-						randomFoe.setAbility('Orichalcum Pulse');
+						const rawSpecies = this.dex.species.get('koraidon');
+						randomFoe.setSpecies(rawSpecies, pokemon);
+						randomFoe.baseSpecies = rawSpecies;
+						randomFoe.details = randomFoe.getUpdatedDetails();
+						randomFoe.setAbility('Orichalcum Pulse', null, true);
 						randomFoe.baseAbility = randomFoe.ability;
 						if (this.randomChance(1, 2)) {
 							const randomFoeItem = (this.randomChance(1, 2) ? 'choicescarf' : 'choiceband');
