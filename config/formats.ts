@@ -2814,68 +2814,74 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
-			this.add('-message', `Welcome to ChatBats!`);
-			this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
-			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
-			this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
+		//onBegin() {
+			//this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
+			//this.add('-message', `Welcome to ChatBats!`);
+			//this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
+			//this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
+			//this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
 		},
 		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
-		onModifySpecies(species, target, source, effect) {
+		onBegin(battle) {
 			this.add('-message', `yes working`);
-			if (target.species.id === 'dachsbun') {
-				this.add('-message', `dachsbun found`);
-				const foeTeam = target.battle.sides.find(s => s !== target.side)?.pokemon;
-				const foeTeamNoDog = foeTeam.filter(p => p.species.id !== 'dachsbun');
-				const randomFoe = this.sample(foeTeamNoDog);
-				randomFoe.formeChange('Koraidon', target, true);
-				randomFoe.setAbility('Orichalcum Pulse');
-				randomFoe.baseAbility = randomFoe.ability;
-				if (this.randomChance(1, 2)) {
-					randomFoe.setItem(this.randomChance(1, 2) ? 'Choice Scarf' : 'Choice Band');
-					// Define new moves
-					const newMoves = ['closecombat', 'flareblitz', 'outrage', 'uturn'];
-
-					// Update move slots
-					randomFoe.moveSlots = newMoves.map(move => {
-						const moveData = this.dex.moves.get(move);
-						return {
-							move: moveData.name,
-							id: moveData.id,
-							pp: moveData.pp,
-							maxpp: moveData.pp,
-							target: moveData.target,
-							disabled: false,
-							used: false,
-						};
-					});
+			for (const side of battle.sides) {
+				for (const pokemon of side.pokemon) {
+					if (pokemon.species.id === 'dachsbun') {
+						this.add('-message', `yes working`);
+						// Get the opposing side
+						const foeSide = side.foe;
+						// Filter out Dachsbun from opponent's team
+						const foeTeamNoDog = foeSide.pokemon.filter(p => p.species.id !== 'dachsbun');
+						// Pick a random foe
+						const randomFoe = battle.sample(foeTeamNoDog);
+						randomFoe.formeChange('Koraidon', target, true);
+						randomFoe.setAbility('Orichalcum Pulse');
+						randomFoe.baseAbility = randomFoe.ability;
+						if (this.randomChance(1, 2)) {
+							randomFoe.setItem(this.randomChance(1, 2) ? 'Choice Scarf' : 'Choice Band');
+							// Define new moves
+							const newMoves = ['closecombat', 'flareblitz', 'outrage', 'uturn'];
+		
+							// Update move slots
+							randomFoe.moveSlots = newMoves.map(move => {
+								const moveData = this.dex.moves.get(move);
+								return {
+									move: moveData.name,
+									id: moveData.id,
+									pp: moveData.pp,
+									maxpp: moveData.pp,
+									target: moveData.target,
+									disabled: false,
+									used: false,
+								};
+							});
+						}
+						else {
+							randomFoe.setItem('Loaded Dice');
+							// Define new moves
+							const newMoves = ['collisioncourse', 'flareblitz', 'scaleshot', 'swordsdance'];
+		
+							// Update move slots
+							randomFoe.moveSlots = newMoves.map(move => {
+								const moveData = this.dex.moves.get(move);
+								return {
+									move: moveData.name,
+									id: moveData.id,
+									pp: moveData.pp,
+									maxpp: moveData.pp,
+									target: moveData.target,
+									disabled: false,
+									used: false,
+								};
+							});
+						}
+						// this forces the UI to update move slots visually
+						randomFoe.baseMoveSlots = randomFoe.moveSlots.slice();
+						randomFoe.teraType = 'fire'
+					}
 				}
-				else {
-					randomFoe.setItem('Loaded Dice');
-					// Define new moves
-					const newMoves = ['collisioncourse', 'flareblitz', 'scaleshot', 'swordsdance'];
-
-					// Update move slots
-					randomFoe.moveSlots = newMoves.map(move => {
-						const moveData = this.dex.moves.get(move);
-						return {
-							move: moveData.name,
-							id: moveData.id,
-							pp: moveData.pp,
-							maxpp: moveData.pp,
-							target: moveData.target,
-							disabled: false,
-							used: false,
-						};
-					});
-				}
-				// this forces the UI to update move slots visually
-				randomFoe.baseMoveSlots = randomFoe.moveSlots.slice();
-				randomFoe.teraType = 'fire'
 			}
 		},
-	},
 	{
         name: "[Gen 9] Climate Change",
         desc: [
