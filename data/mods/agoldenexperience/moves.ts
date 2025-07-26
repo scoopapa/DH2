@@ -3519,6 +3519,20 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	dive: {
 		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
+				attacker.formeChange('cramorantgulping', move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
@@ -3745,24 +3759,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			}
 			return source.status === 'slp' || source.hasAbility('comatose') || usable;
-		},
-	},
-	// Gulp Missile
-	dive: {
-		inherit: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
-				attacker.formeChange('cramorantgulping', move);
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
 		},
 	},
 };
