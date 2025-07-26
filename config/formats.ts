@@ -2835,7 +2835,7 @@ export const Formats: FormatList = [
 						randomFoe.setAbility('Orichalcum Pulse');
 						randomFoe.baseAbility = randomFoe.ability;
 						if (this.randomChance(1, 2)) {
-							randomFoeItem = (this.randomChance(1, 2) ? 'choicescarf' : 'choiceband');
+							const randomFoeItem = (this.randomChance(1, 2) ? 'choicescarf' : 'choiceband');
 							randomFoe.item = randomFoeItem;
 							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
 							randomFoe.ignoringItem = false;
@@ -2857,7 +2857,7 @@ export const Formats: FormatList = [
 							});
 						}
 						else {
-							randomFoeItem = ('loadeddice');
+							const randomFoeItem = 'loadeddice';
 							randomFoe.item = randomFoeItem;
 							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
 							randomFoe.ignoringItem = false;
