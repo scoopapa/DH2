@@ -2824,7 +2824,7 @@ export const Formats: FormatList = [
 		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
 		onModifySpecies(species, target, source, effect) {
 			this.add('-message', `yes working`);
-			if (target === "dachsbun") {
+			if (target.species.id === 'dachsbun') {
 				this.add('-message', `dachsbun found`);
 				const foeTeam = target.side.foe.pokemon;
 				const foeTeamNoDog = foeTeam.filter(p => p.species.id !== 'dachsbun');
