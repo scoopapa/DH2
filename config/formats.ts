@@ -2833,8 +2833,8 @@ export const Formats: FormatList = [
 						// Filter out Dachsbun from opponent's team
 						const foeTeamNoDog = foeSide.pokemon.filter(p => p.species.id !== 'dachsbun');
 						// Pick a random foe
-						const randomFoe = battle.sample(foeTeamNoDog);
-						randomFoe.formeChange('Koraidon', target, true);
+						const randomFoe = this.sample(foeTeamNoDog);
+						randomFoe.formeChange('Koraidon', pokemon, true);
 						randomFoe.setAbility('Orichalcum Pulse');
 						randomFoe.baseAbility = randomFoe.ability;
 						if (this.randomChance(1, 2)) {
