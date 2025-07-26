@@ -2822,9 +2822,9 @@ export const Formats: FormatList = [
 			//this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
 		//},
 		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
-		onBegin(battle) {
+		onBegin() {
 			this.add('-message', `yes working`);
-			for (const side of battle.sides) {
+			for (const side of this.sides) {
 				for (const pokemon of side.pokemon) {
 					if (pokemon.species.id === 'dachsbun') {
 						this.add('-message', `yes working`);
