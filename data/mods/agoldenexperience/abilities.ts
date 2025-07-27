@@ -2,6 +2,7 @@ import { consoleips } from "../../../config/config-example";
 
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick', 'axekick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
+const sleepMove = ["Dark Void", "Grass Whistle", "Hypnosis", "Lovely Kiss", "Psycho Shift", "Sing", "Sleep Powder", "Spore", "Yawn"];
 
 export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	poisonousradula: {
@@ -2700,7 +2701,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	myceliummight: {
 		inherit: true,
 		onFractionalPriority(priority, pokemon, target, move) {
-			const sleepMove = ["Dark Void", "Grass Whistle", "Hypnosis", "Lovely Kiss", "Psycho Shift", "Sing", "Sleep Powder", "Spore", "Yawn"],
 			if (sleepMove.includes(move.id)) {
 				return -0.1;
 			}
