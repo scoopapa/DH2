@@ -1468,6 +1468,8 @@ export const Scripts: ModdedBattleScriptsData = {
     // Gen 5:
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'emboar').learnset.ragingfury = ['9L1'];
+    this.modData('Learnsets', 'emboar').learnset.supercellslam = ['9L1'];
+    this.modData('Learnsets', 'emboar').learnset.submission = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.megakick = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.glare = ['9L1'];
     this.modData('Learnsets', 'stoutland').learnset.doubleedge = ['9L1'];
