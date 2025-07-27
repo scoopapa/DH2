@@ -264,10 +264,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass') && !target.volatiles['leechseed']) {
+					source.addVolatile('myceliummight');
 					this.actions.useMove("Leech Seed", source);
 				}
 			}
 		},
+		condition: {},
 		shortDesc: "Single-target status moves move last, but ignore abilities and inflict Leech Seed.",
 		rating: 3,
 	},
