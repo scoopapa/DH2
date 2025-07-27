@@ -3482,7 +3482,80 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icicle Spear", target);
+		},
 		shortDesc: "(WIP) Hits once in this turn, then hits again in the next turn. Ignores protection.",
+	},
+	overdrive: {
+		inherit: true,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+	},
+	wyvernflight: {
+		num: -84,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Wyvern Flight",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Boomburst", target);
+			this.add('-anim', source, "U-turn", target);
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
+		shortDesc: "User switches out after damaging the target.",
+	},
+	bigbang: {
+		num: -85,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Big Bang",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		secondary: null,
+		ignoreAbility: true,
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Boomburst", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			let type = move.type;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity[type] = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		target: "allAdjacent",
+		type: "Normal",
+		contestType: "Tough",
+		desc: "This move and its effects ignore the Abilities of other Pokemon, as well as resistances and immunities.",
+		shortDesc: "Ignores the Abilities of other Pokemon, resistances and immunities.",
 	},
 	// Everlasting Winter field
 	auroraveil: {

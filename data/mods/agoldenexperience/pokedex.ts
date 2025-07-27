@@ -1280,6 +1280,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 120, atk: 105, def: 100, spa: 60, spd: 100, spe: 45},
 		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Icebreaker"},
 	},
+	huntail: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 114, def: 105, spa: 54, spd: 75, spe: 82},
+	},
+	gorebyss: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 54, def: 105, spa: 114, spd: 75, spe: 82},
+	},
 	relicanth: {
 		inherit: true,
 		abilities: {0: "Hard Rock", 1: "Rock Head", H: "Sturdy"},
@@ -1445,6 +1453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	honchkrow: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 125, def: 52, spa: 105, spd: 52, spe: 91},
+		abilities: {0: "Insomnia", 1: "Intimidate", H: "Moxie"},
 	},
 	purugly: {
 		inherit: true,
@@ -2336,9 +2345,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 74, atk: 48, def: 76, spa: 93, spd: 81, spe: 109},
 	},
+	spritzee: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Poison Heal", H: "Aroma Veil"},
+	},
 	aromatisse: {
 		inherit: true,
 		baseStats: {hp: 101, atk: 72, def: 80, spa: 109, spd: 89, spe: 29},
+		abilities: {0: "Healer", 1: "Poison Heal", H: "Aroma Veil"},
 	},
 	slurpuff: {
 		inherit: true,
@@ -2514,9 +2528,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 130, def: 80, spa: 55, spd: 80, spe: 45},
 	},
+	grubbin: {
+		inherit: true,
+		abilities: {0: "Swarm", H: "Volt Absorb"},
+	},
+	charjabug: {
+		inherit: true,
+		abilities: {0: "Battery", H: "Volt Absorb"},
+	},
 	vikavolt: {
 		inherit: true,
-		baseStats: {hp: 77, atk: 40, def: 80, spa: 145, spd: 65, spe: 93},
+		baseStats: {hp: 77, atk: 60, def: 90, spa: 145, spd: 75, spe: 63},
+		abilities: {0: "Levitate", H: "Speed Boost"},
 	},
 	crabominable: {
 		inherit: true,
@@ -2765,7 +2788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	bruxish: {
 		inherit: true,
-		baseStats: {hp: 68, atk: 115, def: 70, spa: 65, spd: 70, spe: 102},
+		baseStats: {hp: 68, atk: 115, def: 70, spa: 55, spd: 70, spe: 112},
 	},
 	drampa: {
 		inherit: true,
@@ -2861,6 +2884,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	coalossal: {
 		inherit: true,
+		baseStats: {hp: 110, atk: 50, def: 130, spa: 100, spd: 90, spe: 30},
 		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Evaporate"},
 	},
 	flapple: {
@@ -3175,6 +3199,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	grafaiai: {
 		inherit: true,
 		baseStats: {hp: 63, atk: 95, def: 65, spa: 60, spd: 72, spe: 130},
+	},
+	brambleghast: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 115, def: 75, spa: 45, spd: 75, spe: 105},
 	},
 	toedscruel: {
 		inherit: true,

@@ -4850,6 +4850,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			boomburst: ["9L1"],
 			focusblast: ["9L1"],
 			dracometeor: ["9L1"],
+			wyvernflight: ["9L1"],
 		},
 	},
 	slugmasinnoh: { 

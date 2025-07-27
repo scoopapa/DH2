@@ -608,9 +608,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	deepseascale: {
 		inherit: true,
 		name: "Deep Sea Scale",
-		shortDesc: "If held by a Clamperl or a Gorebyss, its Sp. Def is x1.5.",
-		onModifySpDPriority: 2,
-		onModifySpD(spd, pokemon) {
+		shortDesc: "If held by a Clamperl or a Gorebyss, its Sp. Atk is x1.5.",
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Gorebyss') {
 				return this.chainModify(1.5);
 			}
@@ -620,9 +620,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	deepseatooth: {
 		inherit: true,
 		name: "Deep Sea Tooth",
-		shortDesc: "If held by a Clamperl or a Huntail, its Sp. Atk is x1.5.",
-		onModifySpAPriority: 1,
-		onModifySpA(spa, pokemon) {
+		shortDesc: "If held by a Clamperl or a Huntail, its Atk is x1.5.",
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Huntail') {
 				return this.chainModify(1.5);
 			}
