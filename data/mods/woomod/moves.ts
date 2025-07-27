@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	ivycudgel: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			if (pokemon.baseSpecies !== "Farfetch'd") return;
+			if (pokemon.species.id !== "farfetchd") return;
 			switch (pokemon.item) {
 			case 'wellspringmask':
 				move.type = 'Water';
