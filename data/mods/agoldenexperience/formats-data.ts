@@ -2655,7 +2655,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	seismitoad: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	throh: {
@@ -4583,7 +4583,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	dondozo: {
 		tier: "UUBL",
-		doublesTier: "DOU",
+		doublesTier: "(DUU)",
 	},
 	veluza: {
 		tier: "NU",
@@ -4680,11 +4680,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	tatsugiri: {
 		tier: "NU",
-		doublesTier: "DOU",
+		doublesTier: "(DUU)",
 	},
 	cyclizar: {
 		tier: "RU",
-		doublesTier: "DUU",
+		doublesTier: "(DUU)",
 	},
 	pawmi: {
 		tier: "LC",
