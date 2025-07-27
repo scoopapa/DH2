@@ -299,7 +299,7 @@
         ]
     },
     "archaludon": {
-        "level": 0,
+        "level": 80,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -805,6 +805,50 @@
                 "movepool": ["Rock Wrecker", "Giga Impact", "Meteor Assault", "Sky Attack", "Solar Blade", "Victory Dance"],
                 "abilities": ["Power Spot"],
                 "teraTypes": ["Rock", "Grass", "Fighting"]
+            }
+        ]
+    },
+    "veluza": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Waterfall", "Rage Fist", "Fillet Away", "Stored Power", "Magical Torque", "Hydro Pump"],
+                "abilities": ["Mold Breaker"],
+                "teraTypes": ["Water", "Ghost", "Fairy", "Psychic", "Dark"]
+            }
+        ]
+    },
+    "ogerponhearthflame": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Focus Energy", "Ivy Cudgel", "Stone Edge", "Leaf Blade", "Crabhammer"],
+                "abilities": ["Intimidate"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+    "dachsbun": {
+        "level": 86,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Nuzzle", "Body Press", "Spirit Break", "Morning Sun"],
+                "abilities": ["Well-Baked Body"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+    "mew": {
+        "level": 90,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Acrobatics", "Air Slash", "Agility", "Avalanche"],
+                "abilities": ["Biogenesis"],
+                "teraTypes": ["Stellar"]
             }
         ]
     }

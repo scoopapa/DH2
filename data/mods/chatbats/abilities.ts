@@ -603,5 +603,112 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: 249,
 		shortDesc: "Moves ignore charge/recharge turns.",
+	},
+	biogenesis: {
+		onSwitchInPriority: -1,
+		onBeforeSwitchIn(pokemon) {	
+			if (pokemon.didRandomMoves === "yes") return;
+			const moves = this.dex.moves.all();
+			let randomMove1 = '';
+			if (moves.length) {
+				randomMove1 = this.sample(moves).id;
+			}
+			if (!randomMove1) return false;
+			let randomMove2 = '';
+			if (moves.length) {
+				randomMove2 = this.sample(moves).id;
+			}
+			if (!randomMove2) return false;
+			let randomMove3 = '';
+			if (moves.length) {
+				randomMove3 = this.sample(moves).id;
+			}
+			if (!randomMove3) return false;
+			let randomMove4 = '';
+			if (moves.length) {
+				randomMove4 = this.sample(moves).id;
+			}
+			if (!randomMove4) return false;
+			let randomMove5 = '';
+			if (moves.length) {
+				randomMove5 = this.sample(moves).id;
+			}
+			if (!randomMove5) return false;
+			let randomMove6 = '';
+			if (moves.length) {
+				randomMove6 = this.sample(moves).id;
+			}
+			if (!randomMove6) return false;
+			let randomMove7 = '';
+			if (moves.length) {
+				randomMove7 = this.sample(moves).id;
+			}
+			if (!randomMove7) return false;
+			let randomMove8 = '';
+			if (moves.length) {
+				randomMove8 = this.sample(moves).id;
+			}
+			if (!randomMove8) return false;
+			// Define new moves
+			const newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
+			// Update move slots
+			pokemon.moveSlots = newMoves.map(move => {
+				const moveData = this.dex.moves.get(move);
+				return {
+					move: moveData.name,
+					id: moveData.id,
+					pp: moveData.pp,
+					maxpp: moveData.pp,
+					target: moveData.target,
+					disabled: false,
+					used: false,
+				};
+			});
+			// this forces the UI to update move slots visually
+			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
+			pokemon.didRandomMoves = "yes";
+		},
+		onSwitchIn(pokemon) {
+			this.add('-ability', pokemon, 'Biogenesis');
+			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
+			if (!pokemon) return; // Chat command
+			const attackingMoves = pokemon.baseMoveSlots
+  				.map(slot => this.dex.moves.get(slot.id))
+  				.filter(move => move.category === 'Physical' || move.category === 'Special');
+
+			// pick types of first 2 attacking moves (failsafe if there are none)
+			const types = attackingMoves.length
+  				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
+  				: pokemon.types;
+			pokemon.setType(types);
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1},
+		name: "Biogenesis",
+		rating: 5,
+		num: -112,
+		shortDesc: "This Pokemon receives 8 completely random moves at the start of the game.",
+	},
+	orichalcumpulse: {
+		onStart(pokemon) {
+			pokemon.updateMaxHp();
+			if (this.field.setWeather('sunnyday')) {
+				this.add('-activate', pokemon, 'Orichalcum Pulse', '[source]');
+			} else if (this.field.isWeather('sunnyday')) {
+				this.add('-activate', pokemon, 'ability: Orichalcum Pulse');
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('Orichalcum boost');
+				return this.chainModify([5461, 4096]);
+			}
+		},
+		flags: {},
+		name: "Orichalcum Pulse",
+		rating: 4.5,
+		num: 288,
 	}
 };

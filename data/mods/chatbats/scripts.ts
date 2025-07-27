@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["PMCM"],
+		customTiers: ["ChatBats"],
 	},
 
 	init() {
@@ -208,5 +208,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'stonjourner').learnset.skyattack = ['9L1'];
 		this.modData('Learnsets', 'stonjourner').learnset.victorydance = ['9L1'];
 		this.modData('Learnsets', 'stonjourner').learnset.solarblade = ['9L1'];
+
+		this.modData('Learnsets', 'veluza').learnset.ragefist = ['9L1'];
+		this.modData('Learnsets', 'veluza').learnset.magicaltorque = ['9L1'];
+
+		this.modData('Learnsets', 'ogerpon').learnset.leafblade = ['9L1'];
+		this.modData('Learnsets', 'ogerpon').learnset.crabhammer = ['9L1'];
+		this.modData('Learnsets', 'ogerpon').learnset.stoneedge = ['9L1'];
+
+		this.modData('Learnsets', 'dachsbun').learnset.nuzzle = ['9L1'];
+		this.modData('Learnsets', 'dachsbun').learnset.spiritbreak = ['9L1'];
+		this.modData('Learnsets', 'dachsbun').learnset.morningsun = ['9L1'];
 	},
 };
