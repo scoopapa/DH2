@@ -182,7 +182,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "LAST CALL",
-		shortDesc: "When this Pokemon, it uses the last move in its moveset.",
+		shortDesc: "When this Pokemon faints, it uses the last move in its moveset.",
 	},
 	narcissus: {
 		onSwitchIn(pokemon) {
