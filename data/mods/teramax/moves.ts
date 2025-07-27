@@ -1765,6 +1765,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	leechseed: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (!pokemon.volatiles['myceliummight']) return;
+			move.accuracy = true;
+			pokemon.removeVolatile('myceliummight');
+		},
+	},
+
 
 	/*
 	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
