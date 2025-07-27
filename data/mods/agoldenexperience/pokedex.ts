@@ -1701,7 +1701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	emboar:{
 		inherit: true,
-		abilities: {0: "Blaze", H: "Adaptability"},
+		baseStats: {hp: 110, atk: 123, def: 65, spa: 70, spd: 65, spe: 95},
 		otherFormes: ["Emboar-Galar"],
 		formeOrder: ["Emboar", "Emboar-Galar"],
 	},
