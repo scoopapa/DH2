@@ -2750,7 +2750,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Balls",
-		mod: 'balls',
+		mod: 'mixandmegaballs',
 		desc: `A hilarious metagame filled with nothing but balls.`,
 		ruleset: ['Standard', 'Data Mod'],
 		onValidateTeam(team, format) {
