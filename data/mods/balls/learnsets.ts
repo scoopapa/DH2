@@ -1446,7 +1446,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rockblast: ["9L1"],
 			rockslide: ["9L1"],
 			rocktomb: ["9L1"],
-			shiftgear: ["9L1"],
 			sleeptalk: ["9L1"],
 			spikes: ["9L1"],
 			steelbeam: ["9L1"],

@@ -2750,9 +2750,9 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Balls",
-		mod: 'mixandmegaballs',
+		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'/*, '!Sleep Clause Mod'*/],
+		ruleset: ['Standard', 'Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
