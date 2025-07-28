@@ -2199,7 +2199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	landorus: {
 		inherit: true,
 		baseStats: {hp: 89, atk: 115, def: 90, spa: 125, spd: 80, spe: 101},
-		abilities: {0: "Wind Rider", H: "Air Lock"},
+		abilities: {0: "Sand Force", H: "Wind Rider"},
 	},
 	keldeo: {
 		inherit: true,
