@@ -123,15 +123,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	dragaplunge: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	ironblimp: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	puffache: {
 		tier: "NS",
 	},
 	fushimmer: {
+		tier: "NS",
+	},
+	queenialis: {
+		tier: "NS",
+	},
+	forotten: {
+		tier: "NS",
+	},
+	ironshrimp: {
+		tier: "NS",
+	},
+	blimplin: {
+		tier: "NS",
+	},
+	monoritor: {
+		tier: "NS",
+	},
+	dragapex: {
+		tier: "NS",
+	},
+	crabrobber: {
 		tier: "NS",
 	},
 };
