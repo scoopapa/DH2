@@ -779,7 +779,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["psychic", "safeguard", "fireblast", "thunderwave"]
+                "movepool": ["psychic", "safeguard", "fireblast", "thunderwave", "protect"]
             }
         ]
     },
