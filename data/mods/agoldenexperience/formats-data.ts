@@ -1462,7 +1462,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	linoone: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	linoonegalar: {
@@ -2161,7 +2161,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	wormadamtrash: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	mothim: {
@@ -4658,7 +4658,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	maushold: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	cetoddle: {

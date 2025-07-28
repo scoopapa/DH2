@@ -1395,22 +1395,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	wormadam: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 59, def: 90, spa: 79, spd: 116, spe: 36},
+		baseStats: {hp: 90, atk: 59, def: 90, spa: 79, spd: 116, spe: 36},
 		abilities: {0: "Anticipation", 1:"Filter", H: "Leaf Dress"},
 	},
 	wormadamsandy: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 79, def: 116, spa: 59, spd: 90, spe: 36},
+		baseStats: {hp: 90, atk: 79, def: 116, spa: 59, spd: 90, spe: 36},
 		abilities: {0: "Anticipation", 1:"Filter", H: "Sand Spit"},
 	},
 	wormadamtrash: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 69, def: 103, spa: 69, spd: 103, spe: 36},
+		baseStats: {hp: 90, atk: 69, def: 103, spa: 69, spd: 103, spe: 36},
 		abilities: {0: "Anticipation", 1:"Filter", H: "Toxic Debris"},
 	},
 	mothim: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 94, def: 50, spa: 106, spd: 50, spe: 80},
+		baseStats: {hp: 90, atk: 94, def: 50, spa: 106, spd: 50, spe: 80},
 		abilities: {0: "Swarm", 1:"Honey Gather", H: "Tinted Lens"},
 	},
 	combee: {
