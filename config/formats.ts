@@ -962,6 +962,13 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 3] Hoenn Echoes",
+		mod: 'gen3hoennechoes',
+		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+		banlist: ['Wobbuffet + Leftovers', 'Wynaut + Leftovers', 'Baton Pass'],
+		desc: `A mod based on Generation 3 Ubers which aims to breathe some life into the tier by reducing RNG elements, increasing Pokemon diversity, and balancing the tier around the Pokemon that are already strong.`,
+	},
+	{
 		name: "[Gen 3] Hoenn Gaiden OU",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
@@ -971,13 +978,6 @@ export const Formats: FormatList = [
 		ruleset: ['HG Standard', 'Data Mod', 'Freeze Clause Mod'],
 		banlist: ['Uber'],
 		unbanlist: ['Sand Veil'],
-	},
-		{
-		name: "[Gen 3] Hoenn Echoes",
-		mod: 'gen3hoennechoes',
-		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'One Boost Passer Clause', 'Freeze Clause Mod'],
-		banlist: ['Wobbuffet + Leftovers', 'Wynaut + Leftovers', 'Baton Pass'],
-		desc: `A mod based on Generation 3 Ubers which aims to breathe some life into the tier by reducing RNG elements, increasing Pokemon diversity, and balancing the tier around the Pokemon that are already strong.`,
 	},
 	{
 		name: "[Gen 9] Iron Fist",
