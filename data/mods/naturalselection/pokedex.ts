@@ -66,7 +66,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Rock"],
 		baseStats: {hp: 75, atk: 100, def: 60, spa: 50, spd: 95, spe: 120},
 		abilities: {0: "Sand Veil", 1: "Sand Stream", H: "Sand Force"},
-  },
+	},
 	bouffalant: {
 		inherit: true,
 		types: ["Normal", "Ground"],
@@ -76,10 +76,35 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 112, atk: 132, def: 82, spa: 62, spd: 67, spe: 53},
 		abilities: {0: "Technician", 1: "Iron Fist", H: "Anger Point"},
-  },
+	},
 	klawf: {
 		inherit: true,
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 90, atk: 105, def: 115, spa: 35, spd: 80, spe: 75},
+	},
+	jellicent: {
+		inherit: true,
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 100, atk: 60, def: 85, spa: 85, spd: 105, spe: 60},
+	},
+	mandibuzz: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 105, spa: 55, spd: 95, spe: 95},
+		abilities: {0: "Rough Skin", 1: "Overcoat", H: "Weak Armor"},
+	},
+	barraskewda: {
+		inherit: true,
+		types: ["Water", "Dark"],
+		baseStats: {hp: 76, atk: 123, def: 65, spa: 60, spd: 60, spe: 136},
+	},
+	victreebel: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 75, spa: 100, spd: 75, spe: 70},
+		abilities: {0: "Chlorophyll", 1: "Grassy Surge", H: "Gluttony"},
+	},
+	pangoro: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 124, def: 85, spa: 69, spd: 71, spe: 66},
+		abilities: {0: "Iron Fist", 1: "Mold Breaker", H: "Sand Rush"},
 	},
 };
