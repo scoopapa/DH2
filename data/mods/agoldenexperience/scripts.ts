@@ -1173,6 +1173,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'starmie').learnset.futuresight = ['9L1'];
     this.modData('Learnsets', 'starmie').learnset.storedpower = ['9L1'];
     this.modData('Learnsets', 'pinsir').learnset.megahorn = ['9L1'];
+    this.modData('Learnsets', 'eevee').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'vaporeon').learnset.bouncybubble = ['9L1'];
     this.modData('Learnsets', 'jolteon').learnset.buzzybuzz = ['9L1'];
     this.modData('Learnsets', 'jolteon').learnset.grassknot = ['9L1'];
