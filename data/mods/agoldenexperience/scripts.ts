@@ -1383,6 +1383,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'honchkrow').learnset.partingshot = ['9L1'];
     this.modData('Learnsets', 'skuntank').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'skuntank').learnset.swordsdance = ['9L1'];
+    this.modData('Learnsets', 'skuntank').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'bronzong').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'bronzong').learnset.healbell = ['9L1'];
     this.modData('Learnsets', 'bronzong').learnset.teleport = ['9L1'];
