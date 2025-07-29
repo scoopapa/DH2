@@ -16,8 +16,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpe(spe, source, target, move) {
 			const abilityHolder = this.effectState.target;
 			if (source.hasAbility('Vessel of Sigma')) return;
-			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
-			if (move.ruinedSpA !== abilityHolder) return;
 			this.debug('Vessel of Sigma Spe drop');
 			return this.chainModify(0.75);
 		},
@@ -184,7 +182,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "LAST CALL",
-		shortDesc: "When this Pokemon, it uses the last move in its moveset.",
+		shortDesc: "When this Pokemon faints, it uses the last move in its moveset.",
 	},
 	narcissus: {
 		onSwitchIn(pokemon) {
