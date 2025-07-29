@@ -17,7 +17,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Nazrin, Shou Toramaru: Fairy moves have 1.5x power.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, source, target, move) {
-			if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(pokemon.baseSpecies.num === 57 || pokemon.baseSpecies.num === 62))) return;
+			if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(pokemon.baseSpecies.num === 57 || source.baseSpecies.num === 62))) return;
 			if (move && move.type === 'Fairy') {
 				return this.chainModify(1.5);
 			}
