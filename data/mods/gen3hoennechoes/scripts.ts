@@ -1,6 +1,11 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen4',
 	gen: 3,
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['NEW', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NU', 'PUBL', 'PU', 'ZUBL', 'ZU', 'NFE', 'LC'],
+		//customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','D3','E','Unranked','NFE','LC','Uber'],
+	},
 	init() {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';

@@ -438,6 +438,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	icebeam: {
 		inherit: true,
+		desc: "Has a 10% chance to freeze the target unless it is the user's first turn on the field.",
 		shortDesc: "10% freeze after user's first turn on the field.",
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.activeMoveActions > 1) {
@@ -601,6 +602,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	rockslide: {
 		inherit: true,
 		accuracy: 100,
+		desc: "Has a 40% chance to make the target flinch if they are paralyzed.",
 		shortDesc: "40% flinch against paralyzed foes.",
 		onModifyMove(move, pokemon, target) {
 			if (target.status === 'par') {
@@ -724,6 +726,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	thunder: {
 		inherit: true,
+		desc: "Has a 15% chance to paralyze the target. This move can hit a target using Fly. If the weather is Rain Dance, this move does not check accuracy. If the weather is Sunny Day, this move's power is halved.",
 		shortDesc: "15% para. Can't miss in rain; half damage in sun.",
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
