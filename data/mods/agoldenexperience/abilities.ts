@@ -2,6 +2,7 @@ import { consoleips } from "../../../config/config-example";
 
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick', 'axekick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
+const sleepMove = ["Dark Void", "Grass Whistle", "Hypnosis", "Lovely Kiss", "Psycho Shift", "Sing", "Sleep Powder", "Spore", "Yawn"];
 
 export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	poisonousradula: {
@@ -631,12 +632,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -30,
 	},
 	longtail: {
-		shortDesc: "Boosts the power of tail and whip moves by 1.3x",
-		onBasePowerPriority: 8,
-		onBasePower(basePower, attacker, defender, move) {
-			if (tailMoves.includes(move.id)) {
-				return this.chainModify(1.3);
-			}
+		shortDesc: "Gives a +1 priority to tail and whip moves.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (tailMoves.includes(move.id)) return priority + 1;
 		},
 		name: "Long Tail",
 		num: -31,
@@ -2699,5 +2697,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's affinities are reversed.",
 		rating: 4.5,
 		num: -91,
+	},
+	myceliummight: {
+		inherit: true,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (sleepMove.includes(move.id)) {
+				return -0.1;
+			}
+		},
+		desc: "This Pokemon's Status moves ignore certain Abilities of other Pokemon, and Sleep inducing moves go last among Pokemon using the same or greater priority moves.",
+		shortDesc: "This Pokemon's Sleep inducing moves go last in their priority bracket and status moves ignore Abilities.",
 	},
 };

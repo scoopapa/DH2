@@ -814,4 +814,57 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -40,
 	},
+	shieldsdown: {
+		inherit: true,
+		onStart(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shields Down');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Shields Down');
+			return null;
+		},
+	},
 };

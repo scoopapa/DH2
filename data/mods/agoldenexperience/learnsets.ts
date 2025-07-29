@@ -183,6 +183,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	},
 	eeveestarter: {
 		learnset: {
+			slackoff: ["9L1"],
 			baddybad: ["8V", "7T"],
 			bite: ["8V", "7L17"],
 			bouncybubble: ["8V", "7T"],
@@ -4850,6 +4851,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			boomburst: ["9L1"],
 			focusblast: ["9L1"],
 			dracometeor: ["9L1"],
+			wyvernflight: ["9L1"],
 		},
 	},
 	slugmasinnoh: { 
