@@ -4319,7 +4319,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		num: -70,
 		name: "Slendawful",
 		types: ["Ghost", "Dark"],
-		baseStats: {hp: 70, atk: 130, def: 90, spa: 110, spd: 90, spe: 110}, 
+		baseStats: {hp: 70, atk: 130, def: 80, spa: 120, spd: 80, spe: 120}, 
 		abilities: {0: "Infiltrator"},
 		heightm: 3,
 		weightkg: 50,
