@@ -91,7 +91,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			let critMult;
 			let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
 			if (this.battle.gen <= 5) {
-				//Updates crit rate to modern levels
 				critRatio = this.battle.clampIntRange(critRatio, 0, 4);
 				critMult = [0, 24, 8, 2, 1];
 			} else {
@@ -108,6 +107,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.willCrit === undefined) {
 				if (critRatio) {
 					moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
+					this.battle.add('-message', `(${source.name}'s attack has a 1 in ${critMult[critRatio]} chance to crit)`);
 				}
 			}
 
