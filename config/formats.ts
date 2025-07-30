@@ -6389,12 +6389,11 @@ export const Formats: FormatList = [
 	{
 		section: "Sample Teams Random Battles",
 		column: 3,
-		// name: "moderngenseries",
 	},
 	{
-		name: "[Gen 3] OU Sample Team Random Battle",
+		name: "[Gen 3] OU Random Sample Team Battle",
 		team: 'random',
-		mod: 'gen3oustrb',
+		mod: 'gen3ourstb',
 		ruleset: ['Standard', 'Freeze Clause Mod'],
 	},
 
