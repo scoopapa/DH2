@@ -2161,7 +2161,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	wormadamtrash: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	mothim: {
@@ -4543,7 +4543,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	spyarn: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	nymble: {
