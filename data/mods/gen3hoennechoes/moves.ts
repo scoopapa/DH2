@@ -438,16 +438,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	icebeam: {
 		inherit: true,
-		desc: "Has a 10% chance to freeze the target unless it is the user's first turn on the field.",
-		shortDesc: "10% freeze after user's first turn on the field.",
+		desc: "Has a 10% chance to freeze the target if used more than once without switching out.",
+		shortDesc: "10% freeze after first use on the field.",
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.activeMoveActions > 1) {
+			if (pokemon.volatiles['icebeam']) {
 				move.secondaries = [];
 				move.secondaries.push({
 					chance: 10,
 					status: 'frz',
 				});
+			} else {
+				pokemon.addVolatile('icebeam');
 			}
+			return null;
 		},
 		secondary: null,
 	},
