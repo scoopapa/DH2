@@ -2674,6 +2674,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			voltswitch: ["9M"],
 			volttackle: ["9M"],
 			wildcharge: ["9M", "9L48"],
+			attackorder: ["9L1"],
+			defendorder: ["9L1"],
+			healorder: ["9L1"],
 			},
 		},
 	astalos: {
