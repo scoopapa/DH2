@@ -1257,7 +1257,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 73,
 		name: "Malfestio",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 90, atk: 84, def: 102, spa: 107, spd: 120, spe: 68},
+		baseStats: {hp: 108, atk: 70, def: 100, spa: 105, spd: 120, spe: 68},
 		abilities: {0: "Wonder Skin", H: "Trace"},
 		heightm: 1.0,
 		weightkg: 50.0,
