@@ -6,7 +6,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
     },*/
     budew: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Poison Point"},
+		abilities: {0: "Natural Cure", 1: "Chlorophyll"},
 		gen: 3,
 	},
 };
