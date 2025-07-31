@@ -5851,6 +5851,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] BSS Reg G",
 		mod: 'gen9',
 		bestOfDefault: true,
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Limit One Restricted'],
 		restricted: ['Restricted Legendary'],
 	},
@@ -5858,14 +5859,23 @@ export const Formats: FormatList = [
 		name: "[Gen 9] BSS Reg H",
 		mod: 'gen9',
 		bestOfDefault: true,
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer'],
 		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+	},
+	{
+		name: "[Gen 9] BSS Reg I",
+		mod: 'gen9',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
 	},
 	{
 		name: "[Gen 9] VGC 2024 Reg G",
 		mod: 'gen9',
 		gameType: 'doubles',
 		bestOfDefault: true,
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit One Restricted'],
 		restricted: ['Restricted Legendary'],
 	},
@@ -5873,15 +5883,8 @@ export const Formats: FormatList = [
 		name: "[Gen 9] VGC 2024 Reg G (Bo1 Forced OTS)",
 		mod: 'gen9',
 		gameType: 'doubles',
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Limit One Restricted'],
-		restricted: ['Restricted Legendary'],
-	},
-	{
-		name: "[Gen 9] VGC 2024 Reg G (Bo3)",
-		mod: 'gen9',
-		gameType: 'doubles',
-		challengeShow: false,
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3', 'Limit One Restricted'],
 		restricted: ['Restricted Legendary'],
 	},
 	{
@@ -5889,6 +5892,7 @@ export const Formats: FormatList = [
 		mod: 'gen9',
 		gameType: 'doubles',
 		bestOfDefault: true,
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
 		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
 	},
@@ -5896,25 +5900,54 @@ export const Formats: FormatList = [
 		name: "[Gen 9] VGC 2024 Reg H (Bo1 Forced OTS)",
 		mod: 'gen9',
 		gameType: 'doubles',
+		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets'],
 		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
 	},
 	{
-		name: "[Gen 9] VGC 2024 Reg H (Bo3)",
+		name: "[Gen 9] VGC 2025 Reg I",
 		mod: 'gen9',
 		gameType: 'doubles',
-		challengeShow: false,
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
-		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
+	},
+	{
+		name: "[Gen 9] VGC 2025 Reg I (Bo1 Forced OTS)",
+		mod: 'gen9',
+		gameType: 'doubles',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
 	},
 
 	///////////////////////////////////////////////////////////////
-	/////////////// Unofficial Pet Mods & Solomods //////////////////
+	/////////////// Unofficial Pet Mod Formats //////////////////
 	///////////////////////////////////////////////////////////////
 	{
-		section: "Unofficial Pet Mods",
+		section: "Unofficial Pet Mod Formats",
 		column: 3,
-		// name: "unofficialmods",
+		// name: "unofficialpetmodformats",
+	},
+	{
+		name: "[Gen 8] Dynamax Meter",
+		mod: 'gen8maxmeter',
+		ruleset: ['Standard'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+		onBegin() {
+			for (const side of this.sides) {
+				if (!side.getSideCondition('maxmeter5')) {
+					side.dynamaxUsed = true;
+				}
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5')) return;
+			if (source.hasType(move.type)) {
+				source.side.addSideCondition('maxmeter1');
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Fakemon Kitchen",
@@ -5946,35 +5979,6 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in FurfrOU.'];
 				}
-			}
-		},
-	},
-
-	///////////////////////////////////////////////////////////////
-	/////////////// Non-Pet Mod Formats //////////////////
-	///////////////////////////////////////////////////////////////
-	{
-		section: "Non-Pet Mod Formats",
-		column: 3,
-		// name: "nonpetmodformats",
-	},
-	{
-		name: "[Gen 8] Dynamax Meter",
-		mod: 'gen8maxmeter',
-		ruleset: ['Standard'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
-		onBegin() {
-			for (const side of this.sides) {
-				if (!side.getSideCondition('maxmeter5')) {
-					side.dynamaxUsed = true;
-				}
-			}
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target) return;
-			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5')) return;
-			if (source.hasType(move.type)) {
-				source.side.addSideCondition('maxmeter1');
 			}
 		},
 	},
