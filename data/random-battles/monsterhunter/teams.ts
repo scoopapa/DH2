@@ -597,6 +597,8 @@ export class RandomTeams {
 			['mirrorcoat', 'hydropump'],
 			// Brute Bonnet
 			['bulletseed', 'seedbomb'],
+			// Lunastra
+			['hellflare', 'futuresight'],
 		];
 
 		for (const pair of incompatiblePairs) this.incompatibleMoves(moves, movePool, pair[0], pair[1]);
@@ -741,6 +743,12 @@ export class RandomTeams {
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
 			counter = this.addMove('facade', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+				movePool, teraType, role);
+		}
+
+		// Enforce Power Gem if Rocky Payload is a possible ability
+		if (movePool.includes('powergem') && abilities.includes('Rocky Payload')) {
+			counter = this.addMove('powergem', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 				movePool, teraType, role);
 		}
 

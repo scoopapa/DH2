@@ -281,12 +281,6 @@
 				"movepool": ["Toxic", "Slack Off", "Strength Sap", "Barb Barrage", "Horn Leech", "Leech Seed", "Power Whip"],
                 "abilities": ["Toxic Debris"],
 				"teraTypes": ["Normal"]
-			},
-			{
-				"role": "AV Pivot",
-				"movepool": ["U-turn", "Toxic Spikes", "Strength Sap", "Stun Spore", "Power Whip", "Gunk Shot"],
-                "abilities": ["Unaware", "Toxic Debris"],
-				"teraTypes": ["Normal"]
 			}
     	]
 	},
@@ -480,7 +474,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Astral Barrage", "Discharge", "Focus Blast", "Mist Ball", "Volt Switch", "Thunderclap", "Electro Drift"],
+                "movepool": ["Astral Barrage", "Thunderbolt", "Focus Blast", "Mist Ball", "Volt Switch", "Electro Drift"],
                 "abilities": ["Grim Neigh"],
                 "teraTypes": ["Normal"]
 
@@ -938,7 +932,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Cloaking Glow", "Spacial Rend", "Psycho Boost", "Moonblast", "Astral Barrage", "Earth Power", "Flamethrower"],
+                "movepool": ["Take Heart", "Cloaking Glow", "Spacial Rend", "Psycho Boost", "Moonblast", "Astral Barrage", "Earth Power", "Flamethrower"],
                 "abilities": ["Multiscale"],
                 "teraTypes": ["Normal"]
 
@@ -1536,7 +1530,7 @@
         "sets": [ 
             {
                 "role": "Bulky Support", 
-                "movepool": ["Stealth Rock", "Shore Up", "Mortal Spin", "Rapid Spin", "Psychic", "Psyshock", "Lava Plume"],
+                "movepool": ["Stealth Rock", "Shore Up", "Mortal Spin", "Psychic", "Psyshock", "Lava Plume"],
                 "abilities": ["Flash Fire", "Armor Tail"],
                 "teraTypes": ["Normal"]
             },

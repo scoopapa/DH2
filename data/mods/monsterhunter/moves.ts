@@ -558,18 +558,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-		onTry(source) {
-			if (source.species.name === 'Crimson-Fatalis') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is Crimson-Fatalis can use this move.");
-			if (source.species.name === 'Crimson-Fatalis') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Crimson Dawn', '[forme]');
-				return null;
-			}
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Crimson Dawn');
 			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Crimson Dawn');
 			return null;
 		},
 		onPrepareHit(target, source, move) {
@@ -590,18 +582,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-		onTry(source) {
-			if (source.species.name === 'White-Fatalis') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is White-Fatalis can use this move.");
-			if (source.species.name === 'White-Fatalis') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Ancestral Thunder', '[forme]');
-				return null;
-			}
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Electric')) return;
+			this.add('-fail', pokemon, 'move: Ancestral Thunder');
 			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Ancestral Thunder');
 			return null;
 		},
 		onPrepareHit(target, source, move) {
@@ -1740,7 +1724,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	steamroller: {
 		inherit: true,
 		viable: true,
-		shortDesc: "Ends the effects of Terrain.",
+		shortDesc: "Ends the effects of Terrain. 30% chance to flinch.",
 		basePower: 95,
 		onAfterHit(target, source) {
 			if (source.hp) {
@@ -1750,6 +1734,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onAfterSubDamage(damage, target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
+			}
+		},
+	},
+	refresh: {
+		inherit: true,
+		onHit(pokemon) {
+			pokemon.cureStatus();
+		},
+	},
+	facade: {
+		inherit: true,
+		shortDesc: "Power doubles if user has a non-volatile status.",
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(2);
 			}
 		},
 	},

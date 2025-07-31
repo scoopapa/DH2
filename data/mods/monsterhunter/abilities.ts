@@ -875,14 +875,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				move.ignoreImmunity['Poison'] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0 && (move.type === 'Poison')) {
-				this.debug('Perforating boost');
-				return this.chainModify(2);
-			}
-		},
 		name: "Perforating",
-		shortDesc: "Poison moves deal 2x damage if resisted; Can hit and poison Steel types.",
+		shortDesc: "Poison moves can hit and poison Steel-type Pokemon.",
 		rating: 3,
 		num: 1040,
 	},
@@ -1081,10 +1075,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Overload",
 		rating: 3.5,
 		flags: {},
-		shortDesc: "All Dragon moves used by the user are 1.4x damage but have 20% recoil.",
+		shortDesc: "All Dragon moves used by the user are 1.4x damage but deal 20% recoil of damage dealt.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon' && move.category !=='Status') {
-				move.recoil = [1, 5];
+				move.recoil = [1, 4];
 			}
 		},
 		onModifyAtk(atk, attacker, defender, move) {
