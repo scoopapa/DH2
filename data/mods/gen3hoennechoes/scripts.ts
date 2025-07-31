@@ -1,7 +1,18 @@
+import { learnsetUpdate } from "../../mods/gen3hoennechoes/learnsetupdate";
+
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen4',
 	gen: 3,
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['NEW', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NU', 'PUBL', 'PU', 'ZUBL', 'ZU', 'NFE', 'LC'],
+		//customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','D3','E','Unranked','NFE','LC','Uber'],
+	},
 	init() {
+		for (const species in this.data.Pokedex) {
+			delete this.data.Pokedex[species].abilities['H'];
+		}
+		
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
 		for (const i in this.data.Moves) {
@@ -12,8 +23,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Moves', i).category = newCategory;
 			}
 		}
-
-		//this.modData('Learnsets', 'mewtwo').learnset.lusterpurge = ['3M'];
+		
+		learnsetUpdate(this);
 	},
 	pokemon: {
 		inherit: true,
@@ -80,7 +91,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			let critMult;
 			let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
 			if (this.battle.gen <= 5) {
-				//Updates crit rate to modern levels
 				critRatio = this.battle.clampIntRange(critRatio, 0, 4);
 				critMult = [0, 24, 8, 2, 1];
 			} else {
@@ -97,6 +107,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.willCrit === undefined) {
 				if (critRatio) {
 					moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
+					this.battle.add('-message', `(${source.name}'s attack has a 1 in ${critMult[critRatio]} chance to crit)`);
 				}
 			}
 

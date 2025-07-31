@@ -2,7 +2,7 @@ import { consoleips } from "../../../config/config-example";
 
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick', 'axekick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
-const sleepMove = ["Dark Void", "Grass Whistle", "Hypnosis", "Lovely Kiss", "Psycho Shift", "Sing", "Sleep Powder", "Spore", "Yawn"];
+const sleepMove = ['darkvoid', 'grasswhistle', 'hypnosis', 'lovelykiss', 'psychoshift', 'sing', 'sleeppowder', 'spore', 'yawn'];
 
 export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	poisonousradula: {
