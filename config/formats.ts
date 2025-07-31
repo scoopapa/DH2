@@ -2792,7 +2792,6 @@ export const Formats: FormatList = [
 		'Desperation', 'Last Stand', 'Appraisal', 'Rejuvenate', 'Recycler', 'Somewhat Reckless', 'Tinted Tactics', 'Intimidate', 'Sceptic',
 		],
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
 			let allowedTiers = ['bbones'];
 			for (const set of team) {
