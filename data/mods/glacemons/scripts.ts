@@ -2483,6 +2483,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'leafeon').learnset.closecombat = ['9L1'];
 		this.modData('Learnsets', 'leafeon').learnset.nightslash = ['9L1'];
 		this.modData('Learnsets', 'leafeon').learnset.strengthsap = ['9L1'];
+		this.modData('Learnsets', 'leafeon').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.sonicboom = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.nastyplot = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.hex = ['9L1'];
