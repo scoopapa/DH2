@@ -515,6 +515,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	goldthian: {
 		tier: "MHOU",
 	},
+	pinkthian: {
+		tier: "MHOU",
+	},
+	goldeus: {
+		tier: "MHOU",
+	},
+	azurelos: {
+		tier: "MHOU",
+	},
+	stygiogre: {
+		tier: "MHOU",
+	},
+	jindahaad: {
+		tier: "MHOU",
+	},
+	zohshia: {
+		tier: "MHOU",
+	},
+	zohshiaencased: {
+		tier: "MHOU",
+	},
 	greencuga: {
 		tier: "MHOU",
 	},
