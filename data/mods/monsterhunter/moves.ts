@@ -752,6 +752,54 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
+	convectionnova: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		name: "Convection Nova",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Ice Burn", target);
+        },
+		secondary: null,
+		shortDesc: "Fire moves become Ice type this turn, can't use twice.",
+		pseudoWeather: 'convection',
+		target: "allAdjacentFoes",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	convection: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Convection",
+		pp: 25,
+		priority: 1,
+		flags: {metronome: 1},
+		pseudoWeather: 'convection',
+		condition: {
+			duration: 1,
+			onFieldStart(target, source, sourceEffect) {
+				this.add('-fieldactivate', 'move: Convection');
+				this.hint(`Fire-type moves become Ice-type after using ${sourceEffect}.`);
+			},
+			onModifyTypePriority: -2,
+			onModifyType(move) {
+				if (move.type === 'Fire') {
+					move.type = 'Ice';
+					this.debug(move.name + "'s type changed to Ice");
+				}
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ice",
+		zMove: {boost: {spa: 1}},
+		contestType: "Beautiful",
+	},
 	/*
 	Monhun Status
 	*/
