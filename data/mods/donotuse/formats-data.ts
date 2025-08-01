@@ -839,7 +839,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		isNonstandard: null,
 	},
-	tranquil: {
+	tranquill: {
 		tier: "OU",
 		isNonstandard: null,
 	},
