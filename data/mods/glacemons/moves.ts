@@ -2059,7 +2059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		onAfterHit(pokemon) {
-			this.useMove("Ki Blast 2", pokemon);
+			pokemon.useMove("Ki Blast 2", pokemon);
 		},
 		type: "Fighting",
 		shortDesc: "Damages user as much as it does to target.",
