@@ -1926,7 +1926,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	darmanitangalarzen: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 140, def: 55, spa: 60, spd: 55, spe: 125},
 	},
 	maractus: {
 		inherit: true,
