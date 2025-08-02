@@ -2450,6 +2450,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'toxtricity').learnset.paraboliccharge = ['9L1'];
 		// Slate 9
 		this.modData('Learnsets', 'eevee').learnset.slackoff = ['9L1'];
+		this.modData('Learnsets', 'eevee').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgebomb = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgewave = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.toxicspikes = ['9L1'];
@@ -2483,7 +2484,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'leafeon').learnset.closecombat = ['9L1'];
 		this.modData('Learnsets', 'leafeon').learnset.nightslash = ['9L1'];
 		this.modData('Learnsets', 'leafeon').learnset.strengthsap = ['9L1'];
-		this.modData('Learnsets', 'leafeon').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.sonicboom = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.nastyplot = ['9L1'];
 		this.modData('Learnsets', 'sylveon').learnset.hex = ['9L1'];

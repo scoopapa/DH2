@@ -483,7 +483,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     flareon: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Ignite", H: "Toxic Boost"},
+		abilities: {0: "Fluffy", 1: "Ignite", H: "Toxic Boost"},
 	},
 	omanyte: {
 		inherit: true,
@@ -950,7 +950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	swellow: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 90, def: 60, spa: 75, spd: 50, spe: 125},
+		baseStats: {hp: 60, atk: 75, def: 60, spa: 90, spd: 50, spe: 125},
 	},
 	gardevoirmega: {
 		inherit: true,
@@ -992,8 +992,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	delcatty: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 55, def: 95, spa: 85, spd: 95, spe: 90},
-		abilities: {0: "Unimpressed", 1: "Normalize", H: "Wonder Skin"},
+		baseStats: {hp: 70, atk: 85, def: 95, spa: 55, spd: 95, spe: 90},
 	},
 	sableye: {
 		inherit: true,
@@ -1927,7 +1926,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	darmanitangalarzen: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 140, def: 55, spa: 60, spd: 55, spe: 125},
 	},
 	maractus: {
 		inherit: true,
@@ -2061,6 +2059,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	jellicent: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 50, def: 90, spa: 85, spd: 105, spe: 60},
+		abilities: {0: "Water Absorb", 1: "Cursed Body", H: "Hydrophilic"},
 	},
 	galvantula: {
 		inherit: true,
@@ -2102,7 +2101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag"},
+		abilities: {0: "Flash Fire", 1: "Showdown", H: "Shadow Tag"},
 	},
 	haxorus: {
 		inherit: true,

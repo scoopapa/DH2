@@ -898,7 +898,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	flareon: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	espeon: {
@@ -1513,7 +1513,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	swellow: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	wingull: {
@@ -2744,11 +2744,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	darmanitangalar: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	darmanitangalarzen: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "(DUU)",
 	},
 	maractus: {
@@ -2910,7 +2910,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	jellicent: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	alomomola: {
@@ -2966,7 +2966,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	chandelure: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	axew: {
