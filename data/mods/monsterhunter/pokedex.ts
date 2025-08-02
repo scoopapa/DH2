@@ -1697,7 +1697,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	azurelos: {
 		num: 11,
-		name: "Rathalos",
+		name: "Azurelos",
 		types: ["Flying", "Poison"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 80, spa: 120, spd: 80, spe: 120},

@@ -754,7 +754,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	convectionnova: {
 		accuracy: 100,
-		basePower: 130,
+		basePower: 135,
 		category: "Special",
 		name: "Convection Nova",
 		pp: 5,
