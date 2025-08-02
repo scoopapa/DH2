@@ -875,14 +875,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				move.ignoreImmunity['Poison'] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0 && (move.type === 'Poison')) {
-				this.debug('Perforating boost');
-				return this.chainModify(2);
-			}
-		},
 		name: "Perforating",
-		shortDesc: "Poison moves deal 2x damage if resisted; Can hit and poison Steel types.",
+		shortDesc: "Poison moves can hit and poison Steel-type Pokemon.",
 		rating: 3,
 		num: 1040,
 	},
@@ -1081,10 +1075,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Overload",
 		rating: 3.5,
 		flags: {},
-		shortDesc: "All Dragon moves used by the user are 1.4x damage but have 20% recoil.",
+		shortDesc: "All Dragon moves used by the user are 1.4x damage but deal 20% recoil of damage dealt.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon' && move.category !=='Status') {
-				move.recoil = [1, 5];
+				move.recoil = [1, 4];
 			}
 		},
 		onModifyAtk(atk, attacker, defender, move) {
@@ -1152,9 +1146,70 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Stealth Silver",
 		rating: 4,
 	},
+	wylkencasing: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Zoh Shia' || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Encased') {
+					pokemon.formeChange('Zoh Shia-Encased');
+				}
+			} else {
+				if (pokemon.species.forme === 'Encased') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Zoh Shia' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Encased') {
+					pokemon.formeChange('Zoh Shia-Encased');
+				}
+			} else {
+				if (pokemon.species.forme === 'Encased') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.species.id !== 'Zoh Shia-Encased' || target.transformed) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Wylk Encasing');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (target.species.id !== 'Zoh Shia-Encased' || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Wylk Encasing');
+			return null;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Wylk Encasing",
+		desc: "If this Pokemon is a Zoh Shia, it changes to its true forme if it has 1/2 or less of its maximum HP, and changes to Encased Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Encased Form, it cannot become affected by a non-volatile status condition or Yawn.",
+		shortDesc: "If Zoh Shia, switch-in/end of turn it changes to true form at 1/2 max HP or less, else Encased.",
+		rating: 3,
+	},
+	dragonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('dragonblight', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Dragon Point",
+		rating: 1.5,
+	},
 	/*
 	Edits
 	*/
+	mountaineer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	icebody: {
 		inherit: true,
 		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",

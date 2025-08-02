@@ -551,25 +551,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 130,
 		category: "Physical",
 		name: "Crimson Dawn",
-		shortDesc: "C-Fatalis: Cannot be selected the turn after it's used.",
+		shortDesc: "Fails unless the user is a Fire type",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, contact: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-		onTry(source) {
-			if (source.species.name === 'Crimson-Fatalis') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is Crimson-Fatalis can use this move.");
-			if (source.species.name === 'Crimson-Fatalis') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Crimson Dawn', '[forme]');
-				return null;
-			}
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Crimson Dawn');
 			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Crimson Dawn');
 			return null;
 		},
 		onPrepareHit(target, source, move) {
@@ -583,25 +575,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Ancestral Thunder",
-		shortDesc: "W-Fatalis: Cannot be selected the turn after it's used.",
+		shortDesc: "Fails unless the user is an Electric type",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-		onTry(source) {
-			if (source.species.name === 'White-Fatalis') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is White-Fatalis can use this move.");
-			if (source.species.name === 'White-Fatalis') {
-				this.attrLastMove('[still]');
-				this.add('-fail', source, 'move: Ancestral Thunder', '[forme]');
-				return null;
-			}
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Electric')) return;
+			this.add('-fail', pokemon, 'move: Ancestral Thunder');
 			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Ancestral Thunder');
 			return null;
 		},
 		onPrepareHit(target, source, move) {
@@ -767,6 +751,54 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
+	},
+	convectionnova: {
+		accuracy: 100,
+		basePower: 135,
+		category: "Special",
+		name: "Convection Nova",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Ice Burn", target);
+        },
+		secondary: null,
+		shortDesc: "Fire moves become Ice type this turn, can't use twice.",
+		pseudoWeather: 'convection',
+		target: "allAdjacentFoes",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	convection: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Convection",
+		pp: 25,
+		priority: 1,
+		flags: {metronome: 1},
+		pseudoWeather: 'convection',
+		condition: {
+			duration: 1,
+			onFieldStart(target, source, sourceEffect) {
+				this.add('-fieldactivate', 'move: Convection');
+				this.hint(`Fire-type moves become Ice-type after using ${sourceEffect}.`);
+			},
+			onModifyTypePriority: -2,
+			onModifyType(move) {
+				if (move.type === 'Fire') {
+					move.type = 'Ice';
+					this.debug(move.name + "'s type changed to Ice");
+				}
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ice",
+		zMove: {boost: {spa: 1}},
+		contestType: "Beautiful",
 	},
 	/*
 	Monhun Status
@@ -1740,7 +1772,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	steamroller: {
 		inherit: true,
 		viable: true,
-		shortDesc: "Ends the effects of Terrain.",
+		shortDesc: "Ends the effects of Terrain. 30% chance to flinch.",
 		basePower: 95,
 		onAfterHit(target, source) {
 			if (source.hp) {
@@ -1750,6 +1782,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onAfterSubDamage(damage, target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
+			}
+		},
+	},
+	refresh: {
+		inherit: true,
+		onHit(pokemon) {
+			pokemon.cureStatus();
+		},
+	},
+	facade: {
+		inherit: true,
+		shortDesc: "Power doubles if user has a non-volatile status.",
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(2);
 			}
 		},
 	},
