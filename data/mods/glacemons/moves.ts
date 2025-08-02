@@ -2033,7 +2033,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 					}
 				}
 			}
-			return bonfireBP
+
+			move.basePower = bonfireBP
+			
+			return move.basePower
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
