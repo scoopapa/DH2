@@ -477,14 +477,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
+				if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
+				break;
 			case 'desolateland':
 				if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
 				break;
 			case 'raindance':
+				if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
+				break;
 			case 'primordialsea':
 				if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
 				break;
@@ -492,6 +494,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.setType('Rock')) this.add('-start', pokemon, 'typechange', 'Rock');
 				break;
 			case 'hail':
+				if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
+				break;
 			case 'snowscape':
 				if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
 				break;
