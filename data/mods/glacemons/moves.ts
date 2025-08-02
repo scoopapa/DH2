@@ -1510,6 +1510,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		recoil: [33, 100],
 		desc: "Has 1/3 recoil.",
 		shortDesc: "Has 1/3 recoil.",
+		secondary: { },
 	},
 	icehammer: {
 		inherit: true,
