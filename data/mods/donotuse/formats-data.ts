@@ -14,7 +14,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	azurill: {
-		tier: "DoNU RU",
+		tier: "DoNU UU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 	},
@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 94
 	},
 	bidoof: {
-		tier: "DoNU UU",
+		tier: "DoNU UUBL",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["return", "crunch", "quickattack", "swordsdance", "curse", "stealthrock"]
@@ -318,7 +318,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["toxicspikes", "poisonjab", "suckerpunch", "sludgebomb", "earthpower", "superfang"]
 	},
 	nidoranm: {
-		tier: "DoNU Uber",
+		tier: "DoNU",
 		doublesTier: "Restricted",
 		isNonstandard: null,
 	},
@@ -839,7 +839,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		isNonstandard: null,
 	},
-	tranquil: {
+	tranquill: {
 		tier: "OU",
 		isNonstandard: null,
 	},
