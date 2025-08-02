@@ -1068,15 +1068,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		multihit: 2,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		onModifyMove(move, pokemon, defender) {
-			if (!defender.activeTurns) {
-				move.boosts = {atk: 0};
-			}
-		},
 		self: {
 			boosts: {
 				atk: -1,
 			},
+		},
+		onModifyMove(move, pokemon, defender) {
+			if (!defender.activeTurns) {
+				move.self.boosts = {atk: 0};
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
