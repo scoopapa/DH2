@@ -1201,6 +1201,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Dragon Point",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be dragonblighted.",
 		rating: 1.5,
 	},
 	/*
