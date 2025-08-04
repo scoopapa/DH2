@@ -226,6 +226,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "frosmoth").learnset.thunderbolt = ["9L1"];
 		this.modData("Learnsets", "staraptor").learnset.flareblitz = ["9L1"];
 		this.modData("Learnsets", "staraptor").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.machpunch = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.synthesis = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "gastrodon").learnset.toxic = ["9L1"];
@@ -289,6 +291,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "clefable").learnset.teleport = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.fakeout = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.bonerush = ["9L1"];
 		delete this.modData('Learnsets', 'urshifu').learnset.acrobatics;
 		delete this.modData('Learnsets', 'urshifu').learnset.aerialace;
 		delete this.modData('Learnsets', 'urshifu').learnset.stoneedge;
