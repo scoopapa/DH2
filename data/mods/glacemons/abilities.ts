@@ -1020,7 +1020,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				console.log("Hi everybody my name is Markiplier");
 				source.formeChange(forme, effect);
 				console.log("WAS THAT THE BITE OF 87!?");
-				source.heal(source.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 				console.log("I WILL BURN MY BREAD");
 			}
 		},
