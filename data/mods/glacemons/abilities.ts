@@ -1010,11 +1010,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
-		onSourceTryPrimaryHit(target, source, effect) {
+		onSourceTryPrimaryHit(target, source, effect, pokemon) {
 			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				source.formeChange(forme, effect);
-				source.heal(source.baseMaxhp / 8);
+				pokemon.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		shortDesc: "Cramorant: 1/3 less damage in Gulping/Gourging, +1/8 max HP if uses a Water-/Flying-type move. Arrokuda = -1 Def/-SpD, Pikachu = -2 Spe.",
