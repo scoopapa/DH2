@@ -71,6 +71,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			},
 		},
 	},
+	delibirdite: {
+		name: "Delibirdite",
+		spritenum: 578,
+		megaStone: "Delibird-Mega",
+		megaEvolves: "Delibird",
+		itemUser: ["Delibird"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1067,
+		gen: 8,
+		desc: "If held by a Delibird, this item allows it to Mega Evolve in battle.",
+	},
 	boosterenergy: {
 		name: "Booster Energy",
 		onUpdate(pokemon) {
