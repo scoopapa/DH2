@@ -1017,8 +1017,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log("Pokemon is " + pokemon);
 			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				console.log("Hi everybody my name is Markiplier");
 				source.formeChange(forme, effect);
+				console.log("WAS THAT THE BITE OF 87!?");
 				source.heal(source.baseMaxhp / 8);
+				console.log("I WILL BURN MY BREAD");
 			}
 		},
 		shortDesc: "Cramorant: 1/3 less damage in Gulping/Gourging, +1/8 max HP if uses a Water-/Flying-type move. Arrokuda = -1 Def/-SpD, Pikachu = -2 Spe.",
