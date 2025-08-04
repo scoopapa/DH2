@@ -1614,6 +1614,28 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 9] Super Smash Mods Brawl",
+		desc: [
+			"<b>Super Smash Mods Brawl</b>: The third in the Super Smash Mods series, creating a micrometa using Pokemon from other Pet Mods and Solomods.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3768342/">Super Smash Mods Brawl on Smogon Forums</a>`,
+		      ],
+		ruleset: ['Standard NatDex', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if ( template.tier !== 'SSB') {
+					return [set.species + ' is not usable in Super Smash Mods Brawl.'];
+				}
+			}
+		},
+		mod: 'smashmodsbrawl',
+	},
 	/* still work in progress
 	{
 		name: "[Gen 9] Super Smash OMs",
