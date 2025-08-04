@@ -3,6 +3,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
+			const ironFist = ['zapdos', 'bigcrammer'].includes(pokemon.species.name);
+			if (!target || target.volatiles['bigbutton']) return;
 			if (!pokemon.big) pokemon.big = true;
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
 		},
