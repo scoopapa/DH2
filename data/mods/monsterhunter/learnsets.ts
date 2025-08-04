@@ -12240,7 +12240,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metalburst: ["9L1"],
 			metalclaw: ["9L1"],
 			metalsound: ["9L1"],
-			meteorbream: ["9L1"],
+			meteorbeam: ["9L1"],
 			mist: ["9L1"],
 			mistball: ["9L1"],
 			mountaingale: ["9L1"],
