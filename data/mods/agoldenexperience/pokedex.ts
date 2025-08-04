@@ -1919,7 +1919,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	darmanitanzen: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 30, def: 105, spa: 140, spd: 105, spe: 55},
 	},
 	darmanitangalar: {
 		inherit: true,
