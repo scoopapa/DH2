@@ -1068,15 +1068,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		multihit: 2,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		onModifyMove(move, pokemon, defender) {
-			if (!defender.activeTurns) {
-				move.boosts = {atk: 0};
-			}
-		},
 		self: {
 			boosts: {
 				atk: -1,
 			},
+		},
+		onModifyMove(move, pokemon, defender) {
+			if (!defender.activeTurns) {
+				move.self.boosts = {atk: 0};
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1510,6 +1510,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		recoil: [33, 100],
 		desc: "Has 1/3 recoil.",
 		shortDesc: "Has 1/3 recoil.",
+		self: { },
 	},
 	icehammer: {
 		inherit: true,
@@ -2033,7 +2034,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 					}
 				}
 			}
-			return bonfireBP
+
+			basePower = bonfireBP
+			
+			return basePower
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
@@ -2055,7 +2059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		onAfterHit(pokemon) {
-			this.useMove("Ki Blast 2", pokemon);
+			pokemon.useMove("Ki Blast 2", pokemon);
 		},
 		type: "Fighting",
 		shortDesc: "Damages user as much as it does to target.",
