@@ -3545,11 +3545,8 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				move.ignoreImmunity[type] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Tinted Lens boost');
-				return this.chainModify(2);
-			}
+		onEffectiveness(typeMod, target, type) {
+			if (target.getMoveHitData(move).typeMod < 0) return 0;
 		},
 		target: "allAdjacent",
 		type: "Normal",

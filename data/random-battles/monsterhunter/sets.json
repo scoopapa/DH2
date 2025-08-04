@@ -267,7 +267,7 @@
     	"sets": [
         		{
             	    "role": "Wallbreaker",
-            	    "movepool": ["Armor Cannon", "Blizzard", "Frozen Cleave", "Magma Surge", "Magma Storm", "Pyro Ball", "V-create", "Ice Shard"],
+            	    "movepool": ["Armor Cannon", "Blizzard", "Frozen Cleave", "Freeze-Dry", "Pyro Ball", "V-create"],
                     "abilities": ["Heat Sink", "Permafrost"],
             	    "teraTypes": ["Normal"]
         		}
@@ -1312,7 +1312,7 @@
         "sets": [ 
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Snowscape", "Blizzard", "Sacred Sword", "Hurricane", "Freeze Dry"],
+                "movepool": ["Snowscape", "Blizzard", "Sacred Sword", "Hurricane", "Freeze-Dry"],
                 "abilities": ["Slush Rush"],
                 "teraTypes": ["Normal"]
             },
@@ -2291,7 +2291,7 @@
             },
              {
                 "role": "Fast Support",
-                "movepool": ["Tailwind", "Court Change", "Rapid Spin", "Cutwing Barrage", "Ice Spinner", "Power Whip"],
+                "movepool": ["Tailwind", "Court Change", "Rapid Spin", "Ice Spinner"],
                 "abilities": ["Gale Wings"],
                 "teraTypes": ["Normal"]
 
@@ -2483,7 +2483,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Oblivion Wing", "Torch Song", "Sparkling Aria", "Arctic Shriek", "Roost"],
+                "movepool": ["Oblivion Wing", "Torch Song", "Sparkling Aria", "Arctic Shriek"],
                 "abilities": ["Triage"],
                 "teraTypes": ["Normal"]
             }
@@ -2493,14 +2493,8 @@
         "level": 98,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Glare", "Aqua Step", "Nuzzle", "Body Slam"],
-                "abilities": ["Swift Swim", "Water Absorb"],
-                "teraTypes": ["Normal"]
-            },
-            {
                 "role": "Bulky Support",
-                "movepool": ["Glare", "Tidy Up", "Recover", "Aqua Step", "Nuzzle", "Body Slam"],
+                "movepool": ["Glare", "Tidy Up", "Recover", "Aqua Step", "Body Slam"],
                 "abilities": ["Swift Swim", "Water Absorb"],
                 "teraTypes": ["Normal"]
 
@@ -2540,7 +2534,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Nasty Plot", "Shadow Ball", "Freeze Dry", "Moonblast", "Protect"],
+                "movepool": ["Nasty Plot", "Shadow Ball", "Freeze-Dry", "Moonblast", "Protect"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
             },
