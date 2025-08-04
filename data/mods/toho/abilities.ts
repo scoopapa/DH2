@@ -478,30 +478,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onWeatherChange(pokemon) {
 			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-				if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
-				break;
-			case 'desolateland':
-				if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
-				break;
-			case 'raindance':
-				if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
-				break;
-			case 'primordialsea':
-				if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
-				break;
-			case 'sandstorm':
-				if (pokemon.setType('Rock')) this.add('-start', pokemon, 'typechange', 'Rock');
-				break;
-			case 'hail':
-				if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
-				break;
-			case 'snowscape':
-				if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
-				break;
-			default:
-				if (pokemon.setType(pokemon.getTypes())) this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.getTypes().join('/'));
-				break;
+				case 'sunnyday':
+					if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
+					break;
+				case 'desolateland':
+					if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
+					break;
+				case 'raindance':
+					if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
+					break;
+				case 'primordialsea':
+					if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
+					break;
+				case 'sandstorm':
+					if (pokemon.setType('Rock')) this.add('-start', pokemon, 'typechange', 'Rock');
+					break;
+				case 'hail':
+					if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
+					break;
+				case 'snowscape':
+					if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
+					break;
+				default:
+					if (pokemon.setType(pokemon.getTypes())) this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.getTypes().join('/'));
+					break;
 			}
 		},
 		flags: {},
