@@ -1011,6 +1011,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
 		onSourceTryPrimaryHit(target, source, effect, pokemon) {
+			console.log("Target is " + target);
+			console.log("Source is " + source);
+			console.log("Effect is " + effect);
+			console.log("Pokemon is " + pokemon);
 			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				source.formeChange(forme, effect);
