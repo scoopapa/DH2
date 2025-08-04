@@ -243,7 +243,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "PU",
 	},
 	golem: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	ponyta: {
 		tier: "ZU",
@@ -480,7 +480,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "RU",
 	},
 	aerodactyl: {
-		tier: "OU",
+		tier: "NEW",
 	},
 	snorlax: {
 		tier: "OU",
@@ -1011,10 +1011,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "PU",
 	},
 	lunatone: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	solrock: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	barboach: {
 		tier: "LC",
@@ -1044,7 +1044,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "ZU",
 	},
 	armaldo: {
-		tier: "UUBL",
+		tier: "NEW",
 	},
 	feebas: {
 		tier: "LC",
@@ -1174,8 +1174,5 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	deoxysspeed: {
 		tier: "Uber",
-	},
-	budew: {
-		tier: "NEW",
 	},
 };

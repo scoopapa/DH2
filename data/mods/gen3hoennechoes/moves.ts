@@ -18,6 +18,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	ancientpower: {
 		inherit: true,
+		accuracy: 90,
+		basePower: 110,
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 	},
 	assist: {
@@ -617,7 +628,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Has a 40% chance to make the target flinch if they are paralyzed.",
 		shortDesc: "40% flinch against paralyzed foes.",
 		onModifyMove(move, pokemon, target) {
-			if (target.status === 'par') {
+			if (target && target.status === 'par') {
 				move.secondaries = [];
 				move.secondaries.push({
 					chance: 40,

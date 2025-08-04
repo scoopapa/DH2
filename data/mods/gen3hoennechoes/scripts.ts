@@ -9,10 +9,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		//customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','D3','E','Unranked','NFE','LC','Uber'],
 	},
 	init() {
-		for (const species in this.data.Pokedex) {
-			delete this.data.Pokedex[species].abilities['H'];
-		}
-		
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
 		for (const i in this.data.Moves) {
@@ -24,6 +20,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		
+		for (const species in this.data.Pokedex) {
+			delete this.data.Pokedex[species].abilities['H'];
+			if (this.data.Pokedex[species].num <= 386 && this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+				delete this.modData('Learnsets', species).learnset.ancientpower;
+			}
+		}
 		learnsetUpdate(this);
 	},
 	pokemon: {
