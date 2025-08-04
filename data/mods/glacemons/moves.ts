@@ -2035,9 +2035,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			}
 
-			move.basePower = bonfireBP
+			basePower = bonfireBP
 			
-			return move.basePower
+			return basePower
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
