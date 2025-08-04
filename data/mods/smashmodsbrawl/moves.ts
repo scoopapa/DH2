@@ -373,6 +373,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 	},
+	zekromkick: {
+		name: "Zekrom Kick",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 45,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.id === 'zekrom') return move.basePower * 2;
+			return move.basePower;
+		},
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Zekrom: 2x power. Else transforms into Zekrom.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, foot: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Thunderous Kick", target);
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|shut up idiot ジェイ絵ジェ (ZEKROM KICK)`);
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (target.species.id !== 'zekrom') target.formeChange('Zekrom', this.effect, false, '0', '[msg]');
+		},
+		secondary: null,
+		target: "normal",
+	},
 	// collateral
 	gravity: {
 		num: 356,
