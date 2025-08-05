@@ -14,7 +14,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				const species = this.dex.species.get(pokemon.species.name);
 				const baseSpecies = Dex.species.get(pokemon.species.name);
 				let modded = false;
-				for (const type of [0, 1]) {
+				/*for (const type of [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
 						modded = true;
 					}
@@ -28,7 +28,8 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				if (species.abilities[0] !== baseSpecies.abilities[0]) modded = true;
 				if (species.abilities[1] !== baseSpecies.abilities[1]) modded = true;
 				if (species.abilities['H'] !== baseSpecies.abilities['H']) modded = true;
-				if (species.abilities['S'] !== baseSpecies.abilities['S']) modded = true;
+				if (species.abilities['S'] !== baseSpecies.abilities['S']) modded = true;*/
+				if (species.tier == "NEW") modded = true;
 				if (modded) {
 					pokemon.isModded = true;
 				}

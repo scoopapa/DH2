@@ -18,6 +18,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	ancientpower: {
 		inherit: true,
+		accuracy: 90,
+		basePower: 110,
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 	},
 	assist: {
@@ -47,12 +58,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				// https://www.smogon.com/forums/posts/8992145/
 				// this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + move.allies![0].name);
 				this.event.modifier = 1;
-				return move.allies!.shift()!.species.baseStats.atk;
+				return this.dex.species.get(move.allies!.shift()!.set.species).baseStats.atk;
 			},
 			onFoeModifySpDPriority: -101,
 			onFoeModifySpD(def, pokemon) {
 				this.event.modifier = 1;
-				return pokemon.species.baseStats.def;
+				return this.dex.species.get(pokemon.set.species).baseStats.def;
 			},
 		},
 	},
@@ -209,7 +220,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			noCopy: true,
 			onStart(pokemon) {
 				if (!this.queue.willMove(pokemon)) {
-					this.effectState.duration++;
+					this.effectState.duration!++;
 				}
 				if (!pokemon.lastMove) {
 					return false;
@@ -363,7 +374,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			} else {
 				bp = 20;
 			}
-			this.debug('BP: ' + bp);
+			this.debug(`BP: ${bp}`);
 			return bp;
 		},
 	},
@@ -411,6 +422,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	glare: {
 		inherit: true,
 		ignoreImmunity: false,
+	},
+	haze: {
+		inherit: true,
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
 	},
 	hiddenpower: {
 		inherit: true,
@@ -598,7 +618,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			} else {
 				bp = 20;
 			}
-			this.debug('BP: ' + bp);
+			this.debug(`BP: ${bp}`);
 			return bp;
 		},
 	},
@@ -608,7 +628,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Has a 40% chance to make the target flinch if they are paralyzed.",
 		shortDesc: "40% flinch against paralyzed foes.",
 		onModifyMove(move, pokemon, target) {
-			if (target.status === 'par') {
+			if (target && target.status === 'par') {
 				move.secondaries = [];
 				move.secondaries.push({
 					chance: 40,
