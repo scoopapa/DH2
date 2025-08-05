@@ -3303,19 +3303,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	wochien: {
 		inherit: true,
 		baseStats: {hp: 115, atk: 85, def: 100, spa: 95, spd: 135, spe: 40},
-		abilities: {0: "Tablets of Ruin", H: "Leaf Dress"},
-	},
-	chienpao: {
-		inherit: true,
-		abilities: {0: "Sword of Ruin", H: "Slush Rush"},
-	},
-	tinglu: {
-		inherit: true,
-		abilities: {0: "Vessel of Ruin", H: "Sturdy"},
-	},
-	chiyu: {
-		inherit: true,
-		abilities: {0: "Beads of Ruin", H: "Magma Armor"},
 	},
 	roaringmoon: {
 		inherit: true,
