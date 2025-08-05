@@ -2089,7 +2089,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rayquazamega: {
 		inherit: true,
-		tier: "AG",
+		tier: "Adjusted",
 	},
 	jirachi: {
 		inherit: true,
