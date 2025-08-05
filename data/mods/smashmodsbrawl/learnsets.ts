@@ -2,7 +2,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	zapdos: {
 		learnset: {
 			inherit: true,
-			acidrain: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
 			agility: ["9L1"],
@@ -93,7 +92,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L1"],
 			bigbash: ["9L1"],
 			holdhands: ["9L1"],
-			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 		},
 	},
@@ -172,9 +170,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	bigcrammer: {
 		learnset: {
-			fish: ["9L1"],
 			fishmortar: ["9L1"],
-			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -246,7 +242,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			fishanddip: ["9L1"],
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
-			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			zekromkick: ["9L1"],
 			yoshisisland: ["9L1"],
