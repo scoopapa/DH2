@@ -434,7 +434,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.actions.runMegaEvoY?.(action.pokemon);
 				break;
 			case 'runDynamax':
-				action.pokemon.addVolatile('bigbutton');
+				if (['zapdos', 'bigcrammer'].includes(action.pokemon.species.name)) action.pokemon.addVolatile('bigbutton');
 				action.pokemon.side.dynamaxUsed = false;
 				if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = false;
 				break;
