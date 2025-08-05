@@ -162,7 +162,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -177,7 +177,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 162,
 		gen: 3,
-		rating: 3,
 	},
 	airballoon: {
 		name: "Air Balloon",
@@ -194,7 +193,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Air Balloon');
 			target.item = '';
-			target.itemState = {id: '', target};
+			this.clearEffectState(target.itemState);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
@@ -202,7 +201,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Air Balloon');
 				target.item = '';
-				target.itemState = {id: '', target};
+				this.clearEffectState(target.itemState);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
@@ -272,12 +271,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			this.boost({spd: 1});
+			this.boost({ spd: 1 });
 		},
 		num: 205,
 		gen: 3,
@@ -290,7 +289,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 104,
 		gen: 4,
-		rating: 0,
 		isNonstandard: "Past",
 	},
 	aspearberry: {
@@ -313,7 +311,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 153,
 		gen: 3,
-		rating: 1,
 	},
 	assaultvest: {
 		name: "Assault Vest",
@@ -335,7 +332,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 640,
 		gen: 6,
-		rating: 3,
 	},
 	audinite: {
 		name: "Audinite",
@@ -359,7 +355,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 2344,
 		gen: 9,
-		rating: 0,
 	},
 	babiriberry: {
 		name: "Babiri Berry",
@@ -432,7 +427,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 183,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	berryjuice: {
 		name: "Berry Juice",
@@ -450,7 +444,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 43,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 3,
 	},
 	berrysweet: {
 		name: "Berry Sweet",
@@ -460,7 +453,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1111,
 		gen: 8,
-		rating: 0,
 	},
 	bignugget: {
 		name: "Big Nugget",
@@ -470,7 +462,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 581,
 		gen: 5,
-		rating: 0,
 	},
 	bigroot: {
 		name: "Big Root",
@@ -487,7 +478,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 296,
 		gen: 4,
-		rating: 1,
 	},
 	bindingband: {
 		name: "Binding Band",
@@ -498,7 +488,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		// implemented in statuses
 		num: 544,
 		gen: 5,
-		rating: 1,
 	},
 	blackbelt: {
 		name: "Black Belt",
@@ -579,19 +568,18 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
+		onSwitchInPriority: -1,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre' && !pokemon.transformed) {
+				pokemon.formeChange('Kyogre-Primal', this.effect, true);
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Kyogre-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
 			return true;
 		},
 		itemUser: ["Kyogre"],
+		isPrimalOrb: true,
 		num: 535,
 		gen: 6,
 		isNonstandard: "Past",
@@ -608,7 +596,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 165,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	blunderpolicy: {
 		name: "Blunder Policy",
@@ -626,12 +613,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 30,
 		},
-		onStart() {
+		onSwitchInPriority: -2,
+		onStart(pokemon) {
 			this.effectState.started = true;
+			((this.effect as any).onUpdate as (p: Pokemon) => void).call(this, pokemon);
 		},
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
 				pokemon.addVolatile('protosynthesis');
@@ -655,7 +643,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 795,
 		gen: 7,
-		rating: 0,
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -848,7 +835,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 149,
 		gen: 3,
-		rating: 1,
 	},
 	cherishball: {
 		name: "Cherish Ball",
@@ -927,7 +913,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1254,
 		gen: 8,
-		rating: 0,
 	},
 	choiceband: {
 		name: "Choice Band",
@@ -937,7 +922,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+				this.debug('removing choicelock');
 			}
 			pokemon.removeVolatile('choicelock');
 		},
@@ -951,7 +936,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		isChoice: true,
 		num: 220,
-		rating: 3,
 		gen: 3,
 	},
 	choicescarf: {
@@ -962,7 +946,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+				this.debug('removing choicelock');
 			}
 			pokemon.removeVolatile('choicelock');
 		},
@@ -976,7 +960,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		isChoice: true,
 		num: 287,
 		gen: 4,
-		rating: 3,
 	},
 	choicespecs: {
 		name: "Choice Specs",
@@ -986,7 +969,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+				this.debug('removing choicelock');
 			}
 			pokemon.removeVolatile('choicelock');
 		},
@@ -1001,7 +984,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		isChoice: true,
 		num: 297,
 		gen: 4,
-		rating: 3,
 	},
 	chopleberry: {
 		name: "Chople Berry",
@@ -1036,7 +1018,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 100,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	clearamulet: {
 		name: "Clear Amulet",
@@ -1044,6 +1025,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 30,
 		},
+		onTryBoostPriority: 1,
 		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			let showMsg = false;
@@ -1055,7 +1037,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
+				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', `[of] ${target}`);
 			}
 		},
 		num: 1882,
@@ -1069,7 +1051,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1112,
 		gen: 8,
-		rating: 0,
 	},
 	cobaberry: {
 		name: "Coba Berry",
@@ -1152,7 +1133,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 175,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	coverfossil: {
 		name: "Cover Fossil",
@@ -1163,7 +1143,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 572,
 		gen: 5,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	covertcloak: {
 		name: "Covert Cloak",
@@ -1173,7 +1152,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Covert Cloak prevent secondary');
-			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			return secondaries.filter(effect => !!effect.self);
 		},
 		num: 1885,
 		gen: 9,
@@ -1186,7 +1165,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1253,
 		gen: 8,
-		rating: 0,
 	},
 	custapberry: {
 		name: "Custap Berry",
@@ -1201,7 +1179,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (
 				priority <= 0 &&
 				(pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony))
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony))
 			) {
 				if (pokemon.eatItem()) {
 					this.add('-activate', pokemon, 'item: Custap Berry', '[consumed]');
@@ -1272,7 +1250,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 109,
 		gen: 4,
-		rating: 0,
 	},
 	decidiumz: {
 		name: "Decidium Z",
@@ -1327,13 +1304,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onAttractPriority: -100,
 		onAttract(target, source) {
-			this.debug('attract intercepted: ' + target + ' from ' + source);
+			this.debug(`attract intercepted: ${target} from ${source}`);
 			if (!source || source === target) return;
 			if (!source.volatiles['attract']) source.addVolatile('attract', target);
 		},
 		num: 280,
 		gen: 4,
-		rating: 1,
 	},
 	diancite: {
 		name: "Diancite",
@@ -1365,7 +1341,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 102,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	dousedrive: {
 		name: "Douse Drive",
@@ -1456,7 +1431,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 235,
 		gen: 2,
-		rating: 0,
 	},
 	dragoniumz: {
 		name: "Dragonium Z",
@@ -1505,7 +1479,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 324,
 		gen: 4,
-		rating: 0,
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -1519,7 +1492,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 182,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	duskball: {
 		name: "Dusk Ball",
@@ -1536,7 +1508,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 108,
 		gen: 4,
-		rating: 0,
 	},
 	earthplate: {
 		name: "Earth Plate",
@@ -1600,25 +1571,47 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 50,
 		},
-		onAfterBoost(boost, target, source, effect) {
-			if (this.activeMove?.id === 'partingshot') return;
-			let eject = false;
+		onAfterBoost(boost, pokemon) {
+			if (this.effectState.eject || this.activeMove?.id === 'partingshot') return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					eject = true;
+					this.effectState.eject = true;
+					break;
 				}
 			}
-			if (eject) {
-				if (target.hp) {
-					if (!this.canSwitch(target.side)) return;
-					if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
-					for (const pokemon of this.getAllActive()) {
-						if (pokemon.switchFlag === true) return;
-					}
-					if (target.useItem()) target.switchFlag = true;
-				}
+		},
+		onAnySwitchInPriority: -4,
+		onAnySwitchIn() {
+			if (!this.effectState.eject) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onAnyAfterMega() {
+			if (!this.effectState.eject) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onAnyAfterMove() {
+			if (!this.effectState.eject) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (!this.effectState.eject) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onUseItem(item, pokemon) {
+			if (!this.canSwitch(pokemon.side)) return false;
+			if (pokemon.volatiles['commanding'] || pokemon.volatiles['commanded']) return false;
+			for (const active of this.getAllActive()) {
+				if (active.switchFlag === true) return false;
 			}
+			return true;
+		},
+		onUse(pokemon) {
+			pokemon.switchFlag = true;
+		},
+		onEnd() {
+			delete this.effectState.eject;
 		},
 		num: 1119,
 		gen: 8,
@@ -1631,7 +1624,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 322,
 		gen: 4,
-		rating: 0,
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -1669,6 +1661,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
+		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
 				pokemon.useItem();
@@ -1718,7 +1711,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat() { },
 		num: 208,
 		gen: 3,
-		rating: 1,
 	},
 	eviolite: {
 		name: "Eviolite",
@@ -1740,7 +1732,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 538,
 		gen: 5,
-		rating: 3,
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -1755,7 +1746,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 268,
 		gen: 4,
-		rating: 3,
 	},
 	fairiumz: {
 		name: "Fairium Z",
@@ -1873,7 +1863,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -1888,7 +1878,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 159,
 		gen: 3,
-		rating: 3,
 	},
 	firegem: {
 		name: "Fire Gem",
@@ -1928,7 +1917,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 82,
 		gen: 1,
-		rating: 0,
 	},
 	firiumz: {
 		name: "Firium Z",
@@ -2008,7 +1996,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 539,
 		gen: 5,
-		rating: 1,
 	},
 	flowersweet: {
 		name: "Flower Sweet",
@@ -2018,7 +2005,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1113,
 		gen: 8,
-		rating: 0,
 	},
 	flyinggem: {
 		name: "Flying Gem",
@@ -2033,7 +2019,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 556,
 		gen: 5,
 		isNonstandard: "Past",
-		rating: 3,
 	},
 	flyingmemory: {
 		name: "Flying Memory",
@@ -2078,7 +2063,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 230,
 		gen: 2,
-		rating: 1,
 	},
 	focussash: {
 		name: "Focus Sash",
@@ -2096,7 +2080,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 275,
 		gen: 4,
-		rating: 3,
 	},
 	fossilizedbird: {
 		name: "Fossilized Bird",
@@ -2107,7 +2090,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 1105,
 		gen: 8,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	fossilizeddino: {
 		name: "Fossilized Dino",
@@ -2118,7 +2100,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 1108,
 		gen: 8,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	fossilizeddrake: {
 		name: "Fossilized Drake",
@@ -2129,7 +2110,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 1107,
 		gen: 8,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	fossilizedfish: {
 		name: "Fossilized Fish",
@@ -2140,7 +2120,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 1106,
 		gen: 8,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	friendball: {
 		name: "Friend Ball",
@@ -2159,7 +2138,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 316,
 		gen: 4,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	galaricacuff: {
 		name: "Galarica Cuff",
@@ -2203,12 +2181,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			this.boost({def: 1});
+			this.boost({ def: 1 });
 		},
 		num: 202,
 		gen: 3,
@@ -2319,7 +2297,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 796,
 		gen: 7,
-		rating: 0,
 	},
 	grassgem: {
 		name: "Grass Gem",
@@ -2369,6 +2346,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
+		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
 				pokemon.useItem();
@@ -2403,7 +2381,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 173,
 		gen: 3,
-		rating: 0,
 	},
 	gripclaw: {
 		name: "Grip Claw",
@@ -2598,7 +2575,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1120,
 		gen: 8,
-		rating: 3,
 		// Hazard Immunity implemented in moves.ts
 	},
 	helixfossil: {
@@ -2610,7 +2586,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 101,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	heracronite: {
 		name: "Heracronite",
@@ -2637,7 +2612,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 172,
 		gen: 3,
-		rating: 0,
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -2663,7 +2637,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -2678,7 +2652,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 163,
 		gen: 3,
-		rating: 3,
 	},
 	icegem: {
 		name: "Ice Gem",
@@ -2718,7 +2691,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 849,
 		gen: 7,
-		rating: 0,
 	},
 	icicleplate: {
 		name: "Icicle Plate",
@@ -2809,7 +2781,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 278,
 		gen: 4,
-		rating: 1,
 	},
 	ironplate: {
 		name: "Iron Plate",
@@ -2859,7 +2830,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 710,
 		gen: 6,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	kasibberry: {
 		name: "Kasib Berry",
@@ -2924,7 +2894,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			}
 		},
 		onEat(pokemon) {
-			this.boost({def: 1});
+			this.boost({ def: 1 });
 		},
 		num: 687,
 		gen: 6,
@@ -2940,7 +2910,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 170,
 		gen: 3,
-		rating: 0,
 	},
 	kangaskhanite: {
 		name: "Kangaskhanite",
@@ -2999,7 +2968,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onFractionalPriority: -0.1,
 		num: 279,
 		gen: 4,
-		rating: 0,
 	},
 	lansatberry: {
 		name: "Lansat Berry",
@@ -3011,7 +2979,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -3073,7 +3041,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 85,
 		gen: 1,
-		rating: 0,
 	},
 	leek: {
 		name: "Leek",
@@ -3104,7 +3071,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 234,
 		gen: 2,
-		rating: 3,
 	},
 	leppaberry: {
 		name: "Leppa Berry",
@@ -3148,12 +3114,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			this.boost({atk: 1});
+			this.boost({ atk: 1 });
 		},
 		num: 201,
 		gen: 3,
@@ -3174,7 +3140,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 270,
 		gen: 4,
-		rating: 3,
 	},
 	lightball: {
 		name: "Light Ball",
@@ -3253,7 +3218,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1110,
 		gen: 8,
-		rating: 0,
 	},
 	lucarionite: {
 		name: "Lucarionite",
@@ -3411,7 +3375,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 215,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	magmarizer: {
 		name: "Magmarizer",
@@ -3421,7 +3384,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 323,
 		gen: 4,
-		rating: 0,
 	},
 	magnet: {
 		name: "Magnet",
@@ -3448,7 +3410,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -3463,7 +3425,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 161,
 		gen: 3,
-		rating: 3,
 	},
 	magostberry: {
 		name: "Magost Berry",
@@ -3477,7 +3438,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 176,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	mail: {
 		name: "Mail",
@@ -3498,7 +3458,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1861,
 		gen: 9,
-		rating: 0,
 	},
 	manectite: {
 		name: "Manectite",
@@ -3528,7 +3487,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			}
 		},
 		onEat(pokemon) {
-			this.boost({spd: 1});
+			this.boost({ spd: 1 });
 		},
 		num: 688,
 		gen: 6,
@@ -3559,7 +3518,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 2404,
 		gen: 9,
-		rating: 0,
 	},
 	mawilite: {
 		name: "Mawilite",
@@ -3646,7 +3604,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 219,
 		gen: 3,
-		rating: 3,
 	},
 	metagrossite: {
 		name: "Metagrossite",
@@ -3793,7 +3750,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onResidual(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -3869,19 +3826,44 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
-			const boostPlus: SparseBoostsTable = {};
-			let statsRaised = false;
+			if (!this.effectState.boosts) this.effectState.boosts = {} as SparseBoostsTable;
+			const boostPlus = this.effectState.boosts;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! > 0) {
-					boostPlus[i] = boost[i];
-					statsRaised = true;
+					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
+					this.effectState.ready = true;
 				}
 			}
-			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectState.target;
-			pokemon.useItem();
-			this.boost(boostPlus, pokemon);
+		},
+		onAnySwitchInPriority: -3,
+		onAnySwitchIn() {
+			if (!this.effectState.ready) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onAnyAfterMega() {
+			if (!this.effectState.ready) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onAnyAfterTerastallization() {
+			if (!this.effectState.ready) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onAnyAfterMove() {
+			if (!this.effectState.ready) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (!this.effectState.ready) return;
+			(this.effectState.target as Pokemon).useItem();
+		},
+		onUse(pokemon) {
+			this.boost(this.effectState.boosts, pokemon);
+		},
+		onEnd() {
+			delete this.effectState.boosts;
+			delete this.effectState.ready;
 		},
 		num: 1883,
 		gen: 9,
@@ -3892,6 +3874,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
+		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
 				pokemon.useItem();
@@ -3923,7 +3906,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 81,
 		gen: 1,
-		rating: 0,
 	},
 	muscleband: {
 		name: "Muscle Band",
@@ -3967,7 +3949,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 166,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	nestball: {
 		name: "Nest Ball",
@@ -4010,7 +3991,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 178,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	normalgem: {
 		name: "Normal Gem",
@@ -4084,7 +4064,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 103,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	oranberry: {
 		name: "Oran Berry",
@@ -4107,7 +4086,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 155,
 		gen: 3,
-		rating: 0,
 	},
 	ovalstone: {
 		name: "Oval Stone",
@@ -4117,7 +4095,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 110,
 		gen: 4,
-		rating: 0,
 	},
 	pamtreberry: {
 		name: "Pamtre Berry",
@@ -4131,7 +4108,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 180,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	parkball: {
 		name: "Park Ball",
@@ -4209,7 +4185,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 151,
 		gen: 3,
-		rating: 1,
 	},
 	persimberry: {
 		name: "Persim Berry",
@@ -4229,7 +4204,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 156,
 		gen: 3,
-		rating: 1,
 	},
 	petayaberry: {
 		name: "Petaya Berry",
@@ -4241,12 +4215,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			this.boost({spa: 1});
+			this.boost({ spa: 1 });
 		},
 		num: 204,
 		gen: 3,
@@ -4299,7 +4273,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 168,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	pinsirite: {
 		name: "Pinsirite",
@@ -4344,7 +4317,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 573,
 		gen: 5,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	poisonbarb: {
 		name: "Poison Barb",
@@ -4422,7 +4394,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 169,
 		gen: 3,
-		rating: 0,
 	},
 	poweranklet: {
 		name: "Power Anklet",
@@ -4436,7 +4407,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 293,
 		gen: 4,
-		rating: 0,
 	},
 	powerband: {
 		name: "Power Band",
@@ -4450,7 +4420,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 292,
 		gen: 4,
-		rating: 0,
 	},
 	powerbelt: {
 		name: "Power Belt",
@@ -4464,7 +4433,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 290,
 		gen: 4,
-		rating: 0,
 	},
 	powerbracer: {
 		name: "Power Bracer",
@@ -4478,7 +4446,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 289,
 		gen: 4,
-		rating: 0,
 	},
 	powerherb: {
 		onChargeMove(pokemon, target, move) {
@@ -4496,7 +4463,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 271,
 		gen: 4,
-		rating: 3,
 	},
 	powerlens: {
 		name: "Power Lens",
@@ -4510,7 +4476,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 291,
 		gen: 4,
-		rating: 0,
 	},
 	powerweight: {
 		name: "Power Weight",
@@ -4524,7 +4489,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 294,
 		gen: 4,
-		rating: 0,
 	},
 	premierball: {
 		name: "Premier Ball",
@@ -4552,7 +4516,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 537,
 		gen: 5,
-		rating: 0,
 	},
 	protectivepads: {
 		name: "Protective Pads",
@@ -4572,7 +4535,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 321,
 		gen: 4,
-		rating: 0,
 	},
 	psychicgem: {
 		name: "Psychic Gem",
@@ -4610,6 +4572,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
+		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
 				pokemon.useItem();
@@ -4669,7 +4632,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 171,
 		gen: 3,
-		rating: 0,
 	},
 	quickball: {
 		name: "Quick Ball",
@@ -4723,7 +4685,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 177,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	rarebone: {
 		name: "Rare Bone",
@@ -4733,7 +4694,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 106,
 		gen: 4,
-		rating: 0,
 	},
 	rawstberry: {
 		name: "Rawst Berry",
@@ -4755,7 +4715,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 152,
 		gen: 3,
-		rating: 1,
 	},
 	razorclaw: {
 		name: "Razor Claw",
@@ -4804,7 +4763,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 164,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	reapercloth: {
 		name: "Reaper Cloth",
@@ -4814,7 +4772,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 325,
 		gen: 4,
-		rating: 0,
 	},
 	redcard: {
 		name: "Red Card",
@@ -4841,19 +4798,18 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
+		onSwitchInPriority: -1,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon' && !pokemon.transformed) {
+				pokemon.formeChange('Groudon-Primal', this.effect, true);
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Groudon-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
 			return true;
 		},
 		itemUser: ["Groudon"],
+		isPrimalOrb: true,
 		num: 534,
 		gen: 6,
 		isNonstandard: "Past",
@@ -4873,7 +4829,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1115,
 		gen: 8,
-		rating: 0,
 	},
 	rindoberry: {
 		name: "Rindo Berry",
@@ -4981,7 +4936,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 540,
 		gen: 5,
-		rating: 3,
 	},
 	roomservice: {
 		name: "Room Service",
@@ -4989,6 +4943,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 100,
 		},
+		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('trickroom')) {
 				pokemon.useItem();
@@ -5015,7 +4970,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 99,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	roseincense: {
 		name: "Rose Incense",
@@ -5075,7 +5029,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat() { },
 		num: 212,
 		gen: 4,
-		rating: 1,
 	},
 	rustedshield: {
 		name: "Rusted Shield",
@@ -5126,7 +5079,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 647,
 		gen: 6,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	safariball: {
 		name: "Safari Ball",
@@ -5162,7 +5114,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 711,
 		gen: 6,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	salacberry: {
 		name: "Salac Berry",
@@ -5174,16 +5125,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			this.boost({spe: 1});
+			this.boost({ spe: 1 });
 		},
 		num: 203,
 		gen: 3,
-		rating: 3,
 	},
 	salamencite: {
 		name: "Salamencite",
@@ -5320,7 +5270,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 107,
 		gen: 4,
-		rating: 0,
 	},
 	shockdrive: {
 		name: "Shock Drive",
@@ -5423,7 +5372,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 105,
 		gen: 4,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	skyplate: {
 		name: "Sky Plate",
@@ -5568,7 +5516,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 179,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	splashplate: {
 		name: "Splash Plate",
@@ -5627,7 +5574,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -5657,7 +5604,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1114,
 		gen: 8,
-		rating: 0,
 	},
 	steelixite: {
 		name: "Steelixite",
@@ -5789,7 +5735,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1109,
 		gen: 8,
-		rating: 0,
 	},
 	sunstone: {
 		name: "Sun Stone",
@@ -5799,7 +5744,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 80,
 		gen: 2,
-		rating: 0,
 	},
 	swampertite: {
 		name: "Swampertite",
@@ -5823,7 +5767,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1116,
 		gen: 8,
-		rating: 0,
 	},
 	syrupyapple: {
 		name: "Syrupy Apple",
@@ -5833,7 +5776,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 2402,
 		gen: 9,
-		rating: 0,
 	},
 	tamatoberry: {
 		name: "Tamato Berry",
@@ -5846,7 +5788,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onEat: false,
 		num: 174,
 		gen: 3,
-		rating: 0,
 	},
 	tangaberry: {
 		name: "Tanga Berry",
@@ -5891,7 +5832,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1117,
 		gen: 8,
-		rating: 0,
 	},
 	terrainextender: {
 		name: "Terrain Extender",
@@ -5944,7 +5884,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 83,
 		gen: 1,
-		rating: 0,
 	},
 	timerball: {
 		name: "Timer Ball",
@@ -7043,7 +6982,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 2403,
 		gen: 9,
-		rating: 0,
 	},
 	upgrade: {
 		name: "Up-Grade",
@@ -7053,7 +6991,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 252,
 		gen: 2,
-		rating: 0,
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
@@ -7159,7 +7096,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 84,
 		gen: 1,
-		rating: 0,
 	},
 	wateriumz: {
 		name: "Waterium Z",
@@ -7185,7 +7121,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 181,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	waveincense: {
 		name: "Wave Incense",
@@ -7254,7 +7189,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 167,
 		gen: 3,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	whippeddream: {
 		name: "Whipped Dream",
@@ -7265,7 +7199,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 646,
 		gen: 6,
 		isNonstandard: "Past",
-		rating: 0,
 	},
 	whiteherb: {
 		name: "White Herb",
@@ -7288,20 +7221,36 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				}
 			},
 		},
-		onUpdate(pokemon) {
-			let activate = false;
-			const boosts: SparseBoostsTable = {};
+		onStart(pokemon) {
+			this.effectState.boosts = {} as SparseBoostsTable;
+			let ready = false;
 			let i: BoostID;
 			for (i in pokemon.boosts) {
 				if (pokemon.boosts[i] < 0) {
-					activate = true;
-					boosts[i] = 0;
+					ready = true;
+					this.effectState.boosts[i] = 0;
 				}
 			}
-			if (activate && pokemon.useItem()) {
-				pokemon.setBoost(boosts);
-				this.add('-clearnegativeboost', pokemon, '[silent]');
-			}
+			if (ready) (this.effectState.target as Pokemon).useItem();
+			delete this.effectState.boosts;
+		},
+		onAnySwitchInPriority: -2,
+		onAnySwitchIn() {
+			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
+		},
+		onAnyAfterMega() {
+			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
+		},
+		onAnyAfterMove() {
+			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			((this.effect as any).onStart as (p: Pokemon) => void).call(this, pokemon);
+		},
+		onUse(pokemon) {
+			pokemon.setBoost(this.effectState.boosts);
+			this.add('-clearnegativeboost', pokemon, '[silent]');
 		},
 		num: 214,
 		gen: 3,
@@ -7331,7 +7280,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
-					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -7346,7 +7295,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 160,
 		gen: 3,
-		rating: 3,
 	},
 	wiseglasses: {
 		name: "Wise Glasses",
@@ -7449,7 +7397,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			basePower: 80,
 			type: "Poison",
 		},
-		onResidualOrder: 5,
+		onResidualOrder: 10,
 		onResidual(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				pokemon.eatItem();
@@ -7464,7 +7412,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 155,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 	bitterberry: {
 		name: "Bitter Berry",
@@ -7485,7 +7432,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 156,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 	burntberry: {
 		name: "Burnt Berry",
@@ -7508,7 +7454,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 153,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 	goldberry: {
 		name: "Gold Berry",
@@ -7518,7 +7463,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			basePower: 80,
 			type: "Psychic",
 		},
-		onResidualOrder: 5,
+		onResidualOrder: 10,
 		onResidual(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				pokemon.eatItem();
@@ -7555,7 +7500,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 152,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 	mintberry: {
 		name: "Mint Berry",
@@ -7684,7 +7628,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 149,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 	psncureberry: {
 		name: "PSN Cure Berry",
@@ -7707,7 +7650,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 151,
 		gen: 2,
 		isNonstandard: "Past",
-		rating: 1,
 	},
 
 	// CAP items

@@ -1425,7 +1425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lugia: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	hooh: {
 		inherit: true,
@@ -3981,7 +3981,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	solgaleo: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	lunala: {
 		inherit: true,
@@ -4029,7 +4029,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	necrozmaultra: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	magearna: {
 		inherit: true,
