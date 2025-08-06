@@ -41,7 +41,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseSpecies: "Delibird",
 		forme: "Mega",
 		types: ["Ice", "Flying"],
-		megaStats: {hp: 45, atk: 25, def: 120, spa: 85, spd: 120, spe: 35},
+		baseStats: {hp: 45, atk: 25, def: 120, spa: 85, spd: 120, spe: 35},
 		abilities: {0: "Spirit of Giving"},
 		heightm: 0.9,
 		weightkg: 16,
