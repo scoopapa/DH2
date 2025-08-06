@@ -268,9 +268,10 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 
 	init() {//Tera Blast
-		for (const id in this.dataCache.Pokedex) {
-			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
-				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
+		const noLearn = ["Beldum", "Burmy", "Cascoon", "Caterpie", "Combee", "Cosmoem", "Cosmog", "Ditto", "Kakuna", "Kricketot", "Magikarp", "Metapod", "Pyukumuku", "Scatterbug", 
+      "Silcoon", "Spewpa", "Tynamo", "Weedle", "Wobbuffet", "Wurmple", "Wynaut"];
+    	for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !noLearn.includes(id)) {
 				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["9M"];
 			}
 		}
