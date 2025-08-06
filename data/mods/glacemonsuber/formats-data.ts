@@ -1569,7 +1569,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pelipper: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	ralts: {
 		inherit: true,
@@ -2425,7 +2425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dialga: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	dialgaorigin: {
 		inherit: true,
@@ -2505,7 +2505,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceusfighting: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	arceusfire: {
 		inherit: true,
@@ -2533,7 +2533,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceuspoison: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	arceuspsychic: {
 		inherit: true,
@@ -3209,7 +3209,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	reshiram: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	zekrom: {
 		inherit: true,
@@ -3217,7 +3217,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	landorus: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	landorustherian: {
 		inherit: true,
@@ -4341,7 +4341,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracovish: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	arctovish: {
 		inherit: true,
@@ -4377,7 +4377,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazentacrowned: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Uber RU",
 	},
 	eternatus: {
 		inherit: true,
@@ -4753,7 +4753,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	irontreads: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	ironmoth: {
 		inherit: true,
