@@ -1868,17 +1868,9 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	castformsunny: {
-		tier: "NU",
-		doublesTier: "(DUU)",
-	},
-	castformrainy: {
-		tier: "NU",
-		doublesTier: "(DUU)",
-	},
-	castformsnowy: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+	castformmega: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	kecleon: {
 		tier: "NU",
@@ -2773,7 +2765,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	sigilyph: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	yamask: {
@@ -4276,7 +4268,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	alcremie: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	alcremiegmax: {

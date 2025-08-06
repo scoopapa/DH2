@@ -729,6 +729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	misdreavus: {
 		inherit: true,
 		types: ["Ghost", "Fairy"],
+		abilities: {0: "Levitate", H: "Magician"},
 	},
 	girafarig: {
 		inherit: true,
@@ -1220,18 +1221,34 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	castform: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+		otherFormes: ["Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Mega"],
+		formeOrder: ["Castform", "Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Mega"],
 	},
 	castformsunny: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 80},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
 	},
 	castformrainy: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 100, spe: 80},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
 	},
 	castformsnowy: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+	},
+	castformmega: {
+		num: 340,
+		name: "Castform-Mega",
+		baseSpecies: "Castform",
+		forme: "Mega",
+		types: ["Normal"],
+		baseStats: {hp: 80, atk: 80, def: 90, spa: 120, spd: 90, spe: 120},
+		abilities: {0: "Climatic Change"},
+		heightm: 0.3,
+		weightkg: 0.8,
+		color: "Gray",
+		eggGroups: ["Fairy", "Amorphous"],
+        requiredItem: "Castformite",
 	},
 	shuppet: {
 		inherit: true,
@@ -1448,6 +1465,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 65, atk: 65, def: 65, spa: 110, spd: 110, spe: 110},
+		abilities: {0: "Levitate", H: "Magician"},
 	},
 	honchkrow: {
 		inherit: true,
@@ -1639,7 +1657,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mesprit: {
 		inherit: true,
 		types: ["Psychic", "Fairy"],
-		abilities: {0: "Levitate", 1: "Healer", H: "Mental Fortitude"},
+		abilities: {0: "Levitate", 1: "Magician", H: "Mental Fortitude"},
 	},
 	azelf: {
 		inherit: true,
@@ -2030,9 +2048,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 60, spa: 65, spd: 60, spe: 115},
 	},
+	gothita: {
+		inherit: true,
+		abilities: {0: "Magician", 1: "Competitive", H: "Shadow Tag"},
+	},
+	gothorita: {
+		inherit: true,
+		abilities: {0: "Magician", 1: "Competitive", H: "Shadow Tag"},
+	},
 	gothitelle: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 50, def: 95, spa: 95, spd: 110, spe: 65},
+		abilities: {0: "Magician", 1: "Competitive", H: "Shadow Tag"},
 	},
 	swanna: {
 		inherit: true,
@@ -2262,7 +2289,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     delphox: {
 		inherit: true,
-		abilities: {0: "Blaze", H: "Magic Guard"},
 		otherFormes: ["Delphox-Mega"],
 		formeOrder: ["Delphox", "Delphox-Mega"],
 	},
@@ -2745,7 +2771,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	silvallypsychic: {
 		inherit: true,
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Magician"},
 		requiredItem: null,
 	},
 	silvallyrock: {
@@ -2998,9 +3024,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Fighting", "Water"],
 	},
+	hatenna: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Magician", H: "Magic Bounce"},
+	},
+	hattrem: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Magician", H: "Magic Bounce"},
+	},
 	hatterene: {
 		inherit: true,
 		baseStats: {hp: 77, atk: 70, def: 95, spa: 136, spd: 103, spe: 29},
+		abilities: {0: "Healer", 1: "Magician", H: "Magic Bounce"},
 	},
 	grimmsnarl: {
 		inherit: true,
@@ -3026,6 +3061,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	runerigus: {
 		inherit: true,
 		abilities: {0: "Wandering Spirit", H: "Cursed Body"},
+	},
+	milcery: {
+		inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Hyperglycemia", H: "Aroma Veil"},
+	},
+	alcremie: {
+		inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Hyperglycemia", H: "Aroma Veil"},
 	},
 	mrrime: {
 		inherit: true,
@@ -3072,7 +3115,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	wyrdeer: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Fur Coat", H: "Sap Sipper"},
+		baseStats: {hp: 103, atk: 105, def: 82, spa: 65, spd: 85, spe: 85},
+		abilities: {0: "Intimidate", 1: "Speed Boost", H: "Sap Sipper"},
 	},
 	kleavor: {
 		inherit: true,
