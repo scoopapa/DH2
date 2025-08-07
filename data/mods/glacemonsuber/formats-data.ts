@@ -1425,7 +1425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lugia: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	hooh: {
 		inherit: true,
@@ -1569,7 +1569,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pelipper: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	ralts: {
 		inherit: true,
@@ -2425,7 +2425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dialga: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	dialgaorigin: {
 		inherit: true,
@@ -2481,75 +2481,75 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceus: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	arceusbug: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceusdark: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	arceusdragon: {
 		inherit: true,
-		tier: "Uber UUBL",
+		tier: "Adjusted",
 	},
 	arceuselectric: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	arceusfairy: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	arceusfighting: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceusfire: {
 		inherit: true,
-		tier: "Uber UUBL",
+		tier: "Adjusted",
 	},
 	arceusflying: {
 		inherit: true,
-		tier: "Uber UUBL",
+		tier: "Adjusted",
 	},
 	arceusghost: {
 		inherit: true,
-		tier: "Uber UUBL",
+		tier: "Adjusted",
 	},
 	arceusgrass: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceusground: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	arceusice: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceuspoison: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceuspsychic: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceusrock: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	arceussteel: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	arceuswater: {
 		inherit: true,
-		tier: "Uber UUBL",
+		tier: "Adjusted",
 	},
 	victini: {
 		inherit: true,
@@ -3209,7 +3209,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	reshiram: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	zekrom: {
 		inherit: true,
@@ -3217,7 +3217,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	landorus: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	landorustherian: {
 		inherit: true,
@@ -3981,7 +3981,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	solgaleo: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	lunala: {
 		inherit: true,
@@ -4029,7 +4029,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	necrozmaultra: {
 		inherit: true,
-		tier: "Uber OU",
+		tier: "Adjusted",
 	},
 	magearna: {
 		inherit: true,
@@ -4341,7 +4341,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracovish: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	arctovish: {
 		inherit: true,
@@ -4377,7 +4377,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazentacrowned: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Uber RU",
 	},
 	eternatus: {
 		inherit: true,
@@ -4753,7 +4753,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	irontreads: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Uber UU",
 	},
 	ironmoth: {
 		inherit: true,

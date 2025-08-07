@@ -1561,60 +1561,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move. Water immunity.",
 	},
-	forecast: {
-		inherit: true,
-		onWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-				break;
-			case 'hail':
-			case 'snow':
-			case 'everlastingwinter':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
-			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
-			}
-		},
-		onPrepareHit(source, target, move) {
-			if (move.hasBounced) return;
-			const type = move.type;
-			if (type) {
-				switch (type) {
-					case "Water":
-						this.field.setWeather('raindance');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Forecast');
-						break;
-					case "Fire":
-						this.field.setWeather('sunnyday');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Forecast');
-						break;
-					case "Ice":
-						this.field.setWeather('snow');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Forecast');
-						break;
-					
-				}
-			}
-		},
-		desc: "Castform's type changes to the current weather condition's type, except Sandstorm. Upon using a Water, Fire, or Ice move, this Pokemon changes to that type and sets the corresponding weather.",
-		shortDesc: "Changes type, form and weather when using Water/Fire/Ice moves.",
-    },
 	mimicry: {
 		inherit: true,
 		onTerrainChange(pokemon) {
@@ -2732,5 +2678,105 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
+	},
+	magician: {
+		inherit: true,
+		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && !foeActive.item
+			)) {
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const item = target.getItem();
+				const additionalBannedItems = [
+					// Zen Mode included here for compatibility with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'receiver', 'trace', 'zenmode', 'protosynthesis', 'quarkdrive',
+				];
+				if (!this.singleEvent('TakeItem', item, target.itemData, target, target, item) || additionalBannedItems.includes(target.item)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, item, '[from] ability: Magician', '[of] ' + target);
+				pokemon.setAbility(item);
+				return;
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {},
+	},
+	climaticchange: {
+		desc: "Upon using a Water, Fire, or Ice move, this Pokemon changes to that type and sets the corresponding weather.",
+		shortDesc: "Changes type and weather when using Water/Fire/Ice moves.",
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced) return;
+			const type = move.type;
+			if (type) {
+				switch (type) {
+				case "Water":
+					this.field.setWeather('raindance');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
+				case "Fire":
+					this.field.setWeather('sunnyday');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
+				case "Ice":
+					this.field.setWeather('hail');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
+				}
+			}
+		},
+		name: "Climatic Change",
+		rating: 4,
+		num: -92,
+	},
+	hyperglycemia: {
+		desc: "At the end of each turn, every Pokemon gets 1 Stockpile. Reduces the damage taken by X*10%, with X the amount of Stockpiles this Pokemon has, and boosts this Pokemon's damage by Y*10%, Y being the amount of Stockpiles the target has.",
+		shortDesc: "Every Pokemon Stockpiles at the end of each turn. Reduces damage by X*10%, and boosts damage by Y*10%.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			let activated = false;
+			if (pokemon.activeTurns) {
+				pokemon.addVolatile('stockpile');
+				for (const target of pokemon.side.foe.active) {
+					if (!target || !target.isAdjacent(pokemon)) continue;
+					if (!activated) {
+						this.add('-ability', pokemon, 'Hyperglycemia', 'boost');
+						activated = true;
+					}
+					if (target.volatiles['substitute']) {
+						this.add('-immune', target);
+					} else {
+						target.addVolatile('stockpile');
+					}
+				}
+			}
+		},
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			var bpBoost = 1 + 0.1 * attacker.volatiles['stockpile'].layers;
+			return this.chainModify(bpBoost);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			var defBoost = 1 + 0.1 * target.volatiles['stockpile'].layers;
+			return this.chainModify(defBoost);
+		},
+		flags: {breakable: 1},
+		name: "Hyperglycemia",
+		rating: 4.5,
+		num: -93,
 	},
 };

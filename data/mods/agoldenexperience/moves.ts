@@ -3554,6 +3554,11 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "This move and its effects ignore the Abilities of other Pokemon, as well as resistances and immunities.",
 		shortDesc: "Ignores the Abilities of other Pokemon, resistances and immunities.",
 	},
+	psyshieldbash: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+	},
 	// Everlasting Winter field
 	auroraveil: {
 		inherit: true,
