@@ -280,4 +280,32 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Strong Jaw", 1: "Super Luck", H: "Guts"},
 		weightkg: 80,
 	},
+	heavylobster: {
+		num: 31,
+		name: "Heavy Lobster",
+		gender: "N",
+		types: ["Steel", "Bug"],
+		baseStats: {hp: 85, atk: 105, def: 79, spa: 68, spd: 100, spe: 98},
+		abilities: {0: "Heavy Metal", H: "Weak Armor"},
+		weightkg: 400,
+	},
+	voidkong: {
+		num: 32,
+		name: "Void Kong",
+		gender: "M",
+		types: ["Dark", "Rock"],
+		baseStats: {hp: 67, atk: 52, def: 108, spa: 130, spd: 130, spe: 83},
+		abilities: {0: "Levitate", H: "Sand Stream"},
+		weightkg: 12.1,
+	},
+	zenyatta: {
+		num: 33,
+		name: "Zenyatta",
+		gender: "M",
+		types: ["Psychic", "Steel"],
+		baseStats: {hp: 75, atk: 45, def: 80, spa: 110, spd: 100, spe: 100},
+		abilities: {0: "Levitate"},
+		weightkg: 80,
+	},
+
 };

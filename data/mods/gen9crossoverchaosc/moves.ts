@@ -702,6 +702,78 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	engineblowback: {
+		num: -24,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Engine Blowback",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Overheat", target);
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	mineralize: {
+		num: -25,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Mineralize",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Mineralize', '[of] ' + source);
+					target.item = 'duskstone';
+					this.add('-item', target, target.item.name, '[from] move: Mineralize');
+				}
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Wave", target);
+			this.add('-anim', target, "Power Gem", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+	},
+	orbofdiscord: {
+		num: -26,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Orb of Discord",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			const success = target.addVolatile('healblock', source, move);
+			if (!success) {
+				delete move.selfSwitch;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
@@ -718,7 +790,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade") {
+				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade" || effect?.name === "Orb of Discord") {
 					return 2;
 				}
 				if (source?.hasAbility('persistent')) {
@@ -760,7 +832,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			},
 			onRestart(target, source, effect) {
-				if (effect?.name === 'Psychic Noise' || effect?.name === 'Biotic Grenade') return;
+				if (effect?.name === 'Psychic Noise' || effect?.name === 'Biotic Grenade' || effect?.name === "Orb of Discord") return;
 
 				this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
 				if (!source.moveThisTurnResult) {
