@@ -1832,8 +1832,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'fezandipiti').learnset.knockoff = ['9L1'];
 
     // Return and Frustration
-    const noLearn = ["Beldum", "Burmy", "Cascoon", "Caterpie", "Combee", "Cosmoem", "Cosmog", "Ditto", "Kakuna", "Kricketot", "Magikarp", "Metapod", "Pyukumuku", "Scatterbug", 
-      "Silcoon", "Spewpa", "Tynamo", "Unown", "Weedle", "Wobbuffet", "Wurmple", "Wynaut"];
+    const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug', 
+      'silcoon', 'spewpa', 'tynamo', 'unown', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
     for (const id in this.dataCache.Pokedex) {
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !noLearn.includes(id)) {
 				this.modData('Learnsets', this.toID(id)).learnset.return = ["9M"];
@@ -1842,8 +1842,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
     // HiddenPower
-    const stillLearn = ["Eevee", "Eevee-Starter", "Jolteon", "Flareon", "Vaporeon", "Porygon", "Mew", "Espeon", "Umbreon", "Porygon2", "Unown", "Kecleon", "Leafeon", "Glaceon", "Porygon-Z", 
-      "Fennekin", "Braixen", "Delphox", "Froakie", "Frogadier", "Greninja", "Sylveon", "Silvally"];
+    const stillLearn = ['eevee', 'eeveestarter', 'jolteon', 'flareon', 'vaporeon', 'porygon', 'mew', 'espeon', 'umbreon', 'porygon2', 'unown', 'kecleon', 'leafeon', 'glaceon', 
+      'porygonz', 'fennekin', 'braixen', 'delphox', 'froakie', 'frogadier', 'greninja', 'sylveon', 'silvally'];
     for (const id in this.dataCache.Pokedex) {
       if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !stillLearn.includes(id)) {
         delete this.modData('Learnsets', this.toID(id)).learnset.hiddenpower;
