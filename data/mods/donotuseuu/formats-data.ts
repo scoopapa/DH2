@@ -7,7 +7,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 94
 	},
 	arrokuda: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["liquidation", "crunch", "closecombat", "poisonjab", "flipturn", "aquajet"],
@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	beldum: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "steelbeam", "zenheadbutt", "headbutt"],
@@ -45,14 +45,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 88
 	},
 	bramblin: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["poltergeist", "powerwhip", "rapidspin", "strengthsap", "spikes", "shadowsneak"],
 		//randomBattleLevel: 82
 	},
 	budew: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["sludgebomb", "gigadrain", "synthesis", "shadowball", "stunspore", "spikes"],
@@ -95,7 +95,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	cleffa: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["wish", "protect", "softboiled", "seismictoss", "calmmind", "storedpower", "drainingkiss", "thunderwave"],
@@ -114,7 +114,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	cottonee: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "Restricted",
 		isNonstandard: null,
 		randomBattleMoves: ["energyball", "knockoff", "dazzlinggleam", "stunspore", "defog", "leechseed"],
@@ -156,7 +156,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 86
 	},
 	gossifleur: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "rapidspin", "poisonpowder", "sleeppowder", "synthesis", "aromatherapy"],
@@ -170,14 +170,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 86
 	},
 	hatenna: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "psychic", "psyshock", "mysticalfire", "nuzzle"],
 		//randomBattleLevel: 84
 	},
 	hoothoot: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["nastyplot", "airslash", "hypervoice", "roost"],
@@ -203,7 +203,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84 
 	},
 	jigglypuff: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["knockoff", "seismictoss", "icebeam", "teleport", "wish", "protect", "thunderwave"],
@@ -215,7 +215,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	kirlia: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "psychic", "psyshock", "alluringvoice", "teleport", "mysticalfire", "wish", "protect",],
@@ -247,7 +247,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["return", "pursuit", "yawn", "roar"],
 	},
 	litwick: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["shadowball", "fireblast", "flamethrower", "energyball", "overheat", "calmmind", "trickroom"],
@@ -265,7 +265,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	makuhita: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["knockoff", "facade", "drainpunch", "bulkup", "bulletpunch", "thunderpunch", "poisonjab"],
@@ -277,13 +277,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["thunderbolt", "signalbeam", "voltswitch", "healbell", "toxic"],
 	},
 	marill: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["knockoff", "seismictoss", "bellydrum", "aquajet", "playrough", "liquidation", "rest", "sleeptalk"]
 	},
 	meditite: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["drainpunch", "bulkup", "zenheadbutt", "poisonjab", "closecombat", "calmmind", "focusblast", "psyshock", "recover"]
@@ -300,7 +300,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["acidarmor", "recover", "storedpower", "drainingkiss"],
 	},
 	nacli: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["recover", "stealthrock", "rockslide", "stoneedge", "earthquake", "irondefense", "curse"]
@@ -312,13 +312,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["snarl", "mudshot", "swift", "nastyplot"]
 	},
 	nidoranf: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["toxicspikes", "poisonjab", "suckerpunch", "sludgebomb", "earthpower", "superfang"]
 	},
 	nidoranm: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "Restricted",
 		isNonstandard: null,
 	},
@@ -335,7 +335,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "hurricane", "airslash", "switcheroo", "roost", "heatwave", "uturn"]
 	},
 	nymble: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["uturn", "leechlife", "firstimpression", "suckerpunch"]
@@ -377,7 +377,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["wish", "protect", "uturn", "defog", "return"]
 	},
 	pikipek: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["bulletseed", "knockoff", "bravebird", "uturn", "return", "swordsdance"]
@@ -394,13 +394,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	rattata: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["facade", "doubleedge", "uturn", "crunch", "irontail"]
 	},
 	rattataalola: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["doubleedge", "crunch", "pursuit", "uturn", "switcheroo"]
@@ -412,13 +412,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["gunkshot", "lunge", "cosmicpower", "recover"]
 	},
 	rockruff: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "suckerpunch", "swordsdance", "stoneedge", "stompingtantrum", "ironhead"]
 	},
 	roggenrola: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "rockslide", "earthquake", "irondefense", "bodypress", "explosion"]
@@ -535,13 +535,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["sunnyday", "solarbeam", "weatherball", "growth", "encore"]
 	},
 	surskit: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "surf", "bugbuzz", "icebeam", "gigadrain", "stickyweb"]
 	},
 	swinub: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "iciclecrash", "iceshard", "superpower", "stealthrock"]
@@ -553,7 +553,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["acidspray", "paraboliccharge", "muddywater", "voltswitch"]
 	},
 	taillow: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["facade", "pursuit", "uturn", "bravebird", "boomburst", "hurricane", "heatwave"]
@@ -588,7 +588,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["rapidspin", "machpunch", "bulkup", "highjumpkick", "fakeout", "earthquake", "rockslide"]
 	},
 	venipede: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["toxicspikes", "spikes", "poisonjab", "protect"]
@@ -629,13 +629,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["facade", "counter", "thunderwave", "rest", "sleeptalk"]
 	},
 	wooper: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "scald", "earthquake", "liquidation", "curse", "recover"]
 	},
 	wooperpaldea: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["toxic", "spikes", "toxicspikes", "earthquake", "poisonjab", "recover"]
@@ -657,25 +657,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["nuzzle", "playrough", "wildcharge", "crunch", "doubleedge", "voltswitch"]
 	},
 	yungoos: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["return", "crunch", "earthquake", "uturn"]
 	},
 	zigzagoongalar: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["partingshot", "knockoff", "bodyslam", "trick", "gunkshot", "taunt"]
 	},
 	zubat: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["taunt", "toxic", "sludgebomb", "roost", "gigadrain", "defog", "nastyplot", "bravebird"]
 	},
 	luvdisc: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["surf", "hydropump", "icebeam", "toxic", "flipturn", "hiddenpowergrass"]
@@ -699,7 +699,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleMoves:
 	},
 	swablu: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 	},
