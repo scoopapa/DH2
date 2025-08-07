@@ -1,5 +1,4 @@
 export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
-
 	reimuhakurei: {
 		learnset: {
 			airslash: ["9L1"],
@@ -132,7 +131,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hiddenpower: ["9L1"],
 			crunch: ["9L1"],
 			jawlock: ["9L1"],
-			suckerpunch: ["9L1"],
 			knockoff: ["9L1"],
 			bite: ["9L1"],
 			payback: ["9L1"],
@@ -409,7 +407,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			shadowsneak: ["9L1"],
 			fly: ["9L1"],
 			acrobatics: ["9L1"],
-			dualwingbeats: ["9L1"],
+			dualwingbeat: ["9L1"],
 			thunderfang: ["9L1"],
 			leechlife: ["9L1"],
 			facade: ["9L1"],
@@ -1015,6 +1013,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	youmukonpaku: {
 		learnset: {
+			icespinner: ["9L1"],
+			icepunch: ["9L1"],
 			focusblast: ["9L1"],
 			secretsword: ["9L1"],
 			aurasphere: ["9L1"],
@@ -1203,7 +1203,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			futuresight: ["9L1"],
 			hyperspacehole: ["9L1"],
-			expandingforce: ["9L1"],
+			extrasensory: ["9L1"],
 			psychicnoise: ["9L1"],
 			shikigamirush: ["9L1"],
 			psybeam: ["9L1"],
@@ -1457,6 +1457,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	keine: {
 		learnset: {
+			hypervoice: ["9L1"],
 			steelbeam: ["9L1"],
 			flashcannon: ["9L1"],
 			mirrorshot: ["9L1"],
@@ -1554,7 +1555,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1"],
 			lastresort: ["9L1"],
 			doubleedge: ["9L1"],
-			heatbutt: ["9L1"],
+			headbutt: ["9L1"],
 			facade: ["9L1"],
 			feint: ["9L1"],
 			outrage: ["9L1"],
@@ -2016,6 +2017,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	komachionozuka: {
 		learnset: {
+			swordsdance: ["9L1"],
 			surf: ["9L1"],
 			muddywater: ["9L1"],
 			brine: ["9L1"],
@@ -2879,6 +2881,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	satorikomeiji: {
 		learnset: {
+			psychoshift: ["9L1"],
 			futuresight: ["9L1"],
 			dreameater: ["9L1"],
 			psychic: ["9L1"],
@@ -2908,7 +2911,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			nightmare: ["9L1"],
 			safeguard: ["9L1"],
 			workup: ["9L1"],
-			imprison: ["9L1"],
 			psychup: ["9L1"],
 			mindreader: ["9L1"],
 			confide: ["9L1"],
@@ -2924,6 +2926,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	rinkaenbyou: {
 		learnset: {
 			overheat: ["9L1"],
+			batonpass: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
 			firepledge: ["9L1"],
@@ -3583,6 +3586,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	sunnymilk: {
 		learnset: {
+			uturn: ["9L1"],
 			overheat: ["9L1"],
 			fireblast: ["9L1"],
 			inferno: ["9L1"],
@@ -3717,7 +3721,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			charm: ["9L1"],
 			mistyterrain: ["9L1"],
 			detect: ["9L1"],
-			quickguard: ["9L1"],
 			wideguard: ["9L1"],
 			wish: ["9L1"],
 			workup: ["9L1"],
@@ -3731,7 +3734,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	kyoukokasodani: {
 		learnset: {
-			yperbeam: ["9L1"],
+			hyperbeam: ["9L1"],
 			boomburst: ["9L1"],
 			hypervoice: ["9L1"],
 			uproar: ["9L1"],
@@ -4291,6 +4294,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	sekibanki: {
 		learnset: {
+			fakeout: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
 			nightshade: ["9L1"],
@@ -4621,6 +4625,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	sumirekousami: {
 		learnset: {
+			focusblast: ["9L1"],
 			futuresight: ["9L1"],
 			psystrike: ["9L1"],
 			dreameater: ["9L1"],
@@ -5214,6 +5219,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	nemunosakata: {
 		learnset: {
+			grassyglide: ["9L1"],
+			stompingtantrum: ["9L1"],
+			healpulse: ["9L1"],
 			leafstorm: ["9L1"],
 			grasspledge: ["9L1"],
 			magicalleaf: ["9L1"],
@@ -5486,7 +5494,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sandstorm: ["9L1"],
 			snowscape: ["9L1"],
 			teleport: ["9L1"],
-			gravitysubstitute: ["9L1"],
+			gravity: ["9L1"],
+			substitute: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
@@ -5962,6 +5971,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	sannyokomakusa: {
 		learnset: {
+			overheat: ["9L1"],
+			dracometeor: ["9L1"],
 			fireblast: ["9L1"],
 			inferno: ["9L1"],
 			heatwave: ["9L1"],

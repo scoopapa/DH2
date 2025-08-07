@@ -264,10 +264,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass') && !target.volatiles['leechseed']) {
+					source.addVolatile('myceliummight');
 					this.actions.useMove("Leech Seed", source);
 				}
 			}
 		},
+		condition: {},
 		shortDesc: "Single-target status moves move last, but ignore abilities and inflict Leech Seed.",
 		rating: 3,
 	},
@@ -902,5 +904,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Intimidate",
 		rating: 3.5,
 		num: 22,
+	},
+	embodyaspecthearthflame: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spa: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Hearthflame)",
+		rating: 3.5,
+		num: 303,
+		shortDesc: "On switch-in, this Pokemon's Sp. Attack is raised by 1 stage.",
 	},
 };

@@ -1738,7 +1738,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
 	},
-
+	drought: {
+		inherit: true,
+		onStart(source) {
+			if (this.field.isTerrain('fishingterrain')) {
+				this.add('-message', 'The fishing terrain blocked out the sun!');
+				return;
+			}
+			this.field.setWeather('sunnyday');
+		},
+	},
+	
 	//fake ability
 	hacked: {
 		onStart(pokemon) {

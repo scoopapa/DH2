@@ -16,10 +16,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 92,
 		shortDesc: "Nazrin, Shou Toramaru: Fairy moves have 1.5x power.",
 		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(pokemon.baseSpecies.num === 57 || pokemon.baseSpecies.num === 62))) return;
-			if (move && move.type === 'Fairy') {
-				return this.chainModify(1.5);
+		onBasePower(basePower, source, target, move) {
+			// if (!(source && (source.baseSpecies.num === 57 || source.baseSpecies.num === 62) || !(source.baseSpecies.num === 57 || source.baseSpecies.num === 62))) return;
+			if (source.baseSpecies.baseSpecies === 'Nazrin' || source.baseSpecies.baseSpecies === 'Shou Toramaru') {
+				if (move && move.type === 'Fairy') {
+					return this.chainModify(1.5);
+				}
 			}
 		},
 		itemUser: ["Nazrin", "Shou Toramaru"],

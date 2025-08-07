@@ -879,6 +879,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Muddy Water', target);
+		},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Water', type);
 		},
@@ -893,9 +897,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
-		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Muddy Water', target);	
-		},
 	},
 	//
 	acidicrain: {
@@ -1027,6 +1028,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Darkest Lariat', target);
+		},
 		tracksTarget: true,
 		secondary: null,
 		target: "normal",
@@ -1044,6 +1049,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Leech Life', target);
+		},
 		onModifyMove(move, source, target) {
 			if (this.field.isTerrain('psychicterrain')) move.drain = [3, 4];
 		},
@@ -1051,6 +1060,270 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+	},
+	//
+	eastseawave: {
+		num: -34,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "East Sea Wave",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "allAdjacentFoes",
+		type: "Water",
+		shortDesc: "Hits foes. Extends terrain/weather duration by 1 (max 8).",
+		condition: {
+			duration: 1,
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Surf', target);
+		},
+		onAfterMove(source, target, move) {
+		//  onHit(target, source, move) { 
+			const weather = source.side.battle.field.weather;
+			const terrain = source.side.battle.field.terrain;
+
+			// Extend weather duration
+			if (weather && source.side.battle.field.weatherState.duration < 8) {
+				source.side.battle.field.weatherState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the weather! It will last ${this.field.weatherState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the weather!`);
+			}
+
+			// Extend terrain duration
+			if (terrain && source.side.battle.field.terrainState.duration < 8) {
+				source.side.battle.field.terrainState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the terrain! It will last ${this.field.terrainState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the terrain!`);
+			}
+		},
+		secondary: null,
+		contestType: "Beautiful",
+	},
+	//
+	wailingwraith: {
+		num: -35,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Wailing Wraith",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		self: {
+			volatileStatus: 'wailingwraith',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Uproar', target);
+		},
+		onTryHit(target) {
+			const activeTeam = target.side.activeTeam();
+			const foeActiveTeam = target.side.foe.activeTeam();
+			for (const [i, allyActive] of activeTeam.entries()) {
+				if (allyActive && allyActive.status === 'slp') allyActive.cureStatus();
+				const foeActive = foeActiveTeam[i];
+				if (foeActive && foeActive.status === 'slp') foeActive.cureStatus();
+			}
+		},
+		condition: {
+			duration: 3,
+			onStart(target) {
+				this.add('-start', target, 'Wailing Wraith');
+			},
+			onResidual(target) {
+				if (target.volatiles['throatchop']) {
+					target.removeVolatile('wailingwraith');
+					return;
+				}
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['wailingwraith'];
+				}
+				this.add('-start', target, 'Wailing Wraith', '[upkeep]');
+			},
+			onResidualOrder: 28,
+			onResidualSubOrder: 1,
+			onEnd(target) {
+				this.add('-end', target, 'Wailing Wraith');
+			},
+			onLockMove: 'wailingwraith',
+			onAnySetStatus(status, pokemon) {
+				if (status.id === 'slp') {
+					if (pokemon === this.effectState.target) {
+						this.add('-fail', pokemon, '[from] Wailing Wraith', '[msg]');
+					} else {
+						this.add('-fail', pokemon, '[from] Wailing Wraith');
+					}
+					return null;
+				}
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		shortDesc: "Like Uproar but hitting two opposing Pkm.",
+		contestType: "Tough",
+	},
+	//
+	strongarm: {
+		num: -36,
+		accuracy: 100,
+		basePower: 55,
+		category: "Physical",
+		name: "Strongarm",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, punch: 1, protect: 1, mirror: 1},
+		target: "normal",
+		type: "Fighting",
+		shortDesc: "Punching move. Hits twice in Vigor Terrain.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dynamic Punch', target);
+		},
+		onHit(target, source, move) {
+		// Custom behavior handled in `onModifyMove`
+		},
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('vigorterrain')) {
+				move.multihit = 2;
+			}
+		},
+		secondary: null,
+		contestType: "Tough",
+	},
+	//
+	forcefulhug: {
+		num: -37,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Forceful Hug",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		target: "normal",
+		type: "Fairy",
+		shortDesc: "Both can't switch. Fails if target is already trapped.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Play Rough', target);
+		},
+		onTryHit(target, source, move) {
+			// Fails if target is already trapped
+			if (target.volatiles['trapped'] || target.trapped) {
+				this.add('-fail', source, 'move: Forceful Hug');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onHit(target, source, move) {
+			source.addVolatile('trapped', target, move, 'trapper');
+			target.addVolatile('trapped', source, move, 'trapper');
+			this.add('-message', `${source.name} and ${target.name} are locked in a forceful hug!`);
+		},
+		secondary: null,
+		contestType: "Cute",
+	},
+	//
+	rampage: {
+		num: -38,
+		accuracy: 100,
+		basePower: 150,
+		category: "Physical",
+		name: "Rampage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		target: "allAdjacent",
+		type: "Dark",
+		shortDesc: "Hits all adjacent. User gains Stall ability after successful hit.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Earthquake', target);
+		},
+		onAfterHit(target, source, move) {
+			const blockedAbilities = ['asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'desertmirage', 'disguise', 'gulpmissile', 'iceface', 'multitype', 'powerconstruct', 'rewind', 'rkssystem', 'schooling', 'sharedmindset', 'shieldsdown', 'stancechange', 'terashift', 'zenmode', 'zerotohero'];
+			const currentAbility = source.getAbility().id;
+
+			if (currentAbility !== 'stall' && !blockedAbilities.includes(currentAbility)) {
+				const oldAbility = source.setAbility('stall');
+				if (oldAbility) {
+					this.add('-ability', source, 'Stall');
+					this.add('-message', `${source.name} became slower due to its rampage!`);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			const blockedAbilities = ['asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'desertmirage', 'disguise', 'gulpmissile', 'iceface', 'multitype', 'powerconstruct', 'rewind', 'rkssystem', 'schooling', 'sharedmindset', 'shieldsdown', 'stancechange', 'terashift', 'zenmode', 'zerotohero'];
+			const currentAbility = source.getAbility().id;
+
+			if (currentAbility !== 'stall' && !blockedAbilities.includes(currentAbility)) {
+				const oldAbility = source.setAbility('stall');
+				if (oldAbility) {
+					this.add('-ability', source, 'Stall');
+					this.add('-message', `${source.name} became slower due to its rampage!`);
+				}
+			}
+		},
+		secondary: null,
+		contestType: "Tough",
+	},
+	//
+	borealis: {
+		num: -39,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Borealis",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		target: "allAdjacentFoes",
+		type: "Ice",
+		shortDesc: "Sound spread move. Aurora Veil if user hurt this turn.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Aurora Beam', target);
+		},
+		onAfterMove(source, target, move) {
+    		const wasDamaged = source.attackedBy.some(p => p.damage > 0 && p.thisTurn);
+    		if (wasDamaged && !source.side.sideConditions['auroraveil']) {
+      			source.side.addSideCondition('auroraveil');
+      			this.add('-sidestart', source.side, 'move: Aurora Veil');
+   			}
+  		},
+		secondary: null,
+		contestType: "Beautiful",
+	},
+	//
+	dispersion: {
+		num: -40,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Type varies based on the user's primary type. Hits foes.",
+		name: "Dispersion",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Silver Wind", target);
+		},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Beautiful",
 	},
 	//
 	
@@ -1084,6 +1357,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "self",
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	//
+	avalanche: {
+		num: 419,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('BP doubled for getting hit by ' + target);
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Double damage if hurt this turn. Hits all opposing Pkm.",
+		name: "Avalanche",
+		pp: 10,
+		priority: -4,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
 		contestType: "Beautiful",
 	},
 	//
@@ -1255,7 +1554,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	chipaway: {
 		num: 498,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 90,
 		category: "Physical",
 		isNonstandard: null,
 		name: "Chip Away",
@@ -1915,6 +2214,48 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Poison",
 	},
 	//
+	mudsport: {
+		num: 300,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "67% Electric reduction. Water, Rock + Grass moves bypass accurracy.",
+		isNonstandard: null,
+		name: "Mud Sport",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1},
+		pseudoWeather: 'mudsport',
+		condition: {
+			duration: 5,
+			onFieldStart(field, source) {
+				this.add('-fieldstart', 'move: Mud Sport', '[of] ' + source);
+			},
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('Mud Sport weakening Electric-type move');
+					return this.chainModify([1352, 4096]); // ~0.33×
+				}
+			},
+			onModifyMove(move, source, target) {
+				if (['Water', 'Rock', 'Grass'].includes(move.type)) {
+					move.accuracy = true;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 4,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Mud Sport');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+		zMove: {boost: {spd: 1}},
+		contestType: "Cute",
+	},
+	//
 	psychoshift: {
 		num: 375,
 		accuracy: 100,
@@ -2379,6 +2720,48 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+	},
+	//
+	watersport: {
+		num: 346,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "67% Fire reduction. Water, Electric + Grass moves bypass accuracy.",
+		isNonstandard: null,
+		name: "Water Sport",
+		pp: 15,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		pseudoWeather: 'watersport',
+		condition: {
+			duration: 5,
+			onFieldStart(field, source) {
+				this.add('-fieldstart', 'move: Water Sport', '[of] ' + source);
+			},
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Fire') {
+					this.debug('water sport weaken');
+					return this.chainModify([1352, 4096]);
+				}
+			},
+			onModifyMove(move, source, target) {
+				if (['Water', 'Electric', 'Grass'].includes(move.type)) {
+					move.accuracy = true;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 3,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Water Sport');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Water",
+		zMove: {boost: {spd: 1}},
+		contestType: "Cute",
 	},
 	//
 	weatherball: {

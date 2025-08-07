@@ -10984,8 +10984,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ogerponwellspring: {
 		learnset: {
-			strengthsap: ["9L1"],
-			rickbreak: ["9M"],
+			//strengthsap: ["9L1"],
+			brickbreak: ["9M"],
 			bulletseed: ["9M"],
 			charm: ["9M"],
 			counter: ["9L1"],
@@ -11014,7 +11014,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lowkick: ["9M", "9S1"],
 			lowsweep: ["9M", "9L24"],
 			magicalleaf: ["9M"],
-			playrough: ["9M"],
+			//playrough: ["9M"],
 			powerwhip: ["9L54"],
 			protect: ["9M"],
 			quickattack: ["9L1"],

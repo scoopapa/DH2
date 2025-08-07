@@ -13,6 +13,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 	},
 	battle: {
+		//inherit: true,
 		endTurn() {
 			this.turn++;
 			this.lastSuccessfulMoveThisTurn = null;
@@ -217,6 +218,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Change Zacian/Zamazenta into their Crowned formes
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
+					console.log(pokemon.species.id + " " + pokemon.item);
 					if (pokemon.species.id === 'cirno' && pokemon.item === 'summerbackdoor') {
 						rawSpecies = this.dex.species.get('Cirno-Tanned');
 					} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
@@ -293,9 +295,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.actions.runMegaEvoY?.(action.pokemon);
 				break;
 			case 'runDynamax':
-				console.log(action.pokemon.baseSpecies.name + action.pokemon.canDynamax());
-				if (!action.pokemon.canDynamax()) break;
-				action.pokemon.addVolatile('dynamax');
+				console.log(action.pokemon.baseSpecies.name + action.pokemon.baseSpecies.canDynamax);
+				if (action.pokemon.baseSpecies.canDynamax) action.pokemon.addVolatile('dynamax');
 				action.pokemon.side.dynamaxUsed = true;
 				if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = true;
 				break;
@@ -508,7 +509,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			return false;
 		}
-
 	},
 	pokemon: {
 		hasAbility(ability) {

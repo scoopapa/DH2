@@ -153,12 +153,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	staraptor: {
 		inherit: true,
 		types: ["Fighting", "Flying"],
-		baseStats: {hp: 85, atk: 109, def: 81, spa: 50, spd: 60, spe: 100},
+		baseStats: {hp: 100, atk: 114, def: 81, spa: 50, spd: 85, spe: 100},
 	},
 	ogerpon: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 84, spa: 50, spd: 96, spe: 130},
-		abilities: {0: "Defiant", H: "Skill Link"},
+		abilities: {0: "Defiant", H: "Technician"},
 	},
 	ogerpontealtera: {
 		inherit: true,
@@ -166,23 +166,23 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 95, def: 80, spa: 105, spd: 90, spe: 110},
-		abilities: {0: "Mold Breaker", H: "Merciless"},
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 115, spd: 90, spe: 110},
+		abilities: {0: "Mold Breaker", H: "Flash Fire"},
 		changesFrom: null,
 	},
 	ogerponhearthflametera: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 95, def: 80, spa: 105, spd: 90, spe: 110},
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 115, spd: 90, spe: 110},
 	},
 	ogerponwellspring: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
+		baseStats: {hp: 80, atk: 110, def: 94, spa: 55, spd: 111, spe: 100},
 		abilities: {0: "Water Absorb", H: "Flower Veil"},
 		changesFrom: null,
 	},
 	ogerponwellspringtera: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
+		baseStats: {hp: 80, atk: 110, def: 94, spa: 55, spd: 111, spe: 100},
 	},
 	ogerponcornerstone: {
 		inherit: true,
@@ -412,7 +412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	inteleongmax: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 90, def: 85, spa: 125, spd: 65, spe: 110},
-		abilities: {0: "Stakeout"},
+		abilities: {0: "Analytic"},
 		weightkg: 999.9,
 	},
 	corviknightgmax: {

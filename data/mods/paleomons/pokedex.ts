@@ -12,7 +12,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 2,
 		name: "Kabutops",
 		types: ["Water", "Poison"],
-		baseStats: {hp: 88, atk: 67, def: 79, spa: 119, spd: 92, spe: 95},
+		baseStats: {hp: 88, atk: 67, def: 79, spa: 109, spd: 92, spe: 95},
 		abilities: {0: "Natural Cure", 1: "Regenerator", H: "Healer"},
 	},
 	omanyte: {

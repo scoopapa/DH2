@@ -88,6 +88,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			taunt: ["9L1"],
+			flareblitz: ["9L1"],
 		},
 	},
 	snabterra: {
@@ -218,6 +220,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			howl: ["9L1"],
+			wildcharge: ["9L1"],
+			playrough: ["9L1"],
 		},
 	},
 	vipult: {
@@ -1204,7 +1209,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			spikes: ["9L1"],
 			irondefense: ["9L1"],
 			bodypress: ["9L1"],
-			recover: ["9L1"],
+			//recover: ["9L1"],
 			thunderwave: ["9L1"],
 			poisonfang: ["9L1"],
 			crosspoison: ["9L1"],
@@ -1335,6 +1340,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			earthquake: ["9L1"],
+			swordsdance: ["9L1"],
 		},
 	},
 	martorse: {

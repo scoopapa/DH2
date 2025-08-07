@@ -34,6 +34,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	roaduo: {
 		tier: "OU",
 	},
+	glacienant: {
+		tier: "Uber",
+	},
 
 // Normal Mons
 	bulbasaur: {

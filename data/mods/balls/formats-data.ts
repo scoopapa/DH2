@@ -71,75 +71,75 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	scorpiongun: {
+	"scorpiongun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	tommygun: {
+	"tommygun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	dracogun: {
+	"dracogun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	railgun: {
+	"railgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	toygun: {
+	"toygun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	shotgun: {
+	"shotgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	flamethrower: {
+	"flamethrower": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	airgun: {
+	"airgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	protonpack: {
+	"protonpack": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	crossbow: {
+	"crossbow": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	grenadelauncher: {
+	"grenadelauncher": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	freezegun: {
+	"freezegun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	handgun: {
+	"handgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	blowgun: {
+	"blowgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	lasergun: {
+	"lasergun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	rok: {
+	"57rock": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	nailgun: {
+	"nailgun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},
-	watergun: {
+	"watergun": {
 		tier: "Guns",
 		doublesTier: "DOU",
 	},

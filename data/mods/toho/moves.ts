@@ -220,20 +220,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		onHit(pokemon) {
-			if (pokemon.baseSpecies.name !== 'Hecatia-Otherworld') return;
+			if (!pokemon.baseSpecies.name.includes('Hecatia')) return;
 			let targetForme = 'Hecatia-Otherworld';
-			switch (pokemon.baseSpecies.name) {
+			let newAbility = 'Pressure';
+			switch (pokemon.species.name) {
 				case 'Hecatia-Otherworld':
 					targetForme = 'Hecatia-Earth';
+					newAbility = 'Natural Cure';
 					break;
 				case 'Hecatia-Earth':
 					targetForme = 'Hecatia-Moon';
+					newAbility = 'Dazzling';
 					break;
 				case 'Hecatia-Moon':
 					targetForme = 'Hecatia-Otherworld';
+					newAbility = 'Pressure';
 					break;
 			}
-			pokemon.formeChange(targetForme);
+			pokemon.formeChange(targetForme, this.effect, true);
+			this.add('-ability', pokemon, newAbility, '[from] move: Body Swap');
+			pokemon.set.ability = newAbility;
 		},
 		type: "Normal",
 	},

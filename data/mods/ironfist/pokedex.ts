@@ -1541,6 +1541,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	upvybones: {
 		num: -174,
 		name: "Upvybones",
+		diamondHand: true,
 		types: ["Water", "Dark", "Fighting"],
 		baseStats: {hp: 94, atk: 108, def: 99, spa: 90, spd: 114, spe: 70},
 		abilities: {0: "Still Water"},

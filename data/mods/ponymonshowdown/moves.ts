@@ -35,7 +35,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Steel' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
 					this.debug('misty terrain weaken');
 					return this.chainModify(0.5);
 				}
@@ -1036,10 +1036,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				const weakenedMoves = ['closecombat'];
-				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
-					this.debug('move weakened by midnight terrain');
-					return this.chainModify(0.5);
+							if (move.type === 'Psychic' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+								this.debug('midnight terrain weaken');
+								return this.chainModify(0.5);
 				}
 				if (move.type === 'Dark' && attacker.isGrounded()) {
 					this.debug('midnight terrain boost');
@@ -1115,7 +1114,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	furioustalons: {
 		num: -37,
 		accuracy: 100,
-		basePower: 35,
+		basePower: 40,
 		category: "Physical",
 		name: "Furious Talons",
 		desc: "Hits twice.",

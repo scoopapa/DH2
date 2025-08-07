@@ -1068,15 +1068,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		multihit: 2,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		onModifyMove(move, pokemon, defender) {
-			if (!defender.activeTurns) {
-				move.boosts = {atk: 0};
-			}
-		},
 		self: {
 			boosts: {
 				atk: -1,
 			},
+		},
+		onModifyMove(move, pokemon, defender) {
+			if (!defender.activeTurns) {
+				move.self.boosts = {atk: 0};
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1510,6 +1510,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		recoil: [33, 100],
 		desc: "Has 1/3 recoil.",
 		shortDesc: "Has 1/3 recoil.",
+		self: { },
 	},
 	icehammer: {
 		inherit: true,
@@ -2027,13 +2028,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePowerCallback(basePower, attacker, defender, move) {
 			let bonfireBP = 40
 			for (const ally of attacker.side.pokemon) {
-				for (const moveSlot of attacker.moveSlots) {
-					if (moveSlot.name === 'Bonfire') {
+				for (const moveSlot of ally.moveSlots) {
+					if (moveSlot.id === 'bonfire') {
 						bonfireBP += 20;
 					}
 				}
 			}
-			return bonfireBP
+
+			basePower = bonfireBP
+			
+			return basePower
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
@@ -2055,7 +2059,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		onAfterHit(pokemon) {
-			this.useMove("Ki Blast 2", pokemon);
+			pokemon.useMove("Ki Blast 2", pokemon);
 		},
 		type: "Fighting",
 		shortDesc: "Damages user as much as it does to target.",
@@ -2095,6 +2099,101 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
 				move.category = 'Special';
 			}
+		},
+	},
+	// Silver Powder
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (pokemon.hasItem('silverpowder') && pokemon.hasType('Bug'))) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || (pokemon.hasItem('silverpowder') && pokemon.hasType('Bug'))) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (pokemon.hasItem('silverpowder') && pokemon.hasType('Bug'))) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (pokemon.hasItem('silverpowder') && pokemon.hasType('Bug'))) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	gmaxsteelsurge: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (pokemon.hasItem('silverpowder') && pokemon.hasType('Bug'))) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
 		},
 	},
 };

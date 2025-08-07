@@ -75,8 +75,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Magic Guard');
 						break;
 					case 'Inteleon':
-						pokemon.setAbility('stakeout', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Stakeout');
+						pokemon.setAbility('analytic', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Analytic');
 						break;
 					case 'Corviknight':
 						pokemon.setAbility('intimidate', pokemon, 'intimidate', true);

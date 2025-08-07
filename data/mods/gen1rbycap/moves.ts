@@ -92,4 +92,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Cool",
 	},
+	gravechill: {
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "30% chance to freeze foe(s).",
+		name: "Grave Chill",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Beam", target);
+			this.add('-anim', source, "Hex", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
 };
