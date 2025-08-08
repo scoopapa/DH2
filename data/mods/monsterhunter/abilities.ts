@@ -1308,20 +1308,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			for (const target of pokemon.foes()) {
 				if (target.status === 'par') {
 					this.damage(target.baseMaxhp / 16);
-				}
-			}
-		},
-		onDeductPP(target, source, pokemon) {
-			if (target.isAlly(source)) return;
-			for (const target of pokemon.foes()) {
-				if (target.status === 'par') {
-					return 1;
+					target.addVolatile('fatigue');
 				}
 			}
 		},
 		flags: {},
 		name: "Crystalblight",
-		shortDesc: "If opponent is paralyzed: PP cost doubled, takes 1/16th residual damage.",
+		shortDesc: "If opponent is paralyzed: Inflicts fatigue, takes 1/16th residual damage.",
 		rating: 5,
 	},
 	poisonousradula: {
