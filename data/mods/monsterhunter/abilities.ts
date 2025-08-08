@@ -1307,7 +1307,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'par') {
-					this.damage(target.baseMaxhp / 16);
+					this.damage(target.baseMaxhp / 16, target, pokemon);
 					target.addVolatile('fatigue');
 				}
 			}
