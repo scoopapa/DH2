@@ -1681,6 +1681,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Bug Buzz", source);
         },
 	},
+	virulentvolley: {
+		accuracy: 90,
+		basePower: 85,
+		category: "Physical",
+		name: "Virulent Volley",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Poison",
+		desc: "Destroys screens, unless the target is immune.",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Icicle Crash", target);
+			this.add('-anim', source, "Baneful Bunker", target);
+        },
+	},
 	/*
 	Edits
 	*/
@@ -2061,12 +2086,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	hypnosis: {
 		inherit: true,
+		viable: true,
 		shortDesc: "Makes the target drowsy.",
 		accuracy: 85,
 	},
 	lovelykiss: {
 		inherit: true,
 		shortDesc: "Makes the target drowsy.",
+	},
+	takeheart: {
+		inherit: true,
+		viable: true,
 	},
 	nightmare: {
 		inherit: true,
