@@ -37,6 +37,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	blackbelt: {
 		inherit: true,
+		shortDesc: "Holder's Fighting-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -47,6 +48,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	blackglasses: {
 		inherit: true,
+		shortDesc: "Holder's Dark-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -57,6 +59,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	charcoal: {
 		inherit: true,
+		shortDesc: "Holder's Fire-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -67,6 +70,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	dragonfang: {
 		inherit: true,
+		shortDesc: "Holder's Dragon-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -77,6 +81,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	enigmaberry: {
 		name: "Enigma Berry",
+		shortDesc: "No competitive use.",
 		spritenum: 124,
 		isBerry: true,
 		num: 208,
@@ -111,6 +116,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	hardstone: {
 		inherit: true,
+		shortDesc: "Holder's Rock-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -162,6 +168,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	laxincense: {
 		inherit: true,
+		shortDesc: "The accuracy of attacks against the holder is 0.95x.",
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
 			this.debug('lax incense - decreasing accuracy');
@@ -185,6 +192,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	lightball: {
 		inherit: true,
+		shortDesc: "If held by a Pikachu, its Special Attack is doubled.",
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.name === 'Pikachu') {
 				return this.chainModify(2);
@@ -202,6 +210,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	magnet: {
 		inherit: true,
+		shortDesc: "Holder's Electric-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -223,6 +232,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	metalcoat: {
 		inherit: true,
+		desc: "Holder's Steel-type attacks have 1.1x power. Evolves Onix into Steelix and Scyther into Scizor when traded.",
+		shortDesc: "Holder's Steel-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -233,6 +244,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	miracleseed: {
 		inherit: true,
+		shortDesc: "Holder's Grass-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -247,6 +259,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	mysticwater: {
 		inherit: true,
+		shortDesc: "Holder's Water-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -257,6 +270,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	nevermeltice: {
 		inherit: true,
+		shortDesc: "Holder's Ice-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -289,6 +303,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	poisonbarb: {
 		inherit: true,
+		shortDesc: "Holder's Poison-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -315,6 +330,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	seaincense: {
 		inherit: true,
+		shortDesc: "Holder's Water-type attacks have 1.05x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
@@ -325,6 +341,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sharpbeak: {
 		inherit: true,
+		shortDesc: "Holder's Flying-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -335,6 +352,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	silkscarf: {
 		inherit: true,
+		shortDesc: "Holder's Normal-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -345,6 +363,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	silverpowder: {
 		inherit: true,
+		shortDesc: "Holder's Bug-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -355,6 +374,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sitrusberry: {
 		inherit: true,
+		shortDesc: "Restores 30 HP when at 1/2 max HP or less. Single use.",
+		rating: 1,
 		onUpdate() {},
 		onResidualOrder: 10,
 		onResidualSubOrder: 4,
@@ -369,6 +390,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	softsand: {
 		inherit: true,
+		shortDesc: "Holder's Ground-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -379,6 +401,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	spelltag: {
 		inherit: true,
+		shortDesc: "Holder's Ghost-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, user, target, move) {
@@ -404,6 +427,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	twistedspoon: {
 		inherit: true,
+		shortDesc: "Holder's Psychic-type attacks have 1.1x power.",
 		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, user, target, move) {
