@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-  narwa: {
+	narwa: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -120,6 +120,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DCC OU",
 	},
 	plaguerat: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	heavylobster: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	voidkong: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	zenyatta: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
