@@ -21,7 +21,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Bug", "Steel"],
 		gender: "F",
 		baseStats: {hp: 89, atk: 115, def: 129, spa: 71, spd: 107, spe: 80},
-		abilities: {0: "Technician", H: "Steelworker"},
+		abilities: {0: "Technician", 1: "Steelworker", H: "Empress Throne"},
 		weightkg: 45.0,
 		otherFormes: ["Ahtal-Neset"],
 	},
