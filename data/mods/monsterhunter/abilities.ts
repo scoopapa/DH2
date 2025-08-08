@@ -1207,7 +1207,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	butterflystar: {
 		onModifyMovePriority: 1,
-		onBeforeMove(pokemon, attacker) {
+		onBeforeMove(pokemon, attacker, move) {
 			if (pokemon.species.id === 'estrellian' && move.type === 'Bug' || 
 				pokemon.species.id === 'estrellianwinged' && move.type === 'Bug') {
 				this.add('-ability', pokemon, 'Butterfly Star');
