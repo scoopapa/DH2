@@ -1626,7 +1626,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		shortDesc: "User switches out after damaging the target.",
 		target: "normal",
-		type: "Bug",
+		type: "Flying",
 		contestType: "Cute",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');

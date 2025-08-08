@@ -36,7 +36,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Empress Throne"},
 		weightkg: 1000,
 		requiredAbility: "Empress Throne",
-		battleOnly: ["Ahtal-Ka"],
+		battleOnly: "Ahtal-Ka",
 	},
 	akantor: {
 		num: 18,
@@ -1904,7 +1904,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Estrellian",
 		forme: "Armored",
 		types: ["Fire", "Bug"],
-		baseStats: {hp: 90, atk: 105, def: 125, spa: 80, spd: 125, spe: 80},
+		baseStats: {hp: 90, atk: 80, def: 125, spa: 105, spd: 125, spe: 80},
 		abilities: {0: "Butterfly Star"},
 		weightkg: 100,
 		requiredAbility: "Butterfly Star",
@@ -1977,6 +1977,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 130, atk: 88, def: 112, spa: 88, spd: 100, spe: 45},
 		abilities: {0: "Arena Trap"},
 		weightkg: 700.0,
+		evos: ["Oltura"],
 	},
 	oltura: {
 		num: 527,
@@ -1985,6 +1986,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 80, atk: 78, def: 82, spa: 126, spd: 130, spe: 124},
 		abilities: {0: "Generalist"},
 		weightkg: 50.0,
+		prevo: "Oltura-Larval",
 	},
 	akuravashimu: {
 		num: 528,
