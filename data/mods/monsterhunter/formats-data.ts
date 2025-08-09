@@ -522,10 +522,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	azurelos: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	stygiogre: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	jindahaad: {
 		tier: "MHOU",
@@ -571,6 +571,48 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shroudcylla: {
 		tier: "MHRU",
+	},
+	estrellian: {
+		tier: "MHOU",
+	},
+	estrellianarmored: {
+		tier: "MHOU",
+	},
+	estrellianwinged: {
+		tier: "MHOU",
+	},
+	doomtrellian: {
+		tier: "MHOU",
+	},
+	doomtrelliancharged: {
+		tier: "MHOU",
+	},
+	arbitrellian: {
+		tier: "MHOU",
+	},
+	arbitrelliancharged: {
+		tier: "MHOU",
+	},
+	olturalarval: {
+		tier: "MHOU",
+	},
+	oltura: {
+		tier: "MHOU",
+	},
+	duremudira: {
+		tier: "MHOU",
+	},
+	akuravashimu: {
+		tier: "MHUU",
+	},
+	ebogaron: {
+		tier: "MHUU",
+	},
+	purpleludroth: {
+		tier: "MHRU",
+	},
+	ahtalneset: {
+		tier: "MEGAS",
 	},
 	redhelmarzuros: {
 		tier: "MEGAS",

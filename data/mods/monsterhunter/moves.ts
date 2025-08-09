@@ -146,7 +146,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Cutwing Barrage",
-		shortDesc: "May cause flinching.",
+		shortDesc: "30% chance to inflict bleed.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
@@ -891,7 +891,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		],
 		onAfterMove(pokemon, target, move) {
-			if (this.randomChance(1, 10)) {
+			if (this.randomChance(10, 10)) {
 				target.addVolatile('blastblight');
 			}
 		},
@@ -1501,6 +1501,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dark Pulse", target);
+        },
 		onModifyMove(move, pokemon, target) {
 			move.type = '???';
 			if (!target) return;
@@ -1518,6 +1522,189 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: 'Dark',
 		secondary: null,
 		target: "allAdjacent",
+	},
+	selenitebeam: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Selenite Beam",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		shortDesc: "30% chance to inflict paralysis.",
+		type: "Fairy",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Meteor Beam", target);
+        },
+	},
+	rageray: {
+		accuracy: 100,
+		basePower: 0,
+		damage: 'level',
+		category: "Special",
+		name: "Rage Ray",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'taunt',
+		condition: {
+			duration: 1,
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectState.duration++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+		secondary: null,
+		shortDesc: "Does damage equal to the user's level. Applies Taunt for one turn.",
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Tera Starstorm", target);
+        },
+	},
+	butterflare: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Butterflare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		shortDesc: "30% chance to inflict burn.",
+		type: "Bug",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Flamethrower", target);
+			this.add('-anim', source, "Bug Buzz", source);
+        },
+	},
+	butterflight: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Butterflight",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		shortDesc: "User switches out after damaging the target.",
+		target: "normal",
+		type: "Flying",
+		contestType: "Cute",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Aerial Ace", target);
+        },
+	},
+	gracefulsweep: {
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Graceful Sweep",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				spe: -1,
+			},
+		},
+		shortDesc: "20% to lower the target's Speed by 1.",
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Play Rough", target);
+        },
+	},
+	immolationorder: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Immolation Order",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Draco Meteor", target);
+			this.add('-anim', source, "Bug Buzz", source);
+        },
+	},
+	virulentvolley: {
+		accuracy: 90,
+		basePower: 85,
+		category: "Physical",
+		name: "Virulent Volley",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Poison",
+		desc: "Destroys screens, unless the target is immune.",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Icicle Crash", target);
+			this.add('-anim', source, "Baneful Bunker", target);
+        },
 	},
 	/*
 	Edits
@@ -1899,12 +2086,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	hypnosis: {
 		inherit: true,
+		viable: true,
 		shortDesc: "Makes the target drowsy.",
 		accuracy: 85,
 	},
 	lovelykiss: {
 		inherit: true,
 		shortDesc: "Makes the target drowsy.",
+	},
+	takeheart: {
+		inherit: true,
+		viable: true,
 	},
 	nightmare: {
 		inherit: true,

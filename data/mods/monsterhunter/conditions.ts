@@ -182,7 +182,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} is Fatigued! Moves use more PP!`);
 		},
 		onDeductPP(pokemon) {
-				return 1;
+			return 1;
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Fatigue');

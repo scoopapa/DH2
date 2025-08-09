@@ -1081,6 +1081,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				move.recoil = [1, 4];
 			}
 		},
+		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dragon') {
 				this.debug('Overload boost');
@@ -1204,6 +1205,161 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be dragonblighted.",
 		rating: 1.5,
 	},
+	butterflystar: {
+		onModifyMovePriority: 1,
+		onBeforeMove(pokemon, attacker, move) {
+			if (pokemon.species.id === 'estrellian' && move.type === 'Bug' || 
+				pokemon.species.id === 'estrellianwinged' && move.type === 'Bug') {
+				this.add('-ability', pokemon, 'Butterfly Star');
+				this.add('-message', `Estrellian is transforming!`);
+				pokemon.formeChange('estrellianarmored', this.effect, true);
+			}
+			if (pokemon.species.id === 'estrellian' && move.type === 'Flying' || 
+				pokemon.species.id === 'estrellianarmored' && move.type === 'Flying') {
+				this.add('-ability', pokemon, 'Butterfly Star');
+				this.add('-message', `Estrellian is transforming!`);
+				pokemon.formeChange('estrellianwinged', this.effect, true);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		shortDesc: "Before using a move, Estrellian transforms. If Bug-Type: Armored Form; Flying-Type: Winged Form.",
+		name: "Butterfly Star",
+		rating: 4,
+	},
+	destructionstar: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'arbitrellian' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Destruction Star');
+				source.formeChange('arbitrelliancharged', this.effect, true);
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Destruction Star');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Destruction Star');
+				return null;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Destruction Star",
+		shortDesc: "Immune to Status Conditions. After KOing a Pokemon; becomes Charged.",
+		rating: 4,
+	},
+	disasterstar: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'doomtrellian' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Disaster Star');
+				source.formeChange('doomtrelliancharged', this.effect, true);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Disaster Star",
+		shortDesc: "STAB on Bug Moves. After KOing a Pokemon; becomes Charged.",
+		rating: 4,
+	},
+	empressthrone: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Ahtal-Ka' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.species.id === 'ahtalneset' || pokemon.hp > pokemon.maxhp / 2) return;
+			this.add('-activate', pokemon, 'ability: Empress Throne');
+			pokemon.formeChange('Ahtal-Neset', this.effect, true);
+			pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+			) * pokemon.level / 100 + 10);
+			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+			pokemon.maxhp = newMaxHP;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Empress Throne",
+		shortDesc: "If Ahtal-Ka, becomes Ahtal-Neset if at 1/2 max HP or less at end of turn.",
+		rating: 5,
+	},
+	crystalblight: {
+		onResidual(pokemon, target) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.status === 'par') {
+					this.damage(target.baseMaxhp / 16, target, pokemon);
+					target.addVolatile('fatigue');
+				}
+			}
+		},
+		flags: {},
+		name: "Crystalblight",
+		shortDesc: "If opponent is paralyzed: Inflicts fatigue, takes 1/16th residual damage.",
+		rating: 5,
+	},
+	poisonousradula: {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && move.type === 'Poison' && !(target.getMoveHitData(move).typeMod < 0)) {
+				if (!move.secondaries) move.secondaries = [];
+				if (move.category === 'Physical') {
+					move.secondaries.push({
+						chance: 100,
+						boosts: {
+							def: -1,	
+						},
+						ability: this.dex.abilities.get('poisonousradula'),
+					});
+				} else if (move.category === 'Special') {
+					move.secondaries.push({
+						chance: 100,
+						boosts: {
+							spd: -1,
+						},
+						ability: this.dex.abilities.get('poisonousradula'),
+
+					});
+				}
+			}
+		},
+		name: "Poisonous Radula",
+		shortDesc: "Non-resisted Poison moves lowers the target's corresponding defense by one stage.",
+		rating: 5,
+	},
+	dragoneater: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dragon') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Dragon Eater');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Dragon Eater",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dragon moves; Dragon immunity.",
+		rating: 3.5,
+	},
 	/*
 	Edits
 	*/
@@ -1221,6 +1377,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 	},
 	poisonpuppeteer: {
+		inherit: true,
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source.baseSpecies.name !== "Chameleos") return;
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
@@ -1228,11 +1385,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('confusion');
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Poison Puppeteer",
 		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
-		rating: 3,
-		num: 310,
 	},
 	raindish: {
 		inherit: true,
