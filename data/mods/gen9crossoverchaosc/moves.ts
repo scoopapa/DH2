@@ -682,7 +682,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Medi-Gun",
-		shortDesc: "Next hurt ally healed for 25% & status cured",
+		shortDesc: "Next hurt ally healed for 25% & status cured.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -708,6 +708,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Engine Blowback",
+		shortDesc: "Forces the target to switch to a random ally.",
 		pp: 10,
 		priority: -6,
 		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
@@ -726,6 +727,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Special",
 		name: "Mineralize",
+		shortDesc: "Removes and replaces item with a Dusk Stone.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -733,9 +735,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Mineralize', '[of] ' + source);
+					if(item.id != 'duskstone') {
+						this.add('-enditem', target, item.name, '[from] move: Mineralize', '[of] ' + source);
+						this.add('-item', target, 'Dusk Stone', '[from] move: Mineralize');
+					}
 					target.item = 'duskstone';
-					this.add('-item', target, target.item.name, '[from] move: Mineralize');
 				}
 			}
 		},
@@ -755,6 +759,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Orb of Discord",
+		shortDesc: "Inflicts heal block for 2 turns. User switches.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
