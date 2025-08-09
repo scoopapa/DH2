@@ -424,7 +424,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Disufiroa",
 		forme: "Solstice",
 		types: ["Dragon", "Ice"],
-		baseStats: {hp: 101, atk: 92, def: 90, spa: 130, spd: 110, spe: 107},
+		baseStats: {hp: 101, atk: 92, def: 90, spa: 130, spd: 105, spe: 107},
 		abilities: {0: "Frozen Calamity"},
 		weightkg: 180.0,
 		requiredMove: "Seraphic Shift",
