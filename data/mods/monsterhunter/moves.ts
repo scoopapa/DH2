@@ -779,6 +779,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 25,
 		priority: 1,
 		flags: {metronome: 1},
+		shortDesc: "Normal moves become Electric type this turn.",
 		pseudoWeather: 'convection',
 		condition: {
 			duration: 1,
