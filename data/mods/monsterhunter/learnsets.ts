@@ -6072,6 +6072,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			magmastorm: ["9L1"],
 			magmasurge: ["9L1"],
 			magnalance: ["9L1"],
+			convection: ["9L1"],
+			convectionnova: ["9L1"],
 			mindblown: ["9L1"],
 			mist: ["9L1"],
 			mountaingale: ["9L1"],
