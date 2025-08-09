@@ -730,7 +730,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Removes and replaces item with a Dusk Stone.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onAfterHit(target, source) {
 			if (source.hp) {
 				const item = target.takeItem();
