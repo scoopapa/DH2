@@ -762,7 +762,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Inflicts heal block for 2 turns. User switches.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
 			const success = target.addVolatile('healblock', source, move);
 			if (!success) {
