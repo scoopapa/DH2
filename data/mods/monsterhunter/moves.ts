@@ -1682,13 +1682,14 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	virulentvolley: {
-		accuracy: 90,
-		basePower: 85,
+		accuracy: 100,
+		basePower: 25,
 		category: "Physical",
 		name: "Virulent Volley",
-		pp: 10,
+		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
@@ -1696,14 +1697,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.side.removeSideCondition('auroraveil');
 		},
 		secondary: null,
-		target: "allAdjacent",
+		target: "normal",
 		type: "Poison",
-		shortDesc: "Destroys screens, unless the target is immune.",
-		desc: "Destroys screens, unless the target is immune.",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
 		contestType: "Beautiful",
+		shortDesc: "Hits 2-5 times. Destroys screens, unless the target is immune.",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Icicle Crash", target);
+            this.add('-anim', source, "Icicle Spear", target);
 			this.add('-anim', source, "Baneful Bunker", target);
         },
 	},
