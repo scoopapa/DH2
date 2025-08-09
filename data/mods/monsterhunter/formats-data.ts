@@ -612,7 +612,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	ahtalneset: {
-		tier: "MEGAS",
+		tier: "MHOU",
 	},
 	redhelmarzuros: {
 		tier: "MEGAS",
