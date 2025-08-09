@@ -1698,6 +1698,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Poison",
+		shortDesc: "Destroys screens, unless the target is immune.",
 		desc: "Destroys screens, unless the target is immune.",
 		contestType: "Beautiful",
 		onPrepareHit(target, source, move) {
