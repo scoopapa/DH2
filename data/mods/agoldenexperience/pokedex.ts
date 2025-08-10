@@ -2333,11 +2333,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	flabebe: {
 		inherit: true,
-		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
+		abilities: {0: "Flower Veil", 1: "Leaf Dress", H: "Symbiosis"},
 	},
 	floette: {
 		inherit: true,
-		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
+		abilities: {0: "Flower Veil", 1: "Leaf Dress", H: "Symbiosis"},
 	},
 	floetteeternal: {
 		inherit: true,
@@ -2346,7 +2346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	florges: {
 		inherit: true,
-		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
+		abilities: {0: "Flower Veil", 1: "Leaf Dress", H: "Symbiosis"},
 	},
 	skiddo: {
 		inherit: true,
@@ -3152,6 +3152,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	sneasler: {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Inner Focus", H: "Poison Touch"},
+	},
+	enamorustherian: {
+		inherit: true,
+		abilities: {0: "Magic Guard"},
 	},
 	// Gen 9
 	meowscarada: {

@@ -1031,20 +1031,33 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	leafdress: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug') {
-				this.debug('Thick Fat weaken');
+			if (defender.hasType('Grass') && (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug')) {
+				this.debug('Leaf Dress weaken');
+				return this.chainModify(0.5);
+			}
+			else if (!defender.hasType('Grass') && (move.type === 'Grass' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Ground')) {
+				this.debug('Leaf Dress weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug') {
-				this.debug('Thick Fat weaken');
+			if (defender.hasType('Grass') && (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug')) {
+				this.debug('Leaf Dress weaken');
+				return this.chainModify(0.5);
+			}
+			else if (!defender.hasType('Grass') && (move.type === 'Grass' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Ground')) {
+				this.debug('Leaf Dress weaken');
 				return this.chainModify(0.5);
 			}
 		},
+		onDamage(damage, target, source, effect) {
+			if (target.hasType('Grass') && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge')) {
+				return false;
+			}
+		},
 		name: "Leaf Dress",
-		shortDesc: "Negates Grass type weaknesses.",
+		shortDesc: "If not Grass: gives Grass resists; if Grass: negates Grass weaknesses and hazard damage.",
 		rating: 3.5,
 		num: -51,
 	},

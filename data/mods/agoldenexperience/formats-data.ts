@@ -3258,7 +3258,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	florges: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	skiddo: {
@@ -4475,7 +4475,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	enamorustherian: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 
