@@ -551,7 +551,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 130,
 		category: "Physical",
 		name: "Crimson Dawn",
-		shortDesc: "Fails unless the user is a Fire type",
+		shortDesc: "Can't be used consecutively. Fails if user isn't Fire-Type",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, contact: 1},
@@ -575,7 +575,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Ancestral Thunder",
-		shortDesc: "Fails unless the user is an Electric type",
+		shortDesc: "Can't be used consecutively. Fails if user isn't Electric-Type",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
@@ -779,6 +779,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 25,
 		priority: 1,
 		flags: {metronome: 1},
+		shortDesc: "Normal moves become Electric type this turn.",
 		pseudoWeather: 'convection',
 		condition: {
 			duration: 1,
@@ -1682,13 +1683,14 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	virulentvolley: {
-		accuracy: 90,
-		basePower: 85,
+		accuracy: 100,
+		basePower: 25,
 		category: "Physical",
 		name: "Virulent Volley",
-		pp: 10,
+		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
@@ -1696,13 +1698,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.side.removeSideCondition('auroraveil');
 		},
 		secondary: null,
-		target: "allAdjacent",
+		target: "normal",
 		type: "Poison",
-		desc: "Destroys screens, unless the target is immune.",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
 		contestType: "Beautiful",
+		shortDesc: "Hits 2-5 times. Destroys screens, unless the target is immune.",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Icicle Crash", target);
+            this.add('-anim', source, "Icicle Spear", target);
 			this.add('-anim', source, "Baneful Bunker", target);
         },
 	},
