@@ -257,7 +257,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kaguya Houraisan",
 		types: ["Fairy"],
 		gender: "F",
-		baseStats: {hp: 120, atk: 75, def: 79, spa: 102, spd: 60, spe: 94},
+		baseStats: {hp: 120, atk: 60, def: 79, spa: 102, spd: 60, spe: 94},
 		abilities: {0: "Magic Guard"},
 	},
 	fujiwaranomokou: {
@@ -265,7 +265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Fujiwara no Mokou",
 		types: ["Fire", "Fighting"],
 		gender: "F",
-		baseStats: {hp: 100, atk: 127, def: 55, spa: 91, spd: 63, spe: 94},
+		baseStats: {hp: 100, atk: 112, def: 55, spa: 91, spd: 63, spe: 94},
 		abilities: {0: "Regenerator"},
 	},
 	ayashameimaru: {
