@@ -481,21 +481,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				case 'sunnyday':
 				case 'desolateland':
 					pokemon.setType('Fire'); 
-					this.add('-start', pokemon, 'typechange', 'Fire');
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'raindance':
 				case 'primordialsea':
 					pokemon.setType('Water'); 
-					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'sandstorm':
 					pokemon.setType('Rock'); 
-					this.add('-start', pokemon, 'typechange', 'Rock');
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'hail':
 				case 'snowscape':
 					pokemon.setType('Ice'); 
-					this.add('-start', pokemon, 'typechange', 'Ice');
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				default:
 					pokemon.setType(pokemon.getTypes()); 
