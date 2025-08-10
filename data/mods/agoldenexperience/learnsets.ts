@@ -2632,6 +2632,31 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			attract: ["9M"],
 		},
 	},
+	revavroomsegin: {
+		learnset: {
+			wickedtorque: ['9L1'],
+		},
+	},
+	revavroomschedar: {
+		learnset: {
+			blazingtorque: ['9R'],
+		},
+	},
+	revavroomnavi: {
+		learnset: {
+			noxioustorque: ['9R'],
+		},
+	},
+	revavroomruchbah: {
+		learnset: {
+			magicaltorque: ['9R'],
+		},
+	},
+	revavroomcaph: {
+		learnset: {
+			combattorque: ['9R'],
+		},
+	},
 	fluttermane: {
 		learnset: {
 			astonish: ["9L1"],
@@ -5769,7 +5794,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			doubleedge: ["9M"],
 			drainpunch: ["9M"],
 			doublekick: ["9L1"],
-			earthquake: ["9M"],
 			encore: ["9M"],
 			endure: ["9M"],
 			facade: ["9M"],
@@ -5784,7 +5808,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			indomitablespirit: ["9M"],
 			irondefense: ["9M"],
 			jumpkick: ["9L38"],
-			knockoff: ["9M"],
 			lightscreen: ["9M"],
 			lowkick: ["9M"],
 			lowsweep: ["9M"],
@@ -6488,15 +6511,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			mirrorshot: ["9L1"],
 			ironhead: ["9L1"],
 			steelbeam: ["9L1"],
-		},
-	},
-	verivavroom: {
-		learnset: {
-			combattorque: ['9L1'],
-			blazingtorque: ['9L1'],
-			magicaltorque: ['9L1'],
-			noxioustorque: ['9L1'],
-			wickedtorque: ['9L1'],
 		},
 	},
 	irondrill: {
