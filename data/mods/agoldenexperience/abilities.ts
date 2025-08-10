@@ -2505,7 +2505,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	surgesurfer: {
 		inherit: true,
 		onModifySpe(spe) {
-			if (this.field.isTerrain('')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('chakraterrain')) {
 				return this.chainModify(2);
 			}
 		},
