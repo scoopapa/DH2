@@ -1574,6 +1574,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'klinklang').learnset.rockslide = ['9L1'];
     this.modData('Learnsets', 'eelektross').learnset.scald = ['9L1'];
     this.modData('Learnsets', 'beheeyem').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'chandelure').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'beartic').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'accelgor').learnset.taunt = ['9L1'];
     this.modData('Learnsets', 'stunfiskgalar').learnset.leechlife = ['9L1'];
