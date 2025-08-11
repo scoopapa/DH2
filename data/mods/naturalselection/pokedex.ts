@@ -177,6 +177,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Dark"],
 		baseStats: {hp: 76, atk: 123, def: 65, spa: 60, spd: 60, spe: 136},
+		abilities: {0: "Swift Swim", H: "Cloud Nine"},
 	},
 	victreebel: {
 		inherit: true,
