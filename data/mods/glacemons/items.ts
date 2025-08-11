@@ -1939,13 +1939,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
+			const types = pokemon.getTypes();
 			let type;
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status')
 				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
 				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
 				if (move.id === pokemon.moveSlots[0].id) type = pokemon.types[0];
-				else if (move.id === pokemon.moveSlots[1].id) type = pokemon.types[1];
+				else if (move.id === pokemon.moveSlots[1].id && types.length == 2) type = pokemon.types[1];
 				move.type = type;
 				move.typeChangerBoosted = this.effect;
 			}
