@@ -1387,16 +1387,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
-	batonpass: {
-		inherit: true,
-		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
-		self: {
-			onHit(source) {
-				source.clearBoosts();
-				this.add('-clearboost', source);
-			}
-		}
-	},
 	lowsweep: {
 		inherit: true,
 		basePower: 60,

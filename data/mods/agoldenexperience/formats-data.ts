@@ -1594,7 +1594,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	hariyama: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	nosepass: {
@@ -3258,7 +3258,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	florges: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	skiddo: {
@@ -3309,7 +3309,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	aromatisse: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	swirlix: {
@@ -3602,7 +3602,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "Illegal",
 	},
 	ribombeemega: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "(DUU)",
 	},
 	rockruff: {
@@ -4475,7 +4475,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	enamorustherian: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 
@@ -4618,27 +4618,23 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	revavroom: {
 		tier: "NU",
 	},
-	verivavroom: {
-		tier: "NU",
-		doublesTier: "(DUU)",
-	},
-	verivavroomsegin: {
+	revavroomsegin: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomschedar: {
+	revavroomschedar: {
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomnavi: {
+	revavroomnavi: {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomruchbah: {
+	revavroomruchbah: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomcaph: {
+	revavroomcaph: {
 		tier: "UU",
 		doublesTier: "(DUU)",
 	},

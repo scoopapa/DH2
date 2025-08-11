@@ -1031,20 +1031,47 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	leafdress: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug') {
-				this.debug('Thick Fat weaken');
+			if (defender.hasType('Grass') && (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug')) {
+				this.debug('Leaf Dress weaken');
+				return this.chainModify(0.5);
+			}
+			else if (!defender.hasType('Grass') && (move.type === 'Grass' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Ground')) {
+				this.debug('Leaf Dress weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug') {
-				this.debug('Thick Fat weaken');
+			if (defender.hasType('Grass') && (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Poison' || move.type === 'Flying' || move.type === 'Bug')) {
+				this.debug('Leaf Dress weaken');
+				return this.chainModify(0.5);
+			}
+			else if (!defender.hasType('Grass') && (move.type === 'Grass' || move.type === 'Water' || move.type === 'Electric' || move.type === 'Ground')) {
+				this.debug('Leaf Dress weaken');
 				return this.chainModify(0.5);
 			}
 		},
+		onDamage(damage, target, source, effect) {
+			if (target.hasType('Grass') && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge')) {
+				return false;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.hasType('Grass')) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Leaf Dress');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && target.hasType('Grass')) {
+				this.add('-immune', target, '[from] ability: Leaf Dress');
+				return null;
+			}
+		},
 		name: "Leaf Dress",
-		shortDesc: "Negates Grass type weaknesses.",
+		shortDesc: "If not Grass: gives Grass resists; if Grass: negates Grass weaknesses, status and hazard damage.",
 		rating: 3.5,
 		num: -51,
 	},
@@ -2492,7 +2519,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	surgesurfer: {
 		inherit: true,
 		onModifySpe(spe) {
-			if (this.field.isTerrain('')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('chakraterrain')) {
 				return this.chainModify(2);
 			}
 		},
