@@ -302,6 +302,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return null;
 		},
 	},
+	dragondarts: {
+		inherit: true,
+		gen: 3,
+	},
 	encore: {
 		inherit: true,
 		desc: "For 3 to 6 turns, the target is forced to repeat its last move used. If the affected move runs out of PP, the effect ends. Fails if the target is already under this effect, if it has not made a move, if the move has 0 PP, or if the move is Encore, Mimic, Mirror Move, Sketch, Struggle, or Transform.",
@@ -398,6 +402,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flash: {
 		inherit: true,
 		accuracy: 70,
+	},
+	flowertrick: {
+		inherit: true,
+		gen: 3,
+		basePower: 60,
+		pp: 15,
 	},
 	fly: {
 		inherit: true,
@@ -604,6 +614,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: true,
 	},
+	nightslash: {
+		inherit: true,
+		basePower: 65,
+		gen: 3,
+	},
 	odorsleuth: {
 		inherit: true,
 		accuracy: 100,
@@ -721,6 +736,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return;
 			}
 			return false;
+		},
+	},
+	steameruption: {
+		inherit: true,
+		desc: "Has a 20% chance to burn the target. The target thaws out if it is frozen.",
+		shortDesc: "20% chance to burn the target. Thaws target.",
+		gen: 3,
+		secondary: {
+			chance: 20,
+			status: 'brn',
 		},
 	},
 	stockpile: {
