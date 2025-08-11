@@ -194,8 +194,6 @@ export const Scripts: ModdedBattleScriptsData = {
     	delete this.modData('Learnsets', 'magnemite').learnset.electroweb;
     	delete this.modData('Learnsets', 'magnezone').learnset.electroweb;
     	delete this.modData('Learnsets', 'magneton').learnset.electroweb;
-    	delete this.modData('Learnsets', 'foongus').learnset.rollout;
-    	delete this.modData('Learnsets', 'amoonguss').learnset.rollout;
     	delete this.modData('Learnsets', 'gougingfire').learnset.ragingfury;
 		this.modData("Learnsets", "bellibolt").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "bellibolt").learnset.hydropump = ["9L1"];
