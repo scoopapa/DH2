@@ -982,7 +982,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
 				if (!move || move.isZ || move.isMax || !move.flags['snatch'] ||
-					(move.flags['heal'] && move.id !== 'healingstones') || move.sourceEffect === 'snatch') {
+					(move.flags['heal'] && move.id !== 'healingstones') ||
+					move.sourceEffect === 'snatch' || move.sourceEffect === 'greeneyed') {
 					return;
 				}
 				snatchUser.removeVolatile('snatch');
