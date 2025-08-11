@@ -4618,27 +4618,23 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	revavroom: {
 		tier: "NU",
 	},
-	verivavroom: {
-		tier: "NU",
-		doublesTier: "(DUU)",
-	},
-	verivavroomsegin: {
+	revavroomsegin: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomschedar: {
+	revavroomschedar: {
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomnavi: {
+	revavroomnavi: {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomruchbah: {
+	revavroomruchbah: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
-	verivavroomcaph: {
+	revavroomcaph: {
 		tier: "UU",
 		doublesTier: "(DUU)",
 	},
