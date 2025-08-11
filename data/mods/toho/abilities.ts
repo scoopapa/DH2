@@ -184,8 +184,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (pokemon.effectiveWeather) pokemon.addVolatile('ability:swordofruin');
-			else pokemon.removeVolatile('ability:swordofruin');
+			if (pokemon.effectiveWeather) {
+				pokemon.addVolatile('ability:swordofruin');
+			} else {
+				pokemon.removeVolatile('ability:swordofruin');
+			}
 		},
 		flags: {},
 		name: "Sword of Hisou",
@@ -479,28 +482,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onWeatherChange(pokemon) {
 			switch (pokemon.effectiveWeather()) {
 				case 'sunnyday':
-					if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
-					break;
 				case 'desolateland':
-					if (pokemon.setType('Fire')) this.add('-start', pokemon, 'typechange', 'Fire');
+					pokemon.setType('Fire'); 
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'raindance':
-					if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
-					break;
 				case 'primordialsea':
-					if (pokemon.setType('Water')) this.add('-start', pokemon, 'typechange', 'Water');
+					pokemon.setType('Water'); 
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'sandstorm':
-					if (pokemon.setType('Rock')) this.add('-start', pokemon, 'typechange', 'Rock');
+					pokemon.setType('Rock'); 
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				case 'hail':
-					if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
-					break;
 				case 'snowscape':
-					if (pokemon.setType('Ice')) this.add('-start', pokemon, 'typechange', 'Ice');
+					pokemon.setType('Ice'); 
+					this.add('-start', pokemon, 'typechange', 'Dark');
 					break;
 				default:
-					if (pokemon.setType(pokemon.getTypes())) this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.getTypes().join('/'));
+					pokemon.setType(pokemon.getTypes()); 
+					this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.getTypes().join('/'));
 					break;
 			}
 		},
