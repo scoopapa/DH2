@@ -1056,8 +1056,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return false;
 			}
 		},
+		onSetStatus(status, target, source, effect) {
+			if (target.hasType('Grass')) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Leaf Dress');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && target.hasType('Grass')) {
+				this.add('-immune', target, '[from] ability: Leaf Dress');
+				return null;
+			}
+		},
 		name: "Leaf Dress",
-		shortDesc: "If not Grass: gives Grass resists; if Grass: negates Grass weaknesses and hazard damage.",
+		shortDesc: "If not Grass: gives Grass resists; if Grass: negates Grass weaknesses, status and hazard damage.",
 		rating: 3.5,
 		num: -51,
 	},
