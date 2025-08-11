@@ -1496,7 +1496,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onAnyPrepareHit(source, target, move) {
 				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
-				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
+				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch' || move.sourceEffect === 'greeneyed') {
 					return;
 				}
 				snatchUser.removeVolatile('snatch');
