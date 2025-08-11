@@ -970,10 +970,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Green-Eyed",
 		onStart(source) {
 			this.add('-ability', source, 'Green-Eyed');
-			source.addVolatile('snatch');
+			source.addVolatile('greeneyed');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'Snatch');
+			},
+			onAnyPrepareHitPriority: -1,
+			onAnyPrepareHit(source, target, move) {
+				const snatchUser = this.effectState.source;
+				if (snatchUser.isSkyDropped()) return;
+				if (!move || move.isZ || move.isMax || !move.flags['snatch'] ||
+					(move.flags['heal'] && move.id !== 'healingstones') || move.sourceEffect === 'snatch') {
+					return;
+				}
+				snatchUser.removeVolatile('snatch');
+				this.add('-activate', snatchUser, 'move: Snatch', '[of] ' + source);
+				this.actions.useMove(move.id, snatchUser);
+				return null;
+			},
 		},
 		flags: {},
-		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
+		shortDesc: "On switch-in, if the foe uses a Snatchable non-healing move, this Pokemon uses it instead.",
 		rating: 3,
 	},
 	mudwash: {
