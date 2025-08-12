@@ -1323,7 +1323,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (effect?.name === "Millstone") {
-					return 2;
+					return 3;
 				}
 				return 5;
 			},
