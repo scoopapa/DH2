@@ -501,7 +501,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					break;
 			}
 		},
-		flags: {},
+		flags: {failroleplay: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Four Seasons",
 		shortDesc: "Okina Matara's primary typing changes to match the weather.",
 	},
