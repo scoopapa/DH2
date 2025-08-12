@@ -217,10 +217,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					target.side.removeSlotCondition(target, 'hospitality');
 				}
 			},
-			onResidual(pokemon) {
-				if (pokemon.volatiles['healoneturn']) {
-					this.heal(pokemon.baseMaxhp / 16);
-					pokemon.removeVolatile('healoneturn');
+			onResidual(target) {
+				if (target.volatiles['healoneturn']) {
+					this.heal(target.baseMaxhp / 16);
+					target.removeVolatile('healoneturn');
 				}
 			},
 		},
