@@ -184,7 +184,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (pokemon.effectiveWeather) {
+			if (pokemon.effectiveWeather()) {
 				pokemon.addVolatile('ability:swordofruin');
 			} else {
 				pokemon.removeVolatile('ability:swordofruin');
