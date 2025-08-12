@@ -2634,7 +2634,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	},
 	revavroomsegin: {
 		learnset: {
-			wickedtorque: ['9R'],
+			wickedtorque: ["9R"],
+			steelroller: ["9L1"],
 			acidspray: ["9M"],
 			assurance: ["9L10"],
 			bodyslam: ["9M"],
@@ -2695,6 +2696,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	revavroomschedar: {
 		learnset: {
 			blazingtorque: ['9R'],
+			steelroller: ["9L1"],
 			acidspray: ["9M"],
 			assurance: ["9L10"],
 			bodyslam: ["9M"],
@@ -2755,6 +2757,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	revavroomnavi: {
 		learnset: {
 			noxioustorque: ['9R'],
+			steelroller: ["9L1"],
 			acidspray: ["9M"],
 			assurance: ["9L10"],
 			bodyslam: ["9M"],
@@ -2815,6 +2818,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	revavroomruchbah: {
 		learnset: {
 			magicaltorque: ['9R'],
+			steelroller: ["9L1"],
 			acidspray: ["9M"],
 			assurance: ["9L10"],
 			bodyslam: ["9M"],
@@ -2875,6 +2879,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	revavroomcaph: {
 		learnset: {
 			combattorque: ['9R'],
+			steelroller: ["9L1"],
 			acidspray: ["9M"],
 			assurance: ["9L10"],
 			bodyslam: ["9M"],

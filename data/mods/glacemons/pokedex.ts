@@ -1417,9 +1417,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	charizardmegay: {
 		inherit: true,
-		abilities: {0: "Drought", H: "Solar Power"},
-		// requiredItem: null,
-		// requiredItems: ["Charizardite Y", "Parallel Mega Orb"],
+		// abilities: {0: "Drought", H: "Solar Power"},
+		requiredItem: null,
+		requiredItems: ["Charizardite Y", "Parallel Mega Orb"],
 	},
 	blastoisemega: {
 		inherit: true,
@@ -1465,9 +1465,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	gyaradosmega: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", H: "Savage"},
-		// requiredItem: null,
-		// requiredItems: ["Gyaradosite", "Parallel Mega Orb"],
+		// abilities: {0: "Mold Breaker", H: "Savage"},
+		requiredItem: null,
+		requiredItems: ["Gyaradosite", "Parallel Mega Orb"],
 	},
 	aerodactylmega: {
 		inherit: true,
