@@ -547,9 +547,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	manectricmega: {
 		inherit: true,
 		types: ["Electric", "Fire"],
-		abilities: {0: "Intimidate", H: "Lightning Rod"},
-		// requiredItem: null,
-		// requiredItems: ["Manectite", "Parallel Mega Orb"],
+		// abilities: {0: "Intimidate", H: "Lightning Rod"},
+		requiredItem: null,
+		requiredItems: ["Manectite", "Parallel Mega Orb"],
 	},
 	avalugg: {
 		inherit: true,

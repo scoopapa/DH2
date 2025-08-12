@@ -1167,12 +1167,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyMove(move, attacker) {
 			const currentatk = pokemon.storedStats.atk;
 			const currentspa = pokemon.storedStats.spa;
-			if (currentspa > currentatk) {
+			console.log("Atk is " + currentatk + "; SpA is " + currentspa);
+			if (move.category === 'Special' || move.category === 'Physical') {
+				if (currentspa > currentatk) {
 					move.overrideOffensiveStat = 'spa';
 				}
 				else if (currentatk > currentspa) {
 					move.overrideOffensiveStat = 'atk';
 				}
+			}
 		},
 		flags: {},
 		name: "Savage",

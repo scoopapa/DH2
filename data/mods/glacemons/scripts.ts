@@ -91,7 +91,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				const heldItem = this.getItem();
-				console.log(heldItem.id);
 				if (heldItem.id === 'parallelmegaorb') {
 					if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
 						this.setAbility(base.abilities['H'], null, true);
