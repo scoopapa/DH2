@@ -1165,8 +1165,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	savage: {
 		shortDesc: "The Pokémon’s Attack or Special Attack copies from the higher stat (held items does not apply for which is higher). Stat stages and held items apply as normal.",
 		onModifyMove(move, attacker) {
-			const currentatk = pokemon.storedStats.atk;
-			const currentspa = pokemon.storedStats.spa;
+			const currentatk = attacker.storedStats.atk;
+			const currentspa = attacker.storedStats.spa;
 			console.log("Atk is " + currentatk + "; SpA is " + currentspa);
 			if (move.category === 'Special' || move.category === 'Physical') {
 				if (currentspa > currentatk) {
