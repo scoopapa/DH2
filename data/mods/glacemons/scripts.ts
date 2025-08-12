@@ -74,7 +74,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
-			/*if (species.id.includes('mega')) {
+			if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
 					this.setAbility(species.abilities['H'], null, true);
@@ -87,8 +87,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.setAbility(species.abilities['0'], null, true);
 			}
 			this.baseAbility = this.ability;
-		}*/ //test for PMO because ts pmo
-			if (species.id.includes('mega')) {
+		} //test for PMO because ts pmo
+			/*if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				const heldItem = this.getItem();
 				if (heldItem.id === 'parallelmegaorb') {
@@ -105,7 +105,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			} else {
 				this.setAbility(species.abilities['0'], null, true);
 			}
-			this.baseAbility = this.ability;
+			this.baseAbility = this.ability;*/
 		}
 		return true;
 	}

@@ -1130,7 +1130,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 	},
 	// Slate 6
-	parallelmegaorb: { 
+	/*parallelmegaorb: { 
 	 	name: "Parallel Mega Orb",
 	 	spritenum: 578,
 	 	onTakeItem: false,
@@ -1138,7 +1138,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	 	num: -15,
 	 	gen: 9,
 	 	rating: 3,
-	},
+	},*/
 	legendplate: {
 		name: "Legend Plate",
 		spritenum: 225,

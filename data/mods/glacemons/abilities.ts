@@ -1167,7 +1167,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyMove(move, attacker) {
 			const currentatk = attacker.storedStats.atk;
 			const currentspa = attacker.storedStats.spa;
-			console.log("Atk is " + currentatk + "; SpA is " + currentspa);
 			if (move.category === 'Special' || move.category === 'Physical') {
 				if (currentspa > currentatk) {
 					move.overrideOffensiveStat = 'spa';
