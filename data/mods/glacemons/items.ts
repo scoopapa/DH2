@@ -2007,7 +2007,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onTakeItem: false,
 		onStart(target) {
 			this.add('-item', target, 'Dungeon\'s Looplet');
-			this.add('-message', `${pokemon.name} is holding a Dungeon's Looplet!`);
+			this.add('-message', `${target.name} is holding a Dungeon's Looplet!`);
 			target.m.innates = Object.keys(target.species.abilities)
 					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
 					.filter(ability => ability !== target.ability);
