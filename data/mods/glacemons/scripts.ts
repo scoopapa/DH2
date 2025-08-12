@@ -91,16 +91,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (species.id.includes('mega')) {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				const heldItem = this.getItem();
-				console.log(heldItem);
+				console.log(heldItem.id);
 				if (heldItem.id === 'parallelmegaorb') {
 					if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
-						this.setAbility(species.abilities['H'], null, true);
+						this.setAbility(base.abilities['H'], null, true);
 					} else if (species.abilities['1'] && this.ability === base.abilities['1'].replace(/\s/g, "").toLowerCase()) {
-						this.setAbility(species.baseSpecies.abilities['1'], null, true);
+						this.setAbility(base.abilities['1'], null, true);
 					} else {
-						this.setAbility(species.baseSpecies.abilities['0'], null, true);
+						this.setAbility(base.abilities['0'], null, true);
 					}
-						this.setAbility(species.baseSpecies.baseSpecies.abilities['H'], null, true);
 				} else {
 					this.setAbility(species.abilities['0'], null, true);
 				}
