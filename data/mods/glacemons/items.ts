@@ -6,13 +6,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera. Attack = -1/8 HP.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
+			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.species.id.includes('mega'))) {
 				return this.chainModify(0.67);
 			}
 		},
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
-			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
+			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.species.id.includes('mega'))) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
