@@ -2005,7 +2005,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "All abilities active at once.",
 		onTakeItem: false,
-		onStart(target) {
+		onPreStart(target) {
 			this.add('-item', target, 'Dungeon\'s Looplet');
 			this.add('-message', `${target.name} is holding a Dungeon's Looplet!`);
 			target.m.innates = Object.keys(target.species.abilities)
