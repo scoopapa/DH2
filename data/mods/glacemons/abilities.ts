@@ -1164,17 +1164,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	savage: {
 		shortDesc: "The Pokémon’s Attack or Special Attack copies from the higher stat (held items does not apply for which is higher). Stat stages and held items apply as normal.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, pokemon) {
+		onModifyMove(move, attacker) {
 			const currentatk = pokemon.storedStats.atk;
 			const currentspa = pokemon.storedStats.spa;
-			if (currentspa > currentatk) return currentspa;
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			const currentatk = pokemon.storedStats.atk;
-			const currentspa = pokemon.storedStats.spa;
-			if (currentatk > currentspa) return currentatk;
+			if (currentspa > currentatk) {
+					move.overrideOffensiveStat = 'spa';
+				}
+				else if (currentatk > currentspa) {
+					move.overrideOffensiveStat = 'atk';
+				}
 		},
 		flags: {},
 		name: "Savage",

@@ -4923,6 +4923,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "Uber OU",
 	},
+	terapagosstellar: {
+		inherit: true,
+		tier: "Uber OU",
+	},
 	pecharunt: {
 		inherit: true,
 		tier: "Uber RU",
