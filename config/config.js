@@ -723,6 +723,7 @@ exports.grouplist = [
 		showmedia: true,
 		exportinputlog: true,
 		importinputlog: true,
+		tournaments: true,
 	},
 	{
 		symbol: '^',

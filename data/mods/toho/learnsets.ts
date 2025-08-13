@@ -2559,6 +2559,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 	tenshihinanawi: {

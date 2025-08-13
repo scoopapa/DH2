@@ -70,9 +70,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	bugmemory: {
 		inherit: true,
-		shortDesc: "Bug-type attacks: 1.2x power, 0.67x from other types. Multi-Attack is Bug type.",
+		shortDesc: "Bug-type attacks: 1.2x power, 0.75x from other types. Multi-Attack is Bug type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Bug') return this.chainModify(0.67);
+			if (move.type !== 'Bug') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Bug') {
@@ -82,9 +82,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	dragonmemory: {
 		inherit: true,
-		shortDesc: "Dragon-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Dragon type.",
+		shortDesc: "Dragon-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Dragon type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Dragon') return this.chainModify(0.67);
+			if (move.type !== 'Dragon') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dragon') {
@@ -94,9 +94,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	electricmemory: {
 		inherit: true,
-		shortDesc: "Electric-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Electric type.",
+		shortDesc: "Electric-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Electric type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Electric') return this.chainModify(0.67);
+			if (move.type !== 'Electric') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Electric') {
@@ -106,9 +106,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	fightingmemory: {
 		inherit: true,
-		shortDesc: "Fighting-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fighting type.",
+		shortDesc: "Fighting-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Fighting type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Figthing') return this.chainModify(0.67);
+			if (move.type !== 'Figthing') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fighting') {
@@ -118,9 +118,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	firememory: {
 		inherit: true,
-		shortDesc: "Fire-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fire type.",
+		shortDesc: "Fire-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Fire type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Fire') return this.chainModify(0.67);
+			if (move.type !== 'Fire') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fire') {
@@ -130,9 +130,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	flyingmemory: {
 		inherit: true,
-		shortDesc: "Flying-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Flying type.",
+		shortDesc: "Flying-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Flying type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Flying') return this.chainModify(0.67);
+			if (move.type !== 'Flying') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Flying') {
@@ -142,9 +142,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	ghostmemory: {
 		inherit: true,
-		shortDesc: "Ghost-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ghost type.",
+		shortDesc: "Ghost-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Ghost type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Ghost') return this.chainModify(0.67);
+			if (move.type !== 'Ghost') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ghost') {
@@ -154,9 +154,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	grassmemory: {
 		inherit: true,
-		shortDesc: "Grass-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Grass type.",
+		shortDesc: "Grass-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Grass type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Grass') return this.chainModify(0.67);
+			if (move.type !== 'Grass') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Grass') {
@@ -166,9 +166,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	groundmemory: {
 		inherit: true,
-		shortDesc: "Ground-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ground type.",
+		shortDesc: "Ground-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Ground type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Ground') return this.chainModify(0.67);
+			if (move.type !== 'Ground') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ground') {
@@ -178,9 +178,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	icememory: {
 		inherit: true,
-		shortDesc: "Ice-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Ice type.",
+		shortDesc: "Ice-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Ice type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Ice') return this.chainModify(0.67);
+			if (move.type !== 'Ice') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ice') {
@@ -190,9 +190,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	poisonmemory: {
 		inherit: true,
-		shortDesc: "Poison-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Poison type.",
+		shortDesc: "Poison-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Poison type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Poison') return this.chainModify(0.67);
+			if (move.type !== 'Poison') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
@@ -202,9 +202,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	psychicmemory: {
 		inherit: true,
-		shortDesc: "Psychic-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Psychic type.",
+		shortDesc: "Psychic-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Psychic type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Psychic') return this.chainModify(0.67);
+			if (move.type !== 'Psychic') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Psychic') {
@@ -214,9 +214,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	rockmemory: {
 		inherit: true,
-		shortDesc: "Rock-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Rock type.",
+		shortDesc: "Rock-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Rock type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Rock') return this.chainModify(0.67);
+			if (move.type !== 'Rock') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Rock') {
@@ -226,9 +226,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	steelmemory: {
 		inherit: true,
-		shortDesc: "Steel-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Steel type.",
+		shortDesc: "Steel-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Steel type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Steel') return this.chainModify(0.67);
+			if (move.type !== 'Steel') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Steel') {
@@ -238,9 +238,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	watermemory: {
 		inherit: true,
-		shortDesc: "Water-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Water type.",
+		shortDesc: "Water-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Water type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Water') return this.chainModify(0.67);
+			if (move.type !== 'Water') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Water') {
@@ -250,9 +250,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	fairymemory: {
 		inherit: true,
-		shortDesc: "Fairy-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Fairy type.",
+		shortDesc: "Fairy-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Fairy type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Fairy') return this.chainModify(0.67);
+			if (move.type !== 'Fairy') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fairy') {
@@ -262,9 +262,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	darkmemory: {
 		inherit: true,
-		shortDesc: "Dark-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Dark type.",
+		shortDesc: "Dark-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Dark type.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Dark') return this.chainModify(0.67);
+			if (move.type !== 'Dark') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dark') {
@@ -275,7 +275,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	normalmemory: {
 		name: "Normal Memory",
 		onMemory: 'Normal',
-		shortDesc: "Normal-type attacks: 1.2x power. 0.67x from other types. Multi-Attack is Normal type.",
+		shortDesc: "Normal-type attacks: 1.2x power. 0.75x from other types. Multi-Attack is Normal type.",
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
@@ -283,7 +283,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!move.type === 'Normal') return this.chainModify(0.67);
+			if (move.type !== 'Normal') return this.chainModify(0.75);
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Normal') {
@@ -983,6 +983,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
 	},
 	pikashuniumz: {
 		inherit: true,
@@ -1065,6 +1066,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
 	},
 	friedrice: {
 		name: "Fried Rice",
@@ -1937,13 +1939,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
+			const types = pokemon.getTypes();
 			let type;
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status')
 				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
 				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
 				if (move.id === pokemon.moveSlots[0].id) type = pokemon.types[0];
-				else if (move.id === pokemon.moveSlots[1].id) type = pokemon.types[1];
+				else if (move.id === pokemon.moveSlots[1].id && types.length == 2) type = pokemon.types[1];
 				move.type = type;
 				move.typeChangerBoosted = this.effect;
 			}
@@ -2004,6 +2007,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onTakeItem: false,
 		onStart(target) {
 			this.add('-item', target, 'Dungeon\'s Looplet');
+			this.add('-message', `${pokemon.name} is holding a Dungeon's Looplet!`);
 			target.m.innates = Object.keys(target.species.abilities)
 					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
 					.filter(ability => ability !== target.ability);

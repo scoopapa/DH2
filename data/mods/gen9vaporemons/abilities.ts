@@ -398,6 +398,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Rune Drive');
+				this.add('-end', pokemon, 'runedriveatk', '[silent]');
+				this.add('-end', pokemon, 'runedrivedef', '[silent]');
+				this.add('-end', pokemon, 'runedrivespa', '[silent]');
+				this.add('-end', pokemon, 'runedrivespd', '[silent]');
+				this.add('-end', pokemon, 'runedrivespe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -464,6 +469,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Photon Drive');
+				this.add('-end', pokemon, 'photondriveatk', '[silent]');
+				this.add('-end', pokemon, 'photondrivedef', '[silent]');
+				this.add('-end', pokemon, 'photondrivespa', '[silent]');
+				this.add('-end', pokemon, 'photondrivespd', '[silent]');
+				this.add('-end', pokemon, 'photondrivespe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -530,6 +540,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Neuron Drive');
+				this.add('-end', pokemon, 'neurondriveatk', '[silent]');
+				this.add('-end', pokemon, 'neurondrivedef', '[silent]');
+				this.add('-end', pokemon, 'neurondrivespa', '[silent]');
+				this.add('-end', pokemon, 'neurondrivespd', '[silent]');
+				this.add('-end', pokemon, 'neurondrivespe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -597,6 +612,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Protosmosis');
+				this.add('-end', pokemon, 'protosmosisatk', '[silent]');
+				this.add('-end', pokemon, 'protosmosisdef', '[silent]');
+				this.add('-end', pokemon, 'protosmosisspa', '[silent]');
+				this.add('-end', pokemon, 'protosmosisspd', '[silent]');
+				this.add('-end', pokemon, 'protosmosisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -664,6 +684,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Protocrysalis');
+				this.add('-end', pokemon, 'protocrysalisatk', '[silent]');
+				this.add('-end', pokemon, 'protocrysalisdef', '[silent]');
+				this.add('-end', pokemon, 'protocrysalisspa', '[silent]');
+				this.add('-end', pokemon, 'protocrysalisspd', '[silent]');
+				this.add('-end', pokemon, 'protocrysalisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -731,6 +756,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Protostasis');
+				this.add('-end', pokemon, 'protostasisatk', '[silent]');
+				this.add('-end', pokemon, 'protostasisdef', '[silent]');
+				this.add('-end', pokemon, 'protostasisspa', '[silent]');
+				this.add('-end', pokemon, 'protostasisspd', '[silent]');
+				this.add('-end', pokemon, 'protostasisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
@@ -970,10 +1000,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Green-Eyed",
 		onStart(source) {
 			this.add('-ability', source, 'Green-Eyed');
-			source.addVolatile('snatch');
+			source.addVolatile('greeneyed');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'Snatch');
+			},
+			onAnyPrepareHitPriority: -1,
+			onAnyPrepareHit(source, target, move) {
+				const snatchUser = this.effectState.source;
+				if (snatchUser.isSkyDropped()) return;
+				if (!move || move.isZ || move.isMax || !move.flags['snatch'] ||
+					(move.flags['heal'] && move.id !== 'healingstones') ||
+					move.sourceEffect === 'snatch' || move.sourceEffect === 'greeneyed') {
+					return;
+				}
+				snatchUser.removeVolatile('snatch');
+				this.add('-activate', snatchUser, 'move: Snatch', '[of] ' + source);
+				this.actions.useMove(move.id, snatchUser);
+				return null;
+			},
 		},
 		flags: {},
-		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
+		shortDesc: "On switch-in, if the foe uses a Snatchable non-healing move, this Pokemon uses it instead.",
 		rating: 3,
 	},
 	mudwash: {
