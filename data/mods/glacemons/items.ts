@@ -1142,6 +1142,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			pokemon.setAbility(pokemon.set.ability);
 			pokemon.baseAbility = pokemon.ability;
 			pokemon.removeVolatile('gastroacid');
+			this.add('-item', pokemon, 'Parallel Mega Orb');
+			this.add('-message', `${pokemon.name} has kept it's original ability!`);
 		},
 		//onPreStart(pokemon) {
 		//	pokemon.addVolatile('gastroacid');
@@ -2014,6 +2016,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 					if (target.hasAbility(innate)) continue;
 					target.addVolatile("ability:" + innate, target);
 				}
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (target.species.abilities['0'].id || target.species.abilities['1'].id || target.species.abilities['H'].id || target.species.abilities['S'].id === "magicguard") continue;
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
 			}
 		},
 	},
