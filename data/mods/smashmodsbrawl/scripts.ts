@@ -9,6 +9,46 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "delibird").learnset.uturn = ["9L1"];
 		this.modData("Learnsets", "delibird").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "delibird").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.agility = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.breakingswipe = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.dragonbreath = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.dragonpulse = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.ominouswind = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.hex = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.phantomforce = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.shadowsneak = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.recover = ["9L1"];
+		delete this.modData('Learnsets', 'aurorus').learnset.ancientpower;
+		delete this.modData('Learnsets', 'aurorus').learnset.aurorabeam;
+		delete this.modData('Learnsets', 'aurorus').learnset.auroraveil;
+		delete this.modData('Learnsets', 'aurorus').learnset.avalanche;
+		delete this.modData('Learnsets', 'aurorus').learnset.freezedry;
+		delete this.modData('Learnsets', 'aurorus').learnset.frostbreath;
+		delete this.modData('Learnsets', 'aurorus').learnset.iciclespear;
+		delete this.modData('Learnsets', 'aurorus').learnset.meteorbeam;
+		delete this.modData('Learnsets', 'aurorus').learnset.powdersnow;
+		delete this.modData('Learnsets', 'aurorus').learnset.rockblast;
+		delete this.modData('Learnsets', 'aurorus').learnset.rockpolish;
+		delete this.modData('Learnsets', 'aurorus').learnset.rockslide;
+		delete this.modData('Learnsets', 'aurorus').learnset.rockthrow;
+		delete this.modData('Learnsets', 'aurorus').learnset.rocktomb;
+		delete this.modData('Learnsets', 'aurorus').learnset.stealthrock;
+		delete this.modData('Learnsets', 'aurorus').learnset.stoneedge;
+		this.modData("Learnsets", "dialga").learnset.doomdesire = ["9L1"];
+		this.modData("Learnsets", "dialga").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "dialga").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "dialga").learnset.trick = ["9L1"];
+    	this.modData('Learnsets', 'gogoat').learnset.natureswrath = ['9M'];
+   	this.modData('Learnsets', 'gogoat').learnset.golemstrike = ['9L1'];
+	   this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
+	   this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
+	   this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
 	},
   pokemon: {
 	inherit: true,
@@ -293,7 +333,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		inherit: true,
 		canTerastallize(pokemon: Pokemon) {
-			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || pokemon.volatiles['bigbutton']) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo ||
+				this.dex.gen !== 9 || pokemon.volatiles['bigbutton'] || pokemon.hasItem('wishingstone')) {
 				return null;
 			}
 			return pokemon.teraType;
@@ -305,40 +346,159 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			let type = pokemon.teraType;
-			let canTera = false;
 			if (pokemon.set.ability === 'I Love Fishing') {
-				canTera = true;
 				type = 'Water';
 			}
 			if (pokemon.set.ability === 'Racer\'s Spirit') {
-				canTera = true;
 				type = 'Steel';
 			}
-			if (type === 'Bug' || canTera) {
-				this.battle.add('-terastallize', pokemon, type);
-				pokemon.terastallized = type;
-				for (const ally of pokemon.side.pokemon) {
-					if (ally.teraType === 'Bug') ally.canTerastallize = null;
+			if (['zapdos', 'bigcrammer'].includes(pokemon.species.name) && pokemon.teraType !== 'Bug') {
+				pokemon.addVolatile('bigbutton');
+				return;
+			}
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
+		},
+		getActiveMaxMove(move: Move, pokemon: Pokemon) {
+			if (typeof move === 'string') move = this.dex.getActiveMove(move);
+			if (move.name === 'Struggle') return this.dex.getActiveMove(move);
+			let maxMove = this.dex.getActiveMove(this.MAX_MOVES[move.category === 'Status' ? move.category : move.type]);
+			if (move.category !== 'Status') {
+				if (pokemon.gigantamax && pokemon.canGigantamax) {
+					const gMaxMove = this.dex.getActiveMove(pokemon.canGigantamax);
+					if (gMaxMove.exists) { 
+						if ((move.name === 'Drum Beating' && pokemon.baseSpecies.baseSpecies === 'Rillaboom') ||
+							(move.name === 'Frenzy Plant' && pokemon.baseSpecies.baseSpecies === 'Venusaur') ||
+							(move.name === 'Blast Burn' && pokemon.baseSpecies.baseSpecies === 'Charizard') ||
+							(move.name === 'Hydro Cannon' && pokemon.baseSpecies.baseSpecies === 'Blastoise') ||
+							(move.name === 'Pollen Puff' && pokemon.baseSpecies.baseSpecies === 'Butterfree') ||
+							(move.name === 'Volt Tackle' && pokemon.baseSpecies.baseSpecies === 'Pikachu') ||
+							(move.name === 'Pay Day' && pokemon.baseSpecies.baseSpecies === 'Meowth') ||
+							(move.name === 'Dynamic Punch' && pokemon.baseSpecies.baseSpecies === 'Machamp') ||
+							(move.name === 'Shadow Ball' && pokemon.baseSpecies.baseSpecies === 'Gengar') ||
+							(move.name === 'Crabhammer' && pokemon.baseSpecies.baseSpecies === 'Kingler') ||
+							(move.name === 'Freeze-Dry' && pokemon.baseSpecies.baseSpecies === 'Lapras') ||
+							(move.name === 'Last Resort' && pokemon.baseSpecies.baseSpecies === 'Eevee') ||
+							(move.name === 'Body Slam' && pokemon.baseSpecies.baseSpecies === 'Snorlax') ||
+							(move.name === 'Gunk Shot' && pokemon.baseSpecies.baseSpecies === 'Garbodor') ||
+							(move.name === 'Double Iron Bash' && pokemon.baseSpecies.baseSpecies === 'Melmetal') ||
+							(move.name === 'Pyro Ball' && pokemon.baseSpecies.baseSpecies === 'Cinderace') ||
+							(move.name === 'Snipe Shot' && pokemon.baseSpecies.baseSpecies === 'Inteleon') ||
+							(move.name === 'Brave Bird' && pokemon.baseSpecies.baseSpecies === 'Corviknight') ||
+							(move.name === 'Psychic' && pokemon.baseSpecies.baseSpecies === 'Orbeetle') ||
+							(move.name === 'Razor Shell' && pokemon.baseSpecies.baseSpecies === 'Drednaw') || 
+							(move.name === 'Tar Shot' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
+							(move.name === 'Grav Apple' && pokemon.baseSpecies.baseSpecies === 'Flapple') ||
+							(move.name === 'Apple Acid' && pokemon.baseSpecies.baseSpecies === 'Appletun') ||
+							(move.name === 'Sand Tomb' && pokemon.baseSpecies.baseSpecies === 'Sandaconda') ||
+							(move.name === 'Fire Lash' && pokemon.baseSpecies.baseSpecies === 'Centiskorch') ||
+							(move.name === 'Overdrive' && pokemon.baseSpecies.baseSpecies === 'Toxtricity') ||
+							(move.name === 'Dazzling Gleam' && pokemon.baseSpecies.baseSpecies === 'Hatterene') ||
+							(move.name === 'False Surrender' && pokemon.baseSpecies.baseSpecies === 'Grimmsnarl') ||
+							(move.name === 'Draining Kiss' && pokemon.baseSpecies.baseSpecies === 'Alcremie') ||
+							(move.name === 'Heavy Slam' && pokemon.baseSpecies.baseSpecies === 'Copperajah') ||
+							(move.name === 'Draco Meteor' && pokemon.baseSpecies.baseSpecies === 'Duraludon') ||
+							(move.name === 'Wicked Blow' && pokemon.baseSpecies.baseSpecies === 'Urshifu') ||
+							(move.name === 'Surging Strikes' && pokemon.baseSpecies.baseSpecies === 'Urshifu')) maxMove = gMaxMove;
+					}
 				}
-				pokemon.addedType = '';
-				pokemon.knownType = true;
-				pokemon.apparentType = type;
-				if (pokemon.species.baseSpecies === 'Ogerpon') {
-					const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
-					pokemon.formeChange(pokemon.species.id + tera, null, true);
+				if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
+				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'gmaxwindrage',
+					  'gmaxbefuddle', 'gmaxcannonade', 'gmaxcentiferno', 'gmaxchistrike',
+					  'gmaxcuddle', 'gmaxdepletion', 'gmaxfinale', 'gmaxfoamburst',
+					  'gmaxgoldrush', 'gmaxgravitas', 'gmaxmalodor', 'gmaxmeltdown',
+					  'gmaxoneblow', 'gmaxrapidflow', 'gmaxreplenish', 'gmaxresonance',
+					  'gmaxsandblast', 'gmaxsmite', 'gmaxsnooze', 'gmaxsteelsurge',
+					  'gmaxterror', 'gmaxvinelash', 'gmaxvolcalith', 'gmaxvoltcrash', 'gmaxwildfire',
+					  'gmaxstonesurge', 'gmaxstunshock', 'gmaxsweetness', 'gmaxtartness'].includes(maxMove.id)) {
+					maxMove.basePower = move.maxMove.basePower;
 				}
-				if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
-					pokemon.formeChange('Terapagos-Stellar', null, true);
-					pokemon.baseMaxhp = Math.floor(Math.floor(
-						2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-					) * pokemon.level / 100 + 10);
-					const newMaxHP = pokemon.baseMaxhp;
-					pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-					pokemon.maxhp = newMaxHP;
-					this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				maxMove.category = move.category;
+			}
+			let maxNewPower = this.newMaxPower(move); // new max power
+			maxMove.basePower = maxNewPower; // bypass old max power
+			maxMove.baseMove = move.id;
+			// copy the priority for Psychic Terrain, Quick Guard
+			maxMove.priority = move.priority;
+			maxMove.isZOrMaxPowered = true;
+			return maxMove;
+		},
+		newMaxPower(move){
+			let oldMaxPowers = [0, 90, 100, 110, 120, 130, 140, 150];
+			let oldweakMaxPowers = [0, 70, 75, 80, 85, 90, 95, 100];
+			let weakMaxPowers = [0, 60, 65, 70, 75, 80, 85, 90];
+			let maxPowers = [0, 70, 80, 90, 100, 110, 120, 130];
+			let maxNewPower = 110;
+			if (!move.basePower) {
+				return maxNewPower;
+			} else if (!move.maxMove?.basePower){
+				return null;
+			} else if (['Fighting', 'Poison'].includes(move.type)) {
+				for (const i in oldweakMaxPowers){
+					if (move.maxMove?.basePower === oldweakMaxPowers[i]){
+						maxNewPower = weakMaxPowers[i]
+						break
+					}
 				}
-				this.battle.runEvent('AfterTerastallization', pokemon);
-			} else pokemon.addVolatile('bigbutton');
+			} else if (['Flying'].includes(move.type)) {
+				for (const i in oldMaxPowers){
+					if (move.maxMove?.basePower === oldMaxPowers[i]){
+						maxNewPower = weakMaxPowers[i]
+						break
+					}
+				}
+			} else {
+				for (const i in oldMaxPowers){
+					if (move.maxMove?.basePower === oldMaxPowers[i]){
+						maxNewPower = maxPowers[i]
+						break
+					}
+				}
+			}
+			return maxNewPower;
+		},
+		hitStepInvulnerabilityEvent(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			if (move.id === 'helpinghand') return new Array(targets.length).fill(true);
+			const hitResults: boolean[] = [];
+			for (const [i, target] of targets.entries()) {
+				if (target && target.volatiles['commanding']) {
+					hitResults[i] = false;
+				} else if (this.battle.gen >= 8 && move.id === 'toxic' && pokemon.hasType('Poison')) {
+					hitResults[i] = true;
+				} else {
+					hitResults[i] = this.battle.runEvent('Invulnerability', target, pokemon, move);
+				}
+				if (hitResults[i] === false) {
+					if (move.smartTarget) {
+						move.smartTarget = false;
+					} else {
+						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
+						this.battle.add('-miss', pokemon, target);
+					}
+				}
+			}
+			return hitResults;
 		},
 	},
 	battle: {
@@ -434,9 +594,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.actions.runMegaEvoY?.(action.pokemon);
 				break;
 			case 'runDynamax':
-				if (['zapdos', 'bigcrammer'].includes(action.pokemon.species.name)) action.pokemon.addVolatile('bigbutton');
-				action.pokemon.side.dynamaxUsed = false;
-				if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = false;
+				action.pokemon.addVolatile('dynamax');
+				action.pokemon.side.dynamaxUsed = true;
+				if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = true;
 				break;
 			case 'terastallize':
 				this.actions.terastallize(action.pokemon);
@@ -705,5 +865,38 @@ export const Scripts: ModdedBattleScriptsData = {
 			target.addVolatile('healed');
 			return finalDamage;
 		},
+	},
+	pokemon: {
+		inherit: true,
+		getDynamaxRequest(skipChecks?: boolean) {
+			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
+			if (!skipChecks) {
+				if (!this.side.canDynamaxNow()) return;
+				if (
+					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
+				) {
+					return;
+				}
+				// Some pokemon species are unable to dynamax
+				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
+			}
+			const result: DynamaxOptions = {maxMoves: []};
+			let atLeastOne = false;
+			for (const moveSlot of this.moveSlots) {
+				const move = this.battle.dex.moves.get(moveSlot.id);
+				const maxMove = this.battle.actions.getMaxMove(move, this);
+				if (maxMove) {
+					if (this.maxMoveDisabled(move)) {
+						result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
+					} else {
+						result.maxMoves.push({move: maxMove.id, target: maxMove.target});
+						atLeastOne = true;
+					}
+				}
+			}
+			if (!atLeastOne) return;
+			if (this.canGigantamax) result.gigantamax = this.canGigantamax;
+			return result;
+		},		
 	},
 };
