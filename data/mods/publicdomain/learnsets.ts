@@ -1029,6 +1029,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9M", "8M", "7T", "6T", "5T", "4T"],
 			magnitude: ["9M"],
 			heatcrash: ["9M"],
+		},
 	},
 	niagarafalls: {
 		learnset: {
