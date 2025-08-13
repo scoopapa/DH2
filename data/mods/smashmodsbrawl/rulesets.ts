@@ -60,4 +60,19 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			pokemon.switchedIn = true;
 		},
 	},
+	terastalclause: {
+		effectType: 'Rule',
+		name: 'Terastal Clause',
+		desc: "Only Pok&eacute;mon from Iron Fist, TeraForming, and TeraMax can Terastallize",
+		onBegin() {
+			for (const pokemon of this.getAllPokemon()) {
+			  if (pokemon.species.baseSpecies !== 'Centiskorch' ||
+					pokemon.species.baseSpecies !== 'Zapdos' ||
+					pokemon.species.baseSpecies !== 'Big Crammer') {
+				  pokemon.canTerastallize = null;
+				}
+			}
+			this.add('rule', 'Terastal Clause: Only Pokemon from Tera-related mods can Terastallize');
+		},
+	},
 };
