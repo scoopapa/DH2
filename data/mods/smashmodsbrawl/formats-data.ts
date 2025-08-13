@@ -20,4 +20,29 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bigcrammer: {
 		tier: "SSB",
 	},
+	aurorus: {
+		tier: "SSB",
+	},
+	drampiclus: {
+		tier: "SSB",
+	},
+	samuraiaihisui: {
+		tier: "SSB",
+	},
+	gravlord: {
+		tier: "SSB",
+	},
+	centiskorch: {
+		tier: "SSB",
+	},
+	centiskorchgmax: {
+		tier: "SSB",
+		isNonstandard: null,
+	},
+	dialga: {
+		tier: "SSB",
+	},
+	gogoat: {
+		tier: "SSB",
+	},
 };
