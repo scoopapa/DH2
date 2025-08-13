@@ -132,7 +132,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Eolikopter",
 		types: ["Flying", "Electric"],
 		baseStats: {hp: 90, atk: 50, def: 80, spa: 100, spd: 70, spe: 110},
-		abilities: {0: "Cloud Nine"},
+		abilities: {0: "Cloud Nine", H: "Static"},
 		weightkg: 400,
 	},
 	mohawtter: {
