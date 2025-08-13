@@ -483,21 +483,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			switch (pokemon.effectiveWeather()) {
 				case 'sunnyday':
 				case 'desolateland':
-					pokemon.setType(['Fire', 'Dark'])
+					pokemon.setType(['Fire', 'Dark']);
 					break;
 				case 'raindance':
 				case 'primordialsea':
-					pokemon.setType(['Water', 'Dark'])
+					pokemon.setType(['Water', 'Dark']);
 					break;
 				case 'sandstorm':
-					pokemon.setType(['Rock', 'Dark'])
+					pokemon.setType(['Rock', 'Dark']);
 					break;
 				case 'hail':
 				case 'snowscape':
-					pokemon.setType(['Ice', 'Dark'])
+					pokemon.setType(['Ice', 'Dark']);
 					break;
 				default:
-					pokemon.setType(['Normal', 'Dark'])
+					pokemon.setType(['Normal', 'Dark']);
 					break;
 			}
 		},
