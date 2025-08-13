@@ -44,6 +44,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	beatup: {
 		inherit: true,
+		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a non-volatile status condition in the user's party, or fails if no Pokemon meet the criteria. For each hit, the damage formula uses the participating Pokemon's base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense; each hit is considered to come from the user.",
 		onModifyMove(move, pokemon) {
 			pokemon.addVolatile('beatup');
 			move.type = '???';
@@ -129,12 +130,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	bind: {
+		inherit: true,
+		accuracy: 85,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
 	blizzard: {
 		inherit: true,
-		onModifyMove() { },
+		desc: "Has a 10% chance to freeze the target. If the weather is Snow, this move does not check accuracy.",
+		shortDesc: "10% chance to freeze foe(s). Can't miss in Snow.",
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
+		},
 	},
 	brickbreak: {
 		inherit: true,
+		desc: "If this attack does not miss and whether or not the target is immune, the effects of Reflect and Light Screen end for the opponent's side of the field before damage is calculated.",
 		onTryHit(target, source) {
 			// will shatter screens through sub, before you hit
 			const foe = source.side.foe;
@@ -145,6 +157,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	charge: {
 		inherit: true,
 		boosts: null,
+	},
+	clamp: {
+		inherit: true,
+		accuracy: 85,
+		pp: 15,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 	conversion: {
 		inherit: true,
@@ -167,6 +186,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	counter: {
 		inherit: true,
+		desc: "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field, the damage is done to it instead. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn, or if the user did not lose HP from the attack.",
 		condition: {
 			duration: 1,
 			noCopy: true,
@@ -196,6 +216,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, noassist: 1},
 	},
 	crunch: {
+		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
 		inherit: true,
 		secondary: {
 			chance: 20,
@@ -210,6 +232,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	disable: {
 		inherit: true,
+		desc: "For 2 to 5 turns, the target's last move used becomes disabled. Fails if one of the target's moves is already disabled, if the target has not made a move, if the target no longer knows the move, or if the move has 0 PP.",
+		shortDesc: "For 2-5 turns, disables the target's last move.",
 		accuracy: 55,
 		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
 		volatileStatus: 'disable',
@@ -293,8 +317,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return null;
 		},
 	},
+	dragondarts: {
+		inherit: true,
+		gen: 3,
+	},
 	encore: {
 		inherit: true,
+		desc: "For 3 to 6 turns, the target is forced to repeat its last move used. If the affected move runs out of PP, the effect ends. Fails if the target is already under this effect, if it has not made a move, if the move has 0 PP, or if the move is Encore, Mimic, Mirror Move, Sketch, Struggle, or Transform.",
+		shortDesc: "The target repeats its last move for 3-6 turns.",
 		volatileStatus: 'encore',
 		condition: {
 			durationCallback() {
@@ -348,6 +378,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return 80;
 		},
 	},
+	explosion: {
+		inherit: true,
+		shortDesc: "Target's Def halved during damage. User faints.",
+		desc: "The user faints after using this move. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+	},
 	fakeout: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -356,8 +391,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 	},
+	firespin: {
+		inherit: true,
+		accuracy: 85,
+		basePower: 35,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
 	flail: {
 		inherit: true,
+		desc: "The power of this move is 20 if X is 33 to 48, 40 if X is 17 to 32, 80 if X is 10 to 16, 100 if X is 5 to 9, 150 if X is 2 to 4, and 200 if X is 0 or 1, where X is equal to (user's current HP * 48 / user's maximum HP), rounded down.",
 		basePowerCallback(pokemon) {
 			const ratio = Math.max(Math.floor(pokemon.hp * 48 / pokemon.maxhp), 1);
 			let bp;
@@ -381,6 +424,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flash: {
 		inherit: true,
 		accuracy: 70,
+	},
+	flowertrick: {
+		inherit: true,
+		gen: 3,
+		basePower: 60,
+		pp: 15,
 	},
 	fly: {
 		inherit: true,
@@ -489,6 +538,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
+	knockoff: {
+		inherit: true,
+		shortDesc: "Target's item is lost and it cannot obtain another.",
+		desc: "The target's held item is lost for the rest of the battle, unless it has the Sticky Hold Ability. During the effect, the target cannot gain a new item by any means.",
+	},
 	leafblade: {
 		inherit: true,
 		basePower: 70,
@@ -564,6 +618,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	naturepower: {
 		inherit: true,
+		desc: "This move calls another move for use depending on the battle terrain. Swift in Wi-Fi battles.",
+		shortDesc: "Attack changes based on terrain. (Swift)",
 		accuracy: 95,
 		onHit(target) {
 			this.actions.useMove('swift', target);
@@ -580,6 +636,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: true,
 	},
+	nightslash: {
+		inherit: true,
+		basePower: 65,
+		gen: 3,
+	},
 	odorsleuth: {
 		inherit: true,
 		accuracy: 100,
@@ -595,6 +656,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	petaldance: {
 		inherit: true,
 		basePower: 70,
+	},
+	rapidspin: {
+		inherit: true,
+		shortDesc: "Frees user from hazards, binding, Leech Seed.",
+		desc: "If this move is successful, the effects of Leech Seed and binding moves end against the user, and all hazards are removed from the user's side of the field.",
 	},
 	recover: {
 		inherit: true,
@@ -642,9 +708,32 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 20,
 	},
+	rocktomb: {
+		inherit: true,
+		basePower: 60,
+		pp: 15,
+		accuracy: 95,
+	},
 	sacredfire: {
 		inherit: true,
 		accuracy: 100,
+	},
+	sandstorm: {
+		inherit: true,
+		desc: "For 5 turns, the weather becomes Sandstorm. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are a Ground, Rock, or Steel type, or have the Sand Veil Ability. Fails if the current weather is Sandstorm.",
+		shortDesc: "For 5 turns, a sandstorm rages.",
+	},
+	sandtomb: {
+		inherit: true,
+		accuracy: 85,
+		basePower: 35,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
+	selfdestruct: {
+		inherit: true,
+		shortDesc: "Target's Def halved during damage. User faints.",
+		desc: "The user faints after using this move. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 	},
 	sketch: {
 		inherit: true,
@@ -684,6 +773,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return false;
 		},
 	},
+	steameruption: {
+		inherit: true,
+		desc: "Has a 20% chance to burn the target. The target thaws out if it is frozen.",
+		shortDesc: "20% chance to burn the target. Thaws target.",
+		gen: 3,
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+	},
 	stockpile: {
 		inherit: true,
 		pp: 10,
@@ -706,6 +805,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	struggle: {
 		inherit: true,
+		desc: "Deals typeless damage to a random opposing Pokemon. If this move was successful, the user takes damage equal to 1/4 the HP lost by the target, rounded down, but not less than 1 HP, and the Rock Head Ability does not prevent this. This move is automatically used if none of the user's known moves can be selected.",
+		shortDesc: "User loses 1/4 the HP lost by the target.",
 		flags: {contact: 1, protect: 1, noassist: 1, failencore: 1, failmimic: 1, nosketch: 1},
 		accuracy: 100,
 		recoil: [1, 4],
@@ -713,10 +814,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	surf: {
 		inherit: true,
+		desc: "Power doubles if the target is using Dive.",
+		shortDesc: "Hits foes. Power doubles against Dive.",
 		target: "allAdjacentFoes",
 	},
 	taunt: {
 		inherit: true,
+		desc: "For 2 turns, prevents the target from using non-damaging moves.",
+		shortDesc: "For 2 turns, the target can't use status moves.",
 		flags: {protect: 1, bypasssub: 1, metronome: 1},
 		condition: {
 			duration: 2,
@@ -774,6 +879,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	toxic: {
 		inherit: true,
+		desc: "Badly poisons the target.",
+		shortDesc: "Badly poisons the target.",
 		accuracy: 90,
 	},
 	uproar: {
@@ -823,6 +930,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	waterfall: {
 		inherit: true,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 		secondary: null,
 	},
 	weatherball: {
@@ -848,9 +957,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (this.field.effectiveWeather()) move.basePower *= 2;
 		},
 	},
+	whirlpool: {
+		inherit: true,
+		accuracy: 85,
+		basePower: 35,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
 	willowisp: {
 		inherit: true,
 		accuracy: 90,
+	},
+	wrap: {
+		inherit: true,
+		accuracy: 90,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 	zapcannon: {
 		inherit: true,
