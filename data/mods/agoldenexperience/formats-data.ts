@@ -4556,7 +4556,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	houndstone: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	flittle: {
