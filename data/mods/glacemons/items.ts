@@ -1130,6 +1130,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 	},
 	// Slate 6
+	//ts pmo icl
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
 		spritenum: 578,
@@ -1139,15 +1140,16 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onAfterMega(pokemon) {
 			pokemon.setAbility(pokemon.set.ability);
+			pokemon.baseAbility = pokemon.ability;
 			pokemon.removeVolatile('gastroacid');
 		},
-		onPreStart(pokemon) {
-			pokemon.addVolatile('gastroacid');
-		},
-		onStart(pokemon) {
-			pokemon.setAbility(pokemon.set.ability);
-			pokemon.removeVolatile('gastroacid');
-		},
+		//onPreStart(pokemon) {
+		//	pokemon.addVolatile('gastroacid');
+		//},
+		//onStart(pokemon) {
+		//	pokemon.setAbility(pokemon.set.ability);
+		//	pokemon.removeVolatile('gastroacid');
+		//},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,
 		gen: 9,
