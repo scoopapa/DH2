@@ -1436,6 +1436,27 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Public Domain",
+		desc: `<b>[Gen 9] Public Domain</b>:, a fakemon meta where .`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/public-domain-slate-4-title-screen.3768377/">Pet Mod - Public Domain</a>`,
+		],
+		mod: 'publicdomain',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['PD'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Public Domain.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Random Tandem",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
