@@ -108,6 +108,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Grass", "Rock"],
 		baseStats: {hp: 123, atk: 100, def: 81, spa: 62, spd: 97, spe: 68},
+		abilities: {0: "Grass Pelt (AGE)", H: "Sap Sipper"},
 	},
 	drampiclus: {
  // fusion: ['Drampa', 'Reuniclus'],
