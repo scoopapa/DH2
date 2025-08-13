@@ -3,23 +3,20 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		name: 'slp',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Move') {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
 				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
 			} else {
 				this.add('-status', target, 'slp');
 			}
-			// 1-4 turns
-			this.effectState.time = this.random(2, 6);
-			// Turns spent using Sleep Talk/Snore immediately before switching out while asleep
-			this.effectState.skippedTime = 0;
+			// 1-3 turns
+			this.effectState.startTime = this.random(2, 5);
+			this.effectState.time = this.effectState.startTime;
 
 			if (target.removeVolatile('nightmare')) {
 				this.add('-end', target, 'Nightmare', '[silent]');
 			}
-		},
-		onSwitchIn(target) {
-			this.effectState.time += this.effectState.skippedTime;
-			this.effectState.skippedTime = 0;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -33,10 +30,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			this.add('cant', pokemon, 'slp');
 			if (move.sleepUsable) {
-				this.effectState.skippedTime++;
 				return;
 			}
-			this.effectState.skippedTime = 0;
 			return false;
 		},
 	},
@@ -67,6 +62,72 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				return this.chainModify(0.25);
 			}
 			return spe;
+		},
+	},
+	confusion: {
+		name: 'confusion',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect?.id === 'lockedmove') {
+				this.add('-start', target, 'confusion', '[fatigue]');
+			} else if (sourceEffect?.effectType === 'Ability') {
+				this.add('-start', target, 'confusion', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-start', target, 'confusion');
+			}
+			const min = sourceEffect?.id === 'axekick' ? 3 : 2;
+			this.effectState.time = this.random(min, 6);
+		},
+		onEnd(target) {
+			this.add('-end', target, 'confusion');
+		},
+		onBeforeMovePriority: 3,
+		onBeforeMove(pokemon) {
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
+				pokemon.removeVolatile('confusion');
+				return;
+			}
+			this.add('-activate', pokemon, 'confusion');
+			if (!this.randomChance(33, 100)) {
+				return;
+			}
+			this.activeTarget = pokemon;
+			const damage = this.actions.getConfusionDamage(pokemon, 40);
+			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+			const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+			return false;
+		},
+	},
+	partiallytrapped: {
+		name: 'partiallytrapped',
+		duration: 5,
+		durationCallback(target, source) {
+			if (source?.hasItem('gripclaw')) return 8;
+			return this.random(5, 7);
+		},
+		onStart(pokemon, source) {
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+		},
+		onResidualOrder: 13,
+		onResidual(pokemon) {
+			const source = this.effectState.source;
+			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+				delete pokemon.volatiles['partiallytrapped'];
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
+				return;
+			}
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
+		},
+		onTrapPokemon(pokemon) {
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
 	sandstorm: {

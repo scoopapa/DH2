@@ -1175,4 +1175,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	deoxysspeed: {
 		tier: "Uber",
 	},
+	honchkrow: {
+		tier: "NEW",
+	},
+	abomasnow: {
+		tier: "NEW",
+	},
+	chesnaught: {
+		tier: "NEW",
+	},
+	volcanion: {
+		tier: "NEW",
+	},
+	dragapult: {
+		tier: "NEW",
+	},
+	meowscarada: {
+		tier: "NEW",
+	},
 };
