@@ -85,6 +85,109 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 8,
 		desc: "If held by a Delibird, this item allows it to Mega Evolve in battle.",
 	},
+	wishingstone: { 
+		name: "Wishing Stone",
+		spritenum: 22,
+		onTakeItem: false,
+		zMove: true,
+		onSwitchIn(pokemon) {
+			if (pokemon.side.sideConditions['dynamaxused']) {
+				pokemon.side.dynamaxUsed = true;
+			} else {
+				pokemon.side.dynamaxUsed = false;				
+			}
+			if (pokemon.gigantamax && pokemon.side.sideConditions['gmaxused']) {
+				pokemon.addVolatile('dynamax');
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.dynamaxUsed = true;
+		},
+		onFaint(pokemon) {
+			pokemon.side.dynamaxUsed = true;
+		},
+		num: -1000,
+		gen: 9,
+		desc: "Allows this the holder to Dynamax.",
+		rating: 3,
+		itemUser: [
+			"Venusaur-Gmax", "Charizard-Gmax", "Blastoise-Gmax", "Butterfree-Gmax", "Pikachu-Gmax", "Meowth-Gmax", "Machamp-Gmax", "Gengar-Gmax", "Kingler-Gmax", "Lapras-Gmax", 
+			"Eevee-Gmax", "Snorlax-Gmax", "Garbodor-Gmax", "Melmetal-Gmax", "Rillaboom-Gmax", "Cinderace-Gmax", "Inteleon-Gmax", "Corviknight-Gmax", "Orbeetle-Gmax", "Drednaw-Gmax", 
+			"Coalossal-Gmax", "Flapple-Gmax", "Appletun-Gmax", "Sandaconda-Gmax", "Centiskorch-Gmax", "Toxtricity-Gmax", "Toxtricity-Low-Key-Gmax", "Hatterene-Gmax", "Grimmsnarl-Gmax", 
+			"Alcremie-Gmax", "Copperajah-Gmax", "Duraludon-Gmax", "Urshifu-Gmax", "Urshifu-Rapid-Strike-Gmax"
+		],
+	},
+	aguavberry: {
+		inherit: true,
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		shortDesc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+	},
+	figyberry: {
+		inherit: true,
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		shortDesc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
+	},
+	iapapaberry: {
+		inherit: true,
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		shortDesc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
+	},
+	magoberry: {
+		inherit: true,
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		shortDesc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
+	},
+	wikiberry: {
+		inherit: true,
+		isNonstandard: null,
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		shortDesc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
+	},
+	covertcloak: {
+		inherit: true,
+		shortDesc: "Holder nullifies all secondary effects of another Pokemon's attack.",
+		onTakeItem: false,
+		onModifySecondaries(secondaries) {
+			return secondaries.filter(effect => !!effect.cloak);
+		},
+		rating: 3,
+	},
+	adamantorb: {
+		name: "Adamant Orb",
+		spritenum: 4,
+		fling: {
+			basePower: 60,
+		},
+		itemUser: ["Dialga"],
+		num: 135,
+		gen: 4,
+		shortDesc: "When this Pokemon sets Trick Room, it lasts for 8 turns instead of 5.",
+	},
 	boosterenergy: {
 		name: "Booster Energy",
 		onUpdate(pokemon) {
