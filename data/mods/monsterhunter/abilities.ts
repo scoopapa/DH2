@@ -1340,6 +1340,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 					});
 				}
+			 if (!move.multihit || (move.multihit && move.hit === 1)) {
+				} else {
+					move.secondaries = this.dex.moves.get(move.id).secondaries;
+				}
 			}
 		},
 		name: "Poisonous Radula",
