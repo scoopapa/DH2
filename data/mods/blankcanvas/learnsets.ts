@@ -1,6 +1,9 @@
 export const Learnsets: {[k: string]: LearnsetData} = {
 	piss: {
 		learnset: {
+			collisioncourse: ["9L1"],
+			spiritbreak: ["9L1"],
+			explosion: ["9L1"],
 			doubleedge: ["9L1"],
 			thunderwave: ["9L1"],
 			extremespeed: ["9L1"],
@@ -94,6 +97,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	snabterra: {
 		learnset: {
+			knockoff: ["9L1"],
+			flareblitz: ["9L1"],
 			diamondstorm: ["9L1"],
 			precipiceblades: ["9L1"],
 			firstimpression: ["9L1"],
@@ -155,6 +160,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	arsenstorm: {
 		learnset: {
+			defog: ["9L1"],
 			earthpower: ["9L1"],
 			mortalspin: ["9L1"],
 			shoreup: ["9L1"],
@@ -185,7 +191,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	badjur: {
 		learnset: {
-			acupressure: ["9L1"],
+			//acupressure: ["9L1"],
 			bestow: ["9L1"],
 			block: ["9L1"],
 			covet: ["9L1"],
@@ -204,7 +210,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			psychup: ["9L1"],
 			retaliate: ["9L1"],
 			scratch: ["9L1"],
-			spikes: ["9L1"],
+			//spikes: ["9L1"],
 			spotlight: ["9L1"],
 			stunspore: ["9L1"],
 			bodyslam: ["9L1"],
@@ -382,6 +388,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	wizhazard: {
 		learnset: {
+			trickroom: ["9L1"],
 			psychicfangs: ["9L1"],
 			irondefense: ["9L1"],
 			psychic: ["9L1"],
@@ -418,6 +425,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	jackoswarm: {
 		learnset: {
+			defog: ["9L1"],
 			flashcannon: ["9L1"],
 			airslash: ["9L1"],
 			ironhead: ["9L1"],
@@ -561,6 +569,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	hippaint: {
 		learnset: {
+			calmmind: ["9L1"],
 			liquidation: ["9L1"],
 			surf: ["9L1"],
 			highhorsepower: ["9L1"],
@@ -595,6 +604,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	pinaturbo: {
 		learnset: {
+			dazzlinggleam: ["9L1"],
 			temperflare: ["9L1"],
 			flamethrower: ["9L1"],
 			earthpower: ["9L1"],
@@ -657,10 +667,13 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			gust: ["9L1"],
 			skyattack: ["9L1"],
 			fly: ["9L1"],
+			roost: ["9L1"],
 		},
 	},
 	mohawtter: {
 		learnset: {
+			defog: ["9L1"],
+			leechseed: ["9L1"],
 			burningbulwark: ["9L1"],
 			wish: ["9L1"],
 			liquidation: ["9L1"],
@@ -815,6 +828,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			branchpoke: ["9L1"],
 			tropkick: ["9L1"],
 			vinewhip: ["9L1"],
+			leechseed: ["9L1"],
+			knockoff: ["9L1"],
 		},
 	},
 	primordialith: {
@@ -848,6 +863,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	faeruin: {
 		learnset: {
+			defog: ["9L1"],
 			shadowclaw: ["9L1"],
 			shadowball: ["9L1"],
 			playrough: ["9L1"],
@@ -914,6 +930,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	capricorrie: {
 		learnset: {
+			auroraveil: ["9L1"],
 			mountaingale: ["9L1"],
 			icespinner: ["9L1"],
 			iceshard: ["9L1"],
@@ -946,7 +963,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			crunch: ["9L1"],
 			darkpulse: ["9L1"],
 			drainpunch: ["9L1"],
-			psychoboost: ["9L1"],
+			//psychoboost: ["9L1"],
 			partingshot: ["9L1"],
 			aurasphere: ["9L1"],
 			taunt: ["9L1"],
@@ -974,10 +991,14 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			pound: ["9L1"],
 			leer: ["9L1"],
+			knockoff: ["9L1"],
+			superpower: ["9L1"],
 		},
 	},
 	llanfairwyrm: {
 		learnset: {
+			flareblitz: ["9L1"],
+			gunkshot: ["9L1"],
 			dragonclaw: ["9L1"],
 			dragonpulse: ["9L1"],
 			glare: ["9L1"],
@@ -1042,6 +1063,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	bulionage: {
 		learnset: {
+			defog: ["9L1"],
 			crunch: ["9L1"],
 			darkpulse: ["9L1"],
 			liquidation: ["9L1"],
@@ -1084,6 +1106,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	yamateraph: {
 		learnset: {
+			flareblitz: ["9L1"],
+			liquidation: ["9L1"],
+			rockslide: ["9L1"],
+			stoneedge: ["9L1"],
 			hypervoice: ["9L1"],
 			bodyslam: ["9L1"],
 			playrough: ["9L1"],
@@ -1117,6 +1143,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	bugswarm: {
 		learnset: {
+			knockoff: ["9L1"],
+			morningsun: ["9L1"],
 			firepunch: ["9L1"],
 			flamethrower: ["9L1"],
 			bitterblade: ["9L1"],
@@ -1146,6 +1174,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	freightmare: {
 		learnset: {
+			destinybond: ["9L1"],
+			psyshock: ["9L1"],
 			shadowclaw: ["9L1"],
 			shadowball: ["9L1"],
 			ironhead: ["9L1"],
@@ -1171,6 +1201,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	brasspecter: {
 		learnset: {
+			poltergeist: ["9L1"],
 			ironhead: ["9L1"],
 			flashcannon: ["9L1"],
 			shadowclaw: ["9L1"],
@@ -1209,7 +1240,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			spikes: ["9L1"],
 			irondefense: ["9L1"],
 			bodypress: ["9L1"],
-			//recover: ["9L1"],
+			recover: ["9L1"],
 			thunderwave: ["9L1"],
 			poisonfang: ["9L1"],
 			crosspoison: ["9L1"],
@@ -1233,6 +1264,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	thaumaton: {
 		learnset: {
+			workup: ["9L1"],
 			poisonjab: ["9L1"],
 			sludgebomb: ["9L1"],
 			ironhead: ["9L1"],
@@ -1273,6 +1305,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	sculptera: {
 		learnset: {
+			bulletseed: ["9L1"],
 			rockslide: ["9L1"],
 			powergem: ["9L1"],
 			dragonclaw: ["9L1"],
@@ -1307,6 +1340,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	lavalisk: {
 		learnset: {
+			trailblaze: ["9L1"],
+			stoneedge: ["9L1"],
 			poisonjab: ["9L1"],
 			sludgebomb: ["9L1"],
 			temperflare: ["9L1"],
@@ -1346,6 +1381,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	martorse: {
 		learnset: {
+			wish: ["9L1"],
 			highhorsepower: ["9L1"],
 			earthpower: ["9L1"],
 			temperflare: ["9L1"],
@@ -1525,6 +1561,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	socknbuskn: {
 		learnset: {
+			closecombat: ["9L1"],
 			uturn: ["9L1"],
 			sacredsword: ["9L1"],
 			rapidspin: ["9L1"],
@@ -1559,6 +1596,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	sleetshell: {
 		learnset: {
+			tripleaxel: ["9L1"],
+			playrough: ["9L1"],
 			icespinner: ["9L1"],
 			icebeam: ["9L1"],
 			ironhead: ["9L1"],
