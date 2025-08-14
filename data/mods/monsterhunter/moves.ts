@@ -779,7 +779,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 25,
 		priority: 1,
 		flags: {metronome: 1},
-		shortDesc: "Normal moves become Electric type this turn.",
+		shortDesc: "Fire moves become Ice type this turn.",
 		pseudoWeather: 'convection',
 		condition: {
 			duration: 1,
@@ -1981,6 +1981,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(pokemon) {
 			pokemon.cureStatus();
 		},
+		shortDesc: "Cures status",
+
 	},
 	facade: {
 		inherit: true,
