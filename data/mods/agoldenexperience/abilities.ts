@@ -1233,6 +1233,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
+				boosts['spd'] = 0;
 				boosts['accuracy'] = 0;
 			}
 		},
