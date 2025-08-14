@@ -61,6 +61,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			const problem = this.checkCanLearn(move, species, lsetData, set);
 			if (!problem) return null;
 			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
+			if (affectedPokemon.includes(species.name)) return problem; // added line
 			const sketchMove = (set as any).sketchMove;
 			if (sketchMove && sketchMove !== move.name) {
 				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
@@ -88,29 +89,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		name: 'Sketch Post-Gen 7 Moves',
 		desc: "Allows Pokémon who learn Sketch to learn any Gen 8+ move (normally, Sketch is not usable in Gen 8+).",
 		// Implemented in sim/team-validator.ts
-	},
-	bonustypemod: {
-		name: "Bonus Type Mod",
-		effectType: "Rule",
-		desc: `Pok&eacute;mon have their Tera Type added onto their current ones.`,
-		onBegin() {
-			this.add('rule', 'Bonus Type Mod: Pok\u00e9mon have their Tera Type added onto their current ones.');
-		},
-		onModifySpeciesPriority: 1,
-		onModifySpecies(species, target, source, effect) {
-			if (!target) return; // Chat command
-			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
-			const typesSet = new Set(species.types);
-			const bonusType = this.dex.types.get(target.teraType);
-			if (bonusType.exists) typesSet.add(bonusType.name);
-			return {...species, types: [...typesSet]};
-		},
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-		},
-		onAfterMega(pokemon) {
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-		},
 	},
 	revelationmonsmod: {
 		effectType: "Rule",
@@ -142,43 +120,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				if (!this.dex.types.isName(type)) continue;
 				if (pokemon.moveSlots[i] && move.id === pokemon.moveSlots[i].id) move.type = type;
 			}
-		},
-	},
-	reevolutionmod: {
-		effectType: "Rule",
-		name: "Re-Evolution Mod",
-		desc: "Pok&eacute;mon gain the stat changes they would gain from evolving again.",
-		onBegin() {
-			this.add('rule', 'Re-Evolution Mod: Pok\u00e9mon gain the boosts they would gain from evolving again');
-		},
-		onModifySpecies(species, target) {
-			const newSpecies = this.dex.deepClone(species);
-			const baseSpecies = this.dex.species.get(
-				(Array.isArray(species.battleOnly) ? species.battleOnly[0] : species.battleOnly) || species.changesFrom || species.name
-			);
-			if (!newSpecies.prevo) {
-				if (!baseSpecies.prevo) return;
-				const prevoSpecies = this.dex.species.get(baseSpecies.prevo);
-				let statid: StatID;
-				newSpecies.bst = 0;
-				for (statid in prevoSpecies.baseStats) {
-					const change = baseSpecies.baseStats[statid] - prevoSpecies.baseStats[statid];
-					const formeChange = newSpecies.baseStats[statid] - baseSpecies.baseStats[statid];
-					newSpecies.baseStats[statid] = this.clampIntRange(baseSpecies.baseStats[statid] + change, 1, 255);
-					newSpecies.baseStats[statid] = this.clampIntRange(newSpecies.baseStats[statid] + formeChange, 1, 255);
-					newSpecies.bst += newSpecies.baseStats[statid];
-				}
-				return newSpecies;
-			}
-			const prevoSpecies = this.dex.species.get(newSpecies.prevo);
-			let statid: StatID;
-			newSpecies.bst = 0;
-			for (statid in prevoSpecies.baseStats) {
-				const change = newSpecies.baseStats[statid] - prevoSpecies.baseStats[statid];
-				newSpecies.baseStats[statid] = this.clampIntRange(newSpecies.baseStats[statid] + change, 1, 255);
-				newSpecies.bst += newSpecies.baseStats[statid];
-			}
-			return newSpecies;
 		},
 	},
 	convergencelegality: {

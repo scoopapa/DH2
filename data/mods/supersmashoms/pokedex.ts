@@ -71,13 +71,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 95, def: 130, spa: 120, spd: 100, spe: 50},
 	},
 /*
-:porygon2: Porygon2 - STABmons by HydreigonTheChild
-
 :ogerpon: Ogerpon - Convergence by G-Luke
 :cutiefly: Cutiefly - Cross Evolution by PQRDG
 :revavroom::pinsirite: Revavroom (+Pinsirite) - Mix and Mega by PQRDG
 
 :sceptile-mega: Sceptile-Mega - Formemons by G-Luke
+*/
+	sceptilemega: {
+		inherit: true,
+		requiredItem: null,
+	},
+/*
 :munkidori: Munkidori - Inheritance by PalpitoadChamp
 :enamorus-therian: Enamorus-Therian - Nature Swap by PQRDG
 :yanma: Yanma - Cross Evolution by Bobsican

@@ -1636,7 +1636,7 @@ export const Formats: FormatList = [
 		},
 		mod: 'smashmodsbrawl',
 	},
-	/* still work in progress
+	/* still work in progress*/
 	{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
@@ -1659,7 +1659,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'supersmashoms',
-	},*/
+	},
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [
