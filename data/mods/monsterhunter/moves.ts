@@ -2270,4 +2270,54 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	/*
+	Pulp-Up
+	*/
+	stockpile: {
+		inherit: true,
+		volatileStatus: 'stockpile',
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				let layers = 1;
+				if (target.hasAbility('pulpup')) {
+					if (target.hp / target.maxhp <= 0.667) {
+						layers = 2;
+					}
+					if (target.hp / target.maxhp <= 0.334) {
+						layers = 3;
+					}
+				}
+				this.effectState.layers = layers;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: layers, spd: layers}, target, target);
+				for (let i = 0; i < layers; i++) {
+					if (curDef !== target.boosts.def) this.effectState.def--;
+					if (curSpD !== target.boosts.spd) this.effectState.spd--;
+				}
+			},
+			onRestart(target) {
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const curDef = target.boosts.def;
+				const curSpD = target.boosts.spd;
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onEnd(target) {
+				if (this.effectState.def || this.effectState.spd) {
+					const boosts: SparseBoostsTable = {};
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					this.boost(boosts, target, target);
+				}
+				this.add('-end', target, 'Stockpile');
+			},
+		},
+	},
 }

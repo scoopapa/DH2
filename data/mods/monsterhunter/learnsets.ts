@@ -1295,6 +1295,17 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	pukeipukei: {
 		learnset: {
+			acrobatics: ["9L1"],
+			aerialace: ["9L1"],
+			aircutter: ["9L1"],
+			airslash: ["9L1"],
+			defog: ["9L1"],
+			hurricane: ["9L1"],
+			peck: ["9L1"],
+			pluck: ["9L1"],
+			roost: ["9L1"],
+			tailwind: ["9L1"],
+			mossbomb: ["9L1"],
 			absorb: ["9L1"],
 			afteryou: ["9T"],
 			astonish: ["9L1"],
@@ -1344,6 +1355,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			solarbeam: ["9M"],
 			strengthsap: ["9L1"],
 			stunspore: ["9L1"],
+			spitup: ["9M"],
+			stockpile: ["9M"],
+			swallow: ["9M"],
 			substitute: ["9M"],
 			swagger: ["9M"],
 			sweetscent: ["9L24"],
@@ -7311,7 +7325,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	kechawacha: {
 		learnset: {
-			agility: ["9L1"],
+			waterpulse: ["9L1"],
+			aurasphere: ["9L1"],
+			healpulse: ["9L1"],
+			darkpulse: ["9L1"],
 			chipaway: ["9L1"],
 			aquatail: ["9L1"],
 			attract: ["9L1"],
@@ -9285,6 +9302,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	uragaan: {
 		learnset: {
 			agility: ["9L1"],
+			blazingtorque: ["9L1"],
+			combattorque: ["9L1"],
+			magicaltorque: ["9L1"],
+			noxioustorque: ["9L1"],
+			wickedtorque: ["9L1"],
 			attract: ["9L1"],
 			steamroller: ["9L1"],
 			bodyslam: ["9L1"],
@@ -10762,7 +10784,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	nuudra: {
 		learnset: {
-			acid: ["9L1"],
+			scorchingsands: ["9L1"],
+			trickroom: ["9L1"],
+			sludgewave: ["9L1"],
+			taunt: ["9L1"],
 			acidarmor: ["9L1"],
 			acidspray: ["9L1"],
 			beatup: ["9L1"],

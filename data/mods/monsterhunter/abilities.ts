@@ -1364,6 +1364,68 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dragon moves; Dragon immunity.",
 		rating: 3.5,
 	},
+	fullproof: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound']) {
+				this.add('-immune', target, '[from] ability: Soundproof');
+				return null;
+			}
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Bulletproof');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', this.effectState.target, '[from] ability: Soundproof');
+			}
+		},
+		flags: {breakable: 1},
+		name: "Fullproof",
+		shortDesc: "Soundproof + Bulletproof",
+		rating: 3.5,
+	},
+	relentless: {
+		onStart(pokemon) {
+			this.effectState.lastMove = '';
+			this.effectState.numConsecutive = 0;
+		},
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				this.effectState.numConsecutive++;
+			} else if (pokemon.volatiles['twoturnmove']) {
+				if (this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
+				} else {
+					this.effectState.numConsecutive++;
+				}
+			} else {
+				this.effectState.numConsecutive = 0;
+			}
+			this.effectState.lastMove = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+			const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			this.debug(`Current Relentless boost: ${dmgMod[numConsecutive]}/4096`);
+			return this.chainModify([dmgMod[numConsecutive], 4096]);
+		},
+		name: "Relentless",
+		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
+        flags: {},
+		num: 1025,
+		rating: 2,
+	},
+	pulpup: {
+		onStart(pokemon) {
+			pokemon.addVolatile('stockpile');
+		},
+		name: "Pulp Up",
+		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		rating: 3,
+		num: -15,
+	},
 	/*
 	Edits
 	*/
