@@ -1340,6 +1340,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 					});
 				}
+			 if (!move.multihit || (move.multihit && move.hit === 1)) {
+				} else {
+					move.secondaries = this.dex.moves.get(move.id).secondaries;
+				}
 			}
 		},
 		name: "Poisonous Radula",
@@ -1358,6 +1362,118 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Dragon Eater",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dragon moves; Dragon immunity.",
+		rating: 3.5,
+	},
+	foolproof: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound']) {
+				this.add('-immune', target, '[from] ability: Foolproof');
+				return null;
+			}
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Foolproof');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', this.effectState.target, '[from] ability: Foolproof');
+			}
+		},
+		flags: {breakable: 1},
+		name: "Foolproof",
+		shortDesc: "Soundproof + Bulletproof",
+		rating: 3.5,
+	},
+	relentless: {
+		onStart(pokemon) {
+			this.effectState.lastMove = '';
+			this.effectState.numConsecutive = 0;
+		},
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				this.effectState.numConsecutive++;
+			} else if (pokemon.volatiles['twoturnmove']) {
+				if (this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
+				} else {
+					this.effectState.numConsecutive++;
+				}
+			} else {
+				this.effectState.numConsecutive = 0;
+			}
+			this.effectState.lastMove = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+			const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			this.debug(`Current Relentless boost: ${dmgMod[numConsecutive]}/4096`);
+			return this.chainModify([dmgMod[numConsecutive], 4096]);
+		},
+		name: "Relentless",
+		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
+        flags: {},
+		num: 1025,
+		rating: 2,
+	},
+	pulpup: {
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Status') {
+				pokemon.addVolatile('stockpile');
+				this.add('-ability', pokemon, 'Pulp-Up');
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source) {
+				target.addVolatile('stockpile');
+				this.add('-ability', target, 'Pulp-Up');
+			}
+		},
+		flags: {},
+		name: "Pulp Up",
+		shortDesc: "When this Pokemon uses or is targeted by a status move, Stockpiles 1.",
+		rating: 3,
+		num: -1,
+	},
+	mucusveil: {
+		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by an attack.",
+		onDamagingHitOrder: 3,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.noreact && target.hp && source.hp) {
+				const reaction = this.dex.getActiveMove('soak');
+				reaction.noreact = true;
+				this.actions.useMove(reaction, target, source);
+			}
+		},
+		flags: {},
+		name: "Mucus Veil",
+		rating: 3.5,
+		num: -4,
+	},
+	thunderstorm: {
+		onModifyMovePriority: 1,
+		onAfterMove(pokemon, attacker, move) {
+			if (move.type === 'Flying') {
+				this.add('-ability', pokemon, 'Thunderstorm');
+				pokemon.addVolatile('charge');
+			}
+		},
+		flags: {},
+		shortDesc: "Grants the charge effect after using a flying-type move.",
+		name: "Thunderstorm",
+		rating: 4,
+	},
+	spongy: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.category === 'Special') mod /= 2;
+			return this.chainModify(mod);
+		},
+		flags: {breakable: 1},
+		shortDesc: "This Pokemon takes 1/2 damage from special moves, 2x damage from Fire moves.",
+		name: "Spongy",
 		rating: 3.5,
 	},
 	/*

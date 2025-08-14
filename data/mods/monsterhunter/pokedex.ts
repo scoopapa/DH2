@@ -669,7 +669,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Great Jagras",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 123, atk: 90, def: 107, spa: 65, spd: 90, spe: 50},
-		abilities: {0: "Innards Out", H: "Tangling Hair"},
+		abilities: {0: "Innards Out", 1: "Pulp Up", H: "Tangling Hair"},
 		weightkg: 60.0,
 	},
 	greatmaccao: {
@@ -769,8 +769,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 72,
 		name: "Kecha Wacha",
 		types: ["Normal", "Water"],
-		baseStats: {hp: 68, atk: 77, def: 77, spa: 112, spd: 102, spe: 100},
-		abilities: {0: "Mold Breaker", H: "Limber"},
+		baseStats: {hp: 77, atk: 68, def: 73, spa: 112, spd: 101, spe: 105},
+		abilities: {0: "Mold Breaker", 1: "Mega Launcher", H: "Foolproof"},
 		weightkg: 20.0,
 	},
 	khezu: {
@@ -1056,7 +1056,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Namielle",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 90, atk: 85, def: 73, spa: 140, spd: 135, spe: 80},
-		abilities: {0: "Water Absorb", H: "Electromorphosis"},
+		abilities: {0: "Water Absorb", H: "Mucus Veil"},
 		weightkg: 165.0,
 	},
 	nargacuga: {
@@ -1101,7 +1101,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 105, atk: 105, def: 92, spa: 150, spd: 108, spe: 90},
 		gender: "F",
-		abilities: {0: "Electromorphosis"},
+		abilities: {0: "Thunderstorm"},
 		weightkg: 154.3,
 		requiredItem: "Narwanite",
 	},
@@ -1219,8 +1219,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 109,
 		name: "Pukei-Pukei",
 		types: ["Poison"],
-		baseStats: {hp: 68, atk: 74, def: 70, spa: 112, spd: 103, spe: 109},
-		abilities: {0: "Liquid Ooze", H: "Merciless"},
+		baseStats: {hp: 72, atk: 74, def: 70, spa: 112, spd: 103, spe: 109},
+		abilities: {0: "Liquid Ooze", H: "Pulp Up"},
 		weightkg: 22.0,
 	},
 	qurupeco: {
@@ -1302,7 +1302,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Flying", "Poison"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 80, spa: 120, spd: 80, spe: 120},
-		abilities: {0: "Strafe", H: "Gale Wings"},
+		abilities: {0: "Strafe", 1: "Corrosive Claws", H: "Gale Wings"},
 		weightkg: 110.5,
 	},
  	dreadkingrathalos: {
@@ -1313,7 +1313,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Fire", "Flying"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 135, def: 95, spa: 145, spd: 70, spe: 130},
-		abilities: {0: "Corrosive Claws"},
+		abilities: {0: "Turboblaze"},
 		weightkg: 110.5,
 		requiredItem: "Rathalosite",
 	},
@@ -1371,7 +1371,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Water"],
 		gender: "M",
 		baseStats: {hp: 113, atk: 107, def: 70, spa: 69, spd: 85, spe: 90},
-		abilities: {0: "Swift Swim", H: "Water Absorb"},
+		abilities: {0: "Swift Swim", 1: "Spongy", H: "Water Absorb"},
 		weightkg: 60.9,
 	},
 	purpleludroth: {
@@ -1605,7 +1605,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Uragaan",
 		types: ["Ground"],
 		baseStats: {hp: 97, atk: 113, def: 105, spa: 46, spd: 90, spe: 108},
-		abilities: {0: "No Guard", H: "Klutz"},
+		abilities: {0: "No Guard", 1: "Relentless", H: "Sturdy"},
 		weightkg: 80.0,
 	},
 	vaalhazak: {
@@ -1695,8 +1695,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 34,
 		name: "Yian Garuga",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 71, atk: 115, def: 81, spa: 101, spd: 96, spe: 86},
-		abilities: {0: "Anger Point", H: "Merciless"},
+		baseStats: {hp: 74, atk: 120, def: 86, spa: 80, spd: 96, spe: 114},
+		abilities: {0: "Anger Point", 1: "Moxie", H: "Merciless"},
 		weightkg: 45.0,
 	},
 	yiankutku: {
@@ -1806,7 +1806,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Nu Udra",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 120, atk: 80, def: 94, spa: 115, spd: 112, spe: 59},
-		abilities: {0: "Oilmucus", H: "Solar Power"},
+		abilities: {0: "Oilmucus", 1: "Regenerator", H: "Solar Power"},
 		weightkg: 105.0,
 	},
 	uthduna: {
@@ -1828,7 +1828,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	chatacabra: {
 		num: 516,
 		name: "Chatacabra",
-		types: ["Rock"],
+		types: ["Rock", "Fighting"],
 		baseStats: {hp: 109, atk: 101, def: 101, spa: 58, spd: 87, spe: 69},
 		abilities: {0: "Iron Fist", H: "Rough Skin"},
 		weightkg: 95.0,
