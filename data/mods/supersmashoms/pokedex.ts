@@ -97,12 +97,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 :latias: Latias - Bonus Type by G-Luke
 :zarude: Zarude - Convergence by PQRDG
 :azumarill: Azumarill - Tier Shift by PQRDG
-:venusaur-mega: Venusaur-Mega - Formemons by HydreigonTheChild
-
-:Altaria-Mega: Altaria-Mega - Formemons by anaconja
+*/
+	venusaurmega: {
+		inherit: true,
+		requiredItem: null,
+	},
+	altariamega: {
+		inherit: true,
+		requiredItem: null,
+	},
+/*
 :Ninetales: Ninetales - Frantic Fusions by G-Luke
 :Crabominable: Crabominable - Frantic Fusions by HydreigonTheChild
-:Swampert-Mega: Swampert-Mega - Formemons by HydreigonTheChild
 */
 	swampertmega: {
 		inherit: true,
