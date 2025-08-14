@@ -1302,7 +1302,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Flying", "Poison"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 80, spa: 120, spd: 80, spe: 120},
-		abilities: {0: "Strafe", H: "Gale Wings"},
+		abilities: {0: "Strafe", 1: "Corrosive Claws", H: "Gale Wings"},
 		weightkg: 110.5,
 	},
  	dreadkingrathalos: {
@@ -1313,7 +1313,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Fire", "Flying"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 135, def: 95, spa: 145, spd: 70, spe: 130},
-		abilities: {0: "Corrosive Claws"},
+		abilities: {0: "Turboblaze"},
 		weightkg: 110.5,
 		requiredItem: "Rathalosite",
 	},
