@@ -752,20 +752,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unconcernedUser = this.effectState.target;
-			if (unconcernedUser === this.activePokemon) {
+			const unconcerned = this.effectState.target;
+			if (target === pokemon) return;
+			if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
 				boosts['spd'] = 0;
-				//boosts['spe'] = 0;
-				boosts['accuracy'] = 0;
-				boosts['evasion'] = 0;
-			}
-			if (pokemon === this.activePokemon && unconcernedUser === this.activeTarget) {
-				boosts['atk'] = 0;
-				boosts['def'] = 0;
-				boosts['spa'] = 0;
 				boosts['accuracy'] = 0;
 			}
 		},
@@ -1163,17 +1161,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	savage: {
 		shortDesc: "The Pokémon’s Attack or Special Attack copies from the higher stat (held items does not apply for which is higher). Stat stages and held items apply as normal.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, pokemon) {
-			const currentatk = pokemon.storedStats.atk;
-			const currentspa = pokemon.storedStats.spa;
-			if (currentspa > currentatk) return currentspa;
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			const currentatk = pokemon.storedStats.atk;
-			const currentspa = pokemon.storedStats.spa;
-			if (currentatk > currentspa) return currentatk;
+		onModifyMove(move, attacker) {
+			const currentatk = attacker.storedStats.atk;
+			const currentspa = attacker.storedStats.spa;
+			if (move.category === 'Special' || move.category === 'Physical') {
+				if (currentspa > currentatk) {
+					move.overrideOffensiveStat = 'spa';
+				}
+				else if (currentatk > currentspa) {
+					move.overrideOffensiveStat = 'atk';
+				}
+			}
 		},
 		flags: {},
 		name: "Savage",

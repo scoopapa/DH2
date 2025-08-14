@@ -158,4 +158,123 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: -36,
 	},
+	rebelsblade: {
+		shortDesc: "This Pokemon's slicing moves have x1.5 power and a 30% chance to inflict poisoning.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Rebels Blade boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move) {
+			if (!move || !move.flags['slicing'] || move.target === 'self') return;
+			(move.secondaries ||= []).push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.abilities.get('rebelsblade'),
+			});
+		},
+		flags: {},
+		name: "Rebel's Blade",
+		rating: 3,
+	},
+	regainpatience: {
+		shortDesc: "Berserk + Regenerator",
+		onDamage(damage, target, source, effect) {
+			this.effectState.checkedBerserk = !!(effect.effectType !== "Move" || effect.multihit || effect.negateSecondary
+															|| (effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature','sandwrath'])));
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			return (!healingItems.includes(item.id) || this.effectState.checkedBerserk);
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			const threshold = target.maxhp*.5;
+			if (target.hp <= threshold && target.hp + damage > threshold) {
+				this.boost({spa: 1}, target, target);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+		name: "Regain Patience",
+		rating: 3,
+	},
+	specterate: {
+		name: "Specterate",
+		shortDesc: "This Pokemon's Normal-type moves become Ghost type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ghost';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+	},
+	transience: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.pseudoWeather.trickroom) {
+				this.debug('Transience weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Transience",
+		shortDesc: "Under Trick Room, this Pokemon takes 0.75x damage from attacks.",
+		rating: 3.5,
+		num: -15,
+	},
+	gravitationalpull: {
+		onStart(source) {
+			this.add('-ability', source, 'Gravitational Pull');
+			this.field.addPseudoWeather('gravity', source, source.ability);
+		},
+		name: "Gravitational Pull",
+		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+		rating: 4,
+	},
+	grasspeltage: {
+		onStart(pokemon) {
+			if (
+				!this.field.setTerrain('grassyterrain') &&
+				this.field.isTerrain('grassyterrain') && pokemon.isGrounded()
+			) {
+				this.add('-activate', pokemon, 'ability: Grass Pelt');
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (pokemon === this.field.weatherState.source) return;
+			if (this.field.isTerrain('grassyterrain') && pokemon.isGrounded()) {
+				this.add('-activate', pokemon, 'ability: Grass Pelt');
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, attacker, defender, move) {
+			if (this.field.isTerrain('grassyterrain') && attacker.isGrounded()) {
+				this.debug('Grass Pelt boost');
+				return this.chainModify([5461, 4096]);
+			}
+		},
+		shortDesc: "On switch-in, summons Grassy Terrain. During Grassy Terrain, Def is 1.3333x.",
+		flags: {breakable: 1},
+		name: "Grass Pelt (AGE)",
+		rating: 0.5,
+		num: 179,
+	},
 };

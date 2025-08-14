@@ -155,7 +155,7 @@ export const Formats: FormatList = [
 			'Actaniathan', 'Flarenheit', 'Groundead', 'Deadward', 'Obaki', 'Sylravage', 'Twinkaton', 'Fausteil', 'Geoporka',
 			'Porcupyre', 'Plasmage', 'Seaode', 'Bellolysk', 'Tryonite', 'Scarachnid', 'Serpvoltidae', 'Maldractice', 'Geigeramp',
 			'Bufferfly', 'Dastard', 'Sheepquake', 'Cottentration', 'Sorrowcean', 'Psyllapse', 'Haarstorm', 'Borealis', 'Bazhigangquan',
-			'Leechmonner', 'Iron Crest', 'Odonata', 'Hebicikuga', 'Devestial', 'Lundicare', 'Razor Fang',
+			'Leechmonner', 'Iron Crest', 'Odonata', 'Hebicikuga', 'Devestial', 'Lundicare', 'Razor Fang', 'Light Clay',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -1438,6 +1438,27 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Public Domain",
+		desc: `<b>[Gen 9] Public Domain</b>:, a fakemon meta where .`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/public-domain-slate-4-title-screen.3768377/">Pet Mod - Public Domain</a>`,
+		],
+		mod: 'publicdomain',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['PD'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Public Domain.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Random Tandem",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
@@ -1638,8 +1659,8 @@ export const Formats: FormatList = [
 		},
 		mod: 'smashmodsbrawl',
 	},
-	/* still work in progress
-	{
+	/* still work in progress*/
+	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1647,15 +1668,16 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
-		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
+			'STABmons Move Legality', 'Sketchmons Move Legality',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			@type {{[k: string]: true}}
+			// @type {{[k: string]: true}}
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				let allowedTiers = ['Flipped', 'Tier Shift', 'Convergence', 'Mix and Mega', 'STABmons', 'Inheritance', 'Re-Evolution', 'Pokebilities', 'Sketchmons', 'Cross Evolution', 'Almost Any Ability', '350 Cup', 'Frantic Fusions', 'Bonus Type', 'Revelationmons', 'Nature Swap','Formemons'];
-				if (!allowedTiers.contains(template.tier)) {
+				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Super Smash OMs.'];
 				}
 			}

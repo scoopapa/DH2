@@ -36,4 +36,8 @@ export function learnsetUpdate(dex: ModdedDex) {
 	dex.modData('Learnsets', 'claydol').learnset.ancientpower = ['3M'];
 	dex.modData('Learnsets', 'piloswine').learnset.ancientpower = ['3M'];
 	dex.modData('Learnsets', 'dunsparce').learnset.ancientpower = ['3M'];
+	//Moves Update
+	dex.modData('Learnsets', 'sceptile').learnset.frenzyplant = ['3M'];
+	dex.modData('Learnsets', 'blaziken').learnset.blastburn = ['3M'];
+	dex.modData('Learnsets', 'swampert').learnset.hydrocannon = ['3M'];
 }
