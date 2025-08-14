@@ -1297,6 +1297,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
+			naturalgift: ["9L1"],
 			aircutter: ["9L1"],
 			airslash: ["9L1"],
 			defog: ["9L1"],
