@@ -590,7 +590,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			stoneedge: ["9L1"],
 			strength: ["9L1"],
 			substitute: ["9L1"],
-			substitute: ["9L1"],
 			sunnyday: ["9L1"],
 			supersonic: ["9L1"],
 			swagger: ["9L1"],
@@ -1068,7 +1067,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			muddywater: ["9L1"],
 			playrough: ["9L1"],
 			protect: ["9L1"],
-			ragingstream: ["9L1"],
 			raindance: ["9L1"],
 			reflect: ["9L1"],
 			rest: ["9L1"],
@@ -1185,4 +1183,5 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
+
 };
