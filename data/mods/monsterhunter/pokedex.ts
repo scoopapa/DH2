@@ -1371,7 +1371,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Water"],
 		gender: "M",
 		baseStats: {hp: 113, atk: 107, def: 70, spa: 69, spd: 85, spe: 90},
-		abilities: {0: "Swift Swim", H: "Water Absorb"},
+		abilities: {0: "Swift Swim", 1: "Spongy", H: "Water Absorb"},
 		weightkg: 60.9,
 	},
 	purpleludroth: {

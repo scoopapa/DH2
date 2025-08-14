@@ -1426,8 +1426,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' && target !== source) {
-				this.add('-ability', target, 'Pulp-Up');
 				target.addVolatile('stockpile');
+				this.add('-ability', target, 'Pulp-Up');
 			}
 		},
 		flags: {},
@@ -1463,6 +1463,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Grants the charge effect after using a flying-type move.",
 		name: "Thunderstorm",
 		rating: 4,
+	},
+	spongy: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.category === 'Special') mod /= 2;
+			return this.chainModify(mod);
+		},
+		flags: {breakable: 1},
+		shortDesc: "This Pokemon takes 1/2 damage from special moves, 2x damage from Fire moves.",
+		name: "Spongy",
+		rating: 3.5,
 	},
 	/*
 	Edits
