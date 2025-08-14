@@ -1637,7 +1637,7 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	{
+	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1660,7 +1660,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'supersmashoms',
-	},
+	},*/
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [
