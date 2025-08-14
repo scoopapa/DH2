@@ -56,7 +56,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 /*
 :Magmar: Magmar - Cross Evolution by PQRDG
 :Tyranitar: Tyranitar - Revelationmons by HydreigonTheChild
-:mamoswine: Mamoswine - Inheritance by PQRDG
+*/
+	mamoswine: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Ice Body", H: "Sturdy"},
+	},
+/*
 :greninja: Greninja - Convergence by G-Luke
 */
 	tinglu: {
