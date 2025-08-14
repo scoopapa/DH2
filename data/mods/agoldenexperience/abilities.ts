@@ -1222,20 +1222,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unconcernedUser = this.effectState.target;
-			if (unconcernedUser === this.activePokemon) {
+			const unconcerned = this.effectState.target;
+			if (target === pokemon) return;
+			if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
 				boosts['spd'] = 0;
-				//boosts['spe'] = 0;
-				boosts['accuracy'] = 0;
-				boosts['evasion'] = 0;
-			}
-			if (pokemon === this.activePokemon && unconcernedUser === this.activeTarget) {
-				boosts['atk'] = 0;
-				boosts['def'] = 0;
-				boosts['spa'] = 0;
 				boosts['accuracy'] = 0;
 			}
 		},

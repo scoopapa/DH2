@@ -1657,8 +1657,8 @@ export const Formats: FormatList = [
 		},
 		mod: 'smashmodsbrawl',
 	},
-	/* still work in progress
-	{
+	/* still work in progress*/
+	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1666,15 +1666,16 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
-		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
+			'STABmons Move Legality', 'Sketchmons Move Legality',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			@type {{[k: string]: true}}
+			// @type {{[k: string]: true}}
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				let allowedTiers = ['Flipped', 'Tier Shift', 'Convergence', 'Mix and Mega', 'STABmons', 'Inheritance', 'Re-Evolution', 'Pokebilities', 'Sketchmons', 'Cross Evolution', 'Almost Any Ability', '350 Cup', 'Frantic Fusions', 'Bonus Type', 'Revelationmons', 'Nature Swap','Formemons'];
-				if (!allowedTiers.contains(template.tier)) {
+				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Super Smash OMs.'];
 				}
 			}
