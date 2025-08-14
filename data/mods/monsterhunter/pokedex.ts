@@ -770,7 +770,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Kecha Wacha",
 		types: ["Normal", "Water"],
 		baseStats: {hp: 77, atk: 68, def: 73, spa: 112, spd: 101, spe: 105},
-		abilities: {0: "Mold Breaker", 1: "Mega Launcher", H: "Fullproof"},
+		abilities: {0: "Mold Breaker", 1: "Mega Launcher", H: "Foolproof"},
 		weightkg: 20.0,
 	},
 	khezu: {

@@ -1364,24 +1364,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dragon moves; Dragon immunity.",
 		rating: 3.5,
 	},
-	fullproof: {
+	foolproof: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['sound']) {
-				this.add('-immune', target, '[from] ability: Soundproof');
+				this.add('-immune', target, '[from] ability: Foolproof');
 				return null;
 			}
 			if (move.flags['bullet']) {
-				this.add('-immune', pokemon, '[from] ability: Bulletproof');
+				this.add('-immune', pokemon, '[from] ability: Foolproof');
 				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectState.target, '[from] ability: Soundproof');
+				this.add('-immune', this.effectState.target, '[from] ability: Foolproof');
 			}
 		},
 		flags: {breakable: 1},
-		name: "Fullproof",
+		name: "Foolproof",
 		shortDesc: "Soundproof + Bulletproof",
 		rating: 3.5,
 	},
