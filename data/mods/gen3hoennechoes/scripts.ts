@@ -109,7 +109,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.willCrit === undefined) {
 				if (critRatio) {
 					moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
-					this.battle.add('-message', `(${source.name}'s attack has a 1 in ${critMult[critRatio]} chance to crit)`);
+					//this.battle.add('-message', `(${source.name}'s attack has a 1 in ${critMult[critRatio]} chance to crit)`);
 				}
 			}
 

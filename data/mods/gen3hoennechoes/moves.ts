@@ -818,6 +818,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits foes. Power doubles against Dive.",
 		target: "allAdjacentFoes",
 	},
+	/*testbeam: {
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Test Beam",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Beam", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+            if (target.getTypes()[0] === type || target.terastallized) return 1;
+            else return 0;
+        },
+		target: "normal",
+		type: "Normal",
+		shortDesc: "Always super-effective.",
+		contestType: "Beautiful",
+		gen: 3,
+	},*/
 	taunt: {
 		inherit: true,
 		desc: "For 2 turns, prevents the target from using non-damaging moves.",
