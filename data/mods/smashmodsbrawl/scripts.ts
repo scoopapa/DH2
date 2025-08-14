@@ -79,6 +79,36 @@ export const Scripts: ModdedBattleScriptsData = {
   		}
   		return true;
   	},
+	getDynamaxRequest(skipChecks?: boolean) {
+		// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
+		if (!skipChecks) {
+			if (!this.side.canDynamaxNow()) return;
+			if (
+				this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
+			) {
+				return;
+			}
+			// Some pokemon species are unable to dynamax
+			if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
+		}
+		const result: DynamaxOptions = {maxMoves: []};
+		let atLeastOne = false;
+		for (const moveSlot of this.moveSlots) {
+			const move = this.battle.dex.moves.get(moveSlot.id);
+			const maxMove = this.battle.actions.getMaxMove(move, this);
+			if (maxMove) {
+				if (this.maxMoveDisabled(move)) {
+					result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
+				} else {
+					result.maxMoves.push({move: maxMove.id, target: maxMove.target});
+					atLeastOne = true;
+				}
+			}
+		}
+		if (!atLeastOne) return;
+		if (this.canGigantamax) result.gigantamax = this.canGigantamax;
+		return result;
+	},
   },
 	side: {
 		inherit: true,
@@ -865,38 +895,5 @@ export const Scripts: ModdedBattleScriptsData = {
 			target.addVolatile('healed');
 			return finalDamage;
 		},
-	},
-	pokemon: {
-		inherit: true,
-		getDynamaxRequest(skipChecks?: boolean) {
-			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
-			if (!skipChecks) {
-				if (!this.side.canDynamaxNow()) return;
-				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
-				) {
-					return;
-				}
-				// Some pokemon species are unable to dynamax
-				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
-			}
-			const result: DynamaxOptions = {maxMoves: []};
-			let atLeastOne = false;
-			for (const moveSlot of this.moveSlots) {
-				const move = this.battle.dex.moves.get(moveSlot.id);
-				const maxMove = this.battle.actions.getMaxMove(move, this);
-				if (maxMove) {
-					if (this.maxMoveDisabled(move)) {
-						result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
-					} else {
-						result.maxMoves.push({move: maxMove.id, target: maxMove.target});
-						atLeastOne = true;
-					}
-				}
-			}
-			if (!atLeastOne) return;
-			if (this.canGigantamax) result.gigantamax = this.canGigantamax;
-			return result;
-		},		
 	},
 };
