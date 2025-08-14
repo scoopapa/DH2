@@ -1418,13 +1418,51 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 	},
 	pulpup: {
-		onStart(pokemon) {
-			pokemon.addVolatile('stockpile');
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Status') {
+				pokemon.addVolatile('stockpile');
+				this.add('-ability', pokemon, 'Pulp-Up');
+			}
 		},
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source) {
+				this.add('-ability', target, 'Pulp-Up');
+				target.addVolatile('stockpile');
+			}
+		},
+		flags: {},
 		name: "Pulp Up",
-		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
+		shortDesc: "When this Pokemon uses or is targeted by a status move, Stockpiles 1.",
 		rating: 3,
-		num: -15,
+		num: -1,
+	},
+	mucusveil: {
+		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by an attack.",
+		onDamagingHitOrder: 3,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.noreact && target.hp && source.hp) {
+				const reaction = this.dex.getActiveMove('soak');
+				reaction.noreact = true;
+				this.actions.useMove(reaction, target, source);
+			}
+		},
+		flags: {},
+		name: "Mucus Veil",
+		rating: 3.5,
+		num: -4,
+	},
+	thunderstorm: {
+		onModifyMovePriority: 1,
+		onAfterMove(pokemon, attacker, move) {
+			if (move.type === 'Flying') {
+				this.add('-ability', pokemon, 'Thunderstorm');
+				pokemon.addVolatile('charge');
+			}
+		},
+		flags: {},
+		shortDesc: "Grants the charge effect after using a flying-type move.",
+		name: "Thunderstorm",
+		rating: 4,
 	},
 	/*
 	Edits

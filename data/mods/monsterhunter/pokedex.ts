@@ -669,7 +669,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Great Jagras",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 123, atk: 90, def: 107, spa: 65, spd: 90, spe: 50},
-		abilities: {0: "Innards Out", H: "Tangling Hair"},
+		abilities: {0: "Innards Out", 1: "Pulp Up", H: "Tangling Hair"},
 		weightkg: 60.0,
 	},
 	greatmaccao: {
@@ -1056,7 +1056,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Namielle",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 90, atk: 85, def: 73, spa: 140, spd: 135, spe: 80},
-		abilities: {0: "Water Absorb", H: "Electromorphosis"},
+		abilities: {0: "Water Absorb", H: "Mucus Veil"},
 		weightkg: 165.0,
 	},
 	nargacuga: {
@@ -1101,7 +1101,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 105, atk: 105, def: 92, spa: 150, spd: 108, spe: 90},
 		gender: "F",
-		abilities: {0: "Electromorphosis"},
+		abilities: {0: "Thunderstorm"},
 		weightkg: 154.3,
 		requiredItem: "Narwanite",
 	},
