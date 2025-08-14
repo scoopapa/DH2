@@ -1982,7 +1982,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.cureStatus();
 		},
 		shortDesc: "Cures status",
-
 	},
 	facade: {
 		inherit: true,
