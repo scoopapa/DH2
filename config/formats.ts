@@ -1648,7 +1648,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			@type {{[k: string]: true}}
+			// @type {{[k: string]: true}}
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
