@@ -103,6 +103,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 :Ninetales: Ninetales - Frantic Fusions by G-Luke
 :Crabominable: Crabominable - Frantic Fusions by HydreigonTheChild
 :Swampert-Mega: Swampert-Mega - Formemons by HydreigonTheChild
+*/
+	swampertmega: {
+		inherit: true,
+		requiredItem: null,
+	},
+/*
 :spiritomb::cameruptite: Spiritomb - Mix and Mega by LettuceLeaf07
 */
 };
