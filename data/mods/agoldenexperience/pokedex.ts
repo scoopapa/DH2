@@ -421,12 +421,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	staryu: {
 		inherit: true,
-		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
+		abilities: {0: "Illuminate", 1: "Regenerator", H: "Graviton"},
 	},
 	starmie: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 45, def: 100, spa: 100, spd: 100, spe: 115},
-		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
+		abilities: {0: "Illuminate", 1: "Regenerator", H: "Graviton"},
 	},
 	mrmime: {
 		inherit: true,
@@ -1189,12 +1189,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	baltoy: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Smart Guard"},
+		abilities: {0: "Levitate", 1: "Smart Guard", H: "Graviton"},
 	},
 	claydol: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 105, spa: 70, spd: 120, spe: 75},
-		abilities: {0: "Levitate", H: "Smart Guard"},
+		abilities: {0: "Levitate", 1: "Smart Guard", H: "Graviton"},
 	},
 	lileep: {
 		inherit: true,
@@ -1314,19 +1314,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	beldum: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Light Metal"},
+		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Graviton"},
 	},
 	metang: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Light Metal"},
+		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Graviton"},
 	},
 	metagross: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Light Metal"},
-	},
-	metagrossmega: {
-		inherit: true,
-		abilities: {0: "Clear Body"},
+		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Graviton"},
 	},
 	regirock: {
 		inherit: true,
@@ -1663,6 +1659,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
 		abilities: {0: "Levitate", 1: "Defiant", H: "Competitive"},
+	},
+	dialgaorigin: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	palkiaorigin: {
+		inherit: true,
+		abilities: {0: "Graviton"},
 	},
 	regigigas: {
 		inherit: true,
@@ -2776,7 +2780,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	silvallyrock: {
 		inherit: true,
-		abilities: {0: "Rocky Payload"},
+		abilities: {0: "Graviton"},
 		requiredItem: null,
 	},
 	silvallysteel: {
@@ -2872,7 +2876,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	orbeetle: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Neuroforce", H: "Psychic Surge"},
+		abilities: {0: "Swarm", 1: "Graviton", H: "Psychic Surge"},
 	},
 	nickit: {
 		inherit: true,
@@ -3105,6 +3109,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 122, atk: 130, def: 89, spa: 40, spd: 89, spe: 30},
 		abilities: {0: "Sheer Force", 1: "Dry Skin", H: "Heavy Metal"},
 	},
+	eternatus: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Cosmic Energy"},
+	},
 	zarude: {
 		inherit: true,
 		abilities: {0: "Leaf Guard", H: "Defiant"},
@@ -3261,6 +3269,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	scovillain: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 118, def: 65, spa: 118, spd: 65, spe: 85},
+	},
+	rellor: {
+		inherit: true,
+		abilities: {0: "Compound Eyes", 1: "Swarm", H: "Shed Skin"},
+	},
+	rabsca: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Graviton", H: "Telepathy"},
 	},
 	tinkaton: {
 		inherit: true,

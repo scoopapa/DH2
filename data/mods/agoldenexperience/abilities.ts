@@ -2804,4 +2804,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -93,
 	},
+	graviton: {
+		shortDesc: "On switch-in, this Pokémon summons Gravity.",
+		onStart(source) {
+			this.field.addPseudoWeather('gravity');
+		},
+		name: "Graviton",
+		rating: 4,
+		num: -94,
+	},
 };
