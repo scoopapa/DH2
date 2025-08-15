@@ -93,8 +93,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		requiredItem: null,
 	},
+	munkidori: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
 /*
-:munkidori: Munkidori - Inheritance by PalpitoadChamp
 :enamorus-therian: Enamorus-Therian - Nature Swap by PQRDG
 :yanma: Yanma - Cross Evolution by Bobsican
 :rotom-mow::manectite: Rotom-Mow (+Manectite) - Mix and Mega by HydreigonTheChild
