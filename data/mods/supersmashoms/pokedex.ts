@@ -1,4 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	// Slate 1
 	dragapult: {
 		inherit: true,
 		baseStats: {hp: 142, atk: 75, def: 100, spa: 75, spd: 120, spe: 88},
@@ -24,7 +25,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 127, atk: 150, def: 104, spa: 80, spd: 104, spe: 74},
 	},
-	// Moltres-Galar Inheritance
+	// Slate 2
+	moltresgalar: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
 	zapdos: {
 		inherit: true,
 		types: ["Electric", "Flying", "Steel"],
@@ -37,6 +42,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 140, def: 135, spa: 60, spd: 100, spe: 130},
 	},
+	// Slate 3
 	walkingwake: {
 		inherit: true,
 		baseStats: {hp: 109, atk: 83, def: 125, spa: 91, spd: 83, spe: 99},
@@ -52,6 +58,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 116, atk: 60, def: 120, spa: 90, spd: 130, spe: 74},
 	},
+	// Slate 4
 
 /*
 :Magmar: Magmar - Cross Evolution by PQRDG
@@ -75,19 +82,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 95, def: 130, spa: 120, spd: 100, spe: 50},
 	},
+	// Slate 5
 /*
 :ogerpon: Ogerpon - Convergence by G-Luke
 :cutiefly: Cutiefly - Cross Evolution by PQRDG
 :revavroom::pinsirite: Revavroom (+Pinsirite) - Mix and Mega by PQRDG
-
-:sceptile-mega: Sceptile-Mega - Formemons by G-Luke
 */
+	// Slate 6
 	sceptilemega: {
 		inherit: true,
 		requiredItem: null,
 	},
+	munkidori: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
 /*
-:munkidori: Munkidori - Inheritance by PalpitoadChamp
 :enamorus-therian: Enamorus-Therian - Nature Swap by PQRDG
 :yanma: Yanma - Cross Evolution by Bobsican
 :rotom-mow::manectite: Rotom-Mow (+Manectite) - Mix and Mega by HydreigonTheChild
@@ -97,6 +107,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 136, atk: 60, def: 124, spa: 114, spd: 80, spe: 56},
 	},
+	// Slate 7
 /*
 :Tinkaton: Tinkaton - Frantic Fusions by Bobsican
 :latias: Latias - Bonus Type by G-Luke
@@ -107,6 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		requiredItem: null,
 	},
+	// Slate 8
 	altariamega: {
 		inherit: true,
 		requiredItem: null,
