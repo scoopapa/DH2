@@ -184,7 +184,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (pokemon.effectiveWeather) {
+			if (pokemon.effectiveWeather()) {
 				pokemon.addVolatile('ability:swordofruin');
 			} else {
 				pokemon.removeVolatile('ability:swordofruin');
@@ -483,30 +483,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			switch (pokemon.effectiveWeather()) {
 				case 'sunnyday':
 				case 'desolateland':
-					pokemon.setType('Fire'); 
-					this.add('-start', pokemon, 'typechange', 'Dark');
+					pokemon.setType(['Fire', 'Dark']);
 					break;
 				case 'raindance':
 				case 'primordialsea':
-					pokemon.setType('Water'); 
-					this.add('-start', pokemon, 'typechange', 'Dark');
+					pokemon.setType(['Water', 'Dark']);
 					break;
 				case 'sandstorm':
-					pokemon.setType('Rock'); 
-					this.add('-start', pokemon, 'typechange', 'Dark');
+					pokemon.setType(['Rock', 'Dark']);
 					break;
 				case 'hail':
 				case 'snowscape':
-					pokemon.setType('Ice'); 
-					this.add('-start', pokemon, 'typechange', 'Dark');
+					pokemon.setType(['Ice', 'Dark']);
 					break;
 				default:
-					pokemon.setType(pokemon.getTypes()); 
-					this.add('-start', pokemon, 'typechange', pokemon.baseSpecies.getTypes().join('/'));
+					pokemon.setType(['Normal', 'Dark']);
 					break;
 			}
 		},
-		flags: {},
+		flags: {failroleplay: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Four Seasons",
 		shortDesc: "Okina Matara's primary typing changes to match the weather.",
 	},
