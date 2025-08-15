@@ -1323,7 +1323,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (effect?.name === "Millstone") {
-					return 2;
+					return 3;
 				}
 				return 5;
 			},
@@ -1786,7 +1786,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		category: "Physical",
 		name: "Powder Bomb",
 		pp: 10,
-		priority: 2,
+		priority: 0,
 		flags: {noassist: 1, failcopycat: 1, powder: 1, bullet: 1},
 		volatileStatus: 'powderbomb',
 		condition: {
@@ -2026,7 +2026,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 		},
 		basePowerCallback(basePower, attacker, defender, move) {
-			let bonfireBP = 40
+			let bonfireBP = 40;
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of ally.moveSlots) {
 					if (moveSlot.id === 'bonfire') {

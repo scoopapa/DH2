@@ -75,6 +75,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
 			if (species.id.includes('mega')) {
+				//parallel mega orb's effect lies here
+				if (source.id === 'parallelmegaorb') return;
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
 					this.setAbility(species.abilities['H'], null, true);

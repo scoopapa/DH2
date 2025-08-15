@@ -6,13 +6,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera. Attack = -1/8 HP.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
+			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.species.id.includes('mega'))) {
 				return this.chainModify(0.67);
 			}
 		},
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
-			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
+			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.species.id.includes('mega'))) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
@@ -1130,15 +1130,33 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 	},
 	// Slate 6
-	/*parallelmegaorb: { 
-	 	name: "Parallel Mega Orb",
-	 	spritenum: 578,
-	 	onTakeItem: false,
-	 	shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-	 	num: -15,
-	 	gen: 9,
-	 	rating: 3,
-	},*/
+	//ts pmo icl
+	parallelmegaorb: { 
+		name: "Parallel Mega Orb",
+		spritenum: 578,
+		onTakeItem: false,
+		onBeforeMega(pokemon) {
+			pokemon.addVolatile('gastroacid');
+		},
+		onAfterMega(pokemon) {
+			pokemon.setAbility(pokemon.set.ability);
+			pokemon.baseAbility = pokemon.ability;
+			pokemon.removeVolatile('gastroacid');
+			this.add('-item', pokemon, 'Parallel Mega Orb');
+			this.add('-message', `${pokemon.name} has kept it's original ability!`);
+		},
+		//onPreStart(pokemon) {
+		//	pokemon.addVolatile('gastroacid');
+		//},
+		//onStart(pokemon) {
+		//	pokemon.setAbility(pokemon.set.ability);
+		//	pokemon.removeVolatile('gastroacid');
+		//},
+		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+		num: -15,
+		gen: 9,
+		rating: 3,
+	},
 	legendplate: {
 		name: "Legend Plate",
 		spritenum: 225,
@@ -1987,9 +2005,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "All abilities active at once.",
 		onTakeItem: false,
-		onStart(target) {
+		onPreStart(target) {
 			this.add('-item', target, 'Dungeon\'s Looplet');
-			this.add('-message', `${pokemon.name} is holding a Dungeon's Looplet!`);
+			this.add('-message', `${target.name} is holding a Dungeon's Looplet!`);
 			target.m.innates = Object.keys(target.species.abilities)
 					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
 					.filter(ability => ability !== target.ability);
@@ -1998,6 +2016,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 					if (target.hasAbility(innate)) continue;
 					target.addVolatile("ability:" + innate, target);
 				}
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (target.species.abilities['0'].id && target.species.abilities['1'].id && target.species.abilities['H'].id && target.species.abilities['S'].id !== "magicguard") return;
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
 			}
 		},
 	},
