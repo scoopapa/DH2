@@ -4132,7 +4132,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "Illegal",
 	},
 	isaapple: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	appletun: {
