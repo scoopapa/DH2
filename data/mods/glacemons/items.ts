@@ -2019,7 +2019,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		onDamage(damage, target, source, effect) {
-			if (target.species.abilities['0'].id || target.species.abilities['1'].id || target.species.abilities['H'].id || target.species.abilities['S'].id === "magicguard") continue;
+			if (target.species.abilities['0'].id && target.species.abilities['1'].id && target.species.abilities['H'].id && target.species.abilities['S'].id !== "magicguard") return;
 			if (effect.effectType !== 'Move') {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
