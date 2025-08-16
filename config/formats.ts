@@ -1660,7 +1660,7 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	{
+	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1668,10 +1668,11 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
-		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
+			'Revelationmons Mod',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
+			// @type {{[k: string]: true}} 
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -1690,9 +1691,6 @@ export const Formats: FormatList = [
 			];
 			const aaa = [
 				'Cresselia', 'Slither Wing', 'Quaquaval', 'Scream Tail',
-			];
-			const revelationmons = [
-				'Tyranitar',
 			];
 			const convergence = [
 				'Greninja', 'Ogerpon', 'Zarude',
@@ -1714,11 +1712,11 @@ export const Formats: FormatList = [
 			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
 			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) {
 				console.log("Hello there");
-				return true;
+				return [];
 			}
 		},
 		mod: 'supersmashoms',
-	},
+	},*/
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [

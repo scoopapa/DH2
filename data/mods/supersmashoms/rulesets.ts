@@ -58,6 +58,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		ruleset: ['OM Unobtainable Moves'],
 		checkCanLearn(move, species, lsetData, set) {
 			const affectedPokemon = ["Garchomp", "Registeel"];
+			if (!affectedPokemon.includes(species.name)) {
+				return ` ${species.name} isn't a Sketchmons species.`;
+			}
 			const problem = this.checkCanLearn(move, species, lsetData, set);
 			if (!problem) return null;
 			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
@@ -84,12 +87,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 		},
 	},
-	'sketchpostgen7moves': {
-		effectType: 'ValidatorRule',
-		name: 'Sketch Post-Gen 7 Moves',
-		desc: "Allows Pokémon who learn Sketch to learn any Gen 8+ move (normally, Sketch is not usable in Gen 8+).",
-		// Implemented in sim/team-validator.ts
-	},
 	revelationmonsmod: {
 		effectType: "Rule",
 		name: "Revelationmons Mod",
@@ -111,6 +108,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			return problems;
 		},
 		onModifyMove(move, pokemon, target) {
+			const revelationmons = [
+				'Tyranitar',
+			];
+			if !revelationmons.includes(pokemon) return;
 			const types = pokemon.getTypes(true);
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
