@@ -2813,7 +2813,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 
 
 
-	// Taken from Joltemons, for Magician, fuck
+	// Taken from Joltemons, for Magician, damn
 	lifeorb: {
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify(1.3);

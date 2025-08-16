@@ -263,7 +263,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	malamar: {tier: "Kalos"},
 
 	lunatone: {tier: "Kalos"},
+	lunatonemega: {tier: "Kalos"},
 	solrock: {tier: "Kalos"},
+	solrockmega: {tier: "Kalos"},
 
 	bagon: {tier: "Kalos (NFE)"},
 	shelgon: {tier: "Kalos (NFE)"},
@@ -574,6 +576,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	buizel: {tier: "Kalos (NFE)"},
 	floatzel: {tier: "Kalos"},
+	floatzelmega: {tier: "Kalos"},
 
 	basculin: {tier: "Kalos"},
 	basculinbluestriped: {tier: "Kalos"},
@@ -753,4 +756,5 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	glimmorakalos: {tier: "Kalos (NFE)"},
 	glimmaltis: {tier: "Kalos"},
 
+	// Slate 4
 };

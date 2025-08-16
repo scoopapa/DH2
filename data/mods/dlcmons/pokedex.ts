@@ -272,4 +272,71 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredAbility: "Flower Gift",
 		battleOnly: "Glimmaltis",
 	},
+	// Slate 4
+	// Etimenor
+	lunatone: {
+		inherit: true,
+		otherFormes: ["Lunatone-Mega"],
+		formeOrder: ["Lunatone", "Lunatone-Mega"],
+	},
+	solrock: {
+		inherit: true,
+		otherFormes: ["Solrock-Mega"],
+		formeOrder: ["Solrock", "Solrock-Mega"],
+	},
+	lunatonemega: {
+		num: 337,
+		name: "Lunatone-Mega",
+		baseSpecies: "Lunatone",
+		forme: "Mega",
+		types: ["Rock", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 90, atk: 95, def: 75, spa: 125, spd: 105, spe: 70},
+		abilities: {0: "Center of Mass"},
+		heightm: 1,
+		weightkg: 168,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+		requiredItem: "Lunatonite",
+	},
+	solrockmega: {
+		num: 338,
+		name: "Solrock-Mega",
+		baseSpecies: "Solrock",
+		forme: "Mega",
+		types: ["Rock", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 90, atk: 125, def: 105, spa: 95, spd: 75, spe: 70},
+		abilities: {0: "Center of Mass"},
+		heightm: 1.2,
+		weightkg: 154,
+		color: "Red",
+		eggGroups: ["Mineral"],
+		requiredItem: "Solrockite",
+	},
+	// Ledellar
+	// Hugfish
+	// Snorlax-Kalos
+	// Snaisland
+	floatzel: {
+		inherit: true,
+		otherFormes: ["Floatzel-Mega"],
+		formeOrder: ["Floatzel", "Floatzel-Mega"],
+	},
+	floatzelmega: {
+		num: 419,
+		name: "Floatzel-Mega",
+		baseSpecies: "Floatzel",
+		forme: "Mega",
+		types: ["Water"],
+		baseStats: {hp: 85, atk: 125, def: 85, spa: 85, spd: 90, spe: 125},
+		abilities: {0: "Water Veil"},
+		heightm: 1.1,
+		weightkg: 33.5,
+		color: "Brown",
+		eggGroups: ["Water 1", "Field"],
+		requiredItem: "Floatzelite",
+	},
+	// Malich
+	// Automent
 };
