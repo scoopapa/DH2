@@ -1671,7 +1671,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			// @type {{[k: string]: true}}
+			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -1712,7 +1712,10 @@ export const Formats: FormatList = [
 			console.log("Set has ability " + set.ability);
 			console.log("Is it AAA? " + aaa.includes(species.name));
 			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
-			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) return;
+			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) {
+				console.log("Hello there");
+				return true;
+			}
 		},
 		mod: 'supersmashoms',
 	},
