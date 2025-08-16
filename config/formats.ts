@@ -1700,11 +1700,11 @@ export const Formats: FormatList = [
 			const franticfusions = [
 				'Bellibolt', 'Tinkaton', 'Ninetales', 'Crabominable',
 			];
-			console.log("Species is " + set.species.name);
-			console.log("Species abilities are " + set.species.abilities);
-			console.log("Set has ability " + set.ability);
-			if (aaa.includes(set.species.name) && !set.species.abilities.includes(set.ability)) return;
 			const species = this.dex.species.get(set.species);
+			console.log("Species is " + species.name);
+			console.log("Species abilities are " + species.abilities);
+			console.log("Set has ability " + set.ability);
+			if (aaa.includes(species.name) && !species.abilities.includes(set.ability)) return;
 		},
 		mod: 'supersmashoms',
 	},
