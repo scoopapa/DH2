@@ -3126,16 +3126,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Protector",
 	},
-	quickclaw: {
-		onFractionalPriorityPriority: -2,
-		onFractionalPriority(priority, pokemon) {
-			if (priority <= 0 && this.randomChance(1, 5)) {
-				this.add('-activate', pokemon, 'ability: Quick Claw');
-				return 0.1;
-			}
-		},
-		name: "Quick Claw",
-	},
 	shedshell: {
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
