@@ -36,7 +36,7 @@ export const Scripts: ModdedBattleScriptsData = {
       if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
       const oldAbility = this.ability;
       if (!isFromFormeChange) {
-        if (ability.flags['cantsuppress'] || this.getAbility().flags['cantsuppress']) return false;
+        if (ability.flags && (ability.flags['cantsuppress'] || this.getAbility().flags['cantsuppress'])) return false;
       }
       if (!isFromFormeChange && !isTransform) {
         const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
