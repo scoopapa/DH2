@@ -1660,7 +1660,7 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	/*{
+	{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1668,8 +1668,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
-		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'STABmons Move Legality', ],
+		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}}
@@ -1682,8 +1681,30 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onValidateSet(set) {
+			const stabmons = [
+				'Arboliva', 'Porygon2', 'Terrakion',
+			];
+			const sketchmons = [
+				'Registeel', 'Garchomp', 
+			];
+			const aaa = [
+				'Cresselia', 'Slither Wing', 'Quaquaval', 'Scream Tail',
+			];
+			const revelationmons = [
+				'Tyranitar',
+			];
+			const convergence = [
+				'Greninja', 'Ogerpon', 'Zarude',
+			];
+			const franticfusions = [
+				'Bellibolt', 'Tinkaton', 'Ninetales', 'Crabominable',
+			];
+			if (aaa.includes(set.species.name) && !set.species.abilities.includes(set.ability)) return;
+			const species = this.dex.species.get(set.species);
+		},
 		mod: 'supersmashoms',
-	},*/
+	},
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [

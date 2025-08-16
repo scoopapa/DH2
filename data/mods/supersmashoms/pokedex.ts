@@ -82,6 +82,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 95, atk: 115, def: 107, spa: 110, spd: 115, spe: 83},
 		abilities: {0: "Pressure", 1: "Unnerve", H: "Mirror Armor"},
+		evos: null,
 	},
 
 /*
@@ -114,6 +115,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 85, spd: 60, spe: 144},
 		abilities: {0: "Snow Cloak", H: "Cursed Body"},
+		evos: null,
 	},
 	revavroom: {
 		inherit: true,
@@ -151,6 +153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 70, atk: 65, def: 60, spa: 145, spd: 115, spe: 110},
 		abilities: {0: "Curious Medicine", 1: "Own Tempo", H: "Regenerator"},
+		evos: null,
 	},
 	rotom: {
 		inherit: true,
@@ -177,6 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 85, atk: 85, def: 110, spa: 110, spd: 110, spe: 110},
 		abilities: {0: "Sturdy", H: "Overcoat"},
+		evos: null,
 	},
 	ironbundle: {
 		inherit: true,
