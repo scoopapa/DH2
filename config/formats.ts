@@ -1702,13 +1702,15 @@ export const Formats: FormatList = [
 			];
 			const species = this.dex.species.get(set.species);
 			console.log("Species is " + species.name);
+			const speciesAbilities = [],
 			console.log("Species abilities are ");
 			for (let key in species.abilities) {
-			    let value = myDictionary[key];
+			    let value = species.abilities[key];
 			    console.log(value);
+			    speciesAbilities.push(value);
 			}
 			console.log("Set has ability " + set.ability);
-			if (aaa.includes(species.name) && !species.abilities.includes(set.ability)) return;
+			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) return;
 		},
 		mod: 'supersmashoms',
 	},
