@@ -1702,7 +1702,11 @@ export const Formats: FormatList = [
 			];
 			const species = this.dex.species.get(set.species);
 			console.log("Species is " + species.name);
-			console.log("Species abilities are " + species.abilities[0] + ', '+ species.abilities[1] + ', '+ species.abilities[H]);
+			console.log("Species abilities are ");
+			for (let key in species.abilities) {
+			    let value = myDictionary[key];
+			    console.log(value);
+			}
 			console.log("Set has ability " + set.ability);
 			if (aaa.includes(species.name) && !species.abilities.includes(set.ability)) return;
 		},
