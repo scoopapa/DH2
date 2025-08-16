@@ -57,6 +57,19 @@ export const Scripts: ModdedBattleScriptsData = {
       }
       return oldAbility;
     },
+    takeDual(source) {
+      if (!this.isActive) return false;
+      if (!this.ability) return false;
+      if (!source) source = this;
+      const dual = this.getAbility() as any as Item;
+      if (dual.effectType !== 'Item') return false;
+      if (this.battle.runEvent('TakeItem', this, source, null, dual)) {
+        this.baseAbility = this.ability = '';
+        this.abilityData = {id: '', target: this};
+        return dual;
+      }
+      return false;
+    },
   },
   actions: {
     canMegaEvo(pokemon) {
