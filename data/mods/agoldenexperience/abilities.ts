@@ -2726,6 +2726,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					continue;
 				}
 				this.add('-ability', pokemon, item, '[from] ability: Magician', '[of] ' + target);
+				item.flags = {},
 				pokemon.setAbility(item);
 				return;
 			}
