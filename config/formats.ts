@@ -1702,7 +1702,7 @@ export const Formats: FormatList = [
 			];
 			const species = this.dex.species.get(set.species);
 			console.log("Species is " + species.name);
-			const speciesAbilities = [],
+			const speciesAbilities = [];
 			console.log("Species abilities are ");
 			for (let key in species.abilities) {
 			    let value = species.abilities[key];
