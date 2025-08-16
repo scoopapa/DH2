@@ -7102,6 +7102,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			earthquake: ["9L1"],
 			closecombat: ["9L1"],
 			skydrop: ["9L1"],
+			gravity: ["9L1"],
+			dragonclaw: ["9L1"],
 		},
 	},
 	badapple: {

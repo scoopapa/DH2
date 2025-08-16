@@ -111,7 +111,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			const revelationmons = [
 				'Tyranitar',
 			];
-			if !revelationmons.includes(pokemon) return;
+			if (!revelationmons.includes(pokemon)) return;
 			const types = pokemon.getTypes(true);
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
