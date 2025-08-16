@@ -30,7 +30,7 @@ export const Scripts: ModdedBattleScriptsData = {
       this.apparentType = this.types.join('/');
   
       return true;
-    }
+    },
     setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange = false, isTransform = false) {
       if (!this.hp) return false;
       if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
