@@ -2440,8 +2440,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {},
 		name: "Season Pass",
 		num: -83,
-		desc: "This Pokemon's first type changes to Ghost/Fire/Fairy/Ice/Normal. This effect comes after all effects that change a move's type.",
-		shortDesc: "This Pokemon's first type changes to match the type of the Ghost/Fire/Fairy/Ice/Normal move it is about to use.",
+		desc: "This Pokemon gets a new type when using a Ghost/Fire/Fairy/Ice type move. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon gets a type if using a Ghost/Fire/Fairy/Ice move.",
 	},
 	rattled: {
 		inherit: true,
