@@ -1710,6 +1710,8 @@ export const Formats: FormatList = [
 			    speciesAbilities.push(value);
 			}
 			console.log("Set has ability " + set.ability);
+			console.log("Is it AAA? " + aaa.includes(species.name));
+			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
 			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) return;
 		},
 		mod: 'supersmashoms',
