@@ -8,6 +8,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	donphan: {
 		tier: "Mix and Mega",
 	},
+	donphanmega: {
+		tier: "Mix and Mega",
+	},
 	cramorant: {
 		tier: "Tier Shift",
 	},
@@ -90,6 +93,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	revavroom: {
 		tier: "Mix and Mega",
 	},
+	revavroommega: {
+		tier: "Mix and Mega",
+	},
 	slitherwing: {
 		tier: "Almost Any Ability",
 	},
@@ -110,6 +116,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "STABmons",
 	},
 	rotommow: {
+		tier: "Mix and Mega",
+	},
+	rotommowmega: {
 		tier: "Mix and Mega",
 	},
 	misdreavus: {
@@ -154,6 +163,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Formemons",
 	},
 	spiritomb: {
+		tier: "Mix and Mega",
+	},
+	spiritombmega: {
 		tier: "Mix and Mega",
 	},
 };

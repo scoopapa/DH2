@@ -1660,7 +1660,7 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	/*{
+	{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -1669,7 +1669,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'STABmons Move Legality', 'Sketchmons Move Legality',],
+			'STABmons Move Legality', ],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}}
@@ -1683,7 +1683,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'supersmashoms',
-	},*/
+	},
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [

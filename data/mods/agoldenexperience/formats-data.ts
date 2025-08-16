@@ -4552,6 +4552,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	rabscamega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	greavard: {
 		tier: "LC",
 	},
