@@ -2716,7 +2716,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				const target = possibleTargets[rand];
-				const item = target.getItem();
+				var item = target.getItem();
 				const additionalBannedItems = [
 					// Zen Mode included here for compatibility with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'receiver', 'trace', 'zenmode', 'protosynthesis', 'quarkdrive',
