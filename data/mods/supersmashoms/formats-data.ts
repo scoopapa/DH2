@@ -129,22 +129,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	tinkaton: {
-		tier: "Cross Evolution",
+		tier: "Frantic Fusions",
 	},
 	latias: {
-		tier: "Revelationmons",
+		tier: "Bonus Type",
 	},
 	zarude: {
-		tier: "Inheritance",
-	},
-	azumarill: {
 		tier: "Convergence",
 	},
+	azumarill: {
+		tier: "Tier Shift",
+	},
 	quaquaval: {
-		tier: "Flipped",
+		tier: "Almost Any Ability",
 	},
 	venusaurmega: {
-		tier: "Sketchmons",
+		tier: "Formemons",
 	},
 
 	altariamega: {
