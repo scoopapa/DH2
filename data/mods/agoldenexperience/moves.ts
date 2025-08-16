@@ -3817,4 +3817,14 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			return source.status === 'slp' || source.hasAbility('comatose') || usable;
 		},
 	},
+	// Blowhole
+	waterspout: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.hasAbility('blowhole')) return 150;
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+	},
 };

@@ -30,7 +30,46 @@ export const Scripts: ModdedBattleScriptsData = {
       this.apparentType = this.types.join('/');
   
       return true;
-    }
+    },
+    setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange = false, isTransform = false) {
+      if (!this.hp) return false;
+      if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
+      const oldAbility = this.ability;
+      if (!isFromFormeChange) {
+        if (ability.flags && (ability.flags['cantsuppress'] || this.getAbility().flags['cantsuppress'])) return false;
+      }
+      if (!isFromFormeChange && !isTransform) {
+        const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
+        if (!setAbilityEvent) return setAbilityEvent;
+      }
+      this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityState, this, source);
+      if (this.battle.effect && this.battle.effect.effectType === 'Move' && !isFromFormeChange) {
+        this.battle.add(
+          '-endability', this, this.battle.dex.abilities.get(oldAbility),
+          `[from] move: ${this.battle.dex.moves.get(this.battle.effect.id)}`
+        );
+      }
+      this.ability = ability.id;
+      this.abilityState = {id: ability.id, target: this};
+      if (ability.id && this.battle.gen > 3 &&
+        (!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
+        this.battle.singleEvent('Start', ability, this.abilityState, this, source);
+      }
+      return oldAbility;
+    },
+    takeDual(source) {
+      if (!this.isActive) return false;
+      if (!this.ability) return false;
+      if (!source) source = this;
+      const dual = this.getAbility() as any as Item;
+      if (dual.effectType !== 'Item') return false;
+      if (this.battle.runEvent('TakeItem', this, source, null, dual)) {
+        this.baseAbility = this.ability = '';
+        this.abilityData = {id: '', target: this};
+        return dual;
+      }
+      return false;
+    },
   },
   actions: {
     canMegaEvo(pokemon) {
@@ -1797,6 +1836,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'houndstone').learnset.houndshowl = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'rabsca').learnset.teleport = ['9L1'];
+    this.modData('Learnsets', 'rabsca').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
