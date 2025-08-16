@@ -873,12 +873,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.field.setWeather('raindance');
 			}
 		},
-		onModifyMovePriority: -1,
-		onModifyMove(move, attacker) {
-			if (move.id === 'waterspout') {
-				move.basePower = 150;
-			}
-		},
+		// Water Spout modified in moves.ts
 		name: "Blowhole",
 		rating: 3,
 		num: -46,
@@ -2432,7 +2427,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const allTypes = ['Ghost', 'Fire', 'Fairy', 'Ice'];
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes()[0] !== type && allTypes.includes(type)) {
-				if (!source.setType(type)) return;
+				if (!source.addType(type)) return;
 				this.add('-start', source, 'typeadd', type, '[from] ability: Season Pass');
 			}
 		},
