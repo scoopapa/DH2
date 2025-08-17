@@ -753,25 +753,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
 			const unconcerned = this.effectState.target;
-			console.log("Pokemon is " + pokemon);
 			if (unconcerned === pokemon) return;
-			console.log("target is " + this.activeTarget)
-			if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
-			//if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
-				console.log("Defense!");
+			/*if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
 				pokemon.boosts['def'] = 0;
 				pokemon.boosts['spd'] = 0;
 				pokemon.boosts['evasion'] = 0;
 			}
 			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
-			//if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
-				console.log("Offense!");
 				pokemon.boosts['atk'] = 0;
 				pokemon.boosts['def'] = 0;
 				pokemon.boosts['spa'] = 0;
 				pokemon.boosts['spd'] = 0;
 				pokemon.boosts['accuracy'] = 0;
-			}
+			}*/
+			boosts['atk'] = 0;
+			boosts['def'] = 0;
+			boosts['spa'] = 0;
+			boosts['spd'] = 0;
+			boosts['accuracy'] = 0;
+			boosts['evasion'] = 0;
 		},
 		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		rating: 4,
