@@ -324,8 +324,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (type === 'Grass') return 1;
+		},
 		name: "Wood Clearing",
-		shortDesc: "This Pokemon's attacks do 1.3x in Grassy Terrain.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Grassy Terrain. Always hits Grass targets for super effective.",
 		rating: 2,
 		num: -17,
 	},
@@ -716,7 +719,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokémon can skip the charging turn of its moves.",
 		shortDesc: "Skip charging turns of moves.",
 		onChargeMove(pokemon, target, move) {
-			this.debug('Solar Core - remove charge turn for ' + move.id);
+			this.debug('Cosmic Energy - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; 
@@ -984,15 +987,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	// end of snow and hail abilities
 	spikybody: {
-		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 8, source, target);
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (move.category === 'Physical' && (!spikes || spikes.layers < 3)) {
+				this.add('-activate', target, 'ability: Spiky Body');
+				side.addSideCondition('spikes', target);
 			}
 		},
 		name: "Spiky Body",
-		desc: "Pokemon making contact with this Pokemon lose 1/8 of their maximum HP, rounded down.",
-		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP.",
+		shortDesc: "If this Pokemon is hit by a physical attack, Spikes are set on the opposing side.",
 		rating: 2.5,
 		num: -49,
 	},
@@ -2797,6 +2801,68 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Graviton",
 		rating: 4,
 		num: -94,
+	},
+	solarenergy: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (move.type === 'Electric') {
+					this.debug('Solar Energy boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Solar Energy",
+		desc: "If Sunny Day is active, this Pokemon's Speed is multiplied by 1.5, and this Pokemon's Electric moves have x1.5. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Sunny Day is active, Speed x1.5, and Electric moves x1.5.",
+		rating: 3,
+		num: -95,
+	},
+	punchprodigee: {
+		shortDesc: "Gives a +1 priority to punch moves.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.flags['punch']) return priority + 1;
+		},
+		name: "Punch Prodigee",
+		num: -96,
+	},
+	wanderingspirit: {
+		inherit: true,
+		onStart(pokemon) {
+			// n.b. only affects Hackmons
+			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			// interaction with Ability Shield is similar to No Ability
+			if (pokemon.hasItem('Ability Shield')) {
+				this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability) && target.setAbility('wanderingspirit')) {
+				this.add('-ability', pokemon, ability, '[from] ability: Wandering Spirit', '[of] ' + target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {},
+		desc: "On switch-in, this Pokemon swaps abilities with the target.",
+		shortDesc: "On switch-in, this Pokemon swaps abilities with the target.",
 	},
 
 

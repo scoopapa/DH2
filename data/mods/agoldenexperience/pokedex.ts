@@ -401,7 +401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	hitmonchan: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 105, def: 94, spa: 35, spd: 110, spe: 71},
-		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Inner Focus"},
+		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Punch Prodigee"},
 	},
 	weezing: {
 		inherit: true,
@@ -1877,7 +1877,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	swoobat: {
 		inherit: true,
-		baseStats: {hp: 77, atk: 57, def: 65, spa: 97, spd: 65, spe: 114},
+		baseStats: {hp: 97, atk: 47, def: 65, spa: 97, spd: 65, spe: 114},
 	},
 	audinomega: {
 		inherit: true,
@@ -2410,6 +2410,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 89, atk: 70, def: 90, spa: 120, spd: 90, spe: 51},
 		abilities: {0: "Mega Launcher", 1: "Deadly Blasts", H: "Quick Draw"},
+	},
+	heliolisk: {
+		inherit: true,
+		abilities: {0: "Dry Skin", 1: "Sand Veil", H: "Solar Energy"},
 	},
 	tyrunt: {
 		inherit: true,
@@ -3405,6 +3409,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	flamigo: {
 		inherit: true,
 		baseStats: {hp: 82, atk: 125, def: 74, spa: 55, spd: 64, spe: 100},
+	},
+	cetitan: {
+		inherit: true,
+		types: ["Ice", "Ground"],
 	},
 	veluza: {
 		inherit: true,

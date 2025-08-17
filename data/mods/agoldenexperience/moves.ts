@@ -3540,6 +3540,82 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 80,
 	},
+	ningencry: {
+		num: -86,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ningen Cry",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1, dance: 1 },
+		self: {
+			boosts: {
+				atk: 1,
+			},
+		},
+		weather: 'snow',
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Snowscape", target);
+		},
+		secondary: null,
+		target: "all",
+		type: "Ice",
+		shortDesc: "Raises the user's Atk by 1. Summons Snow.",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Beautiful",
+	},
+	mantisslash: {
+		num: -87,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Mantis Slash",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				spe: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		desc: "Lowers the user's Speed by 2 stages.",
+		shortDesc: "Lowers the user's Speed by 2.",
+	},
+	tropkick: {
+		inherit: true,
+		basePower: 90,
+	},
+	intrepidcrash: {
+		num: -88,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Rogue Wave",
+		shortDesc: "Has 33% recoil. Usually goes first.",
+		pp: 10,
+		priority: 1,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		recoil: [1, 3],
+		secondary: null,
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Brave Bird", target);
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+
+
+
+
+
+
 	// Everlasting Winter field
 	auroraveil: {
 		inherit: true,
