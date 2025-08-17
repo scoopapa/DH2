@@ -4,7 +4,7 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
-		customDoublesTiers: ['Kalos', 'Kalos (NFE)'],
+		customDoublesTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
 	},
 	init() {
 		// vocalstrain 
