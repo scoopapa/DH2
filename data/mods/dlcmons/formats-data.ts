@@ -115,7 +115,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	roserade: {tier: "Kalos"},
 
 	ledyba: {tier: "Kalos (NFE)"},
-	ledian: {tier: "Kalos"},
+	ledian: {tier: "Kalos (NFE)"},
+	ledellar: {tier: "Kalos"},
 
 	combee: {tier: "Kalos (NFE)"},
 	vespiquen: {tier: "Kalos"},
@@ -185,7 +186,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	honedge: {tier: "Kalos (NFE)"},
 	doublade: {tier: "Kalos (NFE)"},
-	aegislash: {tier: "Kalos"},
+	aegislash: {tier: "Kalos Uber"},
 
 	venipede: {tier: "Kalos (NFE)"},
 	whirlipede: {tier: "Kalos (NFE)"},
@@ -217,6 +218,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	munchlax: {tier: "Kalos (NFE)"},
 	snorlax: {tier: "Kalos"},
+	snorlaxkalos: {tier: "Kalos"},
 
 	whismur: {tier: "Kalos (NFE)"},
 	loudred: {tier: "Kalos (NFE)"},
@@ -435,6 +437,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gigalith: {tier: "Kalos"},
 
 	sableye: {tier: "Kalos"},
+	sableyemega: {tier: "Kalos Uber"},
 
 	carbink: {tier: "Kalos"},
 
@@ -733,16 +736,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonair: {tier: "Kalos (NFE)"},
 	dragonite: {tier: "Kalos"},
 
-	xerneas: {tier: "Uber"},
-	xerneasneutral: {tier: "Uber"},
-	yveltal: {tier: "Uber"},
-	zygarde: {tier: "Uber"},
-	zygarde10: {tier: "Uber"},
-	zygardecomplete: {tier: "Uber"},
+	xerneas: {tier: "Kalos Uber"},
+	xerneasneutral: {tier: "Kalos Uber"},
+	yveltal: {tier: "Kalos Uber"},
+	zygarde: {tier: "Kalos Uber"},
+	zygarde10: {tier: "Kalos Uber"},
+	zygardecomplete: {tier: "Kalos Uber"},
 
-	mewtwo: {tier: "Uber"},
-	mewtwomegax: {tier: "Uber"},
-	mewtwomegay: {tier: "Uber"},
+	mewtwo: {tier: "Kalos Uber"},
+	mewtwomegax: {tier: "Kalos Uber"},
+	mewtwomegay: {tier: "Kalos Uber"},
 
 	// DLC
 

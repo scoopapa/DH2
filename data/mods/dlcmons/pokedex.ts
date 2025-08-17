@@ -202,8 +202,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	glimmet: {
 		inherit: true,
-		otherFormes: ["Vanilluxe-Kalos"],
-		formeOrder: ["Vanilluxe", "Vanilluxe-Kalos"],
+		gen: 6,
+		otherFormes: ["Glimmet-Kalos"],
+		formeOrder: ["Glimmet", "Glimmet-Kalos"],
 	},
 	glimmetkalos: {
 		num: 969,
@@ -221,8 +222,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	glimmora: {
 		inherit: true,
-		otherFormes: ["Vanilluxe-Kalos"],
-		formeOrder: ["Vanilluxe", "Vanilluxe-Kalos"],
+		gen: 6,
+		otherFormes: ["Glimmora-Kalos"],
+		formeOrder: ["Glimmora", "Glimmora-Kalos"],
 	},
 	glimmorakalos: {
 		num: 970,
@@ -273,6 +275,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Glimmaltis",
 	},
 	// Slate 4
+	// Glamine
 	// Etimenor
 	lunatone: {
 		inherit: true,
@@ -314,9 +317,44 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		requiredItem: "Solrockite",
 	},
-	// Ledellar
+	ledian: {
+		evos: ["Ledellar"],
+	},
+	ledellar: {
+		num: -5,
+		name: "Ledellar",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: 75, atk: 120, def: 60, spa: 60, spd: 110, spe: 110},
+		abilities: {0: "Illuminate", 1: "Mold Breaker", H: "Iron Fist"},
+		heightm: 1.8,
+		weightkg: 77.7,
+		color: "Red",
+		prevo: "Ledian",
+		evoLevel: 48,
+		eggGroups: ["Bug"],
+	},
 	// Hugfish
-	// Snorlax-Kalos
+	snorlax: {
+		inherit: true,
+		otherFormes: ["Snorlax-Kalos"],
+		formeOrder: ["Snorlax", "Snorlax-Kalos"],
+	},
+	snorlaxkalos: {
+		num: 143,
+		name: "Snorlax-Kalos",
+		baseSpecies: "Snorlax",
+		forme: "Kalos",
+		types: ["Fighting"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 160, atk: 110, def: 65, spa: 65, spd: 110, spe: 30},
+		abilities: {0: "Bulletproof", 1: "Thick Fat", H: "Scrappy"},
+		heightm: 2.1,
+		weightkg: 540,
+		color: "Black",
+		prevo: "Munchlax",
+		evoType: "levelFriendship",
+		eggGroups: ["Monster"],
+	},
 	// Snaisland
 	floatzel: {
 		inherit: true,

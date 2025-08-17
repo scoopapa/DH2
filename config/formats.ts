@@ -505,8 +505,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard'],
 		banlist: [
-			'AG', 'Uber',
-			'Aegislash', 'Hoopa-Unbound', 'Greninja', 'Mawilite',
+			'Kalos Uber',
 			'Arena Trap', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
@@ -516,7 +515,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos Uber') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
 				}
 			}

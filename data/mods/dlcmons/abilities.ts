@@ -59,6 +59,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		inherit: true,
 		isNonstandard: null,
 		gen: 6,
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 	},
 	centerofmass: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
@@ -68,5 +71,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Center of Mass",
 		rating: 4,
 		num: -3,
+	},
+	furcoat: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 6,
 	},
 };
