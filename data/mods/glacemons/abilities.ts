@@ -753,6 +753,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
 			const unconcerned = this.effectState.target;
+			if (pokemon.boosts) console.log("Pokemon is " + pokemon + " with boosts " + pokemon.boosts);
 			if (unconcerned === pokemon) return;
 			console.log(unconcerned + " is the target, " + pokemon + " is the attacker");
 			console.log("The real target is " + this.activeTarget);
