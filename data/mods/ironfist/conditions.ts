@@ -35,12 +35,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				this.add('-status', target, 'baseball');
 			}
 		},
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-  			return this.chainModify(0.75);
-  		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
+  			return this.chainModify(0.75);
+  		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
   			return this.chainModify(0.75);
   		},
 		onTry(source, target, move) {
