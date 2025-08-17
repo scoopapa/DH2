@@ -163,4 +163,141 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+	blunderblast: {
+		name: "Blunderblast",
+		type: "Bug",
+		category: "Physical",
+		basePower: 100,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Deals Bug or Drive-type damage, whichever is more effective.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Techno Blast", target);
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Bug';
+			const type2 = this.runEvent('Drive', pokemon, null, move, 'Bug');
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
+					move.type = type2;
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType(type2) && !pokemon.hasType('Bug')) {
+						move.type = type2;
+					}
+				}
+			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Blunderblast dealt ${move.type}-type damage!`);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	//vanilla moves
+	meteorbeam: {
+		inherit: true,
+		shortDesc: "SpA +1 (2 in Meteor Shower) turn 1. Hits turn 2.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (this.field.isWeather('meteorshower')) this.boost({spa: 2}, attacker, attacker, move);
+			else this.boost({spa: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	meteormash: {
+		inherit: true,
+		shortDesc: "20% (100% in Meteor Shower) chance for Atk +1."
+		onModifyMove(move, pokemon) {
+			if (this.field.isWeather('meteorshower')) move.secondary.chance = 100;
+		},
+	},
+	swift: {
+		inherit: true,
+		shortDesc: "Never misses. Hits foes. 2x power in Meteor Shower.",
+		onBasePower(basePower, source) {
+			if (this.field.isWeather('meteorshower')) {
+				return this.chainModify(2);
+			}
+		},
+	},
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			case 'meteorshower':
+				move.type = 'Dragon';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			case 'meteorshower':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+	},
+	wish: {
+		inherit: true,
+		shortDesc: "Next turn, heals 50% (66% in Meteor Shower)."
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				if (this.field.isWeather('meteorshower')) this.effectState.hp = source.maxhp * 2 / 3;
+				else this.effectState.hp = source.maxhp / 2;
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) {
+						this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
+					}
+				}
+			},
+		},
+	},
 };
