@@ -759,17 +759,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log("The real target is " + this.activeTarget);
 			//if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
 			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
+				pokemon.boosts['def'] = 0;
+				pokemon.boosts['spd'] = 0;
+				pokemon.boosts['evasion'] = 0;
 			}
 			//if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
 			if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
-				boosts['atk'] = 0;
-				boosts['def'] = 0;
-				boosts['spa'] = 0;
-				boosts['spd'] = 0;
-				boosts['accuracy'] = 0;
+				pokemon.boosts['atk'] = 0;
+				pokemon.boosts['def'] = 0;
+				pokemon.boosts['spa'] = 0;
+				pokemon.boosts['spd'] = 0;
+				pokemon.boosts['accuracy'] = 0;
 			}
 		},
 		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
