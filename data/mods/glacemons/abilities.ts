@@ -751,27 +751,43 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	unconcerned: {
 		name: "Unconcerned",
-		onAnyModifyBoost(boosts, pokemon) {
-			const unconcerned = this.effectState.target;
-			if (unconcerned === pokemon) return;
-			/*if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
-				pokemon.boosts['def'] = 0;
-				pokemon.boosts['spd'] = 0;
-				pokemon.boosts['evasion'] = 0;
+		onTryBoost(boost, target, source, effect) {
+			if (boost.atk) {
+				delete boost.atk;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Unconcerned", "[of] " + target);
+				}
 			}
-			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
-				pokemon.boosts['atk'] = 0;
-				pokemon.boosts['def'] = 0;
-				pokemon.boosts['spa'] = 0;
-				pokemon.boosts['spd'] = 0;
-				pokemon.boosts['accuracy'] = 0;
-			}*/
-			boosts['atk'] = 0;
-			boosts['def'] = 0;
-			boosts['spa'] = 0;
-			boosts['spd'] = 0;
-			boosts['accuracy'] = 0;
-			boosts['evasion'] = 0;
+			if (boost.def) {
+				delete boost.def;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Defense", "[from] ability: Unconcerned", "[of] " + target);
+				}
+			}
+			if (boost.spa) {
+				delete boost.spa;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Unconcerned", "[of] " + target);
+				}
+			}
+			if (boost.spd) {
+				delete boost.spd;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Special Defense", "[from] ability: Unconcerned", "[of] " + target);
+				}
+			}
+			if (boost.accuracy) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Accuracy", "[from] ability: Unconcerned", "[of] " + target);
+				}
+			}
+			if (boost.evasion) {
+				delete boost.evasion;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Evasion", "[from] ability: Unconcerned", "[of] " + target);
+				}
+			}
 		},
 		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		rating: 4,
