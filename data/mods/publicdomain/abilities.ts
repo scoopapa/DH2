@@ -109,8 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	plunder: {
 		onAfterMoveSecondarySelf(source, target, move) {
-			console.log(move + "\n" + target.lastMove);
-			if (source.stole || !move || !target || !target.lastMove) return;
+			if (source.stole || !move || !target || !target.lastMove || target.moveSlots.length === 1) return;
 			if (target !== source && move.category !== 'Status') {
 				let learnedMove = false;
 				for (let i = 0; i < target.moveSlots.length; i ++) {

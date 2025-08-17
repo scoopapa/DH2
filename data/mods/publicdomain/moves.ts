@@ -218,7 +218,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	meteormash: {
 		inherit: true,
-		shortDesc: "20% (100% in Meteor Shower) chance for Atk +1."
+		shortDesc: "20% (100% in Meteor Shower) chance for Atk +1.",
 		onModifyMove(move, pokemon) {
 			if (this.field.isWeather('meteorshower')) move.secondary.chance = 100;
 		},
@@ -282,7 +282,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	wish: {
 		inherit: true,
-		shortDesc: "Next turn, heals 50% (66% in Meteor Shower)."
+		shortDesc: "Next turn, heals 50% (66% in Meteor Shower).",
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
