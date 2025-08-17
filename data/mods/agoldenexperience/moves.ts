@@ -2767,45 +2767,36 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		name: "Fat Bombing",
 		pp: 10,
 		priority: 0,
-		flags: {allyanim: 1, metronome: 1, futuremove: 1},
-		ignoreImmunity: true,
-		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
-				move: 'fatbombing',
-				source: source,
-				moveData: {
-					id: 'fatbombing',
-					name: "Fat Bombing",
-					accuracy: 100,
-					basePower: 100,
-					category: "Physical",
-					priority: 0,
-					flags: {allyanim: 1, metronome: 1, futuremove: 1},
-					ignoreImmunity: false,
-					effectType: 'Move',
-					type: 'Rock',
-				},
-			});
-			this.add('-start', source, 'move: Fat Bombing');
-			return this.NOT_FAIL;
-		},
-		onBasePower(basePower) {
-			if (this.field.getPseudoWeather('gravity')) {
-				return this.chainModify(2);
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
 			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (this.field.getPseudoWeather('gravity')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Blast", target);
 		},
 		secondary: null,
+		hasSheerForce: true,
 		target: "normal",
 		type: "Rock",
-		contestType: "Clever",
-		desc: "This move deals double damage if used under Gravity. Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
-		shortDesc: "Double damage if used under Gravity. Hits two turns after being used.",
+		desc: "This attack charges on the first turn and executes on the second. Raises the user's Attack by 1 stage on the first turn. If the user is holding a Power Herb or Gravity is set, the move completes in one turn.",
+		shortDesc: "Raises Atk by 1, hits turn 2. Gravity: no charge.",
+
+		prepare: "[POKEMON] launched a fat bombing!",
 	},
 	poisonivy: {
 		num: -64,

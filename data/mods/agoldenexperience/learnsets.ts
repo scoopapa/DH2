@@ -183,6 +183,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	},
 	eeveestarter: {
 		learnset: {
+			uturn: ["9L1"],
 			slackoff: ["9L1"],
 			baddybad: ["8V", "7T"],
 			bite: ["8V", "7L17"],
