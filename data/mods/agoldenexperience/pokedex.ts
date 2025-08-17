@@ -411,6 +411,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 70, def: 120, spa: 95, spd: 80, spe: 35},
 	},
+	chansey: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Rebound Belly", H: "Healer"},
+	},
 	kangaskhanmega: {
 		inherit: true,
 		baseStats: {hp: 105, atk: 135, def: 105, spa: 40, spd: 105, spe: 100},
