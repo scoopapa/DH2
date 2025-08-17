@@ -1476,6 +1476,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Spongy",
 		rating: 3.5,
 	},
+	dulledblades: {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
+			if (!move || !target) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		name: "Dulled Blades",
+		shortDesc: "Slicing moves: +1 Defense.",
+		rating: 3,
+	},
+	ambush: {
+		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Ambush",
+		rating: 3,
+	},
 	/*
 	Edits
 	*/

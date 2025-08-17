@@ -73,7 +73,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	magmadron: {
 		num: 89,
 		name: "Magmadron",
-		types: ["Ground", "Fire"],
+		types: ["Fire", "Ground"],
 		baseStats: {hp: 112, atk: 100, def: 112, spa: 59, spd: 112, spe: 75},
 		abilities: {0: "Flash Fire", H: "Earth Eater"},
 		weightkg: 52.5,
@@ -276,7 +276,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	ceadeus: {
 		num: 62,
 		name: "Ceadeus",
-		types: ["Water", "Dragon"],
+		types: ["Dragon", "Water"],
 		baseStats: {hp: 100, atk: 110, def: 99, spa: 100, spd: 123, spe: 81},
 		abilities: {0: "Shield Dust", 1: "Regenerator", H: "Primordial Sea"},
 		weightkg: 200.0,
@@ -284,7 +284,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	goldeus: {
 		num: 62,
 		name: "Goldeus",
-		types: ["Water", "Steel"],
+		types: ["Steel", "Water"],
 		baseStats: {hp: 100, atk: 99, def: 123, spa: 110, spd: 100, spe: 81},
 		abilities: {0: "No Guard", 1: "Good as Gold", H: "Primordial Sea"},
 		weightkg: 250.0,
@@ -454,6 +454,14 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Grass Pelt", H: "Tempest Force"},
 		weightkg: 110.0,
 	},
+	rustramboros: {
+		num: 46,
+		name: "Rustramboros",
+		types: ["Ground", "Flying"],
+		baseStats: {hp: 110, atk: 115, def: 107, spa: 80, spd: 100, spe: 40},
+		abilities: {0: "Mountaineer", H: "Tempest Force"},
+		weightkg: 110.0,
+	},
 	eruzerion: {
 		num: 129,
 		name: "Eruzerion",
@@ -465,7 +473,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	espinas: {
 		num: 96,
 		name: "Espinas",
-		types: ["Grass", "Poison"],
+		types: ["Poison", "Grass"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Unaware", H: "Toxic Debris"},
 		weightkg: 130.4,
@@ -473,7 +481,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	flaminas: {
 		num: 96,
 		name: "Flaminas",
-		types: ["Grass", "Fire"],
+		types: ["Fire", "Grass"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Poison Heal", H: "Toxic Debris"},
 		weightkg: 130.4,
@@ -793,10 +801,18 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	kirin: {
 		num: 16,
 		name: "Kirin",
-		types: ["Electric", "Ghost"],
+		types: ["Ghost", "Electric"],
 		baseStats: {hp: 92, atk: 90, def: 82, spa: 130, spd: 103, spe: 105},
 		abilities: {0: "Grim Neigh", H: "Stalwart"},
-		weightkg: 1.0,
+		weightkg: 90.0,
+	},
+	oroshirin: {
+		num: 16,
+		name: "Kirin",
+		types: ["Ghost", "Ice"],
+		baseStats: {hp: 92, atk: 130, def: 103, spa: 82, spd: 105, spe: 90},
+		abilities: {0: "Chilling Neigh", H: "Stalwart"},
+		weightkg: 90.0,
 	},
  	kuluyaku: {
 		num: 103,
@@ -1000,7 +1016,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	mizutsune: {
 		num: 74,
 		name: "Mizutsune",
-		types: ["Fairy", "Water"],
+		types: ["Water", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 88, atk: 93, def: 72, spa: 102, spd: 116, spe: 112},
 		abilities: {0: "Liquid Voice", H: "Marvel Scale"},
@@ -1012,7 +1028,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Soulseer Mizutsune",
 		baseSpecies: "Mizutsune",
 		forme: "Mega",
-		types: ["Fairy", "Water"],
+		types: ["Water", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 88, atk: 100, def: 90, spa: 140, spd: 109, spe: 123},
 		abilities: {0: "Ignite"},
@@ -1022,7 +1038,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	vizutsune: {
 		num: 74,
 		name: "Vizutsune",
-		types: ["Fairy", "Fire"],
+		types: ["Fire", "Fairy"],
 		baseStats: {hp: 88, atk: 93, def: 72, spa: 116, spd: 102, spe: 112},
 		abilities: {0: "Serene Grace", H: "Marvel Scale"},
 		weightkg: 70.3,
@@ -1062,7 +1078,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	nargacuga: {
 		num: 27,
 		name: "Nargacuga",
-		types: ["Steel", "Flying"],
+		types: ["Flying", "Steel"],
 		baseStats: {hp: 88, atk: 116, def: 104, spa: 72, spd: 90, spe: 112},
 		abilities: {0: "Sharpness", H: "Screen Cleaner"},
 		weightkg: 88.8,
@@ -1070,7 +1086,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	lucacuga: {
 		num: 27,
 		name: "Lucacuga",
-		types: ["Steel", "Ghost"],
+		types: ["Ghost", "Steel"],
 		baseStats: {hp: 88, atk: 116, def: 90, spa: 72, spd: 104, spe: 112},
 		abilities: {0: "Clear Body", H: "Screen Cleaner"},
 		weightkg: 88.8,
@@ -1078,7 +1094,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	greencuga: {
 		num: 27,
 		name: "Greencuga",
-		types: ["Steel", "Grass"],
+		types: ["Grass", "Steel"],
 		baseStats: {hp: 88, atk: 112, def: 104, spa: 72, spd: 90, spe: 116},
 		abilities: {0: "Technician", H: "Screen Cleaner"},
 		weightkg: 88.8,
@@ -1126,7 +1142,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	nerscylla: {
 		num: 76,
 		name: "Nerscylla",
-		types: ["Bug", "Poison"],
+		types: ["Poison", "Bug"],
 		baseStats: {hp: 80, atk: 110, def: 110, spa: 100, spd: 85, spe: 60},
 		abilities: {0: "Lightning Rod", H: "Liquid Ooze"},
 		weightkg: 40.0,
@@ -1134,7 +1150,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	shroudcylla: {
 		num: 76,
 		name: "Shroudcylla",
-		types: ["Bug", "Dark"],
+		types: ["Dark", "Bug"],
 		baseStats: {hp: 80, atk: 110, def: 85, spa: 100, spd: 110, spe: 60},
 		abilities: {0: "Thick Fat", H: "Liquid Ooze"},
 		weightkg: 40.0,
@@ -1218,9 +1234,17 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	pukeipukei: {
 		num: 109,
 		name: "Pukei-Pukei",
-		types: ["Poison"],
+		types: ["Poison", "Flying"],
 		baseStats: {hp: 72, atk: 74, def: 70, spa: 112, spd: 103, spe: 109},
 		abilities: {0: "Liquid Ooze", H: "Pulp Up"},
+		weightkg: 22.0,
+	},
+	coralpukei: {
+		num: 109,
+		name: "Coral-Pukei",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 72, atk: 70, def: 74, spa: 112, spd: 109, spe: 103},
+		abilities: {0: "Torrent", H: "Pulp Up"},
 		weightkg: 22.0,
 	},
 	qurupeco: {
@@ -1262,7 +1286,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	raknakadaki: {
 		num: 111,
 		name: "Rakna-Kadaki",
-		types: ["Bug", "Ghost"],
+		types: ["Ghost", "Bug"],
 		gender: "F",
 		baseStats: {hp: 102, atk: 104, def: 112, spa: 104, spd: 78, spe: 64},
 		abilities: {0: "Swarm", H: "Mummy"},
@@ -1271,7 +1295,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
  	pyrekadaki: {
 		num: 111,
 		name: "Pyre-Kadaki",
-		types: ["Bug", "Fire"],
+		types: ["Fire", "Bug"],
 		gender: "F",
 		baseStats: {hp: 102, atk: 104, def: 78, spa: 104, spd: 112, spe: 64},
 		abilities: {0: "Blaze", H: "Mummy"},
@@ -1280,7 +1304,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	rathalos: {
 		num: 11,
 		name: "Rathalos",
-		types: ["Flying", "Fire"],
+		types: ["Fire", "Flying"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 120, spd: 80, spe: 110},
 		abilities: {0: "Poison Touch", H: "Gale Wings"},
@@ -1290,7 +1314,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	silvalos: {
 		num: 11,
 		name: "Silvalos",
-		types: ["Flying", "Steel"],
+		types: ["Steel", "Flying"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 120, spd: 80, spe: 110},
 		abilities: {0: "Incandescent", H: "Gale Wings"},
@@ -1299,7 +1323,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	azurelos: {
 		num: 11,
 		name: "Azurelos",
-		types: ["Flying", "Poison"],
+		types: ["Poison", "Flying"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 110, def: 80, spa: 120, spd: 80, spe: 120},
 		abilities: {0: "Strafe", 1: "Corrosive Claws", H: "Gale Wings"},
@@ -1320,7 +1344,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
  	rathian: {
 		num: 12,
 		name: "Rathian",
-		types: ["Poison", "Ground"],
+		types: ["Ground", "Poison"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 75, def: 120, spa: 75, spd: 120, spe: 75},
 		abilities: {0: "Poison Point", H: "Queenly Majesty"},
@@ -1330,7 +1354,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	goldthian: {
 		num: 12,
 		name: "Goldthian",
-		types: ["Poison", "Steel"],
+		types: ["Steel", "Poison"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 80, def: 120, spa: 110, spd: 120, spe: 75},
 		abilities: {0: "Incandescent", H: "Queenly Majesty"},
@@ -1339,7 +1363,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	pinkthian: {
 		num: 12,
 		name: "Pinkthian",
-		types: ["Poison", "Fairy"],
+		types: ["Fairy", "Poison"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 75, def: 120, spa: 75, spd: 120, spe: 75},
 		abilities: {0: "Merciless", H: "Queenly Majesty"},
@@ -1350,7 +1374,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Dreadqueen Rathian",
 		baseSpecies: "Rathian",
 		forme: "Mega",
-		types: ["Poison", "Flying"],
+		types: ["Flying", "Poison"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 100, def: 140, spa: 75, spd: 140, spe: 75},
 		abilities: {0: "Toxic Chain"},
@@ -1458,7 +1482,15 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Shogun Ceanataur",
 		types: ["Water"],
 		baseStats: {hp: 60, atk: 140, def: 90, spa: 95, spd: 65, spe: 100},
-		abilities: {0: "Sharpness", H: "Swift Swim"},
+		abilities: {0: "Sharpness", 1: "Swift Swim", H: "Shell Armor"},
+		weightkg: 60.0,
+	},
+	terrataur: {
+		num: 30,
+		name: "Terrataur",
+		types: ["Water", "Rock"],
+		baseStats: {hp: 60, atk: 140, def: 100, spa: 95, spd: 65, spe: 90},
+		abilities: {0: "Dulled Blades", H: "Shell Armor"},
 		weightkg: 60.0,
 	},
 	somnacanth: {
@@ -1611,7 +1643,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	vaalhazak: {
 		num: 124,
 		name: "Vaal Hazak",
-		types: ["Ghost", "Poison"],
+		types: ["Poison", "Ghost"],
 		baseStats: {hp: 95, atk: 83, def: 100, spa: 110, spd: 145, spe: 75},
 		abilities: {0: "Toxic Chain", H: "Perish Body"},
 		weightkg: 125.0,
@@ -1619,7 +1651,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	blackveilhazak: {
 		num: 124,
 		name: "Blackveil Hazak",
-		types: ["Ghost", "Grass"],
+		types: ["Grass", "Ghost"],
 		baseStats: {hp: 95, atk: 83, def: 145, spa: 110, spd: 100, spe: 75},
 		abilities: {0: "Pathogenic", H: "Perish Body"},
 		weightkg: 125.0,
@@ -1627,7 +1659,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	valstrax: {
 		num: 87,
 		name: "Valstrax",
-		types: ["Dragon", "Steel"],
+		types: ["Steel", "Dragon"],
 		baseStats: {hp: 95, atk: 105, def: 115, spa: 80, spd: 85, spe: 135},
 		abilities: {0: "Power Spot", H: "Strafe"},
 		weightkg: 130.0,
@@ -1752,7 +1784,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	zinogre: {
 		num: 59,
 		name: "Zinogre",
-		types: ["Normal", "Electric"],
+		types: ["Electric", "Normal"],
 		baseStats: {hp: 73, atk: 103, def: 92, spa: 109, spd: 92, spe: 114},
 		abilities: {0: "Speed Boost", H: "Insect Armor"},
 		weightkg: 178.4,
@@ -1761,7 +1793,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	stygiogre: {
 		num: 59,
 		name: "Stygiogre",
-		types: ["Normal", "Dragon"],
+		types: ["Dragon", "Normal"],
 		baseStats: {hp: 73, atk: 109, def: 92, spa: 103, spd: 92, spe: 114},
 		abilities: {0: "Dragon Point", H: "Insect Armor"},
 		weightkg: 178.4,
@@ -1943,7 +1975,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		battleOnly: "Doomtrellian",
 	},
 	arbitrellian: {
-		num: 524,
+		num: 523,
 		name: "Arbitrellian",
 		types: ["Dragon", "Bug"],
 		baseStats: {hp: 90, atk: 70, def: 90, spa: 110, spd: 110, spe: 110},
@@ -1951,7 +1983,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 100.0,
 	},
 	arbitrelliancharged: {
-		num: 524,
+		num: 523,
 		name: "Arbitrellian-Charged",
 		baseSpecies: "Arbitrellian",
 		forme: "Charged",
@@ -1963,7 +1995,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		battleOnly: "Arbitrellian",
 	},
 	duremudira: {
-		num: 525,
+		num: 524,
 		name: "Duremudira",
 		types: ["Ice", "Poison"],
 		baseStats: {hp: 95, atk: 124, def: 81, spa: 114, spd: 75, spe: 131},
@@ -1971,7 +2003,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 200.0,
 	},
 	olturalarval: {
-		num: 526,
+		num: 525,
 		name: "Oltura-Larval",
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 130, atk: 88, def: 112, spa: 88, spd: 100, spe: 45},
@@ -1980,7 +2012,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		evos: ["Oltura"],
 	},
 	oltura: {
-		num: 527,
+		num: 526,
 		name: "Oltura",
 		types: ["Fairy", "Psychic"],
 		baseStats: {hp: 80, atk: 78, def: 82, spa: 126, spd: 130, spe: 124},
@@ -1989,11 +2021,19 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		prevo: "Oltura-Larval",
 	},
 	akuravashimu: {
-		num: 528,
+		num: 527,
 		name: "Akura Vashimu",
 		types: ["Bug", "Fairy"],
 		baseStats: {hp: 80, atk: 70, def: 110, spa: 100, spd: 150, spe: 70},
 		abilities: {0: "Rocky Payload", H: "Crystalblight"},
 		weightkg: 125.0,
+	},
+	xuwu: {
+		num: 528,
+		name: "Xu Wu",
+		types: ["Dark", "Ghost"],
+		baseStats: {hp: 70, atk: 129, def: 87, spa: 71, spd: 108, spe: 105},
+		abilities: {0: "Technician", H: "Ambush"},
+		weightkg: 80.0,
 	},
 }
