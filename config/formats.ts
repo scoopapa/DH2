@@ -505,7 +505,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard'],
 		banlist: [
-			'Kalos Uber',
+			'AG', 'Uber',
 			'Arena Trap', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
@@ -517,6 +517,9 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos Uber') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
+				}
+				else if (template.tier === 'Kalos Uber') {
+					return [set.species + ' is banned from DLCmons.'];
 				}
 			}
 		},
