@@ -2047,16 +2047,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "No competitive effect.",
 		desc: "No competitive effect.",
 	},
-	sharpness: {
-		inherit: true,
-		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.3.",
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['slicing']) {
-				return this.chainModify(1.3);
-			}
-		},
-	},
 	cheerleader: {
 		onStart(pokemon) {
 			this.boost({atk: 1}, pokemon);
