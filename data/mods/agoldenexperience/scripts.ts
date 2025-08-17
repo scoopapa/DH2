@@ -1066,17 +1066,16 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'rockster').learnset.mercuryshot = ['9M'];
 
     // sweetheart 
-    this.modData('Learnsets', 'audino').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'blissey').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'alomomola').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'sylveon').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'luvdisc').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'wigglytuff').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'mesprit').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'chansey').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'bellossom').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'milotic').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'blissey').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'luvdisc').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'audino').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'sylveon').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'mesprit').learnset.sweetheart = ['9L1'];
 
     // chakraterrain 
     this.modData('Learnsets', 'hitmonchan').learnset.chakraterrain = ['9L1'];

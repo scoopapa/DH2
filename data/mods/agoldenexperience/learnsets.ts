@@ -2099,7 +2099,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			sleeptalk: ["9M"],
 			substitute: ["9M"],
 			sunnyday: ["9M"],
-			sweetheart: ["9M"],
 			sweetscent: ["9L20"],
 			taunt: ["9M"],
 			teleport: ["9M"],
