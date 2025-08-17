@@ -769,16 +769,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log(pokemon.boosts['accuracy']);
 			console.log(pokemon.boosts['evasion']);
 			if (unconcerned === pokemon) return;
-			console.log(unconcerned + " is the target, " + pokemon + " is the attacker");
-			console.log("The real target is " + this.activeTarget);
 			if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
 			//if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
+				console.log("Defense!");
 				pokemon.boosts['def'] = 0;
 				pokemon.boosts['spd'] = 0;
 				pokemon.boosts['evasion'] = 0;
 			}
 			if (unconcerned === this.activePokemon && pokemon === this.activeTarget) {
 			//if (pokemon === this.activePokemon && unconcerned === this.activeTarget) {
+				console.log("Offense!");
 				pokemon.boosts['atk'] = 0;
 				pokemon.boosts['def'] = 0;
 				pokemon.boosts['spa'] = 0;
