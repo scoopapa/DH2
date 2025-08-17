@@ -3610,6 +3610,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Flying",
 		contestType: "Cool",
 	},
+	doublehit: {
+		inherit: true,
+		basePower: 50,
+	},
 
 
 
