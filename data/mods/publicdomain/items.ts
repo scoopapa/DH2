@@ -13,4 +13,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Sligma, this item allows it to Mega Evolve in battle.",
 	},
+	starsweet: {
+		inherit: true,
+		shortDesc: "Holder's use of Meteor Shower lasts 8 turns instead of 5.",
+		rating: 2,
+	},
 };
