@@ -9304,6 +9304,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			blazingtorque: ["9L1"],
 			combattorque: ["9L1"],
 			magicaltorque: ["9L1"],
+			rollout: ["9L1"],
+			defensecurl: ["9L1"],
 			noxioustorque: ["9L1"],
 			wickedtorque: ["9L1"],
 			attract: ["9L1"],
@@ -12081,6 +12083,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			agility: ["9L1"],
 			aurasphere: ["9L1"],
+			blazeball: ["9L1"],
 			bestow: ["9L1"],
 			blazekick: ["9L1"],
 			blueflare: ["9L1"],
