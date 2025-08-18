@@ -139,4 +139,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Plunder",
 		shortDesc: "This Pokemon's first attack steals the target's last used move, if any, from their moveset and adds it to its own. Once per battle.",
 	},
+	humansacrifice: {
+		shortDesc: "If this Pokemon attacks & KO’s a target, it restores 1/3 max HP.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge');
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
+		},
+		name: "Human Sacrifice",
+	},
+	shiningmoon: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && unawareUser === this.activeTarget) {
+				if (boosts['evasion'] > 0) boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && pokemon === this.activeTarget) {
+				if (boosts['accuracy'] < 0) boosts['accuracy'] = 0;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'meteorshower') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Shining Moon",
+		shortDesc: "User ignores its acc drops and target's eva boosts; heals 1/16 in Meteor Shower.",
+	},
 };

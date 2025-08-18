@@ -63,4 +63,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	ttos: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	niagarafallsmidnight: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	typhlosionhisuiperformative: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	deoxys: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	ursalunacrescentmoon: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
 };

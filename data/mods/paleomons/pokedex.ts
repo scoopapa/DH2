@@ -577,5 +577,36 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Oblivious", 1: "Wandering Spirit", H: "Cud Chew"},
 		weightkg: 420.0,
 	},
-
+	nymphamane: {
+		num: 68,
+		species: "Nymphamane",
+		types: ["Fairy", "Water"],
+		baseStats: {hp: 55, atk: 60, def: 125, spa: 105, spd: 85, spe: 100},
+		abilities: {0: "Aroma Veil", H: "Punk Rock"},
+		weightkg: 4.0,
+	},
+	combysa: {
+		num: 69,
+		species: "Combysa",
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 85, atk: 85, def: 85, spa: 125, spd: 79, spe: 91},
+		abilities: {0: "Compound Eyes", 1: "Shield Dust", H: "Flame Body"},
+		weightkg: 92.0,
+	},
+	magnestone: {
+		num: 70,
+		species: "Magnestone",
+		types: ["Electric", "Rock"],
+		baseStats: {hp: 85, atk: 71, def: 97, spa: 121, spd: 65, spe: 101},
+		abilities: {0: "Predator", H: "Solid Rock"},
+		weightkg: 60.0,
+	},
+	nochummer: {
+		num: 71,
+		species: "Nochummer",
+		types: ["Normal", "Dark"],
+		baseStats: {hp: 90, atk: 127, def: 80, spa: 53, spd: 60, spe: 90},
+		abilities: {0: "Dry Skin", H: "Night Watch"},
+		weightkg: 380.0,
+	},
 }
