@@ -2035,6 +2035,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(pokemon) {
 			this.actions.useMove("surprise", pokemon)
 			this.add('-enditem', pokemon, "Surprise Bomb");
+			this.useItem();
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

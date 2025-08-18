@@ -506,7 +506,6 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 		banlist: [
 			'AG', 'Uber',
-			'Aegislash', 'Hoopa-Unbound', 'Greninja', 'Mawilite',
 			'Arena Trap', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
@@ -516,8 +515,11 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos Uber') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
+				}
+				else if (template.tier === 'Kalos Uber') {
+					return [set.species + ' is banned from DLCmons.'];
 				}
 			}
 		},
@@ -1669,10 +1671,10 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'STABmons Move Legality', 'Sketchmons Move Legality',],
+			'Revelationmons Mod',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
-			// @type {{[k: string]: true}}
+			// @type {{[k: string]: true}} 
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -1680,6 +1682,39 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Super Smash OMs.'];
 				}
+			}
+		},
+		onValidateSet(set) {
+			const stabmons = [
+				'Arboliva', 'Porygon2', 'Terrakion',
+			];
+			const sketchmons = [
+				'Registeel', 'Garchomp', 
+			];
+			const aaa = [
+				'Cresselia', 'Slither Wing', 'Quaquaval', 'Scream Tail',
+			];
+			const convergence = [
+				'Greninja', 'Ogerpon', 'Zarude',
+			];
+			const franticfusions = [
+				'Bellibolt', 'Tinkaton', 'Ninetales', 'Crabominable',
+			];
+			const species = this.dex.species.get(set.species);
+			console.log("Species is " + species.name);
+			const speciesAbilities = [];
+			console.log("Species abilities are ");
+			for (let key in species.abilities) {
+			    let value = species.abilities[key];
+			    console.log(value);
+			    speciesAbilities.push(value);
+			}
+			console.log("Set has ability " + set.ability);
+			console.log("Is it AAA? " + aaa.includes(species.name));
+			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
+			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) {
+				console.log("Hello there");
+				return [];
 			}
 		},
 		mod: 'supersmashoms',

@@ -4,7 +4,7 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
-		customDoublesTiers: ['Kalos', 'Kalos (NFE)'],
+		customDoublesTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
 	},
 	init() {
 		// vocalstrain 
@@ -171,5 +171,11 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 		this.modData('Learnsets', 'chimecho').learnset.cleansingwave = ['6L1'];
 		this.modData('Learnsets', 'aromatisse').learnset.cleansingwave = ['6L1'];
 		this.modData('Learnsets', 'illumise').learnset.cleansingwave = ['6L1'];
+		// Slate 4
+		this.modData('Learnsets', 'floatzel').learnset.block = ['6L1'];
+		this.modData('Learnsets', 'floatzel').learnset.cleansingwave = ['6L1'];
+		this.modData('Learnsets', 'floatzel').learnset.healpulse = ['6L1'];
+		this.modData('Learnsets', 'floatzel').learnset.superpower = ['6L1'];
+		this.modData('Learnsets', 'floatzel').learnset.uturn = ['6L1'];
 	},
 };

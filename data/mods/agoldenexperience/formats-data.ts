@@ -686,7 +686,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	hitmonchan: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	hitmontop: {
@@ -1417,7 +1417,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	sceptilemega: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	torchic: {
@@ -1861,7 +1861,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	milotic: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	castform: {
@@ -2958,7 +2958,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	chandelure: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	axew: {
@@ -3072,11 +3072,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	terrakion: {
-		tier: "RUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	virizion: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "(DUU)",
 	},
 	tornadus: {
@@ -4551,6 +4551,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	rabsca: {
 		tier: "NU",
 		doublesTier: "(DUU)",
+	},
+	rabscamega: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	greavard: {
 		tier: "LC",

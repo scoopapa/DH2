@@ -30,7 +30,46 @@ export const Scripts: ModdedBattleScriptsData = {
       this.apparentType = this.types.join('/');
   
       return true;
-    }
+    },
+    setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange = false, isTransform = false) {
+      if (!this.hp) return false;
+      if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
+      const oldAbility = this.ability;
+      if (!isFromFormeChange) {
+        if (ability.flags && (ability.flags['cantsuppress'] || this.getAbility().flags['cantsuppress'])) return false;
+      }
+      if (!isFromFormeChange && !isTransform) {
+        const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
+        if (!setAbilityEvent) return setAbilityEvent;
+      }
+      this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityState, this, source);
+      if (this.battle.effect && this.battle.effect.effectType === 'Move' && !isFromFormeChange) {
+        this.battle.add(
+          '-endability', this, this.battle.dex.abilities.get(oldAbility),
+          `[from] move: ${this.battle.dex.moves.get(this.battle.effect.id)}`
+        );
+      }
+      this.ability = ability.id;
+      this.abilityState = {id: ability.id, target: this};
+      if (ability.id && this.battle.gen > 3 &&
+        (!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
+        this.battle.singleEvent('Start', ability, this.abilityState, this, source);
+      }
+      return oldAbility;
+    },
+    takeDual(source) {
+      if (!this.isActive) return false;
+      if (!this.ability) return false;
+      if (!source) source = this;
+      const dual = this.getAbility() as any as Item;
+      if (dual.effectType !== 'Item') return false;
+      if (this.battle.runEvent('TakeItem', this, source, null, dual)) {
+        this.baseAbility = this.ability = '';
+        this.abilityData = {id: '', target: this};
+        return dual;
+      }
+      return false;
+    },
   },
   actions: {
     canMegaEvo(pokemon) {
@@ -1027,17 +1066,16 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'rockster').learnset.mercuryshot = ['9M'];
 
     // sweetheart 
-    this.modData('Learnsets', 'audino').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'blissey').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'alomomola').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'sylveon').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'luvdisc').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'wigglytuff').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'mesprit').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'chansey').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'bellossom').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'milotic').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'blissey').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'luvdisc').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'audino').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'sylveon').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'mesprit').learnset.sweetheart = ['9L1'];
 
     // chakraterrain 
     this.modData('Learnsets', 'hitmonchan').learnset.chakraterrain = ['9L1'];
@@ -1333,6 +1371,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
     // Gen 4:
     this.modData('Learnsets', 'torterra').learnset.weatherball = ['9L1'];
+    this.modData('Learnsets', 'staraptor').learnset.intrepidcrash = ['9L1'];
     this.modData('Learnsets', 'bibarel').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'bibarel').learnset.icefang = ['9L1'];
     this.modData('Learnsets', 'bibarel').learnset.trailblaze = ['9L1'];
@@ -1669,6 +1708,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wishiwashi').learnset.aquajet = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.thunder = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'lurantis').learnset.mantisslash = ['9L1'];
     this.modData('Learnsets', 'bewear').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'bewear').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'comfey').learnset.moonblast = ['9L1'];
@@ -1791,17 +1831,22 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'pawmot').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'pawmot').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'bellibolt').learnset.surf = ['9L1'];
+    this.modData('Learnsets', 'dachsbun').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.houndshowl = ['9L1'];
+    this.modData('Learnsets', 'cetitan').learnset.ningencry = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'rabsca').learnset.teleport = ['9L1'];
+    this.modData('Learnsets', 'rabsca').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.spikes = ['9L1'];
     this.modData('Learnsets', 'kilowattrel').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'mabosstiff').learnset.suckerpunch = ['9L1'];
     this.modData('Learnsets', 'brambleghast').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'toedscruel').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'scovillain').learnset.scorchingsands = ['9L1'];

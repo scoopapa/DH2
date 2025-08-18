@@ -2099,7 +2099,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			sleeptalk: ["9M"],
 			substitute: ["9M"],
 			sunnyday: ["9M"],
-			sweetheart: ["9M"],
 			sweetscent: ["9L20"],
 			taunt: ["9M"],
 			teleport: ["9M"],
@@ -7102,6 +7101,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			earthquake: ["9L1"],
 			closecombat: ["9L1"],
 			skydrop: ["9L1"],
+			gravity: ["9L1"],
+			dragonclaw: ["9L1"],
 		},
 	},
 	badapple: {
