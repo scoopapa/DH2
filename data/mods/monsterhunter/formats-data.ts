@@ -614,6 +614,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ahtalneset: {
 		tier: "MHOU",
 	},
+	xuwu: {
+		tier: "MHUU",
+	},
+	oroshirin: {
+		tier: "MHOU",
+	},
+	terrataur: {
+		tier: "MHUU",
+	},
+	coralpukei: {
+		tier: "MHRU",
+	},
+	rustramboros: {
+		tier: "MHUU",
+	},
 	redhelmarzuros: {
 		tier: "MEGAS",
 	},

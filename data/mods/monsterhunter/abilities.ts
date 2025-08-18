@@ -1236,21 +1236,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				source.formeChange('arbitrelliancharged', this.effect, true);
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Destruction Star');
-			}
-			return false;
-		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn') {
-				this.add('-immune', target, '[from] ability: Destruction Star');
-				return null;
-			}
-		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Destruction Star",
-		shortDesc: "Immune to Status Conditions. After KOing a Pokemon; becomes Charged.",
+		shortDesc: "After KOing a Pokemon; becomes Charged.",
 		rating: 4,
 	},
 	disasterstar: {
@@ -1263,23 +1251,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				source.formeChange('doomtrelliancharged', this.effect, true);
 			}
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
-				this.debug('Insect Armor boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
-				this.debug('Insect Armor boost');
-				return this.chainModify(1.5);
-			}
-		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Disaster Star",
-		shortDesc: "STAB on Bug Moves. After KOing a Pokemon; becomes Charged.",
+		shortDesc: "After KOing a Pokemon; becomes Charged.",
 		rating: 4,
 	},
 	empressthrone: {
@@ -1476,6 +1450,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Spongy",
 		rating: 3.5,
 	},
+	dulledblades: {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
+			if (!move || !target) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		name: "Dulled Blades",
+		shortDesc: "Slicing moves: +1 Defense.",
+		rating: 3,
+	},
+	ambush: {
+		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Ambush",
+		rating: 3,
+	},
 	/*
 	Edits
 	*/
@@ -1485,7 +1484,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	icebody: {
 		inherit: true,
-		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",
+		shortDesc: "If Snow is active, this Pokemon heals 1/8th of its max HP each turn.",
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' || effect.id === 'snow') {
 				this.heal(target.baseMaxhp / 8);
