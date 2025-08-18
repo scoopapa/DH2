@@ -1477,7 +1477,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
 			psychicnoise: ["9L1"],
-			24karatlabubu: ["9L1"],
+			'24karatlabubu': ["9L1"],
 			matcharuption: ["9L1"],
 		},
 	},
