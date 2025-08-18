@@ -2237,7 +2237,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Noxious Torque",
-		shortDesc: "10% chance to make the target drowsy.",
 		pp: 10,
 		priority: 0,
 		flags: {
@@ -2256,6 +2255,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "10% chance to make the target drowsy.",
 		name: "Wicked Torque",
 		pp: 10,
 		priority: 0,

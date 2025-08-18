@@ -808,7 +808,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	oroshirin: {
 		num: 16,
-		name: "Kirin",
+		name: "Oroshirin",
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 92, atk: 130, def: 103, spa: 82, spd: 105, spe: 90},
 		abilities: {0: "Chilling Neigh", H: "Stalwart"},

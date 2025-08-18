@@ -13311,6 +13311,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bounce: ["9L1"],
 			bubblebeam: ["9L1"],
 			confide: ["9L1"],
+			stealthrock: ["9L1"],
 			crabhammer: ["9L1"],
 			cut: ["9L1"],
 			dig: ["9L1"],
