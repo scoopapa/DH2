@@ -780,6 +780,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spiritbreak: ["9L1"],
 			icespinner: ["9L1"],
 			trailblaze: ["9L1"],
+			rapidspin: ["9L1"],
 			recycle: ["9L1"],
 			healpulse: ["9L1"],
 			taunt: ["9L1"],
