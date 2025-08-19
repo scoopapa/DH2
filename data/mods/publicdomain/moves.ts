@@ -197,7 +197,95 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-
+	'24karatlabubu': {
+		name: "24 Karat Labubu",
+		type: "Ghost",
+		category: "Special",
+		basePower: 65,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Sets Ghost-type Stealth Rock on the target's side.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ceaseless Edge", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('24karatlabubu');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('24karatlabubu');
+				}
+			}
+		},
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: 24 Karat Labubu');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Normal')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('24karatlabubu')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: {},
+		target: "normal",
+	},
+	matcharuption: {
+		accuracy: 100,
+		basePower: 140,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		category: "Special",
+		name: "Matcharuption",
+		shortDesc: "Less power as user's HP decreases. Hits foe(s).",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	crescentshine: {
+		name: "Crescent Shine",
+		type: "Fairy",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "50% (100 in Meteor Shower) chance to raise the user's Sp. Atk by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Moonblast", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.isWeather('meteorshower')) move.secondaries[0].chance = 100;
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+	},
+	
 	//vanilla moves
 	meteorbeam: {
 		inherit: true,
@@ -220,7 +308,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "20% (100% in Meteor Shower) chance for Atk +1.",
 		onModifyMove(move, pokemon) {
-			if (this.field.isWeather('meteorshower')) move.secondary.chance = 100;
+			if (this.field.isWeather('meteorshower')) move.secondaries[0].chance = 100;
 		},
 	},
 	swift: {

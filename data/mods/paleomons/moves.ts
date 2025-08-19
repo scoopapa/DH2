@@ -266,6 +266,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	ferrousforce: {
+		accuracy: 80,
+		basePower: 110,
+		category: "Special",
+		name: "Ferrous Force",
+		shortDesc: "If the target is Steel-type, lowers its Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Steel Beam", target);
+		},
+		onAfterHit(target, source, move) {
+			if (target.hasType('Steel')) this.boost({spd: -1});
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
 	
 	//edited vanilla moves
 	fishiousrend: {
