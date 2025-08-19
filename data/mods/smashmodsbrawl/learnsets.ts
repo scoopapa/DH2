@@ -22150,7 +22150,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		],
 		eventOnly: true,
 	},
-	zapdos: {
+	/* zapdos: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M", "7M", "6M", "5M", "4M", "3M"],
@@ -22257,7 +22257,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			{generation: 1, level: 50},
 		],
 		eventOnly: true,
-	},
+	}, */
 	zapdosgalar: {
 		learnset: {
 			acrobatics: ["9M", "8M"],
