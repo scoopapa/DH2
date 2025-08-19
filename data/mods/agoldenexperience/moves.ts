@@ -3595,7 +3595,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		name: "Rogue Wave",
+		name: "Intrepid Crash",
 		shortDesc: "Has 33% recoil. Usually goes first.",
 		pp: 10,
 		priority: 1,

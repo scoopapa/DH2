@@ -17,18 +17,17 @@ const uber9 = [
 	"terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", "yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
 const viabilityList9 = [
-	"alomomola", "clodsire", "corviknight", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
-	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
-	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
-	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
+	"alomomola", "clodsire", "corviknight", "dragonite", "ferrothorn", "garchomp", "gholdengo", "gliscor", "greattusk", "hatterene", "heatran", "irontreads", "ironvaliant", 
+	"kartana", "kingambit", "kyurem", "landorustherian", "melmetal", "moltres", "ogerponwellspring", "ragingbolt", "samurotthisui", "slowkinggalar", "tapufini", "tapulele", 
+	"tapukoko", "terapagos", "terapagosterastal", "tinglu", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", "conkeldurrmega", 
 	"corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
-	"froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "krookodilemega", "lanturnmega", "lopunnymega", 
-	"lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", 
-	"raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", "stoutlandmega", 
-	"talonflamemega", "typhlosionmega", "tyranitarmega", "tyrantrummega", "vanilluxemega", "wailordmega",
+	"froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "krookodilemega", "lanturnmega", "latiosmega", 
+	"lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", 
+	"orbeetlemega", "raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", 
+	"stoutlandmega", "talonflamemega", "typhlosionmega", "tyrantrummega", "vanilluxemega", "wailordmega",
 ];
 /*
 // doubles tiers (currently unused because the teambuilder doesn't support them well)
