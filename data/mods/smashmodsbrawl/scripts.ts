@@ -90,7 +90,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "centiskorch").learnset.willowisp = ["9L1"];
 		this.modData('Learnsets', "centiskorch").learnset.wrap = ["9L1"];
 		this.modData('Learnsets', "centiskorch").learnset.xscissor = ["9L1"];
-		// aurorus
 		this.modData('Learnsets', "aurorus").learnset.aquatail = ["9L1"];
 		this.modData('Learnsets', "aurorus").learnset.attract = ["9L1"];
 		this.modData('Learnsets', "aurorus").learnset.barrier = ["9L1"];
