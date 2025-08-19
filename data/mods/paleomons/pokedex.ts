@@ -579,7 +579,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	nymphamane: {
 		num: 68,
-		species: "Nymphamane",
+		name: "Nymphamane",
 		types: ["Fairy", "Water"],
 		baseStats: {hp: 55, atk: 60, def: 125, spa: 105, spd: 85, spe: 100},
 		abilities: {0: "Aroma Veil", H: "Punk Rock"},
@@ -587,7 +587,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	combysa: {
 		num: 69,
-		species: "Combysa",
+		name: "Combysa",
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 85, atk: 85, def: 85, spa: 125, spd: 79, spe: 91},
 		abilities: {0: "Compound Eyes", 1: "Shield Dust", H: "Flame Body"},
@@ -595,7 +595,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	magnestone: {
 		num: 70,
-		species: "Magnestone",
+		name: "Magnestone",
 		types: ["Electric", "Rock"],
 		baseStats: {hp: 85, atk: 71, def: 97, spa: 121, spd: 65, spe: 101},
 		abilities: {0: "Predator", H: "Solid Rock"},
@@ -603,7 +603,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	nochummer: {
 		num: 71,
-		species: "Nochummer",
+		name: "Nochummer",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 90, atk: 127, def: 80, spa: 53, spd: 60, spe: 90},
 		abilities: {0: "Dry Skin", H: "Night Watch"},

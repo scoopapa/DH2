@@ -141,7 +141,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ttos: {
 		num: 17,
-		species: "Ttos",
+		name: "Ttos",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 100, atk: 134, def: 110, spa: 86, spd: 90, spe: 60},
 		abilities: {0: "Sand Stream", 1: "Shed Skin", H: "Solid Rock"},
@@ -149,7 +149,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	niagarafallsmidnight: {
 		num: 18,
-		species: "Niagara Falls-Midnight",
+		name: "Niagara Falls-Midnight",
 		baseSpecies: "Niagara Falls",
 		forme: "Midnight",
 		types: ["Poison", "Ghost"],
@@ -159,7 +159,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	typhlosionhisuiperformative: {
 		num: 19,
-		species: "Typhlosion-Hisui-Performative",
+		name: "Typhlosion-Hisui-Performative",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 73, atk: 84, def: 78, spa: 119, spd: 85, spe: 95},
 		abilities: {0: "Soundproof", 1: "Punk Rock", H: "Grassy Surge"},
@@ -168,7 +168,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	deoxys: {
 		inherit: true,
 		num: 20,
-		species: "Deoxys",
+		name: "Deoxys",
 		types: ["Psychic"],
 		baseStats: {hp: 79, atk: 89, def: 101, spa: 97, spd: 127, spe: 107},
 		abilities: {0: "Protean"},
@@ -176,7 +176,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ursalunacrescentmoon: {
 		num: 21,
-		species: "Ursaluna-Crescentmoon",
+		name: "Ursaluna-Crescentmoon",
 		baseSpecies: "Ursaluna",
 		forme: "Crescentmoon",
 		types: ["Ground", "Normal"],
