@@ -13268,6 +13268,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			focusblast: ["9L1"],
 			glaciallance: ["9L1"],
 			growl: ["9L1"],
+			shadowsneak: ["9L1"],
 			grudge: ["9L1"],
 			hex: ["9L1"],
 			highhorsepower: ["9L1"],
@@ -13312,6 +13313,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			stealthrock: ["9L1"],
 			crabhammer: ["9L1"],
 			cut: ["9L1"],
+			mightycleave: ["9L1"],
 			dig: ["9L1"],
 			dive: ["9L1"],
 			doubleteam: ["9L1"],
@@ -13550,6 +13552,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wavecrash: ["9L1"],
 			whirlpool: ["9L1"],
 			zenheadbutt: ["9L1"],
-			},
-		}
+		},
 	}
+}
