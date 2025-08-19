@@ -98,6 +98,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Bulk Up", target);
 		},
+		onHit(pokemon) {
+			const success = !!this.boost({atk: 1, def: 1});
+			return pokemon.cureStatus() || success;
+		},
 		secondary: null,
 		target: "normal",
 	},
