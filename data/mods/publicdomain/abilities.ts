@@ -144,7 +144,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokemon attacks & KO’s a target, it restores 1/3 max HP.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'ability: Scavenge');
+				this.add('-activate', source, 'ability: Human Sacrifice');
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
