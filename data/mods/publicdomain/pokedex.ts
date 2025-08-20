@@ -12,7 +12,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Moldengo",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 87, atk: 60, def: 95, spa: 133, spd: 91, spe: 84},
-		abilities: {0: "Good As Mold"},
+		abilities: {0: "Good as Mold"},
 		weightkg: 19,
 	},
 	hamburger: {

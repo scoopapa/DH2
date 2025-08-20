@@ -115,7 +115,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				for (let i = 0; i < target.moveSlots.length; i ++) {
 					const temp = target.moveSlots[i];
 					const moveSlot = this.dex.moves.get(temp.id);
-					if (moveSlot === null || source.moveSlots.some(move => move === temp)) continue;
+					if (moveSlot === null || source.moveSlots.some(move => (move.name === temp.move) || temp.move !== target.lastMove.name)) continue;
 					this.attrLastMove('[still]');
 					learnedMove = {
 						move: moveSlot,
@@ -131,6 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					target.moveSlots.splice(i, 1);
 					target.baseMoveSlots.splice(i, 1);
 					source.stole = true;
+					break;
 				}
 				if (learnedMove) this.add('-message', `${source.name} stole ${target.name}'s ${learnedMove.move}!`);
 			}
@@ -143,7 +144,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokemon attacks & KO’s a target, it restores 1/3 max HP.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'ability: Scavenge');
+				this.add('-activate', source, 'ability: Human Sacrifice');
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
