@@ -2762,7 +2762,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	fatbombing: {
 		num: -63,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 130,
 		category: "Physical",
 		name: "Fat Bombing",
 		pp: 10,
