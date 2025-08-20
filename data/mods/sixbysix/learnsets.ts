@@ -439,7 +439,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunderwave: ["9L1"],
 			trick: ["9L1"],
 			trickroom: ["9L1"],
-			weatherball: ["9L1"],
 			willowisp: ["9L1"],
 			babydolleyes: ["9L1"],
 			charm: ["9L1"],
