@@ -119,4 +119,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Pawn",
 	},
   */
+	ogerpontealtera: {
+		tier: "Illegal",
+	},
 };
