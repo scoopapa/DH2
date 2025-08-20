@@ -145,6 +145,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 		onSourceAfterFaint(length, target, pokemon, effect) {
 			if (effect && effect.effectType === 'Move') {
+				this.actions.useMove('Recharge', pokemon);
 				pokemon.removeVolatile('mustrecharge');
 				this.add('-message', `${pokemon.name} recharged instantly!`);
 			}
