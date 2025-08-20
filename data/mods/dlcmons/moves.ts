@@ -138,4 +138,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Removes Leech Seed and entry hazards of both side, and decreases the targets' Speed by 1 stage. Hit all adjacent foes.",
 		shortDesc: "Removes hazards and Leech Seed from both sides. Decreases the targets' Speed by 1 stage. Hit all adjacent foes.",
 	},
+	mantisfist: {
+		num: -5,
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+		name: "Mantis Fist",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, punch: 1},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "X-Scissor", target);
+		},
+		zMove: {basePower: 140},
+		maxMove: {basePower: 120},
+		contestType: "Cool",
+		shortDesc: "Hit twice in one turn. Bypass accuracy check. Fist-based and contact-based, but ignores contact-delibtating mechanics like Iron Barbs.",
+	},
 };

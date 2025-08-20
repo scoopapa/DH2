@@ -253,8 +253,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {},
-		onTryHit(source) {
-			if (!this.canSwitch(source.side)) {
+		onTryHit(source, move) {
+			if (!this.canSwitch(source.side) || !move.selfSwitch) {
 				source.addVolatile('nanoboosted');
 				return this.NOT_FAIL;
 			}
@@ -265,6 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'nanoboost',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('nanoboosted');
@@ -365,6 +366,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Mad Milk');
 			},
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Mad Milk');
+			},
 			onSideRestart(side) {
 				if (side.sideConditions['madmilk']) return false;
 			},
@@ -425,6 +429,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		slotCondition: 'dimensionalcape',
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
 					target.addVolatile('hazardshield');
@@ -444,7 +449,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Galaxia Darkness",
-		shortDesc: "User becomes semi-invulnerable for one turn and slicing attacks used next turn have damaged doubled & crit",
+		shortDesc: "User becomes semi-invulnerable for one turn and slicing attacks used next turn have damaged doubled",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -473,7 +478,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				attacker.removeVolatile('galaxiadarkness');
 				if (move.flags['slicing']) {
 					this.debug('Galaxia Darkness boost');
-					move.willCrit = true;
 					return this.chainModify(2);
 				}
 			},
@@ -512,6 +516,269 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Beautiful",
 	},
+	upperdasharm: {
+		num: -17,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Upperdash Arm",
+		shortDesc: "Halves damage from special attacks before user moves.",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1, punch: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('upperdasharm');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-anim', source, "Defense Curl", source);
+				this.add('-singleturn', pokemon, 'move: Upperdash Arm');
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(spa, attacker, defender, move) {
+				this.debug('Upperdash Arm weaken');
+				return this.chainModify(0.5);
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('upperdasharm')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('upperdasharm');
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Uppercut", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+	},
+	finalstrike: {
+		num: -18,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Final Strike",
+		shortDesc: "Lowers the user's Sp. Atk by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Judgment", target);
+			this.add('-anim', source, "Light of Ruin", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	frostbitebreath: {
+		num: -19,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Frostbite Breath",
+		shortDesc: "Hits the target for their lower defensive stat.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Frost Breath", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	infecteddreams: {
+		num: -20,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Infected Dreams",
+		shortDesc: "30% par. 2x power if target already paralyzed.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Infestation", target);
+			this.add('-anim', source, "Nightmare", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+	},
+	bubbleswathe: {
+		num: -21,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Bubble Swathe",
+		shortDesc: "Suppresses pivoting effects of target's moves for 2 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sucker Punch", target);
+			this.add('-anim', target, "Aqua Ring", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (!target.volatiles['pivotsuppression']) {
+					target.addVolatile('pivotsuppression');
+				}
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	bonesaw: {
+		num: -22,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Bonesaw",
+		shortDesc: "High critical hit ratio.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Slash", target);
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	medigun: {
+		num: -23,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Medi-Gun",
+		shortDesc: "Next hurt ally healed for 25% & status cured.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		slotCondition: 'medigun',
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					const damage = this.heal(target.baseMaxhp / 4, target, target);
+					target.clearStatus();
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
+					target.side.removeSlotCondition(target, 'medigun');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	engineblowback: {
+		num: -24,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Engine Blowback",
+		shortDesc: "Forces the target to switch to a random ally.",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Overheat", target);
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	mineralize: {
+		num: -25,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Mineralize",
+		shortDesc: "Removes and replaces item with a Dusk Stone.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					if(item.id != 'duskstone') {
+						this.add('-enditem', target, item.name, '[from] move: Mineralize', '[of] ' + source);
+						this.add('-item', target, 'Dusk Stone', '[from] move: Mineralize');
+					}
+					target.item = 'duskstone';
+				}
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Wave", target);
+			this.add('-anim', target, "Power Gem", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+	},
+	orbofdiscord: {
+		num: -26,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Orb of Discord",
+		shortDesc: "Inflicts heal block for 2 turns. User switches.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+			const success = target.addVolatile('healblock', source, move);
+			if (!success) {
+				delete move.selfSwitch;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
@@ -528,7 +795,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade") {
+				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade" || effect?.name === "Orb of Discord") {
 					return 2;
 				}
 				if (source?.hasAbility('persistent')) {
@@ -570,7 +837,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			},
 			onRestart(target, source, effect) {
-				if (effect?.name === 'Psychic Noise' || effect?.name === 'Biotic Grenade') return;
+				if (effect?.name === 'Psychic Noise' || effect?.name === 'Biotic Grenade' || effect?.name === "Orb of Discord") return;
 
 				this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
 				if (!source.moveThisTurnResult) {
@@ -749,5 +1016,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	revivalblessing: {
+		num: 863,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Revival Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {heal: 1, nosketch: 1, falseswitch: 1},
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
+				return false;
+			}
+		},
+		slotCondition: 'revivalblessing',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a fainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// reviving implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 };

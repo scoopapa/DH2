@@ -35,12 +35,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				this.add('-status', target, 'baseball');
 			}
 		},
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-  			return this.chainModify(0.75);
-  		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
+  			return this.chainModify(0.75);
+  		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
   			return this.chainModify(0.75);
   		},
 		onTry(source, target, move) {
@@ -115,10 +115,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
-			if (battle.terrain === 'fishingterrain') {
-				this.add('-message', 'The fishing terrain blocked out the sun!');
-				return;
-			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);

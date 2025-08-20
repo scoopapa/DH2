@@ -33,7 +33,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.hasAbility('honeygather')
 			) {
 				if (pokemon.useItem()) {
-					const bestStat = pokemon.getBestStat(true);
+					const bestStat = pokemon.getBestStat(false, true);
 					this.boost({ [bestStat]: 1 }, pokemon);
 				}
 			}
@@ -84,6 +84,56 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: -1002,
 		gen: 9,
 		desc: "At or below 25% HP, recovers half of its HP.",
+	},
+	//
+	vigorseed: {
+		name: "Vigor Seed",
+		spritenum: 666,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('vigorterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('vigorterrain')) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			def: 1,
+		},
+		num: -1003,
+	},
+	//
+	corrosiverock: {
+		name: "Corrosive Rock",
+		spritenum: 88,
+		fling: {
+			basePower: 60,
+		},
+		num: -1004,
+	},
+	//
+	safetygoggles: {
+		name: "Safety Goggles",
+		spritenum: 604,
+		fling: {
+			basePower: 80,
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'acidicrain' || type === 'powder') return false;
+		},
+		onTryHit(pokemon, source, move) {
+			if (move.flags['powder'] && pokemon !== source && this.dex.getImmunity('powder', pokemon)) {
+				this.add('-activate', pokemon, 'item: Safety Goggles', move.name);
+				return null;
+			}
+		},
+		num: 650,
+		gen: 6,
 	},
 	//
 	zoomlens: {

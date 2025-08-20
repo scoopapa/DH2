@@ -194,8 +194,6 @@ export const Scripts: ModdedBattleScriptsData = {
     	delete this.modData('Learnsets', 'magnemite').learnset.electroweb;
     	delete this.modData('Learnsets', 'magnezone').learnset.electroweb;
     	delete this.modData('Learnsets', 'magneton').learnset.electroweb;
-    	delete this.modData('Learnsets', 'foongus').learnset.rollout;
-    	delete this.modData('Learnsets', 'amoonguss').learnset.rollout;
     	delete this.modData('Learnsets', 'gougingfire').learnset.ragingfury;
 		this.modData("Learnsets", "bellibolt").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "bellibolt").learnset.hydropump = ["9L1"];
@@ -2378,7 +2376,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "pecharunt").learnset.peekaboo = ["9L1"];
 		this.modData("Learnsets", "pecharunt").learnset.snatch = ["9L1"];
 		this.modData("Learnsets", "pecharunt").learnset.falsesurrender = ["9L1"];
-		this.modData("Learnsets", "pecharunt").learnset.choke = ["9L1"];
+		//this.modData("Learnsets", "pecharunt").learnset.choke = ["9L1"];
 		this.modData("Learnsets", "revavroom").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "revavroom").learnset.rebuild = ["9L1"];
 		this.modData("Learnsets", "meloetta").learnset.psychoboost = ["9L1"];

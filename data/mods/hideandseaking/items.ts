@@ -192,14 +192,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 		onDamagingHit(damage, target, source, move) {
-			this.add('-enditem', target, 'Air Balloon');
-			target.item = '';
-			target.itemState = {id: '', target};
-			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+			if (target.getMoveHitData(move).crit) {
+				this.add('-enditem', target, 'Air Balloon');
+				target.item = '';
+				target.itemState = {id: '', target};
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+			}
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
-			if (effect.effectType === 'Move') {
+			if (effect.effectType === 'Move' && target.getMoveHitData(move).crit) {
 				this.add('-enditem', target, 'Air Balloon');
 				target.item = '';
 				target.itemState = {id: '', target};
@@ -208,6 +210,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 541,
 		gen: 5,
+		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is crit.",
 	},
 	alakazite: {
 		name: "Alakazite",

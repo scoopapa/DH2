@@ -308,7 +308,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if(target.baseSpecies.baseSpecies === 'Feebas') {
 				const targetSide = target.side;
 				if (targetSide.fishingTokens > 0) {
-					const boosts = Math.floor(Math.min(targetSide.fishingTokens, 6) / 2);
+					const boosts = Math.floor(targetSide.fishingTokens / 2);
 					target.side.removeFishingTokens(targetSide.fishingTokens);
 					this.boost({atk: boosts, def: boosts, spa: boosts, spd: boosts, spe: boosts}, target, target, move);
 				} else targetSide.addFishingTokens(1);
@@ -3163,7 +3163,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		onPrepareHit(target, source) {
+		onPrepareHit(target, source, move) {
+			if (!source.side.trumpcard) source.side.trumpcard = 0;
+			source.side.trumpcard ++;
+			console.log(source.name + " " + source.side.trumpcard);
+		},
+		onTryHit(target, source, move) {
+			if (!move.multihit) return;
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
 			console.log(source.name + " " + source.side.trumpcard);
@@ -3501,14 +3507,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Fishious Rend damage boost');
-				return move.basePower * 1.6;
+				return move.basePower * 2;
 			}
 			this.debug('Fishious Rend NOT boosted');
 			return move.basePower;
 		},
 		accuracy: 100,
 		pp: 15,
-		shortDesc: "1.6x power if user moves before the target.",
+		shortDesc: "Doubled power if user moves before the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bite: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -4368,24 +4374,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	copen: {
-		name: "Copen",
-		type: "Poison",
-		category: "Status",
-		basePower: 0,
-		accuracy: true,
-		pp: 1,
-		shortDesc: "Designates Copen Pokemon",
-		viable: false,
-		priority: 0,
-		flags: {},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "", target);
-		},
-		secondary: null,
-		target: "normal",
-	},
 	insanity: {
 		accuracy: true,
 		basePower: 0,
@@ -4748,6 +4736,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	fling: {
 		inherit: true,
+		onModifyPriority(priority, source, target, move) {
+			if (source.ignoringItem()) return;
+			const item = source.getItem();
+			if (item.fling.priority) {
+				return item.fling.priority;
+			}
+		},
 		onPrepareHit(target, source, move) {
 			if (source.ignoringItem()) return false;
 			const item = source.getItem();
@@ -4757,7 +4752,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			move.basePower = item.fling.basePower;
 			if (item.fling.damageCallback) move.damageCallback = item.fling.damageCallback;
 			if (item.fling.multihit) move.multihit = item.fling.multihit;
-			if (item.fling.priority) move.prioty = item.fling.priority;
+			if (item.fling.priority) move.priority = item.fling.priority;
+			if (item.fling.type) move.type = item.fling.type;
 			
 			this.debug('BP: ' + move.basePower);
 			if (item.isBerry) {
@@ -5017,5 +5013,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			else pokemon.metronome = 0;
 		},
+	},
+	sunnyday: {
+		inherit: true,
+		weather: null,
+		onHitField(target, source) {
+			if (this.field.isTerrain('fishingterrain')) {
+				this.add('-message', 'The fishing terrain blocked out the sun!');
+				return false;
+			}
+			this.field.setWeather('sunnyday');
+		}
 	},
 };

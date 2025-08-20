@@ -146,4 +146,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 0,
 		num: 118,
 	},
+	balancer: {
+ shortDesc: "Currently not functional.",
+		flags: {},
+		name: "Balancer",
+		rating: 2,
+		num: 4219,
+	},
 }

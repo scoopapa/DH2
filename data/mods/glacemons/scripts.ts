@@ -25,6 +25,73 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.hasItem('Neutralizer') && totalTypeMod > 0) return 0;
 			return totalTypeMod;
 		},
+	formeChange(
+		speciesId: string | Species, source: Effect = this.battle.effect,
+		isPermanent?: boolean, message?: string
+	) {
+		const rawSpecies = this.battle.dex.species.get(speciesId);
+
+		const species = this.setSpecies(rawSpecies, source);
+		if (!species) return false;
+
+		if (this.battle.gen <= 2) return true;
+
+		// The species the opponent sees
+		const apparentSpecies =
+			this.illusion ? this.illusion.species.name : species.baseSpecies;
+		if (isPermanent) {
+			this.baseSpecies = rawSpecies;
+			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
+			this.battle.add('detailschange', this, (this.illusion || this).details);
+			if (source.effectType === 'Item') {
+				if (source.zMove) {
+					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
+					this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
+				} else if (source.onPrimal) {
+					if (this.illusion) {
+						this.ability = '';
+						this.battle.add('-primal', this.illusion);
+					} else {
+						this.battle.add('-primal', this);
+					}
+				} else {
+					this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
+					this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
+				}
+			} else if (source.effectType === 'Status') {
+				// Shaymin-Sky -> Shaymin
+				this.battle.add('-formechange', this, species.name, message);
+			}
+		} else {
+			if (source.effectType === 'Ability') {
+				this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
+			} else {
+				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
+			}
+		}
+		if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
+			if (this.illusion) {
+				this.ability = ''; // Don't allow Illusion to wear off
+			}
+			if (species.id.includes('mega')) {
+				//parallel mega orb's effect lies here
+				if (source.id === 'parallelmegaorb') return;
+				const base = this.battle.dex.species.get(species.baseSpecies);
+				if (species.abilities['H'] && this.ability === base.abilities['H'].replace(/\s/g, "").toLowerCase()) { //stupid ass function because apparently toID doesn't work
+					this.setAbility(species.abilities['H'], null, true);
+				} else if (species.abilities['1'] && this.ability === base.abilities['1'].replace(/\s/g, "").toLowerCase()) {
+					this.setAbility(species.abilities['0'], null, true);
+				} else {
+					this.setAbility(species.abilities['0'], null, true);
+				}
+			} else {
+				this.setAbility(species.abilities['0'], null, true);
+			}
+			this.baseAbility = this.ability;
+		}
+		return true;
+	}
 	},
 
 	actions: {
@@ -179,12 +246,34 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return item.megaStone;
 		},
+		runMegaEvo(pokemon: Pokemon) {
+			const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+			if (!speciesid) return false;
+	
+			this.battle.runEvent('BeforeMega', pokemon);
+			
+			pokemon.formeChange(speciesid, pokemon.getItem(), true); 
+	
+			// Limit one mega evolution
+			const wasMega = pokemon.canMegaEvo;
+			for (const ally of pokemon.side.pokemon) {
+				if (wasMega) {
+					ally.canMegaEvo = null;
+				} else {
+					ally.canUltraBurst = null;
+				}
+			}
+	
+			this.battle.runEvent('AfterMega', pokemon);
+			return true;
+		},
 	},
 
 	init() {//Tera Blast
-		for (const id in this.dataCache.Pokedex) {
-			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
-				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
+    const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug', 
+      'silcoon', 'spewpa', 'tynamo', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
+    	for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !noLearn.includes(id)) {
 				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["9M"];
 			}
 		}
@@ -2364,6 +2453,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'toxtricity').learnset.paraboliccharge = ['9L1'];
 		// Slate 9
 		this.modData('Learnsets', 'eevee').learnset.slackoff = ['9L1'];
+		this.modData('Learnsets', 'eevee').learnset.uturn = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgebomb = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.sludgewave = ['9L1'];
 		this.modData('Learnsets', 'vaporeon').learnset.toxicspikes = ['9L1'];

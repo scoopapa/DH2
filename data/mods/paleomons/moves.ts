@@ -2,7 +2,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	bloodstream: {
 		num: 202,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 85,
 		category: "Special",
 		name: "Blood Stream",
 		shortDesc: "User recovers 50% of the damage dealt.",
@@ -97,7 +97,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Trash Compactor",
-		shortDesc: "Restores 25% of the user's max HP. If hazards are active on the user's side of the field, instead restores 50% of the user's max HP.",
+		shortDesc: "Restores 25% HP; 50% if hazards are on your side.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
@@ -266,6 +266,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	ferrousforce: {
+		accuracy: 80,
+		basePower: 110,
+		category: "Special",
+		name: "Ferrous Force",
+		shortDesc: "If the target is Steel-type, lowers its Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Steel Beam", target);
+		},
+		onAfterHit(target, source, move) {
+			if (target.hasType('Steel')) this.boost({spd: -1});
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
 	
 	//edited vanilla moves
 	fishiousrend: {
@@ -388,4 +409,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
 };

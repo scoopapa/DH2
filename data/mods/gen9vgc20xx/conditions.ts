@@ -55,8 +55,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				} else {
 					this.add('-status', target, 'slp');
 				}
-				// 1-3 turns
-				this.effectState.startTime = 2;
+				// 2 turns
+				this.effectState.startTime = 3;
 				this.effectState.time = this.effectState.startTime;
 	
 				if (target.removeVolatile('nightmare')) {
@@ -717,6 +717,63 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-weather', 'none');
 			},
 		},
+	   //
+	   acidicrain: {
+			name: 'Acidic Rain',
+			effectType: 'Weather',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('corrosiverock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					if (this.gen <= 5) this.effectState.duration = 0;
+					this.add('-weather', 'Acidic Rain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-weather', 'Acidic Rain');
+				}
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(move, source, target) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Poison'] = true;
+				}
+			},
+			onTryHit(target, source, move) {
+				if (move.type === 'Poison') {
+					if ((target.hasItem('safetygoggles') || target.hasAbility('overcoat')) && !this.dex.getImmunity('Poison', target)) {
+						this.add('-immune', target);
+						this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
+						return null;
+					}
+				}
+			},
+			onFieldResidualOrder: 1,
+			onFieldResidual() {
+				this.add('-weather', 'Acidic Rain', '[upkeep]');
+				if (this.field.isWeather('acidicrain')) this.eachEvent('Weather');
+			},
+			onWeather(target) {
+				// Check if the Pokémon has an immunity or ability that negates the effect
+				if (
+					!target.hasAbility('poisonheal') &&
+					!target.hasAbility('transmutation') &&
+				//	!target.hasType('Poison') && // handled in type charts
+					!target.hasAbility('immunity')
+				) {
+					// Apply 1/16 chip damage if no immunity active
+					this.damage(target.baseMaxhp / 16, target);
+				}
+			},
+			onFieldEnd() {
+				this.add('-weather', 'none');
+			},
+		},
+	   //
 		deltastream: {
 			name: 'DeltaStream',
 			effectType: 'Weather',

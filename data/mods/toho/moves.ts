@@ -1,330 +1,371 @@
-export const Moves: {[moveid: string]: MoveData} = {
-	//vanilla moves
-	barrage: {
-		inherit: true,
-		accuracy: 95,
-		basePower: 20,
-	},
-	leafstorm: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
-	},
-	hyperspacefury: {
-		inherit: true,
-		shortDesc: "Junko: Lowers user's Def by 1; breaks protect.",
-		onTry(source) {
-			if (source.species.name === 'Junko') {
-				return;
-			}
-			this.hint("Only a Pokemon whose form is Junko can use this move.");
-			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Hyperspace Fury');
-			return null;
-		},
-	},
-	gigatonhammer: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, hammer: 1},
-	},
-	hammerarm: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1, hammer: 1},
-	},
-	icehammer: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1, hammer: 1},
-	},
-	crabhammer: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, hammer: 1},
-	},
-	woodhammer: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, hammer: 1},
-	},
-	dragonhammer: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, hammer: 1},
-	},
-	sonicboom: {
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		name: "Sonic Boom",
-		shortDesc: "Usually goes first.",
-		pp: 30,
-		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Cool",
-	},
-	blizzard: {
-		inherit: true,
-		onModifyMove(move) {
-			if (this.field.isWeather(['hail', 'snow', 'blizzard'])) move.accuracy = true;
-		},
-	},
-	psychicterrain: {
-		inherit: true,
-		terrain: 'psychicterrain',
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasItem('terrainextender')) {
-					return 8;
-				}
-				return 5;
-			},
-			onTryHitPriority: 4,
-			onTryHit(target, source, effect) {
-				if (effect && (effect.name === 'Lunatic Bullet' || effect.priority <= 0.1 || effect.target === 'self')) {
-					return;
-				}
-				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
-				if (!target.isGrounded()) {
-					const baseMove = this.dex.moves.get(effect.id);
-					if (baseMove.priority > 0) {
-						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
-					}
-					return;
-				}
-				this.add('-activate', target, 'move: Psychic Terrain');
-				return null;
-			},
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-					this.debug('psychic terrain boost');
-					return this.chainModify([5325, 4096]);
-				}
-			},
-			onFieldStart(field, source, effect) {
-				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
-				} else {
-					this.add('-fieldstart', 'move: Psychic Terrain');
-				}
-			},
-			onFieldResidualOrder: 27,
-			onFieldResidualSubOrder: 7,
-			onFieldEnd() {
-				this.add('-fieldend', 'move: Psychic Terrain');
-			},
-		},
-	},
-
-	// worldofnightmares field
-	wakeupslap: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('worldofnightmares') || pokemon.hasAbility('worldofnightmares')) return move.basePower * 2;
-			return move.basePower;
-		},
-	},
-	dreameater: {
-		inherit: true,
-		onTryImmunity(target, source) {
-			return target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('worldofnightmares') || source.hasAbility('worldofnightmares');
-		},
-	},
-	nightmare: {
-		inherit: true,
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.hasAbility('worldofnightmares')) {
-					return false;
-				}
-				this.add('-start', pokemon, 'Nightmare');
-			},
-			onResidualOrder: 9,
-			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 4);
-			},
-		},
-	},
-	sleeptalk: {
-		inherit: true,
-		onTry(source) {
-			let usable = false;
-			for (const opponent of source.adjacentFoes()) {
-				if (opponent.hasAbility('worldofnightmares')) {
-					usable = true;
-					break;
-				}
-			}
-			return source.status === 'slp' || source.hasAbility('comatose') || usable;
-		},
-	},
-	ultrasleep: { //this move is only for worldofnightmares ability
-		num: -9999,
-		accuracy: true,
+export const Moves: {[moveid: string]: ModdedMoveData} = {
+	/*
+	placeholder: {
+		name: "",
+		type: "",
+		category: "",
 		basePower: 0,
-		category: "Status",
-		name: "Ultrasleep",
-		pp: 5,
-		priority: -7,
-		flags: { mirror: 1 },
-		pseudoWeather: 'ultrasleep',
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasAbility('persistent')) {
-					this.add('-activate', source, 'ability: Persistent', effect);
-					return 7;
-				}
-				return 5;
-			},
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Ultrasleep', '[of] ' + source);
-			},
-			onSetStatus(status, target, source, effect) {
-				if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
-				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
-					this.add('-activate', target, 'move: Ultrasleep');
-				}
-				return false;
-			},
-			onResidualOrder: 23,
-			onEnd() {
-				this.add('-fieldend', 'move: Ultrasleep');
-			},
-		},
-		secondary: null,
-		target: "all",
-		type: "Psychic",
-		zMove: { boost: { accuracy: 1 } },
-		contestType: "Clever",
-	},
-
-	//new moves
-	fantasyseal: {
 		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Fantasy Seal",
-		shortDesc: "Deals 1/16 max HP each turn; 1/8 on Dark, Ghost.",
-		pp: 15,
+		pp: 10,
+		shortDesc: "",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Salt Cure", target);
+			this.add('-anim', pokemon, "", target);
 		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Fantasy Seal');
-			},
-			onResidualOrder: 13,
-			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Dark', 'Ghost']) ? 8 : 16));
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Fantasy Seal');
-			},
-		},
-		secondary: {
-			chance: 100,
-			volatileStatus: 'fantasyseal',
-		},
+		secondary: null,
 		target: "normal",
-		type: "Flying",
 	},
-	silverblade: {
-		accuracy: 100,
+	*/
+	dreamseal: {
+		name: "Dream Seal",
+		type: "Flying",
+		category: "Special",
 		basePower: 70,
-		category: "Physical",
-		name: "Silver Blade",
-		shortDesc: "High critical hit ratio.",
+		accuracy: true,
 		pp: 10,
+		shortDesc: "Inflicts partial trapping.",
 		priority: 0,
-		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Smart Strike", target);
+			this.add('-anim', pokemon, "Hidden Power", target);
+			this.add('-anim', pokemon, "Bleakwind Storm", target);
 		},
-		critRatio: 2,
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+	},
+	silverdagger: {
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Silvr Dagger damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Smart Strike", target);
+		},
+		category: "Physical",
+		name: "Silver Dagger",
+		pp: 15,
+		shortDesc: "1.5x damage when moving before the target.",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		contestType: "Cool",
 	},
 	forbiddenbarrage: {
 		accuracy: 80,
 		basePower: 110,
 		category: "Special",
 		name: "Forbidden Barrage",
-		shortDesc: "10% chance to make the target flinch.",
 		pp: 5,
+		shortDesc: "10% chance to flinch.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		onPrepareHit(target, source, move) {
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Astral Barrage", target);
+			this.add('-anim', pokemon, "Astral Barrage", target);
 		},
+		flags: {protect: 1, mirror: 1, bullet: 1},
 		secondary: {
 			chance: 10,
 			volatileStatus: 'flinch',
 		},
 		target: "allAdjacentFoes",
 		type: "Dark",
-		contestType: "Tough",
+	},
+	shikigamirush: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Shikigami Rush",
+		pp: 5,
+		shortDesc: "Gains priority if Ran Yakumo is the user's ally.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Zen Headbutt", target);
+		},
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onModifyPriority(priority, source, target, move) {
+			if (source.allies.filter(p => p.baseSpecies.id === 'ranyakumo').length) {
+				return priority + 1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
 	},
 	lunaticbullet: {
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		name: "Lunatic Bullet",
-		shortDesc: "Usually goes first. Bypasses Psychic Terrain.",
 		pp: 20,
-		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		onPrepareHit(target, source, move) {
+		shortDesc: "Moves first in its priority bracket.",
+		priority: 0.1,
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psywave", target);
+			this.add('-anim', pokemon, "Vacuum Wave", target);
+			this.add('-anim', pokemon, "Psychic", target);
 		},
+		flags: {protect: 1, mirror: 1, bullet: 1},
 		secondary: null,
-		target: "any",
+		target: "normal",
 		type: "Psychic",
-		contestType: "Cool",
 	},
 	nervepoison: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		name: "Nerve Poison",
-		shortDesc: "30% chance to paralyse the target.",
 		pp: 15,
+		shortDesc: "30% chance to inflict paralysis.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Clear Smog", target);
+			this.add('-anim', pokemon, "Clear Smog", target);
 		},
+		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 30,
 			status: 'par',
 		},
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Poison",
-		contestType: "Beautiful",
 	},
-	ironring: {
+	'superscope3d': {
 		accuracy: 90,
-		basePower: 90,
-		category: "Special",
-		name: "Iron Ring",
-		shortDesc: "Prevents the target from switching out.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Anchor Shot", target);
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
 		},
+		category: "Physical",
+		name: "Super Scope 3d",
+		pp: 10,
+		shortDesc: "Hits 3 times, stronger each hit, each hit checks accuracy.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fling", target);
+			this.add('-anim', target, "Water Sport", pokemon);
+		},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	cloudfist: {
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Cloud Fist",
+		pp: 10,
+		shortDesc: "Lowers the user's Speed by one stage.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Hammer Arm", target);
+			this.add('-anim', target, "Haze", pokemon);
+		},
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	waterplates: {
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+		name: "Water Plates",
+		pp: 15,
+		shortDesc: "Hits twice, high critical hit rate.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Snipe Shot", target);
+		},
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	bodyswap: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Body Swap",
+		pp: 10,
+		shortDesc: "Heals 50% and changes Hecatia's forme (Otherworld->Earth->Moon)",
+		priority: 0,
+		flags: {heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		onHit(pokemon) {
+			if (!pokemon.baseSpecies.name.includes('Hecatia')) return;
+			let targetForme = 'Hecatia-Otherworld';
+			let newAbility = 'Pressure';
+			switch (pokemon.species.name) {
+				case 'Hecatia-Otherworld':
+					targetForme = 'Hecatia-Earth';
+					newAbility = 'Natural Cure';
+					break;
+				case 'Hecatia-Earth':
+					targetForme = 'Hecatia-Moon';
+					newAbility = 'Dazzling';
+					break;
+				case 'Hecatia-Moon':
+					targetForme = 'Hecatia-Otherworld';
+					newAbility = 'Pressure';
+					break;
+			}
+			pokemon.formeChange(targetForme, this.effect, true);
+			this.add('-ability', pokemon, newAbility, '[from] move: Body Swap');
+			pokemon.set.ability = newAbility;
+		},
+		type: "Normal",
+	},
+	dancingblow: {
+		accuracy: 95,
+		basePower: 80,
+		category: "Physical",
+		name: "Dancing Blow",
+		pp: 10,
+		shortDesc: "20% chance to lower target Sp.Atk by one stage.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Quiver Dance", target);
+			this.add('-anim', pokemon, "Mach Punch", target);
+		},
+		flags: {protect: 1, mirror: 1, contact: 1, dance: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	stonestacking: {
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Stone Stacking",
+		pp: 5,
+		shortDesc: "Sets stealth rock on the user's side of the field.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Stone Edge", pokemon);
+			this.add('-anim', pokemon, "Never-Ending Nightmare", target);
+		},
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				source.side.addSideCondition('stealthrock');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				source.side.addSideCondition('stealthrock');
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+	},
+	sculptedarmor: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sculpted Armor",
+		pp: 20,
+		shortDesc: "Raises Def. and Sp.Def by one stage, adds Ground, can target an ally.",
+		priority: 0,
+		flags: {metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sand Tomb", target);
+		},
+		onHit(target) {
+			this.boost({ def: 1, spd: 1 }, target);
+			if (target.hasType('Ground')) return;
+			if (!target.addType('Ground')) return;
+			this.add('-start', target, 'typeadd', 'Ground', '[from] move: Sculpted Armor');
+		},
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Ground",
+	},
+	excavate: {
+		accuracy: 90,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.side.sideConditions[condition]) return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Excavate",
+		pp: 15,
+		shortDesc: "Removes hazards from the user's side, double power when removing hazards.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rock Throw", target);
+		},
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', `[of] ${pokemon}`);
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	ironchomp: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Iron Chomp",
+		pp: 5,
+		shortDesc: "Traps the target.",
+		priority: 0,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Iron Defense", target)
+			this.add('-anim', pokemon, "Jaw Lock", target);
+		},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		secondary: {
 			chance: 100,
 			onHit(target, source, move) {
@@ -335,223 +376,81 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Tough",
 	},
-	divinestrike: {
-		accuracy: 100,
-		basePower: 65,
-		category: "Physical",
-		name: "Divine Strike",
-		shortDesc: "Always results in a critical hit.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Secret Sword", target);
-		},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Cool",
-	},
-	attune: {
+	missile: {
 		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Attune",
-		shortDesc: "Raises the user's Attack, Special Attack, Accuracy by 1 stage.",
-		pp: 10,
-		priority: 0,
-		flags: {snatch: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Calm Mind", target);
-		},
-		boosts: {
-			atk: 1,
-			spa: 1,
-			accuracy: 1,
-		},
-		secondary: null,
-		target: "self",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Tough",
-	},
-	bodyswap: {
-		num: 0,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Body Swap",
-		shortDesc: "Heals 1/2 of user's max HP. Changes Hecatia's forme.",
-		pp: 10,
-		priority: 0,
-		flags: {snatch: 1, heal: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Recover", target);
-		},
-		heal: [1, 2],
-		onHit(target, pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Hecatia Lapislazuli' && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
-				let hecatiaForme;
-				if (pokemon.species.id === 'hecatialapislazuli') hecatiaForme = "-Earth";
-				else if (pokemon.species.id === 'hecatiaearth') hecatiaForme = "-Moon";
-				else hecatiaForme = " Lapislazuli";
-				pokemon.formeChange('Hecatia' + hecatiaForme, this.effect, false, '[msg]');
-			}
-		},
-		target: "self",
-		type: "Normal",
-		contestType: "Beautiful",
-	},
-	willbreak: {
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Will Break",
-		shortDesc: "(partially coded) Forces the target to switch to a random ally. Lowers the incoming ally's Attack by 1 stage.",
-		pp: 5,
-		priority: -6,
-		flags: {reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, allyanim: 1, metronome: 1, noassist: 1, failcopycat: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Roar", target);
-		},
-		forceSwitch: true,
-		self: {
-			onHit(source) {
-				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('willbreak');
-				}
-			},
-		},
-		condition: {
-			duration: 1,
-			onSideEnd(targetSide) {
-				//console.log(targetSide.active);
-				this.boost({atk: -1}, targetSide.active);
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
-	},
-	excavate: {
-		accuracy: 85,
-		basePower: 55,
+		basePower: 90,
 		category: "Physical",
-		name: "Excavate",
-		shortDesc: "Removes hazards from the user's side of the field. Gains effects depending on the hazards removed.",
-		pp: 20,
+		name: "Missile",
+		pp: 10,
+		shortDesc: "20% chance to inflict burn.",
 		priority: 0,
-		flags: {contact: 1, bullet: 1, protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Rock Throw", target);
+			this.add('-anim', pokemon, "Torch Song", target)
+			// i dont know how to edit anims but if you know how to change the color of them make it grey
+			// no big deal if that's annoying
 		},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('excavate');
-		},
-		condition: {
-			duration: 1,
-			onBeforeMovePriority: 100,
-			onBeforeMove(pokemon) {
-				this.debug('removing hazards before attack');
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-				for (const condition of sideConditions) {
-					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-						switch (condition) {
-							case 'spikes':
-								pokemon.removedSpikes = true;
-								break;
-							case 'toxicspikes':
-								pokemon.removedTSpikes = true;
-								break;
-							case 'stealthrock':
-								pokemon.removedSR = true;
-								break;
-							case 'stickyweb':
-								pokemon.removedWebs = true;
-								break;
-							case 'gmaxsteelsurge':
-								pokemon.removedSteel = true;
-								break;
-						}
-						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Excavate', '[of] ' + pokemon);
-					}
-				}
-			},
-			onModifyMove(move, pokemon) {
-				if(move.name !== 'Excavate') return;
-				if(pokemon.removedSpikes) {
-					if (!move.secondaries) move.secondaries = [];
-					move.secondaries.push({
-						chance: 100,
-						boosts: {
-							def: -1,
-						},
-					});
-				}
-				if(pokemon.removedTSpikes) {
-					if (!move.secondaries) move.secondaries = [];
-					move.secondaries.push({
-						chance: 100,
-						status: 'psn',
-					});
-				}
-				if(pokemon.removedSR) move.basePower = 110;
-				if(pokemon.removedWebs) {
-					if (!move.secondaries) move.secondaries = [];
-					move.secondaries.push({
-						chance: 100,
-						onHit(target, source, move) {
-							if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-						},
-					});
-				} 
-				if(pokemon.removedSteel) move.willCrit = true;
-			},
-			onEnd(pokemon) {
-				pokemon.removedSpikes = false;
-				pokemon.removedTSpikes = false;
-				pokemon.removedSR = false;
-				pokemon.removedWebs = false;
-				pokemon.removedSteel = false;
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Cool",
-	},
-	missilebarrage: {
-		accuracy: 100,
-		basePower: 20,
-		category: "Physical",
-		name: "Missile Barrage",
-		shortDesc: "Hits 2-5 times in one turn.",
-		pp: 20,
-		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Pin Missile", target);
+		secondary: {
+			chance: 20,
+			status: 'brn',
 		},
-		multihit: [2, 5],
-		secondary: null,
 		target: "normal",
 		type: "Steel",
-		zMove: {basePower: 140},
-		maxMove: {basePower: 130},
-		contestType: "Cool",
+	},
+
+	//vanilla
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasAbility('dexterity')) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasAbility('dexterity') || pokemon.hasItem('heavydutyboots')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(source) {
+			if (source.species.name === 'Junko') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Junko can use this move.");
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
+		},
 	},
 };

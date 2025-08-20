@@ -20,6 +20,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				source.removeVolatile('mustrecharge');
+				this.add('-message', `${source.name} recharged instantly!`);
 			}
 		},
 	},
@@ -31,7 +32,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 	},
 	roxanneboost: {
-		name: 'roxieboost',
+		name: 'roxanneboost',
 		noCopy: true,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.type === 'Rock') return this.chainModify([4915, 4096]);
@@ -60,6 +61,10 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 					}
 				}
 			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Dark') return this.chainModify([4505, 4096]);
 		},
 	},
 	brycenmanboost: {
@@ -114,7 +119,196 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
-	
+	minaboost: {
+		name: 'minaboost',
+		noCopy: true,
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!effect.self);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.secondaries) {
+				return this.chainModify(0.9);
+			}
+		},
+	},
+	dustinboost: {
+		name: 'dustinboost',
+		noCopy: true,
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, defender, move) {
+			if (move.type !== 'Steel') return;
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	laceyboost: {
+		name: 'laceyboost',
+		noCopy: true,
+		onModifyMove(move) {
+			if (move.type === 'Fairy' || move.type === 'Ground') move.ignoreAbility = true;
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+		},
+	},
+	willboost: {
+		name: 'willboost',
+		noCopy: true,
+		onStart(source) {
+			if (!source.hasType('Psychic') && !source.terastallized) {
+				let futuresight = false;
+				for (const moveSlot of source.moveSlots) {
+					if (moveSlot.id === 'futuresight') {
+						if (source.addType('Psychic')) this.add('-start', source, 'typeadd', 'Psychic');
+					}
+				}
+			}
+		},
+	},
+	cguysboost: {
+		name: 'cguysboost',
+		noCopy: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (['Grass', 'Fire', 'Water'].includes(move.type)) return this.chainModify([4505, 4096]);
+		},
+	},
+	lysandreboost: {
+		name: 'lysandreboost',
+		noCopy: true,
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			//console.log(target.baseSpecies.name + " " + move.name + " " + target.getMoveHitData(move).typeMod);
+			if (target === source || move.category === 'Status' || target.getMoveHitData(move).typeMod < 0) return;
+			if (!move.auraBooster?.volatiles['lysandreboost']) move.auraBooster = this.effectState.target;
+			//if (move.auraBooster) console.log(move.auraBooster.baseSpecies.name);
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([5448, 4096]);
+		},
+	},
+	whitneyboost: {
+		name: 'whitneyboost',
+		noCopy: true,
+		onStart(pokemon) {
+			this.effectState.lastMove = '';
+			this.effectState.numConsecutive = 0;
+		},
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (move.callsMove) return;
+			if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				this.effectState.numConsecutive++;
+			} else if (pokemon.volatiles['twoturnmove']) {
+				if (this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
+				} else {
+					this.effectState.numConsecutive++;
+				}
+			} else {
+				this.effectState.numConsecutive = 0;
+			}
+			this.effectState.lastMove = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			const dmgMod = [4096, 4505, 4915, 5324, 5734, 6144];
+			const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			//console.log(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
+			return this.chainModify([dmgMod[numConsecutive], 4096]);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && (target === source || target.gender !== 'F')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost");
+			}
+		},
+	},
+	mikuiceboost: {
+		name: 'mikuiceboost',
+		noCopy: true,
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (!this.field.isWeather(['hail', 'snowscape'])) return;
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+	},
+	ltsurgeboost: {
+		name: 'ltsurgeboost',
+		noCopy: true,
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Hold');
+				return false;
+			}
+		},
+	},
+	rileyboost: {
+		name: 'rileyboost',
+		noCopy: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Fighting' && pokemon.hp < pokemon.baseMaxhp / 2) return this.chainModify([5324, 4096]);
+		},
+	},
+	lusamineboost: {
+		name: 'lusamineboost',
+		noCopy: true,
+		onModifyMove(move, pokemon) {
+			if (move.type !== 'Psychic') return;
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+			else if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				return this.chainModify(1.1);
+			}
+		},
+	},
+	asaboost: {
+		name: 'asaboost',
+		noCopy: true,
+		onSwitchOut(pokemon) {
+			pokemon.side.addSideCondition('asa');
+		},
+	},
+		
 	//vanilla
 	sandstorm: {
 		inherit: true,

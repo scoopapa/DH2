@@ -22,7 +22,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (mon.diamondhand) this.modData("Learnsets", pokemon).learnset.diamondhand = ["9L1"];
 				if (mon.hoenn || mon.gen === 3) this.modData("Learnsets", pokemon).learnset.hoenn = ["9L1"];
 				if (mon.trans) this.modData("Learnsets", pokemon).learnset.trans = ["9L1"];
-				if (mon.copen) this.modData("Learnsets", pokemon).learnset.copen = ["9L1"];
 			}
 		}
 	},

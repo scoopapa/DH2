@@ -734,6 +734,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.type !== 'Poison') return move.basePower;
 			const bp = move.basePower + 20 * pokemon.positiveBoosts();
 			this.debug('BP: ' + bp);
+			console.log("BP is " + bp);
 			return bp;
 		},
 		flags: {},
@@ -741,5 +742,129 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Poison-type moves gain +20 base power for each stat boost.",
 		rating: 1.5,
 		num: -39,
+	},
+	iceface: {
+		inherit: true,
+		onStart(pokemon) {
+			if (this.field.isWeather(['hail', 'snow']) && (pokemon.species.id === 'eiscuenoice' || pokemon.species.id === 'perrserkermegabusted')) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && (target.species.id === 'eiscue' || target.species.id === 'perrserkermega')) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'perrserkermega')) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'perrserkermega')) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
+				pokemon.formeChange('Eiscue-Noice', this.effect, true);
+			}
+			else if (pokemon.species.id === 'perrserkermega' && this.effectState.busted) {
+				pokemon.formeChange('Perrserker-Mega-Busted', this.effect, true);
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+			else if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'perrserkermegabusted') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Perrserker-Mega', this.effect, true);
+			}
+		},
+		desc: "If this Pokemon is an Eiscue or a Perrserker-Mega, the first physical hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
+		shortDesc: "If Eiscue or Perrserker-Mega, the first physical hit it takes deals 0 damage. Effect is restored in Snow.",
+	},
+	trickysurge: {
+		onStart(source) {
+			this.add('-activate', source, 'ability: Tricky Surge');
+			this.field.addPseudoWeather('magicroom');
+		},
+		flags: {},
+		name: "Tricky Surge",
+		shortDesc: "On switch-in, set Magic Room for 5 turns.",
+		rating: 4,
+		num: -40,
+	},
+	shieldsdown: {
+		inherit: true,
+		onStart(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shields Down');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Shields Down');
+			return null;
+		},
 	},
 };

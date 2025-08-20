@@ -12,12 +12,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	suwakiumz: {
 		name: "Suwakium Z",
-		desc: "If held by Suwako Moriya with Muddy Water, she can use Froggy Braves the Wind and Rain.",
+		desc: "If held by Suwako with Muddy Water, she can use Froggy Braves the Wind and Rain.",
 		spritenum: 633,
 		onTakeItem: false,
 		zMove: "Froggy Braves the Wind and Rain",
 		zMoveFrom: "Muddy Water",
-		itemUser: ["Suwako Moriya"],
+		itemUser: ["Suwako"],
 		num: -2,
 		gen: 9,
 	},
@@ -42,5 +42,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Meta Knight"],
 		num: -4,
 		gen: 9,
-	}
+	},
+	pittite: {
+		name: "Pittite",
+		spritenum: 576,
+		megaStone: "Pit-Mega",
+		megaEvolves: "Pit",
+		itemUser: ["Pit"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -5,
+		gen: 9,
+		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
+	},
 };

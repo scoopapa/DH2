@@ -1,248 +1,496 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+
 	reimuhakurei: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	marisakirisame: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	rumia: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	daiyousei: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	cirno: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	cirnotanned: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	hongmeiling: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	koakuma: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	patchouliknowledge: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	sakuyaizayoi: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	remiliascarlet: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	flandrescarlet: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	lettywhiterock: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	chen: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	alicemargatroid: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	lilywhite: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	lunasaprismriver: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	merlinprismriver: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	lyricaprismriver: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	youmukonpaku: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yuyukosaigyouji: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	ranyakumo: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yukariyakumo: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	suikaibuki: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	wrigglenightbug: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	mystialorelei: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	keine: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	tewiinaba: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
-	reisenudongeininaba: {
-		tier: "TH",
+	reiseninaba: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	eirinyagokoro: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	kaguyahouraisan: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	fujiwaranomokou: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
-	medecinemelancholy: {
-		tier: "TH",
+	ayashameimaru: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	medicinemelancholy: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yuukakazami: {
-		tier: "TH",
-	},
-	ayashamiemaru: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	komachionozuka: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	eikishiki: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	shizuhaaki: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	minorikoaki: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	hinakagiyama: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	nitorikawashiro: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	momijiinubashiri: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	sanaekochiya: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	kanakoyasaka: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	suwakomoriya: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	ikunagae: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	tenshihinanawi: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	kisume: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yamamekurodani: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	parseemizuhashi: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yuugihoshiguma: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	satorikomeiji: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	rinkaenbyou: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	utsuhoreiuji: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	koishikomeiji: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	nazrin: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	kogasatatara: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	ichirinkumoi: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	ichirinunzan: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	minamitsumurasa: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	shoutoramaru: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	byakurenhijiri: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	nuehoujuu: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	hatatehimekaidou: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	sunnymilk: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	lunachild: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	starsapphire: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	kyoukokasodani: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yoshikamiyako: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	seigakaku: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	soganotojiko: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	mononobenofuto: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	toyosatomiminomiko: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	mamizoufutatsuiwa: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	kasenibaraki: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	hatanokokoro: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	wakasagihime: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	sekibanki: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	kagerouimaizumi: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	benbentsukumo: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	yatsuhashitsukumo: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	seijakijin: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	shinmyoumarusukuna: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	raikohorikawa: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	sumirekousami: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	seiran: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	ringo: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	doremysweet: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	sagumekishin: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	clownpiece: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	junko: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
-	hecatialapislazuli: {
-		tier: "TH",
+	hecatiaotherworld: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
-	hecatiaearth: {
-		tier: "TH",
+	joonyorigami: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
-	hecatiamoon: {
-		tier: "TH",
+	shionyorigami: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	eternitylarva: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	nemunosakata: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	aunnkomano: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	narumiyatadera: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	maiteireida: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	satononishida: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	okinamatara: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	eikaebisu: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	urumiushizaki: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	kutakaniwatari: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yachiekicchou: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	mayumijoutouguu: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	keikihaniyasushin: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	sakikurokuma: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	yuumatoutetsu: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	mikegotoukuji: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	takaneyamashiro: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	sannyokomakusa: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	misumarutamatsukuri: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	tsukasakudamaki: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	megumuiinzumaru: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	chimatatenkyuu: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	momoyohimemushi: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	sonbiten: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	enokomitsugashira: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	chiyaritenkajin: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	hisamiyomotsu: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	zanmunippaku: {
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
 	vivit: {
-		tier: "TH",
+		tier: "Toho",
+		doublesTier: "DToho",
 	},
+
 };

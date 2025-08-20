@@ -2488,7 +2488,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rayquazamega: {
 		inherit: true,
 		gen: 2,
-		tier: "Uber",
+		tier: "AG",
 	},
 	jirachi: {
 		inherit: true,
