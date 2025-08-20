@@ -130,6 +130,64 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
+	mustrecharge: {
+		name: 'mustrecharge',
+		duration: 2,
+		onBeforeMovePriority: 11,
+		onBeforeMove(pokemon) {
+			this.add('cant', pokemon, 'recharge');
+			pokemon.removeVolatile('mustrecharge');
+			pokemon.removeVolatile('truant');
+			return null;
+		},
+		onStart(pokemon) {
+			this.add('-mustrecharge', pokemon);
+		},
+		onSourceAfterFaint(length, target, pokemon, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.actions.useMove('Recharge', pokemon);
+				pokemon.removeVolatile('mustrecharge');
+				this.add('-message', `${pokemon.name} recharged instantly!`);
+			}
+		},
+		onLockMove: 'recharge',
+	},
+	aurorabeam: {
+		name: 'aurorabeam',
+		duration: 3,
+		onStart(pokemon, source) {
+			this.add('-start', pokemon, 'move: Heal Block');
+			source.moveThisTurnResult = true;
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onBeforeMovePriority: 6,
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onResidualOrder: 20,
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'move: Heal Block');
+		},
+		onTryHeal(damage, target, source, effect) {
+			if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
+			return false;
+		},
+	},
 	sandstorm: {
 		inherit: true,
 		onModifySpD() {},
