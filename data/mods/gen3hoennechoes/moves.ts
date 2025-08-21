@@ -633,6 +633,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "After a successful hit, has different effects based on the weather. Lowers foe's Speed in rain and damages foe by an extra 1/8 of its max HP in sun.",
 		shortDesc: "Lowers foe's Speed in rain, deals extra 12.5% in sun.",
 		basePower: 80,
+		viable: true,
 		onHit(target, source, move) {
 			switch (target?.effectiveWeather()) {
 			case 'raindance':
