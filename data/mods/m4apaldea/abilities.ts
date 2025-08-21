@@ -730,15 +730,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -38,
 	},
 	toxicgains: {
-		basePowerCallback(pokemon, target, move) {
-			console.log("Move is " + move);
-			console.log("Type is " + move.type);
-			if (move.type !== 'Poison') return move.basePower;
-			console.log("Move has " + move.basePower + " BP");
-			console.log("Pokemon has " + pokemon.positiveBoosts() + " boosts");
-			const bp = move.basePower + 20 * pokemon.positiveBoosts();
-			this.debug('BP: ' + bp);
-			console.log("BP is " + bp);
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type !== 'Poison') return basePower;
+			const bp = basePower + 20 * pokemon.positiveBoosts();
 			return bp;
 		},
 		flags: {},
