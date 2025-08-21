@@ -3265,6 +3265,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			stoneedge: ["9L1"],
 			superpower: ["9L1"],
 			takedown: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			stealthrock: ["9L1"],
+			substitute: ["9L1"],
 		},
 	},
 	moscourge: {
@@ -3329,6 +3334,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			superpower: ["9L1"],
 			wildcharge: ["9L1"],
 			yawn: ["9L1"],
+			bulkup: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			substitute: ["9L1"],
 		},
 	},
 	
@@ -4210,6 +4220,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trailblaze: ["9L1"],
 			venoshock: ["9L1"],
 			willowisp: ["9L1"],
+			nastyplot: ["9L1"],
 		},
 	},
 

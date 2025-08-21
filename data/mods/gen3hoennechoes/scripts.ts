@@ -25,6 +25,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.data.Pokedex[species].num <= 386 && this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
 				delete this.modData('Learnsets', species).learnset.ancientpower;
 			}
+			if ((this.data.Pokedex[species].types[0] === "Dark" || this.data.Pokedex[species].types[1] === "Dark" ) && 
+					this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+				this.modData('Learnsets', species).learnset.doomsdayclock = ['3M'];
+			}
+			if ((this.data.Pokedex[species].types[0] === "Grass" || this.data.Pokedex[species].types[1] === "Grass" ) && 
+					this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+				this.modData('Learnsets', species).learnset.energyball = ['3M'];
+			}
 		}
 		learnsetUpdate(this);
 	},
@@ -640,6 +648,17 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		calcRecoilDamage(damageDealt, move) {
 			return this.battle.clampIntRange(Math.floor(damageDealt * move.recoil![0] / move.recoil![1]), 1);
+		},
+	},
+	side: {
+		addFishingTokens(amount: number) {
+			if (amount === 0 || Number.isNaN(amount)) return false;
+			if(this.fishingTokens === undefined) this.fishingTokens = 0;
+			this.fishingTokens += amount;
+			const word1 = (amount === 1) ? 'token was' : 'tokens were';
+			this.battle.add('-message', `${amount} fishing ${word1} added to ${this.name}'s side!`);
+			const word2 = (this.fishingTokens === 1) ? 'token' : 'tokens';
+			this.battle.hint(`They now have ${this.fishingTokens} ${word2}.`);
 		},
 	},
 };

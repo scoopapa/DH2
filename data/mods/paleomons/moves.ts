@@ -409,10 +409,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-
 	multiattack: {
 		inherit: true,
 		isNonstandard: null,
 	},
-
+	mountaingale: {
+		inherit: true,
+		accuracy: 100,
+	},
 };

@@ -781,6 +781,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spiritbreak: ["9L1"],
 			icespinner: ["9L1"],
 			trailblaze: ["9L1"],
+			rapidspin: ["9L1"],
 			recycle: ["9L1"],
 			healpulse: ["9L1"],
 			taunt: ["9L1"],
@@ -1183,13 +1184,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	ttos: {
 		learnset: {
-			hyperbeam: ["9L1"],
 			gigaimpact: ["9L1"],
 			takedown: ["9L1"],
-			facade: ["9L1"],
-			substitute: ["9L1"],
 			terablast: ["9L1"],
-			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
 			rest: ["9L1"],
