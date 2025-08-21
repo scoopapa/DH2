@@ -876,13 +876,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This pokemon's damaging Ground-type moves damage all affected pokemon for 1/10th of their max HP at the end of each turn and heal the user for that much damage. Does not affect Ground-type pokemon.",
 		name: "Dust Devil",
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (move.category === "Status" || move.type !== "Ground") return;
+			if (move.category === "Status" || move.type !== "Ground" || target.hasType("Ground")) return;
 			target.addVolatile('dustdevil');
 		},
 		condition: {
 			onResidualOrder: 3,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon, this.dex.species.get(speciesid));
+				this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
 			},
 		},
 	},
