@@ -3282,7 +3282,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	porthosbroadsword: {
 		num: -78,
 		accuracy: 100,
-		basePower: 150,
+		basePower: 120,
 		category: "Physical",
 		name: "Porthos Broadsword",
 		pp: 20,
