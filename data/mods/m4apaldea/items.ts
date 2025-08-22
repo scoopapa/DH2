@@ -671,4 +671,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Rabsca, this item allows it to Mega Evolve in battle.",
 	},
+	kingdranite: { 
+		name: "Kingdranite",
+		spritenum: 578,
+		megaStone: "Kingdra-Mega",
+		megaEvolves: "Kingdra",
+		itemUser: ["Kingdra"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2049,
+		gen: 9,
+		desc: "If held by a Kingdra, this item allows it to Mega Evolve in battle.",
+	},
+	sandacondanite: { 
+		name: "Sandacondanite",
+		spritenum: 578,
+		megaStone: "Sandaconda-Mega",
+		megaEvolves: "Sandaconda",
+		itemUser: ["Sandaconda"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2050,
+		gen: 9,
+		desc: "If held by a Sandaconda, this item allows it to Mega Evolve in battle.",
+	},
+	screamtailite: { 
+		name: "Screamtailite",
+		spritenum: 578,
+		megaStone: "Scream Tail-Mega",
+		megaEvolves: "Scream Tail",
+		itemUser: ["Scream Tail"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2051,
+		gen: 9,
+		desc: "If held by a Scream Tail, this item allows it to Mega Evolve in battle.",
+	},
 };
