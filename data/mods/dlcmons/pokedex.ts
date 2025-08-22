@@ -219,6 +219,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Glimmora-Kalos"],
 		eggGroups: ["Mineral"],
+		gen: 6,
 	},
 	glimmora: {
 		inherit: true,
@@ -241,6 +242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		eggGroups: ["Mineral"],
 		evos: ["Glimmaltis"],
+		gen: 6,
 	},
 	glimmaltis: {
 		num: -2,

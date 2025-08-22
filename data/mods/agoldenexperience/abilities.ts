@@ -2581,7 +2581,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (move.id === 'surf' || move.id === 'dive') {
-				target.addVolatile('stockpile');
+				source.addVolatile('stockpile');
 			}
 		},
 		flags: {cantsuppress: 1, notransform: 1},

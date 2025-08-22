@@ -3282,18 +3282,34 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	porthosbroadsword: {
 		num: -78,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 120,
 		category: "Physical",
 		name: "Porthos Broadsword",
-		pp: 5,
-		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		onTry(source, target) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				return false;
+		pp: 20,
+		priority: -3,
+		flags: {contact: 1, protect: 1, slicing: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('focuspunch');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['focuspunch']?.lostFocus) {
+				this.add('cant', pokemon, 'Porthos Broadsword', 'Porthos Broadsword');
+				return true;
 			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Porthos Broadsword');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -3302,9 +3318,9 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
-		contestType: "Clever",
-		desc: "Fails if the target did not select a physical attack, special attack, or Me First for use this turn, or if the target moves before the user.",
-		shortDesc: "Usually goes first. Fails if target is not attacking.",
+		contestType: "Tough",
+		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
+		shortDesc: "Fails if the user takes damage before it hits.",
 	},
 	razorwind: {
 		inherit: true,
@@ -3396,7 +3412,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: 90,
 		basePower: 70,
 		basePowerCallback(pokemon) {
-			if (pokemon.volatiles['stockpile'].layers === 3) return move.basePower * 2;
+			if (pokemon.volatiles['stockpile']?.layers === 3) return move.basePower * 2;
 		},
 		category: "Special",
 		name: "Ventilation",
