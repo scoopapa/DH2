@@ -1307,6 +1307,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'hariyama').learnset.machpunch = ['9L1'];
     this.modData('Learnsets', 'hariyama').learnset.courtchange = ['9L1'];
     this.modData('Learnsets', 'delcatty').learnset.slackoff = ['9L1'];
+    this.modData('Learnsets', 'manectric').learnset.aurorabeam = ['9L1'];
     this.modData('Learnsets', 'plusle').learnset.icywind = ['9L1'];
     this.modData('Learnsets', 'plusle').learnset.icepunch = ['9L1'];
     this.modData('Learnsets', 'plusle').learnset.doubleshock = ['9L1'];
