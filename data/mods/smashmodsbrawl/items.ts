@@ -188,6 +188,54 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 4,
 		shortDesc: "When this Pokemon sets Trick Room, it lasts for 8 turns instead of 5.",
 	},
+	brokenhourglass: {
+	    name: "Broken Hourglass",
+	    shortDesc: "Future moves land instantly at 1.3x power. Single use.",
+	    spritenum: -3,
+	    onModifyMovePriority: 1,
+	    onModifyMove(move, pokemon, target) {
+	        if (move.flags.futuremove) {
+	            move.onTry = undefined;
+	        }
+	        if (move.id === 'wish') {
+	            move.slotCondition = undefined;
+	            move.condition = {};
+	        }
+	    },
+	    onTryMovePriority: -1,
+	    onTryMove(source, target, move) {
+	        if (move.id === 'wish'  && source.hp != source.baseMaxhp && source.useItem()) {
+	            this.heal(source.baseMaxhp *1.3/2, source, source)
+	        }
+	        if (move.id === 'wish' && source.hp === source.baseMaxhp) {
+	            this.add('-fail', source, 'move: Wish');
+	            this.attrLastMove('[still]');
+	            return null;
+	        }
+	    },
+	    onBasePower(basePower, source, target, move) {
+	        if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+	            return this.chainModify(1.3)
+	        }
+	    },
+	    fling: {
+	        basePower: 30,
+	        effect(pokemon) {
+	            let activate = false;
+	            const boosts: SparseBoostsTable = {};
+	            let i: BoostID;
+	            for (i in pokemon.boosts) {
+	                    activate = true;
+	                    boosts[i] = 0;
+	            }
+	            if (activate) {
+	                pokemon.setBoost(boosts);
+	                this.add('-clearboost', pokemon, '[silent]');
+	            }
+	        },
+	    },
+	    num: 0,
+	},
 	boosterenergy: {
 		name: "Booster Energy",
 		onUpdate(pokemon) {
