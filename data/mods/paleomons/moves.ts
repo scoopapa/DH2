@@ -284,7 +284,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Flying",
+		type: "Rock",
 		contestType: "Cool",
 	},
 	
