@@ -790,7 +790,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	scizor: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	scizormega: {
@@ -1970,7 +1970,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	salamence: {
-		tier: "RUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	salamencemega: {
@@ -1984,7 +1984,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	metagross: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	metagrossmega: {
@@ -2000,7 +2000,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	registeel: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	latias: {
@@ -4025,7 +4025,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	inteleon: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	inteleongmax: {
@@ -4154,7 +4154,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	sandaconda: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	sandacondagmax: {
@@ -4719,7 +4719,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	garganacl: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	glimmet: {
@@ -4899,7 +4899,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	clodsire: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	annihilape: {
