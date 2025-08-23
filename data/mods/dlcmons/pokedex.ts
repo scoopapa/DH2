@@ -277,8 +277,31 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Glimmaltis",
 	},
 	// Slate 4
-	// Glamine
-	// Etimenor
+	glamine: {
+		num: -3,
+		species: "Glamine",
+		types: ["Ground"],
+		baseStats: {hp: 35, atk: 75, def: 37, spa: 75, spd: 37, spe: 55},
+		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Fur Coat"},
+		heightm: 0.7,
+		weightkg: 9.3,
+		color: "White",
+		evos: ["Ertimenor"],
+		eggGroups: ["Human-Like"],
+	},
+	ertimenor: {
+		num: -4,
+		species: "Ertimenor",
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 55, atk: 102, def: 57, spa: 102, spd: 57, spe: 90},
+		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Fur Coat"},
+		heightm: 1.2,
+		weightkg: 21.3,
+		color: "White",
+		prevo: "Glamine",
+		evoLevel: 20,
+		eggGroups: ["Human-Like"],
+	},
 	lunatone: {
 		inherit: true,
 		otherFormes: ["Lunatone-Mega"],
@@ -335,7 +358,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 48,
 		eggGroups: ["Bug"],
 	},
-	// Hugfish
+	hugfish: {
+		num: -6,
+		species: "Hugfish",
+		types: ["Water", "Fairy"],
+		baseStats: {hp: 80, atk: 50, def: 70, spa: 120, spd: 150, spe: 40},
+		abilities: {0: "Sticky Hold", 1: "Gooey", H: "Pixilate"},
+		weightkg: 4.4,
+		heightm: 1.1,
+		color: "Purple",
+		eggGroups: ["Water 2"],
+	},
 	snorlax: {
 		inherit: true,
 		otherFormes: ["Snorlax-Kalos"],
@@ -357,7 +390,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		eggGroups: ["Monster"],
 	},
-	// Snaisland
+	snaisland: {
+		num: -7,
+		species: "Snaisland",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 70, atk: 60, def: 140, spa: 95, spd: 90, spe: 45},
+		abilities: {0: "Magma Armor", 1: "Flame Body", H: "Weak Armor"},
+		heightm: 0.8,
+		weightkg: 110,
+		prevo: "Magcargo",
+		evoLevel: 58,
+		eggGroups: ["Amorphous"],
+	},
 	floatzel: {
 		inherit: true,
 		otherFormes: ["Floatzel-Mega"],
@@ -377,6 +421,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Floatzelite",
 	},
-	// Malich
-	// Automent
+	malitch: {
+		num: -8,
+		species: "Malitch",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 105, atk: 75, def: 80, spa: 85, spd: 90, spe: 100},
+		abilities: {0: "Cursed Body", H: "Magic Bounce"},
+		heightm: 1.5,
+		weightkg: 40.4,
+		color: "Purple",
+		eggGroups: ["Amorphous"],
+	},
+	automent: {
+		num: -9,
+		species: "Automent",
+		types: ["Steel", "Electric"],
+		baseStats: {hp: 60, atk: 110, def: 120, spa: 60, spd: 90, spe: 80},
+		abilities: {0: "Plus", 1: "Water Absorb", H: "Light Metal"},
+		heightm: 8.8,
+		weightkg: 255.5,
+		color: "Gray",
+		eggGroups: ["Mineral"],
+	},
 };

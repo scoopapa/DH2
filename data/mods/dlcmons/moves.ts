@@ -160,4 +160,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		shortDesc: "Hit twice in one turn. Bypass accuracy check. Fist-based and contact-based, but ignores contact-delibtating mechanics like Iron Barbs.",
 	},
+	magmachamber: {
+		num: -6,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Magma Chamber",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onHit(target) {
+			if (!target.hasType('Fire')) return;
+			target.setType(target.getTypes(true).map(type => type === "Fire" ? "???" : type));
+			this.add('-start', target, 'typechange', target.getTypes().join('/'), '[from] move: Magma Chamber');
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magma Storm", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+		shortDesc: "Removes the target's Fire-type on hit.",
+	},
 };
