@@ -867,7 +867,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			focuspunch: ["6L1"],
 			knockoff: ["6L1"],
 			brickbreak: ["6L1"],
-			badapple: ["6L1"],
+			abadapple: ["6L1"],
 			drainpunch: ["6L1"],
 			infestation: ["6L1"],
 			toxic: ["6L1"],

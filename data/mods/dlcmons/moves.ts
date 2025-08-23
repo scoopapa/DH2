@@ -26,12 +26,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		shortDesc: "Hits all adjacent foes. Prevents the user from using sound-based moves for 2 turns.",
 	},
-	badapple: {
+	abadapple: {
 		num: -2,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		name: "Bad Apple",
+		name: "A Bad Apple",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
