@@ -761,7 +761,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	glimmaltis: {tier: "Kalos"},
 
 	// Slate 4
-	glamine: {tier: "Kalos"},
+	glamine: {tier: "Kalos (NFE)"},
 	etimenor: {tier: "Kalos"},
 	hugfish: {tier: "Kalos"},
 	malich: {tier: "Kalos"},

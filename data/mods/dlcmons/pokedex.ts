@@ -202,7 +202,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	glimmet: {
 		inherit: true,
-		gen: 6,
 		otherFormes: ["Glimmet-Kalos"],
 		formeOrder: ["Glimmet", "Glimmet-Kalos"],
 	},
@@ -223,7 +222,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	glimmora: {
 		inherit: true,
-		gen: 6,
 		otherFormes: ["Glimmora-Kalos"],
 		formeOrder: ["Glimmora", "Glimmora-Kalos"],
 	},
@@ -279,7 +277,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	// Slate 4
 	glamine: {
 		num: -3,
-		species: "Glamine",
+		name: "Glamine",
 		types: ["Ground"],
 		baseStats: {hp: 35, atk: 75, def: 37, spa: 75, spd: 37, spe: 55},
 		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Fur Coat"},
@@ -291,7 +289,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ertimenor: {
 		num: -4,
-		species: "Ertimenor",
+		name: "Ertimenor",
 		types: ["Ground", "Fighting"],
 		baseStats: {hp: 55, atk: 102, def: 57, spa: 102, spd: 57, spe: 90},
 		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Fur Coat"},
@@ -360,7 +358,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	hugfish: {
 		num: -6,
-		species: "Hugfish",
+		name: "Hugfish",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 80, atk: 50, def: 70, spa: 120, spd: 150, spe: 40},
 		abilities: {0: "Sticky Hold", 1: "Gooey", H: "Pixilate"},
@@ -392,7 +390,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	snaisland: {
 		num: -7,
-		species: "Snaisland",
+		name: "Snaisland",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 70, atk: 60, def: 140, spa: 95, spd: 90, spe: 45},
 		abilities: {0: "Magma Armor", 1: "Flame Body", H: "Weak Armor"},
@@ -423,7 +421,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	malitch: {
 		num: -8,
-		species: "Malitch",
+		name: "Malitch",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 105, atk: 75, def: 80, spa: 85, spd: 90, spe: 100},
 		abilities: {0: "Cursed Body", H: "Magic Bounce"},
@@ -434,7 +432,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	automent: {
 		num: -9,
-		species: "Automent",
+		name: "Automent",
 		types: ["Steel", "Electric"],
 		baseStats: {hp: 60, atk: 110, def: 120, spa: 60, spd: 90, spe: 80},
 		abilities: {0: "Plus", 1: "Water Absorb", H: "Light Metal"},
