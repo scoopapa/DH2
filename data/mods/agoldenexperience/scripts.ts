@@ -1276,6 +1276,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'suicune').learnset.hydrosteam = ['9L1'];
     this.modData('Learnsets', 'suicune').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'suicune').learnset.flipturn = ['9L1'];
+    this.modData('Learnsets', 'celebi').learnset.revivalblessing = ['9L1'];
 
     // Gen 3:
     this.modData('Learnsets', 'mightyena').learnset.pursuit = ['9L1'];

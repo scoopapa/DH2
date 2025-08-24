@@ -735,6 +735,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Ghost", "Fairy"],
 		abilities: {0: "Levitate", H: "Magician"},
 	},
+	wobbuffet: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Counter Strike", H: "Telepathy"},
+	},
 	girafarig: {
 		inherit: true,
 		evos: ["Farigiraf", "Girafatak"],
@@ -1290,6 +1294,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 150, def: 70, spa: 85, spd: 70, spe: 125},
 		abilities: {0: "Angelic Nature"},
+	},
+	wynaut: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Counter Strike", H: "Telepathy"},
 	},
 	glaliemega: {
 		inherit: true,
@@ -2135,7 +2143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Showdown", H: "Shadow Tag"},
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag"},
 	},
 	haxorus: {
 		inherit: true,

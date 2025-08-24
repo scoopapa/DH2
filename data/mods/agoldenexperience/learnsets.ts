@@ -5628,7 +5628,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			perishsong: ["9L1"],
 			goldenexperience: ["9L1"],
 			bulkup: ["9L1"],
-			grassyglide: ["9L1"]
+			grassyglide: ["9L1"],
+			revivalblessing: ["9L1"],
 		},
 	},
 	slendawful: {
