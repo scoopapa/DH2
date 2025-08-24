@@ -158,6 +158,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			else return null;
 		}
 		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
+		if (item.name === "Arcanite" && pokemon.species.name === "Arcanine-Hisui") return null;
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}

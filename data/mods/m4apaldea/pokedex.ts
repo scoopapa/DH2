@@ -674,7 +674,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "LordThemberchaud",
 	},
 
-	// slate 14
+	// slate 15
 
 	cloyster: {
 		inherit: true,
@@ -746,7 +746,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "BlueRay & Lysion",
 	},
 
-	// slate 15
+	// slate 16
 
 	kingdra: {
 		inherit: true,
