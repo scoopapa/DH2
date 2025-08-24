@@ -3300,10 +3300,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Bug"],
 		requiredItem: "Rabscanite",
 	},
-	tinkaton: {
-		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Sheer Force", H: "Pickpocket"},
-	},
 	wiglett: {
 		inherit: true,
 		abilities: {0: "Gooey", 1: "Rattled", H: "Technician"},
