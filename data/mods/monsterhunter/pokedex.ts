@@ -1652,7 +1652,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 124,
 		name: "Blackveil Hazak",
 		types: ["Grass", "Ghost"],
-		baseStats: {hp: 95, atk: 83, def: 145, spa: 110, spd: 100, spe: 75},
+		baseStats: {hp: 95, atk: 100, def: 145, spa: 110, spd: 83, spe: 75},
 		abilities: {0: "Pathogenic", H: "Perish Body"},
 		weightkg: 125.0,
 	},
