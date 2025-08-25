@@ -17,7 +17,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				atk: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Toxic Thread", target);
 		},
@@ -37,7 +37,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { contact: 1, protect: 1, mirror: 1, gravity: 1 },
 		recoil: [33, 100],
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icicle Crash", target);
 		},
@@ -71,7 +71,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Brave Bird", target);
 		},
@@ -92,7 +92,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { protect: 1, mirror: 1 },
 		ignoreAbility: true,
 		tracksTarget: true,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Tailwind", target);
 		},
@@ -112,7 +112,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { punch: 1, contact: 1, protect: 1, mirror: 1 },
 		ignoreAbility: true,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dynamic Punch", target);
 		},
@@ -142,7 +142,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			chance: 100,
 			status: 'tox',
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Fang", target);
 		},
@@ -169,7 +169,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				move.ignoreImmunity['Psychic'] = true;
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psychic", target);
 		},
@@ -190,7 +190,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			target.clearBoosts();
 			this.add('-clearboost', target);
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psyshock", target);
 		},
@@ -212,7 +212,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onModifyMove(move, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) move.boosts = { spa: 2, spe: 1 };
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Growth", target);
 		},
@@ -240,7 +240,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
 		},
@@ -262,7 +262,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			target.clearBoosts();
 			this.add('-clearboost', target);
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Scald", target);
 		},
@@ -282,7 +282,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [33, 100],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Iron Head", target);
 		},
@@ -300,7 +300,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1 },
 		drain: [1, 2],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Moonblast", target);
 		},
@@ -322,7 +322,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hyperspace Fury", target);
 		},
@@ -370,7 +370,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onTryImmunity(target) {
 			return (!target.hasType('Fire') && !target.hasType('Ice'));
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
 		},
@@ -390,7 +390,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, heal: 1 },
 		drain: [1, 2],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dark Pulse", target);
 		},
@@ -417,7 +417,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				return this.chainModify(2);
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Facade", target);
 		},
@@ -437,7 +437,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 20,
 		priority: 1,
 		flags: { bullet: 1, protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Pyro Ball", target);
 		},
@@ -459,7 +459,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onHit() {
 			this.field.clearTerrain();
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Pyro Ball", target);
 		},
@@ -485,7 +485,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		name: "Backfire",
 		pp: 15,
 		flags: { contact: 1, protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Overheat", target);
 		},
@@ -507,7 +507,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, heal: 1 },
 		heal: [1, 2],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Life Dew", target);
 		},
@@ -534,7 +534,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				pokemon.side.removeSideCondition('auroraveil');
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fishious Rend", target);
 		},
@@ -557,7 +557,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		multihit: [2, 5],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bolt Beak", target);
 		},
@@ -589,7 +589,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				move.target = 'allAdjacentFoes';
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
 		},
@@ -609,7 +609,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { protect: 1, reflectable: 1, mirror: 1 },
 		status: 'frz',
 		ignoreImmunity: false,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
 		},
@@ -630,7 +630,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Grass' || type === 'Bug') return 1;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Close Combat", target);
 		},
@@ -655,7 +655,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted - problematic line
 			return move.basePower;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Vacuum Wave", target);
 		},
@@ -690,7 +690,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 10,
 		priority: 0,
 		flags: { punch: 1, protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dynamic Punch", target);
 		},
@@ -708,7 +708,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, heal: 1 },
 		heal: [1, 2],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", target);
 		},
@@ -741,7 +741,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			if (target.newlySwitched || this.queue.willMove(target)) return;
 			target.addVolatile('gastroacid');
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Acid Spray", target);
 		},
@@ -783,7 +783,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			}
 			return success;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mud Shot", target);
 		},
@@ -826,7 +826,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-start', source, 'move: Epicenter');
 			return null;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mud Shot", target);
 		},
@@ -851,7 +851,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				this.boost({ spe: -1 }, target, target, null, true);
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 		},
@@ -873,7 +873,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			spa: 1,
 			accuracy: 1,
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Calm Mind", target);
 		},
@@ -901,7 +901,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
 		},
@@ -928,7 +928,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			}
 			if (hasBoost) move.critRatio = 5;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Wicked Blow", target);
 		},
@@ -958,7 +958,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			return success;
 		},
 		secondary: null,
-		onPrepareHit: function (target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Torment", target, source);
 		},
@@ -981,7 +981,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Daze", target);
 		},
@@ -1006,7 +1006,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hypnosis", target);
 			this.add('-anim', source, "Psycho Boost", target);
@@ -1034,7 +1034,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Lash Out", target);
 		},
@@ -1057,7 +1057,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			status: 'psn',
 		},
 		shortDesc: "30% to poison the target.",
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flash Cannon", target);
 		},
@@ -1085,7 +1085,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dazzling Gleam", target);
 		},
@@ -1143,7 +1143,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				this.add('-fieldend', 'move: Chakra Terrain');
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psychic Terrain", target);
 		},
@@ -1874,7 +1874,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Spark", target);
 		},
@@ -1913,7 +1913,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			spd: 1,
 			spe: 1,
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Conversion", target);
 		},
@@ -1944,7 +1944,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Head Smash", target);
 		},
@@ -1971,7 +1971,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				this.add('-message', pokemon.name + "'s Awakening revealed the move " + temp.move + "!");
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dream Eater", target);
 		},
@@ -2012,7 +2012,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psystrike", target);
 		},
@@ -2056,7 +2056,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onAfterSubDamage(damage, target, source, move) {
 			this.hint(move.category + " Brave Blade");
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Spacial Rend", target);
 		},
@@ -2083,7 +2083,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				},
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Grassy Glide", target);
 		},
@@ -2106,7 +2106,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 		weather: 'RainDance',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rain Dance", target);
 		},
@@ -2130,7 +2130,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: {
 			sideCondition: 'tailwind',
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Tailwind", target);
 		},
@@ -2202,7 +2202,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hyper Voice", target);
 		},
@@ -2222,7 +2222,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		weather: 'sunnyday',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Inferno", target);
 		},
@@ -2306,7 +2306,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bug Buzz", target);
 		},
@@ -2330,7 +2330,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				spe: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Inferno", target);
 		},
@@ -2569,7 +2569,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [1, 3],
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Wave Crash", target);
 		},
@@ -2587,7 +2587,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 10,
 		flags: { protect: 1, mirror: 1, heal: 1, metronome: 1 },
 		drain: [1, 8],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Leaf Storm", target);
 		},
@@ -2630,7 +2630,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		multihit: [2, 5],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Swift", target);
 		},
@@ -2785,7 +2785,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Blast", target);
 		},
@@ -2810,7 +2810,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		multihit: [2, 5],
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Power Whip", target);
 			this.add('-anim', source, "Sludge Wave", target);
@@ -2880,7 +2880,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				});
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 			this.add('-anim', source, "Blizzard", target);
@@ -2910,7 +2910,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				});
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 			this.add('-anim', source, "Thunder", target);
@@ -2940,7 +2940,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				});
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 			this.add('-anim', source, "Heat Wave", target);
@@ -2966,7 +2966,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		boosts: {
 			spa: 1,
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Genesis Supernova", target);
 		},
@@ -2991,7 +2991,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			pokemon.addVolatile('taunt');
 			return pokemon.cureStatus() || success;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunderclap", source);
 		},
@@ -3056,7 +3056,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onEnd(pokemon) {
 			pokemon.removeVolatile('flashfire');
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fiery Dance", source);
 		},
@@ -3080,7 +3080,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onHit(pokemon) {
 			return pokemon.cureStatus();
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aurora Veil", source);
 			this.add('-anim', source, "Aqua Ring", source);
@@ -3126,7 +3126,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.field.clearTerrain();
 			return success;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Blast", source);
 		},
@@ -3151,7 +3151,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			spe: 2,
 			spa: 1,
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Polish", source);
 		},
@@ -3188,7 +3188,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Alien Metal', '[silent]');
 			},
 		},		
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Iron Defense", source);
 		},
@@ -3208,7 +3208,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
 		stallingMove: true,
 		volatileStatus: 'athosrapier',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smart Strike", source);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
@@ -3268,7 +3268,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 30,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Leaf Blade", target);
 		},
@@ -3311,7 +3311,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				if (status.id === 'flinch') return null;
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stone Edge", target);
 		},
@@ -3342,7 +3342,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				return this.chainModify(2);
 			}
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "G-Max Befuddle", target);
 		},
@@ -3372,7 +3372,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Pin Missile", target);
 		},
@@ -3391,7 +3391,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			}
 			return move.basePower;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sky Drop", target);
 			this.add('-anim', source, "Explosion", target);
@@ -3422,7 +3422,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onAfterMove(pokemon) {
 			if (pokemon.volatiles['stockpile']) pokemon.removeVolatile('stockpile');
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 		},
@@ -3457,7 +3457,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Zen Headbutt", target);
 		},
@@ -3479,11 +3479,21 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icicle Spear", target);
+			this.add('-anim', source, "Thousand Arrows", target);
 		},
-		shortDesc: "(WIP) Hits once in this turn, then hits again in the next turn. Ignores protection.",
+		onHit(pokemon, source) {
+			source.addVolatile('rainofarrows');
+		},
+		condition: {
+			duration: 1,
+			onResidual(pokemon) {
+				this.actions.useMove('rainofarrows', target, source);
+			},
+		},
+		shortDesc: "Hits once in this turn, then hits again in the next turn. Ignores protection.",
 	},
 	overdrive: {
 		inherit: true,
@@ -3509,7 +3519,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		selfSwitch: true,
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Boomburst", target);
 			this.add('-anim', source, "U-turn", target);
@@ -3531,7 +3541,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		secondary: null,
 		ignoreAbility: true,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Boomburst", target);
 		},
@@ -3564,14 +3574,14 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		name: "Ningen Cry",
 		pp: 5,
 		priority: 0,
-		flags: { snatch: 1, dance: 1 },
+		flags: {snatch: 1, dance: 1 },
 		self: {
 			boosts: {
 				atk: 1,
 			},
 		},
 		weather: 'snow',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Snowscape", target);
 		},
@@ -3615,10 +3625,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "Has 33% recoil. Usually goes first.",
 		pp: 10,
 		priority: 1,
-		flags: { contact: 1, protect: 1, mirror: 1 },
+		flags: {contact: 1, protect: 1, mirror: 1 },
 		recoil: [1, 3],
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Brave Bird", target);
 		},
@@ -3641,7 +3651,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psywave", target);
 		},
