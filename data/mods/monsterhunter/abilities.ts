@@ -734,17 +734,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
 	},
 	twilightdust: {
-		onStart(pokemon, source) {
+		onResidual(pokemon) {
 			if (pokemon.swordBoost) return;
 			pokemon.swordBoost = true;
-			this.add('-activate', source, 'ability: Twilight Dust');
+			this.add('-activate', pokemon, 'ability: Twilight Dust');
 			this.field.addPseudoWeather('trickroom')
 		},
 		flags: {},
 		name: "Twilight Dust",
 		rating: 4,
 		num: 1035,
-		shortDesc: "On activation, this Pokemon summons Trick Room; Once per battle.",
+		shortDesc: "Once per battle, this pokemon summons trick room at the end of the turn.",
 	},
 	protopyre: {
 		onStart(pokemon) {
@@ -1398,15 +1398,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-ability', pokemon, 'Pulp-Up');
 			}
 		},
-		onTryHit(target, source, move) {
-			if (move.category === 'Status' && target !== source) {
-				target.addVolatile('stockpile');
-				this.add('-ability', target, 'Pulp-Up');
-			}
-		},
 		flags: {},
 		name: "Pulp Up",
-		shortDesc: "When this Pokemon uses or is targeted by a status move, Stockpiles 1.",
+		shortDesc: "When this Pokemon uses a status move, Stockpiles 1.",
 		rating: 3,
 		num: -1,
 	},
