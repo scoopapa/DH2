@@ -916,6 +916,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Sand Stream", H: "Guts"}
 	},
+	celebi: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Regenerator"},
+	},
 	// Gen 3 :
 	treecko: {
 		inherit: true,
@@ -2452,9 +2456,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
 	},
+	sliggoo: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 68, atk: 55, def: 73, spa: 83, spd: 113, spe: 60},
+	},
+	sliggoohisui: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 75, def: 83, spa: 83, spd: 113, spe: 30},
+		abilities: {0: "Sap Sipper", 1: "Heatproof", H: "Gooey"},
+	},
+	goodra: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 90, atk: 70, def: 100, spa: 110, spd: 150, spe: 80},
+	},
 	goodrahisui: {
 		inherit: true,
-		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Gooey"},
+		baseStats: {hp: 90, atk: 100, def: 100, spa: 110, spd: 150, spe: 50},
+		abilities: {0: "Misty Surge", 1: "Heatproof", H: "Gooey"},
 	},
 	trevenant: {
 		inherit: true,
