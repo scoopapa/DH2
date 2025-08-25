@@ -509,7 +509,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	golem: {tier: "Kalos"},
 
 	slugma: {tier: "Kalos (NFE)"},
-	magcargo: {tier: "Kalos"},
+	magcargo: {tier: "Kalos (NFE)"},
+	snaisland: {tier: "Kalos"},
 
 	shuckle: {tier: "Kalos"},
 
@@ -712,7 +713,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	spinda: {tier: "Kalos"},
 
 	teddiursa: {tier: "Kalos (NFE)"},
-	ursaring: {tier: "Kalos"}, // well... you *are* NFE but--
+	ursaring: {tier: "Kalos"}, 
 
 	lickitung: {tier: "Kalos (NFE)"},
 	lickilicky: {tier: "Kalos"},
@@ -755,13 +756,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	registeelkalos: {tier: "Kalos"},
 	regigigas: {tier: "Kalos"},
 
-	// those two are here for bug fixing purposes
-	glimmet: {tier: "Kalos Uber"},
-	glimmora: {tier: "Kalos Uber"},
-
 	glimmetkalos: {tier: "Kalos (NFE)"},
 	glimmorakalos: {tier: "Kalos (NFE)"},
 	glimmaltis: {tier: "Kalos"},
 
 	// Slate 4
+	glamine: {tier: "Kalos (NFE)"},
+	ertimenor: {tier: "Kalos"},
+	hugfish: {tier: "Kalos"},
+	malich: {tier: "Kalos"},
+	automent: {tier: "Kalos"},
 };

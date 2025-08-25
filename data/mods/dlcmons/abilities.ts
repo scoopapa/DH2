@@ -72,9 +72,4 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -3,
 	},
-	furcoat: {
-		inherit: true,
-		isNonstandard: null,
-		gen: 6,
-	},
 };

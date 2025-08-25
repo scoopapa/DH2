@@ -1470,12 +1470,45 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onFoeTrapPokemon(pokemon) {	},
 		onFoeMaybeTrapPokemon(pokemon, source) {},
-		onFoeSwitchOut(source, target) {
-			for (const target of source.side.foe.active) {
-				this.damage(source.baseMaxhp / 8, source, target);
+		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
+		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (!activated) {
+					this.add('-ability', source, 'Shadow Tag');
+				}
+				activated = true;
+				if (!pokemon.volatiles['healblock']) {
+					pokemon.addVolatile('healblock');
+				}
 			}
 		},
-		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
+		onAnySwitchIn(pokemon) {
+			if (!pokemon.volatiles['healblock']) {
+				pokemon.addVolatile('healblock');
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('shadowtag')) return;
+			}
+			for (const target of this.getAllActive()) {
+				target.removeVolatile('healblock');
+			}
+		},
+	},
+	regenerator: { // modded for Shadow Tag
+		inherit: true,
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('shadowtag')) {
+					return;
+				}
+			}
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
 	},
 	sandveil: {
 		inherit: true,
@@ -2671,49 +2704,37 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon's Status moves ignore certain Abilities of other Pokemon, and Sleep inducing moves go last among Pokemon using the same or greater priority moves.",
 		shortDesc: "This Pokemon's Sleep inducing moves go last in their priority bracket and status moves ignore Abilities.",
 	},
-	showdown: {
-		desc: "While this Pokémon is present, all Pokémon are prevented from restoring any HP. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. Regenerator is also suppressed.",
-		shortDesc: "While present, all Pokémon are prevented from healing and Regenerator is suppressed.",
-		onStart(source) {
-			let activated = false;
-			for (const pokemon of this.getAllActive()) {
-				if (!activated) {
-					this.add('-ability', source, 'Showdown');
+	counterstrike: {
+		shortDesc: "This Pokemon reflects 50% of the damage it receives.",
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('counterstrike');
+		},
+		onTry(source) {
+			if (!source.volatiles['counterstrike']) return false;
+			if (source.volatiles['counterstrike'].slot === null) return false;
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onStart(target, source, move) {
+				this.effectState.slot = null;
+				this.effectState.damage = 0;
+			},
+			onRedirectTargetPriority: -1,
+			onRedirectTarget(target, source, source2, move) {
+				if (source !== this.effectState.target || !this.effectState.slot) return;
+				return this.getAtSlot(this.effectState.slot);
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!source.isAlly(target)) {
+					this.effectState.slot = source.getSlot();
+					this.effectState.damage = damage / 2;
 				}
-				activated = true;
-				if (!pokemon.volatiles['healblock']) {
-					pokemon.addVolatile('healblock');
-				}
-			}
+			},
 		},
-		onAnySwitchIn(pokemon) {
-			if (!pokemon.volatiles['healblock']) {
-				pokemon.addVolatile('healblock');
-			}
-		},
-		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('showdown')) return;
-			}
-			for (const target of this.getAllActive()) {
-				target.removeVolatile('healblock');
-			}
-		},
-		name: "Showdown",
+		name: "Counter Strike",
 		rating: 3.5,
 		num: -91,
-	},
-	regenerator: { // modded for Showdown
-		inherit: true,
-		onSwitchOut(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target.hasAbility('showdown')) {
-					return;
-				}
-			}
-			pokemon.heal(pokemon.baseMaxhp / 3);
-		},
 	},
 	magician: {
 		inherit: true,

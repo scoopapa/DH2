@@ -26,12 +26,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		shortDesc: "Hits all adjacent foes. Prevents the user from using sound-based moves for 2 turns.",
 	},
-	badapple: {
+	abadapple: {
 		num: -2,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		name: "Bad Apple",
+		name: "A Bad Apple",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -159,5 +159,144 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 120},
 		contestType: "Cool",
 		shortDesc: "Hit twice in one turn. Bypass accuracy check. Fist-based and contact-based, but ignores contact-delibtating mechanics like Iron Barbs.",
+	},
+	magmachamber: {
+		num: -6,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Magma Chamber",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onHit(target) {
+			if (!target.hasType('Fire')) return;
+			target.setType(target.getTypes(true).map(type => type === "Fire" ? "???" : type));
+			this.add('-start', target, 'typechange', target.getTypes().join('/'), '[from] move: Magma Chamber');
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magma Storm", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+		shortDesc: "Removes the target's Fire-type on hit.",
+	},
+
+
+	// Swift Retreat
+	bounce: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	dig: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	dive: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				attacker.formeChange(forme, move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	fly: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	phantomforce: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	shadowforce: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+                if (attacker.hasAbility('swiftretreat')) {
+                    attacker.switchFlag = true;
+                    return null;
+                }
+                return;
+            }
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 	},
 };
