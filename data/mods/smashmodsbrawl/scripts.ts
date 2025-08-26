@@ -651,6 +651,130 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return hitResults;
 		},
+		getZMove(move: Move, pokemon: Pokemon, skipChecks?: boolean): string | undefined {
+			const Z_MOVES: {readonly [k: string]: string} = {
+				Poison: "Acid Downpour",
+				Fighting: "All-Out Pummeling",
+				Dark: "Black Hole Eclipse",
+				Grass: "Bloom Doom",
+				Normal: "Breakneck Blitz",
+				Rock: "Continental Crush",
+				Steel: "Corkscrew Crash",
+				Dragon: "Devastating Drake",
+				Electric: "Gigavolt Havoc",
+				Water: "Hydro Vortex",
+				Fire: "Inferno Overdrive",
+				Ghost: "Never-Ending Nightmare",
+				Bug: "Savage Spin-Out",
+				Psychic: "Shattered Psyche",
+				Ice: "Subzero Slammer",
+				Flying: "Supersonic Skystrike",
+				Ground: "Tectonic Rage",
+				Fairy: "Twinkle Tackle",
+				Stellar: "Tera Triple Basedball Barrage",
+			};
+			const item = pokemon.getItem();
+			if (!skipChecks) {
+				if (pokemon.side.zMoveUsed) return;
+				if (!item.zMove) return;
+				if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
+				const moveData = pokemon.getMoveData(move);
+				// Draining the PP of the base move prevents the corresponding Z-move from being used.
+				if (!moveData?.pp) return;
+			}
+
+			if (item.zMoveFrom) {
+				if (move.name === item.zMoveFrom) return item.zMove as string;
+			} else if (item.zMove === true) {
+				if (move.type === item.zMoveType || item.name === 'Stellarium Z') {
+					if (move.category === "Status") {
+						return move.name;
+					} else if (move.zMove?.basePower) {
+						if (item.name === 'Stellarium Z') return "Tera Triple Basedball Barrage";
+						else return Z_MOVES[move.type];
+					}
+				}
+			}
+		},
+		getActiveZMove(move: Move, pokemon: Pokemon): ActiveMove {
+			const Z_MOVES: {readonly [k: string]: string} = {
+				Poison: "Acid Downpour",
+				Fighting: "All-Out Pummeling",
+				Dark: "Black Hole Eclipse",
+				Grass: "Bloom Doom",
+				Normal: "Breakneck Blitz",
+				Rock: "Continental Crush",
+				Steel: "Corkscrew Crash",
+				Dragon: "Devastating Drake",
+				Electric: "Gigavolt Havoc",
+				Water: "Hydro Vortex",
+				Fire: "Inferno Overdrive",
+				Ghost: "Never-Ending Nightmare",
+				Bug: "Savage Spin-Out",
+				Psychic: "Shattered Psyche",
+				Ice: "Subzero Slammer",
+				Flying: "Supersonic Skystrike",
+				Ground: "Tectonic Rage",
+				Fairy: "Twinkle Tackle",
+				Stellar: "Tera Triple Basedball Barrage",
+			};
+			let item;
+			if (pokemon) {
+				item = pokemon.getItem();
+				if (move.name === item.zMoveFrom) {
+					const zMove = this.dex.getActiveMove(item.zMove as string);
+					zMove.isZOrMaxPowered = true;
+					return zMove;
+				}
+			}
+
+			if (move.category === 'Status') {
+				const zMove = this.dex.getActiveMove(move);
+				zMove.isZ = true;
+				zMove.isZOrMaxPowered = true;
+				return zMove;
+			}
+			let zMove = this.dex.getActiveMove(Z_MOVES[move.type]);
+			if(item && item.name === 'Stellarium Z') zMove = this.dex.getActiveMove("Tera Triple Basedball Barrage");
+			zMove.basePower = move.zMove!.basePower!;
+			zMove.category = move.category;
+			// copy the priority for Quick Guard
+			zMove.priority = move.priority;
+			zMove.isZOrMaxPowered = true;
+			return zMove;
+		},
+		canZMove(pokemon: Pokemon) {
+			if (pokemon.side.zMoveUsed ||
+				(pokemon.transformed &&
+					(pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra"))
+			) return;
+			const item = pokemon.getItem();
+			if (!item.zMove) return;
+			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
+			let atLeastOne = false;
+			let mustStruggle = true;
+			const zMoves: ZMoveOptions = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.pp <= 0) {
+					zMoves.push(null);
+					continue;
+				}
+				if (!moveSlot.disabled) {
+					mustStruggle = false;
+				}
+				const move = this.dex.moves.get(moveSlot.move);
+				let zMoveName = this.getZMove(move, pokemon, true) || '';
+				if (zMoveName) {
+					const zMove = this.dex.moves.get(zMoveName);
+					if (!zMove.isZ && zMove.category === 'Status') zMoveName = "Z-" + zMoveName;
+					zMoves.push({move: zMoveName, target: zMove.target});
+				} else {
+					zMoves.push(null);
+				}
+				if (zMoveName) atLeastOne = true;
+			}
+			if (atLeastOne && !mustStruggle) return zMoves;
+		},
 	},
 	battle: {
 		runAction(action: Action) {
