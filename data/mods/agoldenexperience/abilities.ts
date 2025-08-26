@@ -2292,18 +2292,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	mightywall: {
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			if (!(pokemon.activeMoveActions > 1)) {
-				return this.chainModify(1.5);
-			}
+			return this.chainModify(1.5);
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
-			if (!(pokemon.activeMoveActions > 1)) {
-				return this.chainModify(1.5);
-			}
+			return this.chainModify(1.5);
 		},
-		desc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
-		shortDesc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
+		onSwitchOut(pokemon) {
+			pokemon.addVolatile('mightywall');
+		},
+		condition: {
+			onModifyDefPriority: 5,
+			onModifyDef(def, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onModifySpDPriority: 5,
+			onModifySpD(spd, pokemon) {
+				return this.chainModify(0.5);
+			},
+		},
+		desc: "This Pokemon's Defense and Special Defense are multiplied by 1.5, and by 0.5 when it switches out.",
+		shortDesc: "This Pokemon's Defense and Special Defense are multiplied by 1.5, and by 0.5 when it switches out.",
 		name: "Mighty Wall",
 		rating: 4,
 		num: -74,
@@ -2906,6 +2915,59 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onDamagingHit(damage, target, source, move) {},
 		desc: "On switch-in, this Pokemon swaps abilities with the target.",
 		shortDesc: "On switch-in, this Pokemon swaps abilities with the target.",
+	},
+	heavyweapon: {
+		shortDesc: "(WIP) Gives an ally Octillery +1 priority on all its moves.",
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.transformed ||
+				pokemon.baseSpecies.baseSpecies !== 'Mantine' || ally.baseSpecies.baseSpecies !== 'Octillery') {
+				return;
+			}
+			this.add('-activate', source, 'ability: Heavy Weapon', myItem, '[of] ' + pokemon);
+			this.hint("Octillery can shoot faster!");
+			ally.addVolatile('heavyweapon');
+		},
+		condition: {
+			onModifyPriority(priority, pokemon, target, move) {
+				return priority + 1;
+			},
+		},
+		name: "Heavy Weapon",
+		num: -97,
+	},
+	triheaded: {
+		shortDesc: "This Pokemon's moves have x0.67 BP, but hits 3 times.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihit) return;
+			return this.chainModify([0.67]);
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.multihit) return;
+			move.multihit = 3;
+		},
+		name: "Tri-Headed",
+		num: -98,
+	},
+	stymphaleblade: {
+		desc: "Pokemon making contact with this Pokemon or getting hit from contact moves from this Pokemon lose 1/8 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon making contact or being targeted by contact moves from this Pokemon lose 1/8 of their max HP.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+      	onAfterMove(target, source, move) {
+			if (target !== source && move.category !== 'Status' && move.totalDamage && move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Stymphale Blade",
+		num: -99,
 	},
 
 

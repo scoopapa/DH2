@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Early Bird", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Tri-Headed", H: "Striker"},
 	},
 	dewgong: {
 		inherit: true,
@@ -847,6 +847,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mantine: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 40, def: 85, spa: 80, spd: 140, spe: 70},
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Heavy Weapon"},
+	},
+	skarmory: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 80, def: 140, spa: 40, spd: 70, spe: 70},
+		abilities: {0: "Stymphale Blade", 1: "Sturdy", H: "Weak Armor"},
 	},
 	phanpy: {
 		inherit: true,

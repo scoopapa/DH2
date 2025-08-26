@@ -560,8 +560,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	dodrio: {
-		tier: "NU",
-		doublesTier: "DUU",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	seel: {
 		tier: "LC",
@@ -1321,7 +1321,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	octillery: {
 		tier: "NU",
-		doublesTier: "(DUU)",
+		doublesTier: "DOU",
 	},
 	delibird: {
 		tier: "LC",
@@ -1331,10 +1331,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	mantine: {
 		tier: "NU",
-		doublesTier: "(DUU)",
+		doublesTier: "DOU",
 	},
 	skarmory: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	houndour: {
