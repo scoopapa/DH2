@@ -166,67 +166,71 @@ export const Scripts: ModdedBattleScriptsData = {
 	   this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
 	   this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
 	   this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
+	   this.modData('Learnsets', 'gyarados').learnset.acrobatics = ['9L1'];
+	   this.modData('Learnsets', 'gyarados').learnset.ragingtorrent = ['9L1'];
+	   this.modData('Learnsets', 'dhelmise').learnset.wavecrash = ['9L1'];
+	   this.modData('Learnsets', 'dhelmise').learnset.waterfall = ['9L1'];
 	},
-  pokemon: {
-	inherit: true,
-  	lostItemForDelibird: null,
-  	setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
-  		if (!this.hp) return false;
-  		if (this.itemState.knockedOff) return false;
-  		if (typeof item === 'string') item = this.battle.dex.items.get(item);
-  
-  		const effectid = this.battle.effect ? this.battle.effect.id : '';
-  		const RESTORATIVE_BERRIES = new Set([
-  			'leppaberry', 'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry',
-  		] as ID[]); // manually pasted in const RESTORATIVE_BERRIES because its absence caused a bug
-  		if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
-  			const inflicted = ['trick', 'switcheroo'].includes(effectid);
-  			const external = inflicted && source && !source.isAlly(this);
-  			this.pendingStaleness = external ? 'external' : 'internal';
-  		} else {
-  			this.pendingStaleness = undefined;
-  		}
-  		const oldItem = this.getItem();
-  		const oldItemState = this.itemState;
-  		this.item = item.id;
-  		this.itemState = {id: item.id, target: this};
-  		if (oldItem.exists) this.battle.singleEvent('End', oldItem, oldItemState, this);
-  		if (item.id) {
-  			this.battle.singleEvent('Start', item, this.itemState, this, source, effect);
-  		}
-  		return true;
-  	},
-	getDynamaxRequest(skipChecks?: boolean) {
-		// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
-		if (!skipChecks) {
-			if (!this.side.canDynamaxNow()) return;
-			if (
-				this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
-			) {
-				return;
+	pokemon: {
+		inherit: true,
+	  	lostItemForDelibird: null,
+	  	setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
+	  		if (!this.hp) return false;
+	  		if (this.itemState.knockedOff) return false;
+	  		if (typeof item === 'string') item = this.battle.dex.items.get(item);
+	  
+	  		const effectid = this.battle.effect ? this.battle.effect.id : '';
+	  		const RESTORATIVE_BERRIES = new Set([
+	  			'leppaberry', 'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry',
+	  		] as ID[]); // manually pasted in const RESTORATIVE_BERRIES because its absence caused a bug
+	  		if (RESTORATIVE_BERRIES.has('leppaberry' as ID)) {
+	  			const inflicted = ['trick', 'switcheroo'].includes(effectid);
+	  			const external = inflicted && source && !source.isAlly(this);
+	  			this.pendingStaleness = external ? 'external' : 'internal';
+	  		} else {
+	  			this.pendingStaleness = undefined;
+	  		}
+	  		const oldItem = this.getItem();
+	  		const oldItemState = this.itemState;
+	  		this.item = item.id;
+	  		this.itemState = {id: item.id, target: this};
+	  		if (oldItem.exists) this.battle.singleEvent('End', oldItem, oldItemState, this);
+	  		if (item.id) {
+	  			this.battle.singleEvent('Start', item, this.itemState, this, source, effect);
+	  		}
+	  		return true;
+  		},
+		getDynamaxRequest(skipChecks?: boolean) {
+			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
+			if (!skipChecks) {
+				if (!this.side.canDynamaxNow()) return;
+				if (
+					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
+				) {
+					return;
+				}
+				// Some pokemon species are unable to dynamax
+				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
 			}
-			// Some pokemon species are unable to dynamax
-			if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
-		}
-		const result: DynamaxOptions = {maxMoves: []};
-		let atLeastOne = false;
-		for (const moveSlot of this.moveSlots) {
-			const move = this.battle.dex.moves.get(moveSlot.id);
-			const maxMove = this.battle.actions.getMaxMove(move, this);
-			if (maxMove) {
-				if (this.maxMoveDisabled(move)) {
-					result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
-				} else {
-					result.maxMoves.push({move: maxMove.id, target: maxMove.target});
-					atLeastOne = true;
+			const result: DynamaxOptions = {maxMoves: []};
+			let atLeastOne = false;
+			for (const moveSlot of this.moveSlots) {
+				const move = this.battle.dex.moves.get(moveSlot.id);
+				const maxMove = this.battle.actions.getMaxMove(move, this);
+				if (maxMove) {
+					if (this.maxMoveDisabled(move)) {
+						result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
+					} else {
+						result.maxMoves.push({move: maxMove.id, target: maxMove.target});
+						atLeastOne = true;
+					}
 				}
 			}
-		}
-		if (!atLeastOne) return;
-		if (this.canGigantamax) result.gigantamax = this.canGigantamax;
-		return result;
+			if (!atLeastOne) return;
+			if (this.canGigantamax) result.gigantamax = this.canGigantamax;
+			return result;
+		},
 	},
-  },
 	side: {
 		inherit: true,
 		constructor(name: string, battle: Battle, sideNum: number, team: PokemonSet[]) {
