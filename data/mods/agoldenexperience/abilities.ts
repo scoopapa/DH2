@@ -2938,11 +2938,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -97,
 	},
 	triheaded: {
-		shortDesc: "This Pokemon's moves have x0.67 BP, but hits 3 times.",
+		shortDesc: "This Pokemon's moves have x0.5 BP, but hits 3 times.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.multihit || move.category === 'Status') return;
-			return this.chainModify([0.67]);
+			return this.chainModify(0.5);
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
