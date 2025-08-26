@@ -520,6 +520,24 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	teratriplebasedballbarrage: {
+		name: "Tera Triple Basedball Barrage",
+		type: "Stellar",
+		category: "Physical",
+		basePower: 1,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Astral Barrage", target);
+		},
+		isZ: "stellariumz",
+		secondary: null,
+		target: "normal",
+	},
 	// collateral
 	gravity: {
 		num: 356,
