@@ -1,7 +1,7 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	decaelay: {
 		num: 10000,
-		species: "Decaelay",
+		name: "Decaelay",
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 80, atk: 55, def: 100, spa: 80, spd: 80, spe: 65},
 		abilities: {0: "Effect Spore", H: "Mycelium Might"},
@@ -10,7 +10,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	opsidia: {
 		num: 10001,
-		species: "Opsidia",
+		name: "Opsidia",
 		types: ["Poison", "Rock"],
 		baseStats: {hp: 110, atk: 115, def: 75, spa: 40, spd: 95, spe: 80},
 		abilities: {0: "Solid Rock", 1: "Strong Jaw", H: "Hustle"},
@@ -19,7 +19,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	isolytion: {
 		num: 10002,
-		species: "Isolytion",
+		name: "Isolytion",
 		baseForme: "Stable",
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 125, atk: 75, def: 85, spa: 75, spd: 85, spe: 125},
@@ -31,7 +31,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	isolytionenergized: {
 		num: 10002,
-		species: "Isolytion-Energized",
+		name: "Isolytion-Energized",
 		baseSpecies: "Isolytion",
 		forme: "Energized",
 		types: ["Fire", "Electric"],
@@ -42,7 +42,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	isolytiondepleted: {
 		num: 10002,
-		species: "Isolytion-Depleted",
+		name: "Isolytion-Depleted",
 		baseSpecies: "Isolytion",
 		forme: "Depleted",
 		types: ["Poison", "Fire"],
@@ -53,7 +53,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	furmyne: {
 		num: 10003,
-		species: "Furmyne",
+		name: "Furmyne",
 		types: ["Normal", "Dragon"],
 		baseStats: {hp: 100, atk: 116, def: 74, spa: 45, spd: 95, spe: 90},
 		abilities: {0: "Regenerator", 1: "Fur Coat", H: "Frisk"},
@@ -63,7 +63,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	prekism: {
 		num: 10004,
-		species: "Prekism",
+		name: "Prekism",
 		types: ["Ice", "Rock"],
 		baseStats: {hp: 81, atk: 36, def: 49, spa: 121, spd: 64, spe: 100},
 		abilities: {0: "Focusing Lens", H: "Ice Body"},
@@ -72,7 +72,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	mocktops: {
 		num: 10005,
-		species: "Mocktops",
+		name: "Mocktops",
 		types: ["Water"],
 		baseStats: {hp: 73, atk: 87, def: 111, spa: 91, spd: 109, spe: 129},
 		abilities: {0: "Chromatophores"},
@@ -81,7 +81,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	seekon: {
 		num: 10020,
-		species: "Seekon",
+		name: "Seekon",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 96, atk: 65, def: 90, spa: 133, spd: 60, spe: 88},
 		abilities: {0: "Guided Assault", 1: "Light Metal", H: "Weak Armor"},
@@ -90,8 +90,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	archeopsweathered: {
 		num: 10021,
-		species: "Archeops-Weathered",
-		baseSpecies: "Archeops",
+		name: "Archeops-Weathered",
+		basename: "Archeops",
 		forme: "Weathered",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 75, atk: 140, def: 50, spa: 132, spd: 50, spe: 120},
@@ -101,7 +101,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	hamadrias: {
 		num: 10022,
-		species: "Hamadrias",
+		name: "Hamadrias",
 		types: ["Ghost"],
 		baseStats: {hp: 50, atk: 105, def: 113, spa: 50, spd: 75, spe: 122},
 		abilities: {0: "Flower Gift", H: "Harvest"},
@@ -112,8 +112,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	hamadriasbonded: {
 		num: 10022,
-		species: "Hamadrias-Bonded",
-		baseSpecies: "Hamadrias",
+		name: "Hamadrias-Bonded",
+		basename: "Hamadrias",
 		forme: "Bonded",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 50, atk: 105, def: 113, spa: 50, spd: 75, spe: 122},
@@ -123,7 +123,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	emporeas: {
 		num: 10023,
-		species: "Emporeas",
+		name: "Emporeas",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Prism Armor"},
@@ -132,7 +132,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	wringloct: {
 		num: 10040,
-		species: "Wringloct",
+		name: "Wringloct",
 		types: ["Fighting", "Poison"],
 		baseStats: {hp: 100, atk: 128, def: 110, spa: 70, spd: 80, spe: 62},
 		abilities: {0: "Limber", 1: "Poison Point", H: "Technician"},
@@ -142,7 +142,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	geckosteo: {
 		num: 10041,
-		species: "Geckosteo",
+		name: "Geckosteo",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 78, atk: 78, def: 104, spa: 117, spd: 78, spe: 52},
 		abilities: {0: "Cursed Body", 1: "Regenerator", H: "Dark Aura"},
@@ -151,7 +151,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	selkyr: {
 		num: 10050,
-		species: "Selkyr",
+		name: "Selkyr",
 		types: ["Water", "Normal"],
 		baseStats: {hp: 105, atk: 65, def: 70, spa: 90, spd: 100, spe: 80},
 		abilities: {0: "Shed Skin", 1: "Aroma Veil", H: "Swift Swim"},
@@ -160,7 +160,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	togemogaru: {
 		num: 10051,
-		species: "Togemogaru",
+		name: "Togemogaru",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 95, atk: 108, def: 53, spa: 65, spd: 68, spe: 126},
 		abilities: {0: "Iron Barbs", 1: "Lightning Rod", H: "Electric Surge"},
@@ -170,7 +170,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	maisart: {
 		num: 10060,
-		species: "Maisart",
+		name: "Maisart",
 		types: ["Water"],
 		baseStats: {hp: 72, atk: 56, def: 92, spa: 63, spd: 74, spe: 68},
 		abilities: {0: "Armor Tail", 1: "Shell Armor", H: "Commander"},
@@ -181,7 +181,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	maisartmega: {
 		num: 10060,
-		species: "Maisart-Mega",
+		name: "Maisart-Mega",
 		baseSpecies: "Maisart",
 		forme: "Mega",
 		types: ["Water", "Fighting"],
@@ -193,7 +193,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	snaibarrow: {
 		num: 10070,
-		species: "Snaibarrow",
+		name: "Snaibarrow",
 		types: ["Poison", "Steel"],
 		baseStats: {hp: 90, atk: 80, def: 125, spa: 80, spd: 110, spe: 60},
 		abilities: {0: "Sticky Hold", H: "Unburden"},
@@ -202,7 +202,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	psychopation: {
 		num: 10071,
-		species: "Psychopation",
+		name: "Psychopation",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 60, atk: 55, def: 70, spa: 110, spd: 95, spe: 100},
 		abilities: {0: "Punk Rock"},
@@ -211,7 +211,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	skepsi: {
 		num: 10080,
-		species: "Skepsi",
+		name: "Skepsi",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 85, atk: 90, def: 90, spa: 85, spd: 110, spe: 110},
 		abilities: {0: "Synchronize", 1: "Rippling Surface", H: "Mirror Armor"},
@@ -220,7 +220,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	leozialearned: {
 		num: 10081,
-		species: "Leozia",
+		name: "Leozia",
 		baseForme: "Learned",
 		forme: "Learned",
 		types: ["Water", "Normal"],
@@ -233,7 +233,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	leoziawarlike: {
 		num: 10081,
-		species: "Leozia-Warlike",
+		name: "Leozia-Warlike",
 		baseSpecies: "Leozia",
 		forme: "Warlike",
 		types: ["Water", "Fighting"],
@@ -244,7 +244,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	hermitomb: {
 		num: 10090,
-		species: "Hermitomb",
+		name: "Hermitomb",
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 166, atk: 115, def: 64, spa: 55, spd: 85, spe: 40},
 		abilities: {0: "Intimidate", 1: "Cursed Body", H: "Water Absorb"},
@@ -253,7 +253,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	ursaliva: {
 		num: 10091,
-		species: "Ursaliva",
+		name: "Ursaliva",
 		types: ["Normal", "Bug"],
 		baseStats: {hp: 130, atk: 120, def: 80, spa: 45, spd: 100, spe: 75},
 		abilities: {0: "Poison Heal", 1: "Toxic Debris", H: "Sticky Hold"},
@@ -263,7 +263,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	mushaluna: {
 		num: 10100,
-		species: "Mushaluna",
+		name: "Mushaluna",
 		types: ["Psychic"],
 		baseStats: {hp: 130, atk: 63, def: 90, spa: 129, spd: 105, spe: 31},
 		abilities: {0: "Forewarn", 1: "Dream Catcher", H: "Telepathy"},
@@ -273,7 +273,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	hydrattle: {
 		num: 10110,
-		species: "Hydrattle",
+		name: "Hydrattle",
 		types: ["Poison", "Fire"],
 		baseStats: {hp: 106, atk: 120, def: 110, spa: 80, spd: 80, spe: 44},
 		abilities: {0: "Archetype", 1: "Rattled", H: "Sticky Hold"},
@@ -282,7 +282,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	kagunawa: {
 		num: 10111,
-		species: "Kagunawa",
+		name: "Kagunawa",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 96, atk: 56, def: 80, spa: 112, spd: 80, spe: 96},
 		abilities: {0: "Ancient Core"},
@@ -291,7 +291,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	parvazamin: {
 		num: 10120,
-		species: "Parvazamin",
+		name: "Parvazamin",
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 85, atk: 105, def: 105, spa: 105, spd: 85, spe: 85},
 		abilities: {0: "Entangling Roots", H: "Grassy Surge"},
@@ -300,7 +300,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	katabass: {
 		num: 10130,
-		species: "Katabass",
+		name: "Katabass",
 		types: ["Fairy", "Ground"],
 		baseStats: {hp: 87, atk: 33, def: 82, spa: 92, spd: 98, spe: 131},
 		abilities: {0: "Overpowering Melody"},
@@ -309,7 +309,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	goopidroopi: {
 		num: 10140,
-		species: "Goopidroopi",
+		name: "Goopidroopi",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 90, atk: 40, def: 85, spa: 90, spd: 120, spe: 40},
 		abilities: {0: "Rippling Surface", 1: "Rain Dish", H: "Toxic Aura"},
