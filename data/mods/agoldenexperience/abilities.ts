@@ -2917,7 +2917,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "On switch-in, this Pokemon swaps abilities with the target.",
 	},
 	heavyweapon: {
-		shortDesc: "(WIP) Gives an ally Octillery +1 priority on all its moves.",
+		shortDesc: "Gives an ally Octillery +1 priority on all its moves.",
 		onUpdate(pokemon) {
 			if (this.gameType !== 'doubles') return;
 			const ally = pokemon.allies()[0];
@@ -2925,7 +2925,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.baseSpecies.baseSpecies !== 'Mantine' || ally.baseSpecies.baseSpecies !== 'Octillery') {
 				return;
 			}
-			this.add('-activate', source, 'ability: Heavy Weapon', myItem, '[of] ' + pokemon);
+			this.add('-activate', ally, 'ability: Heavy Weapon', myItem, '[of] ' + pokemon);
 			this.hint("Octillery can shoot faster!");
 			ally.addVolatile('heavyweapon');
 		},
