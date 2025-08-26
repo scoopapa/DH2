@@ -277,4 +277,92 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 0.5,
 		num: 179,
 	},
+	violentabandon: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target && pokemon.baseSpecies.baseSpecies !== 'Gyarados' || pokemon.transformed) return;
+				if (pokemon.species.forme !== 'Mega') {
+					pokemon.formeChange('Gyarados-Mega', this.effect, true);
+		      }
+		},
+		onTakeItem(item, pokemon) {
+			if (pokemon !== this.effectState.target && pokemon.baseSpecies.baseSpecies !== 'Gyarados' || pokemon.transformed) return;
+				if (pokemon.species.forme !== 'Mega') {
+					pokemon.formeChange('Gyarados-Mega', this.effect, true);
+			   }
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Violent Abandon",
+		shortDesc: "This Pokemon transforms into Mega Gyarados whenever its item is used or lost.",
+		rating: 3.5,
+		num: 84,
+	},
+	rewind: {
+		name: "Rewind",
+		shortDesc: "When brought to 50% HP or less, restores lost items on user's side.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		rating: 4,
+		num: -18,
+		onStart(pokemon) {
+			pokemon.addVolatile('rewind');
+		},
+		onDamage(damage, target, source, effect) {
+			const rewindState = target.volatiles['rewind'];
+			if (!rewindState || typeof damage !== 'number') return;
+			const hpBefore = target.hp;
+			const hpAfter = hpBefore - damage;
+			if (rewindState.triggeredThisTurn) return;
+			if (hpBefore > target.maxhp / 2 && hpAfter <= target.maxhp / 2) {
+				rewindState.shouldTrigger = true;
+				rewindState.triggeredThisTurn = true;
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (rewindState) {
+				rewindState.triggeredThisTurn = false;
+				if (rewindState.shouldTrigger) {
+					rewindState.shouldTrigger = false;
+					this.add('-message', `${pokemon.name} has triggered Rewind!`);
+					let itemRestored = false;
+					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+						for (const ally of pokemon.side.pokemon) {
+							if (ally && !ally.item) {
+								this.actions.useMove('Recycle', ally);
+								itemRestored = true;
+							}
+						}
+						if (itemRestored) {
+							this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+						}
+					}
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (!rewindState || !rewindState.shouldTrigger) return;
+			rewindState.shouldTrigger = false;
+			let itemRestored = false;
+			this.add('-ability', pokemon, 'Rewind');
+			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+				for (const ally of pokemon.side.pokemon) {
+					if (ally && !ally.item) {
+						this.actions.useMove('Recycle', ally);
+						itemRestored = true;
+					}
+				}
+				if (itemRestored) {
+					this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+				}
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart() {
+				this.effectState.shouldTrigger = false;
+				this.effectState.triggeredThisTurn = false;
+			}
+		},
+	},
 };
