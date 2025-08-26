@@ -113,7 +113,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	hamadriasbonded: {
 		num: 10022,
 		name: "Hamadrias-Bonded",
-		basename: "Hamadrias",
+		baseSpecies: "Hamadrias",
 		forme: "Bonded",
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 50, atk: 105, def: 113, spa: 50, spd: 75, spe: 122},
