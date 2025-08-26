@@ -45,4 +45,26 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gogoat: {
 		tier: "SSB",
 	},
+	gyarados: {
+		tier: "SSB",
+	},
+	gyaradosmega: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	dhelmise: {
+		tier: "SSB",
+	},
+	prayingvisitor: {
+		tier: "SSB",
+	},
+	hitmontop: {
+		tier: "SSB",
+	},
+	blastoise: {
+		tier: "SSB",
+	},
+	blastoisemega: {
+		tier: "SSB",
+	},
 };
