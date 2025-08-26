@@ -91,7 +91,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	archeopsweathered: {
 		num: 10021,
 		name: "Archeops-Weathered",
-		basename: "Archeops",
+		baseSpecies: "Archeops",
 		forme: "Weathered",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 75, atk: 140, def: 50, spa: 132, spd: 50, spe: 120},
