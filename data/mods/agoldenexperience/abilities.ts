@@ -2925,7 +2925,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.baseSpecies.baseSpecies !== 'Mantine' || ally.baseSpecies.baseSpecies !== 'Octillery') {
 				return;
 			}
-			this.add('-activate', ally, 'ability: Heavy Weapon', myItem, '[of] ' + pokemon);
+			this.add('-activate', ally, 'ability: Heavy Weapon', '[of] ' + pokemon);
 			this.hint("Octillery can shoot faster!");
 			ally.addVolatile('heavyweapon');
 		},
