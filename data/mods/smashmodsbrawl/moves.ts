@@ -493,6 +493,33 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: { basePower: 170 },
 		contestType: "Tough",
 	},
+	ragingtorrent: {
+		num: 612,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Torrent",
+      shortDesc: "Lowers the target's Atk by 1. Inflicts Encore on the user.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+		   volatileStatus: 'encore',
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Liquidation", target);
+		},
+		target: "allAdjacentFoes",
+		type: "Water",
+		contestType: "Tough",
+	},
 	// collateral
 	gravity: {
 		num: 356,
