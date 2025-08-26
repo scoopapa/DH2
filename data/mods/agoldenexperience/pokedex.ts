@@ -851,7 +851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	skarmory: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 80, def: 140, spa: 40, spd: 70, spe: 70},
+		baseStats: {hp: 85, atk: 80, def: 140, spa: 40, spd: 85, spe: 70},
 		abilities: {0: "Stymphale Blade", 1: "Sturdy", H: "Weak Armor"},
 	},
 	phanpy: {
