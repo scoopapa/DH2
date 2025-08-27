@@ -1314,7 +1314,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	radianthairpin: {
 		name: "Radiant Hairpin",
 		rating: 3,
-		shortDesc: "This Puppet's skills gain 1% more power for each percent above 70%.",
+		shortDesc: "100%: Holder's moves have 1.3x power. Lower: less power as HP decreases.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			function remap(value:number, low1:number, high1:number, low2:number, high2:number):number {

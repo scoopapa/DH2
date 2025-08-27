@@ -1238,7 +1238,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 	},
 	heavyfog: {
-		name: "Heavy Fog",
+		name: "HeavyFog",
 		effectType: "Weather",
 		duration: 5,
 		durationCallback(source, effect) {
@@ -1272,7 +1272,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 	},
 	duststorm: {
-		name: 'Dust Storm',
+		name: 'DustStorm',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -1280,7 +1280,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			if (source.hasAbility('stargazer')) return 0;
 			return 5;
 		},
-		onStart(field, source, effect) {
+		onFieldStart(field, source, effect) {
 			this.add('-message', `The weather became Dust Storm!`);
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;

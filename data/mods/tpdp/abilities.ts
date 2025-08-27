@@ -92,17 +92,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	aircushion: {
 		name: "Air Cushion",
 		shortDesc: "When hit by an Earth-type skill, damage is nullified. Ignores Adverse Wind ability. Ignores mine/poison trap.",
-		onDamage(damage, target, source, effect) {
-			if (effect && (effect.id === "mine" || effect.id === "poison")) {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Earths') {
-				this.add('-immune', target, '[from] ability: Air Cushion');
-				return null;
-			}
-		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 	},
 	antibody: {
 		name: "Antibody",

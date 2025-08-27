@@ -309,7 +309,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.fainted) return false;
 
 			const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
-			const notImmune = type === 'Earth' ?
+			const notImmune = type === 'Earths' ?
 				this.isGrounded(negateImmunity) :
 				negateImmunity || this.battle.dex.getImmunity(type, this);
 			if (notImmune) return true;
@@ -361,7 +361,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Wind') && !(this.hasType('???') && 'perch' in this.volatiles)) return false;
-			if (this.hasAbility('aircushion') && !this.battle.field.isWeather("duststorm")) return false;
+			if (this.hasAbility('aircushion')) return this.battle.field.isWeather('duststorm');
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon' && item !== 'floatingstone';

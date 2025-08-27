@@ -1277,7 +1277,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	oneblow: "G-Max One Blow",
 	rapidflow: "G-Max Rapid Flow",
 	replenish: "G-Max Replenish",
-	resonance: "G-Max Resonance",
+	//resonance: "G-Max Resonance",
 	//sandblast: "G-Max Sandblast",
 	//smite: "G-Max Smite",
 	//snooze: "G-Max Snooze",
