@@ -42,7 +42,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	nullaurora: {
 		// TODO
-		num: -1000,
+		num: -1002,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -61,7 +61,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	graverobbing: {
 		// TODO
-		num: -1000,
+		num: -1003,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -80,7 +80,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	unityveil: {
 		// TODO
-		num: -1000,
+		num: -1004,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -99,7 +99,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	conduct: {
 		// TODO
-		num: -1000,
+		num: -1005,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -118,7 +118,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	canalsurge: {
 		// TODO
-		num: -1000,
+		num: -1006,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -137,7 +137,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	stickyfingers: {
 		// TODO
-		num: -1000,
+		num: -1007,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -156,7 +156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	somnawave: {
 		// TODO
-		num: -1000,
+		num: -1008,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -175,7 +175,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	earthshatteringelegy: {
 		// TODO
-		num: -1000,
+		num: -1009,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -194,7 +194,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	acidrain: {
 		// TODO
-		num: -1000,
+		num: -1010,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
