@@ -51,6 +51,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				}
 				if (moveTypes.some(m => speciesTypes.includes(m))) return null;
 			}
+			// Convergence
+			const matchingSpecies = this.dex.species.all()
+				.filter(s => (
+					(!s.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(s.isNonstandard)}`)) &&
+					s.types.every(type => species.types.includes(type)) &&
+					s.types.length === species.types.length && !this.ruleTable.isBannedSpecies(s)
+				));
+			const someCanLearn = matchingSpecies.some(s => this.checkCanLearn(move, s, setSources, set) === null);
+			if (someCanLearn && ConvList.includes(species.name)) return null;
+			// Sketchmons
 			const problem = this.checkCanLearn(move, species, setSources, set);
 			if (!problem) return null;
 			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
@@ -63,7 +73,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			return null;
 		},
 		onValidateTeam(team) {
-			const SketchList = ["Garchomp", "Registeel"];
+			// Sketchmons
 			const sketches = new this.dex.Multiset<string>();
 			for (const set of team) {
 				if ((set as any).sketchMove) {
@@ -77,40 +87,24 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				));
 			}
 		},
-	},
-	sketchmonsmovelegality: {
-		effectType: 'ValidatorRule',
-		name: 'Sketchmons Move Legality',
-		desc: "Pok&eacute;mon can learn one of any move they don't normally learn.",
-		ruleset: ['OM Unobtainable Moves'],
-		checkCanLearn(move, species, lsetData, set) {
-			const affectedPokemon = ["Garchomp", "Registeel"];
-			if (!affectedPokemon.includes(species.name)) {
-				return ` ${species.name} isn't a Sketchmons species.`;
-			}
-			const problem = this.checkCanLearn(move, species, lsetData, set);
-			if (!problem) return null;
-			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
-			if (affectedPokemon.includes(species.name)) return problem; // added line
-			const sketchMove = (set as any).sketchMove;
-			if (sketchMove && sketchMove !== move.name) {
-				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
-			}
-			(set as any).sketchMove = move.name;
-			return null;
-		},
-		onValidateTeam(team) {
-			const sketches = new this.dex.Multiset<string>();
-			for (const set of team) {
-				if ((set as any).sketchMove) {
-					sketches.add((set as any).sketchMove);
+		onValidateSet(set, format) {
+			// Convergence
+			const curSpecies = this.dex.species.get(set.species);
+			const obtainableAbilityPool = new Set<string>();
+			const matchingSpecies = this.dex.species.all()
+				.filter(species => (
+					(!species.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(species.isNonstandard)}`)) &&
+					species.types.every(type => curSpecies.types.includes(type)) &&
+					species.types.length === curSpecies.types.length && !this.ruleTable.isBannedSpecies(species)
+				));
+			for (const species of matchingSpecies) {
+				for (const abilityName of Object.values(species.abilities)) {
+					const abilityid = this.toID(abilityName);
+					obtainableAbilityPool.add(abilityid);
 				}
 			}
-			const overSketched = [...sketches.entries()].filter(([moveName, count]) => count > 1);
-			if (overSketched.length) {
-				return overSketched.map(([moveName, count]) => (
-					`You are limited to 1 of ${moveName} by Sketch Clause.\n(You have sketched ${moveName} ${count} times.)`
-				));
+			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
+				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
 			}
 		},
 	},
