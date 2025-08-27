@@ -12478,4 +12478,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tackle", target);
 		},
 	},
+
+	//the
+	gmaxresonance: null,
 };
