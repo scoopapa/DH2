@@ -1,12 +1,16 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
-	stabmonsmovelegality: {
+	movelegality: {
 		effectType: 'ValidatorRule',
-		name: 'STABmons Move Legality',
-		desc: "Allows Pok&eacute;mon to use any move that they or a previous evolution/out-of-battle forme share a type with",
+		name: 'Move Legality',
+		desc: "Move validator for STABmons, Sketchmons and Convergence.",
 		ruleset: ['OM Unobtainable Moves'],
 		checkCanLearn(move, species, setSources, set) {
+			const STABList = ["Arboliva", "Porygon2", "Terrakion"]; 
+			const SketchList = ["Garchomp", "Registeel"];
+			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
+			// STABmons
 			const nonstandard = move.isNonstandard === 'Past' && !this.ruleTable.has('standardnatdex');
-			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`)) {
+			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`) && STABList.includes(species.name)) {
 				const speciesTypes: string[] = [];
 				const moveTypes: string[] = [];
 				// BDSP can't import Pokemon from Home, so it shouldn't grant moves from archaic species types
@@ -18,8 +22,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					moveTypes.push(dex.moves.get(move.name).type);
 
 					const pokemon = dex.species.get(species.name);
-					const affectedPokemon = ["Arboliva", "Porygon2", "Terrakion"]; // unsure
-					if (affectedPokemon.includes(pokemon) && (pokemon.forme || pokemon.otherFormes)) {
+					if (pokemon.forme || pokemon.otherFormes) {
 						const baseSpecies = dex.species.get(pokemon.baseSpecies);
 						const originalForme = dex.species.get(pokemon.changesFrom || pokemon.name);
 						speciesTypes.push(...originalForme.types);

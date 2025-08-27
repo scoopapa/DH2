@@ -1819,16 +1819,16 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	/*{
+	{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
-			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
+			"<b>Super Smash OMs</b>: A project that aims to create a micrometa containing Pokemon from different Gen 9 OMs.",
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'Revelationmons Mod',],
+			'Move Legality',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}} 
@@ -1841,7 +1841,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onValidateSet(set) {
+		/*onValidateSet(set) {
 			const stabmons = [
 				'Arboliva', 'Porygon2', 'Terrakion',
 			];
@@ -1873,9 +1873,9 @@ export const Formats: FormatList = [
 				console.log("Hello there");
 				return [];
 			}
-		},
+		},*/
 		mod: 'supersmashoms',
-	},*/
+	},
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [
@@ -2775,7 +2775,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Uber', 'AG', 'OU', 'UUBL', 'Moody', 'Power Construct', 'King\'s Rock',
 			'Baton Pass', 'Last Respects', 'Quick Claw', 'Razor Fang', 'Shed Tail',
-			'Drizzle', 'Drought',
+			'Drizzle', 'Drought', 'Light Clay', 
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Light of Ruin'],
