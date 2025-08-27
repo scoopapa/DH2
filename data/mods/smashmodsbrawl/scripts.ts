@@ -170,6 +170,10 @@ export const Scripts: ModdedBattleScriptsData = {
 	   this.modData('Learnsets', 'gyarados').learnset.ragingtorrent = ['9L1'];
 	   this.modData('Learnsets', 'dhelmise').learnset.wavecrash = ['9L1'];
 	   this.modData('Learnsets', 'dhelmise').learnset.waterfall = ['9L1'];
+		delete this.modData('Learnsets', 'squirtle').learnset.rapidspin;
+		delete this.modData('Learnsets', 'wartortle').learnset.rapidspin;
+		delete this.modData('Learnsets', 'squirtle').learnset.tackle;
+		delete this.modData('Learnsets', 'wartortle').learnset.tackle;
 	},
 	pokemon: {
 		inherit: true,
