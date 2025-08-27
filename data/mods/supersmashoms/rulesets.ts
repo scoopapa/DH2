@@ -108,8 +108,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
+			const revelationmons = ['Tyranitar',];
 			const slotIndex = species.types.length - 1;
 			const problems = [];
+			if (!revelationmons.includes(species.name)) return problems;
 			for (const [i, moveid] of set.moves.entries()) {
 				const move = this.dex.moves.get(moveid);
 				if (!this.ruleTable.isRestricted(`move:${move.id}`)) continue;
