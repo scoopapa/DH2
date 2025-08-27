@@ -146,41 +146,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 		},
 	},
-	convergencelegality: {
-		effectType: 'ValidatorRule',
-		name: "Convergence Legality",
-		desc: `Allows all Pok&eacute;mon that have identical types to share moves and abilities.`,
-		onValidateSet(set, format) {
-			const curSpecies = this.dex.species.get(set.species);
-			const obtainableAbilityPool = new Set<string>();
-			const matchingSpecies = this.dex.species.all()
-				.filter(species => (
-					(!species.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(species.isNonstandard)}`)) &&
-					species.types.every(type => curSpecies.types.includes(type)) &&
-					species.types.length === curSpecies.types.length && !this.ruleTable.isBannedSpecies(species)
-				));
-			for (const species of matchingSpecies) {
-				for (const abilityName of Object.values(species.abilities)) {
-					const abilityid = this.toID(abilityName);
-					obtainableAbilityPool.add(abilityid);
-				}
-			}
-			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
-				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
-			}
-		},
-		checkCanLearn(move, species, setSources, set) {
-			const matchingSpecies = this.dex.species.all()
-				.filter(s => (
-					(!s.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(s.isNonstandard)}`)) &&
-					s.types.every(type => species.types.includes(type)) &&
-					s.types.length === species.types.length && !this.ruleTable.isBannedSpecies(s)
-				));
-			const someCanLearn = matchingSpecies.some(s => this.checkCanLearn(move, s, setSources, set) === null);
-			if (someCanLearn) return null;
-			return this.checkCanLearn(move, species, setSources, set);
-		},
-	},
 	franticfusionsmod: {
 		effectType: 'Rule',
 		name: "Frantic Fusions Mod",

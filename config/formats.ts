@@ -1819,7 +1819,7 @@ export const Formats: FormatList = [
 		mod: 'smashmodsbrawl',
 	},
 	/* still work in progress*/
-	{
+	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
 			"<b>Super Smash OMs</b>: A project that aims to create a micrometa containing Pokemon from different Gen 9 OMs.",
@@ -1841,41 +1841,8 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		/*onValidateSet(set) {
-			const stabmons = [
-				'Arboliva', 'Porygon2', 'Terrakion',
-			];
-			const sketchmons = [
-				'Registeel', 'Garchomp', 
-			];
-			const aaa = [
-				'Cresselia', 'Slither Wing', 'Quaquaval', 'Scream Tail',
-			];
-			const convergence = [
-				'Greninja', 'Ogerpon', 'Zarude',
-			];
-			const franticfusions = [
-				'Bellibolt', 'Tinkaton', 'Ninetales', 'Crabominable',
-			];
-			const species = this.dex.species.get(set.species);
-			console.log("Species is " + species.name);
-			const speciesAbilities = [];
-			console.log("Species abilities are ");
-			for (let key in species.abilities) {
-			    let value = species.abilities[key];
-			    console.log(value);
-			    speciesAbilities.push(value);
-			}
-			console.log("Set has ability " + set.ability);
-			console.log("Is it AAA? " + aaa.includes(species.name));
-			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
-			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) {
-				console.log("Hello there");
-				return [];
-			}
-		},*/
 		mod: 'supersmashoms',
-	},
+	},*/
 	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [
