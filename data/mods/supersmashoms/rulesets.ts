@@ -60,7 +60,22 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
 			}
 			(set as any).sketchMove = move.name;
-			return this.checkCanLearn(move, species, setSources, set);
+			return null;
+		},
+		onValidateTeam(team) {
+			const SketchList = ["Garchomp", "Registeel"];
+			const sketches = new this.dex.Multiset<string>();
+			for (const set of team) {
+				if ((set as any).sketchMove) {
+					sketches.add((set as any).sketchMove);
+				}
+			}
+			const overSketched = [...sketches.entries()].filter(([moveName, count]) => count > 1);
+			if (overSketched.length) {
+				return overSketched.map(([moveName, count]) => (
+					`You are limited to 1 of ${moveName} by Sketch Clause.\n(You have sketched ${moveName} ${count} times.)`
+				));
+			}
 		},
 	},
 	sketchmonsmovelegality: {
