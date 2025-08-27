@@ -1043,6 +1043,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		recoil: [1, 4],
 		struggleRecoil: false,
 	},
+	suckerpunch: {
+		inherit: true,
+		basePower: 80,
+		gen: 3,
+	},
 	surf: {
 		inherit: true,
 		desc: "Power doubles if the target is using Dive.",
@@ -1052,6 +1057,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	swallow: {
 		inherit: true,
 		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
+	swandive: {
+		num: 1112,
+		accuracy: 100,
+		basePower: 140,
+		category: "Physical",
+		name: "Swan Dive",
+		shortDesc: "User recharges after use. Does not recharge if it KOes.",
+		pp: 5,
+		priority: 0,
+		flags: {recharge: 1, metronome: 1, protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Brave Bird", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		gen: 3,
 	},
 	synthesis: {
 		inherit: true,
@@ -1210,6 +1237,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	wish: {
 		inherit: true,
 		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
+	workup: {
+		inherit: true,
+		gen: 3,
 	},
 	wrap: {
 		inherit: true,

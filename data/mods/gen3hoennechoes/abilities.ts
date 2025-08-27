@@ -9,6 +9,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	dryskin: {
+		inherit: true,
+		gen: 3,
+	},
 	effectspore: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
@@ -64,6 +68,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	hydration: {
+		inherit: true,
+		gen: 3,
+	},
 	intimidate: {
 		inherit: true,
 		onStart(pokemon) {
@@ -102,6 +110,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Lightning Rod",
 		rating: 0,
 		num: 32,
+	},
+	marinepower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		flags: {},
+		name: "Marine Power",
+		rating: 2,
+		gen: 3,
+		num: 999,
 	},
 	minus: {
 		inherit: true,

@@ -98,4 +98,11 @@ export function learnsetUpdate(dex: ModdedDex) {
 	dex.modData('Learnsets', 'celebi').learnset.grasspledge = ['3M'];
 	dex.modData('Learnsets', 'sunflora').learnset.grasspledge = ['3M'];
 	dex.modData('Learnsets', 'castform').learnset.grasspledge = ['3M'];
+	//Slate 4
+	dex.modData('Learnsets', 'lanturn').learnset.whirlpool = ['3M'];
+	dex.modData('Learnsets', 'lanturn').learnset.healbell = ['3M'];
+	dex.modData('Learnsets', 'ampharos').learnset.calmmind = ['3M'];
+	dex.modData('Learnsets', 'tauros').learnset.workup = ['3M'];
+	dex.modData('Learnsets', 'medicham').learnset.workup = ['3M'];
+	dex.modData('Learnsets', 'poliwrath').learnset.workup = ['3M'];
 }
