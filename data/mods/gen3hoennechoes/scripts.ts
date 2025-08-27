@@ -22,15 +22,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		for (const species in this.data.Pokedex) {
 			delete this.data.Pokedex[species].abilities['H'];
-			if (this.data.Pokedex[species].num <= 386 && this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+			if (this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].num <= 386 && this.data.Pokedex[species].baseSpecies == null) {
 				delete this.modData('Learnsets', species).learnset.ancientpower;
 			}
-			if ((this.data.Pokedex[species].types[0] === "Dark" || this.data.Pokedex[species].types[1] === "Dark" ) && 
-					this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+			if ((this.data.Pokedex[species].types[0] === "Dark" || this.data.Pokedex[species].types[1] === "Dark" )
+					&& this.data.Pokedex[species].num > 0 && (this.data.Pokedex[species].num <= 386 || this.data.Pokedex[species].gen == 3) 
+					&& this.data.Pokedex[species].baseSpecies == null) {
 				this.modData('Learnsets', species).learnset.doomsdayclock = ['3M'];
 			}
-			if ((this.data.Pokedex[species].types[0] === "Grass" || this.data.Pokedex[species].types[1] === "Grass" ) && 
-					this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].baseSpecies == null) {
+			if ((this.data.Pokedex[species].types[0] === "Grass" || this.data.Pokedex[species].types[1] === "Grass" )
+					&& this.data.Pokedex[species].num > 0 && (this.data.Pokedex[species].num <= 386 || this.data.Pokedex[species].gen == 3) 
+					&& this.data.Pokedex[species].baseSpecies == null) {
 				this.modData('Learnsets', species).learnset.energyball = ['3M'];
 			}
 		}
