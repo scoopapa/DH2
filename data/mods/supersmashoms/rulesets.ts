@@ -51,7 +51,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				}
 				if (moveTypes.some(m => speciesTypes.includes(m))) return null;
 			}
-			const problem = this.checkCanLearn(move, species, lsetData, set);
+			const problem = this.checkCanLearn(move, species, setSources, set);
 			if (!problem) return null;
 			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
 			if (!SketchList.includes(species.name)) return problem; // added line
