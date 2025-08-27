@@ -343,7 +343,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	overqwil: {
 		learnset: {
 			agility: ["3L1"],
-			aquajet: ["3L1"],
 			blizzard: ["3L1"],
 			crunch: ["3L1"],
 			curse: ["3L1"],
