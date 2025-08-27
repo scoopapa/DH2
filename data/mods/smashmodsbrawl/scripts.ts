@@ -503,7 +503,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (pokemon.set.ability === 'Racer\'s Spirit') {
 				type = 'Steel';
 			}
-			if (['zapdos', 'bigcrammer'].includes(pokemon.species.name) && pokemon.teraType !== 'Bug') {
+			if (['Zapdos', 'Big Crammer'].includes(pokemon.species.name) && pokemon.teraType !== 'Bug') {
 				pokemon.addVolatile('bigbutton');
 				return;
 			}
