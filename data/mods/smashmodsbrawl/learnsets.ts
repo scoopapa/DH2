@@ -893,7 +893,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			poweruppunch: ["9L1"],
 			protect: ["9L1"],
 			raindance: ["9L1"],
-			rapidspin: ["9L1"],
+			rapidspinmr: ["9L1"],
 			refresh: ["9L1"],
 			rest: ["9L1"],
 			return: ["9L1"],
@@ -911,7 +911,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			substitute: ["9L1"],
 			surf: ["9L1"],
 			swagger: ["9L1"],
-			tackle: ["9L1"],
+			tacklemr: ["9L1"],
 			tailwhip: ["9L1"],
 			toxic: ["9L1"],
 			watergun: ["9L1"],
@@ -984,7 +984,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			poweruppunch: ["9L1"],
 			protect: ["9L1"],
 			raindance: ["9L1"],
-			rapidspin: ["9L1"],
+			rapidspinmr: ["9L1"],
 			refresh: ["9L1"],
 			rest: ["9L1"],
 			return: ["9L1"],
@@ -1002,7 +1002,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			substitute: ["9L1"],
 			surf: ["9L1"],
 			swagger: ["9L1"],
-			tackle: ["9L1"],
+			tacklemr: ["9L1"],
 			tailwhip: ["9L1"],
 			toxic: ["9L1"],
 			watergun: ["9L1"],
@@ -1017,4 +1017,5 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		},
 	},
 };
+
 
