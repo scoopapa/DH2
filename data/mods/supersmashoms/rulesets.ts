@@ -51,6 +51,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				}
 				if (moveTypes.some(m => speciesTypes.includes(m))) return null;
 			}
+			const problem = this.checkCanLearn(move, species, lsetData, set);
+			if (!problem) return null;
+			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
+			if (!SketchList.includes(species.name)) return problem; // added line
+			const sketchMove = (set as any).sketchMove;
+			if (sketchMove && sketchMove !== move.name) {
+				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
+			}
+			(set as any).sketchMove = move.name;
 			return this.checkCanLearn(move, species, setSources, set);
 		},
 	},
