@@ -2807,7 +2807,7 @@ export const Formats: FormatList = [
 		mod: 'agoldenexperience',
 		gameType: 'doubles',
 		teambuilderFormat: 'National Dex Doubles',
-		ruleset: ['Standard', 'Terastal Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'DUber', 'Commander', 'Power Construct', 'Assist', 'Coaching', 'Dark Void',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',

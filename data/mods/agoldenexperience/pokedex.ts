@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Early Bird", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Tri-Headed", H: "Striker"},
 	},
 	dewgong: {
 		inherit: true,
@@ -847,6 +847,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mantine: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 40, def: 85, spa: 80, spd: 140, spe: 70},
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Heavy Weapon"},
+	},
+	skarmory: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 80, def: 140, spa: 40, spd: 85, spe: 70},
+		abilities: {0: "Stymphale Blade", 1: "Sturdy", H: "Weak Armor"},
 	},
 	phanpy: {
 		inherit: true,
@@ -915,6 +921,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	tyranitar: {
 		inherit: true,
 		abilities: {0: "Sand Stream", H: "Guts"}
+	},
+	celebi: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Regenerator"},
 	},
 	// Gen 3 :
 	treecko: {
@@ -2452,9 +2462,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
 	},
+	sliggoo: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 68, atk: 55, def: 73, spa: 83, spd: 113, spe: 60},
+	},
+	sliggoohisui: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 75, def: 83, spa: 83, spd: 113, spe: 30},
+		abilities: {0: "Sap Sipper", 1: "Heatproof", H: "Gooey"},
+	},
+	goodra: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 90, atk: 70, def: 100, spa: 110, spd: 150, spe: 80},
+	},
 	goodrahisui: {
 		inherit: true,
-		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Gooey"},
+		baseStats: {hp: 90, atk: 100, def: 100, spa: 110, spd: 150, spe: 50},
+		abilities: {0: "Misty Surge", 1: "Heatproof", H: "Gooey"},
 	},
 	trevenant: {
 		inherit: true,
