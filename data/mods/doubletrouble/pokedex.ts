@@ -88,6 +88,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 3,
 		weightkg: 64,
 	},
+	archeops: {
+		inherit: true,
+		otherFormes: ["Archeops-Weathered"],
+		formeOrder: ["Archeops", "Archeops-Weathered"],
+	},
 	archeopsweathered: {
 		num: 10021,
 		name: "Archeops-Weathered",
