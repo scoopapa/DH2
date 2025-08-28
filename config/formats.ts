@@ -3114,7 +3114,6 @@ export const Formats: FormatList = [
 		mod: 'doubletrouble',
 		desc: `A Fakemons meta made by a few friends`,
 		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
-		teambuilderFormat: 'National Dex',
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
