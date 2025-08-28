@@ -83,4 +83,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	amoongusfairyring: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	floxicloak: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	llamonade: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	stunfiskgalar: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	stunfiskgalarmega: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
 };

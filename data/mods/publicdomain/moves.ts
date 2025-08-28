@@ -289,6 +289,86 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+	soursnatch: {
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		name: "Sour Snatch",
+		shortDesc: "Hits a foe before it switches out.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pursuit", target);
+		},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('soursnatch', pokemon);
+				const data = side.getSideConditionData('soursnatch');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('soursnatch');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Sour Snatch');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('soursnatch', source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	beyondbeefkick: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Beyond Beef Kick",
+		shortDesc: "Forces the target to switch to a random ally.",
+		pp: 10,
+		priority: -6,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1 },
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Thunderous Kick", target);
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
@@ -390,6 +470,38 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
+		},
+	},
+	snaptrap: {
+		inherit: true,
+		shortDesc: "User on terrain: 1.3x power, type varies.",
+		type: "Steel",
+		basePower: 90,
+		accuracy: 100,
+		pp: 10,
+		volatileStatus: null,
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 1.3;
+				this.debug('BP doubled in Terrain');
+			}
 		},
 	},
 };
