@@ -202,7 +202,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			spritenum: 577,
 			megaStone: "Nightcloak Malfestio",
 			megaEvolves: "Malfestio",
-			itemUser: ["Malfestio"],
+			itemUser: ["Malfestio", "Nightcloak Malfestio"],
 			onTakeItem(item, source) {
 				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 				return true;

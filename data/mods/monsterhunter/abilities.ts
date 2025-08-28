@@ -730,21 +730,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Escaton",
-		rating: 1034,
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
 	},
 	twilightdust: {
-		onResidual(pokemon) {
-			if (pokemon.swordBoost) return;
-			pokemon.swordBoost = true;
-			this.add('-activate', pokemon, 'ability: Twilight Dust');
-			this.field.addPseudoWeather('trickroom')
-		},
-		flags: {},
 		name: "Twilight Dust",
-		rating: 4,
-		num: 1035,
-		shortDesc: "Once per battle, this pokemon summons trick room at the end of the turn.",
+		desc: "If this Pokemon is a Nightcloak Malfestio and induces drowsy in a target, the target also becomes confused.",
+		shortDesc: "Nightcloak: If this Pokemon induces drowsy in a target, the target also becomes confused.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (source.baseSpecies.name !== "Nightcloak Malfestio") return;
+			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
+			if (status.id === 'slp') {
+				target.addVolatile('confusion');
+			}
+		},
 	},
 	protopyre: {
 		onStart(pokemon) {
