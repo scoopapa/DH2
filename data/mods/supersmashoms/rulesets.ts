@@ -93,7 +93,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			// Convergence
 			const curSpecies = this.dex.species.get(set.species);
 			let ability = set.ability;
-			console.log("Ability is " + ability + "; species has " + curSpecies.abilities);
+			listAbilities = Object.keys(curSpecies.abilities)
+					.map(key => this.toID(curSpecies.abilities[key as "0" | "1" | "H" | "S"]));
+			console.log("Ability is " + ability + "; species has " + listAbilities);
 			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(curSpecies.abilities).includes(ability.name)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
