@@ -88,8 +88,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 		},
 		onValidateSet(set, format) {
+			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
+			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
 			// Convergence
 			const curSpecies = this.dex.species.get(set.species);
+			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
 				.filter(species => (
@@ -103,7 +106,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					obtainableAbilityPool.add(abilityid);
 				}
 			}
-			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
+			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
 			}
 		},
