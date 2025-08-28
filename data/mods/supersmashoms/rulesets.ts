@@ -98,7 +98,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (curSpecies.abilities['1']) listAbilities.push(curSpecies.abilities['1']);
 			if (curSpecies.abilities['H']) listAbilities.push(curSpecies.abilities['H']);
 			if (curSpecies.abilities['S']) listAbilities.push(curSpecies.abilities['S']);
-			console.log("Ability is " + ability + "; species has " + listAbilities);
 			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()

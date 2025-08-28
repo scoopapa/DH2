@@ -100,6 +100,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Almost Any Ability",
 	},
 
+	sceptile: {
+		tier: "Illegal",
+	},
 	sceptilemega: {
 		tier: "Formemons",
 	},
@@ -143,10 +146,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quaquaval: {
 		tier: "Almost Any Ability",
 	},
+	venusaur: {
+		tier: "Illegal",
+	},
 	venusaurmega: {
 		tier: "Formemons",
 	},
 
+	altaria: {
+		tier: "Illegal",
+	},
 	altariamega: {
 		tier: "Formemons",
 	},
@@ -158,6 +167,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	crabominable: {
 		tier: "Frantic Fusions",
+	},
+	swampert: {
+		tier: "Illegal",
 	},
 	swampertmega: {
 		tier: "Formemons",
