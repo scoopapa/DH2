@@ -239,7 +239,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	leoziawarlike: {
 		num: 10081,
 		name: "Leozia-Warlike",
-		baseSpecies: "Leozia",
+		baseSpecies: "Leozia-Learned",
 		forme: "Warlike",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 80, atk: 110, def: 120, spa: 75, spd: 75, spe: 90},
