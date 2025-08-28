@@ -84,32 +84,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pressure", 1: "Unnerve", H: "Mirror Armor"},
 		evos: null,
 	},
-
-/*
-:Tyranitar: Tyranitar - Revelationmons by HydreigonTheChild
-*/
 	mamoswine: {
 		inherit: true,
 		abilities: {0: "Strong Jaw", 1: "Ice Body", H: "Sturdy"},
 	},
-/*
-:greninja: Greninja - Convergence by G-Luke
-*/
 	tinglu: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 80, def: 55, spa: 125, spd: 110, spe: 155},
 	},
-/*
-:registeel: Registeel - Sketchmons by LettuceLeaf07
-*/
 	slowbro: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 95, def: 130, spa: 120, spd: 100, spe: 50},
 	},
 	// Slate 5
-/*
-:ogerpon: Ogerpon - Convergence by G-Luke
-*/
 	cutiefly: {
 		inherit: true,
 		types: ["Bug", "Ghost"],
@@ -195,9 +182,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Dragon", "Psychic", "Electric"],
 	},
-/*
-:zarude: Zarude - Convergence by PQRDG
-*/
 	azumarill: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 65, def: 95, spa: 75, spd: 95, spe: 65},
