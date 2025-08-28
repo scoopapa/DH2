@@ -1822,13 +1822,13 @@ export const Formats: FormatList = [
 	/*{
 		name: "[Gen 9] Super Smash OMs",
 		desc: [
-			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
+			"<b>Super Smash OMs</b>: A project that aims to create a micrometa containing Pokemon from different Gen 9 OMs.",
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'Revelationmons Mod',],
+			'Move Legality', 'Revelationmons Mod',],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}} 
@@ -1839,39 +1839,6 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Super Smash OMs.'];
 				}
-			}
-		},
-		onValidateSet(set) {
-			const stabmons = [
-				'Arboliva', 'Porygon2', 'Terrakion',
-			];
-			const sketchmons = [
-				'Registeel', 'Garchomp', 
-			];
-			const aaa = [
-				'Cresselia', 'Slither Wing', 'Quaquaval', 'Scream Tail',
-			];
-			const convergence = [
-				'Greninja', 'Ogerpon', 'Zarude',
-			];
-			const franticfusions = [
-				'Bellibolt', 'Tinkaton', 'Ninetales', 'Crabominable',
-			];
-			const species = this.dex.species.get(set.species);
-			console.log("Species is " + species.name);
-			const speciesAbilities = [];
-			console.log("Species abilities are ");
-			for (let key in species.abilities) {
-			    let value = species.abilities[key];
-			    console.log(value);
-			    speciesAbilities.push(value);
-			}
-			console.log("Set has ability " + set.ability);
-			console.log("Is it AAA? " + aaa.includes(species.name));
-			console.log("Is ability there? " + speciesAbilities.includes(set.ability))
-			if (aaa.includes(species.name) && !speciesAbilities.includes(set.ability)) {
-				console.log("Hello there");
-				return [];
 			}
 		},
 		mod: 'supersmashoms',
@@ -2775,7 +2742,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Uber', 'AG', 'OU', 'UUBL', 'Moody', 'Power Construct', 'King\'s Rock',
 			'Baton Pass', 'Last Respects', 'Quick Claw', 'Razor Fang', 'Shed Tail',
-			'Drizzle', 'Drought',
+			'Drizzle', 'Drought', 'Light Clay', 
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Light of Ruin'],

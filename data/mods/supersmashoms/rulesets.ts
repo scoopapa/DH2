@@ -1,12 +1,16 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
-	stabmonsmovelegality: {
+	movelegality: {
 		effectType: 'ValidatorRule',
-		name: 'STABmons Move Legality',
-		desc: "Allows Pok&eacute;mon to use any move that they or a previous evolution/out-of-battle forme share a type with",
+		name: 'Move Legality',
+		desc: "Move validator for STABmons, Sketchmons and Convergence.",
 		ruleset: ['OM Unobtainable Moves'],
 		checkCanLearn(move, species, setSources, set) {
+			const STABList = ["Arboliva", "Porygon2", "Terrakion"]; 
+			const SketchList = ["Garchomp", "Registeel"];
+			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
+			// STABmons
 			const nonstandard = move.isNonstandard === 'Past' && !this.ruleTable.has('standardnatdex');
-			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`)) {
+			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`) && STABList.includes(species.name)) {
 				const speciesTypes: string[] = [];
 				const moveTypes: string[] = [];
 				// BDSP can't import Pokemon from Home, so it shouldn't grant moves from archaic species types
@@ -18,8 +22,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					moveTypes.push(dex.moves.get(move.name).type);
 
 					const pokemon = dex.species.get(species.name);
-					const affectedPokemon = ["Arboliva", "Porygon2", "Terrakion"]; // unsure
-					if (affectedPokemon.includes(pokemon) && (pokemon.forme || pokemon.otherFormes)) {
+					if (pokemon.forme || pokemon.otherFormes) {
 						const baseSpecies = dex.species.get(pokemon.baseSpecies);
 						const originalForme = dex.species.get(pokemon.changesFrom || pokemon.name);
 						speciesTypes.push(...originalForme.types);
@@ -48,23 +51,20 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				}
 				if (moveTypes.some(m => speciesTypes.includes(m))) return null;
 			}
-			return this.checkCanLearn(move, species, setSources, set);
-		},
-	},
-	sketchmonsmovelegality: {
-		effectType: 'ValidatorRule',
-		name: 'Sketchmons Move Legality',
-		desc: "Pok&eacute;mon can learn one of any move they don't normally learn.",
-		ruleset: ['OM Unobtainable Moves'],
-		checkCanLearn(move, species, lsetData, set) {
-			const affectedPokemon = ["Garchomp", "Registeel"];
-			if (!affectedPokemon.includes(species.name)) {
-				return ` ${species.name} isn't a Sketchmons species.`;
-			}
-			const problem = this.checkCanLearn(move, species, lsetData, set);
+			// Convergence
+			const matchingSpecies = this.dex.species.all()
+				.filter(s => (
+					(!s.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(s.isNonstandard)}`)) &&
+					s.types.every(type => species.types.includes(type)) &&
+					s.types.length === species.types.length && !this.ruleTable.isBannedSpecies(s)
+				));
+			const someCanLearn = matchingSpecies.some(s => this.checkCanLearn(move, s, setSources, set) === null);
+			if (someCanLearn && ConvList.includes(species.name)) return null;
+			// Sketchmons
+			const problem = this.checkCanLearn(move, species, setSources, set);
 			if (!problem) return null;
 			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
-			if (affectedPokemon.includes(species.name)) return problem; // added line
+			if (!SketchList.includes(species.name)) return problem; // added line
 			const sketchMove = (set as any).sketchMove;
 			if (sketchMove && sketchMove !== move.name) {
 				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
@@ -73,6 +73,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			return null;
 		},
 		onValidateTeam(team) {
+			// Sketchmons
 			const sketches = new this.dex.Multiset<string>();
 			for (const set of team) {
 				if ((set as any).sketchMove) {
@@ -86,6 +87,26 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				));
 			}
 		},
+		onValidateSet(set, format) {
+			// Convergence
+			const curSpecies = this.dex.species.get(set.species);
+			const obtainableAbilityPool = new Set<string>();
+			const matchingSpecies = this.dex.species.all()
+				.filter(species => (
+					(!species.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(species.isNonstandard)}`)) &&
+					species.types.every(type => curSpecies.types.includes(type)) &&
+					species.types.length === curSpecies.types.length && !this.ruleTable.isBannedSpecies(species)
+				));
+			for (const species of matchingSpecies) {
+				for (const abilityName of Object.values(species.abilities)) {
+					const abilityid = this.toID(abilityName);
+					obtainableAbilityPool.add(abilityid);
+				}
+			}
+			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
+				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
+			}
+		},
 	},
 	revelationmonsmod: {
 		effectType: "Rule",
@@ -96,8 +117,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
+			const revelationmons = ['Tyranitar',];
 			const slotIndex = species.types.length - 1;
 			const problems = [];
+			if (!revelationmons.includes(species.name)) return problems;
 			for (const [i, moveid] of set.moves.entries()) {
 				const move = this.dex.moves.get(moveid);
 				if (!this.ruleTable.isRestricted(`move:${move.id}`)) continue;
@@ -121,41 +144,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				if (!this.dex.types.isName(type)) continue;
 				if (pokemon.moveSlots[i] && move.id === pokemon.moveSlots[i].id) move.type = type;
 			}
-		},
-	},
-	convergencelegality: {
-		effectType: 'ValidatorRule',
-		name: "Convergence Legality",
-		desc: `Allows all Pok&eacute;mon that have identical types to share moves and abilities.`,
-		onValidateSet(set, format) {
-			const curSpecies = this.dex.species.get(set.species);
-			const obtainableAbilityPool = new Set<string>();
-			const matchingSpecies = this.dex.species.all()
-				.filter(species => (
-					(!species.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(species.isNonstandard)}`)) &&
-					species.types.every(type => curSpecies.types.includes(type)) &&
-					species.types.length === curSpecies.types.length && !this.ruleTable.isBannedSpecies(species)
-				));
-			for (const species of matchingSpecies) {
-				for (const abilityName of Object.values(species.abilities)) {
-					const abilityid = this.toID(abilityName);
-					obtainableAbilityPool.add(abilityid);
-				}
-			}
-			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
-				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
-			}
-		},
-		checkCanLearn(move, species, setSources, set) {
-			const matchingSpecies = this.dex.species.all()
-				.filter(s => (
-					(!s.isNonstandard || this.ruleTable.has(`+pokemontag:${this.toID(s.isNonstandard)}`)) &&
-					s.types.every(type => species.types.includes(type)) &&
-					s.types.length === species.types.length && !this.ruleTable.isBannedSpecies(s)
-				));
-			const someCanLearn = matchingSpecies.some(s => this.checkCanLearn(move, s, setSources, set) === null);
-			if (someCanLearn) return null;
-			return this.checkCanLearn(move, species, setSources, set);
 		},
 	},
 	franticfusionsmod: {
