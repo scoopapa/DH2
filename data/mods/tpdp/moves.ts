@@ -8561,20 +8561,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	reprimand: {
 		name: "Reprimand",
-		shortDesc: "Power doubles if you take damage from a foe's Skill on the same turn.",
+		shortDesc: "Power doubles if the user moves after the target.",
 		target: "normal",
 		type: "Illusion",
 		category: "Physical",
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
-			const damagedByTarget = pokemon.attackedBy.some(
-				p => p.source === target && p.damage > 0 && p.thisTurn
-			);
-			if (damagedByTarget) {
-				this.debug('BP doubled for getting hit by ' + target);
-				return move.basePower * 2;
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Payback NOT boosted');
+				return move.basePower;
 			}
-			return move.basePower;
+			this.debug('Payback damage boost');
+			return move.basePower * 2;
 		},
 		pp: 6.25,
 		accuracy: 100,
@@ -8582,7 +8580,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, contact: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Revenge", target);
+			this.add('-anim', source, "Payback", target);
 		},
 		// Class: BU
 		// Effect Chance: 100
