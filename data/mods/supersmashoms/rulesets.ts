@@ -93,7 +93,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			// Convergence
 			const curSpecies = this.dex.species.get(set.species);
 			let ability = set.ability;
-			listAbilities = [];
+			let listAbilities = [];
 			if (curSpecies.abilities['0']) listAbilities.push(curSpecies.abilities['0']);
 			if (curSpecies.abilities['1']) listAbilities.push(curSpecies.abilities['1']);
 			if (curSpecies.abilities['H']) listAbilities.push(curSpecies.abilities['H']);
