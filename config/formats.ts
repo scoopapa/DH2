@@ -1828,7 +1828,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'Move Legality', 'Revelationmons Mod', '!Obtainable Abilities'],
+			'Move Legality', 'Revelationmons Mod Modded', '!Obtainable Abilities'],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}} 
@@ -1843,6 +1843,7 @@ export const Formats: FormatList = [
 		},
 		onPreStart(target) {
 			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			console.log(target, target.name);
 			if (!PokebilitiesList.includes(target.name)) return;
 			target.m.innates = Object.keys(target.species.abilities)
 					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))

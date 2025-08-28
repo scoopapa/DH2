@@ -121,16 +121,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 		},
 	},
-	revelationmonsmod: {
+	revelationmonsmodmodded: {
 		effectType: "Rule",
-		name: "Revelationmons Mod",
+		name: "Revelationmons Mod Modded",
 		desc: `The moves in the first slot(s) of a Pok&eacute;mon's set have their types changed to match the Pok&eacute;mon's type(s).`,
 		onBegin() {
 			this.add('rule', 'Revelationmons Mod: The first moveslots have their types changed to match the Pok\u00e9mon\'s types');
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			const revelationmons = ['Tyranitar',];
+			const revelationmons = ['Tyranitar'];
 			const slotIndex = species.types.length - 1;
 			const problems = [];
 			if (!revelationmons.includes(species.name)) return problems;
@@ -144,10 +144,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			return problems;
 		},
 		onModifyMove(move, pokemon, target) {
-			const revelationmons = [
-				'Tyranitar',
-			];
-			if (!revelationmons.includes(pokemon)) return;
+			const revelationmons = ['Tyranitar'];
+			if (!revelationmons.includes(pokemon.name)) return;
 			const types = pokemon.getTypes(true);
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
