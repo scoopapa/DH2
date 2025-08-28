@@ -4,8 +4,4 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ["DT OU", "DT NFE"],
 	},
-
-	init() {
-		
-	},
 };
