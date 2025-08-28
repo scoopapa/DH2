@@ -90,7 +90,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		onValidateSet(set, format) {
 			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
 			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
-			// Convergence
+			// Convergence + AAA
 			const curSpecies = this.dex.species.get(set.species);
 			let ability = set.ability;
 			let listAbilities = [];
@@ -115,6 +115,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
+			}
+			// Nature Swap but hardcode
+			if (curSpecies.name === 'Enamorus-Therian' && set.nature !== 'Timid') {
+				return [`${curSpecies.name} cannot run the nature ${this.dex.abilities.get(set.nature).name}.`];
 			}
 		},
 	},

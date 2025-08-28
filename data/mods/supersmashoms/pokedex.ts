@@ -145,9 +145,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Intimidate"},
 	},
-/*
-:enamorus-therian: Enamorus-Therian - Nature Swap by PQRDG
-*/
+	enamorustherian: {
+		inherit: true,
+		baseStats: {hp: 74, atk: 46, def: 110, spa: 135, spd: 100, spe: 115},
+	},
 	yanma: {
 		inherit: true,
 		types: ["Poison", "Psychic"],
