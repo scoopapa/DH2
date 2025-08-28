@@ -145,6 +145,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		},
 		onModifyMove(move, pokemon, target) {
 			const revelationmons = ['Tyranitar'];
+			console.log(pokemon, pokemon.name);
 			if (!revelationmons.includes(pokemon.name)) return;
 			const types = pokemon.getTypes(true);
 			const noModifyType = [
