@@ -92,7 +92,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
 			// Convergence
 			const curSpecies = this.dex.species.get(set.species);
-			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
+			let ability = dex.abilities.get(Utils.getString(set.ability));
+			set.ability = ability.name;
+			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(species.abilities).includes(ability.name)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
 				.filter(species => (
