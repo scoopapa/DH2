@@ -1828,7 +1828,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'Move Legality', 'Revelationmons Mod', '!Obtainable Abilities', 'Hackmons Forme Legality'],
+			'Move Legality', 'Revelationmons Mod', '!Obtainable Abilities'],
 		banlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}} 
@@ -1839,6 +1839,28 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Super Smash OMs.'];
 				}
+			}
+		},
+		onPreStart(target) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(target.name)) return;
+			target.m.innates = Object.keys(target.species.abilities)
+					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
+					.filter(ability => ability !== target.ability);
+			if (target.m.innates) {
+				for (const innate of target.m.innates) {
+					if (target.hasAbility(innate)) continue;
+					target.addVolatile("ability:" + innate, target);
+				}
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(target.name)) return;
+			if (target.species.abilities['0'].id && target.species.abilities['1'].id && target.species.abilities['H'].id && target.species.abilities['S'].id !== "magicguard") return;
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
 			}
 		},
 		mod: 'supersmashoms',
