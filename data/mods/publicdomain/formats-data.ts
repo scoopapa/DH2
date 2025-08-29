@@ -91,6 +91,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	vespiquen: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
 	llamonade: {
 		tier: "PD",
 		doublesTier: "DPDOU",

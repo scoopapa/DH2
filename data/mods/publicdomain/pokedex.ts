@@ -198,6 +198,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Justified", 1: "Mountaineer", H: "Dry Skin"},
 		weightkg: 44.4,
 	},
+	vespiquen: {
+		inherit: true,
+		num: 24,
+		name: "Vespiquen",
+		types: ["Bug", "Flying"],
+		baseStats: {hp: 71, atk: 110, def: 102, spa: 60, spd: 102, spe: 85},
+		abilities: {0: "Queenly Majesty", 1: "Magic Guard", H: "Supreme Overlord"},
+		weightkg: 38.5,
+	},
 	llamonade: {
 		name: "Llamonade",
 		types: ["Water", "Grass"],

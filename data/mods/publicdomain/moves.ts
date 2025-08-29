@@ -504,4 +504,80 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	attackorder: {
+		num: 454,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Attack Order",
+		shortDesc: "33% Recoil.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		recoil: [33, 100],
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	defendorder: {
+		num: 455,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Defend Order",
+		shortDesc: "Protects user from attacks. On contact: inflict infestation.",
+		pp: 10,
+		priority: 0,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'defendorder',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					target.addVolatile('partiallytrapped', source, this.dex.getActiveMove("Infestation"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					target.addVolatile('partiallytrapped', source, this.dex.getActiveMove("Infestation"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 };

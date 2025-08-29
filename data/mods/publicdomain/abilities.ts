@@ -175,7 +175,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (!this.field.terrain || !pokemon.isGrounded()) return;
-			if (move.type === 'Steel') return this.chainModify([2, 3]);
+			if (move.type === 'Steel' && pokemon.hasType("Steel")) return this.chainModify([2, 3]);
 			switch (this.field.terrain) {
 			case 'electricterrain':
 				if (move.type === 'Electric') return this.chainModify(1.5);
