@@ -171,4 +171,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shining Moon",
 		shortDesc: "User ignores its acc drops and target's eva boosts; heals 1/16 in Meteor Shower.",
 	},
+	mimicry: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type == "Steel" && pokemon.hasType("Steel") && this.field.terrain) {
+				return this.chainModify(2/3);
+			}
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				if (move.type == "Electric") return this.chainModify(1.5);
+				break;
+			case 'grassyterrain':
+				if (move.type == "Grass") return this.chainModify(1.5);
+				break;
+			case 'mistyterrain':
+				if (move.type == "Fairy") return this.chainModify(1.5);
+				break;
+			case 'psychicterrain':
+				if (move.type == "Psychic") return this.chainModify(1.5);
+				break;
+			}
+		},
+		flags: {},
+		name: "Mimicry",
+		shortDesc: "Loses Steel STAB under terrain, terrain boosts moves by 1.5x for respective type.",
+	},
 };
