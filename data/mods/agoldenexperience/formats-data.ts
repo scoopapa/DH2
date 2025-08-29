@@ -603,7 +603,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	gengarmega: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	gengargmax: {
 		isNonstandard: "Past",
