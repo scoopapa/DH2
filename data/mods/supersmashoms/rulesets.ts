@@ -123,6 +123,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 						abilityPool.add(ability);
 					}
 				}
+				console.log(abilityPool);
 				const ability = this.dex.abilities.get(set.ability);
 				if (!abilityPool.has(ability.name)) {
 					return [`${species.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
