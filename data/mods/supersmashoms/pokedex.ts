@@ -206,7 +206,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: null,
 		forme: null,
 		requiredItem: null,
-		battleOnly: "Altaria-Mega",
 	},
 	ninetales: {
 		inherit: true,
