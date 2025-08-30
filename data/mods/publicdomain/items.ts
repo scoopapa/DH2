@@ -9,7 +9,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 625,
 		megaStone: "Sligma-Mega",
 		megaEvolves: "Sligma",
-		itemUser: ["Sligma", "Stunfisk-Galar-Mega"],
+		itemUser: ["Sligma", "Sligma-Mega"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
