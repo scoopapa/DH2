@@ -110,13 +110,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				const fusee = fusions[curSpecies.name];
 				const fuseSpecies = this.dex.species.get(fusee);
 				console.log(fusee, fuseSpecies.abilities);
-				// This part is because I don't understand Showdown code and I will soon fall into madness
-				/*const fusions = {
-				    "Houndstone": "Houndstone",
-				    "Ting-Lu": "Ting-Lu",
-				    "Torkoal": "Torkoal",
-				    "Sylveon": {0: "Thick Fat"},
-				};*/
 				const abilityPool = new Set<string>(Object.values(curSpecies.abilities));
 				if (fusee) {
 					for (const ability of Object.values(fuseSpecies.abilities)) {
@@ -126,7 +119,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				console.log(abilityPool);
 				const ability = this.dex.abilities.get(set.ability);
 				if (!abilityPool.has(ability.name)) {
-					return [`${species.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
+					return [`${curSpecies.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
 				}				
 			}
 			const obtainableAbilityPool = new Set<string>();
@@ -149,8 +142,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name) && !FranticList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
 			}
-			console.log(AAAList.includes(curSpecies.name), AAAbanlist.includes(this.toID(set.ability)), AAAList.includes(curSpecies.name) && AAAbanlist.includes(this.toID(set.ability)))
-			if (AAAList.includes(curSpecies.name) && AAAbanlist.includes(this.toID(set.ability))) {
+			if (AAAList.includes(curSpecies.name) && AAAbanlist.includes(set.ability)) {
 				return [`${curSpecies.name} has banned ability ${this.dex.abilities.get(set.ability).name}.`];
 			}
 			// Nature Swap but hardcode
