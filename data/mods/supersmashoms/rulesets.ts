@@ -108,7 +108,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				    "Tinkaton": "sylveon"
 				};
 				const fusee = fusions[curSpecies.name];
-				const fuseSpecies = this.dex.get(fusee);
+				const fuseSpecies = this.dex.species.get(fusee);
 				console.log(fusee, fuseSpecies.abilities);
 				// This part is because I don't understand Showdown code and I will soon fall into madness
 				/*const fusions = {
@@ -141,8 +141,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					obtainableAbilityPool.add(abilityid);
 				}
 			}
+			// AAA
+			const AAAbanlist = ["Arena Trap", "Comatose", "Contrary", "Fur Coat", "Good as Gold", "Gorilla Tactics", "Huge Power", "Ice Scales", "Illusion", "Imposter", 
+				"Innards Out", "Magic Bounce", "Magnet Pull", "Moody", "Neutralizing Gas", "Orichalcum Pulse", "Parental Bond", "Poison Heal", "Pure Power", "Shadow Tag", 
+				"Simple", "Speed Boost", "Stakeout", "Triage", "Toxic Debris", "Unburden", "Water Bubble", "Wonder Guard"];
 			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
+			}
+			if (AAAList.includes(curSpecies.name) && AAAbanlist.includes(this.toID(set.ability))) {
+				return [`${curSpecies.name} has banned ability ${this.dex.abilities.get(set.ability).name}.`];
 			}
 			// Nature Swap but hardcode
 			if (curSpecies.name === 'Enamorus-Therian' && set.nature !== 'Timid') {
