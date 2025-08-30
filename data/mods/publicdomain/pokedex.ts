@@ -217,6 +217,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	stunfiskgalar: {
 		inherit: true,
 		name: "Stunfisk-Galar",
+		baseSpecies: "Stunfisk-Galar",
 		types: ["Steel", "Ground"],
 		baseStats: {hp: 109, atk: 81, def: 99, spa: 66, spd: 84, spe: 32},
 		abilities: {0: "Filter", H: "Mimicry"},
