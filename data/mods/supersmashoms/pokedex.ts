@@ -203,7 +203,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// Slate 8
 	altariamega: {
 		inherit: true,
+		baseSpecies: "Altaria-Mega",
+		forme: null,
 		requiredItem: null,
+		battleOnly: "Altaria-Mega",
 	},
 	ninetales: {
 		inherit: true,
