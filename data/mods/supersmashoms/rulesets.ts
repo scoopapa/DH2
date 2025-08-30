@@ -108,7 +108,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				    "Tinkaton": "sylveon"
 				};
 				const fusee = fusions[curSpecies.name];
-				console.log(fusee, fusee.abilities);
+				const fuseSpecies = this.dex.get(fusee);
+				console.log(fusee, fuseSpecies.abilities);
 				// This part is because I don't understand Showdown code and I will soon fall into madness
 				/*const fusions = {
 				    "Houndstone": "Houndstone",

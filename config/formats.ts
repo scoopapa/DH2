@@ -1849,7 +1849,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
 			'Move Legality', 'Revelationmons Mod Modded', '!Obtainable Abilities'],
-		banlist: ['Baton Pass'],
+		banlist: ['Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format) {
 			// @type {{[k: string]: true}} 
 			let speciesTable = {};
