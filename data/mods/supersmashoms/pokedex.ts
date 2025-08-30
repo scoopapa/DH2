@@ -56,6 +56,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 143, atk: 123, def: 87, spa: 101, spd: 81, spe: 94},
 	},
+	hawlucha: {
+		inherit: true,
+		abilities: {0: "Hawlucha Abilities"},
+	},
 	taurospaldeablaze: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 140, def: 135, spa: 60, spd: 100, spe: 130},
@@ -68,6 +72,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	bellibolt: {
 		inherit: true,
 		baseStats: {hp: 109, atk: 89, def: 116, spa: 115, spd: 107, spe: 62},
+	},
+	clodsire: {
+		inherit: true,
+		abilities: {0: "Clodsire Abilities"},
 	},
 	azelf: {
 		inherit: true,

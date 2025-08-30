@@ -1861,54 +1861,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onBegin() {
-			const PokebilitiesList = ["Hawlucha", "Clodsire"];
-			for (const pokemon of this.getAllPokemon()) {
-				console.log(pokemon.name);
-				if (!PokebilitiesList.includes(pokemon.name)) continue;
-				if (pokemon.ability === this.toID(pokemon.species.abilities['S'])) {
-					continue;
-				}
-				pokemon.m.innates = Object.keys(pokemon.species.abilities)
-					.filter(key => key !== 'S' && (key !== 'H' || !pokemon.species.unreleasedHidden))
-					.map(key => this.toID(pokemon.species.abilities[key as "0" | "1" | "H" | "S"]))
-					.filter(ability => ability !== pokemon.ability);
-			}
-		},
-		onBeforeSwitchIn(pokemon) {
-			const PokebilitiesList = ["Hawlucha", "Clodsire"];
-			if (!PokebilitiesList.includes(pokemon.name)) return;
-			if (pokemon.m.innates) {
-				for (const innate of pokemon.m.innates) {
-					if (pokemon.hasAbility(innate)) continue;
-					const effect = 'ability:' + this.toID(innate);
-					pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
-				}
-			}
-		},
-		onSwitchOut(pokemon) {
-			const PokebilitiesList = ["Hawlucha", "Clodsire"];
-			if (!PokebilitiesList.includes(pokemon.name)) return;
-			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
-				pokemon.removeVolatile(innate);
-			}
-		},
-		onFaint(pokemon) {
-			const PokebilitiesList = ["Hawlucha", "Clodsire"];
-			if (!PokebilitiesList.includes(pokemon.name)) return;
-			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
-				const innateEffect = this.dex.conditions.get(innate) as Effect;
-				this.singleEvent('End', innateEffect, null, pokemon);
-			}
-		},
-		onAfterMega(pokemon) {
-			const PokebilitiesList = ["Hawlucha", "Clodsire"];
-			if (!PokebilitiesList.includes(pokemon.name)) return;
-			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
-				pokemon.removeVolatile(innate);
-			}
-			pokemon.m.innates = undefined;
-		},
 		mod: 'supersmashoms',
 	},
 	{

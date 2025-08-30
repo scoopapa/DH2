@@ -142,7 +142,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			// AAA
 			const AAAbanlist = ["Arena Trap", "Comatose", "Contrary", "Fur Coat", "Good as Gold", "Gorilla Tactics", "Huge Power", "Ice Scales", "Illusion", "Imposter", 
 				"Innards Out", "Magic Bounce", "Magnet Pull", "Moody", "Neutralizing Gas", "Orichalcum Pulse", "Parental Bond", "Poison Heal", "Pure Power", "Shadow Tag", 
-				"Simple", "Speed Boost", "Stakeout", "Triage", "Toxic Debris", "Unburden", "Water Bubble", "Wonder Guard"];
+				"Simple", "Speed Boost", "Stakeout", "Triage", "Toxic Debris", "Unburden", "Water Bubble", "Wonder Guard",
+				"Hawlucha Abilities", "Clodsire Abilities"];
 			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name) && !FranticList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
 			}
