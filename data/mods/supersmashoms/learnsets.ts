@@ -176,6 +176,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			swift: ["9M", "8M"],
 			tailwind: ["9M"],
 			uturn: ["9M", "8M"],
+			defog: ["9E", "8E"],
+			roost: ["9E", "8E"],
 		},
 	},
 	mamoswine: {

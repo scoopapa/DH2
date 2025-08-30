@@ -88,8 +88,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			}
 		},
 		onValidateSet(set, format) {
-			// Convergence
+			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
+			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
+			// Convergence + AAA
 			const curSpecies = this.dex.species.get(set.species);
+			let ability = set.ability;
+			let listAbilities = [];
+			if (curSpecies.abilities['0']) listAbilities.push(curSpecies.abilities['0']);
+			if (curSpecies.abilities['1']) listAbilities.push(curSpecies.abilities['1']);
+			if (curSpecies.abilities['H']) listAbilities.push(curSpecies.abilities['H']);
+			if (curSpecies.abilities['S']) listAbilities.push(curSpecies.abilities['S']);
+			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
 				.filter(species => (
@@ -103,21 +112,25 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					obtainableAbilityPool.add(abilityid);
 				}
 			}
-			if (!obtainableAbilityPool.has(this.toID(set.ability))) {
+			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
+			}
+			// Nature Swap but hardcode
+			if (curSpecies.name === 'Enamorus-Therian' && set.nature !== 'Timid') {
+				return [`${curSpecies.name} cannot run the nature ${this.dex.abilities.get(set.nature).name}.`];
 			}
 		},
 	},
-	revelationmonsmod: {
+	revelationmonsmodmodded: {
 		effectType: "Rule",
-		name: "Revelationmons Mod",
+		name: "Revelationmons Mod Modded",
 		desc: `The moves in the first slot(s) of a Pok&eacute;mon's set have their types changed to match the Pok&eacute;mon's type(s).`,
 		onBegin() {
 			this.add('rule', 'Revelationmons Mod: The first moveslots have their types changed to match the Pok\u00e9mon\'s types');
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			const revelationmons = ['Tyranitar',];
+			const revelationmons = ['Tyranitar'];
 			const slotIndex = species.types.length - 1;
 			const problems = [];
 			if (!revelationmons.includes(species.name)) return problems;
@@ -131,10 +144,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			return problems;
 		},
 		onModifyMove(move, pokemon, target) {
-			const revelationmons = [
-				'Tyranitar',
-			];
-			if (!revelationmons.includes(pokemon)) return;
+			const revelationmons = ['Tyranitar'];
+			if (!revelationmons.includes(pokemon.name)) return;
 			const types = pokemon.getTypes(true);
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
