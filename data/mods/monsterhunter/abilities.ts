@@ -17,8 +17,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
 		name: "Direspike Scales",
 		shortDesc: "Dalamadur: If full HP, attacks taken have 0.5 effectiveness unless naturally immune.",
-		rating: 3.5,
-		num: 1000,
 	},
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
@@ -49,8 +47,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			notransform: 1},
 		name: "Ice-Armor",
 		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice. Also activates under Snow.",
-		rating: 3,
-		num: 1001,
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
@@ -71,8 +67,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			notransform: 1},
 		name: "Puff-Up",
 		shortDesc: "This pokemon will react to a special attack by puffing up it's body. Also activates under Rain.",
-		rating: 3,
-		num: 1002,
 	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
@@ -86,8 +80,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Debris",
 		shortDesc: "If this pokemon is hit by a physical attack, Spikes are set on the opposing side.",
-		rating: 3.5,
-		num: 1003,
 	},
 	solarwrath: {
 		onModifyAtkPriority: 5,
@@ -105,8 +97,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Solar Wrath",
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
-		rating: 2,
-		num: 1004,
 	},
 	tempestenergy: {
 		onImmunity(type, pokemon) {
@@ -132,11 +122,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		rating: 1,
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
 		name: "Tempest Energy",
-		num: 1005,
 	},
 	tempestforce: {
 		inherit: true,
@@ -163,8 +151,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		rating: 1,
-		num: 1006,
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
 		name: "Tempest Force",
@@ -172,8 +158,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	mightywall: {
 		name: "Mighty Wall",
 		flags: {},
-		rating: 1,
-		num: 1007,
 		shortDesc: "This Pokemon takes half damage from attacks when switching in.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.activeTurns) {
@@ -200,8 +184,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if ((move as any).igniteBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		name: "Ignite",
-		rating: 4,
-		num: 1008,
 	},
 	vampirism: {
 		shortDesc: "Replaces target's ability with Vampirism if user made contact.",
@@ -225,8 +207,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Vampirism",
-		rating: 3,
-		num: 1009,
 	},
 	aggravation: {
 		onDamage(damage, target, source, effect) {
@@ -262,8 +242,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Aggravation",
 		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its Max HP.",
-		rating: 2,
-		num: 1010,
 	},
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
@@ -292,8 +270,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
 		activate: "[POKEMON] became energized immediately!",
         flags: {},
-		rating: 2,
-		num: 1011,
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
@@ -306,7 +282,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Megiddo's Gift",
 		shortDesc: "Before using a Water or Fire-type move, this Pokemon sets Rain Dance or Sunny Day respectively.",
-		rating: 1012,
 	},
 	corrosiveclaws: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -321,8 +296,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Corrosive Claws",
-		rating: 4,
-		num: 1013,
 	},
 	centrifuge: {
 		shortDesc: "The Pokémon draws Ground moves to itself to raise Spa. Attack by 1; Ground immunity.",
@@ -344,8 +317,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Centrifuge",
-		rating: 3,
-		num: 1014,
 	},
 	dragonvein: {
 		desc: "When it KOs an opponent with a direct move, it recovers 25% of its max HP.",
@@ -356,8 +327,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Dragonvein",
-		rating: 3,
-		num: 1015,
 	},
 	permafrost: {
 			name: "Permafrost",
@@ -386,8 +355,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				},
 			},
 			shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def when hit by Ice.",
-			num: 1016,
-			rating: 4,
 		},
 	heatsink: {
 		onTryHit(target, source, move) {
@@ -401,8 +368,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Fire moves; Fire immunity.",
 		name: "Heat Sink",
-		rating: 3.5,
-		num: 1017,
 	},
 	rustedgale: {
 		onStart(pokemon) {
@@ -422,8 +387,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Rusted Gale",
 		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
-		rating: 4.5,
-		num: 1018,
 	},
 	frostnip: {
 		shortDesc: "This Pokemon's moves have 1.3x power against frostbitten targets.",
@@ -431,8 +394,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (defender && ['frz'].includes(defender.status)) return this.chainModify(1.3);
 		},
 		name: "Frostnip",
-		rating: 4,
-		num: 1019,
 	},
 	pungency: {
 		onDamagingHit(damage, target, source, move) {
@@ -445,8 +406,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		shortDesc: "30% chance of inflicting Stench on a Pokemon if they make contact.",
 		name: "Pungency",
-		rating: 0.5,
-		num: 1020,
 	},
 	oilslick: {
 		onStart(pokemon) {
@@ -466,8 +425,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
 		name: "Oilslick",
-		rating: 3.5,
-		num: 1021,
 	},
 	airbag: {
 		onEffectiveness(typeMod, target, type, move) {
@@ -477,9 +434,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			return 0;
 		},
 		name: "Airbag",
-		rating: 4,
 		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
-		num: 1022,
 	},
 	itembag: {
 		name: "Itembag",
@@ -496,8 +451,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Itembag');
 			}
 		},
-		rating: 3,
-		num: 1023,
 	},
 	generalist: {
 		onBasePowerPriority: 23,
@@ -508,8 +461,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Generalist",
 		shortDesc: "Non-STAB moves have 1.3x power.",
-		rating: 4.5,
-		num: 1024,
 	},
 	frozencalamity: {
 		onStart(pokemon) {
@@ -546,8 +497,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Frozen Calamity",
 		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Ice-type moves power is increased by 5% of their base power.",
 		shortDesc: "For each fainted Pokemon on the opposing team, Ice-type power +5%.",
-		rating: 4,
-		num: 1025,
 	},
 	riptide: {
 		onResidualOrder: 8,
@@ -566,8 +515,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "If any foe is trapped by a non-damaging move, the foe loses 1/8 of its max HP; heals by that amount.",
 		shortDesc: "If foe is hit by non-residual trapping move, foe loses 1/8 of max HP; user heals 1/8th.",
 		name: "Riptide",
-		rating: 3,
-		num: 1026,
 	},
 	ragingrebel: {
 		shortDesc: "This Pokémon and allies: 1.3x damage when any Pokémon has stat drops; attack can't lowered.",
@@ -595,8 +542,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Raging Rebel",
-		rating: 2.5,
-		num: 1027,
 	},
 	silversubsume: {
 		onAnyTryMove(target, source, effect) {
@@ -609,8 +554,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Silver Subsume",
 		shortDesc: "If a hazard move is used on this Pokemon, it fails and this Pokemon's Attack is raised by 1.",
-		rating: 3.5,
-		num: 1028,
 	},
 	strafe: {
 		shortDesc: "When taking damages, this Pokemon adds 20% of its Speed to its corresponding defense.",
@@ -627,8 +570,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const newSpD = spd + (spe / 5);
 			return newSpD;
 		},
-		rating: 3.5,
-		num: 1029,
 	},
 	plow: {
 		onTryHit(target, source, move) {
@@ -648,8 +589,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Plow",
 		shortDesc: "Heals 1/4 of its max HP when hit by Ground; Ground immunity. Healed by Spikes and Stealth Rock.",
-		rating: 3.5,
-		num: 1030,
 	},
 	insectarmor: {
 		onModifyAtkPriority: 5,
@@ -682,8 +621,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Insect Armor",
 		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
-		rating: 4.5,
-		num: 1031,
 	},
 	dukesbayonet: {
 		shortDesc: "Contact moves bypass Protect. 25% damage instead.",
@@ -701,8 +638,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Duke's Bayonet",
-		rating: 4,
-		num: 1032,
 	},
 	watercompaction: {
 		onTryHit(target, source, move) {
@@ -716,8 +651,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Water Compaction",
 		desc: "This Pokemon is immune to Water-type moves and raises its Def by 2 stages when hit by an Water-type move.",
 		shortDesc: "This Pokemon's Defense is raised 2 stages if hit by an Water move; Water immunity.",
-		rating: 3,
-		num: 1033,
 	},
 	escaton: {
 		onPrepareHit(source, target, move) {
@@ -815,7 +748,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Protopyre",
-		num: 1036,
 		shortDesc: "Sunny Day active, Booster Energy used or HP drops below 1/3 max HP: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	icebreaker: {
@@ -833,8 +765,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
 		shortDesc: "This Pokemon's attacks have 1.3x power in snow; immunity to it.",
         flags: {},
-		rating: 2.5,
-		num: 1037,
 	},
 	oilmucus: {
 		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
@@ -863,8 +793,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Oilmucus",
-		num: 1038,
-		rating: 2.5,
 	},
 	perforating: {
 		onModifyMovePriority: -5,
@@ -876,8 +804,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Perforating",
 		shortDesc: "Poison moves can hit and poison Steel-type Pokemon.",
-		rating: 3,
-		num: 1040,
 	},
 	gravedrum: {
 		onModifySpe(spe, pokemon) {
@@ -899,7 +825,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Blind Rage",
 		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
-		rating: 3.5,
 	},
 	pathogenic: {
 		onDamagingHit(damage, target, source, move) {
@@ -927,7 +852,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Pathogenic",
 		shortDesc: "Contact changes attacker's ability to Pathogenic; non-Poison Pokemon are hurt.",
-		rating: 2,
 	},
 	oceanicveil: {
 		onStart(source) {
@@ -950,8 +874,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		rating: 2,
-		num: 41,
 		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
 	},
 	incandescent: {
@@ -978,7 +900,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Incandescent",
 		shortDesc: "User gains STAB on Fire moves; Immune to Fire.",
-		rating: 4.5,
 	},
 	maddragon: {
 		onModifyAtkPriority: 5,
@@ -1012,7 +933,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Mad Dragon",
 		shortDesc: "User gains STAB on Dragon moves and also gains Dragon-type resistances.",
-		rating: 3.5,
 	},
 	risenburst: {
 		shortDesc: "On Mega-Evo; uses Risen Burst (60BP, Typeless). Grants dark res + stab. Uses R.Burst when hit by a dark attack.",
@@ -1068,11 +988,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Risen Burst",
-		rating: 3.5,
 	},
 	overload: {
 		name: "Overload",
-		rating: 3.5,
 		flags: {},
 		shortDesc: "All Dragon moves used by the user are 1.4x damage but deal 20% recoil of damage dealt.",
 		onModifyMove(move) {
@@ -1109,7 +1027,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Terrestrial",
-		rating: 3.5,
 		flags: {breakable: 1},
 		shortDesc: "Ground attacks do neutral damage.",
 	},
@@ -1123,7 +1040,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Dense Cortex",
 		shortDesc: "Immune to slicing moves.",
-		rating: 3,
 	},
 	wyversion: {
 		onDamagingHitOrder: 1,
@@ -1133,7 +1049,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Wyversion",
 		shortDesc: "This Pokemon gains a (Dragon-type) Charge effect when it takes a hit from an attack.",
-		rating: 3,
 	},
 	stealthsilver: {
 		onStart(pokemon, source) {
@@ -1144,7 +1059,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		shortDesc: "On activation, this Pokemon sets steel-type hazards.",
 		name: "Stealth Silver",
-		rating: 4,
 	},
 	wylkencasing: {
 		onStart(pokemon) {
@@ -1189,7 +1103,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Wylk Encasing",
 		desc: "If this Pokemon is a Zoh Shia, it changes to its true forme if it has 1/2 or less of its maximum HP, and changes to Encased Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Encased Form, it cannot become affected by a non-volatile status condition or Yawn.",
 		shortDesc: "If Zoh Shia, switch-in/end of turn it changes to true form at 1/2 max HP or less, else Encased.",
-		rating: 3,
 	},
 	dragonpoint: {
 		onDamagingHit(damage, target, source, move) {
@@ -1202,7 +1115,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Dragon Point",
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be dragonblighted.",
-		rating: 1.5,
 	},
 	butterflystar: {
 		onModifyMovePriority: 1,
@@ -1223,7 +1135,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		shortDesc: "Before using a move, Estrellian transforms. If Bug-Type: Armored Form; Flying-Type: Winged Form.",
 		name: "Butterfly Star",
-		rating: 4,
 	},
 	destructionstar: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -1238,7 +1149,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Destruction Star",
 		shortDesc: "After KOing a Pokemon; becomes Charged.",
-		rating: 4,
 	},
 	disasterstar: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -1253,7 +1163,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Disaster Star",
 		shortDesc: "After KOing a Pokemon; becomes Charged.",
-		rating: 4,
 	},
 	empressthrone: {
 		onResidualOrder: 29,
@@ -1273,7 +1182,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Empress Throne",
 		shortDesc: "If Ahtal-Ka, becomes Ahtal-Neset if at 1/2 max HP or less at end of turn.",
-		rating: 5,
 	},
 	crystalblight: {
 		onResidual(pokemon, target) {
@@ -1288,7 +1196,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Crystalblight",
 		shortDesc: "If opponent is paralyzed: Inflicts fatigue, takes 1/16th residual damage.",
-		rating: 5,
 	},
 	poisonousradula: {
 		onSourceHit(target, source, move) {
@@ -1321,7 +1228,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Poisonous Radula",
 		shortDesc: "Non-resisted Poison moves lowers the target's corresponding defense by one stage.",
-		rating: 5,
 	},
 	dragoneater: {
 		onTryHit(target, source, move) {
@@ -1335,7 +1241,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Dragon Eater",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dragon moves; Dragon immunity.",
-		rating: 3.5,
 	},
 	foolproof: {
 		onTryHit(target, source, move) {
@@ -1356,7 +1261,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Foolproof",
 		shortDesc: "Soundproof + Bulletproof",
-		rating: 3.5,
 	},
 	relentless: {
 		onStart(pokemon) {
@@ -1387,8 +1291,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Relentless",
 		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
         flags: {},
-		num: 1025,
-		rating: 2,
 	},
 	pulpup: {
 		onModifyMove(move, pokemon) {
@@ -1400,8 +1302,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Pulp Up",
 		shortDesc: "When this Pokemon uses a status move, Stockpiles 1.",
-		rating: 3,
-		num: -1,
 	},
 	mucusveil: {
 		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by an attack.",
@@ -1415,8 +1315,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Mucus Veil",
-		rating: 3.5,
-		num: -4,
 	},
 	thunderstorm: {
 		onModifyMovePriority: 1,
@@ -1429,7 +1327,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		shortDesc: "Grants the charge effect after using a flying-type move.",
 		name: "Thunderstorm",
-		rating: 4,
 	},
 	spongy: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1441,7 +1338,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		shortDesc: "This Pokemon takes 1/2 damage from special moves, 2x damage from Fire moves.",
 		name: "Spongy",
-		rating: 3.5,
 	},
 	dulledblades: {
 		onSourceHit(target, source, move) {
@@ -1458,7 +1354,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Dulled Blades",
 		shortDesc: "Slicing moves: +1 Defense.",
-		rating: 3,
 	},
 	ambush: {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
@@ -1466,7 +1361,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
 		name: "Ambush",
-		rating: 3,
 	},
 	/*
 	Edits
