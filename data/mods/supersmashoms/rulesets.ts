@@ -69,6 +69,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (sketchMove && sketchMove !== move.name) {
 				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
 			}
+			const SketchBanlist = ["Astral Barrage", "Belly Drum", "Boomburst", "Ceaseless Edge", "Clangorous Soul", "Dire Claw", "Extreme Speed", "Gigaton Hammer", 
+				"Glacial Lance", "Fillet Away", "Jet Punch", "Last Respects", "Lumina Crash", "No Retreat", "Quiver Dance", "Rage Fist", "Revival Blessing", "Shell Smash", 
+				"Shed Tail", "Shift Gear", "Tail Glow", "Torch Song", "Transform", "Triple Arrows", "V-Create", "Victory Dance", "Wicked Blow"];
+			if (SketchBanlist.includes(sketchMove)) {
+				return ` has banned move ${sketchMove}.)`;
+			}
 			(set as any).sketchMove = move.name;
 			return null;
 		},
@@ -109,14 +115,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				};
 				const fusee = fusions[curSpecies.name];
 				const fuseSpecies = this.dex.species.get(fusee);
-				console.log(fusee, fuseSpecies.abilities);
 				const abilityPool = new Set<string>(Object.values(curSpecies.abilities));
 				if (fusee) {
 					for (const ability of Object.values(fuseSpecies.abilities)) {
 						abilityPool.add(ability);
 					}
 				}
-				console.log(abilityPool);
 				const ability = this.dex.abilities.get(set.ability);
 				if (!abilityPool.has(ability.name)) {
 					return [`${curSpecies.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
@@ -185,73 +189,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				if (!this.dex.types.isName(type)) continue;
 				if (pokemon.moveSlots[i] && move.id === pokemon.moveSlots[i].id) move.type = type;
 			}
-		},
-	},
-	franticfusionsmod: {
-		effectType: 'Rule',
-		name: "Frantic Fusions Mod",
-		desc: `Pok&eacute;mon nicknamed after another Pok&eacute;mon get their stats buffed by 1/4 of that Pok&eacute;mon's stats, barring HP, and access to their abilities.`,
-		onBegin() {
-			this.add('rule', 'Frantic Fusions Mod: Pok\u00e9mon nicknamed after another Pok\u00e9mon get buffed stats and more abilities.');
-		},
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			const fusion = this.dex.species.get(set.name);
-			const abilityPool = new Set<string>(Object.values(species.abilities));
-			if (fusion.exists) {
-				for (const ability of Object.values(fusion.abilities)) {
-					abilityPool.add(ability);
-				}
-			}
-			const ability = this.dex.abilities.get(set.ability);
-			if (!abilityPool.has(ability.name)) {
-				return [`${species.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
-			}
-		},
-		onValidateTeam(team, format) {
-			const donors = new this.dex.Multiset<string>();
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				const fusion = this.dex.species.get(set.name);
-				if (fusion.exists) {
-					set.name = fusion.name;
-				} else {
-					set.name = species.baseSpecies;
-					if (species.baseSpecies === 'Unown') set.species = 'Unown';
-				}
-				if (fusion.name === species.name) continue;
-				donors.add(fusion.name);
-			}
-			for (const [fusionName, number] of donors) {
-				if (number > 1) {
-					return [`You can only fuse with any Pok\u00e9 once.`, `(You have ${number} Pok\u00e9mon fused with ${fusionName}.)`];
-				}
-				const fusion = this.dex.species.get(fusionName);
-				if (this.ruleTable.isBannedSpecies(fusion) || fusion.battleOnly) {
-					return [`Pok\u00e9mon can't fuse with banned Pok\u00e9mon.`, `(${fusionName} is banned.)`];
-				}
-				if (fusion.isNonstandard &&
-					!(this.ruleTable.has(`+pokemontag:${this.toID(fusion.isNonstandard)}`) ||
-						this.ruleTable.has(`+pokemon:${fusion.id}`) ||
-						this.ruleTable.has(`+basepokemon:${this.toID(fusion.baseSpecies)}`))) {
-					return [`${fusion.name} is marked as ${fusion.isNonstandard}, which is banned.`];
-				}
-			}
-		},
-		onModifySpecies(species, target, source, effect) {
-			if (!target) return;
-			const newSpecies = this.dex.deepClone(species);
-			const fusionName = target.set.name;
-			if (!fusionName || fusionName === newSpecies.name) return;
-			const fusionSpecies = this.dex.deepClone(this.dex.species.get(fusionName));
-			newSpecies.bst = newSpecies.baseStats.hp;
-			for (const stat in newSpecies.baseStats) {
-				if (stat === 'hp') continue;
-				const addition = Math.floor(fusionSpecies.baseStats[stat] / 4);
-				newSpecies.baseStats[stat] = this.clampIntRange(newSpecies.baseStats[stat] + addition, 1, 255);
-				newSpecies.bst += newSpecies.baseStats[stat];
-			}
-			return newSpecies;
 		},
 	},
 };

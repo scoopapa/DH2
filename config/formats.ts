@@ -1861,6 +1861,53 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onBegin() {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			for (const pokemon of this.getAllPokemon()) {
+				if (!PokebilitiesList.includes(pokemon.name)) return;
+				if (pokemon.ability === this.toID(pokemon.species.abilities['S'])) {
+					continue;
+				}
+				pokemon.m.innates = Object.keys(pokemon.species.abilities)
+					.filter(key => key !== 'S' && (key !== 'H' || !pokemon.species.unreleasedHidden))
+					.map(key => this.toID(pokemon.species.abilities[key as "0" | "1" | "H" | "S"]))
+					.filter(ability => ability !== pokemon.ability);
+			}
+		},
+		onBeforeSwitchIn(pokemon) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(pokemon.name)) return;
+			if (pokemon.m.innates) {
+				for (const innate of pokemon.m.innates) {
+					if (pokemon.hasAbility(innate)) continue;
+					const effect = 'ability:' + this.toID(innate);
+					pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(pokemon.name)) return;
+			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
+				pokemon.removeVolatile(innate);
+			}
+		},
+		onFaint(pokemon) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(pokemon.name)) return;
+			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
+				const innateEffect = this.dex.conditions.get(innate) as Effect;
+				this.singleEvent('End', innateEffect, null, pokemon);
+			}
+		},
+		onAfterMega(pokemon) {
+			const PokebilitiesList = ["Hawlucha", "Clodsire"];
+			if (!PokebilitiesList.includes(pokemon.name)) return;
+			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
+				pokemon.removeVolatile(innate);
+			}
+			pokemon.m.innates = undefined;
+		},
 		mod: 'supersmashoms',
 	},
 	{
@@ -2799,7 +2846,7 @@ export const Formats: FormatList = [
 			'Baton Pass', 'Last Respects', 'Quick Claw', 'Razor Fang', 'Shed Tail',
 			'Drizzle', 'Drought', 'Light Clay', 
 			'Chilly Reception', 'Snow Warning',
-			'Dante\'s Inferno', 'Sticky Web', 
+			'Dante\'s Inferno', 'Happy Dance', 'Ningen Cry', 'Sticky Web', 
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z',
 		],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Light of Ruin'],
