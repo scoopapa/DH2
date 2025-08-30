@@ -1871,11 +1871,10 @@ export const Formats: FormatList = [
 			const Convbanlist = ["Boomburst", "Extreme Speed", "Population Bomb", "Rage Fist", "Shell Smash", "Spore", "Quiver Dance"];
 			for (const move of set.moves) {
 				let species = this.dex.species.get(set.species);
-				console.log(move, move.name);
-				if (STABList.includes(species.name) && STABbanlist.includes(move.name)) {
+				if (STABList.includes(species.name) && STABbanlist.includes(move)) {
 					return [`${set.name || set.species} has restricted move ${move}.`];
 				}
-				if (ConvList.includes(species.name) && Convbanlist.includes(move.name)) {
+				if (ConvList.includes(species.name) && Convbanlist.includes(move)) {
 					return [`${set.name || set.species} has restricted move ${move}.`];
 				}
 			}
