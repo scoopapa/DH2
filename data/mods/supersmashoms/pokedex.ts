@@ -135,6 +135,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// Slate 6
 	sceptilemega: {
 		inherit: true,
+		baseSpecies: null,
+		forme: null,
+		prevo: "Sceptile",
 		requiredItem: null,
 	},
 	munkidori: {
@@ -198,6 +201,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	venusaurmega: {
 		inherit: true,
+		baseSpecies: null,
+		forme: null,
+		prevo: "Venusaur",
 		requiredItem: null,
 	},
 	// Slate 8
@@ -218,6 +224,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	swampertmega: {
 		inherit: true,
+		baseSpecies: null,
+		forme: null,
+		prevo: "Swampert",
 		requiredItem: null,
 	},
 	spiritomb: {

@@ -2,6 +2,15 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	altariamega: {
 		learnset: {},
 	},
+	sceptilemega: {
+		learnset: {},
+	},
+	swampertmega: {
+		learnset: {},
+	},
+	venusaurmega: {
+		learnset: {},
+	},
 	moltresgalar: {
 		learnset: {
 			acrobatics: ["9M", "8M", "7M", "6M", "5M"],

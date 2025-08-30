@@ -1861,44 +1861,23 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		getValidationSpecies(set: PokemonSet): [Species, Species] {
-			const dex = this.dex;
-			const ruleTable = this.ruleTable;
-			const species = dex.species.get(set.species);
-			const item = dex.items.get(set.item);
-			const ability = dex.abilities.get(set.ability);
-
-			let outOfBattleSpecies = species;
-			let tierSpecies = species;
-			if (ability.id === 'battlebond' && toID(species.baseSpecies) === 'greninja') {
-				outOfBattleSpecies = dex.species.get('greninjabond');
-				if (ruleTable.has('obtainableformes')) {
-					tierSpecies = outOfBattleSpecies;
+		onValidateSet(set) {
+			const STABList = ["Arboliva", "Porygon2", "Terrakion"]; 
+			const SketchList = ["Garchomp", "Registeel"];
+			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
+			const STABbanlist = ["Acupressure", "Astral Barrage", "Belly Drum", "Ceaseless Edge", "Clangorous Soul", "Dire Claw", "Dragon Energy", "Electro Shot", 
+				"Extreme Speed", "Fillet Away", "Final Gambit", "Flower Trick", "Gigaton Hammer", "No Retreat", "Rage Fist", "Revival Blessing", "Shell Smash", "Shift Gear", 
+				"Triple Arrows", "V-Create", "Victory Dance", "Water Shuriken", "Wicked Blow", "Wicked Torque"];
+			const Convbanlist = ["Boomburst", "Extreme Speed", "Population Bomb", "Rage Fist", "Shell Smash", "Spore", "Quiver Dance"];
+			for (const move of set.moves) {
+				let species = this.dex.species.get(set.species);
+				if (STABList.includes(species.name) && STABbanlist.includes(move.name)) {
+					return [`${set.name || set.species} has restricted move ${move}.`];
+				}
+				if (ConvList.includes(species.name) && Convbanlist.includes(move.name)) {
+					return [`${set.name || set.species} has restricted move ${move}.`];
 				}
 			}
-			if (ability.id === 'owntempo' && species.id === 'rockruff') {
-				tierSpecies = outOfBattleSpecies = dex.species.get('rockruffdusk');
-			}
-
-			if (ruleTable.has('obtainableformes')) {
-				const canMegaEvo = dex.gen <= 7 || ruleTable.has('+pokemontag:past');
-				if (item.megaEvolves === species.name) {
-					if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
-					tierSpecies = dex.species.get(item.megaStone);
-				} else if (item.id === 'redorb' && species.id === 'groudon') {
-					tierSpecies = dex.species.get('Groudon-Primal');
-				} else if (item.id === 'blueorb' && species.id === 'kyogre') {
-					tierSpecies = dex.species.get('Kyogre-Primal');
-				} else if (canMegaEvo && species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID) &&
-						!ruleTable.has('megarayquazaclause')) {
-					tierSpecies = dex.species.get('Rayquaza-Mega');
-				} else if (item.id === 'rustedsword' && species.id === 'zacian') {
-					tierSpecies = dex.species.get('Zacian-Crowned');
-				} else if (item.id === 'rustedshield' && species.id === 'zamazenta') {
-					tierSpecies = dex.species.get('Zamazenta-Crowned');
-				}
-			}
-			return [outOfBattleSpecies, tierSpecies];
 		},
 		mod: 'supersmashoms',
 	},
