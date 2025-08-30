@@ -90,6 +90,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		onValidateSet(set, format) {
 			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
 			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
+			const FranticList = ["Bellibolt", "Crabominable", "Ninetales", "Tinkaton"];
 			// Convergence + AAA
 			const curSpecies = this.dex.species.get(set.species);
 			let ability = set.ability;
@@ -98,7 +99,34 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (curSpecies.abilities['1']) listAbilities.push(curSpecies.abilities['1']);
 			if (curSpecies.abilities['H']) listAbilities.push(curSpecies.abilities['H']);
 			if (curSpecies.abilities['S']) listAbilities.push(curSpecies.abilities['S']);
-			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
+			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !FranticList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
+			if (FranticList.includes(curSpecies.name)) {
+				const fusions = {
+				    "Bellibolt": "houndstone",
+				    "Crabominable": "tinglu",
+				    "Ninetales": "torkoal",
+				    "Tinkaton": "sylveon"
+				};
+				const fusee = fusions[curSpecies.name];
+				console.log(fusee, fusee.abilities);
+				// This part is because I don't understand Showdown code and I will soon fall into madness
+				/*const fusions = {
+				    "Houndstone": "Houndstone",
+				    "Ting-Lu": "Ting-Lu",
+				    "Torkoal": "Torkoal",
+				    "Sylveon": {0: "Thick Fat"},
+				};*/
+				const abilityPool = new Set<string>(Object.values(curSpecies.abilities));
+				if (fusee) {
+					for (const ability of Object.values(fusee.abilities)) {
+						abilityPool.add(ability);
+					}
+				}
+				const ability = this.dex.abilities.get(set.ability);
+				if (!abilityPool.has(ability.name)) {
+					return [`${species.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
+				}				
+			}
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
 				.filter(species => (
