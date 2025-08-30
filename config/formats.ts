@@ -1864,6 +1864,7 @@ export const Formats: FormatList = [
 		onBegin() {
 			const PokebilitiesList = ["Hawlucha", "Clodsire"];
 			for (const pokemon of this.getAllPokemon()) {
+				console.log(pokemon.name);
 				if (!PokebilitiesList.includes(pokemon.name)) return;
 				if (pokemon.ability === this.toID(pokemon.species.abilities['S'])) {
 					continue;
