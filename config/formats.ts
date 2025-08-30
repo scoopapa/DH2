@@ -1899,7 +1899,7 @@ export const Formats: FormatList = [
 				}
 			}
 			return [outOfBattleSpecies, tierSpecies];
-		}
+		},
 		mod: 'supersmashoms',
 	},
 	{
