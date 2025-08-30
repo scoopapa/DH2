@@ -119,7 +119,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				};*/
 				const abilityPool = new Set<string>(Object.values(curSpecies.abilities));
 				if (fusee) {
-					for (const ability of Object.values(fusee.abilities)) {
+					for (const ability of Object.values(fuseSpecies.abilities)) {
 						abilityPool.add(ability);
 					}
 				}
@@ -149,6 +149,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
 			}
+			console.log(AAAList.includes(curSpecies.name) && AAAbanlist.includes(this.toID(set.ability)))
 			if (AAAList.includes(curSpecies.name) && AAAbanlist.includes(this.toID(set.ability))) {
 				return [`${curSpecies.name} has banned ability ${this.dex.abilities.get(set.ability).name}.`];
 			}
