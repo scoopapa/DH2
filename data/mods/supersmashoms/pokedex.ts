@@ -65,9 +65,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 109, atk: 83, def: 125, spa: 91, spd: 83, spe: 99},
 	},
-	/*
-:bellibolt: Bellibolt - Frantic Fusions by G-Luke
-*/
+	bellibolt: {
+		inherit: true,
+		baseStats: {hp: 109, atk: 89, def: 116, spa: 115, spd: 107, spe: 62},
+	},
 	azelf: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 145, def: 90, spa: 145, spd: 90, spe: 135},
@@ -175,9 +176,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 136, atk: 60, def: 124, spa: 114, spd: 80, spe: 56},
 	},
 	// Slate 7
-/*
-:Tinkaton: Tinkaton - Frantic Fusions by Bobsican
-*/
+	tinkaton: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 91, def: 93, spa: 97, spd: 137, spe: 109},
+	},
 	latias: {
 		inherit: true,
 		types: ["Dragon", "Psychic", "Electric"],
@@ -195,10 +197,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		requiredItem: null,
 	},
-/*
-:Ninetales: Ninetales - Frantic Fusions by G-Luke
-:Crabominable: Crabominable - Frantic Fusions by HydreigonTheChild
-*/
+	ninetales: {
+		inherit: true,
+		baseStats: {hp: 73, atk: 97, def: 110, spa: 102, spd: 117, spe: 105},
+	},
+	crabominable: {
+		inherit: true,
+		baseStats: {hp: 97, atk: 159, def: 108, spa: 75, spd: 87, spe: 54},
+	},
 	swampertmega: {
 		inherit: true,
 		requiredItem: null,
