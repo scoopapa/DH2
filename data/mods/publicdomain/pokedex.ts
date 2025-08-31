@@ -231,6 +231,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 109, atk: 131, def: 119, spa: 46, spd: 104, spe: 62},
 		abilities: {0: "Mimicry"},
 		weightkg: 60,
-		requiredItem: "Stunfiskite",
+    requiredItem: "Stunfiskite",
 	},
 };
