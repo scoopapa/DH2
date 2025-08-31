@@ -1247,7 +1247,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
 			'Mewtwo', 'Mew',
 			'Lugia', 'Ho-Oh', 'Celebi',
