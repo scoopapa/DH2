@@ -69,6 +69,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (sketchMove && sketchMove !== move.name) {
 				return ` already has ${sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
 			}
+			const SketchBanlist = ["Astral Barrage", "Belly Drum", "Boomburst", "Ceaseless Edge", "Clangorous Soul", "Dire Claw", "Extreme Speed", "Gigaton Hammer", 
+				"Glacial Lance", "Fillet Away", "Jet Punch", "Last Respects", "Lumina Crash", "No Retreat", "Quiver Dance", "Rage Fist", "Revival Blessing", "Shell Smash", 
+				"Shed Tail", "Shift Gear", "Tail Glow", "Torch Song", "Transform", "Triple Arrows", "V-Create", "Victory Dance", "Wicked Blow"];
+			if (SketchBanlist.includes(sketchMove)) {
+				return ` has banned move ${sketchMove}.)`;
+			}
 			(set as any).sketchMove = move.name;
 			return null;
 		},
@@ -90,6 +96,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 		onValidateSet(set, format) {
 			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
 			const AAAList = ["Cresselia", "Slither Wing", "Quaquaval", "Scream Tail"];
+			const FranticList = ["Bellibolt", "Crabominable", "Ninetales", "Tinkaton"];
 			// Convergence + AAA
 			const curSpecies = this.dex.species.get(set.species);
 			let ability = set.ability;
@@ -98,7 +105,27 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 			if (curSpecies.abilities['1']) listAbilities.push(curSpecies.abilities['1']);
 			if (curSpecies.abilities['H']) listAbilities.push(curSpecies.abilities['H']);
 			if (curSpecies.abilities['S']) listAbilities.push(curSpecies.abilities['S']);
-			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
+			if (!ConvList.includes(curSpecies.name) && !AAAList.includes(curSpecies.name) && !FranticList.includes(curSpecies.name) && !Object.values(listAbilities).includes(ability)) return [`${curSpecies.name} cannot have ${this.dex.abilities.get(set.ability).name}.`];
+			if (FranticList.includes(curSpecies.name)) {
+				const fusions = {
+				    "Bellibolt": "houndstone",
+				    "Crabominable": "tinglu",
+				    "Ninetales": "torkoal",
+				    "Tinkaton": "sylveon"
+				};
+				const fusee = fusions[curSpecies.name];
+				const fuseSpecies = this.dex.species.get(fusee);
+				const abilityPool = new Set<string>(Object.values(curSpecies.abilities));
+				if (fusee) {
+					for (const ability of Object.values(fuseSpecies.abilities)) {
+						abilityPool.add(ability);
+					}
+				}
+				const ability = this.dex.abilities.get(set.ability);
+				if (!abilityPool.has(ability.name)) {
+					return [`${curSpecies.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
+				}				
+			}
 			const obtainableAbilityPool = new Set<string>();
 			const matchingSpecies = this.dex.species.all()
 				.filter(species => (
@@ -112,8 +139,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 					obtainableAbilityPool.add(abilityid);
 				}
 			}
-			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name)) {
+			// AAA
+			const AAAbanlist = ["Arena Trap", "Comatose", "Contrary", "Fur Coat", "Good as Gold", "Gorilla Tactics", "Huge Power", "Ice Scales", "Illusion", "Imposter", 
+				"Innards Out", "Magic Bounce", "Magnet Pull", "Moody", "Neutralizing Gas", "Orichalcum Pulse", "Parental Bond", "Poison Heal", "Pure Power", "Shadow Tag", 
+				"Simple", "Speed Boost", "Stakeout", "Triage", "Toxic Debris", "Unburden", "Water Bubble", "Wonder Guard",
+				"Hawlucha Abilities", "Clodsire Abilities"];
+			if (!obtainableAbilityPool.has(this.toID(set.ability)) && !AAAList.includes(curSpecies.name) && !FranticList.includes(curSpecies.name)) {
 				return [`${curSpecies.name} doesn't have access to ${this.dex.abilities.get(set.ability).name}.`];
+			}
+			if (AAAList.includes(curSpecies.name) && AAAbanlist.includes(set.ability)) {
+				return [`${curSpecies.name} has banned ability ${this.dex.abilities.get(set.ability).name}.`];
 			}
 			// Nature Swap but hardcode
 			if (curSpecies.name === 'Enamorus-Therian' && set.nature !== 'Timid') {
@@ -155,73 +190,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
 				if (!this.dex.types.isName(type)) continue;
 				if (pokemon.moveSlots[i] && move.id === pokemon.moveSlots[i].id) move.type = type;
 			}
-		},
-	},
-	franticfusionsmod: {
-		effectType: 'Rule',
-		name: "Frantic Fusions Mod",
-		desc: `Pok&eacute;mon nicknamed after another Pok&eacute;mon get their stats buffed by 1/4 of that Pok&eacute;mon's stats, barring HP, and access to their abilities.`,
-		onBegin() {
-			this.add('rule', 'Frantic Fusions Mod: Pok\u00e9mon nicknamed after another Pok\u00e9mon get buffed stats and more abilities.');
-		},
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			const fusion = this.dex.species.get(set.name);
-			const abilityPool = new Set<string>(Object.values(species.abilities));
-			if (fusion.exists) {
-				for (const ability of Object.values(fusion.abilities)) {
-					abilityPool.add(ability);
-				}
-			}
-			const ability = this.dex.abilities.get(set.ability);
-			if (!abilityPool.has(ability.name)) {
-				return [`${species.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`];
-			}
-		},
-		onValidateTeam(team, format) {
-			const donors = new this.dex.Multiset<string>();
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				const fusion = this.dex.species.get(set.name);
-				if (fusion.exists) {
-					set.name = fusion.name;
-				} else {
-					set.name = species.baseSpecies;
-					if (species.baseSpecies === 'Unown') set.species = 'Unown';
-				}
-				if (fusion.name === species.name) continue;
-				donors.add(fusion.name);
-			}
-			for (const [fusionName, number] of donors) {
-				if (number > 1) {
-					return [`You can only fuse with any Pok\u00e9 once.`, `(You have ${number} Pok\u00e9mon fused with ${fusionName}.)`];
-				}
-				const fusion = this.dex.species.get(fusionName);
-				if (this.ruleTable.isBannedSpecies(fusion) || fusion.battleOnly) {
-					return [`Pok\u00e9mon can't fuse with banned Pok\u00e9mon.`, `(${fusionName} is banned.)`];
-				}
-				if (fusion.isNonstandard &&
-					!(this.ruleTable.has(`+pokemontag:${this.toID(fusion.isNonstandard)}`) ||
-						this.ruleTable.has(`+pokemon:${fusion.id}`) ||
-						this.ruleTable.has(`+basepokemon:${this.toID(fusion.baseSpecies)}`))) {
-					return [`${fusion.name} is marked as ${fusion.isNonstandard}, which is banned.`];
-				}
-			}
-		},
-		onModifySpecies(species, target, source, effect) {
-			if (!target) return;
-			const newSpecies = this.dex.deepClone(species);
-			const fusionName = target.set.name;
-			if (!fusionName || fusionName === newSpecies.name) return;
-			const fusionSpecies = this.dex.deepClone(this.dex.species.get(fusionName));
-			newSpecies.bst = newSpecies.baseStats.hp;
-			for (const stat in newSpecies.baseStats) {
-				if (stat === 'hp') continue;
-				const addition = Math.floor(fusionSpecies.baseStats[stat] / 4);
-				newSpecies.baseStats[stat] = this.clampIntRange(newSpecies.baseStats[stat] + addition, 1, 255);
-				newSpecies.bst += newSpecies.baseStats[stat];
-			}
-			return newSpecies;
 		},
 	},
 };
