@@ -511,4 +511,214 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Wo-Chien, this item allows it to Mega Evolve in battle.",
 	},
+	ludicolinite: { 
+		name: "Ludicolinite",
+		spritenum: 578,
+		megaStone: "Ludicolo-Mega",
+		megaEvolves: "Ludicolo",
+		itemUser: ["Ludicolo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2037,
+		gen: 9,
+		desc: "If held by a Ludicolo, this item allows it to Mega Evolve in battle.",
+	},
+	skeledite: { 
+		name: "Skeledite",
+		spritenum: 578,
+		megaStone: "Skeledirge-Mega",
+		megaEvolves: "Skeledirge",
+		itemUser: ["Skeledirge"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2038,
+		gen: 9,
+		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
+	},
+	belliboltite: { 
+		name: "Belliboltite",
+		spritenum: 578,
+		megaStone: "Bellibolt-Mega",
+		megaEvolves: "Bellibolt",
+		itemUser: ["Bellibolt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2039,
+		gen: 9,
+		desc: "If held by a Bellibolt, this item allows it to Mega Evolve in battle.",
+	},
+	arcanite: { 
+		name: "Arcanite",
+		spritenum: 578,
+		megaStone: "Arcanine-Mega",
+		megaEvolves: "Arcanine",
+		itemUser: ["Arcanine"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2040,
+		gen: 9,
+		desc: "If held by a Arcanine, this item allows it to Mega Evolve in battle.",
+	},
+	mabosstite: { 
+		name: "Mabosstite",
+		spritenum: 578,
+		megaStone: "Mabosstiff-Mega",
+		megaEvolves: "Mabosstiff",
+		itemUser: ["Mabosstiff"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2041,
+		gen: 9,
+		desc: "If held by a Mabosstiff, this item allows it to Mega Evolve in battle.",
+	},
+	okidogite: { 
+		name: "Okidogite",
+		spritenum: 578,
+		megaStone: "Okidogi-Mega",
+		megaEvolves: "Okidogi",
+		itemUser: ["Okidogi"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2042,
+		gen: 9,
+		desc: "If held by a Okidogi, this item allows it to Mega Evolve in battle.",
+	},
+	perrserkite: { 
+		name: "Perrserkite",
+		spritenum: 578,
+		megaStone: "Perrserker-Mega",
+		megaEvolves: "Perrserker",
+		itemUser: ["Perrserker"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2043,
+		gen: 9,
+		desc: "If held by a Perrserker, this item allows it to Mega Evolve in battle.",
+	},
+	meowscaradite: { 
+		name: "Meowscaradite",
+		spritenum: 578,
+		megaStone: "Meowscarada-Mega",
+		megaEvolves: "Meowscarada",
+		itemUser: ["Meowscarada"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2044,
+		gen: 9,
+		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
+	},
+	mausholdinite: { 
+		name: "Mausholdinite",
+		spritenum: 578,
+		megaStone: "Maushold-Mega",
+		megaEvolves: "Maushold",
+		itemUser: ["Maushold"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2045,
+		gen: 9,
+		desc: "If held by a Maushold, this item allows it to Mega Evolve in battle.",
+	},
+	cloysterite: { 
+		name: "Cloysterite",
+		spritenum: 578,
+		megaStone: "Cloyster-Mega",
+		megaEvolves: "Cloyster",
+		itemUser: ["Cloyster"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2046,
+		gen: 9,
+		desc: "If held by a Cloyster, this item allows it to Mega Evolve in battle.",
+	},
+	miniorite: { 
+		name: "Miniorite",
+		spritenum: 578,
+		megaStone: "Minior-Mega",
+		megaEvolves: "Minior",
+		itemUser: ["Minior"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2047,
+		gen: 9,
+		desc: "If held by a Minior, this item allows it to Mega Evolve in battle.",
+	},
+	rabscanite: { 
+		name: "Rabscanite",
+		spritenum: 578,
+		megaStone: "Rabsca-Mega",
+		megaEvolves: "Rabsca",
+		itemUser: ["Rabsca"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2048,
+		gen: 9,
+		desc: "If held by a Rabsca, this item allows it to Mega Evolve in battle.",
+	},
+	kingdranite: { 
+		name: "Kingdranite",
+		spritenum: 578,
+		megaStone: "Kingdra-Mega",
+		megaEvolves: "Kingdra",
+		itemUser: ["Kingdra"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2049,
+		gen: 9,
+		desc: "If held by a Kingdra, this item allows it to Mega Evolve in battle.",
+	},
+	sandacondanite: { 
+		name: "Sandacondanite",
+		spritenum: 578,
+		megaStone: "Sandaconda-Mega",
+		megaEvolves: "Sandaconda",
+		itemUser: ["Sandaconda"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2050,
+		gen: 9,
+		desc: "If held by a Sandaconda, this item allows it to Mega Evolve in battle.",
+	},
+	screamtailite: { 
+		name: "Screamtailite",
+		spritenum: 578,
+		megaStone: "Scream Tail-Mega",
+		megaEvolves: "Scream Tail",
+		itemUser: ["Scream Tail"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2051,
+		gen: 9,
+		desc: "If held by a Scream Tail, this item allows it to Mega Evolve in battle.",
+	},
 };

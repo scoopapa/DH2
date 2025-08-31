@@ -55,4 +55,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
 	},
+	slushrush: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 6,
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+	},
+	centerofmass: {
+		shortDesc: "On switch-in, this Pokémon summons Gravity.",
+		onStart(source) {
+			this.field.addPseudoWeather('gravity');
+		},
+		name: "Center of Mass",
+		rating: 4,
+		num: -3,
+	},
 };

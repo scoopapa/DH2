@@ -674,7 +674,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "LordThemberchaud",
 	},
 
-	// slate 14
+	// slate 15
 
 	cloyster: {
 		inherit: true,
@@ -744,5 +744,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Rabscanite",
 		movepoolAdditions: ["teleport"],
 		megaCreator: "BlueRay & Lysion",
+	},
+
+	// slate 16
+
+	kingdra: {
+		inherit: true,
+		mega: "kingdramega",
+		megaName: "Kingdra-Mega",
+		megaAbility: {0: "Super Luck"},
+		megaStats: {hp: 75, atk: 115, def: 105, spa: 115, spd: 105, spe: 125},
+		megaStone: "Kingdranite",
+		megaCreator: "PalpitoadChamp",
+	},
+
+	sandaconda: {
+		inherit: true,
+		mega: "sandacondamega",
+		megaName: "Sandaconda-Mega",
+		megaAbility: {0: "Dust Devil"},
+		megaStats: {hp: 72, atk: 142, def: 160, spa: 65, spd: 100, spe: 71},
+		megaStone: "Sandacondanite",
+		movepoolAdditions: ["wideguard"],
+		megaCreator: "War Incarnate",
+	},
+
+	screamtail: {
+		inherit: true,
+		mega: "screamtailmega",
+		megaName: "Scream Tail-Mega",
+		megaAbility: {0: "Roaring Scream"},
+		megaStats: {hp: 115, atk: 75, def: 119, spa: 85, spd: 135, spe: 141},
+		megaStone: "Screamtailite",
+		megaCreator: "BlueRay",
 	},
 };

@@ -564,7 +564,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "ZU",
 	},
 	lanturn: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	togepi: {
 		tier: "LC",
@@ -585,7 +585,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "ZU",
 	},
 	ampharos: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	azurill: {
 		tier: "LC",
@@ -1191,6 +1191,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NEW",
 	},
 	meowscarada: {
+		tier: "NEW",
+	},
+	overqwil: {
+		tier: "NEW",
+	},
+	toxicroak: {
+		tier: "NEW",
+	},
+	shiinotic: {
+		tier: "NEW",
+	},
+	swanna: {
 		tier: "NEW",
 	},
 };

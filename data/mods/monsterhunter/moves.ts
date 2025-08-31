@@ -3,7 +3,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	CUSTOM MOVES
 	*/
 	magnalance: {
-		num: 2000,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
@@ -29,7 +28,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	eggbarrage: {
-		num: 2001,
 		accuracy: 90,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
@@ -50,7 +48,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 140},
 	},
 	glidebomb: {
-		num: 2002,
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
@@ -72,7 +69,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	dragonator: {
-		num: 2003,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -97,7 +93,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	devour: {
-		num: 2004,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -119,7 +114,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	wretchedwater: {
-		num: 2005,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -141,7 +135,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	cutwingbarrage: {
-		num: 2006,
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
@@ -163,7 +156,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	thunderrush: {
-		num: 2007,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
@@ -183,7 +175,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	frenzyslam: {
-		num: 2008,
 		accuracy: 95,
 		basePower: 80,
 		category: "Special",
@@ -205,7 +196,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	bewitchedbubble: {
-		num: 2009,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
@@ -225,7 +215,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	creepynoise: {
-		num: 2010,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -247,7 +236,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	arcticshriek: {
-		num: 2011,
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
@@ -272,7 +260,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	cloakingglow: {
-		num: 2012,
 		accuracy: 95,
 		basePower: 80,
 		category: "Special",
@@ -294,7 +281,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	mossbomb: {
-		num: 2013,
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
@@ -317,7 +303,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	magmasurge: {
-		num: 2014,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
@@ -339,7 +324,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	apexburst: {
-		num: 2015,
 		accuracy: 85,
 		basePower: 120,
 		category: "Special",
@@ -369,7 +353,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	frenzypulse: {
-		num: 2016,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -393,7 +376,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	psychocrush: {
-		num: 2017,
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
@@ -415,7 +397,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	biocharge: {
-		num: 2018,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -438,7 +419,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	heatbeam: {
-		num: 2019,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -458,7 +438,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	boltbreath: {
-		num: 2020,
 		accuracy: 100,
 		basePower: 70,
 		basePowerCallback(pokemon, target, move) {
@@ -484,7 +463,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	cyclonerend: {
-		num: 2021,
 		accuracy: 100,
 		basePower: 70,
 		basePowerCallback(pokemon, target, move) {
@@ -506,7 +484,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	coldsnap: {
-		num: 2022,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -527,7 +504,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	blazeball: {
-		num: 2023,
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
@@ -546,7 +522,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	crimsondawn: {
-		num: 2024,
 		accuracy: 100,
 		basePower: 130,
 		category: "Physical",
@@ -570,7 +545,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	ancestralthunder: {
-		num: 2025,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -594,7 +568,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	quicksandbreath: {
-		num: 2026,
 		accuracy: 75,
 		basePower: 100,
 		category: "Special",
@@ -805,7 +778,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	Monhun Status
 	*/
 	hellfirerifle: {
-		num: 2027,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -829,7 +801,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	slimepunch: {
-		num: 2028,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -853,7 +824,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	powderkeg: {
-		num: 2029,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -877,7 +847,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	blastbite: {
-		num: 2030,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -906,7 +875,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	abyssaleruption: {
-		num: 2031,
 		accuracy: 90,
 		basePower: 130,
 		category: "Special",
@@ -935,7 +903,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	supremacysquall: {
-		num: 2032,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -956,7 +923,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	harshsting: {
-		num: 2033,
 		accuracy: 100,
 		basePower: 15,
 		category: "Physical",
@@ -978,7 +944,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	decayduster: {
-		num: 2034,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -998,7 +963,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	slimyspit: {
-		num: 2035,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -1020,7 +984,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	stinkbomb: {
-		num: 2036,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -1042,7 +1005,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	perfumepulse: {
-		num: 2037,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -1064,7 +1026,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	phlegmshot: {
-		num: 2038,
 		accuracy: 80,
 		basePower: 120,
 		category: "Physical",
@@ -1086,7 +1047,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	sweetlick: {
-		num: 2039,
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
@@ -1108,7 +1068,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	roughhouse: {
-		num: 2040,
 		accuracy: 90,
 		basePower: 95,
 		category: "Physical",
@@ -1130,7 +1089,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	cruelclaw: {
-		num: 2041,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -1159,7 +1117,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	brimstoneblade: {
-		num: 2042,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -1182,7 +1139,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	sulfurousblade: {
-		num: 2042,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -1205,7 +1161,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	thousandblades: {
-		num: 2043,
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
@@ -1228,7 +1183,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	snowballcannon: {
-		num: 2044,
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
@@ -1250,7 +1204,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	glacialgale: {
-		num: 2045,
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
@@ -1273,7 +1226,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	/*
 	oxideairstrike: {
-		num: 2046,
 		accuracy: 95,
 		basePower: 70,
 		category: "Physical",
@@ -1296,7 +1248,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	*/
 	dracophage: {
-		num: 2047,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -1317,7 +1268,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	devilsjaw: {
-		num: 2048,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -1339,7 +1289,6 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	seraphicshift: {
-		num: 2049,
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
@@ -1368,7 +1317,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	nethercurrent: {
-		num: 2050,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -1664,7 +1612,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Immolation Order",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
 			boosts: {
 				def: -1,
@@ -1731,7 +1679,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	ivycudgel: {
 		inherit: true,
-		num: 904,
 		onPrepareHit(target, source, move) {
 			if (move.type !== "Grass") {
 				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
@@ -2237,7 +2184,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Noxious Torque",
-		shortDesc: "10% chance to make the target drowsy.",
 		pp: 10,
 		priority: 0,
 		flags: {
@@ -2256,6 +2202,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "10% chance to make the target drowsy.",
 		name: "Wicked Torque",
 		pp: 10,
 		priority: 0,
