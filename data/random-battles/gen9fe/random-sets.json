@@ -956,7 +956,7 @@
 			},
 			{
 				"role": "Bulky Setup",
-				"movepool": ["Dragon Dance", "Earhquake", "DoubleEdge", "Stone Edge"]
+				"movepool": ["Dragon Dance", "Earthquake", "DoubleEdge", "Stone Edge"]
 			}
 		]
 	},
