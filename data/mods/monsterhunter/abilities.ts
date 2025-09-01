@@ -1362,6 +1362,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ambush",
 	},
+	elderseal: {
+		onModifyAtk(target, pokemon) {
+			if (target.tags['Elder Dragon']) {
+				return this.chainModify(1.5);
+				this.add('-ability', pokemon, 'placeholder');
+			}
+		},
+		flags: {},
+		shortDesc: "Attacks deal 1.5x damage against Elder Dragons.",
+		name: "Elderseal",
+	},
 	/*
 	Edits
 	*/
