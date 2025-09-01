@@ -630,7 +630,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	// Meta C
 	lyvamp: {
 		num: 9078,
-		species: "Lyvamp",
+		name: "Lyvamp",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 96, atk: 100, def: 70, spa: 41, spd: 70, spe: 91},
 		abilities: {0: "Regenerator"},
@@ -638,7 +638,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	treatmint: {
 		num: 9079,
-		species: "Treatmint",
+		name: "Treatmint",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 100, atk: 25, def: 90, spa: 100, spd: 70, spe: 45},
 		abilities: {0: "Filter", H: "Natural Cure"},
@@ -646,7 +646,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	turvarpega: {
 		num: 9080,
-		species: "Turvarpega",
+		name: "Turvarpega",
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 100, atk: 100, def: 85, spa: 30, spd: 70, spe: 55},
 		abilities: {0: "Rock Head", H: "Big Pecks"},
@@ -654,7 +654,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	goodjur: {
 		num: 9081,
-		species: "Goodjur",
+		name: "Goodjur",
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 70, atk: 25, def: 60, spa: 120, spd: 70, spe: 90},
 		abilities: {0: "Natural Cure"},
@@ -662,7 +662,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	liftaton: {
 		num: 9082,
-		species: "Liftaton",
+		name: "Liftaton",
 		types: ["Steel"],
 		baseStats: {hp: 110, atk: 90, def: 80, spa: 80, spd: 85, spe: 20},
 		abilities: {0: "Mold Breaker"},
@@ -670,7 +670,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	triceracotta: {
 		num: 9083,
-		species: "Triceracotta",
+		name: "Triceracotta",
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 84, atk: 111, def: 95, spa: 35, spd: 75, spe: 84},
 		abilities: {0: "Flash Fire", H: "Technician"},
@@ -678,7 +678,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	woolverine: {
 		num: 9084,
-		species: "Woolverine",
+		name: "Woolverine",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 70, atk: 120, def: 70, spa: 40, spd: 70, spe: 70},
 		abilities: {0: "Lingering Aroma", H: "Fluffy"},
