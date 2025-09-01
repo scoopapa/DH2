@@ -742,7 +742,7 @@
 		"sets": [
 			{
 				"role": "Wallbreaker",
-				"movepool": ["Flare Blitz", "Head Smash", "Earthquake", "Superpwoer"]
+				"movepool": ["Flare Blitz", "Head Smash", "Earthquake", "Superpower"]
 			},
 			{
 				"role": "Bulky Setup",
