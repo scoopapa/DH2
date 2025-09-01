@@ -56,7 +56,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
-			onStart(pokemon) {
+		onStart(pokemon) {
 				if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
 					this.add('-ability', pokemon, 'Puff-Up');
 					this.add('-message', `Zamtrios is transforming!`);
@@ -1363,8 +1363,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Ambush",
 	},
 	elderseal: {
-		onModifyAtk(target, pokemon) {
-			if (target.tags['Elder Dragon']) {
+		onModifyAtk(target, pokemon, tags) {
+			if (target.tags.includes("Elder Dragon")) {
 				return this.chainModify(1.5);
 				this.add('-ability', pokemon, 'placeholder');
 			}
