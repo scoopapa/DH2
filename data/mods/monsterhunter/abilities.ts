@@ -1370,7 +1370,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		shortDesc: "Attacks deal 1.5x damage against Elder Dragons.",
+		shortDesc: "(NOT FUNCTIONAL) Attacks deal 1.5x damage against Elder Dragons.",
 		name: "Elderseal",
 	},
 	/*
