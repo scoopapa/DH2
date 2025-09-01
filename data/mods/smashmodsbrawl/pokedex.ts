@@ -122,6 +122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	dhelmise: {
 		inherit: true,
 		types: ["Ghost", "Grass", "Water"],
+		baseStats: {hp: 90, atk: 131, def: 100, spa: 86, spd: 90, spe: 60},
 	},
 	blastoisemega: {
 		inherit: true,
