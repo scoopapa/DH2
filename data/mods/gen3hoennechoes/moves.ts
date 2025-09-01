@@ -5,6 +5,7 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	absorb: {
 		inherit: true,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		pp: 20,
 	},
 	acid: {
@@ -41,6 +42,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (target.volatiles['minimize']) return 60;
 			return 30;
 		},
+	},
+	aurorabeam: {
+		inherit: true,
+		desc: "If used in hail, prevents the target from healing for 3 turns if used in Hail. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user.",
+		shortDesc: "Applies Heal Block for 3 turns in hail.",
+		basePower: 75,
+		pp: 10,
+		onModifyMove(move, pokemon, target) {
+			if (target?.effectiveWeather() == 'hail') {
+				move.secondaries = [];
+				move.secondaries.push({
+					chance: 100,
+					volatileStatus: 'aurorabeam',
+				});
+			}
+		},
+		secondary: {}, //sheer force boosted
 	},
 	beatup: {
 		inherit: true,
@@ -136,6 +154,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
+	blastburn: {
+		inherit: true,
+		basePower: 140,
+		accuracy: 100,
+		viable: true,
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target was knocked out by this move.",
+		shortDesc: "Can't move next turn if target is not KOed.",
+	},
 	blizzard: {
 		inherit: true,
 		desc: "Has a 10% chance to freeze the target. If the weather is Snow, this move does not check accuracy.",
@@ -226,6 +252,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	dreameater: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+	},
 	dig: {
 		inherit: true,
 		basePower: 60,
@@ -285,39 +315,91 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 60,
 	},
 	doomdesire: {
-		inherit: true,
+		num: 353,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Doom Desire",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1, futuremove: 1},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			const moveData = {
-				name: "Doom Desire",
-				basePower: 120,
-				category: "Physical",
-				flags: {metronome: 1, futuremove: 1},
-				willCrit: false,
-				type: '???',
-			} as unknown as ActiveMove;
-			const damage = this.actions.getDamage(source, target, moveData, true);
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 3,
 				move: 'doomdesire',
 				source: source,
 				moveData: {
 					id: 'doomdesire',
 					name: "Doom Desire",
-					accuracy: 85,
-					basePower: 0,
-					damage: damage,
-					category: "Physical",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
 					flags: {metronome: 1, futuremove: 1},
 					effectType: 'Move',
-					type: '???',
+					type: 'Steel',
 				},
 			});
 			this.add('-start', source, 'Doom Desire');
-			return null;
+			return this.NOT_FAIL;
 		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
+	doomsdayclock: {
+		num: 1110,
+		desc: "Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
+		shortDesc: "Hits two turns after being used.",
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Doomsday Clock",
+		pp: 10,
+		priority: 0,
+		viable: true,
+		flags: {metronome: 1, futuremove: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onTry(source, target) {
+			this.add('-anim', source, 'Future Sight', target);
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'doomsdayclock',
+				source: source,
+				moveData: {
+					id: 'doomsdayclock',
+					name: "Doomsday Clock",
+					accuracy: 100,
+					basePower: 110,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					onPrepareHit(target, source) {
+						this.add('-anim', target, 'Judgment', target);
+					},
+					effectType: 'Move',
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, 'move: Doomsday Clock');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+		gen: 3,
 	},
 	dragondarts: {
+		inherit: true,
+		gen: 3,
+	},
+	dragontail: {
 		inherit: true,
 		gen: 3,
 	},
@@ -371,6 +453,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	energyball: {
+		inherit: true,
+		basePower: 90,
+		gen: 3,
+	},
 	extrasensory: {
 		inherit: true,
 		basePowerCallback(pokemon, target) {
@@ -397,6 +484,29 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 35,
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
+	fishanddip: {
+		num: 1111,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fish and Dip",
+		shortDesc: "User switches out. Adds 1 Fishing Token.",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Life Dew", pokemon);
+		},
+		onHit(target, source, move) {
+			source.side.addFishingTokens(1);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Water",
+		gen: 3,
 	},
 	flail: {
 		inherit: true,
@@ -458,19 +568,94 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 	},
+	frenzyplant: {
+		inherit: true,
+		basePower: 140,
+		accuracy: 100,
+		viable: true,
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target was knocked out by this move.",
+		shortDesc: "Can't move next turn if target is not KOed.",
+	},
 	furycutter: {
 		inherit: true,
 		onHit(target, source) {
 			source.addVolatile('furycutter');
 		},
 	},
+	futuresight: {
+		num: 248,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Future Sight",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'futuresight',
+				source: source,
+				moveData: {
+					id: 'futuresight',
+					name: "Future Sight",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Psychic',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
 	gigadrain: {
 		inherit: true,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		pp: 5,
 	},
 	glare: {
 		inherit: true,
 		ignoreImmunity: false,
+	},
+	grasspledge: {
+		inherit: true,
+		desc: "After a successful hit, has different effects based on the weather. Lowers foe's Speed in rain and damages foe by an extra 1/8 of its max HP in sun.",
+		shortDesc: "Lowers foe's Speed in rain, deals extra 12.5% in sun.",
+		basePower: 80,
+		viable: true,
+		onHit(target, source, move) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				this.add('-message', `${target.name} was bogged down by wet grass!`);
+				!!this.boost({spe: -1}, target, source, move);
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				this.add('-message', `${target.name} was hurt by burning grass!`);
+				this.damage(target.baseMaxhp / 8, target, source);
+				break;
+			}
+		},
+		basePowerCallback(target, source, move) {
+			return move.basePower;
+		},
+		onPrepareHit(target, source, move) {},
+		onModifyMove(move) {},
+		condition: {},
+		secondary: null,
+		gen: 3,
 	},
 	haze: {
 		inherit: true,
@@ -500,6 +685,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.damage(this.clampIntRange(damage / 2, 1, Math.floor(target.maxhp / 2)), source, source, move);
 			}
 		},
+	},
+	hydrocannon: {
+		inherit: true,
+		basePower: 140,
+		accuracy: 100,
+		viable: true,
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target was knocked out by this move.",
+		shortDesc: "Can't move next turn if target is not KOed.",
+	},
+	hyperbeam: {
+		inherit: true,
+		basePower: 140,
+		accuracy: 100,
+		viable: true,
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target was knocked out by this move.",
+		shortDesc: "Can't move next turn if target is not KOed.",
 	},
 	hypnosis: {
 		inherit: true,
@@ -547,12 +748,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 70,
 	},
+	leechlife: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+	},
 	lockon: {
 		inherit: true,
 		accuracy: 100,
 	},
 	megadrain: {
 		inherit: true,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		pp: 10,
 	},
 	memento: {
@@ -562,6 +768,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	meteormash: {
 		inherit: true,
 		accuracy: 90,
+	},
+	milkdrink: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
 	},
 	mindreader: {
 		inherit: true,
@@ -616,6 +826,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "self",
 	},
+	moonlight: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
+	morningsun: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
 	naturepower: {
 		inherit: true,
 		desc: "This move calls another move for use depending on the battle terrain. Swift in Wi-Fi battles.",
@@ -664,7 +882,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	recover: {
 		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
 		pp: 20,
+	},
+	rest: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
 	},
 	reversal: {
 		inherit: true,
@@ -739,6 +962,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		flags: {bypasssub: 1, failencore: 1, noassist: 1, failmimic: 1, nosketch: 1},
 	},
+	slackoff: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
 	sleeptalk: {
 		inherit: true,
 		onHit(pokemon) {
@@ -761,6 +988,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			this.actions.useMove(randomMove.move, pokemon);
 		},
+	},
+	softboiled: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
 	},
 	spite: {
 		inherit: true,
@@ -812,34 +1043,48 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		recoil: [1, 4],
 		struggleRecoil: false,
 	},
+	suckerpunch: {
+		inherit: true,
+		basePower: 80,
+		gen: 3,
+	},
 	surf: {
 		inherit: true,
 		desc: "Power doubles if the target is using Dive.",
 		shortDesc: "Hits foes. Power doubles against Dive.",
 		target: "allAdjacentFoes",
 	},
-	/*testbeam: {
+	swallow: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
+	swandive: {
+		num: 1112,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 140,
 		category: "Physical",
-		name: "Test Beam",
+		name: "Swan Dive",
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target was knocked out by this move.",
+		shortDesc: "Can't move next turn if target is not KOed.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, metronome: 1},
+		flags: {recharge: 1, metronome: 1, protect: 1, mirror: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Ice Beam", target);
+			this.add('-anim', pokemon, "Brave Bird", target);
 		},
-		onEffectiveness(typeMod, target, type) {
-            if (target.getTypes()[0] === type || target.terastallized) return 1;
-            else return 0;
-        },
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
 		target: "normal",
-		type: "Normal",
-		shortDesc: "Always super-effective.",
-		contestType: "Beautiful",
+		type: "Flying",
 		gen: 3,
-	},*/
+	},
+	synthesis: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
 	taunt: {
 		inherit: true,
 		desc: "For 2 turns, prevents the target from using non-damaging moves.",
@@ -989,6 +1234,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	willowisp: {
 		inherit: true,
 		accuracy: 90,
+	},
+	wish: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+	},
+	workup: {
+		inherit: true,
+		gen: 3,
 	},
 	wrap: {
 		inherit: true,

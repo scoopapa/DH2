@@ -188,6 +188,119 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 4,
 		shortDesc: "When this Pokemon sets Trick Room, it lasts for 8 turns instead of 5.",
 	},
+	brokenhourglass: {
+	    name: "Broken Hourglass",
+	    shortDesc: "Future moves land instantly at 1.3x power. Single use.",
+	    spritenum: -3,
+	    onModifyMovePriority: 1,
+	    onModifyMove(move, pokemon, target) {
+	        if (move.flags.futuremove) {
+	            move.onTry = undefined;
+	        }
+	        if (move.id === 'wish') {
+	            move.slotCondition = undefined;
+	            move.condition = {};
+	        }
+	    },
+	    onTryMovePriority: -1,
+	    onTryMove(source, target, move) {
+	        if (move.id === 'wish'  && source.hp != source.baseMaxhp && source.useItem()) {
+	            this.heal(source.baseMaxhp *1.3/2, source, source)
+	        }
+	        if (move.id === 'wish' && source.hp === source.baseMaxhp) {
+	            this.add('-fail', source, 'move: Wish');
+	            this.attrLastMove('[still]');
+	            return null;
+	        }
+	    },
+	    onBasePower(basePower, source, target, move) {
+	        if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+	            return this.chainModify(1.3)
+	        }
+	    },
+	    fling: {
+	        basePower: 30,
+	        effect(pokemon) {
+	            let activate = false;
+	            const boosts: SparseBoostsTable = {};
+	            let i: BoostID;
+	            for (i in pokemon.boosts) {
+	                    activate = true;
+	                    boosts[i] = 0;
+	            }
+	            if (activate) {
+	                pokemon.setBoost(boosts);
+	                this.add('-clearboost', pokemon, '[silent]');
+	            }
+	        },
+	    },
+	    num: 0,
+	},
+	garganaclplushie: {
+		name: "Garganacl Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.hasType('Rock') && (effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Garganacl Plushie');
+			}
+			return false;
+		},
+  		onTryAddVolatile(status, target) {
+			if (target.hasType('Rock') && status.id === 'yawn') {
+				this.add('-immune', target, '[from] item: Garganacl Plushie');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (defender.hasType('Rock') && move.type === 'Ghost') {
+				this.debug('Garganacl Plushie weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (defender.hasType('Rock') && move.type === 'Ghost') {
+				this.debug('Garganacl Plushie weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		num: -1008,
+		desc: "Rock-types: Takes 50% damage from Ghost-type moves, status immunity.",
+		gen: 9,
+		rating: 3,
+	},
+	utilityumbrella: {
+		inherit: true,
+		desc: "The holder ignores rain- and sun-based effects. Damage and accuracy calculations from attacks used by the holder are affected by rain and sun, but not attacks used against the holder. The holder takes 3/4 damage and ignores secondary effects while in weathers or terrains.",
+		shortDesc: "Ignores weather; 3/4 damage and ignore secondary effects under weather/terrain.",
+		rating: 3,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.isWeather() || this.field.isTerrain()) {
+				this.debug('Utility Umbrella neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onModifySecondaries(secondaries) {
+			if (this.field.isWeather() || this.field.isTerrain()) {
+				this.debug('Utility Umbrella prevent secondary');
+				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			}
+		},
+	},
+	stellariumz: {
+		name: "Stellarium Z",
+		shortDesc: "If holder has an attacking move, this item allows it to use a Stellar Z-Move.",
+		spritenum: 633,
+		onMemory: 'Stellar',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Stellar",
+		rating: 3,
+	},
 	boosterenergy: {
 		name: "Booster Energy",
 		onUpdate(pokemon) {
@@ -210,5 +323,9 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 1880,
 		desc: "Activates the Paradox Abilities. Single use.",
 		gen: 9,
+	},
+	blastoisinite: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

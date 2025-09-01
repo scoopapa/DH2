@@ -235,4 +235,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lundicare: {
 		tier: "BC OU",
 	},
+	lyvamp: {
+		tier: "BC RU",
+	},
+	treatmint: {
+		tier: "BC RU",
+	},
+	turvarpega: {
+		tier: "BC RU",
+	},
+	goodjur: {
+		tier: "BC RU",
+	},
+	liftaton: {
+		tier: "BC RU",
+	},
+	triceracotta: {
+		tier: "BC RU",
+	},
+	woolverine: {
+		tier: "BC RU",
+	},
 };

@@ -492,6 +492,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
 	},
+	rabscanite: { 
+		name: "Rabscanite",
+		spritenum: 578,
+		megaStone: "Rabsca-Mega",
+		megaEvolves: "Rabsca",
+		itemUser: ["Rabsca"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2048,
+		gen: 9,
+		desc: "If held by a Rabsca, this item allows it to Mega Evolve in battle.",
+	},
 	baskironite: {
 		name: "Baskironite",
 		spritenum: 578,

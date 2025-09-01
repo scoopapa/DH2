@@ -66,4 +66,39 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
         baseStats: {hp: 76, atk: 94, def: 75, spa: 117, spd: 75, spe: 123},
 		gen: 3,
 	},
+    overqwil: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Swift Swim"},
+        baseStats: {hp: 85, atk: 105, def: 95, spa: 95, spd: 85, spe: 85},
+		gen: 3,
+	},
+    lanturn: {
+        inherit: true,
+        abilities: {0: "Volt Absorb", 1: "Marine Power"},
+        baseStats: {hp: 125, atk: 70, def: 70, spa: 90, spd: 90, spe: 80},
+    },
+    toxicroak: {
+		inherit: true,
+		abilities: {0: "Dry Skin"},
+        baseStats: {hp: 83, atk: 106, def: 65, spa: 86, spd: 65, spe: 85},
+		gen: 3,
+	},
+    shiinotic: {
+		inherit: true,
+		abilities: {0: "Rain Dish", 1: "Effect Spore"},
+        baseStats: {hp: 70, atk: 65, def: 80, spa: 90, spd: 130, spe: 30},
+        types: ["Grass", "Ghost"],
+		gen: 3,
+	},
+    ampharos: {
+        inherit: true,
+        abilities: {0: "Static", 1: "Hydration"},
+        baseStats: {hp: 110, atk: 95, def: 85, spa: 115, spd: 90, spe: 55},
+    },
+    swanna: {
+		inherit: true,
+		abilities: {0: "Hydration", 1: "Water Veil"},
+        baseStats: {hp: 76, atk: 90, def: 73, spa: 107, spd: 73, spe: 112},
+		gen: 3,
+	},
 };

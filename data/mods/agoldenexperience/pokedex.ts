@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Early Bird", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Tri-Headed", H: "Striker"},
 	},
 	dewgong: {
 		inherit: true,
@@ -401,7 +401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	hitmonchan: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 105, def: 94, spa: 35, spd: 110, spe: 71},
-		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Inner Focus"},
+		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Punch Prodigee"},
 	},
 	weezing: {
 		inherit: true,
@@ -410,6 +410,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	weezinggalar: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 70, def: 120, spa: 95, spd: 80, spe: 35},
+	},
+	chansey: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Rebound Belly", H: "Healer"},
 	},
 	kangaskhanmega: {
 		inherit: true,
@@ -731,6 +735,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Ghost", "Fairy"],
 		abilities: {0: "Levitate", H: "Magician"},
 	},
+	wobbuffet: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Counter Strike", H: "Telepathy"},
+	},
 	girafarig: {
 		inherit: true,
 		evos: ["Farigiraf", "Girafatak"],
@@ -839,6 +847,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mantine: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 40, def: 85, spa: 80, spd: 140, spe: 70},
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Heavy Weapon"},
+	},
+	skarmory: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 80, def: 140, spa: 40, spd: 85, spe: 70},
+		abilities: {0: "Stymphale Blade", 1: "Sturdy", H: "Weak Armor"},
 	},
 	phanpy: {
 		inherit: true,
@@ -907,6 +921,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	tyranitar: {
 		inherit: true,
 		abilities: {0: "Sand Stream", H: "Guts"}
+	},
+	celebi: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Regenerator"},
 	},
 	// Gen 3 :
 	treecko: {
@@ -1286,6 +1304,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 150, def: 70, spa: 85, spd: 70, spe: 125},
 		abilities: {0: "Angelic Nature"},
+	},
+	wynaut: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Counter Strike", H: "Telepathy"},
 	},
 	glaliemega: {
 		inherit: true,
@@ -1873,7 +1895,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	swoobat: {
 		inherit: true,
-		baseStats: {hp: 77, atk: 57, def: 65, spa: 97, spd: 65, spe: 114},
+		baseStats: {hp: 97, atk: 47, def: 65, spa: 97, spd: 65, spe: 114},
 	},
 	audinomega: {
 		inherit: true,
@@ -2131,7 +2153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Showdown", H: "Shadow Tag"},
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag"},
 	},
 	haxorus: {
 		inherit: true,
@@ -2407,6 +2429,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 89, atk: 70, def: 90, spa: 120, spd: 90, spe: 51},
 		abilities: {0: "Mega Launcher", 1: "Deadly Blasts", H: "Quick Draw"},
 	},
+	heliolisk: {
+		inherit: true,
+		abilities: {0: "Dry Skin", 1: "Sand Veil", H: "Solar Energy"},
+	},
 	tyrunt: {
 		inherit: true,
 		baseStats: {hp: 58, atk: 89, def: 77, spa: 35, spd: 45, spe: 58},
@@ -2436,9 +2462,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
 	},
+	sliggoo: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 68, atk: 55, def: 73, spa: 83, spd: 113, spe: 60},
+	},
+	sliggoohisui: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 75, def: 83, spa: 83, spd: 113, spe: 30},
+		abilities: {0: "Sap Sipper", 1: "Heatproof", H: "Gooey"},
+	},
+	goodra: {
+		inherit: true,
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 90, atk: 70, def: 100, spa: 110, spd: 150, spe: 80},
+	},
 	goodrahisui: {
 		inherit: true,
-		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Gooey"},
+		baseStats: {hp: 90, atk: 100, def: 100, spa: 110, spd: 150, spe: 50},
+		abilities: {0: "Misty Surge", 1: "Heatproof", H: "Gooey"},
 	},
 	trevenant: {
 		inherit: true,
@@ -3203,8 +3245,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		heightm: 1.8,
 		weightkg: 61.9,
 		color: "Blue",
-		prevo: "Quaxwell",
-		evoLevel: 36,
 		eggGroups: ["Flying", "Water 1"],
 		requiredItem: "Quaquavite",
 	},
@@ -3277,10 +3317,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	rabsca: {
 		inherit: true,
 		abilities: {0: "Synchronize", 1: "Graviton", H: "Telepathy"},
+		otherFormes: ["Rabsca-Mega"],
+		formeOrder: ["Rabsca", "Rabsca-Mega"],
 	},
-	tinkaton: {
-		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Sheer Force", H: "Pickpocket"},
+	rabscamega: {
+		num: 954,
+		name: "Rabsca-Mega",
+		baseSpecies: "Rabsca",
+		forme: "Mega",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 75, atk: 50, def: 105, spa: 155, spd: 140, spe: 45},
+		abilities: {0: "Drought"},
+		heightm: 0.3,
+		weightkg: 3.5,
+		color: "Green",
+		eggGroups: ["Bug"],
+		requiredItem: "Rabscanite",
 	},
 	wiglett: {
 		inherit: true,
@@ -3387,6 +3439,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	flamigo: {
 		inherit: true,
 		baseStats: {hp: 82, atk: 125, def: 74, spa: 55, spd: 64, spe: 100},
+	},
+	cetitan: {
+		inherit: true,
+		types: ["Ice", "Ground"],
 	},
 	veluza: {
 		inherit: true,
