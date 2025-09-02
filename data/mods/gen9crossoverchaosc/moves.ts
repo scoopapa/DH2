@@ -662,7 +662,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Physical",
 		name: "Bonesaw",
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "Extra high critical hit ratio.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
