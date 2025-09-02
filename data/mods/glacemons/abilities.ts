@@ -1019,7 +1019,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.isSemiInvulnerable()) return;
-			if ('cramorantgulping' || 'cramorantgorging' === target.species.id) {
+			if (target.species.id === 'cramorantgulping' || target.species.id === 'cramorantgorging') {
 				this.damage(source.baseMaxhp / 4, source, target);
 				if (target.species.id === 'cramorantgulping') {
 					this.boost({def: -1, spd: -1}, source, target, null, true);
@@ -1031,7 +1031,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
-				source.heal(source.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8, source);
 				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				source.formeChange(forme, effect);
 			}
