@@ -136,7 +136,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	luigi: {
 		learnset: {
-      luigilogic: ["9L1"],
+			luigilogic: ["9L1"],
 			stomp: ["9L1"],
 			return: ["9L1"],
 			bodyslam: ["9L1"],
