@@ -785,9 +785,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Psych Bomb",
+		shortDesc: "Bypass protect & substitute. Hits all adjacent foes.",
 		pp: 10,
 		priority: 0,
-		flags: {bullet: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: {bullet: 1, mirror: 1, metronome: 1, slicing: 1, bypasssub: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fling", target);
