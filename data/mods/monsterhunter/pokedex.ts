@@ -1762,7 +1762,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Dragon", "Fighting"],
 		gender: "N",
 		baseStats: {hp: 94, atk: 119, def: 111, spa: 80, spd: 95, spe: 106},
-		abilities: {0: "Elderseal", H: "Unseen Fist"},
+		abilities: {0: "Guts", H: "Debris"},
 		weightkg: 150.0,
 		tags: ["Elder Dragon"],
 	},
