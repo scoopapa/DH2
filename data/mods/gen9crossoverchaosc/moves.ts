@@ -779,6 +779,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Clever",
 	},
+	psychbomb: {
+		num: -27,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Psych Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fling", target);
+			this.add('-anim', target, "Explosion", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Cute",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
