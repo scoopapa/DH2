@@ -56,7 +56,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
-			onStart(pokemon) {
+		onStart(pokemon) {
 				if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
 					this.add('-ability', pokemon, 'Puff-Up');
 					this.add('-message', `Zamtrios is transforming!`);
