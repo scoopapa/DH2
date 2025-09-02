@@ -4324,7 +4324,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	arctozolt: {
-		tier: "RUBL",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	dracovish: {
@@ -4656,7 +4656,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	cetitan: {
-		tier: "RUBL",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	frigibax: {
@@ -5325,7 +5325,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	meltic: {
-		tier: "RUBL",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	sithbull: {

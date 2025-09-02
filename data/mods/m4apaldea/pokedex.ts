@@ -674,18 +674,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "LordThemberchaud",
 	},
 
-	mausholdfour: {
-		inherit: true,
-		mega: "mausholdfourmega",
-		megaName: "Maushold-Four-Mega",
-		megaType: ["Normal", "Fairy"],
-		megaAbility: {0: "Prankster"},
-		megaStats: {hp: 74, atk: 95, def: 120, spa: 65, spd: 110, spe: 101},
-		megaStone: "Mausholdinite",
-		movepoolAdditions: ["moonlight"],
-		megaCreator: "LordThemberchaud",
-	},
-
 	// slate 15
 
 	cloyster: {

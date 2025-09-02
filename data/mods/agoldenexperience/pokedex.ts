@@ -1274,12 +1274,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	banette: {
 		inherit: true,
-		baseStats: {hp: 64, atk: 115, def: 65, spa: 103, spd: 63, spe: 65},
 		abilities: {0: "Shadow Tag", 1: "Frisk", H: "Cursed Body"},
 	},
 	banettemega: {
 		inherit: true,
-		baseStats: {hp: 64, atk: 165, def: 75, spa: 123, spd: 83, spe: 65},
+		baseStats: {hp: 64, atk: 145, def: 75, spa: 123, spd: 83, spe: 65},
 	},
 	duskull: {
 		inherit: true,
@@ -1501,7 +1500,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	skuntank: {
 		inherit: true,
-		baseStats: {hp: 123, atk: 93, def: 77, spa: 41, spd: 71, spe: 84},
+		baseStats: {hp: 103, atk: 93, def: 77, spa: 51, spd: 71, spe: 84},
 		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
 	},
 	chatot: {
@@ -2916,18 +2915,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	greedent: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 95, def: 95, spa: 45, spd: 95, spe: 20},
-	},
-	rookidee: {
-		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
-	},
-	corvisquire: {
-		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
-	},
-	corviknight: {
-		inherit: true,
-		abilities: {0: "Pressure", 1: "Justified", H: "Mirror Armor"},
 	},
 	orbeetle: {
 		inherit: true,
