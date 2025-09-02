@@ -3661,6 +3661,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
+	armorcannon: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+	},
 
 
 
