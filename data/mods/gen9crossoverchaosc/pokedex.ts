@@ -310,6 +310,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		bowser: {
 		num: 34,
 		name: "Bowser",
+		gender: "M",
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 80, atk: 110, def: 100, spa: 100, spd: 90, spe: 50},
 		abilities: {0: "Pressure", 1: "Sturdy", H: "Stamina"},
@@ -318,6 +319,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	bowsermega: {
 		num: 34,
 		name: "Bowser-Mega",
+		gender: "M",
 		baseSpecies: "Bowser",
 		forme: "Mega",
 		types: ["Dragon", "Poison"],
@@ -329,6 +331,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	peach: {
 		num: 35,
 		name: "Peach",
+		gender: "F",
 		types: ["Fairy"],
 		baseStats: {hp: 100, atk: 90, def: 85, spa: 85, spd: 99, spe: 78},
 		abilities: {0: "Trace", H: "Pixilate"},
@@ -337,6 +340,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	peachmega: {
 		num: 35,
 		name: "Peach-Mega",
+		gender: "F",
 		baseSpecies: "Peach",
 		forme: "Mega",
 		types: ["Fairy"],
@@ -348,6 +352,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	midbus: {
 		num: 36,
 		name: "Midbus",
+		gender: "M",
 		types: ["Ground", "Dragon"],
 		baseStats: {hp: 105, atk: 115, def: 115, spa: 65, spd: 70, spe: 60},
 		abilities: {0: "Steadfast", 1: "Gifts Given", H: "Guard Dog"},
@@ -356,6 +361,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	midbusmega: {
 		num: 36,
 		name: "Midbus-Mega",
+		gender: "M",
 		baseSpecies: "Midbus",
 		forme: "Mega",
 		types: ["Ground", "Ice"],
