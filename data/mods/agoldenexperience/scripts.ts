@@ -1248,6 +1248,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'typhlosion').learnset.earthpower = ['9L1'];
     this.modData('Learnsets', 'typhlosionhisui').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'feraligatr').learnset.knockoff = ['9L1'];
+    this.modData('Learnsets', 'furret').learnset.extremespeed = ['9M'];
     this.modData('Learnsets', 'furret').learnset.taunt = ['9M'];
     this.modData('Learnsets', 'noctowl').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'noctowl').learnset.magisterialwind = ['9L1'];
