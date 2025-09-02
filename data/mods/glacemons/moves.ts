@@ -1068,15 +1068,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		multihit: 2,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		self: {
-			boosts: {
-				atk: -1,
-			},
-		},
-		onModifyMove(move, pokemon, defender) {
-			if (!defender.activeTurns) {
-				move.self.boosts = {atk: 0};
-			}
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (target.activeTurns) this.boost({atk: -1}, pokemon, pokemon, move);
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1790,19 +1783,29 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: {noassist: 1, failcopycat: 1, powder: 1, bullet: 1},
 		volatileStatus: 'powderbomb',
 		condition: {
-			onTryHit(target, source, move) {
-				if (target !== source && move.type === 'Fire') {
-					move.accuracy = true;
-					this.damage(Math.round(target.maxhp / 4), source, target);
-					return null;
-				}
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Powder Bomb');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp /  4 * ((pokemon.hasType(['Fire']) ? 1 : 0)));
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Powder Bomb');
 			},
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rage Powder", target);
 		},
-		secondary: null,
+		onAfterHit(target, source) {
+			this.actions.useMove("Powder", source);
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'powderbomb',
+		},
 		target: "normal",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
@@ -2055,8 +2058,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		secondary: null,
 		target: "normal",
-		onAfterHit(pokemon) {
-			pokemon.useMove("Ki Blast 2", pokemon);
+		onAfterHit(target, source) {
+			this.actions.useMove("Ki Blast 2", source);
 		},
 		type: "Fighting",
 		shortDesc: "Damages user as much as it does to target.",
