@@ -148,4 +148,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -6,
 	},
+	giftsgiven: {
+		shortDesc: "This Pokemonuses Stockpile if it attacks and KOes another Pokemon."
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.actions.useMove(this.dex.getActiveMove('stockpile'), sourceq, source);
+			}
+		},
+		flags: {},
+		name: "Gifts Given",
+		rating: 3,
+		num: -7,
+	},
 };
