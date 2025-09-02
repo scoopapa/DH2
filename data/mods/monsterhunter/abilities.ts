@@ -1364,7 +1364,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	elderseal: {
 		onModifyAtk(atk, attacker, defender, species, tags) {
-			if (species.tags.includes === 'Elder Dragon') {
+			if (species.tags.includes('Elder Dragon')) {
 				return this.chainModify(1.5);
 			}
 		},
