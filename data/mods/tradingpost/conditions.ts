@@ -66,4 +66,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.add('-end', target, 'Deoxys-Speed');
 		},
 	},
+
+	raindance: {
+		inherit: true,
+		durationCallback(source, effect) {
+			if (source?.hasItem('rainjacket')) {
+				return 6;
+			}
+			return 5;
+		},
+	},
 };

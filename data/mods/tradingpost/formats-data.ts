@@ -2,6 +2,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swampertmega: {
 		tier: "OU",
 	},
+	pinsir: {
+		tier: "ZU",
+	},
+	pinsirmega: {
+		tier: "OU",
+	},
+	venusaurmega: {
+		tier: "OU",
+	},
+	
+	//no item mons
 	ogerponhearthflame: {
 		tier: "Illegal",
 	},

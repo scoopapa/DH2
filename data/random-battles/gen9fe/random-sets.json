@@ -742,7 +742,7 @@
 		"sets": [
 			{
 				"role": "Wallbreaker",
-				"movepool": ["Flare Blitz", "Head Smash", "Earthquake", "Superpwoer"]
+				"movepool": ["Flare Blitz", "Head Smash", "Earthquake", "Superpower"]
 			},
 			{
 				"role": "Bulky Setup",
@@ -956,7 +956,7 @@
 			},
 			{
 				"role": "Bulky Setup",
-				"movepool": ["Dragon Dance", "Earhquake", "DoubleEdge", "Stone Edge"]
+				"movepool": ["Dragon Dance", "Earthquake", "DoubleEdge", "Stone Edge"]
 			}
 		]
 	},
