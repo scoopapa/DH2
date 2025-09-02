@@ -1363,10 +1363,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Ambush",
 	},
 	elderseal: {
-		onModifyAtk(atk, target, pokemon, tags) {
-			if (target.tags.includes("Elder Dragon")) {
+		onModifyAtk(atk, attacker, defender, move) {
+			if (species.tags.includes === 'Elder Dragon') {
 				return this.chainModify(1.5);
-				this.add('-ability', pokemon, 'placeholder');
 			}
 		},
 		flags: {},
