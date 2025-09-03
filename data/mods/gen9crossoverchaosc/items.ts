@@ -48,7 +48,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 576,
 		megaStone: "Pit-Mega",
 		megaEvolves: "Pit",
-		itemUser: ["Pit"],
+		itemUser: ["Pit", "Pit-Mega"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
@@ -56,5 +56,47 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5,
 		gen: 9,
 		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
+	},
+	bowsite: {
+		name: "Bowsite",
+		spritenum: 591,
+		megaStone: "Bowser-Mega",
+		megaEvolves: "Bowser",
+		itemUser: ["Bowser", "Bowser-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -6,
+		gen: 9,
+		desc: "If held by Bowser, this item allows him to Mega Evolve in battle.",
+	},
+	peachite: {
+		name: "Peachite",
+		spritenum: 615,
+		megaStone: "Peach-Mega",
+		megaEvolves: "Peach",
+		itemUser: ["Peach", "Peach-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -6,
+		gen: 9,
+		desc: "If held by Peach, this item allows her to Mega Evolve in battle.",
+	},
+	midbusite: {
+		name: "Midbusite",
+		spritenum: 583,
+		megaStone: "Midbus-Mega",
+		megaEvolves: "Midbus",
+		itemUser: ["Midbus", "Midbus-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -7,
+		gen: 9,
+		desc: "If held by Midbus, this item allows him to Mega Evolve in battle.",
 	},
 };
