@@ -669,12 +669,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Maushold", "Maushold-Four", "Maushold-Mega", "Maushold-Four-Mega"],
 		movepoolAdditions: ["moonlight"],
 	},
-
-	maushold: {
-		megaStone: "Mausholdinite",
-		movepoolAdditions: ["moonlight"],
-		megaCreator: "LordThemberchaud",
-	},
 	mausholdmega: {
 		num: 925,
 		name: "Maushold-Mega",
