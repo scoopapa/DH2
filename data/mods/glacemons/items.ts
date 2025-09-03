@@ -1946,7 +1946,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
 				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
 				if (move.id === pokemon.moveSlots[0].id) type = pokemon.types[0];
-				else if (move.id === pokemon.moveSlots[1].id && types.length == 2) type = pokemon.types[1];
+				else if (move.id === pokemon.moveSlots[1].id && pokemon.types[1]) type = pokemon.types[1];
+				else type = 'Normal';
 				move.type = type;
 				move.typeChangerBoosted = this.effect;
 			}

@@ -1763,7 +1763,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onFoeBeforeMovePriority: 4,
 			onFoeBeforeMove(attacker, defender, move, target) {
 				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
-					this.damage(Math.round(target.maxhp / 4), attacker, defender);
+					this.damage(Math.round(attacker.maxhp / 4), attacker, defender);
 					this.add('cant', attacker, 'move: Imprison', move);
 					return false;
 				}
@@ -1789,7 +1789,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp /  4 * ((pokemon.hasType(['Fire']) ? 1 : 0)));
+				this.damage(pokemon.baseMaxhp /  8 * ((pokemon.hasType(['Fire']) ? 1 : 0)));
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Powder Bomb');
@@ -2028,7 +2028,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				move.category = 'Physical';
 			}
 		},
-		basePowerCallback(basePower, attacker, defender, move) {
+		basePowerCallback(attacker, defender, move) {
 			let bonfireBP = 40;
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of ally.moveSlots) {
