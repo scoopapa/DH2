@@ -2967,6 +2967,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Stymphale Blade",
 		num: -99,
 	},
+	savagebite: {
+		onModifyDamage(damage, source, target, move) {
+			if (move.flags['bite'] && target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (move.flags['bite'] && !move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity[move.type] = true;
+			}
+		},
+		flags: {},
+		name: "Savage Bite",
+		shortDesc: "This Pokemon's biting attacks ignore resistances and immunities.",
+		rating: 4,
+		num: 110,
+	},
 
 
 
@@ -3575,81 +3595,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Utility Umbrella",
 	},
-	soulblade: {
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x1199, 0x1000]);
-		},
-		/*
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade');
-				source.setAbility('soulbladelvl2');
-				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
-			}
-		},
-		*/
-		name: "Soul Blade",
-	},
-	/*
-	soulbladelvl2: {
-		onModifyDamage(damage, source, target, move) {
-				return this.chainModify([0x14CC, 0x1000]);
-		},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade');
-				source.setAbility('soulbladelvl3');
-				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
-			}
-		},
-		name: "Soul Blade Lvl. 2",
-	},
-	soulbladelvl3: {
-		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.5);
-		},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade');
-				source.setAbility('soulbladelvl4');
-				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
-			}
-		},
-		name: "Soul Blade Lvl. 3",
-	},
-	soulbladelvl4: {
-		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.7);
-		},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade');
-				source.setAbility('soulbladelvl5');
-				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
-			}
-		},
-		name: "Soul Blade Lvl. 4",
-	},
-	soulbladelvl5: {
-		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.9);
-		},
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade');
-				source.setAbility('ultrasoulblade');
-				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
-			}
-		},
-		name: "Soul Blade Lvl. 5",
-	},
-	ultrasoulblade: {
-		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(2.1);
-		},
-		name: "Ultra Soul Blade",
-	},
-*/
 	fistplate: {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {

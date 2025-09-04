@@ -3665,6 +3665,59 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bullet: 1},
 	},
+	strongbite: {
+		num: -90,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Strong Bite",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		overrideDefensiveStat: 'spd',
+		ignoreAbility: true,
+		secondary: null,
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+		desc: "Deals damage to the target based on its Special Defense instead of Defense. This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "Damages target based on Sp. Defense, not Def. Ignores the Abilities of other Pokemon.",
+	},
+	jumpscare: {
+		num: -91,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Jumpscare",
+		pp: 10,
+		priority: 3,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Jumpscare only works on your first turn out.");
+				return false;
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scary Face", target);
+			this.add('-anim', source, "Crunch", target);
+			this.add('-anim', source, "Flash", target);
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cute",
+		desc: "Has a 100% chance to make the target flinch. Fails unless it is the user's first turn on the field.",
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
+	},
 
 
 

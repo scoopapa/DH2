@@ -1450,8 +1450,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	mightyena: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
 	zigzagoon: {
 		tier: "LC",
@@ -4069,8 +4068,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	thievul: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
 	gossifleur: {
 		tier: "LC",
@@ -5335,6 +5333,18 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	scrafree: {
 		tier: "NU",
 		doublesTier: "DUU",
+	},
+	gevauyena: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	arsief: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	corpsetrap: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 
 	//unavailable
