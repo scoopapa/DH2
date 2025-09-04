@@ -756,6 +756,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 	},
+	lunge: {
+		inherit: true,
+		basePower: 85,
+		pp: 20,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		gen: 3,
+	},
 	megadrain: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
@@ -940,6 +954,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	sacredfire: {
 		inherit: true,
 		accuracy: 100,
+	},
+	sacredsword: {
+		inherit: true,
+		gen: 3,
+		pp: 15,
 	},
 	sandstorm: {
 		inherit: true,
