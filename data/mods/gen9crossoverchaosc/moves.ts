@@ -662,7 +662,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Physical",
 		name: "Bonesaw",
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "Extra high critical hit ratio.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -778,6 +778,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+	},
+	psychbomb: {
+		num: -27,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Psych Bomb",
+		shortDesc: "Bypass protect & substitute. Hits all adjacent foes.",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, mirror: 1, metronome: 1, slicing: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fling", target);
+			this.add('-anim', target, "Explosion", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Cute",
 	},
 
 	// Altering Pre-Existing Moves

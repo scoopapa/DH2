@@ -720,6 +720,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	scyther: {tier: "Kalos (NFE)"},
 	scizor: {tier: "Kalos"},
+	scizormega: {tier: "Kalos"},
 
 	ditto: {tier: "Kalos"},
 

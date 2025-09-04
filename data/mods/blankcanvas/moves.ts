@@ -15,4 +15,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	camouflage: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

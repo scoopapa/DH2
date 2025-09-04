@@ -135,4 +135,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+		bowser: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	bowsermega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	peach: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	peachmega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	midbus: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	midbusmega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };

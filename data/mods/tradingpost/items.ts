@@ -572,6 +572,308 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 	
+	normaliumz: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pinsirite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	venusaurite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bigroot: {
+		inherit: true,
+		shortDesc: "Holder gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Strength Sap.",
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	eviolite: {
+		inherit: true,
+		shortDesc: "Holder's Atk/Def/SpA/SpD are 1.3/1.5/1.3/1.5x for each possible evolution.",
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			let mult = 1;
+			if (pokemon.baseSpecies.evos) {
+				mult *= 1.3;
+				if (this.dex.species.get(pokemon.baseSpecies.evos[0]).evos) mult *= 1.3;
+			}
+			return this.chainModify(mult);
+		},
+		onModifyDef(def, pokemon) {
+			let mult = 1;
+			if (pokemon.baseSpecies.evos) {
+				mult *= 1.5;
+				if (this.dex.species.get(pokemon.baseSpecies.evos[0]).evos) mult *= 1.5;
+			}
+			return this.chainModify(mult);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			let mult = 1;
+			if (pokemon.baseSpecies.evos) {
+				mult *= 1.3;
+				if (this.dex.species.get(pokemon.baseSpecies.evos[0]).evos) mult *= 1.3;
+			}
+			return this.chainModify(mult);
+		},
+		onModifySpD(spd, pokemon) {
+			let mult = 1;
+			if (pokemon.baseSpecies.evos) {
+				mult *= 1.5;
+				if (this.dex.species.get(pokemon.baseSpecies.evos[0]).evos) mult *= 1.5;
+			}
+			return this.chainModify(mult);
+		},
+	},
+	baseballglove: {
+		name: "Baseball",
+		fling: {
+			basePower: 30,
+			effect(pokemon) {
+				this.boost({atk: -1, spa: -1}, pokemon, pokemon, null, true);
+			},
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+			if (target.useItem()) {
+				this.boost({atk: -1, spa: -1}, source, source, null, true);
+				return null;
+			}
+		},
+		shortDesc: 'When switching in, an attacker\'s attack fails and it gets -1 Atk/SpA. Single use.',
+	},
+	bicycle: {
+		name: "Bicycle",
+		shortDesc: "Holder swaps this item with a target it attacks.",
+		fling: {
+			basePower: 100,
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			const yourItem = target.takeItem(source);
+			const myItem = source.takeItem();
+			if (target.item || source.item || (!yourItem && !myItem)) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			if (
+				(myItem && !this.singleEvent('TakeItem', myItem, source.itemState, target, source, move, myItem)) ||
+				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem))
+			) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			this.add('-activate', source, 'move: Trick', `[of] ${target}`);
+			if (myItem) {
+				target.setItem(myItem);
+				this.add('-item', target, myItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trick');
+			}
+			if (yourItem) {
+				source.setItem(yourItem);
+				this.add('-item', source, yourItem, '[from] move: Trick');
+			} else {
+				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trick');
+			}
+		},
+	},
+	bizarrevest: {
+		name: "Bizarre Vest",
+		shortDesc: "Holder moves last, but (Special) Defense = (Special) Attack if latter is higher.",
+		fling: {
+			basePower: 50,
+			volatileStatus: "confusion",
+		},
+		onFractionalPriority: -0.1,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			const monAtk = pokemon.getStat('atk', false, true);
+			const monDef = pokemon.getStat('def', false, true);
+			if (monAtk > monDef) {
+				return monAtk;
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			const monSpA = pokemon.getStat('spa', false, true);
+			const monSpD = pokemon.getStat('spd', false, true);
+			if (monSpA > monSpD) {
+				return monSpA;
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (['knockoff', 'thief', 'covet', 'trick', 'switcheroo'].includes(this.activeMove.id)) return false;
+		},
+	},
+	goldenbelt: {
+		name: "Golden Belt",
+		shortDesc: "Holder is immune to status moves at full HP.",
+		fling: {
+			basePower: 40,
+			volatileStatus: "taunt",
+		},
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source && target.hp === target.maxhp) {
+				this.add('-immune', target, '[from] item: Golden Vest', `[of] ${target}`);
+				return null;
+			}
+		},
+	},
+	heavynet: {
+		name: "Heavy Net",
+		spritenum: 194,
+		shortDesc: "Holder's Spe is halved, but it blocks attackers' pivoting effects.",
+		fling: {
+			basePower: 40,
+			effect(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		onAnyModifyMove(move, pokemon) {
+			if (pokemon.side === this.effectState.target.side) return;
+			if (move.selfSwitch && !move.ignoreAbility) {
+				this.add('-block', this.effectState.target, 'item: Heavy Net');
+				delete move.selfSwitch;
+			}
+		},
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
+		},
+	},
+	mininghelmet: {
+		name: "Mining Helmet",
+		shortDesc: "If holder is hit by a Dark/Rock move, the attacker loses 1/6 of its max HP.",
+		fling: {
+			basePower: 60,
+		},
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark' || move.type === 'Rock') {
+				this.damage(source.baseMaxhp / 6, source, target);
+			}
+		},
+	},
+	mirrorshroud: {
+		name: "Mirror Shroud",
+		shortDesc: "If holder is hit by a special move, the attacker loses 1/3 of the damage dealt.",
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(damage / 3, source, target);
+			}
+		},
+	},
+	paladinshield: {
+		name: "Paladin Shield",
+		spritenum: 746,
+		shortDesc: "Holder is immune to stat drops and secondary effects.",
+		onModifySecondaries(secondaries) {
+			this.debug('Covert Cloak prevent secondary');
+			return secondaries.filter(effect => !!effect.self);
+		},
+		onTryBoostPriority: 1,
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add('-fail', target, 'unboost', '[from] item: Paladin Shield', `[of] ${target}`);
+			}
+		},
+		onTakeItem: false,
+	},
+	pineapplepizza: {
+		name: "Pineapple Pizza",
+		shortDesc: "At 1/2 max HP or less: restores 1/2 max HP if neutral nature, else confused. Single use.",
+		isBerry: true,
+		fling: {
+			basePower: 30,
+			volatileStatus: 'confusion',
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2)) return false;
+		},
+		onEat(pokemon) {
+			if (!pokemon.getNature().minus) this.heal(pokemon.baseMaxhp / 2);
+			else pokemon.addVolatile('confusion');
+		},
+	},
+	rainjacket: {
+		name: "Rain Jacket",
+		spritenum: 750,
+		shortDesc: "Holder's use of Rain Dance lasts 6 turns. 1.5x SpD in rain.",
+		fling: {
+			basePower: 30,
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd) {
+			if (pokemon.effectiveWeather() === 'raindance') return this.chainModify(1.5);
+		},
+	},
+	shardoftrueice: {
+		name: "Shard of True Ice",
+		spritenum: 305,
+		shortDesc: "Ice-type with <600 BST: Resists Dragon/Steel/Fighting, weak to Dark/Psychic/Poison.",
+		fling: {
+			basePower: 40,
+			effect(target, source, move) {
+				const item = target.takeItem();
+				if (!item) return;
+				const shard = this.dex.items.get('shardoftrueice');
+				this.add('-enditem', target, item.name, '[from] item: Shard of True Ice', '[of] ' + source, "[silent]");
+				this.add('-item', target, shard, '[from] item: Shard of True Ice', '[of] ' + target);
+				target.setItem(shard);
+			},
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			console.log(target.hasType('Ice') + " " + target.baseSpecies.bst + " " + move.type);
+			if (!target.hasType('Ice') || target.baseSpecies.bst >= 600) return;
+			if (['Dragon', 'Steel', 'Fighting'].includes(move.type)) return typeMod - 1;
+			if (['Dark', 'Psychic', 'Poison'].includes(move.type)) return typeMod + 1;
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (['knockoff', 'thief', 'covet', 'trick', 'switcheroo'].includes(this.activeMove.id)) return false;
+		},
+	},
+	teraamulet: {
+		name: "Tera Amulet",
+		spritenum: 747,
+		shortDesc: "Holder takes 0.6x damage from attacks of the holder's Tera Type.",
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'item: Tera Amulet');
+			this.add('-message', `${pokemon.name} is reducing damage from ${pokemon.teraType} moves!`);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === target.teraType) {
+				return this.chainModify(0.6);
+			}
+		},
+	},
+	
 	//removing every vanilla item
 	abilityshield: null,
 	abomasite: null,
@@ -602,7 +904,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	berryjuice: null,
 	berrysweet: null,
 	bignugget: null,
-	bigroot: null,
+	//bigroot: null,
 	bindingband: null,
 	blackbelt: null,
 	blackglasses: null,
@@ -681,7 +983,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	electricseed: null,
 	electriumz: null,
 	enigmaberry: null,
-	eviolite: null,
+	//eviolite: null,
 	expertbelt: null,
 	fairiumz: null,
 	fairyfeather: null,
@@ -836,7 +1138,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	nevermeltice: null,
 	nomelberry: null,
 	normalgem: null,
-	normaliumz: null,
+	//normaliumz: null,
 	occaberry: null,
 	oddincense: null,
 	oldamber: null,
@@ -853,7 +1155,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	pikaniumz: null,
 	pikashuniumz: null,
 	pinapberry: null,
-	pinsirite: null,
+	//pinsirite: null,
 	pixieplate: null,
 	plumefossil: null,
 	//poisonbarb: null,
@@ -1076,7 +1378,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	unremarkableteacup: null,
 	upgrade: null,
 	utilityumbrella: null,
-	venusaurite: null,
+	//venusaurite: null,
 	wacanberry: null,
 	watergem: null,
 	watermemory: null,
