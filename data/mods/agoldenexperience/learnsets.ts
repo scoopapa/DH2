@@ -7189,7 +7189,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			pursuit: ["9L46"],
 			recover: ["9L9"],
 			rest: ["9M"],
-			retaliate: ["9L5"]
+			retaliate: ["9L5"],
 			return: ["9M"],
 			reversal: ["9M"],
 			rockslide: ["9M"],
