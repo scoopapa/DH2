@@ -1864,7 +1864,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Ajarakan",
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 90, atk: 135, def: 115, spa: 60, spd: 78, spe: 88},
-		abilities: {0: "Weak Armor", H: "Fervent Scales"},
+		abilities: {0: "Weak Armor", 1: "Reactive Touch", H: "Fervent Scales"},
 		weightkg: 100.0,
 		tags: ["Fanged Beast"],
 	},

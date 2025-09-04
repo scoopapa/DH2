@@ -1663,6 +1663,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Avinia's Blessing",
+		shortDesc: "Cures user's status, raises Atk, Def by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
