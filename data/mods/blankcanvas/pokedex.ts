@@ -633,7 +633,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Lyvamp",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 96, atk: 100, def: 70, spa: 41, spd: 70, spe: 91},
-		abilities: {0: "Regenerator"},
+		abilities: {0: "Regenerator", H: "Insomnia"},
 		weightkg: 189,
 	},
 	treatmint: {
