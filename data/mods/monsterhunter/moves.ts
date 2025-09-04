@@ -1658,6 +1658,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Baneful Bunker", target);
         },
 	},
+	aviniasblessing: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Avinia's Blessing",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onHit(pokemon) {
+			const success = !!this.boost({atk: 1, def: 1});
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+	},
 	/*
 	Edits
 	*/
