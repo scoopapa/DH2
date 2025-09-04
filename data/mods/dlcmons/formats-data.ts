@@ -749,6 +749,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mewtwomegax: {tier: "Kalos Uber"},
 	mewtwomegay: {tier: "Kalos Uber"},
 
+	// event
+
+	torchic: {tier: "Kalos (NFE)"},
+	combusken: {tier: "Kalos (NFE)"},
+	blaziken: {tier: "Kalos Uber"},
+	blazikenmega: {tier: "Kalos Uber"},
+
 	// DLC
 
 	// Slate 1
