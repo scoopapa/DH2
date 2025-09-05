@@ -103,7 +103,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
     rapidash: {
         inherit: true,
-        abilities: {0: "WiIdfire", 1: "Flash Fire"},
+        abilities: {0: "Bonfire", 1: "Flash Fire"},
         baseStats: {hp: 90, atk: 115, def: 70, spa: 80, spd: 80, spe: 115},
         types: ["Fire", "Normal"],
     },

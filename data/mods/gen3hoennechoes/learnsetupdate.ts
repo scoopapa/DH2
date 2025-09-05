@@ -110,6 +110,7 @@ export function learnsetUpdate(dex: ModdedDex) {
 	dex.modData('Learnsets', 'rapidash').learnset.jumpkick = ['3M'];
 	dex.modData('Learnsets', 'rapidash').learnset.workup = ['3M'];
 	delete dex.modData('Learnsets', 'rapidash').learnset.hypnosis;
+	delete dex.modData('Learnsets', 'ponyta').learnset.hypnosis;
 	dex.modData('Learnsets', 'shiftry').learnset.rockslide = ['3M'];
 	dex.modData('Learnsets', 'shiftry').learnset.heatwave = ['3M'];
 	dex.modData('Learnsets', 'shiftry').learnset.lowkick = ['3M'];

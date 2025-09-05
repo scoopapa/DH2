@@ -1260,6 +1260,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	workup: {
 		inherit: true,
+		viable: true,
 		gen: 3,
 	},
 	wrap: {
