@@ -419,9 +419,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Floatzelite",
 	},
-	malitch: {
+	malich: {
 		num: -8,
-		name: "Malitch",
+		name: "Malich",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 105, atk: 75, def: 80, spa: 85, spd: 90, spe: 100},
 		abilities: {0: "Cursed Body", H: "Magic Bounce"},
