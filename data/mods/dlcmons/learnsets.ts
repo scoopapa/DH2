@@ -1091,7 +1091,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			sludgewave: ["6L1"],
 		},
 	},
-	malitch: {
+	malich: {
 		learnset: {
 			stealthrock: ["6L1"],
 			spikes: ["6L1"],
