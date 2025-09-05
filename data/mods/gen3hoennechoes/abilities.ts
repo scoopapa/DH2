@@ -98,6 +98,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	leafguard: {
+		inherit: true,
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('leafguard');
+				this.add('-activate', pokemon, 'ability: Leaf Guard');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus() {},
+		onTryAddVolatile() {},
+		desc: "This Pokemon has its non-volatile status condition cured at the end of each turn if Sunny Day is active. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "This Pokemon has its status cured at the end of each turn if Sunny Day is active.",
+		gen: 3,
+	},
 	lightningrod: {
 		onFoeRedirectTarget(target, source, source2, move) {
 			// don't count Hidden Power as Electric-type
@@ -168,6 +185,64 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.addSplit(pokemon.side.id, ['-ability', pokemon, 'Pressure', '[silent]']);
 		},
 	},
+	protosynthesis: {
+		inherit: true,
+		gen: 3,
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protosynthesis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protosynthesis');
+				}
+				//this.effectState.bestStat = pokemon.getBestStat(false, true);
+				//dragged code out of getBestStat to remove Speed
+				let statName: StatIDExceptHP = 'atk';
+				let bestStat = 0;
+				const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd'];
+				for (const i of stats) {
+					if (pokemon.getStat(i, false, true) > bestStat) {
+						statName = i;
+						bestStat = pokemon.getStat(i, false, true);
+					}
+				}
+				this.effectState.bestStat = statName;
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis atk boost');
+				return this.chainModify([4915, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis def boost');
+				return this.chainModify([4915, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spa boost');
+				return this.chainModify([4915, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spd boost');
+				return this.chainModify([4915, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosynthesis');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		desc: "If Sunny Day is active or this Pokemon uses a held Booster Energy, this Pokemon's highest non-Speed stat is multiplied by 1.2. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, and Special Defense are prioritized in that order. If this effect was started by Sunny Day, a held Booster Energy will not activate and the effect ends when Sunny Day is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
+		shortDesc: "Sunny Day active: highest non-Speed stat is 1.2x.",
+	},
 	raindish: {
 		inherit: true,
 		onWeather() {},
@@ -196,6 +271,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	snowwarning: {
 		inherit: true,
 		isNonstandard: null,
+		gen: 3,
+	},
+	solarpower: {
+		inherit: true,
 		gen: 3,
 	},
 	static: {
@@ -254,4 +333,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	wiidfire: {
+		onSourceModifyAccuracyPriority: -1,
+		//idk what that does
+		onSourceModifyAccuracy(accuracy, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (typeof accuracy !== 'number') return;
+				return 100;
+			}
+		},
+		flags: {},
+		name: "WiIdfire",
+		desc: "If Sunny Day is active, this Pokemon's moves will have an accuracy of 100.",
+		shortDesc: "User's moves are accurate in sun.",
+		rating: 2,
+		gen: 3,
+		num: 998,
+	}
 };

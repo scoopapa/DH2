@@ -249,7 +249,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "ZU",
 	},
 	rapidash: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	slowpoke: {
 		tier: "LC",
@@ -828,7 +828,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	shiftry: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	taillow: {
 		tier: "LC",
@@ -1203,6 +1203,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NEW",
 	},
 	swanna: {
+		tier: "NEW",
+	},
+	slitherwing: {
+		tier: "NEW",
+	},
+	leafeon: {
 		tier: "NEW",
 	},
 };

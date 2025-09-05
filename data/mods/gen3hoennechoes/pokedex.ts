@@ -101,4 +101,27 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
         baseStats: {hp: 76, atk: 90, def: 73, spa: 107, spd: 73, spe: 112},
 		gen: 3,
 	},
+    rapidash: {
+        inherit: true,
+        abilities: {0: "WiIdfire", 1: "Flash Fire"},
+        baseStats: {hp: 90, atk: 115, def: 70, spa: 80, spd: 80, spe: 115},
+        types: ["Fire", "Normal"],
+    },
+    slitherwing: {
+		inherit: true,
+        baseStats: {hp: 80, atk: 105, def: 65, spa: 90, spd: 110, spe: 65},
+        types: ["Bug", "Fire"],
+		gen: 3,
+	},
+    leafeon: {
+		inherit: true,
+        abilities: {0: "Leaf Guard", 1: "Chlorophyll"},
+        baseStats: {hp: 95, atk: 130, def: 110, spa: 60, spd: 65, spe: 65},
+		gen: 3,
+	},
+    shiftry: {
+        inherit: true,
+        abilities: {0: "Chlorophyll", 1: "Solar Power"},
+        baseStats: {hp: 90, atk: 110, def: 60, spa: 100, spd: 60, spe: 80},
+    },
 };
