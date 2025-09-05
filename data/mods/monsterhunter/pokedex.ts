@@ -359,6 +359,16 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 50.4,
 		tags: ["Fanged Beast"],
 	},
+	emgalala: {
+		num: 21,
+		name: "Congalala",
+		types: ["Grass", "Poison"],
+		gender: "M",
+		baseStats: {hp: 87, atk: 83, def: 89, spa: 106, spd: 104, spe: 61},
+		abilities: {0: "Neutralizing Gas", H: "Lingering Aroma"},
+		weightkg: 50.4,
+		tags: ["Fanged Beast"],
+	},
 	daimyohermitaur: {
 		num: 23,
 		name: "Daimyo Hermitaur",
@@ -644,7 +654,20 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 92, atk: 118, def: 70, spa: 105, spd: 80, spe: 100},
 		abilities: {0: "Frostnip", H: "Slush Rush"},
 		weightkg: 152.2,
+		otherFormes: ["Frostfang Barioth"],
 		tags: ["Flying Wyvern"],
+	},
+	frostfangbarioth: {
+		num: 41,
+		name: "Frostfang Barioth",
+		baseSpecies: "Barioth",
+		forme: "Mega",
+		types: ["Ice", "Flying"],
+		baseStats: {hp: 92, atk: 128, def: 90, spa: 125, spd: 110, spe: 105},
+		abilities: {0: "Mountaineer"},
+		weightkg: 152.2,
+		tags: ["Flying Wyvern"],
+		requiredItem: "Bariothite",
 	},
 	sandrioth: {
 		num: 41,
@@ -1836,6 +1859,15 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	/*
 	Generation VI
 	*/
+	ajarakan: {
+		num: 127,
+		name: "Ajarakan",
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 90, atk: 135, def: 115, spa: 60, spd: 78, spe: 88},
+		abilities: {0: "Weak Armor", 1: "Reactive Touch", H: "Fervent Scales"},
+		weightkg: 100.0,
+		tags: ["Fanged Beast"],
+	},
 	arkveld: {
 		num: 128,
 		name: "Arkveld",

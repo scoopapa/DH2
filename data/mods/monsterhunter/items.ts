@@ -89,6 +89,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		spritenum: 591,
 	},
+	bariothite: {
+		name: "Bariothite",
+		gen: 9,
+		shortDesc: "If held by Barioth, allows it transform into Frostfang B. (Mega-Evolution)",
+		megaStone: "Frostfang Barioth",
+		megaEvolves: "Barioth",
+		itemUser: ["Barioth", "Frostfang Barioth"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 685,
+	},
 	brachylite: {
 		name: "Brachylite",
 		gen: 9,

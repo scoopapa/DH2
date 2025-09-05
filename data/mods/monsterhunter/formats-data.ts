@@ -629,6 +629,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rustramboros: {
 		tier: "MHUU",
 	},
+	ajarakan: {
+		tier: "MHUU",
+	},
+	emgalala: {
+		tier: "MHRU",
+	},
+	frostfangbarioth: {
+		tier: "MEGAS",
+	},
 	redhelmarzuros: {
 		tier: "MEGAS",
 	},
