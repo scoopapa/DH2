@@ -71,7 +71,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		inherit: true,
 		durationCallback(source, effect) {
 			if (source?.hasItem('rainjacket')) {
-				return 8;
+				return 6;
 			}
 			return 5;
 		},
