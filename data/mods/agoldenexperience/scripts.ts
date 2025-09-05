@@ -1285,8 +1285,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'celebi').learnset.timeparadox = ['9L1'];
 
     // Gen 3:
-    this.modData('Learnsets', 'mightyena').learnset.pursuit = ['9L1'];
-    this.modData('Learnsets', 'mightyena').learnset.bulkup = ['9L1'];
     this.modData('Learnsets', 'zigzagoongalar').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'linoonegalar').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'beautifly').learnset.smartstrike = ['9L1'];

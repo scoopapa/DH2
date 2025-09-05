@@ -275,7 +275,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Steel",
+		type: "Electric",
 		contestType: "Cool",
 		shortDesc: "Guaranteed Paralysis on a target with at least one increased stat stage.",
 	},

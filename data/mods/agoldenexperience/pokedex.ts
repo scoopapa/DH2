@@ -944,13 +944,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 70, atk: 135, def: 75, spa: 120, spd: 85, spe: 145},
 		abilities: {0: "Sharpness"},
 	},
-	mightyena: {
-		inherit: true,
-		baseStats: {hp: 70, atk: 100, def: 70, spa: 60, spd: 60, spe: 90},
-	},
 	beautifly: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 110, def: 55, spa: 75, spd: 55, spe: 85},
+		baseStats: {hp: 65, atk: 75, def: 55, spa: 110, spd: 55, spe: 85},
 		abilities: {0: "Dazzling", H: "Rivalry"},
 	},
 	dustox: {
@@ -2933,15 +2929,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Swarm", 1: "Graviton", H: "Psychic Surge"},
 	},
-	nickit: {
-		inherit: true,
-		abilities: {0: "Racketeering", 1: "Unburden", H: "Stakeout"},
-	},
-	thievul: {
-		inherit: true,
-		baseStats: {hp: 70, atk: 58, def: 58, spa: 102, spd: 92, spe: 100},
-		abilities: {0: "Sleight of Hand", 1: "Unburden", H: "Stakeout"},
-	},
 	eldegoss: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 100, spa: 80, spd: 120, spe: 60},
@@ -4743,8 +4730,52 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Spidops",
 		eggGroups: ["Bug"],
 	},
-	whitewhale: {
+	corpsetrap: {
+		num: -87,
+		name: "Corpsetrap",
+		types: ["Ghost", "Steel"],
+		baseStats: {hp: 80, atk: 115, def: 90, spa: 95, spd: 65, spe: 85},
+		abilities: {0: "Steelworker", 1: "Intimidate", H: "Flare Boost"},
+		heightm: 1.98,
+		weightkg: 92.1,
+		eggGroups: ["Undiscovered"],
+	},
+	mightyena: {
+		inherit: true,
+		evos: ["Gevauyena"],
+	},
+	gevauyena: {
 		num: -88,
+		name: "Gevauyena",
+		types: ["Dark"],
+		baseStats: {hp: 85, atk: 130, def: 70, spa: 40, spd: 60, spe: 120},
+		abilities: {0: "Intimidate", 1: "Savage Bite", H: "Stakeout"},
+		heightm: 1.80,
+		weightkg: 74,
+		prevo: "Mightyena",
+		eggGroups: ["Field"],
+	},
+	nickit: {
+		inherit: true,
+		abilities: {0: "Racketeering", 1: "Unburden", H: "Stakeout"},
+	},
+	thievul: {
+		inherit: true,
+		evos: ["Arsief"],
+	},
+	arsief: {
+		num: -89,
+		name: "Arsief",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 75, atk: 58, def: 78, spa: 112, spd: 97, spe: 115},
+		abilities: {0: "Sleight of Hand", 1: "Unburden", H: "Stakeout"},
+		heightm: 1.75,
+		weightkg: 74.4,
+		prevo: "Thievul",
+		eggGroups: ["Field"],
+	},
+	whitewhale: {
+		num: -90,
 		name: "White Whale",
 		types: ["Water", "Dark"],
 		gender: "N",
@@ -4757,7 +4788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	irondrill: {
-		num: -89,
+		num: -91,
 		name: "Iron Drill",
 		types: ["Steel", "Fighting"],
 		gender: "N",
