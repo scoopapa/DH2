@@ -361,7 +361,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	emgalala: {
 		num: 21,
-		name: "Congalala",
+		name: "Emgalala",
 		types: ["Grass", "Poison"],
 		gender: "M",
 		baseStats: {hp: 87, atk: 83, def: 89, spa: 106, spd: 104, spe: 61},
