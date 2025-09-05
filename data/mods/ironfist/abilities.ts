@@ -1609,9 +1609,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-end', pokemon, `fallen${this.effectState.hoenn}`, '[silent]');
 		},
 		onModifySpe(spe) {
-			if (this.field.isTerrain('electricterrain')) {
-				return this.chainModify(1 + 0.15 * this.effectState.hoenn);
-			}
+			return this.chainModify(1 + 0.15 * this.effectState.hoenn);
 		},
 		flags: {},
 		name: "Hoenn Lover",
