@@ -2504,7 +2504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fertile Soil",
-		shortDesc: "Inflicts foes with Leech seed on switchin. Single use.",
+		shortDesc: "Inflicts foes with Leech Seed on switchin. Single use.",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
