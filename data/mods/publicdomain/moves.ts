@@ -289,6 +289,35 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+	pixiedust: {
+		name: "Pixie Dust",
+		type: "Grass",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "-1 Spe; clears user's hazards.",
+		priority: 0,
+		flags: {protect: 1, metronome: 1, powder: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Stun Spore", target);
+		},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', '24karatlabubu'];
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Pixie Dust', `[of] ${source}`);
+					success = true;
+				}
+			}
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+	},
 	soursnatch: {
 		accuracy: 100,
 		basePower: 65,
@@ -510,7 +539,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Attack Order",
-		shortDesc: "33% Recoil.",
+		shortDesc: "Has 33% recoil.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
