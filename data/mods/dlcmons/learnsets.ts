@@ -1110,6 +1110,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			willowisp: ["6L1"],
 			torment: ["6L1"],
 			magiccoat: ["6L1"],
+			jumpscare: ["6L1"],
 		},
 	},
 	automent: {
