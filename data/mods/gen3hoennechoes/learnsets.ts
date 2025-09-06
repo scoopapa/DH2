@@ -518,6 +518,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stunspore: ["3L1"],
 			sunnyday: ["3L1"],
 			swagger: ["3L1"],
+			frustration: ["3L1"],
 		},
 	},
 	swanna: {
@@ -636,7 +637,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			shadowball: ["3L1"],
 			sleeptalk: ["3L1"],
 			substitute: ["3L1"],
-			sworddance: ["3L1"],
+			swordsdance: ["3L1"],
 			synthesis: ["3L1"],
 			toxic: ["3L1"],
 			wish: ["3L1"],
