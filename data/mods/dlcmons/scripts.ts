@@ -191,7 +191,6 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 		this.modData('Learnsets', 'zorua').learnset.jumpscare = ['6L1'];
 		this.modData('Learnsets', 'zoroark').learnset.jumpscare = ['6L1'];
 		this.modData('Learnsets', 'hoopa').learnset.jumpscare = ['6L1'];
-		this.modData('Learnsets', 'malich').learnset.jumpscare = ['6L1'];
 		this.modData('Learnsets', 'misdreavus').learnset.jumpscare = ['6L1'];
 		this.modData('Learnsets', 'mismagius').learnset.jumpscare = ['6L1'];
 		this.modData('Learnsets', 'darkrai').learnset.jumpscare = ['6L1'];
