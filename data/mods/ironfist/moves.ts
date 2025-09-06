@@ -2504,7 +2504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fertile Soil",
-		shortDesc: "Inflicts foes with Leech seed on switchin. Single use.",
+		shortDesc: "Inflicts foes with Leech Seed on switchin. Single use.",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
@@ -2515,13 +2515,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'Fertile Soil');
 			},
 			onEntryHazard(pokemon) {
-				if(!pokemon.hasType('Grass')) {
-					if(pokemon.adjacentFoes().length == 0) return;
-					const target = this.sample(pokemon.adjacentFoes());
-					pokemon.addVolatile('leechseed', target);
-					pokemon.side.removeSideCondition('fertilesoil');
-					this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
-				}
+				if (pokemon.hasType('Grass') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				if(pokemon.adjacentFoes().length == 0) return;
+				const target = this.sample(pokemon.adjacentFoes());
+				pokemon.addVolatile('leechseed', target);
+				pokemon.side.removeSideCondition('fertilesoil');
+				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
 			},
 		},
 		secondary: null,
@@ -5024,5 +5023,80 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			this.field.setWeather('sunnyday');
 		}
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
 	},
 };

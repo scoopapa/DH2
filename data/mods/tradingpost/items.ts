@@ -633,7 +633,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 	baseballglove: {
-		name: "Baseball",
+		name: "Baseball Glove",
 		fling: {
 			basePower: 30,
 			effect(pokemon) {
