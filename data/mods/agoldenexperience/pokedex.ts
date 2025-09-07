@@ -2506,22 +2506,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	gourgeist: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 90, def: 122, spa: 45, spd: 88, spe: 84},
 		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistsmall: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 85, def: 122, spa: 45, spd: 88, spe: 99},
 		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistlarge: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 95, def: 122, spa: 45, spd: 88, spe: 69},
 		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistsuper: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 100, def: 122, spa: 45, spd: 88, spe: 54},
 		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	avalugg: {
