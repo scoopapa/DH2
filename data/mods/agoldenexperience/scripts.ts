@@ -1430,6 +1430,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'drifblim').learnset.mysticalfire = ['9L1'];
     this.modData('Learnsets', 'drifblim').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'drifblim').learnset.hindenburg = ['9L1'];
+    this.modData('Learnsets', 'drifblim').learnset.razorwind = ['9L1'];
     this.modData('Learnsets', 'mismagius').learnset.moonblast = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.dualwingbeat = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.throatchop = ['9L1'];
