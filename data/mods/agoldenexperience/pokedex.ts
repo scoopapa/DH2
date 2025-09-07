@@ -847,7 +847,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mantine: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 40, def: 85, spa: 80, spd: 140, spe: 70},
-		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Heavy Weapon"},
+		abilities: {0: "Heavy Weapon", 1: "Water Absorb", H: "Water Veil"},
 	},
 	skarmory: {
 		inherit: true,
@@ -1453,6 +1453,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 90, atk: 100, def: 112, spa: 50, spd: 112, spe: 40},
 		abilities: {0: "Pressure", 1: "Magic Guard", H: "Unnerve"},
 	},
+	pachirisu: {
+		inherit: true,
+		abilities: {0: "Run Away", 1: "Light Power", H: "Volt Absorb"},
+	},
 	buizel: {
 		inherit: true,
 		abilities: {0: "Swift Swim", 1: "Reckless", H: "Water Veil"},
@@ -1534,12 +1538,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	finneon: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Illuminate", H: "Water Veil"},
+		abilities: {0: "Swift Swim", 1: "Light Power", H: "Water Veil"},
 	},
 	lumineon: {
 		inherit: true,
-		baseStats: {hp: 69, atk: 69, def: 86, spa: 74, spd: 86, spe: 91},
-		abilities: {0: "Swift Swim", 1: "Illuminate", H: "Water Veil"},
+		baseStats: {hp: 69, atk: 69, def: 86, spa: 69, spd: 86, spe: 91},
+		abilities: {0: "Swift Swim", 1: "Light Power", H: "Water Veil"},
 	},
 	abomasnow: {
 		inherit: true,
@@ -2457,7 +2461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	carbink: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
+		abilities: {0: "Clear Body", 1: "Night Light", H: "Light Power"},
 	},
 	sliggoo: {
 		inherit: true,
@@ -2486,39 +2490,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	pumpkaboo: {
 		inherit: true,
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	pumpkaboosmall: {
 		inherit: true,
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	pumpkaboolarge: {
 		inherit: true,
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	pumpkaboosuper: {
 		inherit: true,
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeist: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 90, def: 122, spa: 45, spd: 88, spe: 84},
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistsmall: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 85, def: 122, spa: 45, spd: 88, spe: 99},
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistlarge: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 95, def: 122, spa: 45, spd: 88, spe: 69},
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	gourgeistsuper: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 100, def: 122, spa: 45, spd: 88, spe: 54},
-		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
+		abilities: {0: "Night Light", 1: "Light Power", H: "Flash Fire"},
 	},
 	avalugg: {
 		inherit: true,
