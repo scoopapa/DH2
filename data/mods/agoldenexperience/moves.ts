@@ -3413,6 +3413,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		basePower: 70,
 		basePowerCallback(pokemon) {
 			if (pokemon.volatiles['stockpile']?.layers === 3) return move.basePower * 2;
+			return move.basePower;
 		},
 		category: "Special",
 		name: "Ventilation",
