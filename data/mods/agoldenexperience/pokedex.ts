@@ -1797,6 +1797,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 60, atk: 85, def: 69, spa: 80, spd: 69, spe: 87},
 	},
+	herdier: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Slush Rush", H: "Scrappy"},
+	},
+	stoutland: {
+		inherit: true,
+		abilities: {0: "Fur Coat", 1: "Slush Rush", H: "Scrappy"},
+	},
 	purrloin: {
 		inherit: true,
 		abilities: {0: "Racketeering", 1: "Unburden", H: "Prankster"},
@@ -1842,19 +1850,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		evos: ["Unfezant", "Unfezant-F"],
 	},
 	unfezant: {
-		num: 521,
-		name: "Unfezant",
+		inherit: true,
 		baseForme: "M",
 		gender: "M",
-		types: ["Normal", "Flying"],
-		baseStats: {hp: 80, atk: 115, def: 80, spa: 65, spd: 55, spe: 93},
 		abilities: {0: "Intimidate", 1: "Gale Wings", H: "Rivalry"},
-		heightm: 1.2,
-		weightkg: 29,
-		color: "Gray",
-		prevo: "Tranquill",
-		evoLevel: 32,
-		eggGroups: ["Flying"],
 		otherFormes: ["Unfezant-F"],
 		formeOrder: ["Unfezant", "Unfezant-F"],
 	},
@@ -3086,7 +3085,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	grimmsnarl: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 120, def: 75, spa: 75, spd: 85, spe: 60},
-		abilities: {0: "Prankster", 1: "Frisk", H: "Fur Coat"},
 	},
 	obstagoon: {
 		inherit: true,
