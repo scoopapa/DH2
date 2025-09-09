@@ -1,8 +1,12 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	focusinglens: {
-		// TODO
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify(1.5);
+			}
+		},
 		name: "Focusing Lens",
-		shortDesc: "Placeholder",
+		shortDesc: "User's super effective damage is boosted by 50%.",
 	},
 	chromatophores: {
 		// TODO
@@ -10,27 +14,77 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onPrepareHit(source, target, move) {
 			if (move.category !== 'Status') return;
 			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
+			const types = pokemon.getTypes();
+			if (source.getTypes().join() === type) return 
+			let firsttype = types[0]
+			let sectype = types[1]
+			if (type && type !== '???' && source.sectype !== type) {
 				if (!source.addType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Chromatophores');
+				if (types[0] != sectype) {
+					this.add('-start', source, 'typechange', pokemon.getTypes().join(firsttype/type), '[from] ability: Chromatophores');
+				else {
+					this.add('-start', source, 'typechange', pokemon.getTypes().join(firsttype/type), '[from] ability: Chromatophores');
+				}
 			}
 		},
 		shortDesc: "changes secondary type to status move used.",
 	},
 	guidedassault: {
-		// TODO
+		onFoeAfterBoost(boost, target, source, effect) {
+			const pokemon = this.effectState.target;
+			this.add('-activate', pokemon, 'ability: Guided Assault');
+			pokemon.addVolatile('lockon');
+			pokemon.addVolatile('laserfocus');
+		},
+		onAfterBoost(boost, target, source, effect) {
+			const pokemon = this.effectState.target;
+			this.add('-activate', pokemon, 'ability: Guided Assault');
+			pokemon.addVolatile('lockon');
+			pokemon.addVolatile('laserfocus');
+		},
 		name: "Guided Assault",
-		shortDesc: "Placeholder",
+		shortDesc: "User locks on and crits after any stat change occurs."
 	},
 	ripplingsurface: {
-		// TODO
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Rippling Surface", "[of] " + target);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).spreadHit) {
+				this.debug('Rippling Surface neutralize');
+				return this.chainModify(0.5);
+			}
+		},
 		name: "Rippling Surface",
-		shortDesc: "Placeholder",
+		shortDesc: "User cannot be stat dropped, spread moves = 0.5x damage",
 	},
 	dreamcatcher: {
-		// TODO
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.status === 'slp' || target.hasAbility('comatose')) {
+					const damage = this.damage(pokemon.baseMaxhp / 16, pokemon, target);
+					if (damage) {
+						this.heal(damage, target, pokemon);
+					}
+				}
+			}
+		},
 		name: "Dream Catcher",
-		shortDesc: "Placeholder",
+		shortDesc: "User drains 1/16 of foe's max HP if they are asleep.",
 	},
 	archetype: {
 		// From VGC 20XX
@@ -140,9 +194,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Ancient Core",
 	},
 	entanglingroots: {
-		// TODO
+		// partially coded in moves.ts
+		onTryHit(target, source, move) {
+			if (move.id === 'rapidspin' || move.id == 'mortalspin' || move.id === 'defog') {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxvinelash', source, '[from] ability: Entangling Roots'););
+				}
+			}
+		},
 		name: "Entangling Roots",
-		shortDesc: "Placeholder",
+		shortDesc: "If opponent attempts removal, deny and set vines.",
 	},
 	overpoweringmelody: {
 		// TODO
@@ -161,7 +222,37 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	toxicaura: {
 		// TODO
 		name: "Toxic Aura",
-		shortDesc: "Placeholder",
+		onStart(pokemon) {
+			for (const ally of pokemon.alliesAndSelf()) {
+				if (['psn'].includes(ally.status)) {
+					ally.setStatus('tox', pokemon, '[from] ability: Toxic Aura');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn'].includes(pokemon.status)) {
+				pokemon.setStatus('tox', pokemon, '[from] ability: Toxic Aura');
+			}
+		},
+		onAllySwitchIn(pokemon) {
+			if (['psn'].includes(pokemon.status)) {
+				pokemon.setStatus('tox', this.effectState.target, '[from] ability: Toxic Aura');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				pokemon.setStatus('tox', source, '[from] ability: Toxic Aura');
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (!['psn'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				const effectHolder = this.effectState.target;
+				pokemon.setStatus('tox', source, '[from] ability: Toxic Aura');
+			}
+		},
+		shortDesc: "When active: Poison becomes Toxic.",
 	},
 	
 };
