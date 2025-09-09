@@ -917,7 +917,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {snatch: 1, metronome: 1},
 		onHit(pokemon) {
 			const success = !!this.boost({atk: 1, spe: 1});
+			if (pokemon.status === 'brn') {
 			return pokemon.cureStatus() || success;
+			}
 		},
 		secondary: null,
 		target: "self",
@@ -936,7 +938,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {snatch: 1, metronome: 1},
 		onHit(pokemon) {
 			const success = !!this.boost({spa: 1, spe: 1});
+			if (pokemon.status === 'par') {
 			return pokemon.cureStatus() || success;
+			}
 		},
 		secondary: null,
 		target: "self",
@@ -953,13 +957,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
-		onHit(target, source) {
-			if (source.getStat('atk', false, true) >= source.getStat('spa', false, true)) {
-				(this.boost({atk: 1, spe: 1}, source))
-			} else if (source.getStat('spa', false, true) > source.getStat('atk', false, true)) {
-				(this.boost({spa: 1, spe: 1}, source))
+		onHit(pokemon) {
+			const success = !!this.boost({atk: 1, spe: 1});
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+			return pokemon.cureStatus() || success;
 			}
-				source.cureStatus();
 		},
 		secondary: null,
 		target: "self",
