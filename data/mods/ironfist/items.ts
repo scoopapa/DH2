@@ -1062,6 +1062,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.formeChange('Kyogre-Original', this.effect, true);
 			}
 		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.baseSpecies.name === 'Kyogre' && move.id === 'originpulse') {
+				move.accuracy = true;
+				move.type = 'Lemon';
+			}
+		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
 			return true;
