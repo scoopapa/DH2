@@ -745,4 +745,77 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Untested",
 		doublesTier: "DOU",
 	},
+	
+	ironfist: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	victreebelmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	lucariocalmmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	awesomepossum: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	tiredofitowl: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	caracal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	sunbeanprimal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	circall: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	kyogreoriginal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	lawset: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	daiyakuzaorigin: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	princirangmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	ratstagoonnewyorkian: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	spewpamega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	zapmolcuno: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	nosepass: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	girafarig: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	girafarigmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
 };

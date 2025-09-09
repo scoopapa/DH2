@@ -113,4 +113,35 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if(pokemon.metronome >= 26) pokemon.side.win();
 		},
 	},
+	ilovehisui: {
+		effectType: 'ValidatorRule',
+		name: 'I Love Hisui',
+		desc: "Zorua-Hisui can't put Nasty Plot on its moveset. Adds Nasty Plot to Zorua-Hisui's moveset.",
+		onValidateTeam(team, format) {
+			for (const set of team) {
+				if (set.species === 'Zorua-Hisui' && set.moves.some(m => m.id === 'nastyplot')) {
+					return [set.species + ' cannot put Nasty Plot on its moveset.'];
+				}
+			}
+		},
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Zorua-Hisui') return;
+			for (const move of pokemon.moveSlots) {
+				if (move.id === 'nastyplot') return;
+			}
+			const np = this.dex.moves.get('nastyplot');
+			const newMove = {
+				move: np.name,
+				id: np.id,
+				pp: np.pp * 1.6,
+				maxpp: np.pp * 1.6,
+				target: np.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			pokemon.moveSlots[pokemon.moveSlots.length] = newMove;
+			pokemon.baseMoveSlots[pokemon.baseMoveSlots.length] = newMove;
+		},
+	},
 };
