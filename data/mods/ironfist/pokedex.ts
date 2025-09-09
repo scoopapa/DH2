@@ -1718,7 +1718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "M",
 		baseStats: {hp: 76, atk: 100, def: 104, spa: 100, spd: 105, spe: 100},
 		abilities: {0: "Lawbender"},
-		weightkg: 39.2,
+		weightkg: 32.3,
 	},
 	daiyakuzaorigin: {
 		num: -186,
@@ -1730,6 +1730,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate"},
 		requiredItem: "Diamond Heart",
 		changesFrom: "Daiyakuza",
+		weightkg: 142.5,
 	},
 	princirangmega: {
 		num: -185,
@@ -1740,6 +1741,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 105, def: 108, spa: 125, spd: 112, spe: 127},
 		abilities: {0: "Miracle Student"},
 		requiredItem: "Princirangite",
+		weightkg: 86.4,
 	},
 	ratstagoonnewyorkian: {
 		num: -184,
