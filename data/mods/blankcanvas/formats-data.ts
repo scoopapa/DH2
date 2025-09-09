@@ -256,4 +256,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	woolverine: {
 		tier: "BC RU",
 	},
+	combustoad: {
+		tier: "BC RU",
+	},
+	hearthind: {
+		tier: "BC RU",
+	},
+	koiryu: {
+		tier: "BC RU",
+	},
+	pestiligy: {
+		tier: "BC RU",
+	},
+	saxum: {
+		tier: "BC RU",
+	},
+	sascratch: {
+		tier: "BC RU",
+	},
 };
