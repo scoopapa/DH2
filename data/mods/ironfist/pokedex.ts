@@ -1674,10 +1674,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Frisk", 1: "Sand Rush", H: "Stakeout"},
 		weightkg: 19.0,
 	},
-	sunbeanprimal: {
+	solarbeanprimal: {
 		num: -190,
-		species: "Sun Bean-Primal",
-		baseSpecies: "Sun Bean",
+		species: "Solar Bean-Primal",
+		baseSpecies: "Solar Bean",
 		forme: "Primal",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 85, atk: 130, def: 80, spa: 130, spd: 80, spe: 95},
@@ -1729,6 +1729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 110, def: 60, spa: 110, spd: 60, spe: 110},
 		abilities: {0: "Intimidate"},
 		requiredItem: "Diamond Heart",
+		changesFrom: "Daiyakuza",
 	},
 	princirangmega: {
 		num: -185,
