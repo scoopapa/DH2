@@ -198,7 +198,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onTryHit(target, source, move) {
 			if (move.id === 'rapidspin' || move.id == 'mortalspin' || move.id === 'defog') {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('gmaxvinelash', source, '[from] ability: Entangling Roots'););
+					side.addSideCondition('gmaxvinelash', source, '[from] ability: Entangling Roots');
 				}
 			}
 		},
