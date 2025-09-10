@@ -364,7 +364,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
-					if (pokemon.hp && pokemon.side.removeSideCondition(condition) && !target.hasAbility('entanglingroots') {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition) && !target.hasAbility('entanglingroots')) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 					}
 				}
