@@ -14634,7 +14634,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			willowisp: ["9L1"],
 			wingattack: ["9L1"],
 			wingedblade: ["9L1"],
-			yoshi’sisland: ["9L1"],
+			yoshisisland: ["9L1"],
 			zapcannon: ["9L1"],
 			triplerkick: ["9L1"],
 			justthebirds: ["9L1"],
