@@ -3444,7 +3444,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sheercold: ["9L1"],
 			snowscape: ["9L1"],
 			mist: ["9L1"],
-			frosthbreath: ["9L1"],
+			frostbreath: ["9L1"],
 			powdersnow: ["9L1"],
 			ancientpower: ["9L1"],
 			rockthrow: ["9L1"],
