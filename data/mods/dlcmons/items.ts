@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -1,
-		gen: 9,
+		gen: 6,
 		desc: "If held by a Lunatone, this item allows it to Mega Evolve in battle.",
 	},
 	solrockite: {
@@ -24,7 +24,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2,
-		gen: 9,
+		gen: 6,
 		desc: "If held by a Solrock, this item allows it to Mega Evolve in battle.",
 	},
 	floatzelite: {
@@ -38,7 +38,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2,
-		gen: 9,
+		gen: 6,
 		desc: "If held by a Floatzel, this item allows it to Mega Evolve in battle.",
 	},
 };
