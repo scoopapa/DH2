@@ -3450,7 +3450,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			rockthrow: ["9L1"],
 			rocktomb: ["9L1"],
 			rockblast: ["9L1"],
-			rockslide: ["9L1"],
 			fissure: ["9L1"],
 			slash: ["9L1"],
 			scratch: ["9L1"],
