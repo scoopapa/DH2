@@ -411,7 +411,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 			for (const sideCondition of removeAll) {
-				if (source.side.removeSideCondition(sideCondition) && !target.hasAbility('entanglingroots') {
+				if (source.side.removeSideCondition(sideCondition) && !target.hasAbility('entanglingroots')) {
 					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
