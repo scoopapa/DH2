@@ -22,7 +22,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (!source.addType(type)) return;
 				if (types[0] != sectype) {
 					this.add('-start', source, 'typechange', pokemon.getTypes().join(firsttype/type), '[from] ability: Chromatophores');
-				else {
+				} else {
 					this.add('-start', source, 'typechange', pokemon.getTypes().join(firsttype/type), '[from] ability: Chromatophores');
 				}
 			}
