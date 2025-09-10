@@ -153,19 +153,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onPrepareHit(source, target, move) {
-			if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
+			if (source.baseSpecies.baseSpecies === 'Iron Fist') {
+				if (!move.flags['punch']) this.actions.useMove("Iron Fist", source, target);
+			} else if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;
 			}
 		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.baseSpecies.baseSpecies === 'Iron Fist' && move.flags['punch']) {
+				this.debug('Punching Glove boost');
+				return this.chainModify([4506, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Iron Fist' && move.flags['punch']) delete move.flags['contact'];
+		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
+			if ((target.baseSpecies.baseSpecies === 'Iron Fist') || !target) return;
 			if (target.volatiles['ingrain'] || target.volatiles['smackdown'] || this.field.getPseudoWeather('gravity')) return;
 			if (move.type === 'Ground' && target.hasType('Flying')) return 0;
 		},
 		// airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded
-		onModifySpe(spe) {
-			return this.chainModify(0.5);
+		onModifySpe(spe, source) {
+			if (source.baseSpecies.baseSpecies !== 'Iron Fist') return this.chainModify(0.5);
 		},
 		flags: {},
 		name: "Iron Fist",
@@ -1031,5 +1044,130 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
+	},
+
+	//slate 11
+	originalitem: {
+		name: "Original Item",
+		shortDesc: "Kyogre: becomes Kyogre-Original, Origin Pulse can't miss and becomes Lemon-type.",
+		fling: {
+			basePower: 30,
+			effect(target) {
+				target.addVolatile('inexplicablesouvenir');
+			},
+		},
+		onSwitchInPriority: -1,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre' && !pokemon.transformed) {
+				pokemon.formeChange('Kyogre-Original', this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.baseSpecies.name === 'Kyogre' && move.id === 'originpulse') {
+				move.accuracy = true;
+				move.type = 'Lemon';
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
+			return true;
+		},
+		itemUser: ["Kyogre"],
+	},
+	diamondheart: {
+		name: "Diamond Heart",
+		shortDesc: "Transforms Daiyakuza to Daiyakuza-Origin.",
+		itemUser: ["Daiyakuza"],
+		onTryBoostPriority: 1,
+		onTryBoost(boost, target, source, effect) {
+			if (item.itemUser !== source.baseSpecies.baseSpecies || (source && target === source)) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add('-fail', target, 'unboost', '[from] item: Diamond Heart', `[of] ${target}`);
+			}
+		},
+		onTakeItem(item, source) {
+			if (item.itemUser === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	victreebelite: {
+		name: "Victreebelite",
+		shortDesc: "If held by a Victreebel, this item allows it to Mega Evolve in battle.",
+		megaStone: "Victreebel-Mega",
+		megaEvolves: "Victreebel",
+		itemUser: ["Victreebel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	lucarionite: {
+		name: "Lucarionite",
+		spritenum: 594,
+		megaStone: "Lucario-Calm-Mega",
+		megaEvolves: "Lucario-Calm",
+		itemUser: ["Lucario-Calm"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	princirangite: {
+		name: "Princirangite",
+		shortDesc: "If held by a Princirang, this item allows it to Mega Evolve in battle.",
+		megaStone: "Princirang-Mega",
+		megaEvolves: "Princirang",
+		itemUser: ["Princirang"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	spewpanite: {
+		name: "Spewpanite",
+		shortDesc: "If held by a Spewpa, this item allows it to Mega Evolve in battle.",
+		megaStone: "Spewpa-Mega",
+		megaEvolves: "Spewpa",
+		itemUser: ["Spewpa"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	etigirafarigite: {
+		name: "Etigirafarigite",
+		shortDesc: "If held by a Girafarig, this item allows it to Mega Evolve in battle.",
+		megaStone: "Girafarig-Mega",
+		megaEvolves: "Girafarig",
+		itemUser: ["Girafarig"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	redorb: {
+		name: "Red Orb",
+		shortDesc: "If held by a Solar Bean, this item triggers its Primal Reversion in battle.",
+		spritenum: 390,
+		onSwitchInPriority: -1,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Solar Bean' && !pokemon.transformed) {
+				pokemon.formeChange('Solar Bean-Primal', this.effect, true);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solar Bean') return false;
+			return true;
+		},
+		itemUser: ["Solar Bean"],
+		isPrimalOrb: true,
 	},
 }

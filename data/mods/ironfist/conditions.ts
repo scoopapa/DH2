@@ -226,6 +226,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			   !target.hasAbility('rkssystem') && 
 			   !target.hasAbility('fashionicon') && 
 			   !target.hasAbility('monstermash') && 
+			   !target.hasAbility('awesomeability') && 
 			   !target.hasType('Dark') &&
 			   !target.hasType('Ghost') &&
 			   !target.hasType('Normal')) {
