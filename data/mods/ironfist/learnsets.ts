@@ -14637,8 +14637,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			yoshisisland: ["9L1"],
 			zapcannon: ["9L1"],
 			triplerkick: ["9L1"],
-			justthebirds: ["9L1"],
-			thesequel: ["9L1"],
+			justthebirdsthesequel: ["9L1"],
 		},
 	},
 	nosepass: {

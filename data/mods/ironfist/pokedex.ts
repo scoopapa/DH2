@@ -1640,7 +1640,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 31.0,
 		requiredItem: "Victreebelite",
 	},
-	lucariomegacalm: {
+	lucariocalmmega: {
 		num: -194,
 		name: "Lucario-Calm-Mega",
 		baseSpecies: "Lucario-Calm",
