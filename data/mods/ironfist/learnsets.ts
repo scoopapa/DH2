@@ -14244,7 +14244,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hammerarm: ["9L1"],
 			coaching: ["9L1"],
 			dragoncheer: ["9L1"],
-			youwantfun?: ["9L1"],
+			youwantfun: ["9L1"],
 			knockoff: ["9L1"],
 			expandingforce: ["9L1"],
 			psychicnoise: ["9L1"],
