@@ -1623,7 +1623,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	ironfist: {
 		num: -196,
-		species: "Iron Fist",
+		name: "Iron Fist",
 		types: ["Dragon", "Fighting"],
 		baseStats: {hp: 96, atk: 104, def: 82, spa: 74, spd: 96, spe: 118},
 		abilities: {0: "Quark Drive", H: "Iron Fist"},
@@ -1631,7 +1631,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	victreebelmega: {
 		num: -195,
-		species: "Victreebel-Mega",
+		name: "Victreebel-Mega",
 		baseSpecies: "Victreebel",
 		forme: "Mega",
 		types: ["Grass", "Poison"],
@@ -1640,9 +1640,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 31.0,
 		requiredItem: "Victreebelite",
 	},
-	lucariomegacalm: {
+	lucariocalmmega: {
 		num: -194,
-		species: "Lucario-Calm-Mega",
+		name: "Lucario-Calm-Mega",
 		baseSpecies: "Lucario-Calm",
 		forme: "Mega",
 		types: ["Fighting", "Ice", "Steel"],
@@ -1653,14 +1653,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	awesomepossum: {
 		num: -193,
-		species: "awesome possum",
+		name: "awesome possum",
 		types: ["Stellar"],
 		baseStats: {hp: 98, atk: 108, def: 106, spa: 108, spd: 106, spe: 74},
 		abilities: {0: "awesomeability", H: "Infiltrator"},
 	},
 	tiredofitowl: {
 		num: -192,
-		species: "Tired of it Owl",
+		name: "Tired of it Owl",
 		types: ["Silly", "Flying"],
 		baseStats: {hp: 95, atk: 95, def: 105, spa: 70, spd: 105, spe: 95},
 		abilities: {0: "Just the Birds", 1: "Sticky Hold", H: "Water Absorb", S: "Fishy Surge"},
@@ -1668,7 +1668,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	caracal: {
 		num: -191,
-		species: "Caracal",
+		name: "Caracal",
 		types: ["Fighting", "Silly"],
 		baseStats: {hp: 105, atk: 118, def: 90, spa: 70, spd: 90, spe: 72},
 		abilities: {0: "Frisk", 1: "Sand Rush", H: "Stakeout"},
@@ -1676,7 +1676,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	solarbeanprimal: {
 		num: -190,
-		species: "Solar Bean-Primal",
+		name: "Solar Bean-Primal",
 		baseSpecies: "Solar Bean",
 		forme: "Primal",
 		types: ["Grass", "Fire"],
@@ -1687,7 +1687,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	circall: {
 		num: -189,
-		species: "Circall",
+		name: "Circall",
 		types: ["Fairy", "Silly", "Flying"],
 		baseStats: {hp: 88, atk: 48, def: 108, spa: 48, spd: 108, spe: 84},
 		abilities: {0: "Friend Guard", 1: "Healer", H: "Bloodline: Greatest Achievement"},
@@ -1695,7 +1695,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	warioforbiddenone: {
 		num: -189,
-		species: "Wario-Forbidden-One",
+		name: "Wario-Forbidden-One",
 		types: ["Poison", "Bug", "Dark"],
 		baseStats: {hp: 166, atk: 176, def: 76, spa: 166, spd: 56, spe: 76},
 		abilities: {0: "Bloodline: Greatest Achievement"},
@@ -1703,7 +1703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kyogreoriginal: {
 		num: -188,
-		species: "Kyogre-Original",
+		name: "Kyogre-Original",
 		baseSpecies: "Kyogre",
 		forme: "Original",
 		types: ["Water"],
@@ -1713,7 +1713,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lawset: {
 		num: -187,
-		species: "Lawset",
+		name: "Lawset",
 		types: ["Ground"],
 		gender: "M",
 		baseStats: {hp: 76, atk: 100, def: 104, spa: 100, spd: 105, spe: 100},
@@ -1722,7 +1722,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	daiyakuzaorigin: {
 		num: -186,
-		species: "Daiyakuza-Origin",
+		name: "Daiyakuza-Origin",
 		baseSpecies: "Daiyakuza",
 		forme: "Origin",
 		types: ["Normal"],
@@ -1734,7 +1734,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	princirangmega: {
 		num: -185,
-		species: "Princirang-Mega",
+		name: "Princirang-Mega",
 		baseSpecies: "Princirang",
 		forme: "Mega",
 		types: ["Fairy"],
@@ -1745,7 +1745,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ratstagoonnewyorkian: {
 		num: -184,
-		species: "Ratstagoon-NewYorkian",
+		name: "Ratstagoon-NewYorkian",
 		types: ["Poison", "Steel"],
 		baseStats: {hp: 93, atk: 113, def: 101, spa: 65, spd: 83, spe: 95},
 		abilities: {0: "Steelworker", 1: "Merciless", H: "Feels Like Home"},
@@ -1753,7 +1753,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	spewpamega: {
 		num: -183,
-		species: "Spewpa-Mega",
+		name: "Spewpa-Mega",
 		baseSpecies: "Spewpa",
 		forme: "Mega",
 		types: ["Bug", "Ghost"],
@@ -1764,7 +1764,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zapmolcuno: {
 		num: -182,
-		species: "Zapmolcuno",
+		name: "Zapmolcuno",
 		types: ["Ice", "Electric", "Fire", "Flying"],
 		baseStats: {hp: 123, atk: 133, def: 103, spa: 133, spd: 123, spe: 63},
 		abilities: {0: "Buy 1 get 2 free"},
@@ -1773,22 +1773,23 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nosepass: {
 		inherit: true,
 		num: -181,
-		species: "Nosepass",
+		name: "Nosepass",
 		types: ["Water", "Bug"],
 		baseStats: {hp: 78, atk: 78, def: 133, spa: 78, spd: 133, spe: 33},
 		abilities: {0: "Hoenn Sniffer"},
+		evos: null,
 	},
 	girafarig: {
 		inherit: true,
 		num: -180,
-		species: "Girafarig",
+		name: "Girafarig",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 70, atk: 80, def: 65, spa: 90, spd: 65, spe: 85},
 		abilities: {0: "Inner Focus", 1: "Early Bird", H: "Sap Sipper", S: "Psychic Surge"},
 	},
 	girafarigmega: {
 		num: -179,
-		species: "Girafarig-Mega",
+		name: "Girafarig-Mega",
 		baseSpecies: "Girafarig",
 		forme: "Mega",
 		types: ["Normal", "Psychic", "Silly"],
