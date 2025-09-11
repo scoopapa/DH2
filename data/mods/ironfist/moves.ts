@@ -4012,7 +4012,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	justhebirdsthesequel: {
+	justthebirdsthesequel: {
 		name: "Just The Birds: The Sequel",
 		type: "Flying",
 		category: "Special",
