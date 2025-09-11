@@ -80,7 +80,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Bisharp-Savage",
 		baseSpecies: "Bisharp",
 		forme: "Savage",
-		types: ["Fighting", "Steel"],
+		types: ["Grass", "Steel"],
 		baseStats: {hp: 90, atk: 110, def: 135, spa: 40, spd: 80, spe: 65},
 		abilities: {0: "Bulletproof", 1: "Technician", H: "Leaf Guard"},
 		heightm: 1.6,
