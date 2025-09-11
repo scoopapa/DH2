@@ -441,4 +441,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Mineral"],
 	},
+	// slate 6
+	duskull: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Cursed Body", H: "Frisk"},
+	},
+	dusclops: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Cursed Body", H: "Frisk"},
+	},
+	dusknoir: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 100, def: 135, spa: 85, spd: 135, spe: 35},
+		abilities: {0: "Pressure", 1: "Sheer Force", H: "Frisk"},
+	},
+	klinklang: {
+		inherit: true,
+		abilities: {0: "Plus", 1: "Minus", H: "Technician"},
+	},
+	luxray: {
+		inherit: true,
+		baseStats: {hp: 91, atk: 120, def: 79, spa: 95, spd: 79, spe: 70},
+	},
 };
