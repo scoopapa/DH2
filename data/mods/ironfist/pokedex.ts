@@ -1209,7 +1209,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -120,
 		types: ["Grass", "Rock"],
 		baseStats: {hp: 85, atk: 50, def: 75, spa: 110, spd: 110, spe: 70},
-		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Drought"},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Harvest"},
 		weightkg: 8.5,
 	},
 	
