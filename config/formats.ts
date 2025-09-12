@@ -3449,6 +3449,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: "National Dex",
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Open Team Sheets', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
 		banlist: [
+			'Dragonite',
 			'Tapu Koko', 'Tapu Lele', 'Tapu Bulu', 'Tapu Fini', 'Zacian', 'Zamazenta', 'Deoxys',
 		],
 		onValidateTeam(team, format) {
