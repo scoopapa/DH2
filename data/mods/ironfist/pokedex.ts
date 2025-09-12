@@ -1067,7 +1067,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -104,
 		types: ["Fighting", "Ice", "Steel"],
 		baseStats: {hp: 70, atk: 115, def: 70, spa: 105, spd: 70, spe: 105},
-		abilities: {0: "Steadfast", 1: "Inner Focus", H: "Justified"},
+		abilities: {0: "Steadfast", 1: "Sheer Force", H: "Justified"},
 		weightkg: 47.0,
 	},
 	nedontrol: {
