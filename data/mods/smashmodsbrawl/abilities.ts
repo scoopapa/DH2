@@ -365,4 +365,39 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	squall: {
+		shortDesc: "+1 Atk if hit by a Fire or Ice move or Tailwind begins; Fire & Ice immunity.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Ice' || move.type === 'Fire')) {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Squall');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectState.target || target.side !== source.side) return;
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Squall",
+		rating: 4,
+	},
+	doomer: {
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['futuremove']) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Doomer",
+		shortDesc: "This Pokemon's future moves have 1.2x power.",
+	},
 };
