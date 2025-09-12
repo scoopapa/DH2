@@ -294,5 +294,14 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 		this.modData('Learnsets', 'hydreigon').learnset.petrify = ['6L1'];
 		this.modData('Learnsets', 'yveltal').learnset.petrify = ['6L1'];
 		this.modData('Learnsets', 'jynx').learnset.petrify = ['6L1'];
+		// slate 6
+		this.modData('Learnsets', 'dusknoir').learnset.thunderbolt = ['6L1'];
+		this.modData('Learnsets', 'dusknoir').learnset.thunder = ['6L1'];
+		this.modData('Learnsets', 'dusknoir').learnset.flamethrower = ['6L1'];
+		this.modData('Learnsets', 'dusknoir').learnset.fireblast = ['6L1'];
+		this.modData('Learnsets', 'dusknoir').learnset.slackoff = ['6L1'];
+		this.modData('Learnsets', 'klinklang').learnset.bulldoze = ['6L1'];
+		this.modData('Learnsets', 'luxray').learnset.agility = ['6L1'];
+		this.modData('Learnsets', 'luxray').learnset.jumpscare = ['6L1'];
 	},
 };

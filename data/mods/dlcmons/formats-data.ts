@@ -774,4 +774,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hugfish: {tier: "Kalos"},
 	malich: {tier: "Kalos"},
 	automent: {tier: "Kalos"},
+
+	// Slate 6
+	duskull: {tier: "Kalos (NFE)"},
+	dusclops: {tier: "Kalos (NFE)"},
+	dusknoir: {tier: "Kalos"},
+
+	klink: {tier: "Kalos (NFE)"},
+	klang: {tier: "Kalos (NFE)"},
+	klinklang: {tier: "Kalos"},
+	
+	shinx: {tier: "Kalos (NFE)"},
+	luxio: {tier: "Kalos (NFE)"},
+	luxray: {tier: "Kalos"},
 };
