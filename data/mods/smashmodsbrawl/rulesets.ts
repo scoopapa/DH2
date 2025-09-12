@@ -68,7 +68,9 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			for (const pokemon of this.getAllPokemon()) {
 			  if (pokemon.species.baseSpecies !== 'Centiskorch' ||
 					pokemon.species.baseSpecies !== 'Zapdos' ||
-					pokemon.species.baseSpecies !== 'Big Crammer') {
+					pokemon.species.baseSpecies !== 'Big Crammer' ||
+				  	pokemon.species.baseSpecies !== 'Houndoom' ||
+				  	pokemon.species.baseSpecies !== 'Garbodor') {
 				  pokemon.canTerastallize = null;
 				}
 			}
