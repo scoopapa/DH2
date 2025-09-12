@@ -524,6 +524,247 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -23,
 	},
 
+	// Slate 2
+
+	fendente: { // for Hisuian Kabutops
+		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
+			if (!move || !target) return;
+			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
+			if (move.flags['slicing']) {
+				this.boost({def: 1}, source);
+			}
+		},
+		onModifyCritRatio(critRatio, source, target, move) {
+			if (move.flags['slicing'] && source.hp <= source.maxhp / 3) return 5;
+		},
+		name: "Fendente",
+		rating: 3,
+		num: -24,
+	},
+	canopy: { // for Aumooras
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Canopy boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Canopy boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Canopy",
+		shortDesc: "Boosts Grass-type moves by 1.3x.",
+		rating: 3,
+		num: -25,
+	},
+	powersurge: { // for Tapu Kiki
+		onStart(pokemon) {
+			if (this.field.terrain) {
+				this.add('-ability', pokemon, 'Power Surge');
+				this.field.clearTerrain();
+				for (const target of pokemon.side.active) {
+					target.addVolatile('powersurge');
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} is boosted by Power Surge!`);
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				this.debug('Power Surge boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('powersurge');
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name}'s Power Surge fizzled out!`);
+			},
+			onAfterMove(pokemon, target, move) {
+				pokemon.removeVolatile('powersurge');
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} used up its Power Surge!`);
+			},
+		},
+		name: "Power Surge",
+		rating: 3,
+		num: -26,
+	},
+	slimetime: { // for Mr. Slime
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.active) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Slime Time', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Slime Time",
+		rating: -1,
+		num: -27,
+	},
+	inspirit: { // for Johtonian Shiftry
+		shortDesc: "On switch-in: swaps type with ally, boosts a stat based on ally's best.",
+		onStart(pokemon) {
+			if (pokemon.species && (pokemon.species.num === 493 || pokemon.species.num === 773)) return;
+			if (pokemon.terastallized) return;
+			for (const ally of pokemon.adjacentAllies()) {
+				// see if you can swap types
+				if (ally.species && (ally.species.num === 493 || ally.species.num === 773)) continue;
+				if (ally.terastallized) continue;
+
+				// figure out the types
+				let newAllyBaseTypes = pokemon.getTypes(true).filter(type => type !== '???');
+				let newAllyAddedType = pokemon.addedType;
+				let newSourceBaseTypes = ally.getTypes(true).filter(type => type !== '???');
+				let newSourceAddedType = ally.addedType;
+
+				// reject typelessness
+				if (!newSourceBaseTypes.length) {
+					if (ally.addedType) {
+						newSourceBaseTypes = ['Normal'];
+					} else {
+						continue;
+					}
+				}
+				if (!newAllyBaseTypes.length) {
+					if (pokemon.addedType) {
+						newAllyBaseTypes = ['Normal'];
+					} else {
+						continue;
+					}
+				}
+
+				// all checks passed, so change type now
+				this.add('-ability', pokemon, 'Inspirit');
+				this.add('-message', `${pokemon.name} switched types with its partner!`);
+
+				pokemon.setType(newSourceBaseTypes);
+				pokemon.addedType = newSourceAddedType;
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+
+				ally.setType(newAllyBaseTypes);
+				ally.addedType = newAllyAddedType;
+				this.add('-start', ally, 'typechange', ally.getTypes(true).join('/'), '[silent]');
+
+				// and... this is just easier okay ;-;
+				pokemon.knownType = true;
+				ally.knownType = true;
+
+				const bestStat = ally.getBestStat(false, true);
+				this.boost({[bestStat]: 1}, pokemon, null, true);
+
+				// not that it matters right now, but let's only do it once in Triples or similar
+				break;
+			}
+		},
+		flags: {},
+		name: "Inspirit",
+		rating: 0, // Showdown does this if there's no singles effect so I guess I should match it
+		num: -28,
+	},
+	noblepotential: { // for Zavender
+		shortDesc: "On switch-in, this Pokémon's highest stat is raised by 1 stage. Once per battle.",
+		onStart(pokemon) {
+			if (pokemon.nobleBoost) return;
+			pokemon.nobleBoost = true;
+			const bestStat = pokemon.getBestStat(true, true);
+			this.boost({[bestStat]: 1}, pokemon);
+		},
+		flags: {},
+		name: "Noble Potential",
+		rating: 3.5,
+		num: -29,
+	},
+	batteryleak: { // for Chained Charjabug and Charjouleak
+		shortDesc: "30% chance a Pokémon making contact with this Pokémon will be badly poisoned.",
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('tox', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Battery Leak",
+		rating: 2,
+		num: -30,
+	},
+	twominded: { // copied from M4A; for the Riboxys family
+		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
+		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
+		onAfterBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'twominded') return;
+			let activated = false;
+			const twoMindedBoost: SparseBoostsTable = {};
+			if (boost.spa) {
+				twoMindedBoost.atk = -1 * boost.spa;
+				activated = true;
+			}
+			if (boost.spd) {
+				twoMindedBoost.def = -1 * boost.spd;
+				activated = true;
+			}
+			if (boost.atk) {
+				twoMindedBoost.spa = -1 * boost.atk;
+				activated = true;
+			}
+			if (boost.def) {
+				twoMindedBoost.spd = -1 * boost.def;
+				activated = true;
+			}
+			if (activated === true) {
+				this.add('-ability', target, 'Two-Minded');
+				this.boost(twoMindedBoost, target, target, null, true);
+			}
+		},
+		name: "Two-Minded",
+		rating: 4,
+		num: -31,
+	},
+	archetype: { // for Spirited Away
+		shortDesc: "Lowering a target's stat boosts this Pokémon the same amount.",
+		onAnyAfterBoost(boost, target, source, effect) {
+			const pokemon = this.effectState.target;
+			if (pokemon === target || pokemon !== source) return;
+			const positiveBoosts: Partial<BoostsTable> = {};
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					positiveBoosts[i] = -1 * boost[i];
+				}
+			}
+			if (Object.keys(positiveBoosts).length < 1) return;
+			this.boost(positiveBoosts, pokemon);
+		},
+		flags: {},
+		name: "Archetype",
+		rating: 3,
+		num: -32,
+	},
+
 // modded canon Abilities
 
 	zenmode: { // modded for Kalosian Qwilfish line
