@@ -91,12 +91,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem: false,
 		zMove: true,
 		onSwitchIn(pokemon) {
-			if (pokemon.side.sideConditions['dynamaxused']) {
+			const teraMax = ['centiskorch', 'garbodor'].includes(pokemon.species.name);
+			if (pokemon.side.sideConditions['dynamaxused'] && teraMax) {
 				pokemon.side.dynamaxUsed = true;
 			} else {
 				pokemon.side.dynamaxUsed = false;				
 			}
-			if (pokemon.gigantamax && pokemon.side.sideConditions['gmaxused']) {
+			if (pokemon.gigantamax && pokemon.side.sideConditions['gmaxused'] && teraMax) {
 				pokemon.addVolatile('dynamax');
 			}
 		},
