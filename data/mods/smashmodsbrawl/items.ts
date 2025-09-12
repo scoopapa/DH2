@@ -328,4 +328,39 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+ 	hyperpotion: {
+		name: "Hyper Potion",
+		spritenum: 713,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			const bp = move.basePower;
+			if (bp >= 100) {
+			 this.heal(120);
+			  target.useItem();
+			}
+		},
+		num: -1000,
+		gen: 2,
+		desc: "Holder heals 120 HP after being hit by a 100+ BP move.",
+	},
+	sugarbag: {
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Sugar Bag');
+			this.hint("Sugar Bag!");
+		},
+		onModifySpe(spe, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Sugar Bag",
+		fling: {
+			basePower: 30,
+		},
+		desc: "Holder's Speed is 1.5x the first turn it comes in.",
+		num: -1,
+		gen: 4,
+	},
 };
