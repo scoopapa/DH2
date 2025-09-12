@@ -113,19 +113,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if(pokemon.metronome >= 26) pokemon.side.win();
 		},
 	},
-	ilovehisui: {
-		effectType: 'ValidatorRule',
-		name: 'I Love Hisui',
+	ilovehisuirule: {
+		effectType: 'Rule',
+		name: 'I Love Hisui Rule',
 		desc: "Zorua-Hisui can't put Nasty Plot on its moveset. Adds Nasty Plot to Zorua-Hisui's moveset.",
 		onValidateTeam(team, format) {
 			for (const set of team) {
-				if (set.species === 'Zorua-Hisui' && set.moves.some(m => m.id === 'nastyplot')) {
+				if (set.species === 'Zorua-Hisui' && set.moves.some(m => m === 'Nasty Plot')) {
 					return [set.species + ' cannot put Nasty Plot on its moveset.'];
 				}
 			}
 		},
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zorua-Hisui') return;
+		onSwitchIn(pokemon) {
+			if (pokemon.species.id !== 'zoruahisui') return;
 			for (const move of pokemon.moveSlots) {
 				if (move.id === 'nastyplot') return;
 			}
@@ -142,6 +142,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			};
 			pokemon.moveSlots[pokemon.moveSlots.length] = newMove;
 			pokemon.baseMoveSlots[pokemon.baseMoveSlots.length] = newMove;
+		},
+	},
+	circallrule: {
+		name: "Circall Rule",
+		effectType: "Rule",
+		desc: `Circall with a special moveset transforms.`,
+		onSwitchIn(pokemon) {
+			if (pokemon.species.id === 'circall' && 
+				pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
+				pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
+				pokemon.baseMoves.indexOf('wariopicrosspuzzle4g') >= 0 &&
+				pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
+				pokemon.hasAbility('bloodlinegreatestachievement')) {
+				pokemon.formeChange('Wario-Forbidden-One', true);
+			}
 		},
 	},
 };

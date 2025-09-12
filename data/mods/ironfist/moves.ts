@@ -3933,6 +3933,31 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	
 	//slate 11
+	dragonflurry: {
+		name: "Dragon Flurry",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 25,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits 2-5 times. 5th use: hits 5 times.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Comet Punch", target);
+		},
+		multihit: [2, 5],
+		onModifyMove(move, pokemon) {
+			if (pokemon.flurry >= 5) move.multihit = 5;
+		},
+		onAfterMove(pokemon) {
+			if (!pokemon.flurry) pokemon.flurry = 0;
+			pokemon.flurry ++;
+		},
+		secondary: null,
+		target: "normal",
+	},
 	awesomemove: {
 		name: "awesomemove",
 		type: "Stellar",
@@ -3987,7 +4012,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	justhebirdsthesequel: {
+	justthebirdsthesequel: {
 		name: "Just The Birds: The Sequel",
 		type: "Flying",
 		category: "Special",
@@ -4104,6 +4129,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "No additional effect.",
 		accuracy: 80,
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+			case 'acidrain':
+				move.accuracy = 50;
+				break;
+			}
+		},
 		secondary: null,
 	},
 	magnitude: {
@@ -4246,10 +4285,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
 	},
-	magnitude: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
-	},
 	muddywater: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
@@ -4257,23 +4292,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	surf: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
-	},
-	hurricane: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'raindance':
-			case 'primordialsea':
-				move.accuracy = true;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'acidrain':
-				move.accuracy = 50;
-				break;
-			}
-		},
 	},
 	thunder: {
 		inherit: true,

@@ -1703,7 +1703,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "awesomeability",
 		shortDesc: "This Pokemon's Speed is doubled in weather/terrain; immunity to it.",
 	},
-	bloodlinegreatestacheivement: {
+	bloodlinegreatestachievement: {
 		onStart(pokemon) {
 			for (const move of pokemon.moveSlots) {
 				if (move.id === 'greatestacheivement') return;
@@ -1723,7 +1723,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.baseMoveSlots[pokemon.baseMoveSlots.length] = newMove;
 		},
 		flags: {},
-		name: "Bloodline: Greatest Acheivement",
+		name: "Bloodline: Greatest Achievement",
 		shortDesc: "This Pokemon has Greatest Acheivement as an additional moveslot.",
 	},
 	originalsea: {

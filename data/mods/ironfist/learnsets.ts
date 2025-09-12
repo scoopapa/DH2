@@ -3,6 +3,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			wideguard: ["9L1"],
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			acidarmor: ["9L1"],
 			bodypress: ["9L1"],
@@ -242,6 +243,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	silcoon: {
 		learnset: {
 			inherit: true,
+			walkthedog: ["9L1"],
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
 			hoenn: ["9L1"],
@@ -423,6 +426,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	bramblin: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			absorb: ["9L1"],
 			astonish: ["9L1"],
@@ -484,6 +488,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	anarlvet: {
 		learnset: {
+			magnitude: ["9L1"],
 			velvetblade: ["9L1"],
 			bitterblade: ["9L1"],
 			leafblade: ["9L1"],
@@ -806,6 +811,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	microwave: {
 		learnset: {
+			magnitude: ["9L1"],
 			agility: ["9L1"],
 			helpinghand: ["9L1"],
 			bodyslam: ["9L1"],
@@ -1123,6 +1129,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	sylveon: {
 		learnset: {
 			inherit: true,
+			walkthedog: ["9L1"],
 			trans: ["9L1"],
 			clash: ["9L1"],
 			alluringvoice: ["9L1"],
@@ -1278,6 +1285,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	celesteela: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			absorb: ["9L1"],
 			acrobatics: ["9L1"],
@@ -1445,6 +1453,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	archeops: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -1561,6 +1570,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	runerigus: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			allyswitch: ["9L1"],
@@ -1646,6 +1656,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	crabominable: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			fish: ["9L1"],
 			amnesia: ["9L1"],
 			attract: ["9L1"],
@@ -1858,6 +1869,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	wyrdeer: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			acidrain: ["9L1"],
 			clash: ["9L1"],
 			agility: ["9L1"],
@@ -1998,6 +2010,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	goomba: {
 		learnset: {
 			trans: ["9L1"],
+			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			clash: ["9L1"],
@@ -2101,6 +2114,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	fridgile: {
 		learnset: {
 			weatherball: ["9L1"],
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			auroraveil: ["9L1"],
 			shoreup: ["9L1"],
@@ -2162,6 +2176,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			trans: ["9L1"],
 			clash: ["9L1"],
+			walkthedog: ["9L1"],
 			lemonthrow: ["9L1"],
 			youwantfun: ["9L1"],
 			airslash: ["9L1"],
@@ -3292,6 +3307,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	hitmontop: {
 		learnset: {
 			inherit: true,
+			walkthedog: ["9L1"],
+			magnitude: ["9L1"],
 			acidrain: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
@@ -3654,6 +3671,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	drigike: {
 		learnset: {
+			magnitude: ["9L1"],
 			diamondstorm: ["9L1"],
 			wideguard: ["9L1"],
 			helpinghand: ["9L1"],
@@ -4144,6 +4162,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	tangetteeternal: {
 		learnset: {
+			magnitude: ["9L1"],
 			absorb: ["9L1"],
 			aerialace: ["9L1"],
 			amnesia: ["9L1"],
@@ -4436,6 +4455,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	dragoone: {
 		learnset: {
+			magnitude: ["9L1"],
 			attract: ["9L1"],
 			hoenn: ["9L1"],
 			bellydrum: ["9L1"],
@@ -4538,6 +4558,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	collachet: {
 		learnset: {
+			magnitude: ["9L1"],
 			diamondhatchet: ["9L1"],
 			wideguard: ["9L1"],
 			machpunch: ["9L1"],
@@ -4696,6 +4717,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	swampert: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			fish: ["9L1"],
 			hoenn: ["9L1"],
 			amnesia: ["9L1"],
@@ -5032,6 +5054,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	mariokartwii: {
 		learnset: {
+			magnitude: ["9L1"],
 			clash: ["9L1"],
 			acidrain: ["9L1"],
 			aerialace: ["9L1"],
@@ -5106,6 +5129,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	impalpitoad: {
 		learnset: {
 			helpinghand: ["9L1"],
+			magnitude: ["9L1"],
 			fish: ["9L1"],
 			acid: ["9L1"],
 			afteryou: ["9L1"],
@@ -5343,6 +5367,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	palpitoadissocool: {
 		learnset: {
 			helpinghand: ["9L1"],
+			walkthedog: ["9L1"],
 			fish: ["9L1"],
 			acid: ["9L1"],
 			afteryou: ["9L1"],
@@ -5442,6 +5467,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	spewpa: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			bugbite: ["9L1"],
 			electroweb: ["9L1"],
 			harden: ["9L1"],
@@ -5492,6 +5518,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	jirachitwo: {
 		learnset: {
 			hoenn: ["9L1"],
+			magnitude: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
@@ -5704,6 +5731,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	conquescape: {
 		learnset: {
 			frigidterrain: ["9L1"],
+			magnitude: ["9L1"],
 			fishanddip: ["9L1"],
 			freezedry: ["9L1"],
 			gofish: ["9L1"],
@@ -5782,6 +5810,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	daiyakuza: {
 		learnset: {
+			magnitude: ["9L1"],
 			getemboys: ["9L1"],
 			followme: ["9L1"],
 			stankyleg: ["9L1"],
@@ -5873,6 +5902,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	metapod: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			inherit: true,
 			bugbite: ["9L1"],
@@ -6243,6 +6273,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	contamicow: {
 		learnset: {
+			magnitude: ["9L1"],
 			assurance: ["9L1"],
 			bodyslam: ["9L1"],
 			closecombat: ["9L1"],
@@ -6303,6 +6334,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fishfactory: {
 		learnset: {
+			magnitude: ["9L1"],
 			fishprocessing: ["9L1"],
 			fishmortar: ["9L1"],
 			flashcannon: ["9L1"],
@@ -6536,6 +6568,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	pokestargiant: {
 		learnset: {
+			magnitude: ["9L1"],
+			walkthedog: ["9L1"],
 			clash: ["9L1"],
 			decoyanvil: ["9L1"],
 			wideguard: ["9L1"],
@@ -6607,6 +6641,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	richardpetty: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			geargrind: ["9L1"],
 			gearup: ["9L1"],
@@ -6790,6 +6825,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pokestarmt: {
 		learnset: {
 			helpinghand: ["9L1"],
+			magnitude: ["9L1"],
 			inherit: true,
 			bite: ["9L1"],
 			blizzard: ["9L1"],
@@ -6921,6 +6957,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fleshvaliant: {
 		learnset: {
+			magnitude: ["9L1"],
 			alluringvoice: ["9L1"],
 			allyswitch: ["9L1"],
 			attract: ["9L1"],
@@ -7101,6 +7138,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	abomasnow: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			followme: ["9L1"],
 			attract: ["9L1"],
 			auroraveil: ["9L1"],
@@ -7223,6 +7261,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	komala: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			followme: ["9L1"],
 			inherit: true,
@@ -7321,6 +7360,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	inkay: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			fish: ["9L1"],
 			acupressure: ["9L1"],
@@ -7510,6 +7550,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemotic: {
 		learnset: {
+			magnitude: ["9L1"],
 			citrusrend: ["9L1"],
 			makelemonade: ["9L1"],
 			acidrain: ["9L1"],
@@ -7763,6 +7804,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	rawringmoon: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
@@ -7848,6 +7890,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	boogerponclownerstone: {
 		learnset: {
+			magnitude: ["9L1"],
+			walkthedog: ["9L1"],
 			brickbreak: ["9L1"],
 			bulletseed: ["9L1"],
 			charm: ["9L1"],
@@ -7924,6 +7968,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	keisbergif: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			agility: ["9L1"],
 			amnesia: ["9L1"],
@@ -8285,7 +8330,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		},
 	},
 	dracolition: {
-		learnset: {
+		learnset: {	
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			scratch: ["9L1"],
 			growl: ["9L1"],
@@ -8385,6 +8431,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	goddease: {
 		learnset: {
+			magnitude: ["9L1"],
 			facade: ["9L1"],
 			acidrain: ["9L1"],
 			rest: ["9L1"],
@@ -8689,6 +8736,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	raccoon: {
 		learnset: {
 			decoyanvil: ["9L1"],
+			walkthedog: ["9L1"],
 			attract: ["9L1"],
 			beatup: ["9L1"],
 			bigbash: ["9L1"],
@@ -8811,6 +8859,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lucariocalm: {
 		learnset: {
+			magnitude: ["9L1"],
 			aerialace: ["9L1"],
 			acidrain: ["9L1"],
 			agility: ["9L1"],
@@ -8960,6 +9009,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	nedontrol: {
 		learnset: {
+			magnitude: ["9L1"],
 			jurassicfeast: ["9L1"],
 			wideguard: ["9L1"],
 			throwemamug: ["9L1"],
@@ -9200,6 +9250,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	thepearlhand: {
 		learnset: {
+			magnitude: ["9L1"],
+			walkthedog: ["9L1"],
 			youwantfun: ["9L1"],
 			followme: ["9L1"],
 			helpinghand: ["9L1"],
@@ -9344,6 +9396,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	applwirm: {
 		learnset: {
+			magnitude: ["9L1"],
 			rapidspin: ["9L1"],
 			helpinghand: ["9L1"],
 			earthquake: ["9L1"],
@@ -9483,6 +9536,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	traike: {
 		learnset: {
+			magnitude: ["9L1"],
 			trans: ["9L1"],
 			clash: ["9L1"],
 			attract: ["9L1"],
@@ -9583,6 +9637,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	groudon: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			hoenn: ["9L1"],
 			fishburn: ["9L1"],
 			aerialace: ["9L1"],
@@ -10055,6 +10110,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	ironboulder: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
@@ -10607,6 +10663,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemonganium: {
 		learnset: {
+			magnitude: ["9L1"],
 			lemonthrow: ["9L1"],
 			airhorn: ["9L1"],
 			attract: ["9L1"],
@@ -10970,6 +11027,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	panderdragoon: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			coreenforcer: ["9L1"],
 			healorder: ["9L1"],
@@ -11481,6 +11539,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	megaman: {
 		learnset: {
+			magnitude: ["9L1"],
 			energytank: ["9L1"],
 			pyroball: ["9L1"],
 			doubleedge: ["9L1"],
@@ -11555,6 +11614,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fudgesaur: {
 		learnset: {
+			magnitude: ["9L1"],
 			decoyanvil: ["9L1"],
 			helpinghand: ["9L1"],
 			armthrust: ["9L1"],
@@ -11607,6 +11667,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	darkpoison: {
 		learnset: {
+			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			deathgrip: ["9L1"],
@@ -11724,6 +11785,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 
 	sigmaricelion: {
 		learnset: {
+			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			protect: ["9L1"],
 			substitute: ["9L1"],
@@ -11949,6 +12011,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	necrozmaultra2: {
 		learnset: {
 			inherit: true,
+			magnitude: ["9L1"],
 			aerialace: ["9L1"],
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -12099,6 +12162,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lickilord: {
 		learnset: {
 			trans: ["9L1"],
+			walkthedog: ["9L1"],
 			airhorn: ["9L1"],
 			amnesia: ["9L1"],
 			balatroblast: ["9L1"],
@@ -12206,6 +12270,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	citrusjams: {
 		learnset: {
 			citrusbomb: ["9L1"],
+			walkthedog: ["9L1"],
 			makelemonade: ["9L1"],
 			lemonthrow: ["9L1"],
 			citron: ["9L1"],
@@ -12260,6 +12325,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	everhl: {
 		learnset: {
+			magnitude: ["9L1"],
 			diamondhand: ["9L1"],
 			everstormhalberd: ["9L1"],
 			scratch: ["9L1"],
@@ -12336,6 +12402,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	rayquaza: {
 		learnset: {
+			magnitude: ["9L1"],
 			acidrain: ["9L1"],
 			aerialace: ["9L1"],
 			airhorn: ["9L1"],
@@ -12523,6 +12590,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	grimace: {
 		learnset: {
+			magnitude: ["9L1"],
 			acidarmor: ["9L1"],
 			wideguard: ["9L1"],
 			acidspray: ["9L1"],
@@ -12658,6 +12726,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	pyroaring: {
 		learnset: {
+			magnitude: ["9L1"],
 			acidspray: ["9L1"],
 			afteryou: ["9L1"],
 			amnesia: ["9L1"],
@@ -12958,6 +13027,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	tylerthecreator: {
 		learnset: {
+			magnitude: ["9L1"],
 			lemonthrow: ["9L1"],
 			alluringvoice: ["9L1"],
 			aurasphere: ["9L1"],
@@ -13044,6 +13114,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	bart: {
 		learnset: {
+			magnitude: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -13079,6 +13150,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	kyogre: {
 		learnset: {
+			magnitude: ["9L1"],
 			inherit: true,
 			ancientpower: ["9L1"],
 			aquaring: ["9L1"],
@@ -13443,6 +13515,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	tlagh: {
 		learnset: {
 			abominationsjig: ["9L1"],
+			walkthedog: ["9L1"],
 			catchysong: ["9L1"],
 			diamondhand: ["9L1"],
 			metronome: ["9L1"],
@@ -13631,6 +13704,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	regibloom: {
 		learnset: {
+			magnitude: ["9L1"],
 			bloomdesire: ["9L1"],
 			powerwhip: ["9L1"],
 			seedbomb: ["9L1"],
@@ -14150,7 +14224,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			liquidation: ["9L1"],
 			hydropump: ["9L1"],
 			raindance: ["9L1"],
-			airhorn: ["9L1"],
 			pieblast: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
 			blazeball: ["9L1"],
@@ -14402,14 +14475,12 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			belch: ["9L1"],
 			bittermalice: ["9L1"],
 			blizzard: ["9L1"],
-			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
 			brutalswing: ["9L1"],
 			bulldoze: ["9L1"],
 			bulletpunch: ["9L1"],
 			chargebeam: ["9L1"],
 			circlethrow: ["9L1"],
-			closecombat: ["9L1"],
 			coaching: ["9L1"],
 			comeuppance: ["9L1"],
 			cuddie: ["9L1"],

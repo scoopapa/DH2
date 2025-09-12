@@ -46,6 +46,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Change Circall into Wario
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
+					console.log(`${pokemon.species.id}\n
+								${pokemon.baseMoves.indexOf('stankyleg')}\n
+								${pokemon.baseMoves.indexOf('youwantfun')}\n
+								${pokemon.baseMoves.indexOf('wariopicrosspuzzle4g')}\n
+								${pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh')}\n
+								${pokemon.hasAbility('bloodlinegreatestachievement')}\n`);
 					if (pokemon.species.id === 'circall' && 
 						pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
 						pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
