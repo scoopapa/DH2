@@ -193,6 +193,15 @@ export const Scripts: ModdedBattleScriptsData = {
 	   this.modData('Learnsets', 'gyarados').learnset.ragingtorrent = ['9L1'];
 	   this.modData('Learnsets', 'dhelmise').learnset.wavecrash = ['9L1'];
 	   this.modData('Learnsets', 'dhelmise').learnset.waterfall = ['9L1'];
+		this.modData("Learnsets", "garbodor").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.powerwhip = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.strengthsap = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.hammerarm = ["9L1"];
+		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
+		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
 	},
 	pokemon: {
 		inherit: true,
