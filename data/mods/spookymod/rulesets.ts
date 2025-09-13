@@ -219,7 +219,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					}
 					this.hint('Ubercharged Pokemon take no damage from attacks.');
 			}
-		}
+		},
 	
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -227,7 +227,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				(attacker.hasType('Critcele') && move.type === 'Electric') ||
 				(attacker.hasType('Pdark') && move.type === 'Dark') ||
 				(attacker.hasType('Prock') && move.type === 'Rock') ||
-				(attacker.hasType('ark') && move.type === 'Dark') ||) {
+				(attacker.hasType('ark') && move.type === 'Dark')) {
 				return this.chainModify(1.5);
 			}
 		},
