@@ -22,15 +22,7 @@ export function getName(name: string): string {
 }
 
 export const Moves: {[k: string]: ModdedMoveData} = {
-	knockoff: {
-		inherit: true,
-		basePower: 20,
-	},
-	bitterblade: {
-		inherit: true,
-		basePower: 75,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1},
-	},
+	//physical ghost
 	poltergeist: {
 		inherit: true,
 		shortDesc: "Fails if target has no item. Removes target's item.",
@@ -43,26 +35,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-enditem', target, item.name, '[from] move: Poltergeist', '[of] ' + source);
 				}
 			}
-		},
-	},
-	spiritshackle: {
-		shortDesc: "Removes the target's Ghost type.",
-		basePower: 85,
-		inherit: true,
-		onHit(target) {
-			if(!target.getTypes().includes("Ghost")) return;
-			const newBaseTypes = target.getTypes().filter(t => t !== "Ghost");
-			this.add('-start', target, 'typechange', newBaseTypes);
-			target.setType(newBaseTypes);
-		},
-		secondary: null,
-	},
-	shadowpunch: {
-		shortDesc: "Uses Pain Split.",
-		inherit: true,
-		basePower: 75,
-		onAfterHit(target, source, move) {
-			this.actions.useMove("painsplit", target, source);
 		},
 	},
 	shadowforce: {
@@ -104,8 +76,38 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	phantomforce: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "User's Ghost type becomes typeless; must be Ghost.",
+		name: "Phantom Force",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, defrost: 1, metronome: 1 },
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Ghost')) return;
+			this.add('-fail', pokemon, 'move: Phantom Force');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Ghost" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Phantom Force');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	spectralthief: {
+		shortDesc: "Fails if no stat boosts. Steals the target's stat boosts.",
 		inherit: true,
-		basePower: 75,
+		isNonstandard: null,
+		onTry(source) {
+			if(target.positiveBoosts() === 0) return false;
+		},
 	},
 	shadowbone: {
 		inherit: true,
@@ -119,33 +121,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 	},
-	spectralthief: {
-		shortDesc: "Fails if no stat boosts. Steals the target's stat boosts.",
+	spiritshackle: {
+		shortDesc: "Removes the target's Ghost type.",
+		basePower: 85,
 		inherit: true,
-		isNonstandard: null,
-		onTry(source) {
-			if(target.positiveBoosts() === 0) return false;
-		},
-	},
-	ragefist: {
-		shortDesc: "+1 power per time hit, max 300. 1 damage recoil.",
-		inherit: true,
-		pp: 187.5,
-		basePowerCallback(pokemon) {
-			return Math.min(350, 50 + 1 * pokemon.timesAttacked);
-		},
-		onAfterHit(target, pokemon, move) {
-			this.damage(1, pokemon, target);
-		}
-	},
-	bittermalice: {
-		inherit: true,
-		basePower: 50,
-		shortDesc: "+10 power for each PP used.",
-		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 10 * (pp - moveSlot.pp);
+		onHit(target) {
+			if(!target.getTypes().includes("Ghost")) return;
+			const newBaseTypes = target.getTypes().filter(t => t !== "Ghost");
+			this.add('-start', target, 'typechange', newBaseTypes);
+			target.setType(newBaseTypes);
 		},
 		secondary: null,
+	},
+	shadowpunch: {
+		shortDesc: "Uses Pain Split.",
+		inherit: true,
+		basePower: 75,
+		onAfterHit(target, source, move) {
+			this.actions.useMove("painsplit", target, source);
+		},
 	},
 	lastrespects: {
 		inherit: true,
@@ -159,8 +153,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return priority + source.side.totalFainted;
 		},
 	},
+	ragefist: {
+		shortDesc: "+1 power per time hit, max 300. 1 damage recoil.",
+		inherit: true,
+		pp: 187.5,
+		basePowerCallback(pokemon) {
+			return Math.min(350, 50 + 1 * pokemon.timesAttacked);
+		},
+		onAfterHit(target, pokemon, move) {
+			this.damage(1, pokemon, target);
+		}
+	},
+	shadowsneak: {
+		inherit: true,
+		basePower: 50,
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+	},
+	shadowclaw: {
+		inherit: true,
+		basePower: 40,
+		shortDesc: "Always results in a critical hit.",
+		willCrit: true,
+		critRatio: null,
+	},
 	astonish: {
 		inherit: true,
+		viable: true,
 		shortDesc: "Fails if not turn 1 out. 100% chance to flinch.",
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
@@ -173,13 +198,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'flinch',
 		},
 	},
-	shadowclaw: {
-		inherit: true,
-		basePower: 50,
-		shortDesc: "Always results in a critical hit.",
-		willCrit: true,
-		critRatio: null,
-	},
 	lick: {
 		inherit: true,
 		shortDesc: "Paralyzes the target. Once per battle.",
@@ -189,6 +207,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			target.trySetStatus('par', source, move);
 		},
 		secondary: null,
+	},
+	
+	//special ghost
+	nightshade: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		shortDesc: "Deals and heals damage equal to the user's level.",
+		onHit(target, pokemon) {
+			this.heal(pokemon.level, pokemon)
+		}
 	},
 	astralbarrage: {
 		inherit: true,
@@ -261,6 +289,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hex: {
 		inherit: true,
+		viable: true,
 		shortDesc: "Fails if the target does not have a status ailment.",
 		basePower: 100,
 		basePowerCallback: null,
@@ -269,24 +298,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return !!target.status;
 		},
 	},
-	nightshade: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, heal: 1},
-		shortDesc: "Deals and heals damage equal to the user's level.",
-		onHit(target, pokemon) {
-			this.heal(pokemon.level, pokemon)
-		}
-	},
 	moongeistbeam: {
 		inherit: true,
 		isNonstandard: null,
-		shortDesc: "Fails if the user did not use Moonlight in the previous turn. Ignores abilities.",
+		shortDesc: "User must have used Moonlight last turn. Ignores abilities.",
 		onTry(source, target) {
 			return source.lastMove === 'Moonlight';
 		},
 	},
 	shadowball: {
 		inherit: true,
+		viable: true,
 		shortDesc: "10% chance to lower the target's/user's Sp. Def by 1",
 		basePower: 70,
 		secondary: {
@@ -299,15 +321,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	infernalparade: {
 		inherit: true,
-		shortDesc: "Added Fire effectiveness. 30% chance to burn the target.",
+		shortDesc: "+Fire effectiveness. 30% to burn.",
 		basePowerCallback: null,
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Fire', type);
 		},
 	},
+	bittermalice: {
+		inherit: true,
+		viable: true,
+		basePower: 50,
+		shortDesc: "+10 power for each PP used.",
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 10 * (pp - moveSlot.pp);
+		},
+		secondary: null,
+	},
 	ominouswind: {
 		inherit: true,
 		isNonstandard: null,
+		viable: true,
 		shortDesc: "Forces the target out. 2x power if the user was hit.",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
@@ -323,6 +356,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		forceSwitch: true,
 		secondary: null,
 	},
+	
+	//status ghost
 	grudge: {
 		inherit: true,
 		isNonstandard: null,
@@ -433,7 +468,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			} else {
 				let random2 = this.random(2);
-				if(random2 === 0) source.cureStatus();
+				if (random2 === 0) source.cureStatus();
 				else this.heal(source.baseMaxhp / 4, source);
 			}
 		},
@@ -486,6 +521,79 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	curse: {
+		inherit: true,
+		shortDesc: "Curses if Shiny, else -1 Spe, +1 Atk, +1 Def.",
+		onModifyMove(move, source, target) {
+			if (!source.set.shiny) {
+				move.target = move.nonGhostTarget!;
+			} else if (source.isAlly(target)) {
+				move.target = 'randomNormal';
+			}
+		},
+		onTryHit(target, source, move) {
+			const curses = ["Ass", "Asshole", "Bastard", "Bitch", "Bloody", "Bollocks", "Bugger", "Cock", "Crap", "Cunt", "Damn", "Dick", "Douche", "Fart", "Fuck", "Heck", "Hell", "Motherfucker", "Piss", "Prick", "Pussy", "Shit", "Shut up", "Twat", "Wanker"];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|${this.sample(curses)}`);
+			if (!source.set.shiny) {
+				delete move.volatileStatus;
+				delete move.onHit;
+				move.self = { boosts: { spe: -1, atk: 1, def: 1 } };
+			} else if (move.volatileStatus && target.volatiles['curse']) {
+				return false;
+			}
+		},
+	},
+	destinybond: {
+		inherit: true,
+		pp: 1,
+		shortDesc: "Returns equal damage when hit. Single use.",
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				this.damage(damage, source, target);
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
+		},
+	},
+	
+	//nonghost
+	knockoff: {
+		inherit: true,
+		basePower: 20,
+	},
+	bitterblade: {
+		inherit: true,
+		basePower: 75,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1},
+	},
+	flowertrick: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, trick: 1},
+	},
+	powertrick: {
+		inherit: true,
+		flags: {snatch: 1, trick: 1},
+	},
+	trick: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, allyanim: 1, noassist: 1, failcopycat: 1, trick: 1},
+	},
+	trickroom: {
+		inherit: true,
+		flags: {mirror: 1, trick: 1},
+	},
 	grassyglide: {
 		inherit: true,
 		bp: 70,
@@ -525,7 +633,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Combines Grass in its effectiveness. Sets Leech Seed.",
+		shortDesc: "+Grass effectiveness. Sets Leech Seed.",
 		name: "Runch",
 		pp: 10,
 		priority: 0,
@@ -551,7 +659,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Physical",
 		name: "Ual Chop",
-		shortDesc: "Hits twice. 30% chance to lower target's highest offense.",
+		shortDesc: "Hits twice. 30% to lower highest offense.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -601,22 +709,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	flowertrick: {
+	mindblown: {
 		inherit: true,
-		flags: {protect: 1, mirror: 1, trick: 1},
+		isNonstandard: null,
 	},
-	powertrick: {
-		inherit: true,
-		flags: {snatch: 1, trick: 1},
-	},
-	trick: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, allyanim: 1, noassist: 1, failcopycat: 1, trick: 1},
-	},
-	trickroom: {
-		inherit: true,
-		flags: {mirror: 1, trick: 1},
-	},
+
+	//spells
 	shadowleap: {
 		accuracy: 100,
 		basePower: 10,
@@ -980,9 +1078,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 		type: "Fairy",
-	},
-	mindblown: {
-		inherit: true,
-		isNonstandard: null,
 	},
 }

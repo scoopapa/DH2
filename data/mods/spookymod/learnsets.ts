@@ -2377,6 +2377,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	xorygonz: {
 		learnset: {
+			powertrick: ["9M"],
 			astralbarrage: ["9M"],
 			bittermalice: ["9M"],
 			nightshade: ["9M"],
