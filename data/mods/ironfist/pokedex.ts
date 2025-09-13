@@ -1708,6 +1708,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Kyogre",
 		forme: "Original",
 		types: ["Water"],
+		gen: 3,
 		baseStats: {hp: 90, atk: 130, def: 95, spa: 135, spd: 125, spe: 85},
 		abilities: {0: "Original Sea"},
 		requiredItem: "Original Item",
