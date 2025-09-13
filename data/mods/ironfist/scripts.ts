@@ -18,7 +18,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.modData("Learnsets", pokemon).learnset.bigbash = ["9L1"];
 				const mon = Dex.species.get(pokemon);
 				if (!mon.types.includes('Water') && !mon.types.includes('Steel')) this.modData("Learnsets", pokemon).learnset.fisheater = ["9L1"];
-				if (mon.fish) this.modData("Learnsets", pokemon).learnset.fish = ["9L1"];
+				if (mon.fish) {
+					this.modData("Learnsets", pokemon).learnset.fish = ["9L1"];
+					this.modData("Learnsets", pokemon).learnset.fishield = ["9L1"];
+				}
 				if (mon.diamondhand) this.modData("Learnsets", pokemon).learnset.diamondhand = ["9L1"];
 				if (mon.hoenn || mon.gen === 3) this.modData("Learnsets", pokemon).learnset.hoenn = ["9L1"];
 				if (mon.trans) this.modData("Learnsets", pokemon).learnset.trans = ["9L1"];

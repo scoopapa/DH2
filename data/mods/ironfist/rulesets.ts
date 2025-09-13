@@ -120,7 +120,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onValidateTeam(team, format) {
 			for (const set of team) {
 				if (set.species === 'Zorua-Hisui' && set.moves.some(m => m === 'Nasty Plot')) {
-					return [set.species + ' cannot put Nasty Plot on its moveset.'];
+					return [set.species + ' cannot put Nasty Plot on its moveset.\n(It will be added to its moveset in battle.)'];
 				}
 			}
 		},
@@ -155,7 +155,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				pokemon.baseMoves.indexOf('wariopicrosspuzzle4g') >= 0 &&
 				pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
 				pokemon.hasAbility('bloodlinegreatestachievement')) {
-				pokemon.formeChange('Wario-Forbidden-One', true);
+				pokemon.formeChange('Wario-Forbidden-One', null, true);
 			}
 		},
 	},
