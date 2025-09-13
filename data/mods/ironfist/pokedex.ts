@@ -1690,6 +1690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -189,
 		name: "Circall",
 		types: ["Fairy", "Silly", "Flying"],
+		gender: "N",
 		baseStats: {hp: 88, atk: 48, def: 108, spa: 48, spd: 108, spe: 84},
 		abilities: {0: "Friend Guard", 1: "Healer", H: "Bloodline: Greatest Achievement"},
 		weightkg: 999.9,
