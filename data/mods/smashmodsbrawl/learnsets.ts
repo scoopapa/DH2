@@ -1127,7 +1127,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			futuresight: ["9L1"],
 			'5bigdooms': ["9L1"],
 			fishingterrain: ["9L1"],
-			fishmortar: ["9L1"],
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			bigbash: ["9L1"],
@@ -1508,3 +1507,4 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		},
 	},
 };
+
