@@ -284,7 +284,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -297,7 +297,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'sandstorm') return false;
 		},
 		name: "Wand Rush",
-		shortDesc: "On switchin, sets Sandstorm. Sandstorm: Speed 2x, Sp. Atk 1.5x; immunity to sand.",
+		shortDesc: "On switchin, sets Sandstorm. Sandstorm: SpA/Spe 1.5x; immunity to sand.",
 	},
 	revive: {
 		shortDesc: "When this Pokemon has 0 HP, it switches out and is revived to 1/2 max HP. Once per battle.",
