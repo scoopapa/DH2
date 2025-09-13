@@ -64,6 +64,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	ninjask: {
 		learnset: {
+			fishield: ["9L1"],
 			helpinghand: ["9L1"],
 			absorb: ["9L1"],
 			acrobatics: ["9L1"],
@@ -321,6 +322,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	togedemaru: {
 		learnset: {
 			inherit: true,
+			fishield: ["9L1"],
 			afteryou: ["9L1"],
 			agility: ["9L1"],
 			assurance: ["9L1"],
@@ -1570,6 +1572,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	runerigus: {
 		learnset: {
 			inherit: true,
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
@@ -1869,6 +1872,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	wyrdeer: {
 		learnset: {
 			inherit: true,
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			acidrain: ["9L1"],
 			clash: ["9L1"],
@@ -2010,6 +2014,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	goomba: {
 		learnset: {
 			trans: ["9L1"],
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
@@ -3307,6 +3312,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	hitmontop: {
 		learnset: {
 			inherit: true,
+			fishield: ["9L1"],
 			walkthedog: ["9L1"],
 			magnitude: ["9L1"],
 			acidrain: ["9L1"],
@@ -3424,6 +3430,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	zelda: {
 		learnset: {
+			fishield: ["9L1"],
 			trans: ["9L1"],
 			helpinghand: ["9L1"],
 			clash: ["9L1"],
@@ -4162,6 +4169,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	tangetteeternal: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			absorb: ["9L1"],
 			aerialace: ["9L1"],
@@ -5128,6 +5136,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	impalpitoad: {
 		learnset: {
+			fishield: ["9L1"],
 			helpinghand: ["9L1"],
 			magnitude: ["9L1"],
 			fish: ["9L1"],
@@ -6334,6 +6343,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fishfactory: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			fishprocessing: ["9L1"],
 			fishmortar: ["9L1"],
@@ -6641,6 +6651,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	richardpetty: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			geargrind: ["9L1"],
@@ -7138,6 +7149,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	abomasnow: {
 		learnset: {
 			inherit: true,
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			followme: ["9L1"],
 			attract: ["9L1"],
@@ -7261,6 +7273,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	komala: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			helpinghand: ["9L1"],
 			followme: ["9L1"],
@@ -7460,6 +7473,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	ronaldreagan: {
 		learnset: {
+			fishield: ["9L1"],
 			fishburn: ["9L1"],
 			followme: ["9L1"],
 			spacelaser: ["9L1"],
@@ -7550,6 +7564,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemotic: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			citrusrend: ["9L1"],
 			makelemonade: ["9L1"],
@@ -8430,7 +8445,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	
 	goddease: {
-		learnset: {
+		learnset: {	
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			facade: ["9L1"],
 			acidrain: ["9L1"],
@@ -9343,6 +9359,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	mcfish: {
 		learnset: {
 			youwantfun: ["9L1"],
+			fishield: ["9L1"],
 			helpinghand: ["9L1"],
 			wideguard: ["9L1"],
 			hyperdrill: ["9L1"],
@@ -10620,6 +10637,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fishmarketing3: {
 		learnset: {
+			fishield: ["9L1"],
 			helpinghand: ["9L1"],
 			fishmortar: ["9L1"],
 			overdrive: ["9L1"],
@@ -12402,6 +12420,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	rayquaza: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			acidrain: ["9L1"],
 			aerialace: ["9L1"],
@@ -12726,6 +12745,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	pyroaring: {
 		learnset: {
+			fishield: ["9L1"],
 			magnitude: ["9L1"],
 			acidspray: ["9L1"],
 			afteryou: ["9L1"],

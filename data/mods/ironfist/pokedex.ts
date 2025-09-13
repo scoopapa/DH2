@@ -1704,7 +1704,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 999.9,
 	},
 	kyogreoriginal: {
-		num: -188,
+		num: -175,
 		name: "Kyogre-Original",
 		baseSpecies: "Kyogre",
 		forme: "Original",
@@ -1725,7 +1725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 32.3,
 	},
 	daiyakuzaorigin: {
-		num: -186,
+		num: -60,
 		name: "Daiyakuza-Origin",
 		baseSpecies: "Daiyakuza",
 		forme: "Origin",

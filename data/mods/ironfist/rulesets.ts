@@ -155,7 +155,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				pokemon.baseMoves.indexOf('wariopicrosspuzzle4g') >= 0 &&
 				pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
 				pokemon.hasAbility('bloodlinegreatestachievement')) {
-				pokemon.formeChange('Wario-Forbidden-One', true);
+				pokemon.formeChange('Wario-Forbidden-One', null, true);
 			}
 		},
 	},
