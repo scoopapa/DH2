@@ -479,7 +479,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -51,
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 70, spd: 40, spe: 135},
-		abilities: {0: "Gorilla Tactics"},
+		abilities: {0: "Gorilla Tactics", H: "Greatest Video Game of All Time"},
 		weightkg: 1.0,
 	},
 	impalpitoad: {
