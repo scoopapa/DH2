@@ -1792,7 +1792,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' || effect.id === 'snowscape') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		shortDesc: "If Snow is active, this Pokemon heals 1/8 of its max HP each turn.",

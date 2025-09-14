@@ -383,6 +383,368 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Spread + changes type to match Scale Shift.",
 	},
 
+	// Slate 2
+
+	wallow: {
+		num: -13,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Wallow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		overrideOffensiveStat: 'spd',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mud Sport", source);
+			this.add('-anim', source, "Liquidation", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spd: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Water",
+		shortDesc: "Damage based on Sp. Def. Boosts Sp. Def after use.",
+	},
+	pranceandpierce: {
+		num: -14,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Prance and Pierce",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, bite: 1, allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		secondary: {
+			chance: 100,
+			status: 'psn',
+		},
+		onTry(source, target) {
+			if (this.canSwitch(source.side)) {
+				if (!target.side.addSlotCondition(target, 'pranceandpierce')) return false;
+				Object.assign(target.side.slotConditions[target.position]['pranceandpierce'], {
+					duration: 3,
+					move: 'pranceandpierce',
+					source: source,
+					sourcePosition: source.position,
+					moveData: {
+						id: 'pranceandpierce',
+						name: "Prance and Pierce",
+						accuracy: 100,
+						basePower: 100,
+						category: "Physical",
+						priority: 0,
+						flags: {contact: 1, bite: 1, allyanim: 1, metronome: 1, futuremove: 1},
+						selfSwitch: false,
+						ignoreImmunity: false,
+						effectType: 'Move',
+						secondary: {
+							chance: 100,
+							status: 'psn',
+						},
+						type: 'Ghost',
+					},
+				});
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+				source.switchFlag = true;
+				this.add('-message', `${source.illusion ? source.illusion.name : source.name} pranced away... for now!`);
+			} else {
+				return false;
+			}
+			return this.NOT_FAIL;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bounce", source);
+		},
+		condition: {
+			// this is a slot condition
+			name: 'pranceandpierce',
+			duration: 3,
+			onResidualOrder: 3,
+			onEnd(target) {
+				const data = this.effectState;
+				const source = data.source;
+				const move = this.dex.moves.get(data.move);
+				if (target.fainted || target === data.source) {
+					this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
+					return;
+				}
+				if (source && !source.isActive && source.hp && this.canSwitch(source.side)) {
+					this.actions.switchIn(source, data.sourcePosition);
+					this.add('-message', `${source.illusion ? source.illusion.name : source.name} pranced back onto the field!`);
+				}
+				this.add('-message', `${target.illusion ? target.illusion.name : target.name} was pierced by the Prance and Pierce attack!`);
+				this.attrLastMove('[still]');
+				if (source.isActive) {
+					this.add('-anim', source, "Super Fang", target);
+				} else {
+					this.add('-anim', target, "Super Fang", target);
+				}
+				target.removeVolatile('Protect');
+				target.removeVolatile('Endure');
+	
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+	
+				this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
+				if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
+					this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
+				}
+				this.activeMove = null;
+	
+				this.checkWin();
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+		shortDesc: "User pivots out, then comes back in to attack two turns later. Poisons target.",
+	},
+	grandfinale: {
+		num: -15,
+		accuracy: 90,
+		basePower: 25,
+		basePowerCallback(pokemon, target, move) {
+			if (move.hit === 3) move.selfSwitch = true; // I hope this works
+			return 25 * move.hit;
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Grand Finale');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onAfterMove(pokemon) {
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up'); // I think this still needs Burn Up's message
+		},
+		category: "Physical",
+		name: "Grand Finale",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wish", source);
+			this.add('-anim', source, "Mind Blown", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 140},
+		shortDesc: "Hits up to 3 times (25 -> 50 -> 75). Removes Fire type; if hits all 3, pivots out.",
+	},
+	slimecannon: {
+		num: -16,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Slime Cannon",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) {
+				const targets: Pokemon[] = [];
+				for (const valid of this.getAllActive()) {
+					targets.push(valid);
+					// not going to care about being adjacent because there are no Triples right now and it seems like it stops counting when the target faints
+				}
+				if (!targets.length) return;
+				if (targets.length > 1) {
+					 this.add('-message', `Everyone was covered in slime!`);
+				}
+				for (const debuff of targets) {
+					if (targets.length === 1) this.add('-message', `${debuff.illusion ? debuff.illusion.name : debuff.name} was covered in slime!`);
+					this.boost({atk: -1, spa: -1}, debuff, pokemon);
+				}
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Downpour", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+		shortDesc: "If target is KOed, -1 to everyone's Attack and Sp. Atk.",
+	},
+	totaleclipse: {
+		num: -17,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Total Eclipse",
+		pp: 10,
+		priority: 3,
+		flags: {bypasssub: 1, noassist: 1, failcopycat: 1, allyanim: 1, cantusetwice: 1},
+		onHit(target, source) {
+			const stolenBoosts: Partial<BoostsTable> = {};
+			let i: BoostID;
+			for (i in target.boosts) stolenBoosts[i] = target.boosts[i];
+			if (Object.keys(stolenBoosts).length > 0) {
+				this.boost(stolenBoosts, source);
+				target.clearBoosts();
+				this.add('-clearboost', target);
+			}
+			if (target.addVolatile('totaleclipse')) this.add('-message', `${source.illusion ? source.illusion.name : source.name} will take damage for ${target.illusion ? target.illusion.name : target.name} this turn!`);
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Black Hole Eclipse", target);
+		},
+		secondary: null,
+		condition: {
+			duration: 1,
+			onDamage(damage, target, source, effect) {
+				if (effect.effectType === 'Move' && this.effectState.source.isActive && this.effectState.source.hp) {
+					this.add('-message', `${this.effectState.source.illusion ? this.effectState.source.illusion.name : this.effectState.source.name} took damage for ${target.illusion ? target.illusion.name : target.name}!`);
+					this.damage(damage, this.effectState.source, source, effect);
+					return false;
+				}
+			},
+		},
+		target: "adjacentAlly",
+		type: "Dark",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+		shortDesc: "Steals ally's boosts, then takes damage for the ally. Can't use consecutively.",
+	},
+	flowingflare: {
+		num: -18,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe'));
+			if (!isFinite(ratio)) ratio = 0;
+			const bp = [40, 60, 80, 120, 180][Math.min(ratio, 4)];
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		category: "Special",
+		name: "Flowing Flare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flamethrower", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+		shortDesc: "Atk > SpA: physical. Stronger the faster the user is than the target (180 max).",
+	},
+	paranoia: {
+		num: -19,
+		accuracy: 95,
+		basePower: 0,
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(target.getUndynamaxedHP() / 4, 1);
+		},
+		category: "Special",
+		name: "Paranoia",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "First Impression", target);
+			this.add('-anim', source, "Infestation", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				const bestStat = target.getBestStat(false, true);
+				this.boost({[bestStat]: -1}, target);
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Bug",
+		contestType: "Clever",
+		shortDesc: "Damage is 1/4 of target's HP. Lowers target's best stat.",
+	},
+	psykick: {
+		num: -20,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Psykick",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic Noise", target);
+			this.add('-anim', source, "Low Kick", target);
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'torment',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+		shortDesc: "Inflicts Torment.",
+	},
+	empathicpulse: {
+		num: -21,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Empathic Pulse",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, pulse: 1},
+		onTryHit(target, source, move) {
+			if (!source.status) return false;
+			move.status = source.status;
+		},
+		self: {
+			onHit(pokemon) {
+				const bestStat = pokemon.getBestStat(false, true);
+				if (pokemon.cureStatus()) this.boost({[bestStat]: 1}, pokemon);
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Heal Pulse", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+		shortDesc: "Passes status to adjacent foes, then raises most proficient stat.",
+	},
+
 // modded canon moves
 
 	defog: {

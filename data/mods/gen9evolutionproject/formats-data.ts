@@ -18,6 +18,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	amauravolcanic: {tier: "(Prevo)"},
 	aurorus: {tier: "Evo!"},
 	aurorusvolcanic: {tier: "Evo!"},
+	amira: {tier: "(Prevo)"}, // from slate 2 prompt 2
+	aumooras: {tier: "Evo!"}, // from slate 2 prompt 2
 
 	barboach: {tier: "(Prevo)"},
 	whiscash: {tier: "(Prevo)"},
@@ -151,6 +153,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	uxie: {tier: "Evo!"},
 	uxieultraspace: {tier: "Evo!"},
+	mesprit: {tier: "Evo!"},
+	mespritultraspace: {tier: "Evo!"}, // from slate 2 prompt 2
+	azelf: {tier: "Evo!"},
+	azelfultraspace: {tier: "Evo!"}, // from slate 2 prompt 2
 
 	litwick: {tier: "(Prevo)"},
 	clayby: {tier: "(Prevo)"},
@@ -291,4 +297,110 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	coilrig: {tier: "Evo!"},
 
 	ditto: {tier: "Evo!"},
+
+	// SLATE 2 PROMPT 1
+
+	gible: {tier: "(Prevo)"},
+	gabite: {tier: "(Prevo)"},
+	garchomp: {tier: "Evo!"}, // banned
+	pelagicjaw: {tier: "Evo!"},
+
+	kabuto: {tier: "(Prevo)"},
+	kabutops: {tier: "Evo!"},
+	kabutopshisui: {tier: "Evo!"},
+
+	mudbray: {tier: "(Prevo)"},
+	mudbraysinnoh: {tier: "(Prevo)"},
+	mudsdale: {tier: "Evo!"},
+	mudsdalesinnoh: {tier: "Evo!"},
+
+	tapukiki: {tier: "Evo!"},
+	tapukoko: {tier: "Evo!"}, // the tapu are currently banned even from VGC, but including for future VGC series
+	tapulele: {tier: "Evo!"},
+	tapufini: {tier: "Evo!"},
+	tapubulu: {tier: "Evo!"},
+
+	nickit: {tier: "(Prevo)"},
+	thievul: {tier: "(Prevo)"},
+	kingxin: {tier: "Evo!"},
+
+	buneary: {tier: "(Prevo)"},
+	lopunny: {tier: "Evo!"},
+	lopunnykitakami: {tier: "Evo!"},
+
+	swablu: {tier: "(Prevo)"},
+	altaria: {tier: "Evo!"},
+	altariarekindled: {tier: "Evo!"},
+	tenoris: {tier: "Evo!"},
+
+	// SLATE 2 PROMPT 2
+
+	mimejr: {tier: "(Prevo)"},
+	mrmime: {tier: "Evo!"},
+	mrmimegalar: {tier: "(Prevo)"},
+	mrrime: {tier: "Evo!"},
+	mrthyme: {tier: "Evo!"},
+	mrmimeslimy: {tier: "(Prevo)"}, // from slate 2 prompt 3
+	mrslime: {tier: "Evo!"}, // from slate 2 prompt 3
+	
+	seedot: {tier: "(Prevo)"},
+	nuzleaf: {tier: "(Prevo)"},
+	shiftry: {tier: "Evo!"},
+	shiftryjohto: {tier: "Evo!"},
+
+	doduo: {tier: "(Prevo)"},
+	dodrio: {tier: "Evo!"},
+	ironengines: {tier: "Evo!"},
+
+	// SLATE 2 PROMPT 3
+
+	zavender: {tier: "Evo!"}, // this is an NFE but it should still be easy to find
+	zacian: {tier: "Evo!"}, // DON'T WORRY THEY'RE BANNED aksdfjh just putting them here for VGC later
+	zaciancrowned: {tier: "Evo!"},
+	zamazenta: {tier: "Evo!"},
+	zamazentacrowned: {tier: "Evo!"},
+
+	grubbin: {tier: "(Prevo)"},
+	charjabug: {tier: "(Prevo)"},
+	charjabugchained: {tier: "(Prevo)"},
+	vikavolt: {tier: "Evo!"},
+	charjouleak: {tier: "Evo!"},
+
+	uraxys: {tier: "(Prevo)"},
+	riboxysu: {tier: "Evo!"},
+	cytoxys: {tier: "(Prevo)"},
+	riboxysc: {tier: "Evo!"},
+	adexys: {tier: "(Prevo)"},
+	riboxysa: {tier: "Evo!"},
+	guaxys: {tier: "(Prevo)"},
+	riboxysg: {tier: "Evo!"},
+	deoxys: {tier: "Evo!"}, // DON'T WORRY THEY'RE BANNED aksdjfhg
+	deoxysattack: {tier: "Evo!"},
+	deoxysdefense: {tier: "Evo!"},
+	deoxysspeed: {tier: "Evo!"},
+
+	stunfisk: {tier: "Evo!"},
+	stunfiskgalar: {tier: "Evo!"},
+	stunfiskvariant: {tier: "Evo!"}, // from Evo 1
+	stunfiskultraspace: {tier: "Evo!"},
+
+	shelmet: {tier: "(Prevo)"},
+	accelgor: {tier: "(Prevo)"}, // "canonically" an NFE as of Evo 1...
+	velocinobi: {tier: "Evo!"}, // ... but sounds like we are actually banning this
+	ironbreath: {tier: "Evo!"},
+
+	wimpod: {tier: "(Prevo)"},
+	golisopod: {tier: "Evo!"},
+	narcissopod: {tier: "Evo!"}, // from Evo 1
+	spiritedaway: {tier: "Evo!"},
+
+	bounsweet: {tier: "(Prevo)"},
+	steenee: {tier: "(Prevo)"},
+	tsareena: {tier: "Evo!"},
+	tsareenavariant: {tier: "Evo!"},
+
+	dratini: {tier: "(Prevo)"},
+	dragonair: {tier: "(Prevo)"},
+	dragonite: {tier: "Evo!"},
+	dragoracle: {tier: "Evo!"},
 };
