@@ -862,7 +862,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			machpunch: ["6L1"],
 			icepunch: ["6L1"],
 			thunderpunch: ["6L1"],
-			mantisfists: ["6L1"],
+			mantisfist: ["6L1"],
 			uturn: ["6L1"],
 			focuspunch: ["6L1"],
 			knockoff: ["6L1"],
