@@ -266,7 +266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Prinsutinea",
 		types: ["Bug", "Ice"],
 		baseStats: {hp: 79, atk: 117, def: 85, spa: 119, spd: 85, spe: 95},
-		abilities: {0: "Shield Dust", 1: "Ice Body", H: "Rulers Coronation"},
+		abilities: {0: "Shield Dust", 1: "Ice Body", H: "Ruler's Coronation"},
 		weightkg: 135.6,
 	},
 	mewtwomegaxy: {
@@ -277,5 +277,4 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Neuroforce", H: "Man"},
 		weightkg: 50.2,
 	},
-
 };
