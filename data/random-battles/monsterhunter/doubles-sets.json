@@ -705,18 +705,18 @@
         ]
     },
 	"namielle": {
-        "level": 85,
+        "level": 83,
         "sets": [
             {
                 "role": "Wallbreaker",
                 "movepool": ["Bewitched Bubble", "Thunderbolt", "Psychic", "Hydro Pump", "Moonblast"],
-                "abilities": ["Electromorphosis"],
+                "abilities": ["Mucus Veil"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Recover", "Bewitched Bubble", "Thunderbolt", "Psychic", "Hydro Pump", "Moonblast"],
-                "abilities": ["Water Absorb", "Electromorphosis"],
+                "abilities": ["Water Absorb", "Mucus Veil"],
                 "teraTypes": ["Normal"]
 
             }
@@ -828,8 +828,8 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Fiery Wrath", "Sludge Bomb", "Lava Plume", "Knock Off", "Burning Bulwark", "Recover", "Toxic", "Will-o-Wisp"],
-                "abilities": ["Oilmucus", "Solar Power"],
+                "movepool": ["Fiery Wrath", "Sludge Bomb", "Lava Plume", "Knock Off", "Burning Bulwark", "Recover", "Will-o-Wisp"],
+                "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -1313,7 +1313,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Snowscape", "Blizzard", "Sacred Sword", "Hurricane", "Freeze-Dry"],
-                "abilities": ["Slush Rush"],
+                "abilities": ["Slush Rush", "Frostnip"],
                 "teraTypes": ["Normal"]
             },
             {
@@ -1922,13 +1922,13 @@
             {
                 "role": "Fast Support", 
                 "movepool": ["Earthquake", "U-turn", "Stealth Rock", "Rapid Spin"],
-                "abilities": ["No Guard"],
+                "abilities": ["Relentless"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Shift Gear", "Headlong Rush", "Ice Spinner", "Stone Edge"],
-                "abilities": ["No Guard"],
+                "movepool": ["Shift Gear", "High Horsepower", "Combat Torque", "Magical Torque", "Noxious Torque"],
+                "abilities": ["Relentless"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -1945,12 +1945,12 @@
         ]
     },
 	"yiangaruga": {
-        "level": 94,
+        "level": 89,
         "sets": [ 
             {
-                "role": "Bulky Attacker", 
-                "movepool": ["Barb Barrage", "Knock Off", "Parting Shot", "Pain Split", "Pursuit", "Sucker Punch"],
-                "abilities": ["Merciless"],
+                "role": "Fast Attacker", 
+                "movepool": ["Knock Off", "Dire Claw", "High Jump Kick", "Stomping Tantrum", "Spectral Thief"],
+                "abilities": ["Moxie", "Anger Point"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -2239,7 +2239,7 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Parting Shot", "Taunt", "Trick", "Population Bomb", "Knock Off"],
-                "abilities": ["Innards Out", "Tangling Hair"],
+                "abilities": ["Innards Out", "Tangling Hair", "Pulp Up"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -2310,13 +2310,20 @@
         ]
     },
 	"kechawacha": {
-        "level": 98,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Support",
                 "movepool": ["Haze", "Tidy Up", "Taunt", "Hurricane", "Hydro Pump", "Ice Beam"],
-                "abilities": ["Mold Breaker"],
+                "abilities": ["Mold Breaker", "Foolproof"],
                 "teraTypes": ["Normal"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Water Pulse", "Aura Sphere", "Dark Pulse", "Ice Beam"],
+                "abilities": ["Mega Launcher"],
+                "teraTypes": ["Normal"]
+
             }
         ]
     },
@@ -2460,10 +2467,9 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Strength Sap", "Stun Spore", "Toxic", "Sludge Bomb", "Giga Drain", "Dark Pulse"],
-                "abilities": ["Liquid Ooze", "Merciless"],
+                "movepool": ["Toxic", "Protect", "Tailwind", "Sludge Bomb", "Giga Drain", "Dark Pulse", "Hurricane"],
+                "abilities": ["Liquid Ooze", "Pulp Up"],
                 "teraTypes": ["Normal"]
-
             }
         ]
     },
@@ -2495,7 +2501,7 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Glare", "Tidy Up", "Recover", "Aqua Step", "Body Slam"],
-                "abilities": ["Swift Swim", "Water Absorb"],
+                "abilities": ["Spongy", "Water Absorb"],
                 "teraTypes": ["Normal"]
 
             }

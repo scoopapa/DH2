@@ -989,6 +989,56 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Risen Burst",
 	},
+	bewitchingtail: {
+		onModifyAtk(atk, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'slp') {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyDef(def, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'slp') {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpa(spa, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'slp') {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpd(spd, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'slp') {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.status === 'slp') {
+				return this.chainModify(1.2);
+			}
+		},
+		flags: {},
+		name: "Bewitching Tail",
+		shortDesc: "All stats receive a 1.2x boost if a target is drowsy.",
+	},
+	sacredjewel: {
+		onModifyDefPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sacred Jewel",
+	},
 	overload: {
 		name: "Overload",
 		flags: {},
@@ -1197,7 +1247,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Crystalblight",
 		shortDesc: "If opponent is paralyzed: Inflicts fatigue, takes 1/16th residual damage.",
 	},
-	poisonousradula: {
+	corruptedpoison: {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status' && move.type === 'Poison' && !(target.getMoveHitData(move).typeMod < 0)) {
@@ -1208,7 +1258,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 						boosts: {
 							def: -1,	
 						},
-						ability: this.dex.abilities.get('poisonousradula'),
+						ability: this.dex.abilities.get('corruptedpoison'),
 					});
 				} else if (move.category === 'Special') {
 					move.secondaries.push({
@@ -1216,7 +1266,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 						boosts: {
 							spd: -1,
 						},
-						ability: this.dex.abilities.get('poisonousradula'),
+						ability: this.dex.abilities.get('corruptedpoison'),
 
 					});
 				}
@@ -1226,7 +1276,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		name: "Poisonous Radula",
+		name: "Corrupted Poison",
 		shortDesc: "Non-resisted Poison moves lowers the target's corresponding defense by one stage.",
 	},
 	dragoneater: {
