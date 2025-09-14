@@ -67,4 +67,28 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	blastoisemega: {
 		tier: "SSB",
 	},
+	krokoroketernal: {
+		tier: "SSB",
+	},
+	urshifu: {
+		tier: "SSB",
+	},
+	brambleswine: {
+		tier: "SSB",
+	},
+	houndoom: {
+		tier: "SSB",
+	},
+	garvaluna: {
+		tier: "SSB",
+	},
+	garvalunabloodmoon: {
+		tier: "Illegal",
+	},
+	garbodor: {
+		tier: "SSB",
+	},
+	garbodorgmax: {
+		tier: "SSB",
+	},
 };

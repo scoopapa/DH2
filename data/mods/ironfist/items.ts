@@ -180,6 +180,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifySpe(spe, source) {
 			if (source.baseSpecies.baseSpecies !== 'Iron Fist') return this.chainModify(0.5);
 		},
+		itemUser: ["Iron Fist"],
 		flags: {},
 		name: "Iron Fist",
 		rating: 3,

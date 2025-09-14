@@ -109,7 +109,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 67, atk: 59, def: 50, spa: 67, spd: 63, spe: 56},
 		abilities: {0: "Refrigerate", H: "Flame Body"},
-		movepoolAdditions: ["wringout", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "snowscape", "solarbeam", "will-o-wisp"],
+		movepoolAdditions: ["wringout", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "snowscape", "solarbeam", "willowisp"],
 		movepoolDeletions: ["freeze-dry", "hail"],
 
 		evos: ["Aurorus-Volcanic"],
@@ -129,7 +129,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 108, atk: 77, def: 72, spa: 99, spd: 82, spe: 83},
 		abilities: {0: "Refrigerate", H: "Eruptive"},
-		movepoolAdditions: ["auroraburst", "wringout", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "snowscape", "solarbeam", "will-o-wisp"],
+		movepoolAdditions: ["auroraburst", "wringout", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "snowscape", "solarbeam", "willowisp"],
 		movepoolDeletions: ["freeze-dry", "hail"],
 
 		prevo: "Amaura-Volcanic",
@@ -886,7 +886,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 80, atk: 75, def: 65, spa: 60, spd: 110, spe: 80},
 		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
-		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
+		movepoolAdditions: ["jumpkick", "rapidspin", "uturn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
 
 		prevo: "Spoink",
 		evoType: "other",
@@ -901,7 +901,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 95, atk: 95, def: 70, spa: 75, spd: 115, spe: 85},
 		abilities: {0: "Thick Fat", 1: "High Climber", H: "Gluttony"},
-		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
+		movepoolAdditions: ["jumpkick", "rapidspin", "uturn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
 
 		prevo: "Grumpig-Alpine",
 		evoType: "other",
@@ -1573,5 +1573,675 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		creator: "Hematite",
+	},
+
+	// SLATE 2 PROMPT 1
+
+	pelagicjaw: {
+		name: "Pelagic Jaw",
+		copyData: "Garchomp",
+
+		types: ["Water"],
+		baseStats: {hp: 99, atk: 109, def: 91, spa: 81, spd: 101, spe: 89},
+		abilities: {0: "Protosynthesis"},
+
+		creator: "lydian",
+	},
+
+	kabuto: {
+		inherit: true,
+		evos: ["Kabutops", "Kabutops-Hisui"],
+	},
+	kabutops: {
+		inherit: true,
+		otherFormes: ["Kabutops-Hisui"],
+		formeOrder: ["Kabutops", "Kabutops-Hisui"],
+	},
+	kabutopshisui: {
+		name: "Kabutops-Hisui",
+		baseSpecies: "Kabutops",
+		forme: "Hisui",
+		copyData: "Kabutops",
+
+		types: ["Bug"],
+		baseStats: {hp: 60, atk: 115, def: 105, spa: 65, spd: 70, spe: 80},
+		abilities: {0: "Fendente", 1: "Battle Armor", H: "Sturdy"},
+
+		prevo: "Kabuto",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	mudbray: {
+		inherit: true,
+		otherFormes: ["Mudbray-Sinnoh"],
+		formeOrder: ["Mudbray", "Mudbray-Sinnoh"],
+	},
+	mudbraysinnoh: {
+		name: "Mudbray-Sinnoh",
+		baseSpecies: "Mudbray",
+		forme: "Sinnoh",
+		copyData: "Mudbray",
+
+		types: ["Grass"],
+		baseStats: {hp: 85, atk: 100, def: 55, spa: 35, spd: 70, spe: 40},
+		abilities: {0: "Storm Drain", 1: "Stamina", H: "Technician"},
+		movepoolAdditions: ["grassyglide", "wallow", "trailblaze", "bulletseed", "gigadrain", "grassyterrain"],
+		movepoolDeletions: ["closecombat"],
+
+		evos: ["Mudsdale-Sinnoh"],
+		creator: "pupugugu",
+	},
+	mudsdale: {
+		inherit: true,
+		otherFormes: ["Mudsdale-Mega", "Mudsdale-Sinnoh"],
+		formeOrder: ["Mudsdale", "Mudsdale-Mega", "Mudsdale-Sinnoh"],
+	},
+	mudsdalesinnoh: {
+		name: "Mudsdale-Sinnoh",
+		baseSpecies: "Mudsdale",
+		forme: "Sinnoh",
+		copyData: "Mudsdale",
+
+		types: ["Grass"],
+		baseStats: {hp: 115, atk: 125, def: 85, spa: 45, spd: 100, spe: 30},
+		abilities: {0: "Storm Drain", 1: "Stamina", H: "Technician"},
+		movepoolAdditions: ["grassyglide", "wallow", "trailblaze", "bulletseed", "gigadrain", "grassyterrain"],
+		movepoolDeletions: ["closecombat"],
+
+		prevo: "Mudbray-Sinnoh",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "pupugugu",
+	},
+
+	tapukiki: {
+		name: "Tapu Kiki",
+		copyData: "Tapu Koko",
+		copyMoves: "Cosmog", // sloppy shortcuts yay
+
+		types: ["Fairy"],
+		baseStats: {hp: 70, atk: 75, def: 95, spa: 75, spd: 95, spe: 115},
+		abilities: {0: "Power Surge", H: "Friend Guard"},
+		movepoolAdditions: ["dragoncheer", "dragonhammer", "allyswitch", "aromatherapy", "bulkup", "calmmind", "confide", "dazzlinggleam", "defog", "drainingkiss", "echoedvoice", "endure", "facade", "falseswipe", "fling", "focusblast", "frustration", "grassknot", "gravity", "guardswap", "hiddenpower", "icywind", "irondefense", "knockoff", "lightscreen", "magiccoat", "magicroom", "meanlook", "moonblast", "naturepower", "nature'smadness", "playrough", "powerswap", "protect", "psychup", "raindance", "reflect", "rest", "return", "roar", "rototiller", "round", "safeguard", "shadowball", "sleeptalk", "smartstrike", "snore", "storedpower", "substitute", "sunnyday", "swagger", "taunt", "telekinesis", "thief", "thunderwave", "torment", "toxic", "trick", "voltswitch", "withdraw", "wonderroom", "workup"],
+		movepoolDeletions: ["teleport", "splash"],
+
+		creator: "quagsi",
+	},
+
+	thievul: {
+		inherit: true,
+		evos: ["Kingxin"],
+	},
+	kingxin: {
+		name: "Kingxin",
+		copyData: "Thievul",
+		
+		baseStats: {hp: 100, atk: 98, def: 63, spa: 107, spd: 92, spe: 75},
+		abilities: {0: "Protean", 1: "Unburden", H: "Stakeout"},
+		movepoolAdditions: ["mortalspin", "slackoff"],
+
+		prevo: "Thievul",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Jade",
+	},
+
+	buneary: {
+		inherit: true,
+		evos: ["Lopunny", "Lopunny-Kitakami"],
+	},
+	lopunny: {
+		inherit: true,
+		otherFormes: ["Lopunny-Kitakami"],
+		formeOrder: ["Lopunny", "Lopunny-Kitakami"],
+	},
+	lopunnykitakami: {
+		name: "Lopunny-Kitakami",
+		baseSpecies: "Lopunny",
+		forme: "Kitakami",
+		copyData: "Lopunny",
+
+		types: ["Ghost"],
+		baseStats: {hp: 65, atk: 86, def: 84, spa: 44, spd: 96, spe: 105},
+		abilities: {0: "Regenerator", 1: "Klutz", H: "Merciless"},
+		movepoolAdditions: ["pranceandpierce", "shadowsneak", "willowisp"],
+
+		prevo: "Buneary",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	swablu: {
+		inherit: true,
+		evos: ["Altaria", "Altaria-Rekindled", "Tenoris"],
+	},
+	altaria: {
+		inherit: true,
+		otherFormes: ["Altaria-Mega", "Altaria-Rekindled"],
+		formeOrder: ["Altaria", "Altaria-Mega", "Altaria-Rekindled"],
+	},
+	altariarekindled: {
+		name: "Altaria-Rekindled",
+		baseSpecies: "Altaria",
+		forme: "Rekindled",
+		copyData: "Altaria",
+
+		types: ["Fire"],
+		baseStats: {hp: 75, atk: 70, def: 90, spa: 70, spd: 105, spe: 80},
+		abilities: {0: "Natural Cure", H: "Regenerator"},
+		movepoolAdditions: ["grandfinale", "flamecharge"],
+		movepoolDeletions: ["dracometeor", "icebeam"],
+
+		prevo: "Swablu",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Albatross",
+	},
+	tenoris: {
+		name: "Tenoris",
+		copyData: "Altaria",
+
+		types: ["Ice", "Dragon"],
+		baseStats: {hp: 75, atk: 110, def: 70, spa: 80, spd: 75, spe: 80},
+		abilities: {0: "Volt Absorb", H: "Slush Rush"},
+		movepoolAdditions: ["iciclecrash", "blizzard", "hail", "icywind", "snowscape"],
+		movepoolDeletions: ["dragondance", "earthquake", "fireblast", "flamethrower"],
+
+		prevo: "Swablu",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Albatross",
+	},
+
+	// SLATE 2 PROMPT 2
+
+	amira: {
+		name: "Amira",
+		copyData: "Amaura",
+
+		types: ["Grass"],
+		abilities: {0: "Water Absorb", H: "Canopy"},
+
+		evos: ["Aumooras"],
+		creator: "Violet",
+	},
+	aumooras: {
+		name: "Aumooras",
+		copyData: "Aurorus",
+
+		types: ["Grass"],
+		abilities: {0: "Water Absorb", H: "Canopy"},
+
+		prevo: "Amira",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	mimejr: {
+		inherit: true,
+		evos: ["Mr. Mime", "Mr. Mime-Galar", "Mr. Mime-Slimy"],
+	},
+	mrmime: {
+		inherit: true,
+		otherFormes: ["Mr. Mime-Galar", "Mr. Mime-Slimy"],
+		formeOrder: ["Mr. Mime", "Mr. Mime-Galar", "Mr. Mime-Slimy"],
+	},
+	mrmimegalar: {
+		inherit: true,
+		evos: ["Mr. Rime", "Mr. Thyme"],
+	},
+	mrmimeslimy: {
+		name: "Mr. Mime-Slimy",
+		baseSpecies: "Mr. Mime",
+		forme: "Slimy",
+		copyData: "Mr. Mime",
+
+		types: ["Poison", "Ground"],
+		baseStats: {hp: 90, atk: 70, def: 60, spa: 80, spd: 70, spe: 90},
+		abilities: {0: "Soundproof", 1: "Sticky Hold", H: "Technician"},
+		movepoolAdditions: ["acidarmor", "acidspray", "afteryou", "block", "bulldoze", "doublekick", "earthpower", "faketears", "mirrorcoat", "mudshot", "rapidspin", "screech", "stompingtantrum", "venoshock"],
+		movepoolDeletions: ["bide", "curse", "double-edge", "dynamicpunch", "followme", "nightmare", "rage", "skullbash", "submission", "takedown", "zapcannon"],
+
+		prevo: "Mime Jr.",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Mr. Slime"],
+		creator: "Hematite",
+	},
+	mrthyme: {
+		name: "Mr. Thyme",
+		copyData: "Mr. Rime",
+
+		types: ["Grass"],
+		baseStats: {hp: 85, atk: 70, def: 100, spa: 80, spd: 75, spe: 110},
+		abilities: {0: "Curious Medicine", 1: "Screen Cleaner", H: "Flower Veil"},
+
+		prevo: "Mr. Mime-Galar",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+	mrslime: {
+		name: "Mr. Slime",
+		copyData: "Mr. Rime",
+		copyMoves: "Mr. Mime",
+
+		types: ["Poison", "Ground"],
+		baseStats: {hp: 125, atk: 75, def: 75, spa: 85, spd: 85, spe: 75},
+		abilities: {0: "Soundproof", 1: "Slime Time", H: "Technician"},
+		movepoolAdditions: ["slimecannon", "acidarmor", "acidspray", "afteryou", "block", "bulldoze", "doublekick", "earthpower", "faketears", "mirrorcoat", "mudshot", "rapidspin", "screech", "stompingtantrum", "venoshock"],
+		movepoolDeletions: ["bide", "curse", "double-edge", "dynamicpunch", "followme", "nightmare", "rage", "skullbash", "submission", "takedown", "zapcannon"],
+
+		prevo: "Mr. Mime-Slimy",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	azelf: {
+		inherit: true,
+		otherFormes: ["Azelf-Ultra-Space"],
+		formeOrder: ["Azelf", "Azelf-Ultra-Space"],
+	},
+	azelfultraspace: {
+		name: "Azelf-Ultra-Space",
+		baseSpecies: "Azelf",
+		forme: "Ultra-Space",
+		copyData: "Azelf",
+
+		types: ["Dark"],
+		baseStats: {hp: 83, atk: 113, def: 89, spa: 113, spd: 89, spe: 83},
+		abilities: {0: "Levitate", H: "Sword of Ruin", S: "Beast Boost"},
+
+		creator: "Gravity Monkey",
+	},
+
+	mesprit: {
+		inherit: true,
+		otherFormes: ["Mesprit-Ultra-Space"],
+		formeOrder: ["Mesprit", "Mesprit-Ultra-Space"],
+	},
+	mespritultraspace: {
+		name: "Mesprit-Ultra-Space",
+		baseSpecies: "Mesprit",
+		forme: "Ultra-Space",
+		copyData: "Mesprit",
+
+		types: ["Bug"],
+		baseStats: {hp: 103, atk: 127, def: 67, spa: 127, spd: 67, spe: 79},
+		abilities: {0: "Levitate", H: "Beads of Ruin", S: "Beast Boost"},
+
+		creator: "Selene",
+	},
+
+	nuzleaf: {
+		inherit: true,
+		evos: ["Shiftry", "Shiftry-Johto"],
+	},
+	shiftry: {
+		inherit: true,
+		otherFormes: ["Shiftry-Johto"],
+		formeOrder: ["Shiftry", "Shiftry-Johto"],
+	},
+	shiftryjohto: {
+		name: "Shiftry-Johto",
+		baseSpecies: "Shiftry",
+		forme: "Johto",
+		copyData: "Shiftry",
+
+		types: ["Fighting", "Ghost"],
+		baseStats: {hp: 80, atk: 92, def: 70, spa: 70, spd: 60, spe: 108},
+		abilities: {0: "Aerilate", 1: "Wind Rider", H: "Inspirit"},
+
+		prevo: "Nuzleaf",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+
+	ironengines: {
+		name: "Iron Engines",
+		copyData: "Dodrio",
+
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 70, atk: 90, def: 94, spa: 176, spd: 66, spe: 94},
+		abilities: {0: "Hadron Engine"},
+
+		creator: "pupugugu",
+	},
+
+	// SLATE 2 PROMPT 3
+
+	zavender: {
+		name: "Zavender",
+		copyData: "Zacian",
+
+		types: ["Steel"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+		abilities: {0: "Noble Potential"},
+		movepoolDeletions: ["airslash", "assurance", "brutalswing", "falseswipe", "mistyterrain", "nobleroar", "poisonjab", "psychocut", "quickguard", "sacredsword", "solarblade", "swordsdance"],
+
+		evos: ["Zacian", "Zamazenta"],
+		creator: "Gravity Monkey",
+	},
+	zacian: {
+		inherit: true,
+		prevo: "Zavender",
+	},
+	zamazenta: {
+		inherit: true,
+		prevo: "Zavender",
+	},
+
+	grubbin: {
+		inherit: true,
+		evos: ["Charjabug", "Charjabug-Chained"],
+	},
+	charjabug: {
+		inherit: true,
+		otherFormes: ["Charjabug-Chained"],
+		formeOrder: ["Charjabug", "Charjabug-Chained"],
+	},
+	charjabugchained: {
+		name: "Charjabug-Chained",
+		baseSpecies: "Charjabug",
+		forme: "Chained",
+		copyData: "Charjabug",
+
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 58, atk: 58, def: 110, spa: 58, spd: 58, spe: 58},
+		abilities: {0: "Battery", 1: "Toxic Chain", H: "Battery Leak"},
+		movepoolAdditions: ["sludge", "toxicspikes", "toxicthread", "acidarmor", "acidspray", "sludgebomb", "sludgewave", "venoshock"],
+		movepoolDeletions: ["agility", "airslash", "dualwingbeat", "energyball", "roost", "fly", "guillotine", "skydrop"],
+
+		prevo: "Grubbin",
+		evoType: "other",
+		evos: ["Charjouleak"],
+		evoCondition: "A newly-discovered evolution",
+		creator: "lydian",
+	},
+	charjouleak: {
+		name: "Charjouleak",
+		copyData: "Vikavolt",
+
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 68, atk: 68, def: 68, spa: 160, spd: 68, spe: 68},
+		abilities: {0: "Battery", 1: "Toxic Chain", H: "Battery Leak"},
+		movepoolAdditions: ["sludge", "toxicspikes", "toxicthread", "acidarmor", "acidspray", "sludgebomb", "sludgewave", "venoshock"],
+		movepoolDeletions: ["agility", "airslash", "dualwingbeat", "energyball", "roost", "fly", "guillotine", "skydrop"],
+
+		prevo: "Charjabug-Chained",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "lydian",
+	},
+
+	// I hope I did these movepools right aksdjhf
+	uraxys: {
+		name: "Uraxys",
+		copyData: "Deoxys",
+
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 53, atk: 53, def: 53, spa: 59, spd: 53, spe: 149},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "dracometeor", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "superpower", "zapcannon", "counter", "mirrorcoat", "extremespeed"],
+
+		evos: ["Riboxys U"],
+		creator: "Paulluxx",
+	},
+	riboxysu: {
+		name: "Riboxys U",
+		copyData: "Deoxys",
+
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 83, atk: 83, def: 83, spa: 89, spd: 83, spe: 149},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "dracometeor", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "superpower", "zapcannon", "counter", "mirrorcoat", "extremespeed"],
+
+		prevo: "Uraxys",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+	cytoxys: {
+		name: "Cytoxys",
+		copyData: "Deoxys-Attack",
+		copyMoves: "Deoxys",
+
+		types: ["Bug", "Electric"],
+		baseStats: {hp: 53, atk: 59, def: 53, spa: 53, spd: 149, spe: 53},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "electroshot", "refresh", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "recover", "counter", "mirrorcoat", "extremespeed"],
+
+		evos: ["Riboxys C"],
+		creator: "Paulluxx",
+	},
+	riboxysc: {
+		name: "Riboxys C",
+		copyData: "Deoxys-Attack",
+		copyMoves: "Deoxys",
+
+		types: ["Bug", "Electric"],
+		baseStats: {hp: 83, atk: 89, def: 83, spa: 83, spd: 149, spe: 83},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "electroshot", "refresh", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "recover", "counter", "mirrorcoat", "extremespeed"],
+
+		prevo: "Cytoxys",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+	adexys: {
+		name: "Adexys",
+		copyData: "Deoxys-Defense",
+		copyMoves: "Deoxys",
+
+		types: ["Ghost", "Rock"],
+		baseStats: {hp: 149, atk: 53, def: 53, spa: 53, spd: 59, spe: 53},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "meteorbeam", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "cosmicpower", "superpower", "zapcannon", "extremespeed"],
+
+		evos: ["Riboxys A"],
+		creator: "Paulluxx",
+	},
+	riboxysa: {
+		name: "Riboxys A",
+		copyData: "Deoxys-Defense",
+		copyMoves: "Deoxys",
+
+		types: ["Ghost", "Rock"],
+		baseStats: {hp: 149, atk: 83, def: 83, spa: 83, spd: 89, spe: 83},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "meteorbeam", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "cosmicpower", "superpower", "zapcannon", "extremespeed"],
+
+		prevo: "Adexys",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+	guaxys: {
+		name: "Guaxys",
+		copyData: "Deoxys-Speed",
+		copyMoves: "Deoxys",
+
+		types: ["Bug", "Normal"],
+		baseStats: {hp: 53, atk: 53, def: 149, spa: 53, spd: 53, spe: 59},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "skullbash", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "cosmicpower", "superpower", "zapcannon", "counter", "mirrorcoat"],
+
+		evos: ["Riboxys G"],
+		creator: "Paulluxx",
+	},
+	riboxysg: {
+		name: "Riboxys G",
+		copyData: "Deoxys-Speed",
+		copyMoves: "Deoxys",
+
+		types: ["Bug", "Normal"],
+		baseStats: {hp: 83, atk: 83, def: 149, spa: 83, spd: 83, spe: 89},
+		abilities: {0: "Patch Note", H: "Two-Minded", S: "Beast Boost"},
+		movepoolAdditions: ["aromatherapy", "refresh", "skullbash", "psychicnoise", "psychicterrain"],
+		movepoolDeletions: ["nastyplot", "cosmicpower", "superpower", "zapcannon", "counter", "mirrorcoat"],
+
+		prevo: "Guaxys",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+
+	stunfisk: {
+		inherit: true,
+		otherFormes: ["Stunfisk-Galar", "Stunfisk-Variant", "Stunfisk-Ultra-Space"],
+		formeOrder: ["Stunfisk", "Stunfisk-Galar", "Stunfisk-Variant", "Stunfisk-Ultra-Space"],
+	},
+	stunfiskvariant: {
+		name: "Stunfisk-Variant",
+		baseSpecies: "Stunfisk",
+		forme: "Variant",
+		copyData: "Stunfisk",
+
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 109, atk: 81, def: 84, spa: 66, spd: 99, spe: 32},
+		abilities: {0: "Poison Heal", 1: "Limber", H: "Sand Veil"},
+		movepoolAdditions: ["aerialace", "airslash", "banefulbunker", "defog", "fly", "toxicspikes"],
+		movepoolDeletions: ["charge", "discharge", "earthpower", "electricterrain", "magnetrise", "painsplit", "spark", "stealthrock", "stoneedge", "thunder", "thunderbolt", "thunderwave"],
+
+		creator: "abismal",
+	},
+	stunfiskultraspace: {
+		name: "Stunfisk-Ultra-Space",
+		baseSpecies: "Stunfisk",
+		forme: "Ultra-Space",
+		copyData: "Stunfisk",
+
+		types: ["Dark", "Fire"],
+		baseStats: {hp: 199, atk: 71, def: 79, spa: 79, spd: 71, spe: 71},
+		abilities: {0: "Levitate", H: "Protean", S: "Beast Boost"},
+		movepoolAdditions: [ // all three Stunfisk combined and then some more
+			"bind", "counter", "crunch", "flashcannon", "icefang", "irondefense", "metalclaw", "metalsound", "screech", "snaptrap", "steelbeam", "terrainpulse",
+			"aerialace", "airslash", "banefulbunker", "defog", "fly", "toxicspikes",
+			"powertrip", "totaleclipse", "darkpulse", "fireblast", "flamecharge", "heatwave", "overheat", "solarbeam", "willowisp"
+		],
+
+		creator: "quagsi",
+	},
+	
+	accelgor: {
+		inherit: true,
+		evos: ["Velocinobi"],
+	},
+	velocinobi: { // from Evo 1
+		name: "Velocinobi",
+		copyData: "Accelgor",
+
+		types: ["Bug", "Ghost"],
+		baseStats: {hp: 80, atk: 95, def: 20, spa: 105, spd: 90, spe: 145},
+		abilities: {0: "Shed Skin", 1: "Technician", H: "Unburden"},
+		movepoolAdditions: ["strengthsap", "hex", "lunge", "shadowball"],
+
+		prevo: "Accelgor",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+	ironbreath: {
+		name: "Iron Breath",
+		copyData: "Accelgor",
+
+		types: ["Bug", "Fire"],
+		baseStats: {hp: 70, atk: 74, def: 70, spa: 74, spd: 70, spe: 142},
+		abilities: {0: "Wind Rider", 1: "Sticky Hold", H: "Unburden", S: "Quark Drive"},
+		movepoolAdditions: ["flowingflare", "tailwind", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "overheat", "scorchingsands", "solarbeam", "willowisp"],
+
+		creator: "Jade",
+	},
+	
+	wimpod: {
+		inherit: true,
+		evos: ["Golisopod", "Narcissopod"],
+	},
+	narcissopod: { // from Evo 1
+		name: "Narcissopod",
+		copyData: "Golisopod",
+
+		types: ["Bug", "Water"],
+		baseStats: {hp: 75, atk: 60, def: 90, spa: 105, spd: 120, spe: 80},
+		abilities: {0: "Disengage", H: "Mirror Armor"},
+		movepoolAdditions: ["gigadrain", "hydropump"],
+		movepoolDeletions: ["brickbreak", "closecombat", "drillrun", "dualchop", "ironhead", "rockslide", "rocktomb", "throatchop"],
+
+		prevo: "Wimpod",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+	spiritedaway: {
+		name: "Spirited Away",
+		copyData: "Wimpod",
+
+		types: ["Bug", "Ghost"],
+		baseStats: {hp: 81, atk: 125, def: 81, spa: 81, spd: 81, spe: 81},
+		abilities: {0: "Rattled", H: "Archetype", S: "Protosynthesis"},
+		movepoolAdditions: ["paranoia", "powertrip", "frostbreath", "hex", "pounce", "shadowball", "willowisp"],
+
+		creator: "BlueRay",
+	},
+
+	steenee: {
+		inherit: true,
+		evos: ["Shiftry", "Shiftry-Johto"],
+	},
+	tsareena: {
+		inherit: true,
+		otherFormes: ["Tsareena-Variant"],
+		formeOrder: ["Tsareena", "Tsareena-Variant"],
+	},
+	tsareenavariant: {
+		name: "Tsareena-Variant",
+		baseSpecies: "Tsareena",
+		forme: "Variant",
+		copyData: "Tsareena",
+
+		types: ["Grass", "Psychic"],
+		baseStats: {hp: 76, atk: 83, def: 73, spa: 74, spd: 74, spe: 130},
+		abilities: {0: "Opportunist", 1: "Queenly Majesty", H: "Sweet Veil"},
+		movepoolAdditions: ["psykick", "speedswap", "trick", "skillswap"],
+
+		prevo: "Steenee",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Selene",
+	},
+
+	dragonair: {
+		inherit: true,
+		evos: ["Dragonite", "Dragoracle"],
+	},
+	dragoracle: {
+		name: "Dragoracle",
+		copyData: "Dragonite",
+		copyMoves: "Dragonair",
+
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 91, atk: 89, def: 85, spa: 93, spd: 159, spe: 83},
+		abilities: {0: "Cloud Nine", H: "Marvel Scale"},
+		movepoolAdditions: ["empathicpulse", "painsplit", "synchronoise", "futuresight", "psybeam", "psychicterrain", "psyshock"],
+		movepoolDeletions: ["earthquake", "lowkick", "megakick", "superpower"],
+
+		prevo: "Dragonair",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Albatross",
 	},
 };

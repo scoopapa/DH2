@@ -608,6 +608,149 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	'5bigdooms': {
+		accuracy: 100,
+		basePower: 28,
+		category: "Special",
+		name: "5 Big Dooms",
+		shortDesc: "Hits 5 times, 2 turns after being used.",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1, futuremove: 1},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: '5bigdooms',
+				source: source,
+				moveData: {
+					id: '5bigdooms',
+					name: "5 Big Dooms",
+					accuracy: 100,
+					basePower: 28,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					multihit: 5,
+					effectType: 'Move',
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, '5 Big Dooms');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	youwantfun: {
+		name: "You Want Fun?!",
+		type: "Dark",
+		category: "Physical",
+		basePower: 65,
+		accuracy: 95,
+		pp: 10,
+		shortDesc: "Forces the target to switch to a random ally.",
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		forceSwitch: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pursuit", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	incinerate: {
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Incinerate",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				let item = target.item;
+				const nonBurn = ['Never-Melt Ice', 'Charcoal', 'Magmarizer', 'Dragon Fang', 'Dragon Scale', 'Damp Rock', 'Smooth Rock', 'Heat Rock', 'Insect Plate', 'Dread Plate', 'Draco Plate', 'Zap Plate', 'Flame Plate', 'Fist Plate', 'Sky Plate', 'Pixie Plate', 'Spooky Plate', 'Meadow Plate', 'Earth Plate', 'Icicle Plate', 'Toxic Plate', 'Stone Plate', 'Iron Plate', 'Splash Plate', 'Light Ball', 'Metal Powder', 'Quick Powder', 'Deep Sea Scale', 'Deep Sea Tooth', 'Thick Club', 'Protective Pads'];
+				if (!nonBurn.includes(target.item)) item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Incinerate', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	wickedblow: {
+		inherit: true,
+		basePower: 120,
+		desc: "Cannot be selected the turn after it's used.",
+		shortDesc: "Cannot be selected the turn after it's used.",
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, cantusetwice: 1},
+		willCrit: null,
+	},
+	lunardust: {
+		num: -17,
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Clears terrain and can't be used twice.",
+		name: "Lunar Dust",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+    kleptomania: {
+      num: -552,
+		accuracy: 100,
+		basePower: 50,
+      basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+         if (pokemon.timesStolen) bp += 150 * pokemon.timesStolen
+			this.debug("BP: " + bp);
+			return bp;
+		},
+		category: "Physical",
+		name: "Kleptomania",
+      shortDesc: "+150 BP each time the user has stolen an item.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+      onTryMove() { // animation
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) { // animation
+         this.add('-anim', source, 'Nasty Plot', target);
+      	this.add('-anim', source, 'Punishment', target);
+		},
+		target: "normal",
+		type: "Dark",
+    },
 	// collateral
 	gravity: {
 		num: 356,
@@ -2004,5 +2147,70 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-fieldend', 'move: Trick Room');
 			},
 		},
+	},
+    covet: {
+		num: 343,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Covet",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, failmefirst: 1, noassist: 1, failcopycat: 1},
+		onAfterHit(target, source, move) {
+			if (source.item || source.volatiles['gem']) {
+				return;
+			}
+			const yourItem = target.takeItem(source);
+			if (!yourItem) {
+				return;
+			}
+			if (
+				!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
+				!source.setItem(yourItem)
+			) {
+				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+				return;
+			}
+			this.add('-item', source, yourItem, '[from] move: Covet', '[of] ' + target);
+            if (source.timesStolen) source.timesStolen++; // added for Kleptomania
+            else source.timesStolen = 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+    thief: {
+		num: 168,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Thief",
+		pp: 25,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, failmefirst: 1, noassist: 1, failcopycat: 1},
+		onAfterHit(target, source, move) {
+			if (source.item || source.volatiles['gem']) {
+				return;
+			}
+			const yourItem = target.takeItem(source);
+			if (!yourItem) {
+				return;
+			}
+			if (!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
+				!source.setItem(yourItem)) {
+				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+				return;
+			}
+			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Thief', '[of] ' + source);
+			this.add('-item', source, yourItem, '[from] move: Thief', '[of] ' + target);
+            if (source.timesStolen) source.timesStolen++; // added for Kleptomania
+            else source.timesStolen = 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
 	},
 };

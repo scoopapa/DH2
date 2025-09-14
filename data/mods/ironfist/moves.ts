@@ -2443,12 +2443,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Hits twice.",
+		shortDesc: "Hits twice. Special if user's SpA > Atk.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Bonemerang", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 		multihit: 2,
 		secondary: null,
@@ -4008,6 +4011,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.debug('BP doubled in Terrain');
 			}
 			this.debug('BP: ' + move.basePower);
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		secondary: null,
 		target: "normal",
@@ -4155,6 +4159,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			
 			let basePower = (Math.sqrt(i) ** 3) * 2;
 			if (i > 10) basePower += 10;
+			move.basePower = basePower;
 			
 			if (i === 1) this.boost({ spe: -1 }, pokemon, pokemon);
 			if (i === 20) move.willCrit = true;
