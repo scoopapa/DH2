@@ -242,7 +242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Burning Feet",
 		types: ["Normal", "Fire"],
 		baseStats: {hp: 69, atk: 65, def: 93, spa: 111, spd: 115, spe: 117},
-		abilities: {0: "Protosandthysis"},
+		abilities: {0: "Protosandthesis"},
 		weightkg: 29,
 	},
 	thefamiliarshadow: {

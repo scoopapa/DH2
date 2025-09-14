@@ -195,4 +195,124 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mimicry",
 		shortDesc: "This Pokemon loses Steel STAB but gains corresponding STAB in terrain.",
 	},
+	protosandthesis: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosandthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sandstorm')) {
+				pokemon.addVolatile('protosandthesis');
+			} else if (!pokemon.volatiles['protosandthesis']?.fromBooster && this.field.weather !== 'sandstorm') {
+				// Protosandthesis will not deactivite if Sand is suppressed, hence the direct ID check (isWeather respects supression)
+				pokemon.removeVolatile('protosandthesis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosandthesis'];
+			this.add('-end', pokemon, 'Protosandthesis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protosandthesis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protosandthesis');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosandthesis' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protosandthesis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protosandthesis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protosandthesis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protosandthesis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Protosandthesis spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosandthesis');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Protosandthesis",
+		shortDesc: "Sand or Booster Energy: highest stat is 1.3x, 1.5x if Speed. Sand Immunity.",
+	},
+	dejavu: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('confusion');
+				}
+			}
+		},
+		flags: {},
+		name: "Deja Vu",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be confused.",
+	},
+	punchdrunk: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['punch']) {
+				this.boost({atk: 1}, target, target);
+				target.addVolatile('torment');
+			}
+		},
+		flags: {},
+		name: "Punch Drunk",
+		shortDesc: "When this Pokemon is damaged by a Punching move, it gains +1 Attack and Torment.",
+	},
+	rulerscoronation: {
+		// Hazard Shield handled within conditions.ts
+		onSwitchOut(pokemon) {
+			this.add('-ability', pokemon, 'Ruler\'s Coronation');
+			this.add('-message', pokemon.name + " has been crowned!");
+			pokemon.side.addSlotCondition('rulerscoronation');
+		},
+		condition: {
+			duration: 1,
+			onSwap(target) {
+				if (!target.fainted) {
+					target.addVolatile('hazardshield');
+				}
+				target.side.removeSlotCondition(target, 'rulerscoronation');
+			},
+		},
+		flags: {},
+		name: "Ruler's Coronation",
+		shortDesc: "On switch out, incoming ally gets protected from hazards.",
+	},
+	man: {
+		onSwitchIn(pokemon) {
+			if (pokemon.addType('Normal')) this.add('-start', pokemon, 'typeadd', 'Normal', '[from] ability: Man');
+		},
+		name: "Man",
+		flags: {},
+		shortDesc: "This Pokemon gains the normal type on switch in.",
+	},
 };
