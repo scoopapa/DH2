@@ -154,6 +154,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		spritenum: 578,
 	},
+	inagamite: {
+		name: "Inagamite",
+		gen: 9,
+		shortDesc: "If held by Inagami, allows it transform into Zenith I. (Mega-Evolution)",
+		megaStone: "Inagami-Z",
+		megaEvolves: "Inagami",
+		itemUser: ["Inagami", "Inagami-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 613,
+	},
 	lagialite: {
 		name: "Lagialite",
 		gen: 9,
@@ -317,6 +330,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Risen Teostra",
 		megaEvolves: "Teostra",
 		itemUser: ["Teostra", "Risen Teostra"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	risenites: {
+		name: "Risenite-S",
+		gen: 9,
+		shortDesc: "If held by Shagaru Magala, allows it to enter it's Risen Form. (Mega-Evolution)",
+		megaStone: "Risen Shagaru",
+		megaEvolves: "Shagaru Magala",
+		itemUser: ["Shagaru Magala", "Risen Shagaru"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
