@@ -13698,7 +13698,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			snarl: ["9L1"],
 			spite: ["9L1"],
-			stealthrocks: ["9L1"],
+			stealthrock: ["9L1"],
 			stoneedge: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],

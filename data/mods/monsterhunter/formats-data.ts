@@ -635,6 +635,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	emgalala: {
 		tier: "MHRU",
 	},
+	tartaronis: {
+		tier: "MHOU",
+	},
+	inferonis: {
+		tier: "MHOU",
+	},
+	hallowedmohran: {
+		tier: "MHOU",
+	},
+	unknown: {
+		tier: "MHOU",
+	},
+	yamakurai: {
+		tier: "MHOU",
+	},
+	balenox: {
+		tier: "MHRU",
+	},
 	frostfangbarioth: {
 		tier: "MEGAS",
 	},
@@ -693,6 +711,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MEGAS",
 	},
 	risenkushala: {
+		tier: "MEGAS",
+	},
+	risenshagaru: {
+		tier: "MEGAS",
+	},
+	inagamiz: {
 		tier: "MEGAS",
 	}
 };
