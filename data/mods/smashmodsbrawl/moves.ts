@@ -661,11 +661,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 	},
-	incinerate: {
+	incinerateironfist: {
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
-		name: "Incinerate",
+		name: "Incinerate-Iron Fist",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		pp: 20,
 		priority: 0,
