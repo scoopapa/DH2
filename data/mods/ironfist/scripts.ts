@@ -22,6 +22,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (mon.diamondhand) this.modData("Learnsets", pokemon).learnset.diamondhand = ["9L1"];
 				if (mon.hoenn || mon.gen === 3) this.modData("Learnsets", pokemon).learnset.hoenn = ["9L1"];
 				if (mon.trans) this.modData("Learnsets", pokemon).learnset.trans = ["9L1"];
+				if (mon.bird) {
+					this.modData("Learnsets", pokemon).learnset.bird = ["9L1"];
+					this.modData("Learnsets", pokemon).learnset.justthebirdsthesequel = ["9L1"];
+				}
 			}
 		}
 	},
@@ -39,13 +43,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				this.add('start');
 
-				// Change Zacian/Zamazenta into their Crowned formes
+				// Change Circall into Wario
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
-					if (pokemon.species.id === 'zacian' && pokemon.item === 'rustedsword') {
-						rawSpecies = this.dex.species.get('Zacian-Crowned');
-					} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
-						rawSpecies = this.dex.species.get('Zamazenta-Crowned');
+					console.log(`${pokemon.species.id}\n
+								${pokemon.baseMoves.indexOf('stankyleg')}\n
+								${pokemon.baseMoves.indexOf('youwantfun')}\n
+								${pokemon.baseMoves.indexOf('wariopicrosspuzzle4g')}\n
+								${pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh')}\n
+								${pokemon.hasAbility('bloodlinegreatestachievement')}\n`);
+					if (pokemon.species.id === 'circall' && 
+						pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
+						pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
+						pokemon.baseMoves.indexOf('wariopicrosspuzzle4g') >= 0 &&
+						pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
+						pokemon.hasAbility('bloodlinegreatestachievement')) {
+						rawSpecies = this.dex.species.get('Wario-Forbidden-One');
 					}
 					if (!rawSpecies) continue;
 					const species = pokemon.setSpecies(rawSpecies);
@@ -55,25 +68,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 					pokemon.setAbility(species.abilities['0'], null, true);
 					pokemon.baseAbility = pokemon.ability;
-
-					const behemothMove: {[k: string]: string} = {
-						'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
-					};
-					const ironHead = pokemon.baseMoves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						const move = this.dex.moves.get(behemothMove[rawSpecies.name]);
-						pokemon.baseMoveSlots[ironHead] = {
-							move: move.name,
-							id: move.id,
-							pp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-							maxpp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-							target: move.target,
-							disabled: false,
-							disabledSource: '',
-							used: false,
-						};
-						pokemon.moveSlots = pokemon.baseMoveSlots.slice();
-					}
 				}
 
 				if (this.format.onBattleStart) this.format.onBattleStart.call(this);

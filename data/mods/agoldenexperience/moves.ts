@@ -1026,7 +1026,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		name: "Sneaky Assault",
 		pp: 20,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1 },
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		multihit: 3,
 		secondary: {
 			chance: 10,
@@ -3413,6 +3413,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		basePower: 70,
 		basePowerCallback(pokemon) {
 			if (pokemon.volatiles['stockpile']?.layers === 3) return move.basePower * 2;
+			return move.basePower;
 		},
 		category: "Special",
 		name: "Ventilation",

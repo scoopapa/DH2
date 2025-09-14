@@ -2504,7 +2504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fertile Soil",
-		shortDesc: "Inflicts foes with Leech seed on switchin. Single use.",
+		shortDesc: "Inflicts foes with Leech Seed on switchin. Single use.",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
@@ -2515,13 +2515,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'Fertile Soil');
 			},
 			onEntryHazard(pokemon) {
-				if(!pokemon.hasType('Grass')) {
-					if(pokemon.adjacentFoes().length == 0) return;
-					const target = this.sample(pokemon.adjacentFoes());
-					pokemon.addVolatile('leechseed', target);
-					pokemon.side.removeSideCondition('fertilesoil');
-					this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
-				}
+				if (pokemon.hasType('Grass') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				if(pokemon.adjacentFoes().length == 0) return;
+				const target = this.sample(pokemon.adjacentFoes());
+				pokemon.addVolatile('leechseed', target);
+				pokemon.side.removeSideCondition('fertilesoil');
+				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
 			},
 		},
 		secondary: null,
@@ -2832,13 +2831,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Necromancy",
 		type: "Ghost",
 		category: "Special",
-		basePower: 0,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
-			return 30 * Math.min(pokemon.side.totalFainted, 5);
+			return 60 + 20 * Math.min(pokemon.side.totalFainted, 5);
 		},
-		accuracy: 70,
+		accuracy: 90,
 		pp: 5,
-		shortDesc: "+30 power for each fainted ally. Graveyard: can't miss.",
+		shortDesc: "+20 power for each fainted ally. Graveyard: can't miss.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryMove(attacker, defender, move) {
@@ -3660,7 +3659,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Floatsam Hook",
 		type: "Water",
 		category: "Physical",
-		basePower: 75,
+		basePower: 85,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Has +1 crit ratio for each user's Fishing Token.",
@@ -3933,6 +3932,236 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	
+	//slate 11
+	dragonflurry: {
+		name: "Dragon Flurry",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 25,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits 2-5 times. 5th use: hits 5 times.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Comet Punch", target);
+		},
+		multihit: [2, 5],
+		onModifyMove(move, pokemon) {
+			if (pokemon.flurry >= 5) move.multihit = 5;
+		},
+		onAfterMove(pokemon) {
+			if (!pokemon.flurry) pokemon.flurry = 0;
+			pokemon.flurry ++;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	awesomemove: {
+		name: "awesomemove",
+		type: "Stellar",
+		category: "Special",
+		basePower: 95,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "1.2x power in weather or terrain. Physical if Atk > SpA.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tera Blast", target);
+		},
+		onModifyMove(move, pokemon) {
+			let boosted = false;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			case 'sandstorm':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			case 'graveyard':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			case 'acidrain':
+				move.basePower *= 1.2;
+				boosted = true;
+				break;
+			}
+			if (!boosted && this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 1.2;
+				this.debug('BP doubled in Terrain');
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	justthebirdsthesequel: {
+		name: "Just The Birds: The Sequel",
+		type: "Flying",
+		category: "Special",
+		basePower: 55,
+		accuracy: 100,
+		pp: 69,
+		noPPBoosts: true,
+		shortDesc: "Changes the targets's primary type to Flying and adds Bird.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, disaster: 1, wind: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Hurricane", target);
+		},
+		onHit(target) {
+			if (target.getTypes()[0] === 'Flying') return;
+			let newType = target.getTypes();
+			newType[0] = 'Flying';
+			if (target.setType(newType)) this.add('-start', target, 'typechange', newType.join('/'));
+		},
+		volatileStatus: 'justthebirds',
+		secondary: null,
+		target: "normal",
+	},
+	greatestachievement: {
+		name: "Greatest Achievement",
+		type: "Silly",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "Protects allies from damaging attacks. Destroys user's item.",
+		priority: 3,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Mat Block", target);
+		},
+		stallingMove: true,
+		sideCondition: 'greatestachievement',
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Greatest Achievement');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Greatest Achievement', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Greatest Achievement', `[of] ${target}`);
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	walkthedog: {
+		name: "Walk the Dog",
+		type: "Ground",
+		category: "Physical",
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.volatiles['bigbutton']) return move.basePower * 2;
+		},
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User switches out. Doubled damage if user is Big.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "U-Turn", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	loneshot: {
+		name: "Lone Shot",
+		type: "Ground",
+		category: "Physical",
+		basePower: 100,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Supereffective against Silly.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Focus Blast", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Silly') return 1;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	hurricane: {
+		inherit: true,
+		shortDesc: "No additional effect.",
+		accuracy: 80,
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+			case 'acidrain':
+				move.accuracy = 50;
+				break;
+			}
+		},
+		secondary: null,
+	},
+	magnitude: {
+		inherit: true,
+		shortDesc: "Rolls a D20 for damage.",
+		onModifyMove(move, pokemon) {
+			const i = this.random(20);
+			const a = (i == 8 || i == 18) ? 'an' : 'a';
+			this.add('-message', `${pokemon.name} rolled ${a} ${i}!`);
+			
+			let basePower = (Math.sqrt(i) ** 3) * 2;
+			if (i > 10) basePower += 10;
+			
+			if (i === 1) this.boost({ spe: -1 }, pokemon, pokemon);
+			if (i === 20) move.willCrit = true;
+		},
+		onUseMoveMessage: null,
+	},
+	
 	//silly shit
 	attract: {
 		inherit: true,
@@ -4056,10 +4285,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
 	},
-	magnitude: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
-	},
 	muddywater: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
@@ -4067,23 +4292,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	surf: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
-	},
-	hurricane: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'raindance':
-			case 'primordialsea':
-				move.accuracy = true;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'acidrain':
-				move.accuracy = 50;
-				break;
-			}
-		},
 	},
 	thunder: {
 		inherit: true,
@@ -4220,6 +4428,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
 	},
 	lowsweep: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	tripleaxel: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
 	},
@@ -4394,6 +4606,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Silly",
+	},
+	bird: {
+		name: "Bird",
+		type: "Normal",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "Designates Bird Pokemon",
+		viable: false,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "Flying",
 	},
 
 	//vanilla moves
@@ -5024,5 +5254,80 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			this.field.setWeather('sunnyday');
 		}
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
 	},
 };

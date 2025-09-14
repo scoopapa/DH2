@@ -1091,7 +1091,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			sludgewave: ["6L1"],
 		},
 	},
-	malitch: {
+	malich: {
 		learnset: {
 			stealthrock: ["6L1"],
 			spikes: ["6L1"],
@@ -1110,6 +1110,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			willowisp: ["6L1"],
 			torment: ["6L1"],
 			magiccoat: ["6L1"],
+			jumpscare: ["6L1"],
 		},
 	},
 	automent: {

@@ -90,7 +90,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Fearow",
 		forme: "Kalos",
 		types: ["Dark", "Flying"],
-		baseStats: {hp: 75, atk: 80, def: 55, spa: 51, spd: 51, spe: 120},
+		baseStats: {hp: 85, atk: 80, def: 55, spa: 51, spd: 51, spe: 120},
 		abilities: {0: "Keen Eye", H: "Gluttony"},
 		heightm: 1.2,
 		weightkg: 38,
@@ -191,7 +191,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Vanilluxe",
 		forme: "Kalos",
 		types: ["Fairy", "Ground"],
-		baseStats: {hp: 71, atk: 95, def: 110, spa: 110, spd: 115, spe: 54},
+		baseStats: {hp: 71, atk: 95, def: 100, spa: 110, spd: 105, spe: 54},
 		abilities: {0: "Levitate", 1: "Gluttony", H: "Flash Fire"},
 		heightm: 1.3,
 		weightkg: 57.5,
@@ -419,9 +419,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		requiredItem: "Floatzelite",
 	},
-	malitch: {
+	malich: {
 		num: -8,
-		name: "Malitch",
+		name: "Malich",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 105, atk: 75, def: 80, spa: 85, spd: 90, spe: 100},
 		abilities: {0: "Cursed Body", H: "Magic Bounce"},
@@ -440,5 +440,27 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 255.5,
 		color: "Gray",
 		eggGroups: ["Mineral"],
+	},
+	// slate 6
+	duskull: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Cursed Body", H: "Frisk"},
+	},
+	dusclops: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Cursed Body", H: "Frisk"},
+	},
+	dusknoir: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 100, def: 135, spa: 85, spd: 135, spe: 35},
+		abilities: {0: "Pressure", 1: "Sheer Force", H: "Frisk"},
+	},
+	klinklang: {
+		inherit: true,
+		abilities: {0: "Plus", 1: "Minus", H: "Technician"},
+	},
+	luxray: {
+		inherit: true,
+		baseStats: {hp: 91, atk: 120, def: 79, spa: 95, spd: 79, spe: 70},
 	},
 };

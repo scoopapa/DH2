@@ -236,24 +236,42 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BC OU",
 	},
 	lyvamp: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	treatmint: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	turvarpega: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	goodjur: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	liftaton: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	triceracotta: {
-		tier: "BC RU",
+		tier: "BC C",
 	},
 	woolverine: {
-		tier: "BC RU",
+		tier: "BC C",
+	},
+	combustoad: {
+		tier: "BC C",
+	},
+	hearthind: {
+		tier: "BC C",
+	},
+	koiryu: {
+		tier: "BC C",
+	},
+	pestiligy: {
+		tier: "BC C",
+	},
+	saxum: {
+		tier: "BC C",
+	},
+	sascratch: {
+		tier: "BC C",
 	},
 };

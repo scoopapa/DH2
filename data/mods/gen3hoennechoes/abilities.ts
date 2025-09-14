@@ -333,7 +333,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
-	wiidfire: {
+	bonfire: {
 		onSourceModifyAccuracyPriority: -1,
 		//idk what that does
 		onSourceModifyAccuracy(accuracy, pokemon) {
@@ -343,7 +343,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		flags: {},
-		name: "WiIdfire",
+		name: "Bonfire",
 		desc: "If Sunny Day is active, this Pokemon's moves will have an accuracy of 100.",
 		shortDesc: "User's moves are accurate in sun.",
 		rating: 2,
