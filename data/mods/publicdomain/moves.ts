@@ -431,7 +431,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Verglas Avarice",
-		shortDesc: "Lowers speed of target that had a stat rise this turn."
+		shortDesc: "Lowers speed of target that had a stat rise this turn.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -456,7 +456,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Dark, fucked up version of Bullet Punch",
-		shortDesc: "Usually goes first."
+		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
@@ -475,7 +475,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 55,
 		category: "Physical",
 		name: "Single Water Bash",
-		shortDesc: "No additional effect."
+		shortDesc: "No additional effect.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
