@@ -129,7 +129,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Kalos",
 		types: ["Fairy", "Fire"],
 		genderRatio: {M: 0.25, F: 0.75},
-		baseStats: {hp: 90, atk: 45, def: 80, spa: 45, spd: 80, spe: 45},
+		baseStats: {hp: 85, atk: 45, def: 80, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Cute Charm", 1: "Illuminate", H: "Light Power"},
 		heightm: 1.1,
 		weightkg: 32.6,
