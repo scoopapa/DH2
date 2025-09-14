@@ -82,6 +82,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	garvaluna: {
 		tier: "SSB",
 	},
+	garvalunabloodmoon: {
+		tier: "Illegal",
+	},
 	garbodor: {
 		tier: "SSB",
 	},
