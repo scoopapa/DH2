@@ -329,6 +329,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	gyaradosite: null,
  	hyperpotion: {
 		name: "Hyper Potion",
 		spritenum: 713,
