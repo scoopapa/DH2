@@ -473,6 +473,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	evilregisteel: {
 		learnset: {
+			darkfuckedupversionofbulletpunch: ["9L1"],
 			hardpress: ["9L1"],
 			ironhead: ["9L1"],
 			metalclaw: ["9L1"],
@@ -616,6 +617,15 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	melmetalchisel: {
 		learnset: {
+			singlewaterbash: ["9L1"],
+			raindance: ["9L1"],
+			watergun: ["9L1"],
+			waterpulse: ["9L1"],
+			dive: ["9L1"],
+			blizzard: ["9L1"],
+			powdersnow: ["9L1"],
+			glaciate: ["9L1"],
+			frostbreath: ["9L1"],
 			acidarmor: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
