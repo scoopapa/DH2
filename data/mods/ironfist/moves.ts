@@ -4131,7 +4131,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	hurricane: {
 		inherit: true,
-		shortDesc: "No additional effect.",
+		shortDesc: "Can't miss in Rain.",
 		accuracy: 80,
 		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
 		onModifyMove(move, pokemon, target) {
@@ -4153,7 +4153,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "Rolls a D20 for damage.",
 		onModifyMove(move, pokemon) {
-			const i = this.random(20);
+			const i = this.random(1, 20);
 			const a = (i == 8 || i == 18) ? 'an' : 'a';
 			this.add('-message', `${pokemon.name} rolled ${a} ${i}!`);
 			

@@ -129,7 +129,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 82, def: 64, spa: 100, spd: 100, spe: 128},
 		abilities: {0: "Serene Grace", 1: "Misty Surge", H: "Water Veil"},
 		weightkg: 888.4,
-
+	},
+	niagarafallsmidnight: {
+		num: 15,
+		name: "Niagara Falls-Midnight",
+		baseSpecies: "Niagara Falls",
+		forme: "Midnight",
+		types: ["Poison", "Ghost"],
+		baseStats: {hp: 75, atk: 110, def: 99, spa: 82, spd: 115, spe: 48},
+		abilities: {0: "Shield Dust", 1: "Dazzling", H: "Human Sacrifice"},
+		weightkg: 888.4,
 	},
 	pirasect: {
 		num: 16,
@@ -147,18 +156,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Stream", 1: "Shed Skin", H: "Solid Rock"},
 		weightkg: 13,
 	},
-	niagarafallsmidnight: {
-		num: 18,
-		name: "Niagara Falls-Midnight",
-		baseSpecies: "Niagara Falls",
-		forme: "Midnight",
-		types: ["Poison", "Ghost"],
-		baseStats: {hp: 75, atk: 110, def: 99, spa: 82, spd: 115, spe: 48},
-		abilities: {0: "Shield Dust", 1: "Dazzling", H: "Human Sacrifice"},
-		weightkg: 888.4,
-	},
 	typhlosionhisuiperformative: {
-		num: 19,
+		num: 18,
 		name: "Typhlosion-Hisui-Performative",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 73, atk: 84, def: 78, spa: 119, spd: 85, spe: 95},
@@ -167,7 +166,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	deoxys: {
 		inherit: true,
-		num: 20,
+		num: 19,
 		name: "Deoxys",
 		types: ["Psychic"],
 		baseStats: {hp: 79, atk: 89, def: 101, spa: 97, spd: 127, spe: 107},
@@ -175,7 +174,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 60.8,
 	},
 	ursalunacrescentmoon: {
-		num: 21,
+		num: 20,
 		name: "Ursaluna-Crescentmoon",
 		baseSpecies: "Ursaluna",
 		forme: "Crescentmoon",
@@ -185,6 +184,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 275,
 	},
 	amoongusfairyring: {
+		num: 21,
 		name: "Amoongus-FairyRing",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 124, atk: 95, def: 70, spa: 95, spd: 80, spe: 30},
@@ -192,6 +192,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 30,
 	},
 	floxicloak: {
+		num: 22,
 		name: "Floxicloak",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 83, atk: 70, def: 86, spa: 116, spd: 75, spe: 100},
@@ -200,7 +201,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	vespiquen: {
 		inherit: true,
-		num: 24,
+		num: 23,
 		name: "Vespiquen",
 		types: ["Bug", "Flying"],
 		baseStats: {hp: 71, atk: 110, def: 102, spa: 60, spd: 102, spe: 85},
@@ -208,6 +209,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 38.5,
 	},
 	llamonade: {
+		num: 24,
 		name: "Llamonade",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 95, atk: 100, def: 105, spa: 80, spd: 90, spe: 55},
@@ -216,6 +218,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	stunfiskgalar: {
 		inherit: true,
+		num: 25,
 		name: "Stunfisk-Galar",
 		baseSpecies: "Stunfisk-Galar",
 		types: ["Steel", "Ground"],
@@ -224,6 +227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 20.5,
 	},
 	stunfiskgalarmega: {
+		num: 25,
 		name: "Stunfisk-Galar-Mega",
 		baseSpecies: "Stunfisk-Galar",
 		forme: "Mega",
@@ -233,4 +237,45 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 60,
     requiredItem: "Stunfiskite",
 	},
+	burningfeet: {
+		num: 26,
+		name: "Burning Feet",
+		types: ["Normal", "Fire"],
+		baseStats: {hp: 69, atk: 65, def: 93, spa: 111, spd: 115, spe: 117},
+		abilities: {0: "Protosandthesis"},
+		weightkg: 29,
+	},
+	thefamiliarshadow: {
+		num: 27,
+		name: "The Familiar Shadow",
+		types: ["Ghost", "Dragon"],
+		baseStats: {hp: 63, atk: 92, def: 64, spa: 90, spd: 61, spe: 130},
+		abilities: {0: "Weak Armor", 1: "Cloud Nine", H: "Deja Vu"},
+		weightkg: 40.5,
+	},
+	grapplevine: {
+		num: 28,
+		name: "Grapplevine",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 77, atk: 116, def: 117, spa: 48, spd: 105, spe: 68},
+		abilities: {0: "Poison Point", 1: "Lingering Aroma", H: "Punch Drunk"},
+		weightkg: 50.2,
+	},
+	prinsutinea: {
+		num: 29,
+		name: "Prinsutinea",
+		types: ["Bug", "Ice"],
+		baseStats: {hp: 79, atk: 117, def: 85, spa: 119, spd: 85, spe: 95},
+		abilities: {0: "Shield Dust", 1: "Ice Body", H: "Rulers Coronation"},
+		weightkg: 135.6,
+	},
+	mewtwomegaxy: {
+		num: 30,
+		name: "Mewtwo-Mega-XY",
+		types: ["Psychic", "Fighting"],
+		baseStats: {hp: 96, atk: 100, def: 75, spa: 94, spd: 80, spe: 105},
+		abilities: {0: "Neuroforce", H: "Man"},
+		weightkg: 50.2,
+	},
+
 };

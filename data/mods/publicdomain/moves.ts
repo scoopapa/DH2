@@ -135,6 +135,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Moonlight", pokemon);
 			this.add('-anim', pokemon, "High Jump Kick", target);
 		},
 		onBasePower(basePower, pokemon, target) {
@@ -235,7 +236,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: 24 Karat Labubu');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Normal')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Normal') || pokemon.volatiles['hazardshield']) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('24karatlabubu')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
@@ -257,6 +258,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Water Spout", target);
+		},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Grass",
@@ -329,7 +334,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Pursuit", target);
+			this.add('-anim', pokemon, "Matcha Gotcha", target);
 		},
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
@@ -397,6 +402,93 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+	},
+	headlock: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Headlock",
+		shortDesc: "Prevents the target from switching out.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Head Smash", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	verglasavarice: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Verglas Avarice",
+		shortDesc: "Lowers speed of target that had a stat rise this turn.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sheer Cold", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target?.statsRaisedThisTurn) {
+					this.boost({spe: -1}, source, target, move);
+				}
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	darkfuckedupversionofbulletpunch: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Dark, fucked up version of Bullet Punch",
+		shortDesc: "Usually goes first.",
+		pp: 15,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Nasty Plot", pokemon);
+			this.add('-anim', pokemon, "Bullet Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
+	singlewaterbash: {
+		accuracy: 100,
+		basePower: 55,
+		category: "Physical",
+		name: "Single Water Bash",
+		shortDesc: "No additional effect.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Liquidation", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {basePower: 180},
+		maxMove: {basePower: 140},
+		contestType: "Clever",
 	},
 	
 	//vanilla moves
@@ -608,5 +700,192 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	gmaxsteelsurge: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Steelsurge",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isMax: "Copperajah",
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxsteelsurge');
+				}
+			},
+		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	stickyweb: {
+		num: 564,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Web",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1},
+		sideCondition: 'stickyweb',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Bug",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	psystrike: {
+		num: 540,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Psystrike",
+		shortDesc: "Lowers the user's Atk & Sp. Atk by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
 	},
 };

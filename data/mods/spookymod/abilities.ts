@@ -37,27 +37,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water' || move.type === 'Electric') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Water' || move.type === 'Electric') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
 		flags: {breakable: 1},
 		name: "Abyssal Light",
 		shortDesc: "This Pokemon takes halved damage from Dark and Ghost-type moves.",
 	},
 	ahexual: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.flags['trick']) {
+			if (move.flags['trick']) {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Ahexual');
 				}
@@ -66,7 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Ahexual",
-		shortDesc: "This Pokemon heals 1/4 max HP when hit by a trick move; immune to tricks.",
+		shortDesc: "This Pokemon heals 1/2 max HP when hit by a trick move; immune to tricks.",
 	},
 	cursedbody: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -220,20 +206,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.randomChance(1, 2)) this.boost({def: 1, spd: -1});
 			else this.boost({def: -1, spd: 1});
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
 		name: "Onder Guard",
 		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
 	},
@@ -243,20 +215,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceDamagingHit(damage, target, source, move) {
 			this.damage(source.baseMaxhp / 8, source, target);
-		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark' || move.type === 'Rock') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark' || move.type === 'Rock') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
 		},
 		name: "PInfiltrator",
 		shortDesc: "This Pokemon's moves ignore Substitute/screens and deal an extra 1/8 max HP.",
@@ -299,19 +257,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 2;
 		},
 		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark' || move.type === 'Rock') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark' || move.type === 'Rock') {
-				this.debug('hidden boost');
-				return this.chainModify(1.5);
-			}
-		},
 		name: "PPressure",
 		shortDesc: "When a move targets this Pokemon, that move loses 2 additional PP.",
 	},
@@ -339,7 +284,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -352,7 +297,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'sandstorm') return false;
 		},
 		name: "Wand Rush",
-		shortDesc: "On switchin, sets Sandstorm. Sandstorm: Speed 2x, Sp. Atk 1.5x; immunity to sand.",
+		shortDesc: "On switchin, sets Sandstorm. Sandstorm: SpA/Spe 1.5x; immunity to sand.",
 	},
 	revive: {
 		shortDesc: "When this Pokemon has 0 HP, it switches out and is revived to 1/2 max HP. Once per battle.",
