@@ -209,7 +209,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 38.5,
 	},
 	llamonade: {
-		num: 24
+		num: 24,
 		name: "Llamonade",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 95, atk: 100, def: 105, spa: 80, spd: 90, spe: 55},
@@ -277,4 +277,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Neuroforce", H: "Man"},
 		weightkg: 50.2,
 	},
+
 };
