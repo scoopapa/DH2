@@ -1062,7 +1062,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			howl: ["9L1"],
 			hyperbeam: ["9L1"],
 			hypervoice: ["9L1"],
-			incinerate: ["9L1"],
+			incinerateironfist: ["9L1"],
 			inferno: ["9L1"],
 			irontail: ["9L1"],
 			laserfocus: ["9L1"],
@@ -1507,4 +1507,5 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		},
 	},
 };
+
 
