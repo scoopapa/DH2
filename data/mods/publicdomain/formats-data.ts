@@ -107,4 +107,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	burningfeet: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	thefamiliarshadow: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	grapplevine: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	prinsutinea: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	mewtwomegaxy: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
 };
