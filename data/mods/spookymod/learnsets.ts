@@ -389,7 +389,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["9M"],
 			rest: ["9M"],
 			shadowball: ["9M"],
-			shadowclaw: ["9M", "9L0"],
 			shadowsneak: ["9L1"],
 			sleeptalk: ["9M"],
 			solarblade: ["9M", "9L1"],
@@ -511,7 +510,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			closecombat: ["9L1"],
 			brickbreak: ["9L1"],
 			detect: ["9L1"],
-			crunch: ["9L1"],
 			suckerpunch: ["9L1"],
 			feintattack: ["9L1"],
 			bite: ["9L1"],
@@ -640,6 +638,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeisttiny: {
 		learnset: {
+			flareblitz: ["9M"],
+			growth: ["9M"],
 			shadowbone: ["9M"],
 			moongeistbeam: ["9M"],
 			allyswitch: ["9M", "9T"],
@@ -730,6 +730,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeist: {
 		learnset: {
+			growth: ["9M"],
+			flareblitz: ["9M"],
 			shadowbone: ["9M"],
 			moongeistbeam: ["9M"],
 			allyswitch: ["9M", "9T"],
@@ -821,7 +823,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeistlarge: {
 		learnset: {
-			
+			growth: ["9M"],
+			flareblitz: ["9M"],
 			shadowbone: ["9M"],
 			moongeistbeam: ["9M"],
 			allyswitch: ["9M", "9T"],
@@ -912,6 +915,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeistgigantic: {
 		learnset: {
+			growth: ["9M"],
+			flareblitz: ["9M"],
 			swallow: ["9M"],
 			spitup: ["9M"],
 			shadowbone: ["9M"],
@@ -2377,6 +2382,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	xorygonz: {
 		learnset: {
+			powertrick: ["9M"],
 			astralbarrage: ["9M"],
 			bittermalice: ["9M"],
 			nightshade: ["9M"],

@@ -11557,7 +11557,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	megaman: {
 		learnset: {
-			magnitude: ["9L1"],
 			energytank: ["9L1"],
 			pyroball: ["9L1"],
 			doubleedge: ["9L1"],
