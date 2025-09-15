@@ -189,7 +189,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	mayafey: {
 		num: 22,
 		name: "Maya Fey",
-		gender: "M",
+		gender: "F",
 		types: ["Psychic", "Water"],
 		baseStats: {hp: 80, atk: 55, def: 100, spa: 105, spd: 75, spe: 110},
 		abilities: {0: "Magic Guard", 1: "Inner Focus", H: "Friend Guard"},
