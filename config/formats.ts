@@ -4385,6 +4385,19 @@ export const Formats: FormatList = [
         mod: 'spookymod',
     },
 	{
+        name: "[Gen 9] Spookymod Random Battle",
+        desc: [
+            "jumpscaare",
+        ],
+        threads: [
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
+              ],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Spokymod'],
+        banlist: [],
+		team: 'random',
+        mod: 'spookymod',
+    },
+	{
 		name: "[Gen 9] Stadium YB 3v3 Random Battle",
 		desc: [
 			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."

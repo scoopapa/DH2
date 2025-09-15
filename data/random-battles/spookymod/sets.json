@@ -187,7 +187,7 @@
                 "movepool": ["Shadow Ball", "Psychic", "Healing Wish", "Dazzling Gleam", "Encore", "Rapid Spin"],
                 "abilities": ["Scrappy"],
                 "teraTypes": ["Ghost"]
-            },
+            }
         ]
     },
 	"jableye": {
@@ -390,7 +390,7 @@
                 "movepool": ["Blood Moon", "Spirit Shackle", "Moonlight", "Earth Power", "Calm Mind"],
                 "abilities": ["Undead"],
                 "teraTypes": ["Ghost"]
-            },
+            }
         ]
     },
 	"vampharos": {
@@ -426,13 +426,13 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Shadow Ball", "Bitter Malice", "Night Shade", "Recover", "Ice Beam", "Thunderbolt", "Flash Cannon", "Sludge Bomb"],
+                "movepool": ["Shadow Ball", "Bitter Malice", "Night Shade", "Recover", "Ice Beam", "Thunderbolt", "Sludge Bomb"],
                 "abilities": ["Mutual Exclusion"],
                 "teraTypes": ["Ghost"]
             },
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Shadow Ball", "Bitter Malice", "Nasty Plot", "Recover", "Ice Beam", "Thunderbolt", "Flash Cannon", "Sludge Bomb"],
+                "movepool": ["Shadow Ball", "Bitter Malice", "Nasty Plot", "Recover", "Ice Beam", "Thunderbolt", "Sludge Bomb"],
                 "abilities": ["Mutual Exclusion"],
                 "teraTypes": ["Ghost"]
             }
@@ -443,13 +443,13 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Dragon Tail, Oblivion Wing, Shadow Ball, Roost, Defog, U-Turn"],
+                "movepool": ["Dragon Tail", "Oblivion Wing", "Shadow Ball", "Roost", "Defog", "U-Turn"],
                 "abilities": ["Intimidate"],
                 "teraTypes": ["Ghost"]
             },
 			{
                 "role": "Bulky Attacker",
-                "movepool": ["Draco Meteor, Oblivion Wing, Shadow Ball, Roost, Dark Pulse, U-Turn"],
+                "movepool": ["Draco Meteor", "Oblivion Wing", "Shadow Ball", "Roost", "Dark Pulse", "U-Turn"],
                 "abilities": ["Dark Aura"],
                 "teraTypes": ["Ghost"]
             }
@@ -471,5 +471,5 @@
                 "teraTypes": ["Ghost"]
             }
         ]
-    },
+    }
 }
