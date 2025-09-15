@@ -832,7 +832,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gigaton Hammer", source);
-			this.add('-anim', target, "Fire Spin", target);
+			this.add('-anim', target, "Eruption", target);
 		},
 		sideCondition: 'firepledge',
 		secondary: null,
