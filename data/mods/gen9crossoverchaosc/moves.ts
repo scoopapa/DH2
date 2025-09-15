@@ -834,7 +834,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Gigaton Hammer", source);
 			this.add('-anim', target, "Fire Spin", target);
 		},
-		sideCondition: 'firepledge';
+		sideCondition: 'firepledge',
 		secondary: null,
 		target: "normal",
 		type: "Fire",
