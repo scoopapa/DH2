@@ -235,7 +235,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 109, atk: 131, def: 119, spa: 46, spd: 104, spe: 62},
 		abilities: {0: "Mimicry"},
 		weightkg: 60,
-    requiredItem: "Stunfiskite",
+    	requiredItem: "Stunfiskite",
 	},
 	burningfeet: {
 		num: 26,
@@ -243,6 +243,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fire"],
 		baseStats: {hp: 69, atk: 65, def: 93, spa: 111, spd: 115, spe: 117},
 		abilities: {0: "Protosandthesis"},
+		tags: ["Paradox"],
 		weightkg: 29,
 	},
 	thefamiliarshadow: {

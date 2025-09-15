@@ -32,4 +32,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Stunfisk-Galar, this item allows it to Mega Evolve in battle.",
 	},
+	boosterenergy: {
+			name: "Booster Energy",
+			spritenum: 745,
+			fling: {
+				basePower: 30,
+			},
+			onStart() {
+				this.effectState.started = true;
+			},
+			onUpdate(pokemon) {
+				if (!this.effectState.started || pokemon.transformed) return;
+				if (this.queue.peek(true)?.choice === 'runSwitch') return;
+	
+				if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+					pokemon.addVolatile('protosynthesis');
+				}
+				if (pokemon.hasAbility('protosandthesis') && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+					pokemon.addVolatile('protosandthesis');
+				}
+				if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+					pokemon.addVolatile('quarkdrive');
+				}
+			},
+			onTakeItem(item, source) {
+				if (source.baseSpecies.tags.includes("Paradox")) return false;
+				return true;
+			},
+			num: 1880,
+			gen: 9,
+		},
 };
