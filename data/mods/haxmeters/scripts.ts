@@ -360,6 +360,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const secondaries: Dex.SecondaryEffect[] =
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
+					if (!secondary.chance) continue; //blank secondary
 					if (!secondary.self && (!target || !target.hp)) continue; //target behind sub or fainted
 					if (secondary.status) {
 						if (target.status) continue; //target already statused
