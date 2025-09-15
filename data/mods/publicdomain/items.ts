@@ -61,5 +61,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 			num: 1880,
 			gen: 9,
+			desc: "Activate Paradox Abilities. Single Use."
 		},
 };
