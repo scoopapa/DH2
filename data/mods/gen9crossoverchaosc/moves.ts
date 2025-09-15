@@ -799,6 +799,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
+	sunbeam: {
+		num: -28,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Sun Beam",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Growth", source);
+			this.add('-anim', source, "Solar Beam", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	moltenburst: {
+		num: -29,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Molten Burst",
+		shortDesc: "Sets Sea of Fire for 2 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gigaton Hammer", source);
+			this.add('-anim', target, "Fire Spin", target);
+		},
+		sideCondition = 'firepledge';
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
@@ -1064,5 +1104,78 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+	},
+	firepledge: {
+		num: 519,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(target, source, move) {
+			if (['grasspledge', 'waterpledge'].includes(move.sourceEffect)) {
+				this.add('-combine');
+				return 150;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Fire Pledge",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, pledgecombo: 1},
+		onPrepareHit(target, source, move) {
+			for (const action of this.queue.list as MoveAction[]) {
+				if (
+					!action.move || !action.pokemon?.isActive ||
+					action.pokemon.fainted || action.maxMove || action.zmove
+				) {
+					continue;
+				}
+				if (action.pokemon.isAlly(source) && ['grasspledge', 'waterpledge'].includes(action.move.id)) {
+					this.queue.prioritizeAction(action, move);
+					this.add('-waiting', source, action.pokemon);
+					return null;
+				}
+			}
+		},
+		onModifyMove(move) {
+			if (move.sourceEffect === 'waterpledge') {
+				move.type = 'Water';
+				move.forceSTAB = true;
+				move.self = {sideCondition: 'waterpledge'};
+			}
+			if (move.sourceEffect === 'grasspledge') {
+				move.type = 'Fire';
+				move.forceSTAB = true;
+				move.sideCondition = 'firepledge';
+			}
+		},
+		condition: {
+			duration: 4,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Molten Burst") {
+					return 2;
+				}
+				return 4;
+			},
+			onRestart(target, source, effect) {
+				if (effect?.name === 'Molten Burst') return;
+			},
+			onSideStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Fire Pledge');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1,
+			onResidual(pokemon) {
+				if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 8,
+			onSideEnd(targetSide) {
+				this.add('-sideend', targetSide, 'Fire Pledge');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
 	},
 };

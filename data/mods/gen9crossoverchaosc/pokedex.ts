@@ -370,4 +370,31 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 168,
 		requiredItem: "Midbusite",
 	},
+	sunflower: {
+		num: 37,
+		name: "Sunflower",
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 95, atk: 70, def: 95, spa: 95, spd: 110, spe: 55},
+		abilities: {0: "Sun Gathering", 1: "Grassy Surge", H: "Costar"},
+		weightkg: 10,
+	},
+	svarog: {
+		num: 38,
+		name: "Svarog",
+		types: ["Steel", "Fire"],
+		gender: "M",
+		baseStats: {hp: 85, atk: 115, def: 105, spa: 78, spd: 117, spe: 42},
+		abilities: {0: "Flash Fire", 1: "Oblivious", H: "Reckless"},
+		weightkg: 122,
+	},
+	gruntilda: {
+		num: 39,
+		name: "Gruntilda",
+		types: ["Poison", "Flying"],
+		gender: "F",
+		baseStats: {hp: 76, atk: 71, def: 80, spa: 92, spd: 100, spe: 109},
+		abilities: {0: "Thick Fat", 1: "Shadow Shield", H: "Magician"},
+		weightkg: 454,
+	},
+
 };
