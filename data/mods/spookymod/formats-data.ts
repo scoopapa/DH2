@@ -67,7 +67,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
-	necturna: {
+	nursola: {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
@@ -99,11 +99,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
-	venomicon: {
+	kilotic: {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
-	venomiconepilogue: {
+	vampharos: {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
@@ -191,7 +191,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	necturnashrunken: {
+	nursolashrunken: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
@@ -223,11 +223,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	venomiconshrunken: {
+	kiloticshrunken: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	venomiconepilogueshrunken: {
+	vampharosshrunken: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
