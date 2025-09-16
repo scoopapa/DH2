@@ -126,7 +126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kilotic: {
 		num: -196,
-		species: "Kilotic",
+		name: "Kilotic",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 81, atk: 60, def: 125, spa: 100, spd: 79, spe: 95},
 		abilities: {0: "Flare Boost", 1: "Intimidate", H: "Cursed Body"},
@@ -150,7 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nursola: {
 		num: -195,
-		species: "Nursola",
+		name: "Nursola",
 		types: ["Ghost", "Grass", "Rock"],
 		baseStats: {hp: 145, atk: 50, def: 60, spa: 95, spd: 130, spe: 30},
 		abilities: {0: "Solid Rock", 1: "Purifying Salt", H: "Perish Body"},
@@ -258,7 +258,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vampharos: {
 		num: -194,
-		species: "Vampharos",
+		name: "Vampharos",
 		types: ["Ghost", "Electric", "Dragon"],
 		baseStats: {hp: 90, atk: 85, def: 95, spa: 140, spd: 100, spe: 50},
 		abilities: {0: "Cotton Down", 1: "Mold Breaker", H: "Vamp"},
