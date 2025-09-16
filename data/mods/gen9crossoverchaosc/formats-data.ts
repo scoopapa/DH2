@@ -159,4 +159,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	sunflower: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	svarog: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	gruntilda: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };
