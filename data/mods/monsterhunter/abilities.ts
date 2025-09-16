@@ -1038,6 +1038,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Sacred Jewel",
+		shortDesc: "If this Pokemon has a non-volatile status condition, its Special Defense is multiplied by 1.5.",
 	},
 	overload: {
 		name: "Overload",
