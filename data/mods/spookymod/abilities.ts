@@ -209,6 +209,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Onder Guard",
 		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
 	},
+	perishbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['perishsong']) return;
+			this.add('-ability', target, 'Perish Body');
+			source.addVolatile('perishsong');
+		},
+		flags: {},
+		name: "Perish Body",
+		shortDesc: "When this Pokemon is damaged by an attack, the attacker gains Perish Song.",
+	},
 	pinfiltrator: {
 		onModifyMove(move) {
 			move.infiltrates = true;
@@ -387,6 +397,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Undead",
 		shortDesc: "This Pokemon can hit Normal-types with Ghost attacks.",
 	},
+	vamp: {
+        onModifyMove(move) {
+			if (!move.drain) move.drain = [1, 3];
+		},
+        name: "Vamp",
+        shortDesc: "This Pokemon's attacks heal for 33% of the damage dealt.",
+    },
 	wonderguard: {
 		onTryHit(target, source, move) {
 			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;

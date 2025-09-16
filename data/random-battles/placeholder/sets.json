@@ -1,0 +1,19 @@
+{
+    "venusaur": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+}
