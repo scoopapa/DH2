@@ -161,6 +161,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -7,
 	},
 	sungathering: {
+		shortDesc: "At end of turn, recovers 1/16 of max hp; 1/12 if under Sun.",
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
