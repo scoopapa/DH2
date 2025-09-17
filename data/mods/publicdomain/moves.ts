@@ -871,7 +871,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 540,
 		accuracy: 100,
 		basePower: 120,
-		category: "Special",
+		category: "Physical",
 		name: "Psystrike",
 		shortDesc: "Lowers the user's Atk & Sp. Atk by 1.",
 		pp: 10,
