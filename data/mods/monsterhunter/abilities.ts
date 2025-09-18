@@ -824,7 +824,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Blind Rage",
-		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
+		shortDesc: "When hit by a super effective attack: Offensive stats gain 1+",
 	},
 	pathogenic: {
 		onDamagingHit(damage, target, source, move) {
@@ -1027,7 +1027,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Bewitching Tail",
-		shortDesc: "All stats receive a 1.2x boost if a target is drowsy.",
+		shortDesc: "All stats receive a 1.2x boost when targeting a drowsy foe.",
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
@@ -1038,12 +1038,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Sacred Jewel",
-		shortDesc: "If this Pokemon has a non-volatile status condition, its Special Defense is multiplied by 1.5.",
+		shortDesc: "If this Pokemon has a non-volatile status condition, its Special Defense is multiplied by 1.5x.",
 	},
 	overload: {
 		name: "Overload",
 		flags: {},
-		shortDesc: "All Dragon moves used by the user are 1.4x damage but deal 20% recoil of damage dealt.",
+		shortDesc: "All Dragon moves used by the user are 1.4x damage; but deal 20% recoil of damage dealt.",
 		onModifyMove(move) {
 			if(move.type === 'Dragon' && move.category !=='Status') {
 				move.recoil = [1, 4];
