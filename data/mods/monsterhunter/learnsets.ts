@@ -743,7 +743,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			substitute: ["9M"],
 			superpower: ["9L51", "9M"],
 			swagger: ["9L27"],
-			swordsdance: ["9M"],
 			takedown: ["9M"],
 			taunt: ["9M"],
 			terablast: ["9M"],
@@ -5992,6 +5991,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	eruzerion: {
 		learnset: {
 			arcticshriek: ["9L1"],
+			aviniasblessing: ["9L1"],
 			armorcannon: ["9L1"],
 			aurorabeam: ["9L1"],
 			auroraveil: ["9L1"],
@@ -13832,6 +13832,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			nightslash: ["9L1"],
 			nuzzle: ["9L1"],
 			painsplit: ["9L1"],
+			paraboliccharge: ["9L1"],
 			partingshot: ["9L1"],
 			payback: ["9L1"],
 			protect: ["9L1"],

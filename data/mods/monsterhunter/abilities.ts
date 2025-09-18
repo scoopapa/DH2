@@ -820,7 +820,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
 			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
-				this.boost({ atk: 1 });
+				this.boost({atk: 1, spa: 1});
 			}
 		},
 		name: "Blind Rage",
