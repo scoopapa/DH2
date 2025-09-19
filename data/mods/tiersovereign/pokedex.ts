@@ -18,7 +18,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tempesra: {
 		num: 3,
 		name: "Tempesra",
-		types: ["Electic", "Fire"],
+		types: ["Electric", "Fire"],
 		baseStats: {hp: 67, atk: 67, def: 71, spa: 103, spd:  100, spe: 119},
 		abilities: {0: "Wind Power", H: "Flash Fire"},
 		weightkg: 27,
@@ -42,7 +42,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	passimiangalar: {
 		num: 6,
 		name: "Passimian-Galar",
-		types: ["Figthing", "Grass"],
+		types: ["Fighting", "Grass"],
 		baseStats: {hp: 100, atk: 110, def: 60, spa: 50, spd:  90, spe: 80},
 		abilities: {0: "Water Absorb", H: "Defiant"},
 		weightkg: 82.8,
