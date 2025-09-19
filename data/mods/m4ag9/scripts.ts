@@ -22,12 +22,13 @@ const viabilityList9 = [
 	"tapukoko", "terapagos", "terapagosterastal", "tinglu", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
-	"araquanidmega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", "conkeldurrmega", 
-	"corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
-	"froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "krookodilemega", "lanturnmega", "latiosmega", 
-	"lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", 
-	"orbeetlemega", "raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", 
-	"stoutlandmega", "talonflamemega", "typhlosionmega", "tyrantrummega", "vanilluxemega", "wailordmega",
+	"araquanidmega", "arbolivamega", "armarougemega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", 
+	"conkeldurrmega", "corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
+	"froslassmega", "garbodormega", "grumpigmega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "kleavormega", "krookodilemega", "lanturnmega", 
+	"latiosmega", "lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "mausholdfourmega", "mausholdmega", "meowsticmega", "miloticmega", "mimikyumega", 
+	"mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", "quaquavalmega", "rabscamega", "raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", 
+	"skeledirgemega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", "stoutlandmega", "sylveonmega", "talonflamemega", "typhlosionmega", "tyrantrummega", 
+	"vanilluxemega", "wailordmega",
 ];
 /*
 // doubles tiers (currently unused because the teambuilder doesn't support them well)
