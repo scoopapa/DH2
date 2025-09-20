@@ -594,6 +594,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 72, atk: 96, def: 78, spa: 114, spd: 72, spe: 98},
 		abilities: {0: "Quark Drive"},
 		weightkg: 1.9,
+		tags: ["Paradox"],
 	},
 	odonata: {
 		num: 9074,
@@ -779,5 +780,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 88, atk: 30, def: 68, spa: 106, spd: 76, spe: 106},
 		abilities: {0: "Quark Drive"},
 		weightkg: 51.8,
+		tags: ["Paradox"],
 	},
 };
