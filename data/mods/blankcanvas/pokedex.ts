@@ -686,7 +686,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 	},
 	combustoad: {
-		num: 9078,
+		num: 9085,
 		name: "Combustoad",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 63, spd: 70, spe: 108},
@@ -694,7 +694,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 2,
 	},
 	hearthind: {
-		num: 9079,
+		num: 9086,
 		name: "Hearthind",
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 71, atk: 93, def: 68, spa: 20, spd: 66, spe: 122},
@@ -702,7 +702,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 11.3,
 	},
 	koiryu: {
-		num: 9080,
+		num: 9087,
 		name: "Koiryu",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 90, atk: 25, def: 60, spa: 100, spd: 90, spe: 60},
@@ -710,7 +710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 829.7,
 	},
 	pestiligy: {
-		num: 9081,
+		num: 9088,
 		name: "Pestiligy",
 		types: ["Poison", "Ghost"],
 		baseStats: {hp: 105, atk: 15, def: 107, spa: 77, spd: 96, spe: 61},
@@ -718,7 +718,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 11.3,
 	},
 	saxum: {
-		num: 9082,
+		num: 9089,
 		name: "Saxum",
 		types: ["Rock", "Ground"],
 		baseStats: {hp: 70, atk: 100, def: 70, spa: 100, spd: 70, spe: 65},
@@ -726,7 +726,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 430,
 	},
 	sascratch: {
-		num: 9083,
+		num: 9090,
 		name: "Sascratch",
 		types: ["Ice", "Rock"],
 		baseStats: {hp: 70, atk: 100, def: 95, spa: 50, spd: 60, spe: 110},
@@ -734,7 +734,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 20,
 	},
 	guttergar: {
-		num: 9084,
+		num: 9091,
 		name: "Guttergar",
 		types: ["Water"],
 		baseStats: {hp: 116, atk: 108, def: 55, spa: 30, spd: 104, spe: 63},
@@ -742,7 +742,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 106,
 	},
 	rakasa: {
-		num: 9085,
+		num: 9092,
 		name: "Rakasa",
 		types: ["Psychic", "Fairy"],
 		baseStats: {hp: 101, atk: 31, def: 79, spa: 105, spd: 81, spe: 23},
@@ -750,7 +750,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 19,
 	},
 	thermostatic: {
-		num: 9086,
+		num: 9093,
 		name: "Thermostatic",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 50, def: 105, spa: 90, spd: 85, spe: 35},
@@ -758,7 +758,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 60,
 	},
 	formaldehydra: {
-		num: 9087,
+		num: 9094,
 		name: "Formaldehydra",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 95, atk: 100, def: 110, spa: 60, spd: 85, spe: 60},
@@ -766,7 +766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 165.5,
 	},
 	strumorthio: {
-		num: 9088,
+		num: 9095,
 		name: "Strumorthio",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 90, atk: 20, def: 87, spa: 95, spd: 95, spe: 20},
@@ -774,7 +774,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 110,
 	},
 	ironmike: {
-		num: 9089,
+		num: 9096,
 		name: "Iron Mike",
 		types: ["Fairy", "Normal"],
 		baseStats: {hp: 88, atk: 30, def: 68, spa: 106, spd: 76, spe: 106},
