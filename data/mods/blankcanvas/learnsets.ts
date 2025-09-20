@@ -3626,7 +3626,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scaryface: ["9L1"],
 			belch: ["9L1"],
 			astonish: ["9L1"],
-			dragorage: ["9L1"],
+			dragonrage: ["9L1"],
 			gastroacid: ["9L1"],
 			triattack: ["9L1"],
 			takedown: ["9L1"],
