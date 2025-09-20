@@ -33,9 +33,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			status: 'poison',
+			status: 'psn',
 		},
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Cool",
 		desc: "Has a 30% chance to inflict Poison to the target.",
