@@ -758,7 +758,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 70,
 		category: "Special",
 		name: "Scattered Sparks",
-		desc: "Power doubles if statused.",
+		desc: "Power doubles if user is statused.",
 		shortDesc: "Power doubles if statused.",
 		pp: 20,
 		priority: 0,
@@ -779,24 +779,22 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Bellowing Whistle",
-		desc: "The user’s Attack is raised by one stage and the target’s Defense is lowered by one stage.",
-		shortDesc: "Raises the user's Atk by 1. Decreases target's Def by 1.",
-		pp: 40,
+		desc: "The user lowers the target's defense by one stage and switches out.",
+		shortDesc: "Lowers target's defense by 1, switches out the user.",
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		self: {
-			boosts: {
-				atk: 1,
-			},
+		onHit(target, source, move) {
+			const success = this.boost({def: -1}, target, source);
+			if (!success && !target.hasAbility('mirrorarmor')) {
+				delete move.selfSwitch;
+			}
 		},
-		secondary: {
-			chance: 100,
-			boosts: {
-				def: -1,
-			},
-		},
-		target: "allAdjacentFoes",
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
 		type: "Flying",
+		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
 	},
 	toolsofchaos: {
@@ -904,12 +902,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Fire",
 		contestType: "Cool",
 	},
-	blessingofthehive: {
+	hivesblessing: {
 		num: -29,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Blessing of the Hive",
+		name: "Hive's Blessing",
 		desc: "Boosts attack and speed by one stage. This move cures the user of burn.",
 		shortDesc: "Cures user's burn, raises attack and speed by 1.",
 		pp: 15,

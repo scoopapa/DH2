@@ -1301,7 +1301,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	ursalunabloodmoon: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	slugma: {
 		inherit: true,
@@ -4773,7 +4773,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	annihilape: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	walkingwake: {
 		inherit: true,
