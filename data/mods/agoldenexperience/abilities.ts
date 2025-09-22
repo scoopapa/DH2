@@ -1461,10 +1461,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onFoeMaybeTrapPokemon(pokemon, source) {},
 		onModifyDamage(damage, source, target, move) {
 			if (!(source.activeMoveActions > 1)) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "This Pokemon's attacks deal x1.3 damages during 1 turn.",
+		onModifySpe(spe, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "This Pokemon's attacks deal x1.5 damage and has x1.5 Speed during 1 turn.",
 	},
 	shadowtag: {
 		inherit: true,
@@ -1588,13 +1593,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onTakeItem(item, pokemon, source) {
 			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
-			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff' || this.activeMove.id === 'brainblast') {
 				this.add('-activate', pokemon, 'ability: Sticky Hold');
 				return false;
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.name === 'Knock Off') {
+			if (move.name === 'Knock Off' || move.name === 'Brain Blast') {
 				this.debug('Sticky Hold weaken');
 				return this.chainModify(0.67);
 			}
@@ -2996,6 +3001,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's Special Attack is doubled.",
 		rating: 5,
 		num: -101,
+	},
+	comatose: {
+		inherit: true,
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		desc: "Heals 1/16 HP per turn. This Pokemon is considered to be asleep and cannot become affected by a non-volatile status condition or Yawn.",
+		shortDesc: "Heals 1/16 HP per turn. This Pokemon cannot be statused, and is considered to be asleep.",
 	},
 
 
