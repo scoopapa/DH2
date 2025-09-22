@@ -1401,7 +1401,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	celebi: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	treecko: {
@@ -4498,6 +4498,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "RU",
 		doublesTier: "DUU",
 	},
+	skeledirgemega: {
+		tier: "RU",
+		doublesTier: "DUU",
+	},
 	quaxly: {
 		tier: "LC",
 	},
@@ -5335,15 +5339,15 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	gevauyena: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	arsief: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 	corpsetrap: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 
 	//unavailable
