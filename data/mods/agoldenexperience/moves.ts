@@ -3411,7 +3411,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		num: -82,
 		accuracy: 90,
 		basePower: 70,
-		basePowerCallback(pokemon) {
+		basePowerCallback(pokemon, target, move) {
 			if (pokemon.volatiles['stockpile']?.layers === 3) return move.basePower * 2;
 			return move.basePower;
 		},
