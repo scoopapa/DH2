@@ -303,5 +303,7 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 		this.modData('Learnsets', 'klinklang').learnset.bulldoze = ['6L1'];
 		this.modData('Learnsets', 'luxray').learnset.agility = ['6L1'];
 		this.modData('Learnsets', 'luxray').learnset.jumpscare = ['6L1'];
+		// slate 7
+		this.modData('Learnsets', 'wigglytuff').learnset.moonblast = ['6L1'];
 	},
 };

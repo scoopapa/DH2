@@ -72,4 +72,48 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -3,
 	},
+	terrorize: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
+		},
+		flags: {},
+		name: "Terrorize",
+		desc: "This Pokemon's Normal-type moves become Ghost-type moves and have their power multiplied by 1.3. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Ghost type and have 1.3x power.",
+		rating: 4.5,
+		num: -4,
+	},
+	nowornever: {
+		// gotta find a better way to code that but it works for Singles + VGC
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if ((pokemon.side.totalFainted < 5 && this.gameType !== 'doubles') || pokemon.side.totalFainted < 3) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if ((pokemon.side.totalFainted < 5 && this.gameType !== 'doubles') || pokemon.side.totalFainted < 3) {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Now or Never",
+		desc: "If this Pokemon isn't the last Pokemon of the team, its Attack and Speed are halved.",
+		shortDesc: "If this Pokemon isn't the last Pokemon of the team, its Attack and Speed are halved.",
+		rating: -1,
+		num: -5,
+	},
 };
