@@ -1002,7 +1002,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			defensecurl: ["6L4", "5L4", "4L4", "3T", "3L9"],
 			doubleedge: ["6E", "5E", "4E", "3T", "3E"],
 			doubleteam: ["6M", "5M", "4M", "3M"],
-			drainpunch: ["9M"],
+			drainpunch: ["6M"],
 			dynamicpunch: ["3T"],
 			earthquake: ["6M", "5M", "4M", "3M"],
 			endure: ["4M", "3T"],
