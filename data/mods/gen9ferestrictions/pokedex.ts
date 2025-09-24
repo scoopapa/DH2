@@ -48,7 +48,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		num: 3,
 		name: "Quaxtina-Origin",
 		types: ["Water", "Ghost"],
-		baseStats: {hp: 110, atk: 105, def: 90, spa: 85, spd: 80, spe: 80},
+		baseStats: {hp: 110, atk: 105, def: 90, spa: 95, spd: 80, spe: 80},
 		abilities: {0: "Aerial Assassin"},
 		weightkg: 335.8,
 		eggGroups: ["Undiscovered"],
