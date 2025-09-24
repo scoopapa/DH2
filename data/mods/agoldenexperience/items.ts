@@ -479,6 +479,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Meowscarada, this item allows it to Mega Evolve in battle.",
 	},
+	skeledite: { 
+		name: "Skeledite",
+		spritenum: 578,
+		megaStone: "Skeledirge-Mega",
+		megaEvolves: "Skeledirge",
+		itemUser: ["Skeledirge"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -35,
+		gen: 9,
+		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
+	},
 	quaquavite: {
 		name: "Quaquavite",
 		megaStone: "Quaquaval-Mega",
@@ -488,7 +502,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -35,
+		num: -36,
 		gen: 9,
 		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
 	},
@@ -502,7 +516,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -2048,
+		num: -37,
 		gen: 9,
 		desc: "If held by a Rabsca, this item allows it to Mega Evolve in battle.",
 	},
@@ -516,7 +530,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -36,
+		num: -38,
 		gen: 9,
 		desc: "If held by a Baskiron, this item allows it to Mega Evolve in battle.",
 	},
@@ -530,7 +544,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -37,
+		num: -39,
 		gen: 9,
 		desc: "If held by a Terreptile, this item allows it to Mega Evolve in battle.",
 	},
@@ -544,7 +558,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -38,
+		num: -40,
 		gen: 9,
 		desc: "If held by a Rockster, this item allows it to Mega Evolve in battle.",
 	},
@@ -558,7 +572,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -39,
+		num: -41,
 		gen: 9,
 		desc: "If held by a Infarmatem, this item allows it to Mega Evolve in battle.",
 	},
@@ -593,7 +607,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			def: 1,
 		},
-		num: -40,
+		num: -42,
 		gen: 9,
 	},
 	honey: {
@@ -601,7 +615,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		num: -41,
+		num: -43,
 		gen: 4,
     	shortDesc: "Pokemon with the ability Honey Gather or Sweet Veil heal 12.5% when holding this item. Heals status.",
 		onAfterSetStatus(status, pokemon) {
@@ -629,7 +643,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify(1.3);
 		},
 		desc: "Holder's move have 1.3x BP, but it can't use the same move twice in a row.",
-		num: -42,
+		num: -44,
 		gen: 9,
 	},
 	deepseascale: {
@@ -673,14 +687,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Meowstic", "Meowstic-F"],
-		num: -43,
+		num: -45,
 		gen: 9,
 	},
 	identitycard: { 
 		name: "Identity Card",
 		shortDesc: "Holder's typing cannot be changed by any move.",
 		// Edited in scripts.ts
-		num: -44,
+		num: -46,
 		gen: 9,
 	},
 	bananapeel: {
@@ -700,7 +714,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "If holder is Tropius or Sautropius, raises holder's Attack by 1 stage, and on switch-in, this Pokemon avoids all hazards. Single use.",
 		itemUser: ["Tropius", "Sautropius"],
-		num: -45,
+		num: -47,
 		gen: 9,
 	},
 	relicsheet: {
@@ -715,7 +729,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		itemUser: ["Meloetta", "Meloetta-Pirouette"],
-		num: -46,
+		num: -48,
 		gen: 9,
 		desc: "If held by Meloetta: Pirouette form on entry.",
 	},
@@ -774,7 +788,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	anticamulet: {
 		name: "Antic Amulet",
-		num: -47,
+		num: -49,
 		gen: 9,
 		shortDesc: "Sigilyph: all abilities active at once, cannot have its abilities changed.",
 		onStart(target) {

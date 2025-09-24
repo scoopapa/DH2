@@ -507,7 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	snorlax: {
 		inherit: true,
-		abilities: {0: "Immunity", 1: "Thick Fat", H: "Oblivious"},
+		abilities: {0: "Immunity", 1: "Thick Fat", H: "Comatose"},
 	},
 	articuno: {
 		inherit : true,
@@ -1293,10 +1293,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		evos: ["Sautropius"],
 	},
-	absol: {
-		inherit: true,
-		abilities: {0: "Pressure", 1: "Sharpness", H: "Justified"},
-	},
 	absolmega: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 150, def: 70, spa: 85, spd: 70, spe: 125},
@@ -1409,9 +1405,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 80, atk: 120, def: 79, spa: 70, spd: 79, spe: 95},
 		abilities: {0: "Ambush", 1: "Intimidate", H: "Guts"},
 	},
+	cranidos: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Rock Head", H: "Sheer Force"},
+	},
 	rampardos: {
 		inherit: true,
-		types: ["Rock", "Normal"],
 		baseStats: {hp: 107, atk: 165, def: 75, spa: 30, spd: 60, spe: 58},
 		abilities: {0: "Mold Breaker", 1: "Rock Head", H: "Sheer Force"},
 	},
@@ -1876,7 +1875,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	zebstrika: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 60, spa: 70, spd: 60, spe: 122},
-		abilities: {0: "Illuminate", 1: "Motor Drive", H: "Sap Sipper"},
+		abilities: {0: "Reckless", 1: "Motor Drive", H: "Sap Sipper"},
 	},
 	roggenrola: {
 		inherit: true,
@@ -2942,14 +2941,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	yamper: {
 		inherit: true,
-		types: ["Electric", "Normal"],
-		abilities: {0: "Ball Fetch", 1: "Run Away", H: "Rattled"},
+		abilities: {0: "Ball Fetch", 1: "Galvanize", H: "Rattled"},
 	},
 	boltund: {
 		inherit: true,
-		types: ["Electric", "Normal"],
 		baseStats: {hp: 69, atk: 110, def: 60, spa: 90, spd: 60, spe: 121},
-		abilities: {0: "Strong Jaw", 1: "Stakeout", H: "Competitive"},
+		abilities: {0: "Strong Jaw", 1: "Galvanize", H: "Competitive"},
 	},
 	coalossal: {
 		inherit: true,
@@ -3219,12 +3216,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Grass", "Dark"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 76, atk: 140, def: 90, spa: 81, spd: 90, spe: 153},
-		abilities: {0: "Illusion" },
+		abilities: {0: "Illusion"},
 		heightm: 1.5,
 		weightkg: 31.2,
 		color: "Green",
 		eggGroups: ["Field", "Grass"],
 		requiredItem: "Meowscaradite",
+	},
+	skeledirge: {
+		inherit: true,
+		otherFormes: ["Skeledirge-Mega"],
+		formeOrder: ["Skeledirge", "Skeledirge-Mega"],
+	},
+	skeledirgemega: {
+		num: 911,
+		name: "Skeledirge-Mega",
+		baseSpecies: "Skeledirge",
+		forme: "Mega",
+		types: ["Fire", "Ghost"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 104, atk: 75, def: 140, spa: 130, spd: 105, spe: 76},
+		abilities: {0: "Unaware"},
+		heightm: 1.6,
+		weightkg: 326.5,
+		color: "Red",
+		eggGroups: ["Field"],
+		requiredItem: "Skeledite",
 	},
 	quaquaval: {
 		inherit: true,
@@ -3277,11 +3294,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	armarouge: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Deadly Blasts", H: "Weak Armor"},
+		abilities: {0: "Deadly Blasts", 1: "Justified", H: "Weak Armor"},
 	},
 	ceruledge: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Sharpness", H: "Weak Armor"},
+		abilities: {0: "Sharpness", 1: "Justified", H: "Weak Armor"},
 	},
 	kilowattrel: {
 		inherit: true,

@@ -3411,7 +3411,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		num: -82,
 		accuracy: 90,
 		basePower: 70,
-		basePowerCallback(pokemon) {
+		basePowerCallback(pokemon, target, move) {
 			if (pokemon.volatiles['stockpile']?.layers === 3) return move.basePower * 2;
 			return move.basePower;
 		},
@@ -3718,6 +3718,59 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		contestType: "Cute",
 		desc: "Has a 100% chance to make the target flinch. Fails unless it is the user's first turn on the field.",
 		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
+	},
+	futuredoom: {
+		num: -92,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Future Doom",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: {
+			chance: 100,
+			volatileStatus: 'taunt',
+		},
+		target: "normal",
+		type: "Psychic",
+		shortDesc: "Traps the target for 5 turns, and applies Taunt.",
+	},
+	brainblast: {
+		num: -93,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Brain Blast",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Brain Blast', '[of] ' + source);
+				}
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Kinesis", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+		desc: "If the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 

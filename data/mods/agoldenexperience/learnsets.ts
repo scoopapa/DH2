@@ -7086,6 +7086,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			stealthrock: ["9L1"],
 			nightmare: ["9L1"],
 			spiritbreak: ["9L1"],
+			jumpscare: ["9L1"],
 		},
 	},
 	scrafree: {
