@@ -797,6 +797,26 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Fusion Evolution Restrictions",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3770550/">Fusion Evolution Restrictions</a>`,
+		],
+		mod: 'gen9ferestrictions',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: ['Revival Blessing', 'Shed Tail', 'Baton Pass', 'King\'s Rock', 'Razor Fang'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['FERE', 'FERELC', 'Silverade"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Fusion Evolution Restricted.'];
+				}
+			}
+		},
+	},
+	{
 	name: "[Gen 9] Generation X: Brunica [Uber]",
 		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Brunica, the mod's second region in Generation 9 after Desvega and fourth overall."],
 		threads: [
