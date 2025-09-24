@@ -45,7 +45,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 	},
 	quaxtinaorigin: {
  // fusion: ['Quaxwell', 'Giratina-Origin'],
-		num: 2,
+		num: 3,
 		name: "Quaxtina-Origin",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 110, atk: 105, def: 90, spa: 85, spd: 80, spe: 80},
