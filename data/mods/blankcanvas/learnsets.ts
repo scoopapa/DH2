@@ -3546,6 +3546,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			raindance: ["9L1"],
 			sunnyday: ["9L1"],
 			tickle: ["9L1"],
+			thief: ["9L1"],
 		},
 	},
 	thermostatic: {
