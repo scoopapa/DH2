@@ -247,10 +247,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -9,
 	},
-	mightofthechangelingqueen: {
+	mightofthequeen: {
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Might of the Changeling Queen boost');
+				this.debug('Might of the Queen boost');
 				return this.chainModify(2);
 			}
 		},
@@ -264,8 +264,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
 		flags: {},
-		name: "Might of the Changeling Queen",
-		desc: "Not very effective attacks deal double damage. 1.3x power on attacks with secondary effects; secondary effects are not nullified.",
+		name: "Might of the Queen",
+		desc: "Double damage on resisted attacks. 1.3x power on attacks with secondary effects; secondary effects are not nullified.",
 		rating: 3.5,
 		num: -10,
 	},
@@ -322,6 +322,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Resilience",
+		desc: "If this Pokemon is statused, its Special attack is 1.5x; ignores burn halving physical damage.",
 		rating: 3.5,
 		num: -13,
 	},
