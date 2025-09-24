@@ -3,7 +3,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's moves that match its held Memory have 1.5x power.",
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
-			const memoryType = this.runEvent('Memory', pokemon, null, move);
+			const memoryType = this.runEvent('Memory', attacker, null, move);
 			if (move.type === memoryType) {
 				this.debug('RKS Tech boost');
 				return this.chainModify(1.5);
