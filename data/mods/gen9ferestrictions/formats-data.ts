@@ -1,6 +1,6 @@
 export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataTable = {
 	silverade: {
-		tier: "Silverade",
+		tier: "FERE",
 		doublesTier: "DOU",
 	},
 	tinkascorch: {
