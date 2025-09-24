@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
         excludeStandardTiers: true,
-        customTiers: ['FERE', 'FERELC'],
+        customTiers: ['FERE', 'FERELC', 'Silverade'],
 	},
 	pokemon: {
 		inherit: true,
