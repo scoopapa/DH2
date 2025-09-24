@@ -55,14 +55,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "While this Pokemon is active, a Fire move used by any Pokemon has 1.33x power.",
 	},
 	coolingsystem: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fire') {
-				this.field.setWeather('raindance');
+		onStart(source) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
+			this.field.setWeather('raindance');
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.isWeather('raindance')) {
+				this.heal(target.baseMaxhp / 16);
 			}
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Cooling System",
-		shortDesc: "This Pokemon summons Rain Dance before gtting hit by a Fire-type move.",
+		shortDesc: "Sets Rain; When hit a by damaging move in Rain, recovers 1/16 of max Health.",
 	},
 	mactonight: {
 		onWeather(target, source, effect) {
