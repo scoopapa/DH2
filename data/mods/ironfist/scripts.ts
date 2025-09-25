@@ -19,7 +19,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				/*if (!id.types.includes('Water') && !id.types.includes('Steel')) {
 					this.modData('Learnsets', this.toID(id)).learnset.fisheater = ["9L1"];
 				}*/
-				console.log(id.types[0]);
 				if (id.diamondhand) {
 					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
 				}
