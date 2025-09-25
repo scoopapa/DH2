@@ -318,8 +318,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				zMove: false,
 				mega: false,
 				ultra: false,
-				terastallize: false,
 				dynamax: false,
+				terastallize: false,
 			};
 	
 			// old-gens
