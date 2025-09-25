@@ -48,8 +48,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (mon.fish) {
 				learnset.fish = ["9L1"];
 				learnset.fishield = ["9L1"];
-			}*/
-		}
+			}
+		}*/
 	},
 	battle: {
 		runAction(action: Action) {
