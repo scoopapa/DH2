@@ -1,5 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	melmetal: {
+	/*melmetal: {
 		inherit: true,
 		name: "Melmetal",
 		num: -1,
@@ -1801,5 +1801,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Parental Bond"},
 		weightkg: 50.5,
 		requiredItem: "Etigirafarigite",
-	},
+	},*/
 };
