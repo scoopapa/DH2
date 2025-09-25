@@ -326,7 +326,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-message', `${pokemon.name} has triggered Rewind!`);
 					let itemRestored = false;
 					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-						for (const ally of pokemon.side.pokemon) {
+						for (const ally of pokemon.side.active) {
 							if (ally && !ally.item) {
 								this.actions.useMove('Recycle', ally);
 								itemRestored = true;
@@ -346,7 +346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			let itemRestored = false;
 			this.add('-ability', pokemon, 'Rewind');
 			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-				for (const ally of pokemon.side.pokemon) {
+				for (const ally of pokemon.side.active) {
 					if (ally && !ally.item) {
 						this.actions.useMove('Recycle', ally);
 						itemRestored = true;
