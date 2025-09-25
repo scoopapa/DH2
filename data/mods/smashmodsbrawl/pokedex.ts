@@ -242,6 +242,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	garbodor: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 60, spd: 100, spe: 75},
+		abilities: {0: "Stench", 1: "Merciless", H: "Aftermath"},
 	},
 	garbodorgmax: {
 		inherit: true,
