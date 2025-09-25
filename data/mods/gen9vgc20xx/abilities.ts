@@ -309,7 +309,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					let itemRestored = false;
 	
 					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-						for (const ally of pokemon.side.pokemon) {
+						for (const ally of pokemon.side.active) {
 							if (ally && !ally.item) {
 								this.actions.useMove('Recycle', ally);
 								itemRestored = true;
@@ -335,7 +335,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.add('-ability', pokemon, 'Rewind');
 	
 			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-				for (const ally of pokemon.side.pokemon) {
+				for (const ally of pokemon.side.active) {
 					if (ally && !ally.item) {
 						this.actions.useMove('Recycle', ally);
 						itemRestored = true;
@@ -1116,3 +1116,4 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// End
 	
 };
+
