@@ -738,4 +738,28 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 		desc: "Iron Leaves: Holder's first successful Grass-type attack will have 1.3x power. Single use.",
 	},
+	zamazentacrownedplushie: {
+		name: "Zamazenta-Crowned Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+			pokemon.addVolatile('zamazentacrownedplushie');
+			this.add('-message', `${pokemon.name} has its shield up!`);
+		},
+		condition: {
+			duration: 2,
+			onEnd(pokemon) {
+				this.add('-item', pokemon, 'Zamazenta-Crowned Plushie');
+				this.add('-message', `${pokemon.name} lowered its shield!`);
+				this.boost({def: -1}, pokemon);
+			},
+		},
+		num: -1019,
+		desc: "+1 Defense on switch-in. Boost goes away at the end of the next turn.",
+		gen: 9,
+		rating: 3,
+	},
 };
