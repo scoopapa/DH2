@@ -202,6 +202,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "garbodor").learnset.hammerarm = ["9L1"];
 		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
 		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+		delete this.modData('Learnsets', 'houndour').learnset.incinerate;
 	},
 	pokemon: {
 		inherit: true,
