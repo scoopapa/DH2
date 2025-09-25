@@ -255,6 +255,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		onTryHit(source, move) {
 			if (!this.canSwitch(source.side) || !move.selfSwitch) {
+				// nanoboosted Implemented within conditions.ts
 				source.addVolatile('nanoboosted');
 				return this.NOT_FAIL;
 			}
@@ -432,6 +433,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
+					// hazardshield implemented within conditions.ts
 					target.addVolatile('hazardshield');
 				}
 				target.side.removeSlotCondition(target, 'dimensionalcape');
