@@ -22,7 +22,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (id.diamondhand) {
 					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
 				}
-				console.log(id, id.gen);
 				if (id.hoenn || id.gen === 3) {
 					this.modData('Learnsets', this.toID(id)).learnset.hoenn = ["9L1"];
 				}
