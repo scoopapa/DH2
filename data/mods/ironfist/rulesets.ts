@@ -63,7 +63,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		effectType: "Rule",
 		desc: `Ohmyrod gets a special message when switching in.`,
 		onSwitchIn(pokemon) {
-			if (pokemon.baseSpecies?.baseSpecies === 'Ohmyrod') {
+			if (pokemon.baseSpecies.baseSpecies === 'Ohmyrod') {
 				this.add('-message', 'it is ohmyrod time :D');
 			}
 		}
@@ -85,7 +85,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onSwitchIn(pokemon) {
 			if (this.gameType === 'doubles') {
 				const ally = pokemon.allies()[0];
-				if (ally && ally.baseSpecies?.baseSpecies === 'Fridgile') { 
+				if (ally && ally.baseSpecies.baseSpecies === 'Fridgile') { 
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|I love refrigerators!`);
 					const newMove = this.dex.getActiveMove('Hold Hands');
 					this.actions.useMove(newMove, pokemon, ally);

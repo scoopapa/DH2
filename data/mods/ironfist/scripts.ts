@@ -9,7 +9,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	
 	init() {
-		for (const pokemon in this.data.FormatsData) {
+		/*for (const pokemon in this.data.FormatsData) {
 			const mon = this.modData("Pokedex", pokemon);
 			if (!mon) continue;
 			const tierData = this.modData("FormatsData", pokemon);
@@ -37,7 +37,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset.fish = ["9L1"];
 				learnset.fishield = ["9L1"];
 			}
-		}
+		}*/
 	},
 	battle: {
 		runAction(action: Action) {
