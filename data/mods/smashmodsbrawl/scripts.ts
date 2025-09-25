@@ -203,6 +203,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
 		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
 		delete this.modData('Learnsets', 'houndour').learnset.incinerate;
+		this.modData("Learnsets", "ironleaves").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
 	},
 	pokemon: {
 		inherit: true,
