@@ -17,7 +17,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
 				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
 			}
-		},
+		}
 		for (const pokemon in this.data.FormatsData) {
 			const mon = this.modData("Pokedex", pokemon);
 			if (!mon) continue;
