@@ -2060,7 +2060,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Mega-Hisui",
         types: ["Normal", "Ghost"],
         genderRatio: {M: 0.875, F: 0.125},
-        baseStats: {hp: 60, atk: 90, def: 100, spa: 135, spd: 100, spe: 130},
+        baseStats: {hp: 60, atk: 90, def: 100, spa: 130, spd: 100, spe: 130},
         abilities: {0: "Bitter Hatred"},
         heightm: 1.6,
         weightkg: 81.1,
