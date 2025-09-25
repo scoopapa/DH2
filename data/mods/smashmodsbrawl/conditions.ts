@@ -297,4 +297,17 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-anim', pokemon, "Baneful Bunker", pokemon);
 		},
 	},
+	grassgem: {
+		name: 'grassgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('electricsurge', source, true);
+	      this.add('-activate', source, 'ability: Electric Surge');
+      	this.boost({spd: 1, accuracy: 1, spe: 1}, source);
+		},
+	},
 };
