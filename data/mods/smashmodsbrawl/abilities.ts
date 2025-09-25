@@ -400,4 +400,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Doomer",
 		shortDesc: "This Pokemon's future moves have 1.2x power.",
 	},
+	railgunner: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id.endsWith('beam')) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Railgunner",
+		shortDesc: "This Pokemon's beam moves have 1.3x power.",
+	},
+	fumigation: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			const poisongas = this.dex.getActiveMove('poisongas');
+			this.actions.useMove(poisongas, target, source);
+		},
+		flags: {},
+		name: "Fumigation",
+		shortDesc: "When this Pokemon is damaged by a move, it uses Poison Gas against the attacker.",
+	},
 };
