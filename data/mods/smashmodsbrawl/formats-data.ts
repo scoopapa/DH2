@@ -91,4 +91,28 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	garbodorgmax: {
 		tier: "SSB",
 	},
+	reticannon: {
+		tier: "SSB",
+	},
+	lindwallow: {
+		tier: "SSB",
+	},
+	hongmeiling: {
+		tier: "SSB",
+	},
+	delirirak: {
+		tier: "SSB",
+	},
+	zenyatta: {
+		tier: "SSB",
+	},
+	ironleaves: {
+		tier: "SSB",
+	},
+	ironcrest: {
+		tier: "SSB",
+	},
+	flittle: {
+		tier: "SSB",
+	},
 };
