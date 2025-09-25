@@ -9,7 +9,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	
 	init() {
-		/*for (const pokemon in this.data.FormatsData) {
+    	for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				this.modData('Learnsets', this.toID(id)).learnset.fishingterrain = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.holdhands = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.mewing = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
+			}
+		for (const pokemon in this.data.FormatsData) {
 			const mon = this.modData("Pokedex", pokemon);
 			if (!mon) continue;
 			const tierData = this.modData("FormatsData", pokemon);
@@ -18,8 +26,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!learnsetData) continue;
 			const learnset = learnsetData.learnset;
 			if (!learnset) continue;
+
+			console.log(`mon is ${mon}, tierData is ${tierData}, learnsetData is ${learnsetData}, learnset is ${learnset}`);
 			
-			learnset.fishingterrain = ["9L1"];
+			/*learnset.fishingterrain = ["9L1"];
 			learnset.holdhands = ["9L1"];
 			learnset.mewing = ["9L1"];
 			learnset.epicbeam = ["9L1"];
@@ -36,8 +46,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (mon.fish) {
 				learnset.fish = ["9L1"];
 				learnset.fishield = ["9L1"];
-			}
-		}*/
+			}*/
+		}
 	},
 	battle: {
 		runAction(action: Action) {
