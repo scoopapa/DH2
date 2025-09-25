@@ -17,6 +17,26 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.modData('Learnsets', this.toID(id)).learnset.mewing = ["9L1"];
 				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
 				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
+				if (!id.hasType('Water') && !id.hasType('Steel')) {
+					this.modData('Learnsets', this.toID(id)).learnset.fisheater = ["9L1"];
+				}
+				if (id.diamondhand) {
+					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
+				}
+				if (id.hoenn || id.gen === 3) {
+					this.modData('Learnsets', this.toID(id)).learnset.hoenn = ["9L1"];
+				}
+				if (id.trans) {
+					this.modData('Learnsets', this.toID(id)).learnset.trans = ["9L1"];
+				}
+				if (id.bird) {
+					this.modData('Learnsets', this.toID(id)).learnset.bird = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.justthebirdsthesequel = ["9L1"];
+				}
+				if (id.fish) {
+					this.modData('Learnsets', this.toID(id)).learnset.fish = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.fishield = ["9L1"];
+				}
 			}
 		}
 		/*for (const pokemon in this.data.FormatsData) {
