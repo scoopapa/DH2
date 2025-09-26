@@ -78,5 +78,14 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			}
 			this.add('rule', 'Terastal Clause: Only Pokemon from Tera-related mods can Terastallize');
 		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Iron Leaves') {
+	  			if (pokemon.side.sideConditions['teraused'] || pokemon.hasItem('grassgem')) {
+	  				pokemon.canTerastallize = null;
+	  			} else {
+	        		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+	  			}
+      	}
+		},
 	},
 };
