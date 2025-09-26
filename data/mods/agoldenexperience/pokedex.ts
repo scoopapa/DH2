@@ -751,10 +751,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		evos: ["Sithbull"],
 	},
-	qwilfish: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 95, def: 85, spa: 55, spd: 85, spe: 85},
-	},
 	scizor: {
 		inherit: true,
 		otherFormes: ["Scizor-Mega", "Scizor-Galar", "Scizor-Galar-Mega"],
