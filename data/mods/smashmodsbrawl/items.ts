@@ -732,6 +732,9 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
         		}
 			}
 		},
+		onStart(pokemon) {
+			pokemon.canTerastallize = null;
+		},
 		itemUser: ["Iron Leaves"],
 		num: 551,
 		gen: 5,
