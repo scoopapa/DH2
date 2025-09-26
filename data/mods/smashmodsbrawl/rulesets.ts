@@ -72,8 +72,8 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				  	pokemon.species.baseSpecies !== 'Houndoom' &&
 				  	pokemon.species.baseSpecies !== 'Gyarados' &&
 				  	(pokemon.species.baseSpecies !== 'Iron Leaves' &&
-					!pokemon.hasItem('grassgem') &&
-					!pokemon.hasAbility('electricsurge')) &&
+					(!pokemon.hasItem('grassgem') ||
+					!pokemon.hasAbility('electricsurge'))) &&
 				  	pokemon.species.baseSpecies !== 'Garbodor') {
 				  pokemon.canTerastallize = null;
 				}
