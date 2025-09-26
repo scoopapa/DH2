@@ -66,11 +66,14 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		desc: "Only Pok&eacute;mon from Iron Fist, TeraForming, and TeraMax can Terastallize",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
-			  if (pokemon.species.baseSpecies !== 'Centiskorch' ||
-					pokemon.species.baseSpecies !== 'Zapdos' ||
-					pokemon.species.baseSpecies !== 'Big Crammer' ||
-				  	pokemon.species.baseSpecies !== 'Houndoom' ||
-				  	pokemon.species.baseSpecies !== 'Gyarados' ||
+			  if (pokemon.species.baseSpecies !== 'Centiskorch' &&
+					pokemon.species.baseSpecies !== 'Zapdos' &&
+					pokemon.species.baseSpecies !== 'Big Crammer' &&
+				  	pokemon.species.baseSpecies !== 'Houndoom' &&
+				  	pokemon.species.baseSpecies !== 'Gyarados' &&
+				  	(pokemon.species.baseSpecies !== 'Iron Leaves' &&
+					!pokemon.hasItem('grassgem') &&
+					!pokemon.hasAbility('electricsurge')) &&
 				  	pokemon.species.baseSpecies !== 'Garbodor') {
 				  pokemon.canTerastallize = null;
 				}
