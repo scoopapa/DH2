@@ -5672,7 +5672,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'mixandmegaballs',
-		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', /*'!Sleep Clause Mod',*/ 'Terastal Clause'],
+		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Terastal Clause'],
 		/*banlist: [
 			'Moody', 'Rusted Sword', 'Shadow Tag', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite', 'Baton Pass'
 		],
