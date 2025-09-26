@@ -3001,8 +3001,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	druddigon: {
-		tier: "NU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
 	golett: {
 		tier: "LC",
@@ -5346,6 +5345,14 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	corpsetrap: {
 		tier: "UU",
 		doublesTier: "DUU",
+	},
+	draggoyle: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	draggoyleactive: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 
 	//unavailable

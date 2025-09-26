@@ -3012,6 +3012,63 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "Heals 1/16 HP per turn. This Pokemon is considered to be asleep and cannot become affected by a non-volatile status condition or Yawn.",
 		shortDesc: "Heals 1/16 HP per turn. This Pokemon cannot be statused, and is considered to be asleep.",
 	},
+	thermalswitch: {
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Draggoyle' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'draggoyleactive') {
+					pokemon.formeChange('Draggoyle-Active', this.effect, false, '[msg]');
+				}
+			}			
+			if (['hail', 'snow', 'everlastingwinter'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'draggoyle') {
+					pokemon.formeChange('Draggoyle', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Thermal Switch');
+				pokemon.cureStatus();
+			}
+			if (pokemon.status === 'frz') {
+				if (pokemon.species.id !== 'draggoyle') {
+					pokemon.formeChange('Draggoyle', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn' && status.id !== 'frz') return;
+			if ((effect as Move)?.status && status.id === 'brn') {
+				this.add('-immune', target, '[from] ability: Thermal Switch');
+			}
+			if ((effect as Move)?.status && status.id === 'frz') {
+				if (pokemon.species.id !== 'draggoyle') {
+					pokemon.formeChange('Draggoyle', this.effect, false, '[msg]');
+				}
+			}
+			return false;
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				if (pokemon.species.id !== 'draggoyleactive') {
+					pokemon.formeChange('Draggoyle-Active', this.effect, false, '[msg]');
+				}
+			}
+			if (move.type === 'Ice') {
+				if (pokemon.species.id !== 'draggoyle') {
+					pokemon.formeChange('Draggoyle', this.effect, false, '[msg]');
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Thermal Switch",
+		desc: "Immunity to Burn. This Pokemon has two forms, Passive and Active. It starts the fight with Passive form. If Sun is set or it's hit by a Fire-type move, it switches to Active form until it switches out. If Snow is set, it's frozen, or it's hit by an Ice-type move, it switches to Passive form.",
+		shortDesc: "Burn immunity. Sun or Fire-type move: Active form; Snow, frozen or Ice-type move: Passive form."
+		rating: 4,
+		num: -102,
+	},
 
 
 
