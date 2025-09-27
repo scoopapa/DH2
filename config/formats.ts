@@ -5496,7 +5496,7 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	/////////////// Gen 9 Offical Smogon Formats //////////////////
 	///////////////////////////////////////////////////////////////
-	{
+	/*{
 		section: "ROPMM Formats",
 		column: 3,
 		// name: "ropmmformats",
@@ -5615,7 +5615,7 @@ export const Formats: FormatList = [
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
+			/*let speciesTable = {};
 			let allowedTiers = ['IF'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -5672,8 +5672,8 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'mixandmegaballs',
-		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', /*'!Sleep Clause Mod',*/ 'Terastal Clause'],
-		banlist: [
+		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Terastal Clause'],
+		/*banlist: [
 			'Moody', 'Rusted Sword', 'Shadow Tag', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite', 'Baton Pass'
 		],
 		restricted: [],
@@ -5737,7 +5737,7 @@ export const Formats: FormatList = [
 				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
 			}
 		},
-	},
+	},*/
 	{
 		section: "Official Smogon Formats",
 		column: 3,
@@ -5776,8 +5776,8 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra', 'Cyclizar', 'Polteageist', 'Shadow Tag'],
 		onBegin() {
-			this.add('-message', `Welcome to Bad 'n Boosted!`);
-			this.add('-message', `This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!`);
+			this.add('-message', "Welcome to Bad 'n Boosted!");
+			this.add('-message', "This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!");
 			this.add('-message', `You can join our Discord now:`);
 			this.add('-message', `https://discord.gg/vYdSwRreNd`);
 		},

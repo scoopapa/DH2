@@ -7129,6 +7129,16 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			trick: ["9L1"],
 		},
 	},
+	draggoyle: {
+		learnset: {
+			roost: ["9L1"],
+			headlongrush: ["9L1"],
+			headsmash: ["9L1"],
+			golemstrike: ["9L1"],
+			stoneedge: ["9L1"],
+			morningsun: ["9L1"],
+		},
+	},
 	corpsetrap: {
 		learnset: {
 			amnesia: ["9M"],
