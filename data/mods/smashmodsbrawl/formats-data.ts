@@ -90,6 +90,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	garbodorgmax: {
 		tier: "SSB",
+		isNonstandard: null,
 	},
 	reticannon: {
 		tier: "SSB",
