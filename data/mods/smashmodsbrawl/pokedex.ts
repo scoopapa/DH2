@@ -258,7 +258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Sand Force", H: "Levitate"},
 		heightm: 1.0,
 		weightkg: 25,
-		prevo: "Roxwell",
+		// prevo: "Roxwell",
 		evos: ["Reticannon"],
 	},
 	reticannon: {
