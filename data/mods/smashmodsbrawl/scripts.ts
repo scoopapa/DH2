@@ -546,7 +546,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				canTeraFromAbility = true;
 				type = 'Steel';
 			}
-			if (['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.species.name) && (!canTeraFromAbility || pokemon.teraType !== 'Bug')) {
+			if (['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.species.name) && !canTeraFromAbility && pokemon.teraType !== 'Bug') {
 				pokemon.addVolatile('bigbutton');
 				return;
 			}
