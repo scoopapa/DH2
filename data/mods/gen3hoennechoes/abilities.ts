@@ -72,6 +72,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		gen: 3,
 	},
+	icebody: {
+		inherit: true,
+		gen: 3,
+	},
 	intimidate: {
 		inherit: true,
 		onStart(pokemon) {
