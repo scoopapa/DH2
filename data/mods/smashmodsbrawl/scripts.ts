@@ -242,7 +242,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		getDynamaxRequest(skipChecks?: boolean) {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
-				const teramaxMons = ['garbodor'];
+				const teramaxMons = ['garbodor', 'centiskorch'];
 				if (!this.side.canDynamaxNow()) return;
 				if (
 					!teramaxMons.includes(this.baseSpecies.id) || this.item !== 'wishingstone' || this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
