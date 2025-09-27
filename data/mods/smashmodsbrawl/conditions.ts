@@ -3,7 +3,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
-			if (!pokemon || pokemon.volatiles['bigbutton'] || !['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.baseSpecies.baseSpecies)) return;
+			if (!pokemon || !['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.baseSpecies.baseSpecies)) return;
 			if (!pokemon.big) pokemon.big = true;
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
 		},
@@ -23,7 +23,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) {
 				move.accuracy = true;
 				if (['heatcrash', 'heavyslam'].includes(move.id)) return 120;
-				if (move.basePower < 60) return this.chainModify(2);
+				if (move.basePower <= 60) return this.chainModify(2);
 				if (minimizeMoves.includes(move.id)) return this.chainModify(1.5);
 			}
 		},

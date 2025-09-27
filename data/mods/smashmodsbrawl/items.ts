@@ -197,6 +197,9 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	    onModifyMove(move, pokemon, target) {
 	        if (move.flags.futuremove) {
 	            move.onTry = undefined;
+				if (move.id === '5bigdooms') {
+					move.multihit = 5;
+				}
 	        }
 	        if (move.id === 'wish') {
 	            move.slotCondition = undefined;
@@ -205,18 +208,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	    },
 	    onTryMovePriority: -1,
 	    onTryMove(source, target, move) {
-	        if (move.id === 'wish'  && source.hp != source.baseMaxhp && source.useItem()) {
-	            this.heal(source.baseMaxhp *1.3/2, source, source)
-	        }
-	        if (move.id === 'wish' && source.hp === source.baseMaxhp) {
-	            this.add('-fail', source, 'move: Wish');
-	            this.attrLastMove('[still]');
-	            return null;
-	        }
+			if (move.id === 'wish') {
+				if (source.hp === source.baseMaxhp) {
+					this.add('-fail', source, 'move: Wish');
+					this.attrLastMove('[still]');
+					return null;
+				}
+				if (source.useItem()) {
+					this.heal(source.baseMaxhp * 0.7, source, source)
+				}
+			}
 	    },
 	    onBasePower(basePower, source, target, move) {
 	        if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
-	            return this.chainModify(1.3)
+	            return this.chainModify([5325, 4096])
 	        }
 	    },
 	    fling: {
