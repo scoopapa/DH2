@@ -855,6 +855,7 @@ export class RandomBLCTeams extends RandomTeams {
 		const typeCount: {[k: string]: number} = {};
 		const typeComboCount: {[k: string]: number} = {};
 		const typeWeaknesses: {[k: string]: number} = {};
+		const typeDoubleWeaknesses: { [k: string]: number } = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		let numMaxLevelPokemon = 0;
 
@@ -1046,4 +1047,5 @@ export class RandomBLCTeams extends RandomTeams {
 }
 
 export default RandomBLCTeams;
+
 
