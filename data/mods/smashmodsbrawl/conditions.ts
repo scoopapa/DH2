@@ -221,7 +221,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			pokemon.removeVolatile('dynamax');
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (target.terastallized && ['centiskorch'].includes(target.species.name)) {
+			if (target.terastallized && ['centiskorch','garbodor'].includes(target.species.name)) {
 				return this.chainModify(0.75);
 			}
 		},
