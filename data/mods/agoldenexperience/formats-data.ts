@@ -5278,14 +5278,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "(DUU)",
 	},
-	irondrill: {
-		tier: "OU",
-		doublesTier: "DUU",
-	},
-	whitewhale: {
-		tier: "UU",
-		doublesTier: "DUU",
-	},
 	annoyog: {
 		tier: "UU",
 		doublesTier: "(DUU)",
@@ -5351,6 +5343,30 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	draggoyleactive: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	whitewhale: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	irondrill: {
+		tier: "OU",
+		doublesTier: "DUU",
+	},
+	coalkaiju: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironbike: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	purerainbow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	irondart: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
