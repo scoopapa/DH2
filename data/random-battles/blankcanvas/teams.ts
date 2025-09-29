@@ -629,6 +629,8 @@ export class RandomBLCTeams extends RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
+		if (species.id === 'badjur') return 'Toxic Orb';
+		if (species.id === 'vipult' && role === 'Bulky Support') return this.sample(['Black Sludge', 'Heavy-Duty Boots']);
 		if (
 			(species.id === 'lundicare' && role === 'Fast Bulky Setup' && moves.has('stuffcheeks')) ||
 			(species.id === 'devestial' && role === 'Bulky Setup')
@@ -652,7 +654,7 @@ export class RandomBLCTeams extends RandomTeams {
 			return 'Black Sludge';
 		}
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
-			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
+			return (types.includes('Fire') || ability === 'Toxic Boost' || ability === 'Poison Heal') ? 'Toxic Orb' : 'Flame Orb';
 		}
 		if (ability === 'Magic Guard' || (ability === 'Sheer Force' && counter.get('sheerforce'))) return 'Life Orb';
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';
@@ -661,7 +663,7 @@ export class RandomBLCTeams extends RandomTeams {
 		if (moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('raindance') || moves.has('sunnyday')) return 'Life Orb';
 		if (species.id === 'plasmage' && moves.has('psychoboost') && role === 'Setup Sweeper') return 'Eject Pack';
-		if (['craggon', 'jackoswarm'].includes(species.id) && this.randomChance(1, 2)) return 'Rocky Helmet';
+		if (['craggon', 'jackoswarm'].includes(species.id)) return this.sample(['Rocky Helmet', 'Leftovers']);
 		if (species.id === 'thaumaton' && moves.has('steelbeam')) return 'Sitrus Berry';
 		if (species.id === 'thaumaton' && !moves.has('steelbeam')) return 'Air Balloon';
 		if (species.id === 'kadraoke' && role === 'Setup Sweeper') return 'Throat Spray';
@@ -1047,5 +1049,6 @@ export class RandomBLCTeams extends RandomTeams {
 }
 
 export default RandomBLCTeams;
+
 
 
