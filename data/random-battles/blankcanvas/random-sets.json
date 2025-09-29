@@ -336,7 +336,7 @@
 		"sets": [
 			{
 				"role": "Fast Attacker",
-				"movepool": ["Thunderbolt", "Volt Switch", "Ice Beam", "Tera Blast", "Switcheroo"],
+				"movepool": ["Thunderbolt", "Volt Switch", "Fake Out", "Tera Blast", "Switcheroo"],
 				"abilities": ["Refrigerate"],
 				"teraTypes": ["Ice"]
 			},
@@ -608,7 +608,7 @@
 		]
 	},
 	"fettogre": {
-		"level": 87,
+		"level": 85,
 		"sets": [
 			{
 				"role": "Bulky Support",
@@ -1188,3 +1188,4 @@
 		]
 	}
 }
+
