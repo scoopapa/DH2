@@ -3772,6 +3772,56 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "If the target is holding an item that can be removed from it, ignoring the Sticky Hold Ability, this move's power is multiplied by 1.5. If the user has not fainted, the target loses its held item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
+	rainbowdash: {
+		num: -94,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Rainbow Dash",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				move.secondaries.push({
+					chance: 100,
+					boosts: {
+						atk: -1,
+					},
+				});
+			}
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dazzling Gleam", target);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Fairy",
+		contestType: "Tough",
+		shortDesc: "Lowers the target's Atk by 1 in Sun.",
+	},
+	waterslash: {
+		num: -95,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		overrideDefensiveStat: 'def',
+		name: "Water Slash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aqua Cutter", target);
+		},
+		contestType: "Beautiful",
+		desc: "Deals damage to the target based on its Defense instead of Special Defense.",
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
+	},
 
 
 
