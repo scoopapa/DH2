@@ -355,6 +355,14 @@ export class RandomBLCTeams extends RandomTeams {
 			}
 		}
 
+		// Enforce Roost on Fausteil
+		if (species.id === 'fausteil') {
+			if (movePool.includes('roost')) {
+				counter = this.addMove('roost', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+		}
+
 		// Enforce moves in doubles
 		if (isDoubles) {
 			const doublesEnforcedMoves = ['auroraveil', 'mortalspin', 'spore'];
@@ -1049,6 +1057,7 @@ export class RandomBLCTeams extends RandomTeams {
 }
 
 export default RandomBLCTeams;
+
 
 
 
