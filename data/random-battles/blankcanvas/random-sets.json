@@ -1012,7 +1012,7 @@
 			},
             {
                 "role": "Fast Support",
-                "movepool": ["Flamethrower", "Earth Power", "Court Change", "Parting Shot", "Taunt", "Will-o Wisp"],
+                "movepool": ["Flamethrower", "Earth Power", "Court Change", "Parting Shot", "Taunt", "Will-O-Wisp"],
                 "abilities": ["Regenerator"],
                 "teraTypes": ["Fire"]
             },
@@ -1063,7 +1063,7 @@
 		"sets": [
 			{
 				"role": "Wallbreaker",
-				"movepool": ["Scorching Sands", "Solar Beam", "Flamethrower", "Focus Blast"],
+				"movepool": ["Sunny Day", "Solar Beam", "Flamethrower", "Focus Blast"],
 				"abilities": ["Chlorophyll"],
 				"teraTypes": ["Grass"]
 			},
