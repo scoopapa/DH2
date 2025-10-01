@@ -603,6 +603,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 20,
 	},
+	darkpulse: {
+		inherit: true,
+		basePower: 60,
+	},
 	bitterblade: {
 		inherit: true,
 		basePower: 75,
