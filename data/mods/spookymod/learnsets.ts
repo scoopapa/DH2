@@ -1,3 +1,5 @@
+import { ModdedLearnsetData } from "../../../sim/dex-species";
+
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	aegislash: {
 		learnset: {
@@ -70,6 +72,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		},
 	},
 	shuppet: {
+		learnset: {
 			ragefist: ["9T"],
 			allyswitch: ["9T"],
 			attract: ["9M", "9M", "9M", "9M", "9M"],
@@ -160,6 +163,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["9M", "9L99", "9T", "9L99", "9T", "9L99", "9T", "9L99", "9T", "9L99"],
 			trickroom: ["9M", "9M", "9M", "9M", "9M"],
 			willowisp: ["9M", "9L19", "9M", "9L19", "9M", "9L19", "9M", "9L29", "9M", "9L29", "9L92"],
+		},
 	},
 	banette: {
 		learnset: {
@@ -825,7 +829,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mistyterrain: ["9L1"],
 			charm: ["9L1"],
 			strengthsap: ["9L1"],
-			spite: null,
+			spite: ["9M"],
 		},
 	},
 	gourgeistlarge: {

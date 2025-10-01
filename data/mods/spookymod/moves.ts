@@ -1,5 +1,6 @@
 import {FS} from '../../../lib';
 import {toID} from '../../../sim/dex-data';
+import { ModdedMoveData } from "../../../sim/dex-moves";
 
 // Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
 // This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
@@ -25,6 +26,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//physical ghost
 	poltergeist: {
 		inherit: true,
+		desc: "Fails if target has no item. Removes target's item.",
 		shortDesc: "Fails if target has no item. Removes target's item.",
 		basePower: 100,
 		accuracy: 100,
@@ -43,6 +45,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Shadow Force",
+		desc: "Hits two turns after use.",
 		shortDesc: "Hits two turns after use.",
 		pp: 5,
 		priority: 0,
@@ -79,6 +82,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		desc: "User's Ghost type becomes typeless; must be Ghost.",
 		shortDesc: "User's Ghost type becomes typeless; must be Ghost.",
 		name: "Phantom Force",
 		pp: 5,
@@ -102,16 +106,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	spectralthief: {
+		desc: "Fails if no stat boosts. Steals the target's stat boosts.",
 		shortDesc: "Fails if no stat boosts. Steals the target's stat boosts.",
 		inherit: true,
 		isNonstandard: null,
-		onTry(source) {
+		onTry(source, target) {
 			if(target.positiveBoosts() === 0) return false;
 		},
 	},
 	shadowbone: {
 		inherit: true,
 		isNonstandard: null,
+		desc: "Uses the user's Defense in calculation. User: -1 Def.",
 		shortDesc: "Uses the user's Defense in calculation. User: -1 Def.",
 		overrideOffensiveStat: 'def',
 		self: {
@@ -122,6 +128,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 	},
 	spiritshackle: {
+		desc: "Removes the target's Ghost type.",
 		shortDesc: "Removes the target's Ghost type.",
 		basePower: 85,
 		inherit: true,
@@ -134,6 +141,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 	},
 	shadowpunch: {
+		desc: "Uses Pain Split.",
 		shortDesc: "Uses Pain Split.",
 		inherit: true,
 		basePower: 75,
@@ -147,6 +155,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			return 60 + 5 * pokemon.side.totalFainted;
 		},
+		desc: "+1 priority and +5 BP for each ally fainted.",
 		shortDesc: "+1 priority and +5 BP for each ally fainted.",
 		priority: -1,
 		onModifyPriority(priority, source, target, move) {
@@ -154,6 +163,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	ragefist: {
+		desc: "+1 power per time hit, max 300. 1 damage recoil.",
 		shortDesc: "+1 power per time hit, max 300. 1 damage recoil.",
 		inherit: true,
 		pp: 187.5,
@@ -167,6 +177,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowsneak: {
 		inherit: true,
 		basePower: 50,
+		desc: "Usually goes first. Fails if target is not attacking.",
 		shortDesc: "Usually goes first. Fails if target is not attacking.",
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
@@ -179,6 +190,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowclaw: {
 		inherit: true,
 		basePower: 40,
+		desc: "Always results in a critical hit.",
 		shortDesc: "Always results in a critical hit.",
 		willCrit: true,
 		critRatio: null,
@@ -186,6 +198,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	astonish: {
 		inherit: true,
 		viable: true,
+		desc: "Fails if not turn 1 out. 100% chance to flinch.",
 		shortDesc: "Fails if not turn 1 out. 100% chance to flinch.",
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
@@ -200,6 +213,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	lick: {
 		inherit: true,
+		desc: "Paralyzes the target. Once per battle.",
 		shortDesc: "Paralyzes the target. Once per battle.",
 		onAfterHit(target, source, move) {
 			if(source.lick) return;
@@ -213,6 +227,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	nightshade: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, heal: 1},
+		desc: "Deals and heals damage equal to the user's level.",
 		shortDesc: "Deals and heals damage equal to the user's level.",
 		onHit(target, pokemon) {
 			this.heal(pokemon.level, pokemon)
@@ -220,6 +235,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astralbarrage: {
 		inherit: true,
+		desc: "User faints.",
 		shortDesc: "User faints.",
 		basePower: 150,
 		selfdestruct: "always",
@@ -290,6 +306,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hex: {
 		inherit: true,
 		viable: true,
+		desc: "Fails if the target does not have a status ailment.",
 		shortDesc: "Fails if the target does not have a status ailment.",
 		basePower: 100,
 		basePowerCallback: null,
@@ -301,6 +318,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	moongeistbeam: {
 		inherit: true,
 		isNonstandard: null,
+		desc: "User must have used Moonlight last turn. Ignores abilities.",
 		shortDesc: "User must have used Moonlight last turn. Ignores abilities.",
 		onTry(source, target) {
 			return source.lastMove === 'Moonlight';
@@ -309,6 +327,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowball: {
 		inherit: true,
 		viable: true,
+		desc: "10% chance to lower the target's/user's Sp. Def by 1",
 		shortDesc: "10% chance to lower the target's/user's Sp. Def by 1",
 		basePower: 70,
 		secondary: {
@@ -321,6 +340,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	infernalparade: {
 		inherit: true,
+		desc: "+Fire effectiveness. 30% to burn.",
 		shortDesc: "+Fire effectiveness. 30% to burn.",
 		basePowerCallback: null,
 		onEffectiveness(typeMod, target, type, move) {
@@ -331,9 +351,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		viable: true,
 		basePower: 50,
+		desc: "+10 power for each PP used.",
 		shortDesc: "+10 power for each PP used.",
 		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 10 * (pp - moveSlot.pp);
+			const callerMoveId = move.sourceEffect || move.id;
+			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
+			return move.basePower + 10 * (move.pp - moveSlot.pp);
 		},
 		secondary: null,
 	},
@@ -341,6 +364,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 		viable: true,
+		desc: "Forces the target out. 2x power if the user was hit.",
 		shortDesc: "Forces the target out. 2x power if the user was hit.",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
@@ -366,6 +390,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	nightmare: {
 		inherit: true,
 		isNonstandard: null,
+		desc: "A statused target is hurt 1/4 max HP per turn.",
 		shortDesc: "A statused target is hurt 1/4 max HP per turn.",
 		volatileStatus: 'nightmare',
 		condition: {
@@ -387,6 +412,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Spite",
+		desc: "Copies, disables a foe's move. User must be faster.",
 		shortDesc: "Copies, disables a foe's move. User must be faster.",
 		pp: 20,
 		priority: 0,
@@ -445,6 +471,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	trickortreat: {
 		inherit: true,
 		isNonstandard: null,
+		desc: "50% chance to trick, 50% chance to treat.",
 		shortDesc: "50% chance to trick, 50% chance to treat.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, trick: 1},
 		onHit(target, source) {
@@ -476,6 +503,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	confuseray: {
 		inherit: true,
 		priority: 1,
+		desc: "Fails if target attacks. May cause target to disobey.",
 		shortDesc: "Fails if target attacks. May cause target to disobey.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
 		onTry(source, target) {
@@ -523,6 +551,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	curse: {
 		inherit: true,
+		desc: "Curses if Shiny, else -1 Spe, +1 Atk, +1 Def.",
 		shortDesc: "Curses if Shiny, else -1 Spe, +1 Atk, +1 Def.",
 		onModifyMove(move, source, target) {
 			if (!source.set.shiny) {
@@ -546,6 +575,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	destinybond: {
 		inherit: true,
 		pp: 1,
+		desc: "Returns equal damage when hit. Single use.",
 		shortDesc: "Returns equal damage when hit. Single use.",
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -596,7 +626,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	grassyglide: {
 		inherit: true,
-		bp: 70,
+		basePower: 70,
 	},
 	wordsdance: {
 		accuracy: 100,
