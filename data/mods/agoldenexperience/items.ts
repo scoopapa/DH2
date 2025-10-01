@@ -818,6 +818,166 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+	helixfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Omanyte. Omastar-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Omastar-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Omastar') return false;
+			return true;
+		},
+		forcedForme: "Omastar-Revived",
+		itemUser: ["Omastar-Revived"],
+	},
+	domefossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Kabuto. Kabutops-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Kabutops-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kabutops') return false;
+			return true;
+		},
+		forcedForme: "Kabutops-Revived",
+		itemUser: ["Kabutops-Revived"],
+	},
+	rootfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Lileep. Cradily-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Cradily-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Cradily') return false;
+			return true;
+		},
+		forcedForme: "Cradily-Revived",
+		itemUser: ["Cradily-Revived"],
+	},
+	clawfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Anorith. Armaldo-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Armaldo-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Armaldo') return false;
+			return true;
+		},
+		forcedForme: "Armaldo-Revived",
+		itemUser: ["Armaldo-Revived"],
+	},
+	skullfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Cranidos. Rampardos-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Rampardos-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Rampardos') return false;
+			return true;
+		},
+		forcedForme: "Rampardos-Revived",
+		itemUser: ["Rampardos-Revived"],
+	},
+	armorfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Shieldon. Bastiodon-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Bastiodon-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Bastiodon') return false;
+			return true;
+		},
+		forcedForme: "Bastiodon-Revived",
+		itemUser: ["Bastiodon-Revived"],
+	},
+	coverfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Tirtouga. Carracosta-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Carracosta-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Carracosta') return false;
+			return true;
+		},
+		forcedForme: "Carracosta-Revived",
+		itemUser: ["Carracosta-Revived"],
+	},
+	plumefossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Archen. Archeops-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Archeops-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Archeops') return false;
+			return true;
+		},
+		forcedForme: "Archeops-Revived",
+		itemUser: ["Archeops-Revived"],
+	},
+	jawfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Tyrunt. Tyrantrum-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Tyrantrum-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tyrantrum') return false;
+			return true;
+		},
+		forcedForme: "Tyrantrum-Revived",
+		itemUser: ["Tyrantrum-Revived"],
+	},
+	sailfossil: {
+		inherit: true,
+		shortDesc: "Can be revived into Amaura. Aurorus-Revived: 1.2x power attacks.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Aurorus-Revived')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Aurorus') return false;
+			return true;
+		},
+		forcedForme: "Aurorus-Revived",
+		itemUser: ["Aurorus-Revived"],
+	},
 	// everlasting winter
 	safetygoggles: {
 		inherit: true,

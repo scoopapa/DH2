@@ -939,11 +939,19 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	omastarrevived: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	kabuto: {
 		tier: "LC",
 	},
 	kabutops: {
 		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	kabutopsrevived: {
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	aerodactyl: {
@@ -1847,11 +1855,19 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	cradilyrevived: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	anorith: {
 		tier: "LC",
 	},
 	armaldo: {
 		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	armaldorevived: {
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	feebas: {
@@ -2131,11 +2147,19 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	rampardosrevived: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	shieldon: {
 		tier: "LC",
 	},
 	bastiodon: {
 		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	bastiodonrevived: {
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	burmy: {
@@ -2786,10 +2810,18 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	carracostarevived: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	archen: {
 		tier: "LC",
 	},
 	archeops: {
+		tier: "RU",
+		doublesTier: "(DUU)",
+	},
+	archeopsrevived: {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
@@ -3357,11 +3389,19 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	tyrantrumrevived: {
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
 	amaura: {
 		tier: "LC",
 	},
 	aurorus: {
 		tier: "PU",
+		doublesTier: "(DUU)",
+	},
+	aurorusrevived: {
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	hawlucha: {
