@@ -292,4 +292,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	ironmike: {
 		tier: "BC C",
 	},
+	whalestro: {
+		tier: "BC C",
+	},
+	urslag: {
+		tier: "BC C",
+	},
+	centaghoul: {
+		tier: "BC C",
+	},
+	noirwark: {
+		tier: "BC C",
+	},
+	metarachne: {
+		tier: "BC C",
+	},
 };
