@@ -3716,7 +3716,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
-			snore: ["9L1"],
 			protect: ["9L1"],
 			facade: ["9L1"],
 			substitute: ["9L1"],
