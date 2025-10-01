@@ -168,7 +168,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
-	dynamax: {
+	fakedynamax: {
 		inherit: true,
 		duration: 1,
 		onStart(pokemon) {

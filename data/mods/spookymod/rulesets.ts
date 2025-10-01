@@ -134,13 +134,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(bighead)}`);
 					for (const pokemon of this.getAllActive()) {
 						pokemon.removeVolatile('shrunken', pokemon);
-						pokemon.addVolatile('dynamax', pokemon);
+						pokemon.addVolatile('fakedynamax', pokemon);
 					}
 					break;
 				case 1:
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(smallhead)}`);
 					for (const pokemon of this.getAllActive()) {
-						pokemon.removeVolatile('dynamax', pokemon);
+						pokemon.removeVolatile('fakedynamax', pokemon);
 						pokemon.addVolatile('shrunken', pokemon);
 					}
 					break;
