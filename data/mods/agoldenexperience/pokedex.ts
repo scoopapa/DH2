@@ -4979,8 +4979,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Monster", "Dragon"],
 		battleOnly: "Draggoyle",
 	},
-	whitewhale: {
+	remoraid: {
+		inherit: true,
+		evos: ["Octillery", "Remobault"],
+	},
+	remobault: {
 		num: -91,
+		name: "Remobault",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 87, atk: 81, def: 82, spa: 35, spd: 78, spe: 122},
+		abilities: {0: "Iron Body", 1: "Sniper", H: "Moody"},
+		heightm: 1.2,
+		weightkg: 66,
+		prevo: "Remoraid",
+		evoType: "levelHold",
+		evoItem: "Iron Ball",
+		evoCondition: "defeat a Clobbopus or a Grapploct",
+		eggGroups: ["Water 1", "Water 2"],
+	},
+	whitewhale: {
+		num: -92,
 		name: "White Whale",
 		types: ["Water", "Dark"],
 		gender: "N",
@@ -4993,7 +5011,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	irondrill: {
-		num: -92,
+		num: -93,
 		name: "Iron Drill",
 		types: ["Steel", "Fighting"],
 		gender: "N",
@@ -5006,7 +5024,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	coalkaiju: {
-		num: -93,
+		num: -94,
 		name: "Coal Kaiju",
 		types: ["Fire", "Dragon"],
 		gender: "N",
@@ -5019,7 +5037,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	ironbike: {
-		num: -94,
+		num: -95,
 		name: "Iron Bike",
 		types: ["Grass", "Electric"],
 		gender: "N",
@@ -5032,7 +5050,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	purerainbow: {
-		num: -95,
+		num: -96,
 		name: "Pure Rainbow",
 		types: ["Fire", "Fairy"],
 		gender: "N",
@@ -5045,7 +5063,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Undiscovered"],
 	},
 	irondart: {
-		num: -96,
+		num: -97,
 		name: "Iron Dart",
 		types: ["Water", "Psychic"],
 		gender: "N",

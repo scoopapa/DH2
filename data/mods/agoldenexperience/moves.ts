@@ -3822,6 +3822,25 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Deals damage to the target based on its Defense instead of Special Defense.",
 		shortDesc: "Damages target based on Defense, not Sp. Def.",
 	},
+	marinebolt: {
+		num: -96,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Marine Bolt",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, bullet: 1},
+		overrideOffensiveStat: 'spe',
+		secondary: null,
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Burst", target);
+		},
+		target: "normal",
+		type: "Fire",
+		shortDesc: "Uses user's Speed stat instead of Attack in damage calculation.",
+	},
 
 
 

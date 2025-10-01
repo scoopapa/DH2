@@ -5386,6 +5386,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	remobault: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	whitewhale: {
 		tier: "UU",
 		doublesTier: "DUU",
