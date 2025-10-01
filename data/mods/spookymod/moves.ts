@@ -603,6 +603,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 20,
 	},
+	lashout: {
+		inherit: true,
+		basePower: 60,
+	},
+	suckerpunch: {
+		inherit: true,
+		basePower: 60,
+	},
 	darkpulse: {
 		inherit: true,
 		basePower: 60,
