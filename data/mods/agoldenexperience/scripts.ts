@@ -1370,7 +1370,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'chimecho').learnset.detectmagic = ['9L1'];
     this.modData('Learnsets', 'absol').learnset.nightdaze = ['9L1'];
     this.modData('Learnsets', 'glalie').learnset.rapidspin = ['9L1'];
-    this.modData('Learnsets', 'glalie').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'walrein').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'walrein').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'walrein').learnset.iciclecrash = ['9L1'];
