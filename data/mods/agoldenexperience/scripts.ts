@@ -955,6 +955,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'chandelure').learnset.blackflash = ['9M'];
     this.modData('Learnsets', 'guzzlord').learnset.blackflash = ['9M'];
     this.modData('Learnsets', 'krookodile').learnset.blackflash = ['9M'];
+    this.modData('Learnsets', 'inkay').learnset.blackflash = ['9M'];
     this.modData('Learnsets', 'malamar').learnset.blackflash = ['9M'];
     this.modData('Learnsets', 'necrozma').learnset.blackflash = ['9M'];
     this.modData('Learnsets', 'spiritomb').learnset.blackflash = ['9M'];
