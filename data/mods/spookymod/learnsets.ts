@@ -1,3 +1,5 @@
+import { ModdedLearnsetData } from "../../../sim/dex-species";
+
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	aegislash: {
 		learnset: {
@@ -70,6 +72,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		},
 	},
 	shuppet: {
+		learnset: {
 			ragefist: ["9T"],
 			allyswitch: ["9T"],
 			attract: ["9M", "9M", "9M", "9M", "9M"],
@@ -160,6 +163,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["9M", "9L99", "9T", "9L99", "9T", "9L99", "9T", "9L99", "9T", "9L99"],
 			trickroom: ["9M", "9M", "9M", "9M", "9M"],
 			willowisp: ["9M", "9L19", "9M", "9L19", "9M", "9L19", "9M", "9L29", "9M", "9L29", "9L92"],
+		},
 	},
 	banette: {
 		learnset: {
@@ -825,7 +829,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mistyterrain: ["9L1"],
 			charm: ["9L1"],
 			strengthsap: ["9L1"],
-			spite: null,
+			spite: ["9M"],
 		},
 	},
 	gourgeistlarge: {
@@ -1563,23 +1567,30 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skydrop: ["9L1"],
 			shadowforce: ["9L1"],
 			phantomforce: ["9L1"],
+			spectralthief: ["9L1"],
+			ominouswind: ["9L1"],
+			bombinomicon: ["9L1"],
 			shelltrap: ["9L1"],
 			mindblown: ["9L1"],
 			explosion: ["9L1"],
-			bombinomicon: ["9L1"],
 			substitute: ["9L1"],
-			protect: ["9M", "9M"],
-			rest: ["9M", "9M"],
-			sleeptalk: ["9M", "9M"],
-			terablast: ["9M", "9M"],
-			spiritbreak: ["9M", "9M"],
-			hyperspacehole: ["9M", "9M"],
-			feintattack: ["9M", "9M"],
-			brutalswing: ["9M", "9M"],
-			foulplay: ["9M", "9M"],
-			taunt: ["9M", "9M"],
-			partingshot: ["9M", "9M"],
+			protect: ["9M"],
+			rest: ["9M"],
+			sleeptalk: ["9M"],
+			terablast: ["9M"],
+			spiritbreak: ["9M"],
+			hyperspacehole: ["9M"],
 			expandingforce: ["9L1"],
+			eeriespell: ["9M"],
+			telekinesis: ["9M"],
+			feintattack: ["9M"],
+			brutalswing: ["9M"],
+			lashout: ["9M"],
+			suckerpunch: ["9L1"],
+			foulplay: ["9M"],
+			taunt: ["9M"],
+			nastyplot: ["9M"],
+			partingshot: ["9M"],
 		},
 	},
 	nursola: {
