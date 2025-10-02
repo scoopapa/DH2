@@ -33,14 +33,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (pokemon.baseSpecies.baseSpecies === 'Cherrim' && pokemon.species.id !== 'cherrimsunshine') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
 				}
-				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id !== 'glimmaltissunshine') {
-					pokemon.formeChange('Glimmaltis-Sunshine', this.effect, false, '[msg]');
+				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id !== 'glimmaltisblooming') {
+					pokemon.formeChange('Glimmaltis-Blooming', this.effect, false, '[msg]');
 				}
 			} else {
 				if (pokemon.baseSpecies.baseSpecies === 'Cherrim' && pokemon.species.id === 'cherrimsunshine') {
 					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
 				}
-				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id === 'glimmaltissunshine') {
+				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id === 'glimmaltisblooming') {
 					pokemon.formeChange('Glimmaltis', this.effect, false, '[msg]');
 				}
 			}

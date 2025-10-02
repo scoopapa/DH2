@@ -3069,6 +3069,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -102,
 	},
+	ironbody: {
+		num: -103,
+		name: "Iron Body",
+		shortDesc: "On switch in, adds Steel type to the user. Has no effect if the user is Steel-type.",
+		onStart(pokemon) {
+			if (pokemon.addType('Steel')) {
+				this.add('-start', pokemon, 'typeadd', 'Steel', '[from] ability: Iron Body');
+			}
+		},
+		rating: 3,
+	},
 
 
 
