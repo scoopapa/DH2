@@ -38,7 +38,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			for(const p of this.sides[0].pokemon){
 				if (p.isActive && p === pokemon) temp = true;
 			}
-			if(!temp) return;
+			if (!temp) return;
 			
 			const spinSet = ["The wheel spins!",
 							"The wheel spins!",

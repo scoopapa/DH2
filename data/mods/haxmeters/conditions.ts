@@ -1,3 +1,6 @@
+export function roundNum(n: number, places: number): number {
+	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
+}
 export const Conditions: {[id: string]: ModdedConditionData} = {
 	par: {
 		inherit: true,
@@ -58,6 +61,18 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 			if (!success) delete pokemon.volatiles['stall'];
 			return success;
+		},
+	},
+	haxmeterweather: {
+		name: 'Hax Meter Weather',
+		effectType: 'Weather',
+		duration: 0,
+		onFieldResidual() {
+			const sideOne = this.sides[0];
+			const sideTwo = this.sides[1];
+			//if (pokemon.hp && pokemon.side !== sideOne) return;
+			//if (sideOne.noChange && sideTwo.noChange) return;
+			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
 		},
 	},
 };
