@@ -307,7 +307,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Levitate"},
 		weightkg: 80,
 	},
-		bowser: {
+	bowser: {
 		num: 34,
 		name: "Bowser",
 		gender: "M",
