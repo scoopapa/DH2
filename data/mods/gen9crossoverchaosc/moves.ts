@@ -966,7 +966,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Hurricane", source);
 			this.add('-anim', source, "Rapid Spin", target);
 		},
-		onTryHit(source, target) {
+		onHit(source, target) {
 			if (target.side.addSlotCondition(target, 'futuremove')) {
 				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 					duration: 3,
