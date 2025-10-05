@@ -2394,6 +2394,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	monokuma: {
 		learnset: {
+			punishmenttime: ["9L1"],
 			rest: ["9L1"],
 			substitute: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -2418,7 +2419,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			fireblast: ["9L1"],
 			flareblitz: ["9L1"],
 			ragingfury: ["9L1"],
-			guillotineillegal: ["9L1"],
+			guillotine: ["9L1"],
 			lavaplume: ["9L1"],
 			sacredsword: ["9L1"],
 			secretsword: ["9L1"],

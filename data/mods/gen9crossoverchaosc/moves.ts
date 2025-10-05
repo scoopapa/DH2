@@ -841,6 +841,212 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	dragonfang: {
+		num: -30,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Dragon Fang",
+		shortDesc: "User gains Dragon type before attacking.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Claw", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('dragonfang');
+		},
+		condition: {
+			duration: 1,
+			onBeforeMovePriority: 10,
+			onBeforeMove(attacker, defender, move) {
+				if(move.id == 'dragonfang' && !attacker.hasType('Dragon') && attacker.addType('Dragon')) {
+					this.add('-anim', attacker, "Focus Energy", attacker);
+					this.add('-start', attacker, 'typeadd', 'Dragon', '[from] move: Dragon Fang');
+					attacker.addVolatile("dftypechange");
+				}
+			},
+			onEnd(pokemon) {
+				if(pokemon.volatiles['dftypechange']) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Dragon" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'));
+					pokemon.removeVolatile('dftypechange')
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
+	gloombreath: {
+		num: -31,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Gloom Breath",
+		shortDesc: "Lowers target Atk & SpA by 1.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Breath", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	torrentialroar: {
+		num: -32,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+		name: "Torrential Roar",
+		shortDesc: "Resets target's stat boosts.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Claw", source);
+			this.add('-anim', source, "Origin Pulse", target);
+		},
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		isZ: "corriniumz",
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	gemstonerush: {
+		num: -33,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Gemstone Rush",
+		shortDesc: "No additional effect.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+			this.add('-anim', source, "Accelerock", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	stormwingcyclone: {
+		num: -34,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+		name: "Stormwing Cyclone",
+		shortDesc: "Sets an 80 bp future move that will hit in 3 turns.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", source);
+			this.add('-anim', source, "Rapid Spin", target);
+		},
+		onTryHit(source, target) {
+			if (target.side.addSlotCondition(target, 'futuremove')) {
+				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+					duration: 3,
+					move: 'stormwingcyclone',
+					source: source,
+					moveData: {
+						id: 'stormwingcyclone',
+						name: "Stormwing Cyclone",
+						accuracy: 100,
+						basePower: 80,
+						category: "Physical",
+						priority: 0,
+						flags: {allyanim: 1, futuremove: 1},
+						onPrepareHit(target, source, move) {
+							this.attrLastMove('[still]');
+							this.add('-anim', source, "Hurricane", target);
+						},
+						ignoreImmunity: false,
+						effectType: 'Move',
+						type: 'Flying',
+					},
+				});
+				this.add('-start', source, 'move: Stormwing Cyclone');
+			}
+		},
+		isZ: "moriumz",
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+	},
+	punishmenttime: {
+		num: -35,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Punishment Time!",
+		shortDesc: "Nearly always goes first. First turn out only.",
+		pp: 10,
+		priority: 2,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', source, "Anchor Shot", target);
+			this.add('-anim', source, "Thunder Cage", target);
+		},
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Punishment Time only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	spearofgungnir: {
+		num: -36,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		name: "Spear of Gungnir",
+		shortDesc: "Hits twice.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ceaseless Edge", source);
+			this.add('-anim', target, "Thunder Claw", target);
+		},
+		pp: 1,
+		priority: 0,
+		flags: {},
+		multihit: 2,
+		isZ: "monokumiumz",
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
