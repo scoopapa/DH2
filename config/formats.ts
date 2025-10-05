@@ -540,7 +540,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/dlcmons-v3-returns.3754885/">DLCmons v3 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 		      ],
-		ruleset: ['Standard'],
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'AG', 'Uber',
 			'Arena Trap', 'Power Construct', 'Shadow Tag',
