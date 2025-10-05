@@ -88,7 +88,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Ice';
+				move.type = 'Ghost';
 				move.typeChangerBoosted = this.effect;
 			}
 		},
