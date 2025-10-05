@@ -171,4 +171,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	corrin: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	morian: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	monokuma: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };

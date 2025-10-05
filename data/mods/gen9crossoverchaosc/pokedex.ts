@@ -396,5 +396,28 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Thick Fat", 1: "Shadow Shield", H: "Magician"},
 		weightkg: 454,
 	},
-
+	corrin: {
+		num: 40,
+		species: "Corrin",
+		types: ["Water"],
+		baseStats: {hp: 95, atk: 102, def: 92, spa: 92, spd: 77, spe: 87},
+		abilities: {0: "Power Spot", 1: "Unaware", H: "Berserk"},
+		weightkg: 75,
+	},
+	morian: {
+		num: 41,
+		species: "Morian",
+		types: ["Flying", "Rock"],
+		baseStats: {hp: 132, atk: 92, def: 75, spa: 85, spd: 62, spe: 102},
+		abilities: {0: "Stormwing Matriarch"},
+		weightkg: 68,
+	},
+	monokuma: {
+		num: 42,
+		species: "Monokuma",
+		types: ["Electric", "Dark"],
+		baseStats: {hp: 104, atk: 114, def: 84, spa: 84, spd: 74, spe: 44},
+		abilities: {0: "Dark Aura"},
+		weightkg: 80,
+	},
 };
