@@ -519,6 +519,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	spectralthief: {
 		inherit: true,
+		isViable: true,
 		basePower: 60,
 		rating: 4,
 		flags: { contact: 1, protect: 1, mirror: 1 },
@@ -616,6 +617,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	landswrath: {
 		inherit: true,
+		isViable: true,
 		basePower: 70,
 		rating: 4,
 		onAfterHit(target, pokemon, move) {
@@ -1411,6 +1413,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	// Slate 7
 	triplekick: {
 		inherit: true,
+		isViable: true,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
 			return 20 * move.hit;
@@ -2009,6 +2012,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
+		isViable: true,
 		type: "Rock",
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",

@@ -1356,6 +1356,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	submission: {
 		inherit: true,
+		isViable: true,
 		accuracy: 100,
 		basePower: 120,
 		pp: 15,
@@ -1365,6 +1366,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	powdersnow: {
 		inherit: true,
+		isViable: true,
 		basePower: 20,
 		pp: 20,
 		secondary: {
@@ -1376,6 +1378,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	nightdaze: {
 		inherit: true,
+		isViable: true,
 		accuracy: 100,
 		basePower: 95,
 		desc: "Has a 20% chance to lower the target's Attack by 1 stage.",
@@ -1437,6 +1440,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	prismaticlaser: {
 		inherit: true,
+		isViable: true,
 		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",

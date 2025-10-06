@@ -744,11 +744,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonite: {tier: "Kalos"},
 
 	xerneas: {tier: "Kalos Uber"},
-	xerneasneutral: {tier: "Kalos Uber"},
 	yveltal: {tier: "Kalos Uber"},
-	zygarde: {tier: "Kalos Uber"},
-	zygarde10: {tier: "Kalos Uber"},
-	zygardecomplete: {tier: "Kalos Uber"},
+	zygarde: {tier: "Kalos"},
 
 	mewtwo: {tier: "Kalos Uber"},
 	mewtwomegax: {tier: "Kalos Uber"},
