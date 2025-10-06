@@ -1,5 +1,5 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
-  kingdra: {
+  kingdraclassic: {
 		tier: "King",
 	},
   kingdrabrinepool: {
@@ -19,7 +19,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "King",
 	},
   */
-	nidoqueen: {
+	nidoqueenclassic: {
 		tier: "Queen",
 	},
 	nidoqueenerudite: {
@@ -39,7 +39,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Queen",
 	},
   */
-	bisharp: {
+	bisharpcenturion: {
 		tier: "Bishop",
 	},
   bisharpsavage: {
@@ -59,7 +59,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Bishop",
 	},
   */
-	corviknight: {
+	corviknightthunderbird: {
 		tier: "Knight",
 	},
 	corviknightgenie: {
@@ -79,7 +79,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Knight",
 	},
   */
-	krookodile: {
+	krookodileinfernal: {
 		tier: "Rook",
 	},
 	krookodileabyssal: {
@@ -99,7 +99,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Rook",
 	},
   */
-	ogerpon: {
+	ogerponmuerta: {
 		tier: "Pawn",
 	},
 	ogerponeaster: {
