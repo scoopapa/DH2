@@ -617,7 +617,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	landswrath: {
 		inherit: true,
-		isViable: true,
 		basePower: 70,
 		rating: 4,
 		onAfterHit(target, pokemon, move) {
