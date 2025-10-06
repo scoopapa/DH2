@@ -3792,6 +3792,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	centaghoul: {
 		learnset: {
+			sing: ["9L1"],
 			shadowclaw: ["9L1"],
 			shadowball: ["9L1"],
 			ironhead: ["9L1"],
@@ -3852,6 +3853,15 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			cut: ["9L1"],
 			slash: ["9L1"],
+			bodyslam: ["9L1"],
+			brickbreak: ["9L1"],
+			hammerarm: ["9L1"],
+			icehammer: ["9L1"],
+			lashout: ["9L1"],
+			armthrust: ["9L1"],
+			assurance: ["9L1"],
+			brutalswing: ["9L1"],
+			fling: ["9L1"],
 		},
 	},
 	metarachne: {
