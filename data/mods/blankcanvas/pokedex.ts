@@ -804,7 +804,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 87, atk: 108, def: 94, spa: 30, spd: 115, spe: 31},
 		abilities: {0: "Bulletproof", H: "Pickpocket"},
-		weightkg: 20,
+		weightkg: 105,
 	},
 	noirwark: {
 		num: 9100,
