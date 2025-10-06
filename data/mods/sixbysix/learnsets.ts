@@ -1,5 +1,5 @@
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
-	kingdra: {
+	kingdraclassic: {
 		learnset: {
 			aquajet: ["9L1"],
 			bodyslam: ["9L1"],
@@ -118,7 +118,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			yawn: ["9L1"],
 		},
 	},
-	nidoqueen: {
+	nidoqueenclassic: {
 		learnset: {
 			aquatail: ["9L1"],
 			barbbarrage: ["9L1"],
@@ -366,7 +366,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			tailwhip: ["9L1"],
 		},
 	},
-	bisharp: {
+	bisharpcenturion: {
 		learnset: {
 			bodypress: ["9L1"],
 			brickbreak: ["9L1"],
@@ -511,7 +511,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wideguard: ["9L1"],
 		},
 	},
-	corviknight: {
+	corviknightthunderbird: {
 		learnset: {
 			acrobatics: ["9L1"],
 			bodypress: ["9L1"],
@@ -638,7 +638,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			swagger: ["9L1"],
 		},
 	},
-	krookodile: {
+	krookodileinfernal: {
 		learnset: {
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -779,7 +779,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			torment: ["9L1"],
 		},
 	},
-	ogerpon: {
+	ogerponmuerta: {
 		learnset: {
 			facade: ["9L1"],
 			knockoff: ["9L1"],
