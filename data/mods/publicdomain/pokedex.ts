@@ -300,7 +300,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Teto",
 		types: ["Electric"],
 		baseStats: {hp: 93, atk: 119, def: 93, spa: 99, spd: 62, spe: 99},
-		abilities: {0: "Well-Baked Body", 1: "Unburden", H: "UTAU"},
+		abilities: {0: "Well-Baked Body", 1: "Unburden", H: "Utau"},
 		weightkg: 62,
 	},
 	shockhopper: {

@@ -2642,7 +2642,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["9L1"],
 		},
 	},
-	bibarelpurposeless: {
+	shockhopper: {
 		learnset: {
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -2715,7 +2715,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zapcannon: ["9L1"],
 		},
 	},
-	ironfisher: {
+	bibarelpurposeless: {
 		learnset: {
 			slackoff: ["9L1"],
 			gunkshot: ["9L1"],
@@ -2795,7 +2795,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			yawn: ["9L1"],
 		},
 	},
-	crowwhoknows: {
+	ironfisher: {
 		learnset: {
 			acid: ["9L1"],
 			acidspray: ["9L1"],
@@ -2890,7 +2890,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zingzap: ["9L1"],
 		},
 	},
-	potentialvire: {
+	crowwhoknows: {
 		learnset: {
 			wisebird: ["9L1"],
 			zenheadbutt: ["9L1"],
@@ -2959,6 +2959,57 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+		},
+	},
+	potentialvire: {
+		learnset: {
+			potentialpunch: ["9L1"],
+			drainpunch: ["9L1"],
+			hammerarm: ["9L1"],
+			superpower: ["9L1"],
+			lowkick: ["9L1"],
+			rocktomb: ["9L1"],
+			knockoff: ["9L1"],
+			rapidspin: ["9L1"],
+			supercellslam: ["9L1"],
+			thunderpunch: ["9L1"],
+			spark: ["9L1"],
+			fling: ["9L1"],
+			gigaimpact: ["9L1"],
+			thief: ["9L1"],
+			wildcharge: ["9L1"],
+			discharge: ["9L1"],
+			thunderbolt: ["9L1"],
+			thunder: ["9L1"],
+			weatherball: ["9L1"],
+			aurasphere: ["9L1"],
+			focusblast: ["9L1"],
+			vacuumwave: ["9L1"],
+			electroweb: ["9L1"],
+			electroball: ["9L1"],
+			hyperbeam: ["9L1"],
+			shockwave: ["9L1"],
+			swift: ["9L1"],
+			uproar: ["9L1"],
+			ancientpower: ["9L1"],
+			motorcharge: ["9L1"],
+			bulkup: ["9L1"],
+			thunderwave: ["9L1"],
+			taunt: ["9L1"],
+			spikes: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			substitute: ["9L1"],
+			lightscreen: ["9L1"],
+			reflect: ["9L1"],
+			charge: ["9L1"],
+			electricterrain: ["9L1"],
+			followme: ["9L1"],
+			helpinghand: ["9L1"],
+			leer: ["9L1"],
+			sandstorm: ["9L1"],
+			sandattack: ["9L1"],
 		},
 	},
 };

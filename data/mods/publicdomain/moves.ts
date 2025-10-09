@@ -494,6 +494,126 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 140},
 		contestType: "Clever",
 	},
+	tetoterritory: {
+		accuracy: 90,
+		basePower: 60,
+		category: "Special",
+		name: "Teto Territory",
+		shortDesc: "Always lands a Critical Hit.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+			this.add('-anim', pokemon, "Sheer Cold", target);
+		},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	baittackle: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Bait & Tackle",
+		shortDesc: "Heal 25% after getting attacked while charging up.",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1, heal: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Wild Charge", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('baittackle');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Bait & Tackle');
+				this.add('-anim', pokemon, "Charge", pokemon);
+			},
+			onAfterMoveSecondary(target, source, move) {
+				if (move.category !== 'Status') {
+					this.heal(target.baseMaxhp / 4);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('baittackle')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('baittackle');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+	},
+	wisebird: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Wise Bird",
+		shortDesc: "Deals 1/3 recoil to user.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Zen Headbutt", target);
+		},
+		recoil: [33, 100],
+		secondary: null,
+		target: "any",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	motorcharge: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Motor Charge",
+		shortDesc: "Heals 1/3 of HP ; if user took damage before using the move, +1 Speed.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Zap Cannon", pokemon);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			const lastAttackedBy = pokemon.getLastAttackedBy();
+			const damagedThisTurn = pokemon.attackedBy.some(
+				p => p.source === lastAttackedBy && p.damage > 0 && p.thisTurn
+			);
+			if (damagedThisTurn) {
+				this.boost({spe: 1});
+			}
+		},
+		heal: [1, 3],
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	potentialpunch: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Potential Punch",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
@@ -895,5 +1015,57 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+	},
+	belch: {
+		num: 562,
+		accuracy: 90,
+		basePower: 120,
+		category: "Special",
+		name: "Belch",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onDisableMove(pokemon) {
+			if (!pokemon.ateBerry && !pokemon.hasAbility('crazysmoke')) pokemon.disableMove('belch');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	instruct: {
+		num: 689,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Instruct",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, bypasssub: 1, allyanim: 1, failinstruct: 1},
+		onHit(target, source) {
+			if (!target.lastMove || target.volatiles['dynamax']) return false;
+			const lastMove = target.lastMove;
+			const moveIndex = target.moves.indexOf(lastMove.id);
+			if (
+				lastMove.flags['failinstruct'] || lastMove.isZ || lastMove.isMax ||
+				lastMove.flags['charge'] || lastMove.flags['recharge'] ||
+				target.volatiles['beakblast'] || target.volatiles['baittackle'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
+				(target.moveSlots[moveIndex] && target.moveSlots[moveIndex].pp <= 0)
+			) {
+				return false;
+			}
+			this.add('-singleturn', target, 'move: Instruct', '[of] ' + source);
+			this.queue.prioritizeAction(this.queue.resolveAction({
+				choice: 'move',
+				pokemon: target,
+				moveid: target.lastMove.id,
+				targetLoc: target.lastMoveTargetLoc!,
+			})[0] as MoveAction);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
 	},
 };
