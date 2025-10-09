@@ -91,7 +91,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 15,
-		shortDesc: "Cures user's status, raises Atk, Def by 1.",
+		shortDesc: "Cures user's status, raises Atk by 1.",
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -99,7 +99,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Bulk Up", target);
 		},
 		onHit(pokemon) {
-			const success = !!this.boost({atk: 1, def: 1});
+			const success = !!this.boost({atk: 1});
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
@@ -234,6 +234,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: 24 Karat Labubu');
+				if(side.getSideCondition('stealthrock')) {
+					side.removeSideCondition('stealthrock');
+					this.add('-sideend', side, 'move: Stealth Rock', '[from] move: 24 Karat Labubu');
+				}
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Normal') || pokemon.volatiles['hazardshield']) return;
@@ -787,6 +791,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
+				if(side.getSideCondition('24karatlabubu')) {
+					side.removeSideCondition('24karatlabubu');
+					this.add('-sideend', side, 'move: 24 Karat Labubu', '[from] move: Stealth Rock');
+				}
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;

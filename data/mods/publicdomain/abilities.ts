@@ -272,16 +272,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Sand or Booster Energy: highest stat is 1.3x, 1.5x if Speed. Sand Immunity.",
 	},
 	dejavu: {
-		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('confusion');
+		onStart(source) {
+			this.field.setWeather('deltastream');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('deltastream')) {
+					this.field.weatherState.source = target;
+					return;
 				}
 			}
+			this.field.clearWeather();
 		},
-		flags: {},
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.category === 'Special') {
+				this.debug('Deja Vu boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onCriticalHit: false,
+		flags: {breakable: 1},
 		name: "Deja Vu",
-		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be confused.",
+		shortDesc: "Shell Armor + Delta Stream + Battery.",
 	},
 	punchdrunk: {
 		onDamagingHit(damage, target, source, move) {
