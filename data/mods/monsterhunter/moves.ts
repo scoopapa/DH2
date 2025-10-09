@@ -2337,7 +2337,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 	dragonpulse: {
-		inherit: true,e4r56gv 
+		inherit: true,
 		secondary: {
 			chance: 30,
 			status: 'dragonblight',

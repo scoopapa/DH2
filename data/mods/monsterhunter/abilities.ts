@@ -1505,7 +1505,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		inherit: true,
 		shortDesc: "If Snow is active, this Pokemon heals 1/8th of its max HP each turn.",
 		onWeather(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow') {
+			if (effect.id === 'hail' || effect.id === 'snow' || effect.id === 'absolutezero') {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
@@ -1567,14 +1567,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('sandstorm', 'dustdevil')) {
 				return this.chainModify(2);
-			}
-		},
-	},
-	icebody: {
-		inherit: true,
-		onWeather(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow' || effect.id === 'absolutezero') {
-				this.heal(target.baseMaxhp / 16);
 			}
 		},
 	},
