@@ -157,7 +157,9 @@ export const Formats: FormatList = [
 			'Bufferfly', 'Dastard', 'Sheepquake', 'Cottentration', 'Sorrowcean', 'Psyllapse', 'Haarstorm', 'Borealis', 'Bazhigangquan',
 			'Leechmonner', 'Iron Crest', 'Odonata', 'Hebicikuga', 'Devestial', 'Lundicare', 'Razor Fang', 'Light Clay', 'Lyvamp',
 			'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
-			'Pestiligy', 'Saxum', 'Sascratch'],
+			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
+			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne',
+		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -177,9 +179,12 @@ export const Formats: FormatList = [
 		],
 		mod: 'blankcanvas',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Razor Fang', 
-			'Lyvamp','Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
-			'Pestiligy', 'Saxum', 'Sascratch'],
+		banlist: [
+			'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang', 
+			'Lyvamp', 'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
+			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
+			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne',
+		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -535,7 +540,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/dlcmons-v3-returns.3754885/">DLCmons v3 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 		      ],
-		ruleset: ['Standard'],
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'AG', 'Uber',
 			'Arena Trap', 'Power Construct', 'Shadow Tag',
@@ -792,6 +797,26 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Fusion Evolution UU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Fusion Evolution Restrictions",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3770550/">Fusion Evolution Restrictions</a>`,
+		],
+		mod: 'gen9ferestrictions',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: ['Revival Blessing', 'Shed Tail', 'Baton Pass', 'King\'s Rock', 'Razor Fang'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['FERE', 'FERELC', 'Silverade'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Fusion Evolution Restricted.'];
 				}
 			}
 		},
@@ -1836,7 +1861,8 @@ export const Formats: FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z',
-			'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',
+			'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Houndoominite',
+			/*'Wishing Stone',*/ 'Epic Beam', // temp bans
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -1949,6 +1975,29 @@ export const Formats: FormatList = [
 			   pokemon.stellarBoostedTypes = [];
 			}
 		},
+	},
+	{
+		name: "[Gen 9] Tier Sovereign",
+		desc: [
+			"<b>Tier Sovereign</b>: A micrometa where Lindwallow rules.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/tier-sovereign-gen-9-natdex-slate-3-submissions-closed.3768338/">Tier Sovereign on Smogon Forums</a>`,
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod','Tier Sovereign Mod','Terastal Clause'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['Tier Sovereign', 'TSOU']
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not usable in Tier Sovereign.'];
+				}
+			}
+		},
+		mod: 'tiersovereign',
 	},
 	{
 		name: "[Gen 9] Trading Post",
@@ -4821,6 +4870,16 @@ export const Formats: FormatList = [
 		// name: "petmodsbonusformats",
 	},
 	{
+		name: "[Gen 9] Blank Canvas Random Battle",
+		desc: `A Gen 9 micrometa feautring only Fakemon made by teams of players with a limited budget.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
+		],
+		mod: 'blankcanvas',
+		team: 'randomBLC',
+		ruleset: ['Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Data Mod'],
+	},
+	{
 		name: "[Gen 9] Breeding Variants V4 No Megas",
 		desc: `A NatDex format that adds alternate forms for Pokemon based around inheriting elements from a possible breeding partner.`,
 		threads: [
@@ -5453,7 +5512,7 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	/////////////// Gen 9 Offical Smogon Formats //////////////////
 	///////////////////////////////////////////////////////////////
-	{
+	/*{
 		section: "ROPMM Formats",
 		column: 3,
 		// name: "ropmmformats",
@@ -5572,7 +5631,7 @@ export const Formats: FormatList = [
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
+			/*let speciesTable = {};
 			let allowedTiers = ['IF'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -5629,8 +5688,8 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'mixandmegaballs',
-		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', /*'!Sleep Clause Mod',*/ 'Terastal Clause'],
-		banlist: [
+		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Terastal Clause'],
+		/*banlist: [
 			'Moody', 'Rusted Sword', 'Shadow Tag', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite', 'Baton Pass'
 		],
 		restricted: [],
@@ -5694,7 +5753,7 @@ export const Formats: FormatList = [
 				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
 			}
 		},
-	},
+	},*/
 	{
 		section: "Official Smogon Formats",
 		column: 3,
@@ -5733,8 +5792,8 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra', 'Cyclizar', 'Polteageist', 'Shadow Tag'],
 		onBegin() {
-			this.add('-message', `Welcome to Bad 'n Boosted!`);
-			this.add('-message', `This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!`);
+			this.add('-message', "Welcome to Bad 'n Boosted!");
+			this.add('-message', "This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!");
 			this.add('-message', `You can join our Discord now:`);
 			this.add('-message', `https://discord.gg/vYdSwRreNd`);
 		},

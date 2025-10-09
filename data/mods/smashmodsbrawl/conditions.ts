@@ -3,8 +3,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
-			const ironFist = ['zapdos', 'bigcrammer', 'houndoom'];
-			if (!pokemon || pokemon.volatiles['bigbutton'] || !ironFist.includes(pokemon.species.name)) return;
+			if (!pokemon || !['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.baseSpecies.baseSpecies)) return;
 			if (!pokemon.big) pokemon.big = true;
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
 		},
@@ -24,7 +23,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) {
 				move.accuracy = true;
 				if (['heatcrash', 'heavyslam'].includes(move.id)) return 120;
-				if (move.basePower < 60) return this.chainModify(2);
+				if (move.basePower <= 60) return this.chainModify(2);
 				if (minimizeMoves.includes(move.id)) return this.chainModify(1.5);
 			}
 		},
@@ -222,7 +221,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			pokemon.removeVolatile('dynamax');
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (target.terastallized && ['centiskorch'].includes(target.species.name)) {
+			if (target.terastallized && ['centiskorch','garbodor'].includes(target.species.name)) {
 				return this.chainModify(0.75);
 			}
 		},
@@ -287,6 +286,27 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onTrapPokemon(pokemon) {
 			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
 			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
+		},
+	},
+	hazardshield: {
+		name: 'hazardshield',
+		// Basically having this status makes this Pokemon have HDB, which means its functionality is handled in moves
+		onStart(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Baneful Bunker", pokemon);
+		},
+	},
+	grassgem: {
+		name: 'grassgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('electricsurge', source, true);
+	      this.add('-activate', source, 'ability: Electric Surge');
+      	this.boost({spd: 1, accuracy: 1, spe: 1}, source);
 		},
 	},
 };

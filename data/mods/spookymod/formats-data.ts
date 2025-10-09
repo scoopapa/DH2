@@ -1,3 +1,5 @@
+import { ModdedSpeciesFormatsData } from "../../../sim/dex-species";
+
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislash: {
 		tier: "SM",

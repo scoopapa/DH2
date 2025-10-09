@@ -30,30 +30,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.isActive || (pokemon.baseSpecies.baseSpecies !== 'Cherrim' && pokemon.baseSpecies.baseSpecies !== 'Glimmaltis') || pokemon.transformed) return;
 			if (!pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
+				if (pokemon.baseSpecies.baseSpecies === 'Cherrim' && pokemon.species.id !== 'cherrimsunshine') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
 				}
+				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id !== 'glimmaltisblooming') {
+					pokemon.formeChange('Glimmaltis-Blooming', this.effect, false, '[msg]');
+				}
 			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
+				if (pokemon.baseSpecies.baseSpecies === 'Cherrim' && pokemon.species.id === 'cherrimsunshine') {
 					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Glimmaltis' && pokemon.species.id === 'glimmaltisblooming') {
+					pokemon.formeChange('Glimmaltis', this.effect, false, '[msg]');
 				}
 			}
 		},
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && this.effectState.target.baseSpecies.baseSpecies !== 'Glimmaltis') return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && this.effectState.target.baseSpecies.baseSpecies !== 'Glimmaltis') return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
+		desc: "If this Pokemon is a Cherrim or a Glimmaltis and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If user is Cherrim or Glimmaltis and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x.",
 	},
 	slushrush: {
 		inherit: true,
@@ -71,5 +79,49 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Center of Mass",
 		rating: 4,
 		num: -3,
+	},
+	terrorize: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ghost';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
+		},
+		flags: {},
+		name: "Terrorize",
+		desc: "This Pokemon's Normal-type moves become Ghost-type moves and have their power multiplied by 1.3. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Ghost type and have 1.3x power.",
+		rating: 4.5,
+		num: -4,
+	},
+	nowornever: {
+		// gotta find a better way to code that but it works for Singles + VGC
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if ((pokemon.side.totalFainted < 5 && this.gameType !== 'doubles') || pokemon.side.totalFainted < 3) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if ((pokemon.side.totalFainted < 5 && this.gameType !== 'doubles') || pokemon.side.totalFainted < 3) {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Now or Never",
+		desc: "If this Pokemon isn't the last Pokemon of the team, its Attack and Speed are halved.",
+		shortDesc: "If this Pokemon isn't the last Pokemon of the team, its Attack and Speed are halved.",
+		rating: -1,
+		num: -5,
 	},
 };

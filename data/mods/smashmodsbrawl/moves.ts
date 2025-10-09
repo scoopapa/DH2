@@ -19,6 +19,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 1,
 			onSwap(target) {
 				if (!target.fainted) {
+					// hazardshield implemented within conditions.ts
 					target.addVolatile('hazardshield');
 				}
 				target.side.removeSlotCondition(target, 'dimensionalcape');
@@ -751,6 +752,55 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
     },
+	calamityquake: {
+		num: -1,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Calamity Quake",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Precipice Blades", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Cool",
+		desc: "Has a 30% chance to Poison the target.",
+		shortDesc: "30% chance to poison the target.",
+	},
+	orbofdiscord: {
+		num: -26,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Orb of Discord",
+		shortDesc: "Inflicts Heal Block for 2 turns. User switches.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+			const success = target.addVolatile('healblock', source, move);
+			if (!success) {
+				delete move.selfSwitch;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
 	// collateral
 	gravity: {
 		num: 356,
@@ -2127,7 +2177,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasAbility('persistent')) {
-					this.add('-activate', source, 'ability: Persistent', effect);
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					return 7;
 				}
 				if (source?.hasItem('adamantorb')) {
@@ -2135,15 +2185,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				return 5;
 			},
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+				}
 			},
-			onRestart(target, source) {
+			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('trickroom');
 			},
 			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
-			onResidualOrder: 23,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 1,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Trick Room');
 			},
 		},
@@ -2212,5 +2267,457 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	stickyweb: {
+		num: 564,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Web",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1},
+		sideCondition: 'stickyweb',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Bug",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.volatiles['hazardshield']) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	bleakwindstorm: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	sandsearstorm: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	wildboltstorm: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	aircutter: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	fairywind: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	gust: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	heatwave: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	hurricane: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	icywind: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	petalblizzard: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	sandstorm: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	tailwind: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	twister: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	whirlwind: {
+		inherit: true,
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
+		},
+	},
+	healblock: {
+		num: 377,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Heal Block",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'healblock',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Psychic Noise" || effect?.name === "Orb of Discord") {
+					return 2;
+				}
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Heal Block');
+					return 7;
+				}
+				return 5;
+			},
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: Heal Block');
+				source.moveThisTurnResult = true;
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onResidualOrder: 20,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Heal Block');
+			},
+			onTryHeal(damage, target, source, effect) {
+				if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
+				return false;
+			},
+			onRestart(target, source, effect) {
+				if (effect?.name === 'Psychic Noise' || effect?.name === "Orb of Discord") return;
+
+				this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
+				if (!source.moveThisTurnResult) {
+					source.moveThisTurnResult = false;
+				}
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		zMove: {boost: {spa: 2}},
+		contestType: "Clever",
+	},
+	teraused: {
+		shortDesc: "Prevents Terastalization from being used multiple times.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Tera Used",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1},
+		sideCondition: 'teraused',
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
 	},
 };

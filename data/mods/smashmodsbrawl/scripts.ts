@@ -202,6 +202,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "garbodor").learnset.hammerarm = ["9L1"];
 		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
 		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+		delete this.modData('Learnsets', 'houndour').learnset.incinerate;
+		this.modData("Learnsets", "ironleaves").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
 	},
 	pokemon: {
 		inherit: true,
@@ -235,9 +242,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		getDynamaxRequest(skipChecks?: boolean) {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
+				const teramaxMons = ['garbodor', 'centiskorch'];
 				if (!this.side.canDynamaxNow()) return;
 				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
+					!teramaxMons.includes(this.baseSpecies.id) || this.item !== 'wishingstone' || this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
 				) {
 					return;
 				}
@@ -318,8 +326,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				zMove: false,
 				mega: false,
 				ultra: false,
-				terastallize: false,
 				dynamax: false,
+				terastallize: false,
 			};
 	
 			// old-gens
@@ -483,8 +491,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			return true;
 		},
 		canDynamaxNow(): boolean {
-			if (this.battle.gen === 9) return false;
-			return true;
+			//if (this.battle.gen === 9) return false;
+			// In multi battles, players on a team are alternatingly given the option to dynamax each turn
+			// On turn 1, the players on their team's respective left have the first chance (p1 and p2)
+			if (this.battle.gameType === 'multi' && this.battle.turn % 2 !== [1, 1, 0, 0][this.n]) return false;
+			// if (this.battle.gameType === 'multitriples' && this.battle.turn % 3 !== [1, 1, 2, 2, 0, 0][this.side.n]) {
+			//		return false;
+			// }
+			return !this.dynamaxUsed;
 		},
 		addFishingTokens(amount: number) {
 			if (amount === 0 || Number.isNaN(amount)) return false;
@@ -529,13 +543,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			let type = pokemon.teraType;
+			let canTeraFromAbility = false;
 			if (pokemon.set.ability === 'I Love Fishing') {
+				canTeraFromAbility = true;
 				type = 'Water';
 			}
-			if (pokemon.set.ability === 'Racer\'s Spirit') {
+			else if (pokemon.set.ability === 'Racer\'s Spirit') {
+				canTeraFromAbility = true;
 				type = 'Steel';
 			}
-			if (['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.species.name) && pokemon.teraType !== 'Bug') {
+			if (['Zapdos', 'Big Crammer', 'Houndoom'].includes(pokemon.species.name) && !canTeraFromAbility && pokemon.teraType !== 'Bug') {
 				pokemon.addVolatile('bigbutton');
 				return;
 			}
@@ -547,6 +564,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.addedType = '';
 			pokemon.knownType = true;
 			pokemon.apparentType = type;
+			pokemon.side.addSideCondition('teraused', pokemon);
 			if (pokemon.species.baseSpecies === 'Ogerpon') {
 				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
@@ -1172,5 +1190,118 @@ export const Scripts: ModdedBattleScriptsData = {
 			target.addVolatile('healed');
 			return finalDamage;
 		},
+	},
+	
+	queue: {
+		resolveAction(action: ActionChoice, midTurn = false): Action[] {
+			if (!action) throw new Error(`Action not passed to resolveAction`);
+			if (action.choice === 'pass') return [];
+			const actions = [action];
+
+			if (!action.side && action.pokemon) action.side = action.pokemon.side;
+			if (!action.move && action.moveid) action.move = this.battle.dex.getActiveMove(action.moveid);
+			if (!action.order) {
+				const orders: {[choice: string]: number} = {
+					team: 1,
+					start: 2,
+					instaswitch: 3,
+					beforeTurn: 4,
+					beforeTurnMove: 5,
+					revivalblessing: 6,
+					epicbeam: 6,
+
+					runUnnerve: 100,
+					runSwitch: 101,
+					runPrimal: 102,
+					switch: 103,
+					megaEvo: 104,
+					megaEvoX: 104,
+					megaEvoY: 104,
+					runDynamax: 105,
+					terastallize: 106,
+					priorityChargeMove: 107,
+
+					shift: 200,
+					// default is 200 (for moves)
+
+					residual: 300,
+				};
+				if (action.choice in orders) {
+					action.order = orders[action.choice];
+				} else {
+					action.order = 200;
+					if (!['move', 'event'].includes(action.choice)) {
+						throw new Error(`Unexpected orderless action ${action.choice}`);
+					}
+				}
+			}
+			if (!midTurn) {
+				if (action.choice === 'move') {
+					if (!action.maxMove && !action.zmove && action.move.beforeTurnCallback) {
+						actions.unshift(...this.resolveAction({
+							choice: 'beforeTurnMove', pokemon: action.pokemon, move: action.move, targetLoc: action.targetLoc,
+						}));
+					}
+					if (action.mega && !action.pokemon.isSkyDropped()) {
+						actions.unshift(...this.resolveAction({
+							choice: 'megaEvo',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (action.megax && !action.pokemon.isSkyDropped()) {
+						actions.unshift(...this.resolveAction({
+							choice: 'megaEvoX',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (action.megay && !action.pokemon.isSkyDropped()) {
+						actions.unshift(...this.resolveAction({
+							choice: 'megaEvoY',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (action.terastallize && !action.pokemon.terastallized) {
+						actions.unshift(...this.resolveAction({
+							choice: 'terastallize',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (action.maxMove && !action.pokemon.volatiles['dynamax']) {
+						actions.unshift(...this.resolveAction({
+							choice: 'runDynamax',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (!action.maxMove && !action.zmove && action.move.priorityChargeCallback) {
+						actions.unshift(...this.resolveAction({
+							choice: 'priorityChargeMove',
+							pokemon: action.pokemon,
+							move: action.move,
+						}));
+					}
+					action.fractionalPriority = this.battle.runEvent('FractionalPriority', action.pokemon, null, action.move, 0);
+				} else if (['switch', 'instaswitch'].includes(action.choice)) {
+					if (typeof action.pokemon.switchFlag === 'string') {
+						action.sourceEffect = this.battle.dex.moves.get(action.pokemon.switchFlag as ID) as any;
+					}
+					action.pokemon.switchFlag = false;
+				}
+			}
+
+			const deferPriority = this.battle.gen === 7 && action.mega && action.mega !== 'done';
+			if (action.move) {
+				let target = null;
+				action.move = this.battle.dex.getActiveMove(action.move);
+
+				if (!action.targetLoc) {
+					target = this.battle.getRandomTarget(action.pokemon, action.move);
+					// TODO: what actually happens here?
+					if (target) action.targetLoc = action.pokemon.getLocOf(target);
+				}
+				action.originalTarget = action.pokemon.getAtLoc(action.targetLoc);
+			}
+			if (!deferPriority) this.battle.getActionSpeed(action);
+			return actions as any;
+		}
 	},
 };

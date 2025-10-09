@@ -176,4 +176,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: -8,
 	},
+	stormwingmatriarch: {
+		shortDesc: "Rock moves are less effective against this Pokemon. Taking rock damage boosts speed.",
+		onEffectiveness(typeMod, target, type, move) {
+			if (target.types.length >= 1 && type !== target.types[0]) return; // Ensure effectiveness reduction & speed boost only happens once per damage instance
+			if (move.type == 'Rock') {
+				this.boost({spe: 1});
+				return typeMod - 1;
+			}
+		},
+		flags: {},
+		name: "Stormwing Matriarch",
+		rating: 2.5,
+		num: -9,
+	},
 };

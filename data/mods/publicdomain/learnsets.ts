@@ -675,7 +675,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["9L1"],
 			icehammer: ["9L1"],
 			snowscape: ["9L1"],
-			liquidation: ["9L1"],
 			waterpledge: ["9L1"],
 		},
 	},

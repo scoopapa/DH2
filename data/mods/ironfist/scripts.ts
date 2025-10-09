@@ -9,33 +9,33 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	
 	init() {
-		for (const pokemon in this.data.FormatsData) {
-			const mon = this.modData("Pokedex", pokemon);
-			if (!mon) continue;
-			const tierData = this.modData("FormatsData", pokemon);
-			if (!tierData || !tierData.tier) continue;
-			const learnsetData = this.modData("Learnsets", pokemon);
-			if (!learnsetData) continue;
-			const learnset = learnsetData.learnset;
-			if (!learnset) continue;
-			
-			learnset.fishingterrain = ["9L1"];
-			learnset.holdhands = ["9L1"];
-			learnset.mewing = ["9L1"];
-			learnset.epicbeam = ["9L1"];
-			learnset.bigbash = ["9L1"];
-			
-			if (!mon.types.includes('Water') && !mon.types.includes('Steel')) learnset.fisheater = ["9L1"];
-			if (mon.diamondhand) learnset.diamondhand = ["9L1"];
-			if (mon.hoenn || mon.gen === 3) learnset.hoenn = ["9L1"];
-			if (mon.trans) learnset.trans = ["9L1"];
-			if (mon.bird) {
-				learnset.bird = ["9L1"];
-				learnset.justthebirdsthesequel = ["9L1"];
-			}
-			if (mon.fish) {
-				learnset.fish = ["9L1"];
-				learnset.fishield = ["9L1"];
+    	for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				this.modData('Learnsets', this.toID(id)).learnset.fishingterrain = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.holdhands = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.mewing = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
+				if (!this.data.Pokedex[id].types.includes('Water') && !this.data.Pokedex[id].types.includes('Steel') && !this.data.Pokedex[id].baseForme) {
+	                this.modData('Learnsets', this.toID(id)).learnset.fisheater = ["9L1"];
+            	}
+				if (id.diamondhand) {
+					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
+				}
+				if (id.hoenn || id.gen === 3) {
+					this.modData('Learnsets', this.toID(id)).learnset.hoenn = ["9L1"];
+				}
+				if (id.trans) {
+					this.modData('Learnsets', this.toID(id)).learnset.trans = ["9L1"];
+				}
+				if (id.bird) {
+					this.modData('Learnsets', this.toID(id)).learnset.bird = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.justthebirdsthesequel = ["9L1"];
+				}
+				if (id.fish) {
+					this.modData('Learnsets', this.toID(id)).learnset.fish = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.fishield = ["9L1"];
+				}
 			}
 		}
 	},

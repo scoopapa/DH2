@@ -274,4 +274,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sascratch: {
 		tier: "BC C",
 	},
+	guttergar: {
+		tier: "BC C",
+	},
+	rakasa: {
+		tier: "BC C",
+	},
+	thermostatic: {
+		tier: "BC C",
+	},
+	formaldehydra: {
+		tier: "BC C",
+	},
+	strumorthio: {
+		tier: "BC C",
+	},
+	ironmike: {
+		tier: "BC C",
+	},
+	whalestro: {
+		tier: "BC C",
+	},
+	urslag: {
+		tier: "BC C",
+	},
+	centaghoul: {
+		tier: "BC C",
+	},
+	noirwark: {
+		tier: "BC C",
+	},
+	metarachne: {
+		tier: "BC C",
+	},
 };

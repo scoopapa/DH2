@@ -73,7 +73,7 @@
         ]
     },
 	"fluttermane": {
-        "level": 100,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -84,7 +84,7 @@
         ]
     },
 	"fluttermane2": {
-        "level": 100,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Support",
@@ -95,7 +95,7 @@
         ]
     },
 	"gourgeist": {
-        "level": 100,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Attacker",

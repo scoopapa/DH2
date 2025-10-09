@@ -326,7 +326,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-message', `${pokemon.name} has triggered Rewind!`);
 					let itemRestored = false;
 					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-						for (const ally of pokemon.side.pokemon) {
+						for (const ally of pokemon.side.active) {
 							if (ally && !ally.item) {
 								this.actions.useMove('Recycle', ally);
 								itemRestored = true;
@@ -346,7 +346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			let itemRestored = false;
 			this.add('-ability', pokemon, 'Rewind');
 			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
-				for (const ally of pokemon.side.pokemon) {
+				for (const ally of pokemon.side.active) {
 					if (ally && !ally.item) {
 						this.actions.useMove('Recycle', ally);
 						itemRestored = true;
@@ -399,5 +399,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Doomer",
 		shortDesc: "This Pokemon's future moves have 1.2x power.",
+	},
+	railgunner: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.id.endsWith('beam')) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Railgunner",
+		shortDesc: "This Pokemon's beam moves have 1.3x power.",
+	},
+	fumigation: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			const poisongas = this.dex.getActiveMove('poisongas');
+			this.actions.useMove(poisongas, target, source);
+		},
+		flags: {},
+		name: "Fumigation",
+		shortDesc: "When this Pokemon is damaged by a move, it uses Poison Gas against the attacker.",
 	},
 };
