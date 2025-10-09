@@ -22,7 +22,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
         name: 'slp',
         effectType: 'Status',
         onStart(target, source, sourceEffect) {
-			this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
+            this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
             if (sourceEffect && sourceEffect.effectType === 'Ability') {
                 this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
             } else if (sourceEffect && sourceEffect.effectType === 'Move') {
@@ -35,18 +35,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
             }
         },
         onSourceModifyDamage(damage, source, target, move) {
-            return this.chainModify(1.2);
+            if (!source.hasAbility('Dozing')) return this.chainModify(1.2);
+        },
+        onModifyMove(move, pokemon) {
+            if (!pokemon.hasAbility('Dozing') && move.multhit) delete move.multihit; 
         },
         onDisableMove(pokemon) {
-			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-		},
+            if (!pokemon.hasAbility('Dozing') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+        },
     },
-	snow: {
-		inherit: true,
-		onImmunity(type) {
-			if (type === 'brn') return false;
-		},
-	},
 	par: {
         inherit: true,
 		onStart(target, source, sourceEffect) {
@@ -285,6 +282,73 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
+		},
+	},
+	/* Weather */
+	dustdevil: {
+        name: 'Dust Devil',
+        effectType: 'Weather',
+        duration: 0,
+        // This should be applied directly to the stat before any of the other modifiers are chained
+        // So we give it increased priority.
+        onModifySpDPriority: 10,
+        onModifySpD(spd, pokemon) {
+            if (pokemon.hasType('Rock') && this.field.isWeather('dustdevil')) {
+                return this.modify(spd, 1.5);
+            }
+        },
+        onModifyMove(move, attacker) {
+            if (move.type === 'Rock') {
+                move.accuracy = true;
+            }
+        },
+        onFieldStart(field, source, effect) {
+            this.add('-weather', 'Dust Devil', '[from] ability: ' + effect.name, `[of] ${source}`);
+        },
+        onFieldResidualOrder: 1,
+        onFieldResidual() {
+            this.add('-weather', 'Dust Devil', '[upkeep]');
+            this.eachEvent('Weather');
+        },
+        onWeather(target) {
+            if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
+        },
+        onFieldEnd() {
+            this.add('-weather', 'none');
+        },
+    },
+	absolutezero: {
+        name: 'Absolute Zero',
+        effectType: 'Weather',
+        duration: 0,
+        onModifyDefPriority: 10,
+        onModifyDef(def, pokemon) {
+            if (pokemon.hasType('Ice') && this.field.isWeather('absolutezero')) {
+                return this.modify(def, 1.5);
+            }
+        },
+        onModifySpe(spe, pokemon) {
+            if (this.field.weatherState.source !== pokemon) return this.chainModify(0.75);
+        },
+        onFieldStart(field, source, effect) {
+            this.add('-weather', 'Absolute Zero', '[from] ability: ' + effect.name, `[of] ${source}`);
+        },
+        onFieldResidualOrder: 1,
+        onFieldResidual() {
+            this.add('-weather', 'Absolute Zero', '[upkeep]');
+            this.eachEvent('Weather');
+        },
+        onWeather(target) {
+            if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
+        },
+        onFieldEnd() {
+            this.add('-weather', 'none');
+        },
+    },
+	snow: {
+		inherit: true,
+		onImmunity(type) {
+			if (type === 'brn') return false;
 		},
 	},
 }

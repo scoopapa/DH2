@@ -53,7 +53,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	arzurite: {
 		name: "Arzurite",
 		gen: 9,
-		shortDesc: "If held by Arzuros, allows it transform into Redhelm. (Mega-Evolution)",
+		shortDesc: "If held by Arzuros, allows it to transform into Redhelm. (Mega-Evolution)",
 		megaStone: "Redhelm Arzuros",
 		megaEvolves: "Arzuros",
 		itemUser: ["Arzuros", "Redhelm Arzuros"],
@@ -66,7 +66,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	astalite: {
 		name: "Astalite",
 		gen: 9,
-		shortDesc: "If held by Asatalos, allows it transform into Boltreaver A. (Mega-Evolution)",
+		shortDesc: "If held by Asatalos, allows it to transform into Boltreaver. (Mega-Evolution)",
 		megaStone: "Boltreaver Astalos",
 		megaEvolves: "Astalos",
 		itemUser: ["Astalos", "Boltreaver Astalos"],
@@ -79,7 +79,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bazelnite: {
 		name: "Bazelnite",
 		gen: 9,
-		shortDesc: "If held by Bazelgeuse, allows it transform into Seething B. (Mega-Evolution)",
+		shortDesc: "If held by Bazelgeuse, allows it to transform into Seething. (Mega-Evolution)",
 		megaStone: "Seething Bazelgeuse",
 		megaEvolves: "Bazelgeuse",
 		itemUser: ["Bazelgeuse", "Seething Bazelgeuse"],
@@ -92,7 +92,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bariothite: {
 		name: "Bariothite",
 		gen: 9,
-		shortDesc: "If held by Barioth, allows it transform into Frostfang B. (Mega-Evolution)",
+		shortDesc: "If held by Barioth, allows it to transform into Frostfang. (Mega-Evolution)",
 		megaStone: "Frostfang Barioth",
 		megaEvolves: "Barioth",
 		itemUser: ["Barioth", "Frostfang Barioth"],
@@ -105,7 +105,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	brachylite: {
 		name: "Brachylite",
 		gen: 9,
-		shortDesc: "If held by Brachydios, allows it transform into Raging B. (Mega-Evolution)",
+		shortDesc: "If held by Brachydios, allows it to transform into Raging. (Mega-Evolution)",
 		megaStone: "Raging Brachydios",
 		megaEvolves: "Brachydios",
 		itemUser: ["Brachydios", "Raging Brachydios"],
@@ -118,7 +118,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	devilite: {
 		name: "Devilite",
 		gen: 9,
-		shortDesc: "If held by Deviljho, allows it transform into Savage D. (Mega-Evolution)",
+		shortDesc: "If held by Deviljho, allows it to transform into Savage. (Mega-Evolution)",
 		megaStone: "Savage Deviljho",
 		megaEvolves: "Deviljho",
 		itemUser: ["Deviljho", "Savage Deviljho"],
@@ -131,7 +131,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	diablite: {
 		name: "Diablite",
 		gen: 9,
-		shortDesc: "If held by Diablos, allows it transform into Massacre D. (Mega-Evolution)",
+		shortDesc: "If held by Diablos, allows it to transform into Massacre. (Mega-Evolution)",
 		megaStone: "Massacre Diablos",
 		megaEvolves: "Diablos",
 		itemUser: ["Diablos", "Massacre Diablos"],
@@ -141,10 +141,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		spritenum: 589,
 	},
+	gammothite: {
+		name: "Gammothite",
+		gen: 9,
+		shortDesc: "If held by Gammoth, allows her to transform into Elderfrost. (Mega-Evolution)",
+		megaStone: "Elderfrost Gammoth",
+		megaEvolves: "Gammoth",
+		itemUser: ["Gammoth", "Elderfrost Gammoth"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 623,
+	},
+	garugite: {
+		name: "Garugite",
+		gen: 9,
+		shortDesc: "If held by Yian Garuga, allows it to transform into Deadeye. (Mega-Evolution)",
+		megaStone: "Deadeye Garuga",
+		megaEvolves: "Yian Garuga",
+		itemUser: ["Yian Garuga", "Deadeye Garuga"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 577,
+	},
 	harudomerite: {
 		name: "Harudomerite",
 		gen: 9,
-		shortDesc: "If held by Harudomerugu, allows it transform into Zenith H. (Mega-Evolution)",
+		shortDesc: "If held by Harudomerugu, allows it to enter it's Zenith Form. (Mega-Evolution)",
 		megaStone: "Harudomerugu-Z",
 		megaEvolves: "Harudomerugu",
 		itemUser: ["Harudomerugu", "Harudomerugu-Z"],
@@ -157,7 +183,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	inagamite: {
 		name: "Inagamite",
 		gen: 9,
-		shortDesc: "If held by Inagami, allows it transform into Zenith I. (Mega-Evolution)",
+		shortDesc: "If held by Inagami, allows it to enter it's Zenith Form. (Mega-Evolution)",
 		megaStone: "Inagami-Z",
 		megaEvolves: "Inagami",
 		itemUser: ["Inagami", "Inagami-Z"],
@@ -170,7 +196,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lagialite: {
 		name: "Lagialite",
 		gen: 9,
-		shortDesc: "If held by Lagiacrus, allows it transform into Abyssal L. (Mega-Evolution)",
+		shortDesc: "If held by Lagiacrus, allows it to transform into Abyssal. (Mega-Evolution)",
 		megaStone: "Abyssal Lagiacrus",
 		megaEvolves: "Lagiacrus",
 		itemUser: ["Lagiacrus", "Abyssal Lagiacrus"],
@@ -183,7 +209,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lagombite: {
 		name: "Lagombite",
 		gen: 9,
-		shortDesc: "If held by Lagombi, allows it transform into Snowbaron L. (Mega-Evolution)",
+		shortDesc: "If held by Lagombi, allows it to transform into Snowbaron. (Mega-Evolution)",
 		megaStone: "Snowbaron Lagombi",
 		megaEvolves: "Lagombi",
 		itemUser: ["Lagombi", "Snowbaron Lagombi"],
@@ -196,7 +222,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	magnamalite: {
 		name: "Magnamalite",
 		gen: 9,
-		shortDesc: "If held by Magnamalo, allows it transform into Scorned M. (Mega-Evolution)",
+		shortDesc: "If held by Magnamalo, allows it to transform into Scorned. (Mega-Evolution)",
 		megaStone: "Scorned Magnamalo",
 		megaEvolves: "Magnamalo",
 		itemUser: ["Magnamalo", "Scorned Magnamalo"],
@@ -209,7 +235,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	malfestite: {
 		name: "Malfestite",
 		gen: 9,
-		shortDesc: "If held by Malfestio, allows it transform into Nightcloak M. (Mega-Evolution)",
+		shortDesc: "If held by Malfestio, allows it to transform into Nightcloak. (Mega-Evolution)",
 		megaStone: "Nightcloak Malfestio",
 		megaEvolves: "Malfestio",
 		itemUser: ["Malfestio", "Nightcloak Malfestio"],
@@ -222,7 +248,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	mizutsunite: {
 		name: "Mizutsunite",
 		gen: 9,
-		shortDesc: "If held by Mizutsune, allows it transform into Soulseer M. (Mega-Evolution)",
+		shortDesc: "If held by Mizutsune, allows it to transform into Soulseer. (Mega-Evolution)",
 		megaStone: "Soulseer Mizutsune",
 		megaEvolves: "Mizutsune",
 		itemUser: ["Mizutsune", "Soulseer Mizutsune"],
@@ -235,7 +261,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	narwanite: {
 		name: "Narwanite",
 		gen: 9,
-		shortDesc: "If held by Narwa, allows it transform into Allmother N. (Mega-Evolution)",
+		shortDesc: "If held by Narwa, allows it to transform into Allmother. (Mega-Evolution)",
 		megaStone: "Allmother Narwa",
 		megaEvolves: "Narwa",
 		itemUser: ["Narwa", "Allmother Narwa"],
@@ -248,7 +274,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	plesite: {
 		name: "Plesite",
 		gen: 9,
-		shortDesc: "If held by Plesioth, allows it transform into Zenith P. (Mega-Evolution)",
+		shortDesc: "If held by Plesioth, allows it to enter it's Zenith Form. (Mega-Evolution)",
 		megaStone: "Plesioth-Z",
 		megaEvolves: "Plesioth",
 		itemUser: ["Plesioth", "Plesioth-Z"],
@@ -261,7 +287,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	rajanite: {
 		name: "Rajanite",
 		gen: 9,
-		shortDesc: "If held by Rajang, allows it transform into Furious R. (Mega-Evolution)",
+		shortDesc: "If held by Rajang, allows it to transform into Furious. (Mega-Evolution)",
 		megaStone: "Furious Rajang",
 		megaEvolves: "Rajang",
 		itemUser: ["Rajang", "Furious Rajang"],
@@ -274,7 +300,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	rathalosite: {
 		name: "Rathalosite",
 		gen: 9,
-		shortDesc: "If held by Rathalos, allows it transform into Dreadking R. (Mega-Evolution)",
+		shortDesc: "If held by Rathalos, allows it to transform into Dreadking. (Mega-Evolution)",
 		megaStone: "Dreadking Rathalos",
 		megaEvolves: "Rathalos",
 		itemUser: ["Rathalos", "Dreadking Rathalos"],
@@ -287,7 +313,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	rathianite: {
 		name: "Rathianite",
 		gen: 9,
-		shortDesc: "If held by Rathian, allows it transform into Dreadqueen R. (Mega-Evolution)",
+		shortDesc: "If held by Rathian, allows it to transform into Dreadqueen. (Mega-Evolution)",
 		megaStone: "Dreadqueen Rathian",
 		megaEvolves: "Rathian",
 		itemUser: ["Rathian", "Dreadqueen Rathian"],
@@ -349,10 +375,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		spritenum: 590,
 	},
+	tigrexite: {
+		name: "Tigrexite",
+		gen: 9,
+		shortDesc: "If held by Tigrex, allows it to transform into Grimclaw. (Mega-Evolution)",
+		megaStone: "Grimclaw Tigrex",
+		megaEvolves: "Tigrex",
+		itemUser: ["Tigrex", "Grimclaw Tigrex"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 619,
+	},
 	zinogrite: {
 		name: "Zinogrite",
 		gen: 9,
-		shortDesc: "If held by Zinogre, allows it transform into Thunderlord Z. (Mega-Evolution)",
+		shortDesc: "If held by Zinogre, allows it to transform into Thunderlord. (Mega-Evolution)",
 		megaStone: "Thunderlord Zinogre",
 		megaEvolves: "Zinogre",
 		itemUser: ["Zinogre", "Thunderlord Zinogre"],
@@ -368,7 +407,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	crimsongem: {
 		name: "Crimson Gem",
 		gen: 9,
-		shortDesc: "If held by Fatalis, triggers its Crimson Form in battle (Primal Reversion).",
+		shortDesc: "If held by Fatalis, triggers its Crimson Form in battle. (Primal Reversion)",
 		itemUser: ["Fatalis", "Crimson-Fatalis"],
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
@@ -386,7 +425,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	whitegem: {
 		name: "White Gem",
 		gen: 9,
-		shortDesc: "If held by Fatalis, triggers its Crimson Form in battle (Primal Reversion).",
+		shortDesc: "If held by Fatalis, triggers its Crimson Form in battle. (Primal Reversion)",
 		itemUser: ["Fatalis", "White-Fatalis"],
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Fatalis') {
