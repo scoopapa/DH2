@@ -55,9 +55,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			let suffix = "";
 			for (const status of pokemon.statuses) {
 				let toAdd = 0;
+				let para = false;
 				switch(status) {
 					case 'Paralysis':
 						toAdd = 25;
+						para = true;
 						clauses ++;
 						break;
 					case 'Freeze':
@@ -84,7 +86,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					suffix = toAdd;
 				} else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
 				if (toAdd > 0) {
-					if (clauses === 1) this.add('-message', `\n(${status}: ${suffix})`);
+					if (clauses === 1) {
+						if (para) this.add('-message', `\n(${status}: ${suffix})`);
+						else this.add('-message', `(${status}: ${suffix})`);
+					}
 					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);
 				}
 				pokemon.side.addStatus(product);
