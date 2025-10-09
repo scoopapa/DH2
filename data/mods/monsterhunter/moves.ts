@@ -1686,11 +1686,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Dreadrock Cannon",
 		pp: 8,
 		priority: 0,
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sandstorm':
+			case 'dustdevil':
+				move.accuracy = true;
+				break;
+			}
+		},
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Rock",
 		contestType: "Beautiful",
+		shortDesc: "Can't miss in sand.",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Rock Wrecker", target);
