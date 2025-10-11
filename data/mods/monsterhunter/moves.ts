@@ -2357,6 +2357,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to frostbite the target.",
 	},
 	bleakwindstorm: {
+		inherit: true,
 		secondary: {
 			chance: 20,
 			status: 'frz',
