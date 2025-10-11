@@ -272,16 +272,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Sand or Booster Energy: highest stat is 1.3x, 1.5x if Speed. Sand Immunity.",
 	},
 	dejavu: {
-		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('confusion');
+		onStart(source) {
+			this.field.setWeather('deltastream');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('deltastream')) {
+					this.field.weatherState.source = target;
+					return;
 				}
 			}
+			this.field.clearWeather();
 		},
-		flags: {},
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.category === 'Special') {
+				this.debug('Deja Vu boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onCriticalHit: false,
+		flags: {breakable: 1},
 		name: "Deja Vu",
-		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be confused.",
+		shortDesc: "Shell Armor + Delta Stream + Battery.",
 	},
 	punchdrunk: {
 		onDamagingHit(damage, target, source, move) {
@@ -321,5 +340,73 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Man",
 		flags: {},
 		shortDesc: "This Pokemon gains the normal type on switch in.",
+	},
+	utau: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.category === 'Physical' && move.type === 'Normal') {
+				move.flags.sound = 1;
+				move.flags.bypasssub = 1;
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Utau",
+		flags: {},
+		shortDesc: "Physical Normal moves have 1.5x power and become Sound."
+	},
+	energize: {
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (!source.hasAbility('energize')) return;
+			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
+			if (status.id === 'par') {
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Energize",
+		shortDesc: "When this Pokemon paralyzes a target, it recovers 12.5% max HP."
+	},
+	intoxicate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Poison';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Intoxicate",
+		shortDesc: "Normal type moves become Poison type and receive a 20% power boost."
+	},
+	delayedpunchline: {
+		onBeforeMove(pokemon, target, move) {
+			if(move.id === 'chillyreception') {
+				const reaction = this.dex.getActiveMove('futuresight');
+				this.actions.useMove(reaction, source, target);
+			}
+		},
+		flags: {},
+		name: "Delayed Punchline",
+		shortDesc: "When this pokémon is about to use Chilly Reception, it first uses Future Sight."
+	},
+	crazysmoke: {
+		// Belch interaction implemented within moves.ts
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.hasType(move.type)) {
+				this.debug('Crazy Smoke Weaken');
+				return this.chainModify(0.8);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Crazy Smoke",
+		shortDesc: "Reduces damage taken by 20% from moves that do not match their user's type. Belch can be used without eating a berry."
 	},
 };

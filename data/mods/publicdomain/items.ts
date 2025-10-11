@@ -32,6 +32,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Stunfisk-Galar, this item allows it to Mega Evolve in battle.",
 	},
+	jokerite: {
+		name: "Jokerite",
+		spritenum: 589,
+		megaStone: "Hamburger-Mega",
+		megaEvolves: "Hamburger",
+		itemUser: ["Hamburger", "Hamburger-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -3,
+		gen: 9,
+		desc: "If held by Hamburger, this item allows it to Mega Evolve in battle.",
+	},
 	boosterenergy: {
 			name: "Booster Energy",
 			spritenum: 745,

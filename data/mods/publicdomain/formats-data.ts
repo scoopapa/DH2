@@ -11,6 +11,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	hamburgermega: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
 	rotomcarbonmonoxidedetector: {
 		tier: "PD",
 		doublesTier: "DPDOU",
@@ -124,6 +128,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DPDOU",
 	},
 	mewtwomegaxy: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	teto: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	shockhopper: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	bibarelpurposeless: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	ironfisher: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	crowwhoknows: {
+		tier: "PD",
+		doublesTier: "DPDOU",
+	},
+	potentialvire: {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
