@@ -2801,7 +2801,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			acidspray: ["9L1"],
 			aquatail: ["9L1"],
 			attract: ["9L1"],
-			baittackle: ["9L1"],
+			baitandtackle: ["9L1"],
 			blizzard: ["9L1"],
 			bodyslam: ["9L1"],
 			brine: ["9L1"],
