@@ -1684,7 +1684,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Dreadrock Cannon",
-		pp: 8,
+		pp: 5,
 		priority: 0,
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
