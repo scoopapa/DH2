@@ -1674,6 +1674,36 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Ice",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+			this.add('-anim', source, "Haze", source);
+        },
+	},
+	dreadrockcannon: {
+		accuracy: 85,
+		basePower: 100,
+		category: "Special",
+		name: "Dreadrock Cannon",
+		pp: 8,
+		priority: 0,
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sandstorm':
+			case 'dustdevil':
+				move.accuracy = true;
+				break;
+			}
+		},
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Rock",
+		contestType: "Beautiful",
+		shortDesc: "Can't miss in sand.",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Rock Wrecker", target);
+        },
 	},
 	/*
 	Edits
@@ -2109,6 +2139,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	*/
 	blizzard: {
 		inherit: true,
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow', 'absolutezero'])) move.accuracy = true;
+		},
 		shortDesc: "10% chance to frostbite foe(s). Can't miss in Snow.",
 	},
 	freezedry: {
@@ -2134,6 +2167,202 @@ export const Moves: {[moveid: string]: MoveData} = {
 	triattack: {
 		inherit: true,
 		shortDesc: "20% chance to paralyze, burn, or frostbite target.",
+	},
+	shoreup: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+				factor = 0.667;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	solarbeam: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'dustdevil', 'absolutezero', 'sandstorm', 'hail', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	solarblade: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'dustdevil', 'absolutezero', 'sandstorm', 'hail', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	synthesis: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'dustdevil':
+			case 'hail':
+			case 'absolutezero':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'dustdevil':
+			case 'hail':
+			case 'absolutezero':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'dustdevil':
+			case 'sandstorm':
+			case 'hail':
+			case 'absolutezero':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+			case 'dustdevil':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'absolutezero':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+			case 'dustdevil':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'absolutezero':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+	},
+	auroraveil: {
+		inherit: true,
+		onTry() {
+			return this.field.isWeather(['hail', 'snow', 'absolutezero']);
+		},
+	},
+	dragonpulse: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			status: 'dragonblight',
+		},
+		desc: "30% chance to dragonblight the target.",
+		shortDesc: "30% chance to dragonblight the target.",
+	},
+	bittermalice: {
+		inherit: true,
+		basePower: 60,
+		pp: 15,
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		desc: "30% chance to frostbite the target.",
+		shortDesc: "30% chance to frostbite the target.",
+	},
+	bleakwindstorm: {
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},	
+		desc: "Has a 20% to frostbite the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
+		shortDesc: "20% to frostbite the target. Rain: can't miss.",
 	},
 	/*
 	TORQUES

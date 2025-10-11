@@ -653,6 +653,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	balenox: {
 		tier: "MHRU",
 	},
+	odibatorasu: {
+		tier: "MHOU",
+	},
+	landgiacrus: {
+		tier: "MHOU",
+	},
 	frostfangbarioth: {
 		tier: "MEGAS",
 	},
@@ -717,6 +723,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MEGAS",
 	},
 	inagamiz: {
+		tier: "MEGAS",
+	},
+	deadeyegaruga: {
+		tier: "MEGAS",
+	},
+	elderfrostgammoth: {
+		tier: "MEGAS",
+	},
+	grimclawtigrex: {
 		tier: "MEGAS",
 	}
 };
