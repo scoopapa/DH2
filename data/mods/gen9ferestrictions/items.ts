@@ -271,4 +271,19 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 7,
 		isNonstandard: null,
 	},
+	gyaradosite: {
+		name: "Gyaradosite",
+		spritenum: 589,
+		megaStone: "Gyarafable-Mega",
+		megaEvolves: "Gyarafable",
+		itemUser: ["Gyarafable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 676,
+		gen: 6,
+		isNonstandard: null,
+		shortDesc: "If held by a Gyarafable, this item allows it to Mega Evolve in battle.",
+	},
 };
