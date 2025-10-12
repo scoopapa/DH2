@@ -11,12 +11,36 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
+	fleavor: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gyarafable: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gyarafablemega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	dashingwakegalar: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
   // LCs
 	typedew: {
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},
 	sizzlitink: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	magikleffa: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	scypinch: {
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},
