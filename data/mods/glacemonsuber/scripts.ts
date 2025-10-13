@@ -79,5 +79,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "lokix").learnset.pursuit = ['9M'];
 		this.modData("Learnsets", "houndstone").learnset.pursuit = ['9M'];
 		this.modData("Learnsets", "tinglu").learnset.pursuit = ['9M'];
+		// slate 2
+		this.modData("Learnsets", "necrozmadawnwings").learnset.moonblast = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.uturn = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.drainingkiss = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.quicksanddrain = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.clearsmog = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.salvestrike = ['9L1'];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.playrough = ['9L1'];
 	}
 };

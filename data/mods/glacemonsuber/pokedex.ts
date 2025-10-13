@@ -133,4 +133,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Multitype", H: "Cloud Nine"},
 		unreleasedHidden: true,
 	},
+	// slate 2
+	necrozmadawnwings: {
+		inherit: true,
+		types: ["Psychic", "Fairy"],
+		abilities: {0: "Prism Armor", H: "Hospitality"},
+	},
+	gengarmega: {
+		inherit: true,
+		abilities: {0: "Neutralizing Gas"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Ice Body", H: "Filter"},
+	},
 };
