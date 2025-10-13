@@ -27,19 +27,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			const sideTwo = this.sides[1];
 			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
 		},
-		/*onResidual(pokemon) {
-			const sideOne = this.sides[0];
-			const sideTwo = this.sides[1];
-			//if (pokemon.hp && pokemon.side !== sideOne) return;
-			//if (sideOne.noChange && sideTwo.noChange) return;
-			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
-			for (const side of this.sides) {
-				side.pmiss = side.miss;
-				side.peffect = side.effect;
-				side.pcrit = side.crit;
-				side.pstatus = side.status;
-			}
-		},*/
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
@@ -65,6 +52,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
+						para = true;
 						clauses ++;
 						break;
 					case 'Confusion':

@@ -514,11 +514,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	baittackle: {
+	baitandtackle: {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		name: "Bait & Tackle",
+		name: "Bait And Tackle",
 		shortDesc: "Heal 25% after getting attacked while charging up.",
 		pp: 15,
 		priority: -3,
@@ -528,12 +528,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Wild Charge", target);
 		},
 		priorityChargeCallback(pokemon) {
-			pokemon.addVolatile('baittackle');
+			pokemon.addVolatile('baitandtackle');
 		},
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Bait & Tackle');
+				this.add('-singleturn', pokemon, 'move: Bait And Tackle');
 				this.add('-anim', pokemon, "Charge", pokemon);
 			},
 			onAfterMoveSecondary(target, source, move) {
@@ -542,9 +542,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('baittackle')},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('baitandtackle')},
 		onAfterMove(pokemon) {
-			pokemon.removeVolatile('baittackle');
+			pokemon.removeVolatile('baitandtackle');
 		},
 		secondary: null,
 		target: "normal",
@@ -1049,7 +1049,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (
 				lastMove.flags['failinstruct'] || lastMove.isZ || lastMove.isMax ||
 				lastMove.flags['charge'] || lastMove.flags['recharge'] ||
-				target.volatiles['beakblast'] || target.volatiles['baittackle'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
+				target.volatiles['beakblast'] || target.volatiles['baitandtackle'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
 				(target.moveSlots[moveIndex] && target.moveSlots[moveIndex].pp <= 0)
 			) {
 				return false;
