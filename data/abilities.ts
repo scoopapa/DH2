@@ -2029,12 +2029,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
 				pokemon.illusion = null;
-<<<<<<< HEAD
-				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
-=======
 				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
->>>>>>> bd3b04d69119d012bddf727acf04800a2f53d9c5
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Illusion');
 				if (this.ruleTable.has('illusionlevelmod')) {
@@ -2442,12 +2438,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	magician: {
 		onAfterMoveSecondarySelf(source, target, move) {
-<<<<<<< HEAD
-			if (!move || source.switchFlag === true || !move.hitTargets || source.item || source.volatiles['gem'] ||
-				move.id === 'fling' || move.category === 'Status') return;
-=======
 			if (!move || !target || source.switchFlag === true) return;
->>>>>>> bd3b04d69119d012bddf727acf04800a2f53d9c5
 			if (target !== source && move.category !== 'Status') {
 				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
 				const yourItem = target.takeItem(source);
@@ -4896,10 +4887,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	terashift: {
 		onPreStart(pokemon) {
-<<<<<<< HEAD
-
-=======
->>>>>>> bd3b04d69119d012bddf727acf04800a2f53d9c5
 			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos') return;
 			if (pokemon.species.forme !== 'Terastal') {
 				this.add('-activate', pokemon, 'ability: Tera Shift');
@@ -5584,10 +5571,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
 			if (pokemon.species.forme !== 'Hero') {
 				pokemon.formeChange('Palafin-Hero', this.effect, true);
-<<<<<<< HEAD
-
-=======
->>>>>>> bd3b04d69119d012bddf727acf04800a2f53d9c5
 			}
 		},
 		onSwitchIn() {
