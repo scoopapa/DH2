@@ -61,12 +61,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 100,
 		},
+		onStart(pokemon) {
+			pokemon.addVolatile('kingscrown');
+		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move && move.type === 'Dark' && source.baseSpecies.baseSpecies === 'Kingambit') {
 				return this.chainModify([5325, 4096]);
 			}
-			// WIP
+			if (!source.baseSpecies.baseSpecies === 'Kingambit' && move.type === 'Dark' && attacker.volatiles['kingscrown']) {
+				attacker.removeVolatile('kingscrown');
+				return this.chainModify(1.5);
+			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Kingambit' && target.getMoveHitData(move).typeMod > 0) {
@@ -95,22 +101,22 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hasType('Bug')) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.hasType('Bug')) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.hasType('Bug')) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
-		desc: "If holder is Bug type, negates entry hazards, and user's Atk, Def, and SpA by 1.2x.",
+		desc: "If holder is Bug type, negates entry hazards, and user's Atk, Def, and SpA by 1.3x.",
 	},
 	heroscape: {
 		name: "Hero's Cape",
