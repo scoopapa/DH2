@@ -666,11 +666,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
-		name: "Incinerate-Iron Fist",
+		name: "Incinerate (Iron Fist)",
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Incinerate", target);
+		},
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
@@ -800,6 +804,49 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+	},
+	grassyglideage: {
+		num: 803,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Grassy Glide (AGE)",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Grassy Glide", target);
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				return priority + 1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	milkdrinkage: {
+		num: 208,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Milk Drink (AGE_",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Milk Drink", target);
+		},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 	// collateral
 	gravity: {
