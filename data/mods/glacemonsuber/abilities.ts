@@ -147,6 +147,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	protosynthesis: {
 		inherit: true,
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow', 'sandstorm'].includes(pokemon.effectiveWeather())) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && this.field.weather !== 'sunnyday') {
+				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isWeather respects supression)
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -192,11 +201,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		desc: "If Sunny Day is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.5. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Sunny Day, a held Booster Energy will not activate and the effect ends when Sunny Day is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
-		shortDesc: "Sunny Day active or Booster Energy used: highest stat is 1.5x.",
+		desc: "If a weather is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.5. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Sunny Day, a held Booster Energy will not activate and the effect ends when Sunny Day is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
+		shortDesc: "Weather active or Booster Energy used: highest stat is 1.5x.",
 	},
 	quarkdrive: {
 		inherit: true,
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -242,8 +258,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		desc: "If Electric Terrain is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.3, or by 1.5 if the highest stat is Speed. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Electric Terrain, a held Booster Energy will not activate and the effect ends when Electric Terrain is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
-		shortDesc: "Electric Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
+		desc: "If a Terrain is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.3, or by 1.5 if the highest stat is Speed. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Electric Terrain, a held Booster Energy will not activate and the effect ends when Electric Terrain is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
+		shortDesc: "Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	dauntlessshield: {
 		inherit: true,
