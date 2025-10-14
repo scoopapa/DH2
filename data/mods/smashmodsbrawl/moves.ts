@@ -848,6 +848,430 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
+	stormthrowvaporemons: {
+		num: 480,
+		accuracy: true,
+		basePower: 70,
+		category: "Physical",
+	   shortDesc: "Always results in a critical hit.",
+		isNonstandard: null,
+		viable: true,
+		name: "Storm Throw (VaporeMons)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Storm Throw", target);
+		},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	brickbreakvaporemons: {
+		num: 280,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Brick Break (VaporeMons)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Brick Break", target);
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	sledgehammerblow: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Sledgehammer Blow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gigaton Hammer", target);
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	lashoutvaporemons: {
+		num: 808,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+	   shortDesc: "2x power if the user has negative stat changes or a status.",
+		name: "Lash Out (VaporeMons)",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon) {
+			const negativeVolatiles = ['confusion', 'taunt', 'torment', 'trapped', 'partiallytrapped', 'leechseed', 'sandspit',
+				'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid', 'foresight', 'miracleeye',
+				'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare', 'octolock', 'powder', 'saltcure', 'smackdown',
+				'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
+			let i: BoostID;
+			for (i in pokemon.boosts) {
+				for (const volatile of negativeVolatiles) {
+					if (pokemon.status && pokemon.status !== 'brn' || pokemon.volatiles[volatile] || pokemon.boosts[i] < 0) {
+						return this.chainModify(2);
+					} else if (pokemon.status === 'brn') {
+						return this.chainModify(4);
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	soulwind: {
+		accuracy: 100,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if(target.hasType('Ghost')) {
+				this.debug("BP doubled against Ghost");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Soul Wind",
+		shortDesc: "Deals double damage to Ghost-types.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Silver Wind", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	restglacemons: {
+		num: 156,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User sleeps 2 turns and restores HP and status.",
+		name: "Rest (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Rest", target);
+		},
+		onTry(pokemon) {
+			if (pokemon.hp < pokemon.maxhp) return;
+			this.add('-fail', pokemon);
+			return null;
+		},
+		onHit(target, source, move) {
+			if (target.status !== 'slp') {
+				if (!target.setStatus('slp', source, move)) return;
+			} else {
+				this.add('-status', target, 'slp', '[from] move: Rest');
+			}
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
+			target.statusState.source = target;
+			this.heal(target.maxhp);
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	sleeptalkglacemons: {
+		num: 214,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User must be asleep. Uses another known move.",
+		desc: "(Can now select Rest) One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Assist, Beak Blast, Belch, Bide, Blazing Torque, Celebrate, Chatter, Combat Torque, Copycat, Dynamax Cannon, Focus Punch, Hold Hands, Magical Torque, Me First, Metronome, Mimic, Mirror Move, Nature Power, Noxious Torque, Shell Trap, Sketch, Sleep Talk, Struggle, Uproar, Wicked Torque, or any two-turn move.",
+		name: "Sleep Talk (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		sleepUsable: true,
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Sleep Talk", target);
+		},
+		onTry(source) {
+			return source.status === 'slp' || source.hasAbility('comatose');
+		},
+		onHit(pokemon) {
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				const move = this.dex.moves.get(moveid);
+				if (moveid && !move.flags['nosleeptalk'] && !move.flags['charge']) {
+					moves.push(moveid);
+				}
+			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) return false;
+			this.actions.useMove(randomMove, pokemon);
+		},
+		callsMove: true,
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'crit2'},
+		contestType: "Cute",
+	},
+	breezeburn: {
+		num: -22,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Breeze Burn",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Burn", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		desc: "Has a 10% chance to freeze the target.",
+		shortDesc: "10% chance to freeze the target.",
+	},
+	icefangglacemons: {
+		num: 423,
+		accuracy: 95,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Ice Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Ice Fang NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to freeze the target.",
+		shortDesc: "1.5x power if user moves before target. 10% freeze.",
+		name: "Ice Fang (GlaceMons)",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Fang", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'frz',
+			},
+		],
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	slackoffglacemons: {
+		num: 303,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals the user by 50% of its max HP.",
+		name: "Slack Off (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slack Off", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	quicksanddrain: {
+		num: -13,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Quicksand Drain",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
+		drain: [1, 3],
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+				case 'sandstorm':
+					move.drain = [2, 3];
+					break;
+			}
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scorching Sands", target);
+		},
+		shortDesc: "Heals 1/3 damage; 2/3 in Sand. 10% chance -1 Spe.",
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	tripleaxelglacemons: {
+		num: 813,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		category: "Physical",
+		desc: "Can't miss in Snow. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "3 hits; can miss, but power rises. Snow = no miss.",
+		name: "Triple Axel (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Triple Axel", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 140},
+	},
+	synchronoiseglacemons: {
+		num: 485,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Changes user's type to that of the target after hit.",
+		name: "Synchronoise (GlaceMons)",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Synchronoise", target);
+		},
+		onHit(target, source) {
+			const types = target.getTypes();
+			var type1 = types[0];
+			var type2;
+			if (types.length == 2) type2 = types[1];
+			if (source.hasType(type1) || !source.setType(type1)) return false;
+			this.add('-start', source, 'typechange', type1);
+			if (type2) {
+				this.add('-start', source, 'typeadd', type2);
+			}			
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	rainbowblast: {
+		num: -35,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Rainbow Blast",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dazzling Gleam", target);
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		shortDesc: "30% chance to lower target's SpA by 1.",
+		type: "Fairy",
+		contestType: "Cute",
+	},
+	salvestrike: {
+		num: -2,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Salve Strike",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aromatherapy", source);
+			this.add('-anim', source, "Double-Edge", target);
+		},
+      basePowerCallback(pokemon, target, move) {
+      	if (pokemon.status && pokemon.status !== 'slp', 'frz') {
+         	this.debug('BP boosted from status condition');
+            return move.basePower * 1.5;
+         }
+         return move.basePower;
+      },
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
+		desc: "1.5x power if user is statused; heals status.",
+		shortDesc: "1.5x power if user is statused; heals status.",
+	},
 	// collateral
 	gravity: {
 		num: 356,
