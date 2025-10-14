@@ -1051,6 +1051,29 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {effect: 'crit2'},
 		contestType: "Cute",
 	},
+	breezeshock: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Breeze Shock",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Freeze Shock", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		desc: "Has a 30% chance to paralyze the target.",
+		shortDesc: "30% chance to paralyze the target.",
+	},
 	breezeburn: {
 		num: -22,
 		accuracy: 100,
