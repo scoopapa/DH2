@@ -130,7 +130,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'magearna').learnset.fairywind = ['9L1'];
 		this.modData('Learnsets', 'floetteeternal').learnset.fairywind = ['9L1'];
 		this.modData('Learnsets', 'audino').learnset.fairywind = ['9L1'];
-		this.modData('Learnsets', 'taurospaldea').learnset.fairywind = ['9L1'];
+		this.modData('Learnsets', 'taurospaldeacombat').learnset.fairywind = ['9L1'];
 		this.modData('Learnsets', 'diancie').learnset.fairywind = ['9L1'];
 		this.modData('Learnsets', 'cofagrigus').learnset.fairywind = ['9L1'];
 		// mountaingale 
