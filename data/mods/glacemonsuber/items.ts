@@ -87,7 +87,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -1001,
 		gen: 9,
 		itemUser: ["Kingambit"],
-		shortDesc: "(WIP) If this is a Kingambit, boosts Dark type moves by 1.3x and takes 2/3rds damage from weaknesses. Otherwise, user's first dark type move per game gains 1.5x power.",
+		shortDesc: "If this is a Kingambit, boosts Dark type moves by 1.3x and takes 2/3rds damage from weaknesses. Otherwise, user's first dark type move per game gains 1.5x power.",
 	},
 	insectplate: {
 		inherit: true,
