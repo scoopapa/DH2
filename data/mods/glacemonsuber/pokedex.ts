@@ -147,4 +147,106 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Ice Body", H: "Filter"},
 	},
+	// Unaware
+	audinomega: {
+		inherit: true,
+		abilities: {0: "Unaware", H: "Regenerator"},
+	},
+	ursalunabloodmoon: {
+		inherit: true,
+		abilities: {0: "Mind's Eye", H: "Unaware"},
+	},
+	ironbundle: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Unaware"},
+	},
+	dialga: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Unaware", H: "Telepathy"},
+	},
+	dialgaorigin: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Unaware", H: "Telepathy"},
+	},
+	palkia: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Unaware", H: "Telepathy"},
+	},
+	palkiaorigin: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Unaware", H: "Telepathy"},
+	},
+	blastoise: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Unaware"},
+	},
+	blastoisemega: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Unaware"},
+	},
+	barraskewda: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Velocity", H: "Unaware"},
+	},
+	wynaut: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Rattled", H: "Unaware"},
+	},
+	wobbuffet: {
+		inherit: true,
+		abilities: {0: "Shadow Tag", 1: "Rattled", H: "Unaware"},
+	},
+	// Mythic Presence
+	mew: {
+		inherit: true,
+		abilities: {0: "Trace", 1: "Mythic Presence", H: "Protean"},
+	},
+	celebi: {
+		inherit: true,
+		abilities: {0: "Mythic Presence", 1: "Moody", H: "Run It Back"},
+	},
+	jirachi: {
+		inherit: true,
+		abilities: {0: "Mythic Presence", 1: "Moody", H: "Light Metal"},
+	},
+	manaphy: {
+		inherit: true,
+		abilities: {0: "Hydration", 1: "Moody", H: "Mythic Presence"},
+	},
+	shaymin: {
+		inherit: true,
+		abilities: {0: "Poison Heal", 1: "Moody", H: "Mythic Presence"},
+	},
+	shayminsky: {
+		inherit: true,
+		abilities: {0: "Aerodynamism", 1: "Wind Power", H: "Mythic Presence"},
+	},
+	victini: {
+		inherit: true,
+		abilities: {0: "Victory Star", 1: "Mythic Presence", H: "Pyre"},
+	},
+	hoopa: {
+		inherit: true,
+		abilities: {0: "Magician", 1: "Mythic Presence",H: "Long Reach"},
+	},
+	hoopaunbound: {
+		inherit: true,
+		abilities: {0: "Magician", 1: "Mythic Presence",H: "Long Reach"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Mythic Presence", H: "Moody"},
+	},
+	magearna: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Mythic Presence"},
+	},
+	magearnaoriginal: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Mythic Presence"},
+	},
+	pecharunt: {
+		inherit: true,
+		abilities: {0: "Poison Puppeteer", 1: "Stench", H: "Mythic Presence"},
+	},
 };
