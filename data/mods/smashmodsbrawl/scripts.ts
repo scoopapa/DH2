@@ -209,6 +209,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "flittle").learnset.bravebird = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.shadowball = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
+		delete this.modData('Learnsets', 'skiddo').learnset.milkdrink;
+		delete this.modData('Learnsets', 'skiddo').learnset.grassyglide;
+	   this.modData('Learnsets', 'gogoat').learnset.milkdrinkage = ['9L1'];
+	   this.modData('Learnsets', 'gogoat').learnset.grassyglideage = ['9L1'];
 	},
 	pokemon: {
 		inherit: true,
