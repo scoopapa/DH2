@@ -147,12 +147,29 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Kingambit') return false;
+			if (user.baseSpecies.name.startsWith('Palafin')) return false;
 			return true;
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'heroscape');
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted) {
+					target.addVolatile('reductiononeturn');
+					target.side.removeSlotCondition(target, 'heroscape');
+				}
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (target.volatiles['reductiononeturn']) {
+					target.removeVolatile('reductiononeturn');
+					return this.chainModify(0.75);
+				}
+			},
 		},
 		num: -1001,
 		gen: 9,
-		itemUser: ["Palafin"],
+		itemUser: ["Palafin", "Palafin-Hero"],
 		shortDesc: "The next Pokémon to switch in on the user's side of the field takes 25% less damage on the turn they switch in. If held by a Palafin, Increases Priority moves do 2x damage to resisted pokemon, All moves do 1.2x damage, and takes 50% less damage when it switches in.",
 	},
 	yellowcard: {
