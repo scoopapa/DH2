@@ -3827,7 +3827,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			crunch: ["9L1"],
 			darkpulse: ["9L1"],
-			brickbreak: ["9L1"],
 			aurasphere: ["9L1"],
 			fireblast: ["9L1"],
 			cosmicpower: ["9L1"],
