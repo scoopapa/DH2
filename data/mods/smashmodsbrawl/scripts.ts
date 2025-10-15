@@ -227,9 +227,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "crabominable").learnset.brickbreakvaporemons = ["9L1"];
 		this.modData("Learnsets", "crabominable").learnset.lashoutvaporemons = ["9L1"];
 		this.modData("Learnsets", "crabominable").learnset.stormthrowvaporemons = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.sledgehammerblow = ["9L1"];
 		delete this.modData('Learnsets', 'crabrawler').learnset.brickbreak;
+		delete this.modData('Learnsets', 'crabominable').learnset.brickbreak;
 		delete this.modData('Learnsets', 'eevee').learnset.rest;
 		delete this.modData('Learnsets', 'eevee').learnset.sleeptalk;
+		delete this.modData('Learnsets', 'glaceon').learnset.rest;
+		delete this.modData('Learnsets', 'glaceon').learnset.sleeptalk;
 		this.modData("Learnsets", "glaceon").learnset.slackoffglacemons = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.earthpower = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.scorchingsands = ['9L1'];
@@ -239,6 +243,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "glaceon").learnset.restglacemons = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.sleeptalkglacemons = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.tripleaxelglacemons = ['9L1'];
+		delete this.modData('Learnsets', 'glaceon').learnset.tripleaxel;
 		this.modData("Learnsets", "glaceon").learnset.synchronoiseglacemons = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.salvestrike = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.rainbowblast = ['9L1'];
