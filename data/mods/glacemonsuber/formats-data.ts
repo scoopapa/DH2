@@ -581,7 +581,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gengarmega: {
 		inherit: true,
-		tier: "AG",
+		tier: "Adjusted",
 	},
 	onix: {
 		inherit: true,
@@ -2045,7 +2045,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regice: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	registeel: {
 		inherit: true,
@@ -4025,7 +4025,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	necrozmadawnwings: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	necrozmaultra: {
 		inherit: true,
@@ -4373,11 +4373,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	zamazentacrowned: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	eternatus: {
 		inherit: true,
@@ -4545,7 +4545,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	palafin: {
 		inherit: true,
-		tier: "Uber RU",
+		tier: "Adjusted",
 	},
 	smoliv: {
 		inherit: true,
@@ -4837,7 +4837,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kingambit: {
 		inherit: true,
-		tier: "Uber UU",
+		tier: "Adjusted",
 	},
 	clodsire: {
 		inherit: true,
