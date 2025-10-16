@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'glacemons',
 	gen: 9,
 	teambuilderConfig: {
-		customTiers: ['Adjusted', 'Uber OU', '(Uber OU)', 'Uber UUBL', 'Uber UU', 'Uber RUBL', 'Uber RU'],
+		customTiers: ['Adjusted', 'Uber OU', 'Uber UUBL', 'Uber UU', 'Uber RUBL', 'Uber RU'],
 	},
 
 	actions: {
