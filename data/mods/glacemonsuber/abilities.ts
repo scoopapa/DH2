@@ -263,6 +263,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	dauntlessshield: {
 		inherit: true,
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			return this.chainModify([4915, 4096]);
@@ -284,6 +287,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.heal(pokemon.baseMaxhp / 16);	
 			}		
 		},
-		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage. Once per battle. 1.2x Power attacks. Heals 1/6 of its missing health if there are hazards on the field.",
+		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage. 1.2x Power attacks. Heals 1/6 of its missing health if there are hazards on the field.",
 	},
 };
