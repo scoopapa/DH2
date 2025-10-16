@@ -20245,7 +20245,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous", "Water 3"],
 		gen: 9,
 	},
-	chuggon: {
+	/*chuggon: {
 		num: -73,
 		name: "Chuggon",
 		types: ["Dragon", "Poison"],
@@ -20332,7 +20332,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredMove: "Polar Flare",
 		battleOnly: "Ramnarok",
 		gen: 9,
-	},
+	},*/
 	// NOTE: PokeStar "formes" are not actually formes and thus do not have a formeOrder
 	pokestarsmeargle: {
 		num: -5000,
