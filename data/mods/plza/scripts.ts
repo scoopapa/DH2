@@ -5703,7 +5703,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hoopa").learnset.gigaimpact = ["9L1"];
 		this.modData("Learnsets", "hoopa").learnset.gunkshot = ["9L1"];
 		this.modData("Learnsets", "hoopa").learnset.psyshock = ["9L1"];
-		// Hoopa-Unbound
+		/* // Hoopa-Unbound
 		this.modData("Learnsets", "hoopaunbound").learnset.confusion = ["9L1"];
 		this.modData("Learnsets", "hoopaunbound").learnset.lightscreen = ["9L1"];
 		this.modData("Learnsets", "hoopaunbound").learnset.psybeam = ["9L1"];
@@ -5737,7 +5737,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hoopaunbound").learnset.energyball = ["9L1"];
 		this.modData("Learnsets", "hoopaunbound").learnset.gigaimpact = ["9L1"];
 		this.modData("Learnsets", "hoopaunbound").learnset.gunkshot = ["9L1"];
-		this.modData("Learnsets", "hoopaunbound").learnset.psyshock = ["9L1"];
+		this.modData("Learnsets", "hoopaunbound").learnset.psyshock = ["9L1"]; */
 		// Volcanion
 		this.modData("Learnsets", "volcanion").learnset.watergun = ["9L1"];
 		this.modData("Learnsets", "volcanion").learnset.firespin = ["9L1"];
