@@ -2109,7 +2109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Excadrill",
 		forme: "Mega",
 		types: ["Ground", "Steel"],
-		baseStats: { hp: 110, atk: 135, def: 60, spa: 50, spd: 65, spe: 88 },
+		baseStats: { hp: 110, atk: 165, def: 100, spa: 65, spd: 65, spe: 103 },
 		abilities: { 0: "Mold Breaker" },
 		heightm: 0.9,
 		weightkg: 60,
