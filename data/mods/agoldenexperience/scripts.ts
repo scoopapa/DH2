@@ -114,6 +114,9 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
         return null;
       }
+      else if (item.name === "Emboarite" && pokemon.baseSpecies.name === "Emboar-Galar") {
+        return null;
+      }
       else if (item.name === "Cramorantite" && pokemon.baseSpecies.name === "Cramorant-Gulping") {
         return "Cramorant-Gulping-Mega";
       }
