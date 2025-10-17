@@ -4,7 +4,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 200,
 		category: "Special",
 		shortDesc: "Ignores the foe(s)'s immunities and stat changes.",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Nihil Light",
 		pp: 10,
 		priority: 0,
@@ -24,46 +24,46 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	healblock: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	poweruppunch: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	landswrath: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	thousandwaves: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	thousandarrows: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	coreenforcer: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	trickortreat: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	kingsshield: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	geomancy: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	oblivionwing: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	lightofruin: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 };
