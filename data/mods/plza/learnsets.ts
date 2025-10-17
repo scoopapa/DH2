@@ -8333,7 +8333,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			dracometeor: ["9L1"],
 		},
 	},
-	sliggohisui: {
+	sliggoohisui: {
 		learnset: {
 			irondefense: ["9L1"],
 			tackle: ["9L1"],
