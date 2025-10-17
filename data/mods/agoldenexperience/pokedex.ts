@@ -2418,17 +2418,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Plus", 1: "Minus", H: "Technician"},
 	},
 	// ZA mega
-	tynamo: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Luster Swap"},
-	},
-	eelektrik: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Luster Swap"},
-	},
 	eelektross: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Luster Swap"},
 		otherFormes: ["Eelektross-Mega"],
 		formeOrder: ["Eelektross", "Eelektross-Mega"],
 	},
@@ -4291,7 +4282,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Bug", "Electric"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 103, def: 70, spa: 127, spd: 75, spe: 105},
-		abilities: {0: "Illuminate", 1: "Infiltrator", H: "Prankster"},
+		abilities: {0: "Illuminate", 1: "Luster Swap", H: "Prankster"},
 		heightm: 0.7,
 		weightkg: 17.7,
 		color: "Gray",
