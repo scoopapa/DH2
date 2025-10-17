@@ -364,6 +364,7 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // ZA stuff
+    this.modData('Learnsets', 'clefable').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'clefable').learnset.sonicboom = ['9L1']; // AGE addition
     this.modData('Learnsets', 'starmie').learnset.bulkup = ['9L1'];
     this.modData('Learnsets', 'starmie').learnset.zenheadbutt = ['9L1'];
