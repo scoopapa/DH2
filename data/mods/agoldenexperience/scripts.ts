@@ -381,6 +381,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'malamar').learnset.bulkup = ['9L1'];
     this.modData('Learnsets', 'malamar').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'malamar').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.zenheadbutt = ['9L1'];
     this.modData('Learnsets', 'malamar').learnset.recover = ['9L1']; // AGE addition
     this.modData('Learnsets', 'barbaracle').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'hawlucha').learnset.bodypress = ['9L1']; // AGE addition
