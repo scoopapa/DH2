@@ -2343,7 +2343,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	enragedtext: {
+	/*enragedtext: {
 		num: -58,
 		accuracy: 100,
 		basePower: 90,
@@ -2362,7 +2362,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
-	},
+	},*/
 	shattering: {
 		num: -59,
 		accuracy: 100,
