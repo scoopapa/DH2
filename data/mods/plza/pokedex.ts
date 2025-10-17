@@ -2,7 +2,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
   clefable: {
 		inherit: true,
 		otherFormes: ["Clefable-Mega"],
-		formeOrder: ["Clefable", "Clefable-Mega"],
+	  formeOrder: ["Clefable", "Clefable-Mega"],
 	},
 	clefablemega: {
 		num: 36,
@@ -22,8 +22,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
   victreebel: {
 	  inherit: true,
-    otherFormes:  ["Victreebel-Mega"],
-		formeOrder: ["Victreebel", "Victreebel-Mega"],
+	  otherFormes:  ["Victreebel-Mega"],
+	  formeOrder: ["Victreebel", "Victreebel-Mega"],
 	},
 	victreebelmega: {
 		num: 71,
@@ -42,8 +42,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
   starmie: {
 	  inherit: true,
-    otherFormes:  ["Starmie-Mega"],
-		formeOrder: ["Starmie", "Starmie-Mega"],
+	  otherFormes:  ["Starmie-Mega"],
+	  formeOrder: ["Starmie", "Starmie-Mega"],
 	},
 	starmiemega: {
 		num: 121,
@@ -63,8 +63,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	dragonite: {
 	  inherit: true,
-    otherFormes:  ["Dragonite-Mega"],
-		formeOrder: ["Dragonite", "Dragonite-Mega"],
+	  otherFormes:  ["Dragonite-Mega"],
+	  formeOrder: ["Dragonite", "Dragonite-Mega"],
 	},
 	dragonitemega: {
 		num: 149,
@@ -83,8 +83,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	meganium: {
 	  inherit: true,
-    otherFormes:  ["Meganium-Mega"],
-		formeOrder: ["Meganium", "Meganium-Mega"],
+	  otherFormes:  ["Meganium-Mega"],
+	  formeOrder: ["Meganium", "Meganium-Mega"],
 	},
 	meganiummega: {
 		num: 154,
@@ -104,8 +104,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	feraligatr: {
 	  inherit: true,
-    otherFormes:  ["Feraligatr-Mega"],
-		formeOrder: ["Feraligatr", "Feraligatr-Mega"],
+	  otherFormes:  ["Feraligatr-Mega"],
+	  formeOrder: ["Feraligatr", "Feraligatr-Mega"],
 	},
 	feraligatrmega: {
 		num: 160,
@@ -125,8 +125,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	skarmory: {
 	  inherit: true,
-    otherFormes:  ["Skarmory-Mega"],
-		formeOrder: ["Skarmory", "Skarmory-Mega"],
+	  otherFormes:  ["Skarmory-Mega"],
+	  formeOrder: ["Skarmory", "Skarmory-Mega"],
 	},
 	skarmorymega: {
 		num: 227,
@@ -145,8 +145,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	froslass: {
 	  inherit: true,
-    otherFormes:  ["Froslass-Mega"],
-		formeOrder: ["Froslass", "Froslass-Mega"],
+	  otherFormes:  ["Froslass-Mega"],
+	  formeOrder: ["Froslass", "Froslass-Mega"],
 	},
 	froslassmega: {
 		num: 478,
@@ -167,7 +167,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	emboar: {
 		inherit: true,
 		otherFormes: ["Emboar-Mega"],
-		formeOrder: ["Emboar", "Emboar-Mega"],
+	  formeOrder: ["Emboar", "Emboar-Mega"],
 	},
 	emboarmega: {
 		num: 500,
@@ -188,7 +188,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	excadrill: {
 		inherit: true,
 		otherFormes: ["Excadrill-Mega"],
-		formeOrder: ["Excadrill", "Excadrill-Mega"],
+	  formeOrder: ["Excadrill", "Excadrill-Mega"],
 	},
 	excadrillmega: {
 		num: 530,
@@ -208,7 +208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	scolipede: {
 		inherit: true,
 		otherFormes: ["Scolipede-Mega"],
-		formeOrder: ["Scolipede", "Scolipede-Mega"],
+	  formeOrder: ["Scolipede", "Scolipede-Mega"],
 	},
 	scolipedemega: {
 		num: 545,
@@ -228,7 +228,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	scrafty: {
 		inherit: true,
 		otherFormes: ["Scrafty-Mega"],
-		formeOrder: ["Scrafty", "Scrafty-Mega"],
+	  formeOrder: ["Scrafty", "Scrafty-Mega"],
 	},
 	scraftymega: {
 		num: 560,
@@ -248,7 +248,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	eelektross: {
 		inherit: true,
 		otherFormes: ["Eelektross-Mega"],
-		formeOrder: ["Eelektross", "Eelektross-Mega"],
+	  formeOrder: ["Eelektross", "Eelektross-Mega"],
 	},
 	eelektrossmega: {
 		num: 604,
@@ -268,7 +268,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	chandelure: {
 		inherit: true,
 		otherFormes: ["Chandelure-Mega"],
-		formeOrder: ["Chandelure", "Chandelure-Mega"],
+	  formeOrder: ["Chandelure", "Chandelure-Mega"],
 	},
 	chandeluremega: {
 		num: 609,
@@ -288,7 +288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	chesnaught: {
 		inherit: true,
 		otherFormes: ["Chesnaught-Mega"],
-		formeOrder: ["Chesnaught", "Chesnaught-Mega"],
+	  formeOrder: ["Chesnaught", "Chesnaught-Mega"],
 	},
 	chesnaughtmega: {
 		num: 652,
@@ -309,7 +309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	delphox: {
 		inherit: true,
 		otherFormes: ["Delphox-Mega"],
-		formeOrder: ["Delphox", "Delphox-Mega"],
+	  formeOrder: ["Delphox", "Delphox-Mega"],
 	},
 	delphoxmega: {
 		num: 655,
@@ -330,7 +330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	greninja: {
 		inherit: true,
 		otherFormes: ["Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
-		formeOrder: ["Greninja", "Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
+	  formeOrder: ["Greninja", "Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
 	},
 	greninjamega: {
 		num: 658,
@@ -351,7 +351,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	pyroar: {
 		inherit: true,
 		otherFormes: ["Pyroar-Mega"],
-		formeOrder: ["Pyroar", "Pyroar-Mega"],
+	  formeOrder: ["Pyroar", "Pyroar-Mega"],
 	},
 	pyroarmega: {
 		num: 668,
@@ -372,7 +372,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	floette: {
 		inherit: true,
 		otherFormes: ["Floette-Eternal", "Floette-Mega"],
-		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Mega"],
+	  formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Mega"],
 	},
 	floetteeternal: {
 		inherit: true,
@@ -398,7 +398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	malamar: {
 		inherit: true,
 		otherFormes: ["Malamar-Mega"],
-		formeOrder: ["Malamar", "Malamar-Mega"],
+	  formeOrder: ["Malamar", "Malamar-Mega"],
 	},
 	malamarmega: {
 		num: 687,
@@ -418,7 +418,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	barbaracle: {
 		inherit: true,
 		otherFormes: ["Barbaracle-Mega"],
-		formeOrder: ["Barbaracle", "Barbaracle-Mega"],
+	  formeOrder: ["Barbaracle", "Barbaracle-Mega"],
 	},
 	barbaraclemega: {
 		num: 689,
@@ -438,7 +438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	dragalge: {
 		inherit: true,
 		otherFormes: ["Dragalge-Mega"],
-		formeOrder: ["Dragalge", "Dragalge-Mega"],
+	  formeOrder: ["Dragalge", "Dragalge-Mega"],
 	},
 	dragalgemega: {
 		num: 691,
@@ -458,7 +458,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	hawlucha: {
 		inherit: true,
 		otherFormes: ["Hawlucha-Mega"],
-		formeOrder: ["Hawlucha", "Hawlucha-Mega"],
+	  formeOrder: ["Hawlucha", "Hawlucha-Mega"],
 	},
 	hawluchamega: {
 		num: 701,
@@ -478,7 +478,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	zygarde: {
 		inherit: true,
 		otherFormes: ["Zygarde-10%", "Zygarde-Complete", "Zygarde-Mega"],
-		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete", "Zygarde-Mega"],
+	  formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete", "Zygarde-Mega"],
 	},
 	zygardemega: {
 		num: 718,
@@ -500,7 +500,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	drampa: {
 		inherit: true,
 		otherFormes: ["Drampa-Mega"],
-		formeOrder: ["Drampa", "Drampa-Mega"],
+	  formeOrder: ["Drampa", "Drampa-Mega"],
 	},
 	drampamega: {
 		num: 780,
@@ -520,7 +520,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	falinks: {
 		inherit: true,
 		otherFormes: ["Falinks-Mega"],
-		formeOrder: ["Falinks", "Falinks-Mega"],
+	  formeOrder: ["Falinks", "Falinks-Mega"],
 	},
 	falinksmega: {
 		num: 870,
