@@ -5006,7 +5006,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Granbull",
 		eggGroups: ["Field", "Fairy"],
 	},
-	scrafree: {
+	/*scrafree: {
 		num: -66,
 		name: "Scrafree",
 		types: ["Dark", "Fighting"],
@@ -5016,7 +5016,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 50,
 		prevo: "Scrafty",
 		eggGroups: ["Red"],
-	},
+	},*/
 	isaapple: {
 		num: -67,
 		name: "Isaapple",

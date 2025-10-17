@@ -7091,7 +7091,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			jumpscare: ["9L1"],
 		},
 	},
-	scrafree: {
+	/*scrafree: {
 		learnset: {
 			enragedtext: ["9L1"],
 			boomburst: ["9L1"],
@@ -7099,7 +7099,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			tailslap: ["9L1"],
 			powerwhip: ["9L1"],
 		},
-	},
+	},*/
 	isaapple: {
 		learnset: {
 			earthquake: ["9L1"],

@@ -5443,10 +5443,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
-	scrafree: {
+	/*scrafree: {
 		tier: "PU",
 		doublesTier: "DUU",
-	},
+	},*/
 	gevauyena: {
 		tier: "OU",
 		doublesTier: "DUU",
