@@ -900,10 +900,10 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	xerneas: {
-		tier: "FE ZA",
+		tier: "Uber ZA",
 	},
 	yveltal: {
-		tier: "FE ZA",
+		tier: "Uber ZA",
 	},
 	zygarde: {
 		tier: "Uber ZA",
