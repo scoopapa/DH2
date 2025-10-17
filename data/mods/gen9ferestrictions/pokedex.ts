@@ -1,4 +1,4 @@
-export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 
 // Template
 	/*
