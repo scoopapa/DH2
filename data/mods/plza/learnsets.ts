@@ -1,5 +1,6 @@
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
-  bulbasaur: {
+	// commenting out every mon in gen 9, their new moves are in scripts.ts
+	/* bulbasaur: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -363,7 +364,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L1"],
 			flipturn: ["9L1"],
 		},
-	},
+	}, */
 	weedle: {
 		learnset: {
 			inherit: true,
@@ -503,7 +504,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			gigaimpact: ["9L1"],
 		},
 	},
-	ekans: {
+	/* ekans: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -576,7 +577,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			hyperbeam: ["9L1"],
 			doubleedge: ["9L1"],
 		},
-	},
+	}, 
 	pikachu: {
 		learnset: {
 			inherit: true,
@@ -803,7 +804,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			psyshock: ["9L1"],
 			workup: ["9L1"],
 		},
-	},
+	}, */
 	abra: {
 		learnset: {
 			inherit: true,
@@ -1018,7 +1019,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L1"],
 		},
 	},
-	bellsprout: {
+	/* bellsprout: {
 		learnset: {
 			inherit: true,
 			vinewhip: ["9L1"],
@@ -1112,7 +1113,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			hyperbeam: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
-	},
+	}, 
 	slowpoke: {
 		learnset: {
 			inherit: true,
@@ -1418,7 +1419,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			gunkshot: ["9L1"],
 			dazzlinggleam: ["9L1"],
 		},
-	},
+	}, */
 	onix: {
 		learnset: {
 			inherit: true,
@@ -1584,7 +1585,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			flipturn: ["9L1"],
 		},
 	},
-	scyther: {
+	/* scyther: {
 		learnset: {
 			inherit: true,
 			leer: ["9L1"],
@@ -1615,7 +1616,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			nightslash: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
-	},
+	}, */
 	pinsir: {
 		learnset: {
 			inherit: true,
@@ -1649,7 +1650,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stealthrock: ["9L1"],
 		},
 	},
-	magikarp: {
+	/* magikarp: {
 		learnset: {
 			inherit: true,
 			splash: ["9L1"],
@@ -1858,7 +1859,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			calmmind: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
-	},
+	}, */
 	aerodactyl: {
 		learnset: {
 			inherit: true,
@@ -1899,7 +1900,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			hurricane: ["9L1"],
 		},
 	},
-	dratini: {
+	/* dratini: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -2789,7 +2790,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			psyshock: ["9L1"],
 			liquidation: ["9L1"],
 		},
-	},
+	}, */
 	steelix: {
 		learnset: {
 			inherit: true,
@@ -2832,7 +2833,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			ironhead: ["9L1"],
 		},
 	},
-	scizor: {
+	/* scizor: {
 		learnset: {
 			inherit: true,
 			bulletpunch: ["9L1"],
@@ -3374,7 +3375,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			nastyplot: ["9L1"],
 			dazzlinggleam: ["9L1"],
 		},
-	},
+	}, */
 	mawile: {
 		learnset: {
 			inherit: true,
@@ -3545,7 +3546,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			bulldoze: ["9L1"],
 		},
 	},
-	meditite: {
+	/* meditite: {
 		learnset: {
 			inherit: true,
 			confusion: ["9L1"],
@@ -3627,7 +3628,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			psyshock: ["9L1"],
 			poweruppunch: ["9L1"],
 		},
-	},
+	}, */
 	electrike: {
 		learnset: {
 			inherit: true,
@@ -3809,7 +3810,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L1"],
 		},
 	},
-	numel: {
+/*	numel: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -4041,7 +4042,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L1"],
 			dazzlinggleam: ["9L1"],
 		},
-	},
+	}, */
 	absol: {
 		learnset: {
 			inherit: true,
@@ -4088,7 +4089,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			playrough: ["9L1"],
 		},
 	},
-	snorunt: {
+	/* snorunt: {
 		learnset: {
 			inherit: true,
 			headbutt: ["9L1"],
@@ -4357,7 +4358,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			psyshock: ["9L1"],
 			poweruppunch: ["9L1"],
 		},
-	},
+	}, */
 	budew: {
 		learnset: {
 			inherit: true,
@@ -4497,7 +4498,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			playrough: ["9L1"],
 		},
 	},
-	gible: {
+	/* gible: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -5148,7 +5149,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L1"],
 			wildcharge: ["9L1"],
 		},
-	},
+	}, */
 	patrat: {
 		learnset: {
 			inherit: true,
@@ -5459,7 +5460,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			flipturn: ["9L1"],
 		},
 	},
-	drilbur: {
+	/* drilbur: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -5525,7 +5526,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			ironhead: ["9L1"],
 			stealthrock: ["9L1"],
 		},
-	},
+	}, */
 	audino: {
 		learnset: {
 			inherit: true,
@@ -5659,7 +5660,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			gunkshot: ["9L1"],
 		},
 	},
-	sandile: {
+	/* sandile: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -5865,7 +5866,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stoneedge: ["9L1"],
 			workup: ["9L1"],
 		},
-	},
+	}, */
 	trubbish: {
 		learnset: {
 			inherit: true,
@@ -6037,7 +6038,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9L1"],
 		},
 	},
-	tynamo: {
+	/* tynamo: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -6217,7 +6218,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			energyball: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
-	},
+	}, */
 	stunfisk: {
 		learnset: {
 			inherit: true,
@@ -6284,7 +6285,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			bulldoze: ["9L1"],
 		},
 	},
-	chespin: {
+	/* chespin: {
 		learnset: {
 			inherit: true,
 			vinewhip: ["9L1"],
@@ -6692,7 +6693,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			liquidation: ["9L1"],
 			flipturn: ["9L1"],
 		},
-	},
+	}, */
 	bunnelby: {
 		learnset: {
 			inherit: true,
@@ -6770,7 +6771,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9L1"],
 		},
 	},
-	fletchling: {
+	/* fletchling: {
 		learnset: {
 			inherit: true,
 			growl: ["9L1"],
@@ -7057,7 +7058,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			calmmind: ["9L1"],
 			dazzlinggleam: ["9L1"],
 		},
-	},
+	}, */
 	floetteeternal: {
 		learnset: {
 			inherit: true,
@@ -7089,7 +7090,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			dazzlinggleam: ["9L1"],
 		},
 	},
-	florges: {
+	/* florges: {
 		learnset: {
 			inherit: true,
 			disarmingvoice: ["9L1"],
@@ -7199,7 +7200,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9L1"],
 			playrough: ["9L1"],
 		},
-	},
+	}, */
 	pancham: {
 		learnset: {
 			inherit: true,
@@ -7321,7 +7322,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9L1"],
 		},
 	},
-	espurr: {
+	/* espurr: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -7428,7 +7429,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L1"],
 			playrough: ["9L1"],
 		},
-	},
+	}, */
 	honedge: {
 		learnset: {
 			inherit: true,
@@ -7634,7 +7635,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			dazzlinggleam: ["9L1"],
 		},
 	},
-	inkay: {
+	/* inkay: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -7708,7 +7709,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stealthrock: ["9L1"],
 			liquidation: ["9L1"],
 		},
-	},
+	}, */
 	binacle: {
 		learnset: {
 			inherit: true,
@@ -7793,7 +7794,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			poweruppunch: ["9L1"],
 		},
 	},
-	skrelp: {
+	/* skrelp: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -7920,7 +7921,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			liquidation: ["9L1"],
 			flipturn: ["9L1"],
 		},
-	},
+	}, */
 	helioptile: {
 		learnset: {
 			inherit: true,
@@ -8162,7 +8163,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			bulldoze: ["9L1"],
 		},
 	},
-	sylveon: {
+	/* sylveon: {
 		learnset: {
 			inherit: true,
 			takedown: ["9L1"],
@@ -8589,7 +8590,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			energyball: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
-	},
+	}, */
 	pumpkaboo: {
 		learnset: {
 			inherit: true,
@@ -8667,7 +8668,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			shadowclaw: ["9L1"],
 		},
 	},
-	bergmite: {
+	/* bergmite: {
 		learnset: {
 			inherit: true,
 			harden: ["9L1"],
@@ -8852,7 +8853,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			dracometeor: ["9L1"],
 			wildcharge: ["9L1"],
 		},
-	},
+	}, */
 	xerneas: {
 		learnset: {
 			inherit: true,
@@ -9001,7 +9002,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stoneedge: ["9L1"],
 		},
 	},
-	diancie: {
+	/* diancie: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -9164,7 +9165,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9L1"],
 			liquidation: ["9L1"],
 		},
-	},
+	}, */
 	drampa: {
 		learnset: {
 			inherit: true,
@@ -9215,7 +9216,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			playrough: ["9L1"],
 		},
 	},
-	falinks: {
+	/* falinks: {
 		learnset: {
 			inherit: true,
 			tackle: ["9L1"],
@@ -9244,5 +9245,5 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			gigaimpact: ["9L1"],
 			zenheadbutt: ["9L1"],
 		},
-	},
+	}, */
 };
