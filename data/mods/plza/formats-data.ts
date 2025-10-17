@@ -36,7 +36,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	blastoisemega: {
-		tier: "FE ZA",
+		tier: "Uber ZA",
 	},
 	weedle: {
 		tier: "LC ZA",
