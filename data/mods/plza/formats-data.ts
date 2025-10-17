@@ -123,7 +123,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "LC ZA",
 	},
 	slowpokegalar: {
-		tier: "LC ZA",
+		tier: "Transfer",
 	},
 	slowbro: {
 		tier: "FE ZA",
@@ -132,7 +132,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	slowbrogalar: {
-		tier: "FE ZA",
+		tier: "Transfer",
 	},
 	gastly: {
 		tier: "LC ZA",
@@ -279,7 +279,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	slowkinggalar: {
-		tier: "FE ZA",
+		tier: "Transfer",
 	},
 	steelix: {
 		tier: "FE ZA",
@@ -657,7 +657,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	stunfiskgalar: {
-		tier: "FE ZA",
+		tier: "Transfer",
 	},
 	chespin: {
 		tier: "LC ZA",
@@ -860,7 +860,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	sliggoo: {
 		tier: "NFE ZA",
 	},
-	sliggohisui: {
+	sliggoohisui: {
 		tier: "Transfer",
 	},
 	goodra: {
