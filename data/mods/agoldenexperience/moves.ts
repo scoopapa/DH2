@@ -1954,7 +1954,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Rock",
+		type: "Steel",
 	},
 	awakening: {
 		num: -47,

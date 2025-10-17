@@ -73,13 +73,19 @@ export const Scripts: ModdedBattleScriptsData = {
   },
   actions: {
     canMegaEvo(pokemon) {
+      const species = pokemon.baseSpecies;
       const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
       const item = pokemon.getItem();
-      if (
+      // Mega Rayquaza
+      if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past') ||
+        this.battle.ruleTable.has('+pokemontag:future')) &&
         altForme?.isMega && altForme?.requiredMove &&
-        pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
-      ) {
+        pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
         return altForme.name;
+      }
+      // Temporary hardcode until generation shift
+      if ((species.baseSpecies === "Floette" || species.baseSpecies === "Zygarde") && item.megaEvolves === species.name) {
+        return item.megaStone;
       }
       if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro") {
         return "Slowbro-Mega";
@@ -106,6 +112,9 @@ export const Scripts: ModdedBattleScriptsData = {
         return null;
       }
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
+        return null;
+      }
+      else if (item.name === "Emboarite" && pokemon.baseSpecies.name === "Emboar-Galar") {
         return null;
       }
       else if (item.name === "Cramorantite" && pokemon.baseSpecies.name === "Cramorant-Gulping") {
@@ -353,6 +362,29 @@ export const Scripts: ModdedBattleScriptsData = {
 
 
   init() {
+
+    // ZA stuff
+    this.modData('Learnsets', 'clefable').learnset.airslash = ['9L1'];
+    this.modData('Learnsets', 'clefable').learnset.sonicboom = ['9L1']; // AGE addition
+    this.modData('Learnsets', 'starmie').learnset.bulkup = ['9L1'];
+    this.modData('Learnsets', 'starmie').learnset.zenheadbutt = ['9L1'];
+    this.modData('Learnsets', 'meganium').learnset.dazzlinggleam = ['9L1'];
+    this.modData('Learnsets', 'meganium').learnset.alluringvoice = ['9L1'];
+    this.modData('Learnsets', 'meganium').learnset.disarmingvoice = ['9L1'];
+    this.modData('Learnsets', 'meganium').learnset.moonblast = ['9L1']; // AGE addition
+    this.modData('Learnsets', 'meganium').learnset.quiverdance = ['9L1']; // AGE addition
+    this.modData('Learnsets', 'froslass').learnset.nastyplot = ['9L1'];
+    this.modData('Learnsets', 'greninja').learnset.psyshock = ['9L1'];
+    this.modData('Learnsets', 'greninja').learnset.flipturn = ['9L1'];
+    this.modData('Learnsets', 'greninja').learnset.nastyplot = ['9L1'];
+    this.modData('Learnsets', 'pyroar').learnset.earthpower = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.bulkup = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.stealthrock = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.zenheadbutt = ['9L1'];
+    this.modData('Learnsets', 'malamar').learnset.recover = ['9L1']; // AGE addition
+    this.modData('Learnsets', 'barbaracle').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'hawlucha').learnset.bodypress = ['9L1']; // AGE addition
 
     // magicmissile 
     this.modData('Learnsets', 'rayquaza').learnset.magicmissile = ['9L1'];
@@ -1216,9 +1248,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'taurospaldeablaze').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'weezinggalar').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'seaking').learnset.dragondance = ['9L1'];
-    this.modData('Learnsets', 'starmie').learnset.calmmind = ['9L1'];
-    this.modData('Learnsets', 'starmie').learnset.futuresight = ['9L1'];
-    this.modData('Learnsets', 'starmie').learnset.storedpower = ['9L1'];
     this.modData('Learnsets', 'pinsir').learnset.megahorn = ['9L1'];
     this.modData('Learnsets', 'eevee').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'eevee').learnset.uturn = ['9L1'];
@@ -1244,15 +1273,10 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mew').learnset.genesiswave = ['9L1'];
 
     // Gen 2:
-    this.modData('Learnsets', 'meganium').learnset.playrough = ['9L1'];
-    this.modData('Learnsets', 'meganium').learnset.dazzlinggleam = ['9L1'];
-    this.modData('Learnsets', 'meganium').learnset.dragondance = ['9L1'];
-    this.modData('Learnsets', 'meganium').learnset.rockslide = ['9L1'];
     this.modData('Learnsets', 'typhlosion').learnset.gravity = ['9L1'];
     this.modData('Learnsets', 'typhlosion').learnset.morningsun = ['9L1'];
     this.modData('Learnsets', 'typhlosion').learnset.earthpower = ['9L1'];
     this.modData('Learnsets', 'typhlosionhisui').learnset.moonlight = ['9L1'];
-    this.modData('Learnsets', 'feraligatr').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'furret').learnset.taunt = ['9M'];
     this.modData('Learnsets', 'noctowl').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'noctowl').learnset.magisterialwind = ['9L1'];
@@ -1640,9 +1664,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'galvantula').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'ferrothorn').learnset.spikyshield = ['9L1'];
     this.modData('Learnsets', 'klinklang').learnset.rockslide = ['9L1'];
-    this.modData('Learnsets', 'eelektross').learnset.scald = ['9L1'];
     this.modData('Learnsets', 'beheeyem').learnset.focusblast = ['9L1'];
-    this.modData('Learnsets', 'chandelure').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'beartic').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'accelgor').learnset.taunt = ['9L1'];
     this.modData('Learnsets', 'stunfiskgalar').learnset.leechlife = ['9L1'];
@@ -1666,7 +1688,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'delphox').learnset.speedswap = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.teleport = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.magicpowder = ['9L1'];
-    this.modData('Learnsets', 'pyroar').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'pyroar').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'floetteeternal').learnset.revivalblessing = ['9L1'];
     this.modData('Learnsets', 'floetteeternal').learnset.willowisp = ['9L1'];
