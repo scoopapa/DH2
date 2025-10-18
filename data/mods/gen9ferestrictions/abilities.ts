@@ -144,13 +144,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	tripwire: {
-		shortDesc: "If this Pokemon flinches: +1 Speed, opposing grounded Pokemon is now trapped.",
-		onFlinch(attacker, defender) {
+		shortDesc: "(Non-functional placeholder) If this Pokemon flinches: +1 Speed, opposing grounded Pokemon is now trapped.",
+		/* onFlinch(attacker, defender) {
 			this.boost({spe: 1}, defender, defender);
 			if (attacker.isGrounded()) {
 				this.actions.useMove("Block", defender);
 			}
-		},
+		}, */
 		flags: {},
 		name: "Tripwire",
 		rating: 3,
