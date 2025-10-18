@@ -2510,14 +2510,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
-	ragefist: {
-		inherit: true,
-		basePowerCallback(pokemon) {
-			return Math.min(100, 50 + 50 * pokemon.timesAttacked);
-		},
-		shortDesc: "+50 power for each time user was hit. Max 100 BP.",
-		desc: "Power increases by 50 for each time the user was hit this turn. Max 100 BP.",
-	},
 	gigatonhammer: {
 		inherit: true,
 		shortDesc: "Cannot be used twice in a row. Super effective on Steel targets.",

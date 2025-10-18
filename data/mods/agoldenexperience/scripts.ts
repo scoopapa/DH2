@@ -1918,10 +1918,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'slitherwing').learnset.flamethrower = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.hurricane = ['9L1'];
-    this.modData('Learnsets', 'ironbundle').learnset.defog = ['9L1'];
-    this.modData('Learnsets', 'ironbundle').learnset.spikes = ['9L1'];
-    this.modData('Learnsets', 'ironbundle').learnset.surf = ['9L1'];
-    delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.overheat = ['9L1'];

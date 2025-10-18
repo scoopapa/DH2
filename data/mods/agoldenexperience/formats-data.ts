@@ -2081,7 +2081,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	deoxys: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	deoxysattack: {
@@ -4943,7 +4943,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	ironbundle: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	ironvaliant: {
@@ -5022,8 +5022,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	annihilape: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	walkingwake: {
 		tier: "Uber",
