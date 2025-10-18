@@ -6269,7 +6269,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Mega Data Mod'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Alakazite', 'Gengarite', 'Salamencite', 'Metagrossite', 'Lucarionite', 'Power Construct',
+			'Alakazite', 'Blastoisinite', 'Gengarite', 'Salamencite', 'Metagrossite', 'Lucarionite', 'Power Construct',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

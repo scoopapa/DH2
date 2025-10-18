@@ -36,7 +36,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	blastoisemega: {
-		tier: "FE ZA",
+		tier: "Uber ZA",
 	},
 	weedle: {
 		tier: "LC ZA",
@@ -881,7 +881,25 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	pumpkaboo: {
 		tier: "LC ZA",
 	},
+	pumpkaboosmall: {
+		tier: "LC ZA",
+	},
+	pumpkaboolarge: {
+		tier: "LC ZA",
+	},
+	pumpkaboosuper: {
+		tier: "LC ZA",
+	},
 	gourgeist: {
+		tier: "FE ZA",
+	},
+	gourgeistsmall: {
+		tier: "FE ZA",
+	},
+	gourgeistlarge: {
+		tier: "FE ZA",
+	},
+	gourgeistsuper: {
 		tier: "FE ZA",
 	},
 	bergmite: {
