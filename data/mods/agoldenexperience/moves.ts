@@ -2343,7 +2343,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	enragedtext: {
+	/*enragedtext: {
 		num: -58,
 		accuracy: 100,
 		basePower: 90,
@@ -2362,7 +2362,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
-	},
+	},*/
 	shattering: {
 		num: -59,
 		accuracy: 100,
@@ -2509,14 +2509,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -2,
 			},
 		},
-	},
-	ragefist: {
-		inherit: true,
-		basePowerCallback(pokemon) {
-			return Math.min(100, 50 + 50 * pokemon.timesAttacked);
-		},
-		shortDesc: "+50 power for each time user was hit. Max 100 BP.",
-		desc: "Power increases by 50 for each time the user was hit this turn. Max 100 BP.",
 	},
 	gigatonhammer: {
 		inherit: true,

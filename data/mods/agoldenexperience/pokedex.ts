@@ -1502,7 +1502,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	deoxys: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
 		abilities: {0: "Pressure", H: "Cosmic Energy"},
 	},
 	deoxysattack: {
