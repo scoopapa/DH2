@@ -14,10 +14,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init() {
 		for (const i in this.data.Items) {
-			if (!this.data.Items[i].megaStone) continue;
+			const item = this.data.Items[i];
+			if (!item.megaStone && !item.onDrive && !(item.onPlate && !item.zMove) && !item.onMemory) continue;
 			this.modData('Items', i).onTakeItem = false;
-			const id = this.toID(this.data.Items[i].megaStone);
-			this.modData('FormatsData', id).isNonstandard = null;
+			if (item.isNonstandard === "Past") this.modData('Items', i).isNonstandard = null;
+			if (item.megaStone) {
+				this.modData('FormatsData', this.toID(item.megaStone)).isNonstandard = null;
+			}
 		}
 		this.modData("Learnsets", "lucario").learnset.meteormash = ["6L1"];
 		this.modData("Learnsets", "lucario").learnset.machpunch = ["6L1"];
