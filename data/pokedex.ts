@@ -12227,7 +12227,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 74, atk: 65, def: 67, spa: 125, spd: 128, spe: 92},
 		abilities: {0: "Flower Veil", H: "Symbiosis"},
 		heightm: 0.2,
-		weightkg: 0.
+		weightkg: 0.9,
 		color: "White",
 		eggGroups: ["Undiscovered"],
 	},
