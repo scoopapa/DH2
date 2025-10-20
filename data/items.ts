@@ -1061,6 +1061,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 1882,
 		gen: 9,
 	},
+	clefablite: {
+		name: "Clefablite",
+		spritenum: 0,
+		megaStone: "Clefable-Mega",
+		megaEvolves: "Clefable",
+		itemUser: ["Clefable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2559,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	cloversweet: {
 		name: "Clover Sweet",
 		spritenum: 707,
