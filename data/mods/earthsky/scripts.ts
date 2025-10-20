@@ -2737,9 +2737,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Wide-spread changes */
 		const esrules = this.formats.getRuleTable(this.formats.get('gen9earthskyhorizonsou'));
 		//const dex = Dex.mod('gen9eshorizons');
-		console.log(this.species);
-		console.log(this.species.all());
 		for (let pokemon of this.species.all()) {
+			console.log(pokemon);
 			const pokemonID = this.toID(pokemon.name);
 			const learnsetTest = false;//["dedenne"].includes(pokemonID);
 			const formatsTest = false;//["basculin", "basculinbluestriped", "basculinwhitestriped"].includes(pokemonID);
