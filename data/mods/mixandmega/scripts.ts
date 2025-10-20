@@ -7,7 +7,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData('Items', i).onTakeItem = false;
 			if (item.isNonstandard === "Past") this.modData('Items', i).isNonstandard = null;
 			if (item.megaStone) {
-				console.log(item.megaStone, this.modData('FormatsData', this.toID(item.megaStone)).isNonstandard);
 				this.modData('FormatsData', this.toID(item.megaStone)).isNonstandard = null;
 			}
 		}
