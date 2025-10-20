@@ -998,10 +998,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
-		otherFormes: ["Clefable-Mega"],
-		formeOrder: ["Clefable", "Clefable-Mega"],
+		//otherFormes: ["Clefable-Mega"],
+		//formeOrder: ["Clefable", "Clefable-Mega"],
 	},
-	clefablemega: {
+	/*clefablemega: {
 		num: 36,
 		name: "Clefable-Mega",
 		baseSpecies: "Clefable",
@@ -1016,7 +1016,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Clefablite",
 		gen: 9,
-	},
+	},*/
 	vulpix: {
 		num: 37,
 		name: "Vulpix",
@@ -1683,10 +1683,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
-		otherFormes: ["Victreebel-Mega"],
-		formeOrder: ["Victreebel", "Victreebel-Mega"],
+		//otherFormes: ["Victreebel-Mega"],
+		//formeOrder: ["Victreebel", "Victreebel-Mega"],
 	},
-	victreebelmega: {
+	/*victreebelmega: {
 		num: 71,
 		name: "Victreebel-Mega",
 		baseSpecies: "Victreebel",
@@ -1700,7 +1700,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Grass"],
 		requiredItem: "Victreebelite",
 		gen: 9,
-	},
+	},*/
 	tentacool: {
 		num: 72,
 		name: "Tentacool",
