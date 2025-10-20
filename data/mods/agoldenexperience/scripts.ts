@@ -123,6 +123,9 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Cramorantite" && pokemon.baseSpecies.name === "Cramorant-Gorging") {
         return "Cramorant-Gorging-Mega";
       }
+      else if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
+        return "Toxtricity-Low-Key-Mega";
+      }
       return item.megaStone;
     },
 
@@ -1360,6 +1363,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wailord').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'wailord').learnset.superpower = ['9L1'];
     this.modData('Learnsets', 'wailord').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'camerupt').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'grumpig').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.earthquake = ['9L1'];
@@ -1825,7 +1829,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'cramorant').learnset.thunderwave = ['9L1'];
     this.modData('Learnsets', 'cramorant').learnset.supercellslam = ['9L1'];
     this.modData('Learnsets', 'toxtricity').learnset.sonicboom = ['9L1'];
+    this.modData('Learnsets', 'toxtricity').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'toxtricitylowkey').learnset.sonicboom = ['9L1'];
+    this.modData('Learnsets', 'toxtricitylowkey').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'centiskorch').learnset.tailslap = ['9L1'];
     this.modData('Learnsets', 'centiskorch').learnset.firstimpression = ['9L1'];
     this.modData('Learnsets', 'centiskorch').learnset.superfang = ['9L1'];
@@ -1919,7 +1925,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'slitherwing').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
-    this.modData('Learnsets', 'ironjugulis').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.overheat = ['9L1'];
     this.modData('Learnsets', 'ironthorns').learnset.shiftgear = ['9L1'];
     this.modData('Learnsets', 'wochien').learnset.synthesis = ['9L1'];

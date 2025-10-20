@@ -1769,7 +1769,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	cameruptmega: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	torkoal: {
@@ -4306,6 +4306,14 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "DUU",
 	},
+	toxtricitymega: {
+		tier: "OU",
+		doublesTier: "DUU",
+	},
+	toxtricitylowkeymega: {
+		tier: "OU",
+		doublesTier: "DUU",
+	},
 	toxtricitygmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -4874,6 +4882,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	brambleghast: {
 		tier: "PU",
+		doublesTier: "DUU",
+	},
+	brambleghastmega: {
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	gimmighoul: {
