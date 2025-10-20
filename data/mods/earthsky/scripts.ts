@@ -2745,7 +2745,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			 //Don't do anything with new or deleted Pokemon
 			if(pokemon === null || pokemon.num < -500 || 
 				(pokemon.forme && (["Egelas", "Sartori", "Hassrim", "Mega-Statue"].includes(pokemon.forme) || ["tynamoschool", "indeedeehassrimf"].includes(pokemonID) ||
-				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", /*"Froslass",*/ "Druddigon"].includes(pokemon.baseSpecies)))))
+				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", "Froslass", "Druddigon"].includes(pokemon.baseSpecies)))))
 			continue;
 			//Change generational accessibility
 			if(this.modData('FormatsData', pokemonID)) {

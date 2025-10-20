@@ -12213,9 +12213,12 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 19,
 		evos: ["Florges"],
 		eggGroups: ["Fairy"],
-		otherFormes: ["Floette-Eternal", "Floette-Mega"],
+		/*otherFormes: ["Floette-Eternal", "Floette-Mega"],
 		cosmeticFormes: ["Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow"],
-		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Mega"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Mega"],*/
+		otherFormes: ["Floette-Eternal"],
+		cosmeticFormes: ["Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal"],
 	},
 	floetteeternal: {
 		num: 670,
@@ -12231,7 +12234,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 	},
-	floettemega: {
+	/*floettemega: {
 		num: 670,
 		name: "Floette-Mega",
 		baseSpecies: "Floette",
@@ -12247,7 +12250,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredItem: "Floettite",
 		battleOnly: "Floette-Eternal",
 		gen: 9,
-	},
+	},*/
 	florges: {
 		num: 671,
 		name: "Florges",
@@ -13150,9 +13153,12 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Zygarde-10%", "Zygarde-Complete", "Zygarde-Mega"],
+		/*otherFormes: ["Zygarde-10%", "Zygarde-Complete", "Zygarde-Mega"],
 		// forme 2 = 10% with Power Constructor ,forme 3 = 50% with Power Construct
-		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete", "Zygarde-Mega"],
+		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete", "Zygarde-Mega"],*/
+		otherFormes: ["Zygarde-10%", "Zygarde-Complete"],
+		// forme 2 = 10% with Power Constructor ,forme 3 = 50% with Power Construct
+		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete"],
 	},
 	zygarde10: {
 		num: 718,
@@ -13187,7 +13193,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		battleOnly: ["Zygarde", "Zygarde-10%"],
 		gen: 7,
 	},
-	zygardemega: {
+	/*zygardemega: {
 		num: 718,
 		name: "Zygarde-Mega",
 		baseSpecies: "Zygarde",
@@ -13203,7 +13209,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredItem: "Zygardite",
 		battleOnly: "Zygarde-Complete",
 		gen: 9,
-	},
+	},*/
 	diancie: {
 		num: 719,
 		name: "Diancie",
