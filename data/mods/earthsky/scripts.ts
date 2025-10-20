@@ -2737,7 +2737,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Wide-spread changes */
 		const esrules = this.formats.getRuleTable(this.formats.get('gen9earthskyhorizonsou'));
 		//const dex = Dex.mod('gen9eshorizons');
-		console.log(this.species);
 		for (let pokemon of this.species.all()) {
 			const pokemonID = this.toID(pokemon.name);
 			const learnsetTest = false;//["dedenne"].includes(pokemonID);
@@ -2746,7 +2745,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			 //Don't do anything with new or deleted Pokemon
 			if(pokemon === null || pokemon.num < -500 || 
 				(pokemon.forme && (["Egelas", "Sartori", "Hassrim", "Mega-Statue"].includes(pokemon.forme) || ["tynamoschool", "indeedeehassrimf"].includes(pokemonID) ||
-				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", "Froslass", "Druddigon"].includes(pokemon.baseSpecies)))))
+				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", /*"Froslass",*/ "Druddigon"].includes(pokemon.baseSpecies)))))
 			continue;
 			//Change generational accessibility
 			if(this.modData('FormatsData', pokemonID)) {
