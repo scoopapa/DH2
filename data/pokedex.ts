@@ -2696,10 +2696,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
-		otherFormes: ["Starmie-Mega"],
-		formeOrder: ["Starmie", "Starmie-Mega"],
+		//otherFormes: ["Starmie-Mega"],
+		//formeOrder: ["Starmie", "Starmie-Mega"],
 	},
-	starmiemega: {
+	/*starmiemega: {
 		num: 121,
 		name: "Starmie-Mega",
 		baseSpecies: "Starmie",
@@ -2714,7 +2714,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 3"],
 		requiredItem: "Starminite",
 		gen: 9,
-	},
+	},*/
 	mrmime: {
 		num: 122,
 		name: "Mr. Mime",
@@ -3311,10 +3311,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Dragonair",
 		evoLevel: 55,
 		eggGroups: ["Water 1", "Dragon"],
-		otherFormes: ["Dragonite-Mega"],
-		formeOrder: ["Dragonite", "Dragonite-Mega"],
+		//otherFormes: ["Dragonite-Mega"],
+		//formeOrder: ["Dragonite", "Dragonite-Mega"],
 	},
-	dragonitemega: {
+	/*dragonitemega: {
 		num: 149,
 		name: "Dragonite-Mega",
 		baseSpecies: "Dragonite",
@@ -3328,7 +3328,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1", "Dragon"],
 		requiredItem: "Dragoninite",
 		gen: 9,
-	},
+	},*/
 	mewtwo: {
 		num: 150,
 		name: "Mewtwo",
@@ -3428,10 +3428,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Bayleef",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
-		otherFormes: ["Meganium-Mega"],
-		formeOrder: ["Meganium", "Meganium-Mega"],
+		//otherFormes: ["Meganium-Mega"],
+		//formeOrder: ["Meganium", "Meganium-Mega"],
 	},
-	meganiummega: {
+	/*meganiummega: {
 		num: 154,
 		name: "Meganium-Mega",
 		baseSpecies: "Meganium",
@@ -3446,7 +3446,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Meganiumite",
 		gen: 9,
-	},
+	},*/
 	cyndaquil: {
 		num: 155,
 		name: "Cyndaquil",
@@ -3548,10 +3548,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Croconaw",
 		evoLevel: 30,
 		eggGroups: ["Monster", "Water 1"],
-		otherFormes: ["Feraligatr-Mega"],
-		formeOrder: ["Feraligatr", "Feraligatr-Mega"],
+		//otherFormes: ["Feraligatr-Mega"],
+		//formeOrder: ["Feraligatr", "Feraligatr-Mega"],
 	},
-	feraligatrmega: {
+	/*feraligatrmega: {
 		num: 160,
 		name: "Feraligatr-Mega",
 		baseSpecies: "Feraligatr",
@@ -3566,7 +3566,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Feraligite",
 		gen: 9,
-	},
+	},*/
 	sentret: {
 		num: 161,
 		name: "Sentret",
@@ -4595,10 +4595,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 50.5,
 		color: "Gray",
 		eggGroups: ["Flying"],
-		otherFormes: ["Skarmory-Mega"],
-		formeOrder: ["Skarmory", "Skarmory-Mega"],
+		//otherFormes: ["Skarmory-Mega"],
+		//formeOrder: ["Skarmory", "Skarmory-Mega"],
 	},
-	skarmorymega: {
+	/*skarmorymega: {
 		num: 227,
 		name: "Skarmory-Mega",
 		baseSpecies: "Skarmory",
@@ -4612,7 +4612,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Flying"],
 		requiredItem: "Skarmorite",
 		gen: 9,
-	},
+	},*/
 	houndour: {
 		num: 228,
 		name: "Houndour",
@@ -8558,10 +8558,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy", "Mineral"],
-		otherFormes: ["Froslass-Mega"],
-		formeOrder: ["Froslass", "Froslass-Mega"],
+		//otherFormes: ["Froslass-Mega"],
+		//formeOrder: ["Froslass", "Froslass-Mega"],
 	},
-	froslassmega: {
+	/*froslassmega: {
 		num: 478,
 		name: "Froslass-Mega",
 		baseSpecies: "Froslass",
@@ -8576,7 +8576,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Froslassite",
 		gen: 9,
-	},
+	},*/
 	rotom: {
 		num: 479,
 		name: "Rotom",
@@ -9297,10 +9297,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Pignite",
 		evoLevel: 36,
 		eggGroups: ["Field"],
-		otherFormes: ["Emboar-Mega"],
-		formeOrder: ["Emboar", "Emboar-Mega"],
+		//otherFormes: ["Emboar-Mega"],
+		//formeOrder: ["Emboar", "Emboar-Mega"],
 	},
-	emboarmega: {
+	/*emboarmega: {
 		num: 500,
 		name: "Emboar-Mega",
 		baseSpecies: "Emboar",
@@ -9315,7 +9315,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Emboarite",
 		gen: 9,
-	},
+	},*/
 	oshawott: {
 		num: 501,
 		name: "Oshawott",
@@ -9727,10 +9727,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Drilbur",
 		evoLevel: 31,
 		eggGroups: ["Field"],
-		otherFormes: ["Excadrill-Mega"],
-		formeOrder: ["Excadrill", "Excadrill-Mega"],
+		//otherFormes: ["Excadrill-Mega"],
+		//formeOrder: ["Excadrill", "Excadrill-Mega"],
 	},
-	excadrillmega: {
+	/*excadrillmega: {
 		num: 530,
 		name: "Excadrill-Mega",
 		baseSpecies: "Excadrill",
@@ -9744,7 +9744,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Excadrite",
 		gen: 9,
-	},
+	},*/
 	audino: {
 		num: 531,
 		name: "Audino",
@@ -10276,10 +10276,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Scraggy",
 		evoLevel: 39,
 		eggGroups: ["Field", "Dragon"],
-		otherFormes: ["Scrafty-Mega"],
-		formeOrder: ["Scrafty", "Scrafty-Mega"],
+		//otherFormes: ["Scrafty-Mega"],
+		//formeOrder: ["Scrafty", "Scrafty-Mega"],
 	},
-	scraftymega: {
+	/*scraftymega: {
 		num: 560,
 		name: "Scrafty-Mega",
 		baseSpecies: "Scrafty",
@@ -10293,7 +10293,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field", "Dragon"],
 		requiredItem: "Scraftinite",
 		gen: 9,
-	},
+	},*/
 	sigilyph: {
 		num: 561,
 		name: "Sigilyph",
@@ -10935,10 +10935,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Amorphous"],
-		otherFormes: ["Eelektross-Mega"],
-		formeOrder: ["Eelektross", "Eelektross-Mega"],
+		//otherFormes: ["Eelektross-Mega"],
+		//formeOrder: ["Eelektross", "Eelektross-Mega"],
 	},
-	eelektrossmega: {
+	/*eelektrossmega: {
 		num: 604,
 		name: "Eelektross-Mega",
 		baseSpecies: "Eelektross",
@@ -10952,7 +10952,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Eelektrossite",
 		gen: 9,
-	},
+	},*/
 	elgyem: {
 		num: 605,
 		name: "Elgyem",
@@ -11017,10 +11017,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
-		otherFormes: ["Chandelure-Mega"],
-		formeOrder: ["Chandelure", "Chandelure-Mega"],
+		//otherFormes: ["Chandelure-Mega"],
+		//formeOrder: ["Chandelure", "Chandelure-Mega"],
 	},
-	chandeluremega: {
+	/*chandeluremega: {
 		num: 609,
 		name: "Chandelure-Mega",
 		baseSpecies: "Chandelure",
@@ -11034,7 +11034,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Chandelurite",
 		gen: 9,
-	},
+	},*/
 	axew: {
 		num: 610,
 		name: "Axew",
@@ -11808,10 +11808,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Quilladin",
 		evoLevel: 36,
 		eggGroups: ["Field"],
-		otherFormes: ["Chesnaught-Mega"],
-		formeOrder: ["Chesnaught", "Chesnaught-Mega"],
+		//otherFormes: ["Chesnaught-Mega"],
+		//formeOrder: ["Chesnaught", "Chesnaught-Mega"],
 	},
-	chesnaughtmega: {
+	/*chesnaughtmega: {
 		num: 652,
 		name: "Chesnaught-Mega",
 		baseSpecies: "Chesnaught",
@@ -11826,7 +11826,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Chesnaughtite",
 		gen: 9,
-	},
+	},*/
 	fennekin: {
 		num: 653,
 		name: "Fennekin",
@@ -11868,10 +11868,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Braixen",
 		evoLevel: 36,
 		eggGroups: ["Field"],
-		otherFormes: ["Delphox-Mega"],
-		formeOrder: ["Delphox", "Delphox-Mega"],
+		//otherFormes: ["Delphox-Mega"],
+		//formeOrder: ["Delphox", "Delphox-Mega"],
 	},
-	delphoxmega: {
+	/*delphoxmega: {
 		num: 655,
 		name: "Delphox-Mega",
 		baseSpecies: "Delphox",
@@ -11886,7 +11886,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Delphoxite",
 		gen: 9,
-	},
+	},*/
 	froakie: {
 		num: 656,
 		name: "Froakie",
@@ -11928,8 +11928,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Frogadier",
 		evoLevel: 36,
 		eggGroups: ["Water 1"],
-		otherFormes: ["Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
-		formeOrder: ["Greninja", "Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
+		//otherFormes: ["Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
+		//formeOrder: ["Greninja", "Greninja-Bond", "Greninja-Ash", "Greninja-Mega"],
+		otherFormes: ["Greninja-Bond", "Greninja-Ash"],
+		formeOrder: ["Greninja", "Greninja-Bond", "Greninja-Ash"],
 	},
 	greninjabond: {
 		num: 658,
@@ -11963,7 +11965,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		battleOnly: "Greninja-Bond",
 		gen: 7,
 	},
-	greninjamega: {
+	/*greninjamega: {
 		num: 658,
 		name: "Greninja-Mega",
 		baseSpecies: "Greninja",
@@ -11978,7 +11980,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1"],
 		requiredItem: "Greninjite",
 		gen: 9,
-	},
+	},*/
 	bunnelby: {
 		num: 659,
 		name: "Bunnelby",
@@ -12163,10 +12165,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Litleo",
 		evoLevel: 35,
 		eggGroups: ["Field"],
-		otherFormes: ["Pyroar-Mega"],
-		formeOrder: ["Pyroar", "Pyroar-Mega"],
+		//otherFormes: ["Pyroar-Mega"],
+		//formeOrder: ["Pyroar", "Pyroar-Mega"],
 	},
-	pyroarmega: {
+	/*pyroarmega: {
 		num: 668,
 		name: "Pyroar-Mega",
 		baseSpecies: "Pyroar",
@@ -12181,7 +12183,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Pyroarite",
 		gen: 9,
-	},
+	},*/
 	flabebe: {
 		num: 669,
 		name: "Flabe\u0301be\u0301",
@@ -12525,10 +12527,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 30,
 		evoCondition: "with the console turned upside-down",
 		eggGroups: ["Water 1", "Water 2"],
-		otherFormes: ["Malamar-Mega"],
-		formeOrder: ["Malamar", "Malamar-Mega"],
+		//otherFormes: ["Malamar-Mega"],
+		//formeOrder: ["Malamar", "Malamar-Mega"],
 	},
-	malamarmega: {
+	/*malamarmega: {
 		num: 687,
 		name: "Malamar-Mega",
 		baseSpecies: "Malamar",
@@ -12542,7 +12544,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1", "Water 2"],
 		requiredItem: "Malamarite",
 		gen: 9,
-	},
+	},*/
 	binacle: {
 		num: 688,
 		name: "Binacle",
@@ -12567,10 +12569,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Binacle",
 		evoLevel: 39,
 		eggGroups: ["Water 3"],
-		otherFormes: ["Barbaracle-Mega"],
-		formeOrder: ["Barbaracle", "Barbaracle-Mega"],
+		//otherFormes: ["Barbaracle-Mega"],
+		//formeOrder: ["Barbaracle", "Barbaracle-Mega"],
 	},
-	barbaraclemega: {
+	/*barbaraclemega: {
 		num: 689,
 		name: "Barbaracle-Mega",
 		baseSpecies: "Barbaracle",
@@ -12584,7 +12586,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 3"],
 		requiredItem: "Barbaracite",
 		gen: 9,
-	},
+	},*/
 	skrelp: {
 		num: 690,
 		name: "Skrelp",
@@ -12609,10 +12611,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Skrelp",
 		evoLevel: 48,
 		eggGroups: ["Water 1", "Dragon"],
-		otherFormes: ["Dragalge-Mega"],
-		formeOrder: ["Dragalge", "Dragalge-Mega"],
+		//otherFormes: ["Dragalge-Mega"],
+		//formeOrder: ["Dragalge", "Dragalge-Mega"],
 	},
-	dragalgemega: {
+	/*dragalgemega: {
 		num: 691,
 		name: "Dragalge-Mega",
 		baseSpecies: "Dragalge",
@@ -12626,7 +12628,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1", "Dragon"],
 		requiredItem: "Dragalgite",
 		gen: 9,
-	},
+	},*/
 	clauncher: {
 		num: 692,
 		name: "Clauncher",
@@ -12759,10 +12761,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 21.5,
 		color: "Green",
 		eggGroups: ["Flying", "Human-Like"],
-		otherFormes: ["Hawlucha-Mega"],
-		formeOrder: ["Hawlucha", "Hawlucha-Mega"],
+		//otherFormes: ["Hawlucha-Mega"],
+		//formeOrder: ["Hawlucha", "Hawlucha-Mega"],
 	},
-	hawluchamega: {
+	/*hawluchamega: {
 		num: 701,
 		name: "Hawlucha-Mega",
 		baseSpecies: "Hawlucha",
@@ -12776,7 +12778,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Flying", "Human-Like"],
 		requiredItem: "Hawluchanite",
 		gen: 9,
-	},
+	},*/
 	dedenne: {
 		num: 702,
 		name: "Dedenne",
@@ -14611,10 +14613,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 185,
 		color: "White",
 		eggGroups: ["Monster", "Dragon"],
-		otherFormes: ["Drampa-Mega"],
-		formeOrder: ["Drampa", "Drampa-Mega"],
+		//otherFormes: ["Drampa-Mega"],
+		//formeOrder: ["Drampa", "Drampa-Mega"],
 	},
-	drampamega: {
+	/*drampamega: {
 		num: 780,
 		name: "Drampa-Mega",
 		baseSpecies: "Drampa",
@@ -14628,7 +14630,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Drampanite",
 		gen: 9,
-	},
+	},*/
 	dhelmise: {
 		num: 781,
 		name: "Dhelmise",
@@ -16254,10 +16256,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 62,
 		color: "Yellow",
 		eggGroups: ["Fairy", "Mineral"],
-		otherFormes: ["Falinks-Mega"],
-		formeOrder: ["Falinks", "Falinks-Mega"],
+		//otherFormes: ["Falinks-Mega"],
+		//formeOrder: ["Falinks", "Falinks-Mega"],
 	},
-	falinksmega: {
+	/*falinksmega: {
 		num: 870,
 		name: "Falinks-Mega",
 		baseSpecies: "Falinks",
@@ -16272,7 +16274,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Falinksite",
 		gen: 9,
-	},
+	},*/
 	pincurchin: {
 		num: 871,
 		name: "Pincurchin",
