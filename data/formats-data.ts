@@ -318,6 +318,10 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		doublesTier: "(DUU)",
 		natDexTier: "UU",
 	},
+	clefablemega: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	vulpix: {
 		tier: "NFE",
 		doublesTier: "NFE",
