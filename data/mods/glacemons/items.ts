@@ -1376,6 +1376,26 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		shortDesc: "Halves damage taken from a supereffective Fighting-type attack. Once per switch-in.",
 	},
+	cobaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('cobaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Flying' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['cobaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('cobaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Flying-type attack. Once per switch-in.",
+	},
 	colburberry: {
 		inherit: true,
 		onStart(pokemon) {
@@ -2019,6 +2039,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				}
 			}
 		},
+		rating: 3,
 	},
 	surprisebomb: {
 		name: "Surprise Bomb",
