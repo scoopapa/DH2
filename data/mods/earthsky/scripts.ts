@@ -2737,11 +2737,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Wide-spread changes */
 		const esrules = this.formats.getRuleTable(this.formats.get('gen9earthskyhorizonsou'));
 		//const dex = Dex.mod('gen9eshorizons');
-		//for (let pokemon of this.species.all()) {
-		for (const pokemonID in this.data.Pokedex) {
-			//const pokemonID = this.toID(pokemon.name);
-			console.log(pokemonID);
-			const pokemon = this.species.get(pokemonID);
+		for (let pokemon of this.species.all()) {
+		//for (const pokemonID in this.data.Pokedex) {
+			const pokemonID = this.toID(pokemon.name);
+			//console.log(pokemonID);
+			//const pokemon = this.species.get(pokemonID);
 			const learnsetTest = false;//["dedenne"].includes(pokemonID);
 			const formatsTest = false;//["basculin", "basculinbluestriped", "basculinwhitestriped"].includes(pokemonID);
 			if(formatsTest) console.log(pokemonID);
