@@ -7119,7 +7119,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 		learnset: {
 			pursuit: ["9L1"],
 			jawlock: ["9L1"],
-			strongbite: ["9L1"],
 		},
 	},
 	arsief: {
