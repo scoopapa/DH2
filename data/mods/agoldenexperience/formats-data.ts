@@ -2668,7 +2668,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	excadrillmega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	audino: {
@@ -2728,7 +2728,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	scolipedemega: {
-		tier: "UU",
+		tier: "RUBL",
 		doublesTier: "DUU",
 	},
 	cottonee: {
@@ -3032,7 +3032,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	chandeluremega: {
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	axew: {
@@ -3430,7 +3430,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	dragalgemega: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	clauncher: {
@@ -4399,7 +4399,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	falinksmega: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	pincurchin: {
