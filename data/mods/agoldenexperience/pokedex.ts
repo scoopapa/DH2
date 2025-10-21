@@ -259,7 +259,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Human-Like"],
 		requiredItem: "Machampite",
 	},
-	// ZA mega
 	bellsprout: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Insectivorous", H: "Gluttony"},
@@ -271,25 +270,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	victreebel: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Insectivorous", H: "Gluttony"},
-	  	otherFormes:  ["Victreebel-Mega"],
-	  	formeOrder: ["Victreebel", "Victreebel-Mega"],
 	},
 	victreebelmega: {
-		num: 71,
-		name: "Victreebel-Mega",
-		baseSpecies: "Victreebel",
-		forme: "Mega",
-		types: ["Grass", "Poison"],
-		baseStats: { hp: 80, atk: 125, def: 85, spa: 135, spd: 95, spe: 70 },
+		inherit: true,
 		abilities: { 0: "Corrosion" },
-		heightm: 4.5,
-		weightkg: 125.5,
-		color: "Green",
-		eggGroups: ["Grass"],
-		requiredItem: "Victreebelite",
-		gen: 9,
 	},
-	// end of ZA mega
 	tentacruel: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 70, def: 75, spa: 80, spd: 120, spe: 100},
