@@ -2469,7 +2469,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dragalgemega: {
 		inherit: true,
-		abilities: { 0: "Adaptability" },
+		abilities: { 0: "Regenerator" },
 	},
 	clauncher: {
 		inherit: true,
