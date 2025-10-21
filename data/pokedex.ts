@@ -1683,10 +1683,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
-		otherFormes: ["Victreebel-Mega"],
-		formeOrder: ["Victreebel", "Victreebel-Mega"],
+		//otherFormes: ["Victreebel-Mega"],
+		//formeOrder: ["Victreebel", "Victreebel-Mega"],
 	},
-	victreebelmega: {
+	/*victreebelmega: {
 		num: 71,
 		name: "Victreebel-Mega",
 		baseSpecies: "Victreebel",
@@ -1700,7 +1700,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Grass"],
 		requiredItem: "Victreebelite",
 		gen: 9,
-	},
+	},*/
 	tentacool: {
 		num: 72,
 		name: "Tentacool",
