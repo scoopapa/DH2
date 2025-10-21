@@ -2981,7 +2981,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (move.flags['bite'] move.ignoreAbility = true;
+			if (move.flags['bite']) move.ignoreAbility = true;
 		},
 		flags: {},
 		name: "Savage Bite",
