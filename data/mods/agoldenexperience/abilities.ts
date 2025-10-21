@@ -2981,14 +2981,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (move.flags['bite'] && !move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity[move.type] = true;
-			}
+			if (move.flags['bite'] move.ignoreAbility = true;
 		},
 		flags: {},
 		name: "Savage Bite",
-		shortDesc: "This Pokemon's biting attacks ignore resistances and immunities.",
+		shortDesc: "This Pokemon's biting attacks ignore resistances and abilities.",
 		rating: 4,
 		num: -100,
 	},

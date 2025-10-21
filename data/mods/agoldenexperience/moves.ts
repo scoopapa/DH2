@@ -3662,7 +3662,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bullet: 1},
 	},
-	strongbite: {
+	/*strongbite: {
 		num: -90,
 		accuracy: 100,
 		basePower: 75,
@@ -3683,7 +3683,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		contestType: "Tough",
 		desc: "Deals damage to the target based on its Special Defense instead of Defense. This move and its effects ignore the Abilities of other Pokemon.",
 		shortDesc: "Damages target based on Sp. Defense, not Def. Ignores the Abilities of other Pokemon.",
-	},
+	},*/
 	jumpscare: {
 		num: -91,
 		accuracy: 100,

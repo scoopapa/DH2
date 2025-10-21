@@ -1438,6 +1438,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 80, atk: 120, def: 79, spa: 70, spd: 79, spe: 95},
 		abilities: {0: "Ambush", 1: "Intimidate", H: "Guts"},
 	},
+	roserade: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Merciless", H: "Technician"},
+	},
 	cranidos: {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Rock Head", H: "Sheer Force"},
