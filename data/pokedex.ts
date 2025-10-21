@@ -998,10 +998,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
-		//otherFormes: ["Clefable-Mega"],
-		//formeOrder: ["Clefable", "Clefable-Mega"],
+		otherFormes: ["Clefable-Mega"],
+		formeOrder: ["Clefable", "Clefable-Mega"],
 	},
-	/*clefablemega: {
+	clefablemega: {
 		num: 36,
 		name: "Clefable-Mega",
 		baseSpecies: "Clefable",
@@ -1016,7 +1016,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredItem: "Clefablite",
 		gen: 9,
-	},*/
+	},
 	vulpix: {
 		num: 37,
 		name: "Vulpix",
