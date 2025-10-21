@@ -3667,7 +3667,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-		name: "Freeze-Dry",
+		name: "Corrosive Acid",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
