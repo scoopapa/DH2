@@ -3492,19 +3492,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		shortDesc: "Hits once in this turn, then hits again in the next turn. Ignores protection.",
 	},
-	overdrive: {
-		inherit: true,
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
-	},
 	wyvernflight: {
 		num: -84,
 		accuracy: 100,
