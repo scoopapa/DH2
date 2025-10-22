@@ -2175,6 +2175,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			substitute: ["9M"],
 			sunnyday: ["9M"],
 			superpower: ["9L1"],
+			swordsdance: ["9M"],
 			taunt: ["9M"],
 			trailblaze: ["9M"],
 			upperhand: ["9M"],
@@ -7118,7 +7119,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 		learnset: {
 			pursuit: ["9L1"],
 			jawlock: ["9L1"],
-			strongbite: ["9L1"],
 		},
 	},
 	arsief: {

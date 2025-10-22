@@ -3662,27 +3662,37 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bullet: 1},
 	},
-	strongbite: {
+	corrosiveacid: {
 		num: -90,
 		accuracy: 100,
-		basePower: 75,
-		category: "Physical",
-		name: "Strong Bite",
-		pp: 15,
+		basePower: 70,
+		category: "Special",
+		name: "Corrosive Acid",
+		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
-		overrideDefensiveStat: 'spd',
-		ignoreAbility: true,
-		secondary: null,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Crunch", target);
+			this.add('-anim', source, "Acid", target);
 		},
 		target: "normal",
-		type: "Dark",
-		contestType: "Tough",
-		desc: "Deals damage to the target based on its Special Defense instead of Defense. This move and its effects ignore the Abilities of other Pokemon.",
-		shortDesc: "Damages target based on Sp. Defense, not Def. Ignores the Abilities of other Pokemon.",
+		type: "Poison",
+		contestType: "Beautiful",
+		desc: "Has a 10% chance to poison the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "10% chance to poison. Super effective on Steel.",
 	},
 	jumpscare: {
 		num: -91,
