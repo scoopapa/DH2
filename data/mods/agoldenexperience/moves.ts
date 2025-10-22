@@ -4119,4 +4119,11 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			return bp;
 		},
 	},
+	// Psychic Prowess
+	amnesia: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasAbility('psychicprowess')) move.boosts = {spa: 2, spd: 2};
+		},
+	},
 };

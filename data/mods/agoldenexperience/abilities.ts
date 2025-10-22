@@ -3085,6 +3085,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		rating: 3,
 	},
+	psychicprowess: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Psychic Prowess",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic type attack. Amnesia also boosts SpA by 2.",
+		rating: 3.5,
+		num: -104,
+	},
 
 
 

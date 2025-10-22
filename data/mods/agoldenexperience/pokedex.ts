@@ -220,7 +220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 80, atk: 62, def: 78, spa: 105, spd: 80, spe: 95},
-		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
+		abilities: {0: "Psychic Prowess", 1: "Cloud Nine", H: "Swift Swim"},
 	},
 	growlithe: {
 		inherit: true,
