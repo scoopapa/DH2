@@ -957,7 +957,7 @@ export const Scripts: ModdedBattleScriptsData = {
     // cosmicpunch 
     this.modData('Learnsets', 'ledian').learnset.cosmicpunch = ['9L1'];
     this.modData('Learnsets', 'metang').learnset.cosmicpunch = ['9L1'];
-    this.modData('Learnsets', 'lucario').learnset.cosmicpunch = ['9L1'];
+    this.modData('Learnsets', 'deoxys').learnset.cosmicpunch = ['9L1'];
     this.modData('Learnsets', 'paranormear').learnset.cosmicpunch = ['9L1'];
 
     // contrariety 

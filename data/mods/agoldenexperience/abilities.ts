@@ -716,13 +716,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -37,
 	},
 	cosmicenergy: {
-		desc: "This Pokémon can skip the charging turn of its moves.",
-		shortDesc: "Skip charging turns of moves.",
+		desc: "This Pokemon's attacks do not have to charge or recharge, and can always be used twice in a row.",
+		shortDesc: "Skip charging and recharging turns of moves.",
+		onModifyMove(move) {
+			delete move.flags['charge', 'recharge', 'cantusetwice'];
+		},
 		onChargeMove(pokemon, target, move) {
 			this.debug('Cosmic Energy - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; 
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+			}
 		},
 		name: "Cosmic Energy",
 		rating: 2,

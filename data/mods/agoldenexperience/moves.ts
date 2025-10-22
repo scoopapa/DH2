@@ -1438,14 +1438,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			move.type = type;
 		},
 	},
-	prismaticlaser: {
-		inherit: true,
-		isViable: true,
-		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
-		self: null,
-		shortDesc: "Cannot be selected the turn after it's used.",
-		desc: "Cannot be selected the turn after it's used.",
-	},
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
