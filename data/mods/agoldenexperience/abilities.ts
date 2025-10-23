@@ -3105,6 +3105,35 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -104,
 	},
+	brassbond: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+				move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+			move.multihit = 3;
+			move.multihitType = 'brassbond' as 'parentalbond';
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.effectType === 'Move' && effect.multihitType && effect.hit > 1 &&
+				source && target === source) {
+				let i: keyof BoostsTable;
+				for (i in boost) {
+					delete boost[i];
+				}
+			}
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType && move.hit > 1) {
+				return [];
+			}
+		},
+		flags: {},
+		name: "Brass Bond",
+		gen: 9,
+		desc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		shortDesc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		num: -105
+	},
 
 
 

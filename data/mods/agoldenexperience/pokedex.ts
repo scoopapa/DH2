@@ -3216,7 +3216,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	falinksmega: {
 		inherit: true,
-		abilities: { 0: "Strong Will" },
+		abilities: { 0: "Brass Bond" },
 	},
 	pincurchin: {
 		inherit: true,
