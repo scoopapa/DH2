@@ -2730,10 +2730,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Rock", "Fighting"],
 	},
-	mudsdale: {
-		inherit: true,
-		baseStats: {hp: 100, atk: 125, def: 100, spa: 50, spd: 90, spe: 35},
-	},
 	araquanid: {
 		inherit: true,
 		baseStats: {hp: 76, atk: 80, def: 92, spa: 60, spd: 132, spe: 42},

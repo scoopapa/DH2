@@ -1880,6 +1880,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wishiwashi').learnset.aquajet = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.thunder = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'mudsdale').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'lurantis').learnset.mantisslash = ['9L1'];
     this.modData('Learnsets', 'bewear').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'bewear').learnset.slackoff = ['9L1'];

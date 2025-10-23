@@ -3751,7 +3751,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	mudsdale: {
-		tier: "PU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	dewpider: {
