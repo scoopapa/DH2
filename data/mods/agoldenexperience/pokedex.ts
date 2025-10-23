@@ -674,10 +674,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Hustle", 1: "Happy-Go-Lucky", H: "Super Luck"},
 	},
-	xatu: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 50, def: 80, spa: 95, spd: 80, spe: 95},
-	},
 	mareep: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Night Light", H: "Plus"},
@@ -2378,7 +2374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	delphoxmega: {
 		inherit: true,
-		abilities: { 0: "Clairvoyance" },
+		abilities: { 0: "Magic Guard" },
 	},
 	greninjamega: {
 		inherit: true,
@@ -4592,17 +4588,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Granbull",
 		eggGroups: ["Field", "Fairy"],
 	},
-	/*scrafree: {
+	xatu: {
+		inherit: true,
+		evos: ["Mayatu"],
+	},
+	mayatu: {
 		num: -66,
-		name: "Scrafree",
-		types: ["Dark", "Fighting"],
-		baseStats: {hp: 85, atk: 110, def: 90, spa: 80, spd: 90, spe: 83},
-		abilities: {0: "Unburden", 1: "Moxie", H: "Disillusioned"},
-		heightm: 1.5,
-		weightkg: 50,
-		prevo: "Scrafty",
-		eggGroups: ["Red"],
-	},*/
+		name: "Mayatu",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 95, atk: 55, def: 110, spa: 125, spd: 110, spe: 35},
+		abilities: {0: "Clairvoyance", 1: "Cosmic Energy", H: "Magic Bounce"},
+		heightm: 2.71,
+		weightkg: 150,
+		prevo: "Xatu",
+		eggGroups: ["Flying"],
+	},
 	isaapple: {
 		num: -67,
 		name: "Isaapple",

@@ -780,7 +780,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	starmiemega: {
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	mimejr: {
@@ -1140,7 +1140,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	xatu: {
-		tier: "PU",
+		tier: "NFE",
+	},
+	mayatu: {
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	mareep: {
@@ -3243,7 +3246,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	chesnaughtmega: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	fennekin: {
@@ -3257,7 +3260,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	delphoxmega: {
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	froakie: {
