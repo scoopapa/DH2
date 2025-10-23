@@ -1438,14 +1438,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			move.type = type;
 		},
 	},
-	prismaticlaser: {
-		inherit: true,
-		isViable: true,
-		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
-		self: null,
-		shortDesc: "Cannot be selected the turn after it's used.",
-		desc: "Cannot be selected the turn after it's used.",
-	},
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
@@ -3492,19 +3484,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		shortDesc: "Hits once in this turn, then hits again in the next turn. Ignores protection.",
 	},
-	overdrive: {
-		inherit: true,
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
-	},
 	wyvernflight: {
 		num: -84,
 		accuracy: 100,
@@ -4138,6 +4117,13 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
 			this.debug('BP: ' + bp);
 			return bp;
+		},
+	},
+	// Psychic Prowess
+	amnesia: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasAbility('psychicprowess')) move.boosts = {spa: 2, spd: 2};
 		},
 	},
 };

@@ -716,13 +716,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -37,
 	},
 	cosmicenergy: {
-		desc: "This Pokémon can skip the charging turn of its moves.",
-		shortDesc: "Skip charging turns of moves.",
+		desc: "This Pokemon's attacks do not have to charge or recharge, and can always be used twice in a row.",
+		shortDesc: "Skip charging and recharging turns of moves.",
+		onModifyMove(move) {
+			delete move.flags['charge', 'recharge', 'cantusetwice'];
+		},
 		onChargeMove(pokemon, target, move) {
 			this.debug('Cosmic Energy - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; 
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+			}
 		},
 		name: "Cosmic Energy",
 		rating: 2,
@@ -3076,6 +3084,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		rating: 3,
+	},
+	psychicprowess: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Psychic Prowess",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic type attack. Amnesia also boosts SpA by 2.",
+		rating: 3.5,
+		num: -104,
 	},
 
 

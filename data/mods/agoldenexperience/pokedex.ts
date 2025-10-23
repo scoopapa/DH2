@@ -220,7 +220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 80, atk: 62, def: 78, spa: 105, spd: 80, spe: 95},
-		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
+		abilities: {0: "Psychic Prowess", 1: "Cloud Nine", H: "Swift Swim"},
 	},
 	growlithe: {
 		inherit: true,
@@ -409,7 +409,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	hitmonchan: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 105, def: 94, spa: 35, spd: 110, spe: 71},
-		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Punch Prodigee"},
+		abilities: {0: "Punch Prodigee", 1: "Iron Fist", H: "Inner Focus"},
 	},
 	weezing: {
 		inherit: true,
@@ -561,7 +561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	mew: {
 		inherit : true,
-		abilities: {0: "Synchronize", H: "Protean"},
+		abilities: {0: "Synchronize", 1: "Cosmic Energy", H: "Protean"},
 	},
 
 	// Gen 2 :
@@ -1097,6 +1097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	grumpig: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 45, def: 90, spa: 90, spd: 110, spe: 65},
+		abilities: {0: "Thick Fat", 1: "Magic Bounce", H: "Gluttony"},
 	},
 	vibrava: {
 		inherit: true,
@@ -1572,7 +1573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
+		abilities: {0: "Chakra Surge", 1: "Inner Focus", H: "Justified"},
 	},
 	drapion: {
 		inherit: true,
@@ -2222,12 +2223,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	elgyem: {
 		inherit: true,
-		abilities: {0: "Luster Swap", 1: "Neuroforce", H: "Analytic"},
+		abilities: {0: "Luster Swap", 1: "Cosmic Energy", H: "Analytic"},
 	},
 	beheeyem: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 55, def: 95, spa: 125, spd: 95, spe: 30},
-		abilities: {0: "Luster Swap", 1: "Neuroforce", H: "Analytic"},
+		abilities: {0: "Luster Swap", 1: "Cosmic Energy", H: "Analytic"},
 	},
 	chandeluremega: {
 		inherit: true,
@@ -2962,7 +2963,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	necrozma: {
 		inherit: true,
-		abilities: {0: "Prism Armor", H: "Neuroforce"},
+		abilities: {0: "Prism Armor", H: "Cosmic Energy"},
 	},
 	stakataka: {
 		inherit: true,
