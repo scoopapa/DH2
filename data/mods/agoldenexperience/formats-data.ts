@@ -2679,7 +2679,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	audinomega: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	timburr: {
