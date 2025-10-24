@@ -355,12 +355,155 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Proto Veil",
 		rating: 3,
 	},
+	sinkorswim: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Sink or Swim', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Sink or Swim",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+	},
+	debilitate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Sink or Swim', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Debilitate",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon lowers the SpA of opponents by 1 stage.",
+	},
+	smarts: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Smarts",
+		rating: 3.5,
+		shortDesc: "If this Pokemon is statused, its SpA is 1.5x.",
+	},
+	innersync: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || 
+				 pokemon.status === 'brn' || pokemon.status === 'par') {
+				this.add('-activate', pokemon, 'ability: Inner Sync');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id === 'slp' || status.id === 'frz') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Inner Sync');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Inner Sync",
+		rating: 1,
+		num: 39,
+	},
+	berserker: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Berserker boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		condition: {
+			duration: 1,
+		},
+		flags: {breakable: 1},
+		name: "Berserker",
+		rating: 3.5,
+		shortDesc: "Magic Bounce + Reckless",
+	},
+	migration: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+		name: "Migration",
+		rating: 4.5,
+		shortDesc: "Regenerator + Early Bird",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
+				this.boost({atk: 1}, target, target, null, false, true);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.boost({atk: 1}, target, target, null, false, true);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
 				this.boost({atk: 1}, target, target, null, false, true);
 			}
 		},
@@ -372,6 +515,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Focus', '[of] ' + target);
+			}
 		},
 	},
 	oblivious: {
@@ -380,6 +531,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Oblivious', '[of] ' + target);
 			}
 		},
 	},
@@ -390,6 +549,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Own Tempo', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Tempo', '[of] ' + target);
+			}
 		},
 	},
 	scrappy: {
@@ -399,12 +566,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Scrappy', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrappy', '[of] ' + target);
+			}
 		},
 	},
 	rattled: {
 		inherit: true,
 		onAfterBoost(boost, target, source, effect) {
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+				this.boost({spe: 1});
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				this.boost({spe: 1});
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
 				this.boost({spe: 1});
 			}
 		},
