@@ -202,10 +202,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	dugtrio: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 115, def: 50, spa: 50, spd: 70, spe: 130},
+		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Multiheaded"},
 	},
 	dugtrioalola: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 115, def: 70, spa: 50, spd: 70, spe: 110},
+		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Multiheaded"},
 	},
 	persian: {
 		inherit: true,
@@ -333,7 +335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Tri-Headed", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Multiheaded", H: "Striker"},
 	},
 	dewgong: {
 		inherit: true,
@@ -1939,7 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	audinomega: {
 		inherit: true,
-		abilities: {0: "Cute Charm"},
+		abilities: {0: "Triage"},
 	},
 	seismitoad: {
 		inherit: true,
@@ -2304,11 +2306,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	zweilous: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Unconcerned", H: "Strong Jaw"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Multiheaded"},
 	},
 	hydreigon: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Unconcerned", H: "Berserk"},
+		abilities: {0: "Levitate", 1: "Unconcerned", H: "Multiheaded"},
 	},
 	cobalion: {
 		inherit: true,
@@ -3212,7 +3214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	falinksmega: {
 		inherit: true,
-		abilities: { 0: "Brass Bond" },
+		abilities: { 0: "Multiheaded" },
 	},
 	pincurchin: {
 		inherit: true,

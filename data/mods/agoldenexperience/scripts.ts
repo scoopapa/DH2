@@ -182,10 +182,10 @@ export const Scripts: ModdedBattleScriptsData = {
         const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
         this.battle.debug(`Parental Bond modifier: ${bondModifier}`);
         baseDamage = this.battle.modify(baseDamage, bondModifier);
-      } else if (move.multihitType === 'brassbond' as 'parentalbond' && move.hit > 1) {
-        // Brass Bond modifier
+      } else if (move.multihitType === 'multiheaded' as 'parentalbond' && move.hit > 1) {
+        // Multiheaded modifier
         const bondModifier = 0.15;
-        this.battle.debug(`Brass Bond modifier: ${bondModifier}`);
+        this.battle.debug(`Multiheaded modifier: ${bondModifier}`);
         baseDamage = this.battle.modify(baseDamage, bondModifier);
       }
 
