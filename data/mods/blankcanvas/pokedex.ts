@@ -856,7 +856,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	armie: {
 		num: 9106,
-		species: "Armie",
+		name: "Armie",
 		types: ["Psychic", "Water"],
 		baseStats: {hp: 90, atk: 100, def: 120, spa: 30, spd: 70, spe: 30},
 		abilities: {0: "Iron Fist", H: "Natural Cure"},
@@ -864,7 +864,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	bunnyumi: {
 		num: 9107,
-		species: "Bunnyumi",
+		name: "Bunnyumi",
 		types: ["Grass", "Normal"],
 		baseStats: {hp: 90, atk: 55, def: 80, spa: 30, spd: 90, spe: 85},
 		abilities: {0: "Harvest", H: "Huge Power"},
@@ -872,7 +872,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	parfae: {
 		num: 9108,
-		species: "Parfae",
+		name: "Parfae",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 70, atk: 30, def: 66, spa: 100, spd: 74, spe: 109},
 		abilities: {0: "Infiltrator", 1: "Magic Guard", H: "Snow Warning"},
@@ -880,7 +880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	siltworm: {
 		num: 9109,
-		species: "Siltworm",
+		name: "Siltworm",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 80, atk: 105, def: 100, spa: 30, spd: 70, spe: 75},
 		abilities: {0: "Thick Fat"},
