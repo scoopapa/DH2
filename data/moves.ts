@@ -19703,7 +19703,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			},
 			onEffectivenessPriority: -2,
 			onEffectiveness(typeMod, target, type, move) {
-				if (move.type == 'Rock') return;
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
 				return typeMod + 1;
 			},
 		},
