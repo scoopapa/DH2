@@ -4127,7 +4127,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			naturepower: ["9L1"],
 			belch: ["9L1"],
 			stuffcheeks: ["9L1"],
-			snore: ["9L1"],
 			mistyexplosion: ["9L1"],
 		},
 	},
