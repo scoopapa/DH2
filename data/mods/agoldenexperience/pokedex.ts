@@ -2403,6 +2403,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	floettemega: {
 		inherit: true,
+		types: ["Fairy", "Ghost"],
 		abilities: { 0: "Curse of Life" },
 	},
 	florges: {
