@@ -202,10 +202,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	dugtrio: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 115, def: 50, spa: 50, spd: 70, spe: 130},
+		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Multiheaded"},
 	},
 	dugtrioalola: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 115, def: 70, spa: 50, spd: 70, spe: 110},
+		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Multiheaded"},
 	},
 	persian: {
 		inherit: true,
@@ -333,7 +335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Tri-Headed", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Multiheaded", H: "Striker"},
 	},
 	dewgong: {
 		inherit: true,
@@ -673,10 +675,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	togetic: {
 		inherit: true,
 		abilities: {0: "Hustle", 1: "Happy-Go-Lucky", H: "Super Luck"},
-	},
-	xatu: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 50, def: 80, spa: 95, spd: 80, spe: 95},
 	},
 	mareep: {
 		inherit: true,
@@ -1943,7 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	audinomega: {
 		inherit: true,
-		abilities: {0: "Cute Charm"},
+		abilities: {0: "Triage"},
 	},
 	seismitoad: {
 		inherit: true,
@@ -2308,11 +2306,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	zweilous: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Unconcerned", H: "Strong Jaw"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Multiheaded"},
 	},
 	hydreigon: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Unconcerned", H: "Berserk"},
+		abilities: {0: "Levitate", 1: "Unconcerned", H: "Multiheaded"},
 	},
 	cobalion: {
 		inherit: true,
@@ -2378,7 +2376,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	delphoxmega: {
 		inherit: true,
-		abilities: { 0: "Clairvoyance" },
+		abilities: { 0: "Magic Guard" },
 	},
 	greninjamega: {
 		inherit: true,
@@ -2733,10 +2731,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lycanrocdusk: {
 		inherit: true,
 		types: ["Rock", "Fighting"],
-	},
-	mudsdale: {
-		inherit: true,
-		baseStats: {hp: 100, atk: 125, def: 100, spa: 50, spd: 90, spe: 35},
 	},
 	araquanid: {
 		inherit: true,
@@ -3220,7 +3214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	falinksmega: {
 		inherit: true,
-		abilities: { 0: "Strong Will" },
+		abilities: { 0: "Multiheaded" },
 	},
 	pincurchin: {
 		inherit: true,
@@ -4592,17 +4586,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Granbull",
 		eggGroups: ["Field", "Fairy"],
 	},
-	/*scrafree: {
+	xatu: {
+		inherit: true,
+		evos: ["Mayatu"],
+	},
+	mayatu: {
 		num: -66,
-		name: "Scrafree",
-		types: ["Dark", "Fighting"],
-		baseStats: {hp: 85, atk: 110, def: 90, spa: 80, spd: 90, spe: 83},
-		abilities: {0: "Unburden", 1: "Moxie", H: "Disillusioned"},
-		heightm: 1.5,
-		weightkg: 50,
-		prevo: "Scrafty",
-		eggGroups: ["Red"],
-	},*/
+		name: "Mayatu",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 95, atk: 55, def: 110, spa: 125, spd: 110, spe: 35},
+		abilities: {0: "Clairvoyance", 1: "Cosmic Energy", H: "Magic Bounce"},
+		heightm: 2.71,
+		weightkg: 150,
+		prevo: "Xatu",
+		eggGroups: ["Flying"],
+	},
 	isaapple: {
 		num: -67,
 		name: "Isaapple",

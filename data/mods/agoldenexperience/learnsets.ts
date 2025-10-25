@@ -7092,15 +7092,14 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			jumpscare: ["9L1"],
 		},
 	},
-	/*scrafree: {
+	mayatu: {
 		learnset: {
-			enragedtext: ["9L1"],
-			boomburst: ["9L1"],
-			dragontail: ["9L1"],
-			tailslap: ["9L1"],
-			powerwhip: ["9L1"],
+			meteorbeam: ["9L1"],
+			speedswap: ["9L1"],
+			clearmind: ["9L1"],
+			magicpowder: ["9L1"],
 		},
-	},*/
+	},
 	isaapple: {
 		learnset: {
 			earthquake: ["9L1"],

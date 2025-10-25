@@ -2948,20 +2948,34 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Heavy Weapon",
 		num: -97,
 	},
-	triheaded: {
-		shortDesc: "This Pokemon's moves have x0.5 BP, but hits 3 times.",
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihit || move.category === 'Status') return;
-			return this.chainModify(0.5);
-		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.multihit || move.category === 'Status') return;
+	multiheaded: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+				move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
 			move.multihit = 3;
+			move.multihitType = 'multiheaded' as 'parentalbond';
 		},
-		name: "Tri-Headed",
-		num: -98,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.effectType === 'Move' && effect.multihitType && effect.hit > 1 &&
+				source && target === source) {
+				let i: keyof BoostsTable;
+				for (i in boost) {
+					delete boost[i];
+				}
+			}
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType && move.hit > 1) {
+				return [];
+			}
+		},
+		flags: {},
+		name: "Multiheaded",
+		gen: 9,
+		desc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		shortDesc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		num: -98
 	},
 	stymphaleblade: {
 		desc: "Pokemon making contact with this Pokemon or getting hit from contact moves from this Pokemon lose 1/8 of their maximum HP, rounded down.",
