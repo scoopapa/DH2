@@ -3826,6 +3826,18 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Fire",
 		shortDesc: "Uses user's Speed stat instead of Attack in damage calculation.",
 	},
+	ragefist: {
+		inherit: true,
+		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted. After attacking, this Pokemon takes damage, depending on the Basepower of the move.",
+		shortDesc: "+50 BP for each time user was hit. Recoil = BP.",
+		self: {
+			onHit(pokemon) {
+				let bp = Math.min(350, 50 + 50 * pokemon.timesAttacked);
+				this.damage(bp, pokemon, pokemon);
+				this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
+			},
+		},
+	},
 
 
 
