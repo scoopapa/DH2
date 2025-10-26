@@ -442,7 +442,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Inner Sync",
 		rating: 1,
-		num: 39,
+		shortDesc: "This Pokemon is immune to Burn, Poison, Paralysis, flinching, and Intimidate.",
 	},
 	berserker: {
 		onTryHitPriority: 1,
