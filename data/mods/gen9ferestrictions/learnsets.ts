@@ -1055,6 +1055,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trailblaze: ["9L1"],
 			upperhand: ["9L1"],
 			voltswitch: ["9L1"],
+			volttackle: ["9L1"],
 			wildcharge: ["9L1"],
 			wish: ["9L1"],
 			acidspray: ["9L1"],
