@@ -1432,7 +1432,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	celebi: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	treecko: {
@@ -1669,7 +1669,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	aggronmega: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	meditite: {
@@ -3513,7 +3513,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	trevenant: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	pumpkaboo: {
@@ -4084,7 +4084,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	stakataka: {
-		tier: "PU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	blacephalon: {

@@ -348,7 +348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	mukalola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Grassy Surge", H: "Power of Alchemy"},
+		abilities: {0: "Poison Touch", 1: "Water Absorb", H: "Power of Alchemy"},
 	},
 	gastly: {
 		inherit: true,
@@ -915,7 +915,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	celebi: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Regenerator"},
+		abilities: {0: "Natural Cure", H: "Rewind"},
 	},
 	// Gen 3 :
 	treecko: {
@@ -2399,7 +2399,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	floetteeternal: {
 		inherit: true,
 		types: ["Fairy", "Ghost"],
-		abilities: {0: "Flower Veil", 1: "Regenerator", H: "Curse of Life"},
+		abilities: {0: "Flower Veil", 1: "Curse of Life", H: "Symbiosis"},
 	},
 	floettemega: {
 		inherit: true,
@@ -2557,7 +2557,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	trevenant: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 120, def: 106, spa: 45, spd: 82, spe: 56},
-		abilities: {0: "Natural Cure", 1: "Tough Claws", H: "Harvest"},
+		abilities: {0: "Natural Cure", 1: "Grassy Surge", H: "Harvest"},
 	},
 	pumpkaboo: {
 		inherit: true,
@@ -3391,11 +3391,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	armarouge: {
 		inherit: true,
-		abilities: {0: "Deadly Blasts", 1: "Justified", H: "Weak Armor"},
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
 	},
 	ceruledge: {
 		inherit: true,
-		abilities: {0: "Sharpness", 1: "Justified", H: "Weak Armor"},
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
 	},
 	kilowattrel: {
 		inherit: true,
@@ -5017,7 +5017,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Fire", "Fairy"],
 		gender: "N",
 		baseStats: {hp: 91, atk: 115, def: 77, spa: 95, spd: 133, spe: 79},
-		abilities: {0: "Protosynthesis", H: "Regenerator"},
+		abilities: {0: "Protosynthesis", H: "Pressure"},
 		heightm: 3.8,
 		weightkg: 199,
 		color: "Red",
