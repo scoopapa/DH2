@@ -3848,7 +3848,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			fairywind: ["9L1"],
 			feint: ["9L1"],
-			behemothslash: ["9L1"],
+			behemothbash: ["9L1"],
 			leer: ["9L1"],
 			tackle: ["9L1"],
 			cut: ["9L1"],
