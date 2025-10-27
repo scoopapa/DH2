@@ -2237,9 +2237,9 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	lifedew: {
 		inherit: true,
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
-			return pokemon.cureStatus() || success;
+			pokemon.cureStatus();
 		},
+		heal: [1, 3],
 		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
 	},
 	lunarblessing: {
