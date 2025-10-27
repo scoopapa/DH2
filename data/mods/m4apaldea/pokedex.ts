@@ -473,8 +473,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	emboar: {
 		inherit: true,
-		mega: "emboarmega",
-		megaName: "Emboar-Mega",
+		mega: "emboarmegam",
+		megaName: "Emboar-Mega-M",
 		megaAbility: {0: "Inner Fortitude"},
 		megaStats: {hp: 110, atk: 143, def: 80, spa: 115, spd: 115, spe: 65},
 		megaStone: "Emboarite",
