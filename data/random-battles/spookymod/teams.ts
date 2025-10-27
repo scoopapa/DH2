@@ -1512,13 +1512,17 @@ export class RandomTeams {
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
 		this.prng.shuffle(shuffledMoves);
+		
+		// slice moves to make sure there arent 5 moves
+		const slicedMoves = shuffledMoves.slice(0, 4);
+		
 		return {
 			name: species.baseSpecies,
 			species: forme,
 			gender: species.baseSpecies === 'Greninja' ? 'M' : species.gender,
-			shiny: this.randomChance(1, 1024),
+			shiny: this.randomChance(1, 5),
 			level,
-			moves: shuffledMoves,
+			moves: slicedMoves,
 			ability,
 			evs,
 			ivs,
