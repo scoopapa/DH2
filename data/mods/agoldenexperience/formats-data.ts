@@ -3035,7 +3035,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	chandeluremega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	axew: {
