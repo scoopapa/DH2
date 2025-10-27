@@ -1133,6 +1133,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zorua').learnset.sneakyassault = ['9L1'];
     this.modData('Learnsets', 'zoroark').learnset.sneakyassault = ['9L1'];
     this.modData('Learnsets', 'greninja').learnset.sneakyassault = ['9L1'];
+    this.modData('Learnsets', 'greninjabond').learnset.sneakyassault = ['9L1'];
     this.modData('Learnsets', 'kartana').learnset.sneakyassault = ['9L1'];
     this.modData('Learnsets', 'zeraora').learnset.sneakyassault = ['9L1'];
     this.modData('Learnsets', 'zarude').learnset.sneakyassault = ['9L1'];
@@ -1331,10 +1332,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'dewgong').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'muk').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'mukalola').learnset.recover = ['9L1'];
-    this.modData('Learnsets', 'mukalola').learnset.seedbomb = ['9L1'];
-    this.modData('Learnsets', 'mukalola').learnset.grassyglide = ['9L1'];
     this.modData('Learnsets', 'mukalola').learnset.toxicspikes = ['9L1'];
-    this.modData('Learnsets', 'mukalola').learnset.rototiller = ['9L1'];
     this.modData('Learnsets', 'gengar').learnset.jumpscare = ['9L1'];
     this.modData('Learnsets', 'electrode').learnset.wildcharge = ['9L1'];
     this.modData('Learnsets', 'exeggutor').learnset.focusblast = ['9L1'];
@@ -1803,6 +1801,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'greninja').learnset.psyshock = ['9L1']; // ZA addition
     this.modData('Learnsets', 'greninja').learnset.flipturn = ['9L1']; // ZA addition
     this.modData('Learnsets', 'greninja').learnset.nastyplot = ['9L1']; // ZA addition
+    this.modData('Learnsets', 'greninjabond').learnset.psyshock = ['9L1']; // ZA addition
+    this.modData('Learnsets', 'greninjabond').learnset.flipturn = ['9L1']; // ZA addition
+    this.modData('Learnsets', 'greninjabond').learnset.nastyplot = ['9L1']; // ZA addition
     this.modData('Learnsets', 'pyroar').learnset.earthpower = ['9L1']; // ZA addition
     this.modData('Learnsets', 'pyroar').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'floetteeternal').learnset.revivalblessing = ['9L1'];
@@ -1961,8 +1962,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'grapploct').learnset.machpunch = ['9L1'];
     this.modData('Learnsets', 'grapploct').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'polteageist').learnset.scald = ['9L1'];
-    this.modData('Learnsets', 'hatterene').learnset.moonblast = ['9L1'];
-    this.modData('Learnsets', 'hatterene').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'obstagoon').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'obstagoon').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'perrserker').learnset.bulletpunch = ['9L1'];
@@ -2072,5 +2071,7 @@ export const Scripts: ModdedBattleScriptsData = {
         delete this.modData('Learnsets', this.toID(id)).learnset.hiddenpower;
       }
     }
+    delete this.modData('Learnsets', 'rockruffdusk').learnset.hiddenpower;
+    delete this.modData('Learnsets', 'lycanrocdusk').learnset.hiddenpower;
   }
 };

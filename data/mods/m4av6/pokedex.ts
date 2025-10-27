@@ -46,8 +46,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	clefable: {
 		inherit: true,
-		mega: "clefablemega",
-		megaName: "Clefable-Mega",
+		mega: "clefablemegam",
+		megaName: "Clefable-Mega-M",
 		megaType: ["Fairy", "Ghost"],
 		megaStats: {hp: 95, atk: 86, def: 83, spa: 125, spd: 90, spe: 104},
 		megaAbility: {0: "Prankster"},
@@ -124,8 +124,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	starmie: {
 		inherit: true,
-		mega: "starmiemega",
-		megaName: "Starmie-Mega",
+		mega: "starmiemegam",
+		megaName: "Starmie-Mega-M",
 		megaStats: {hp: 60, atk: 95, def: 95, spa: 140, spd: 95, spe: 135},
 		megaAbility: {0: "Rotation"},
 		megaStone: "Starminite",
@@ -178,8 +178,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	dragonite: {
 		inherit: true,
-		mega: "dragonitemega",
-		megaName: "Dragonite-Mega",
+		mega: "dragonitemegam",
+		megaName: "Dragonite-Mega-M",
 		megaStats: {hp: 91, atk: 164, def: 120, spa: 130, spd: 115, spe: 80},
 		megaAbility: {0: "Pressure"},
 		megaStone: "Dragonitite",
@@ -188,8 +188,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	meganium: {
 		inherit: true,
-		mega: "meganiummega",
-		megaName: "Meganium-Mega",
+		mega: "meganiummegam",
+		megaName: "Meganium-Mega-M",
 		megaStats: {hp: 80, atk: 122, def: 115, spa: 103, spd: 110, spe: 95},
 		megaAbility: {0: "Flower Gift"},
 		megaStone: "Meganiumite",
@@ -210,8 +210,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	feraligatr: {
 		inherit: true,
-		mega: "feraligatrmega",
-		megaName: "Feraligatr-Mega",
+		mega: "feraligatrmegam",
+		megaName: "Feraligatr-Mega-M",
 		megaType: ["Water", "Dark"],
 		megaStats: {hp: 85, atk: 145, def: 80, spa: 134, spd: 103, spe: 83},
 		megaAbility: {0: "Savage"},
@@ -586,8 +586,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	froslass: {
 		inherit: true,
-		mega: "froslassmega",
-		megaName: "Froslass-Mega",
+		mega: "froslassmegam",
+		megaName: "Froslass-Mega-M",
 		megaStats: {hp: 70, atk: 130, def: 95, spa: 80, spd: 90, spe: 115},
 		megaAbility: {0: "Magic Bounce"},
 		megaStone: "Froslassite",
@@ -848,8 +848,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	eelektross: {
 		inherit: true,
-		mega: "eelektrossmega",
-		megaName: "Eelektross-Mega",
+		mega: "eelektrossmegam",
+		megaName: "Eelektross-Mega-M",
 		megaStats: {hp: 85, atk: 125, def: 100, spa: 125, spd: 100, spe: 80},
 		megaAbility: {0: "Luster Swap"},
 		megaStone: "Eelektrossite",
@@ -859,8 +859,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	chandelure: {
 		inherit: true,
-		mega: "chandeluremega",
-		megaName: "Chandelure-Mega",
+		mega: "chandeluremegam",
+		megaName: "Chandelure-Mega-M",
 		megaStats: {hp: 60, atk: 57, def: 108, spa: 185, spd: 108, spe: 102},
 		megaAbility: {0: "Nightmare Heart"},
 		megaStone: "Chandelite",
@@ -890,8 +890,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	delphox: {
 		inherit: true,
-		mega: "delphoxmega",
-		megaName: "Delphox-Mega",
+		mega: "delphoxmegam",
+		megaName: "Delphox-Mega-M",
 		megaStats: {hp: 75, atk: 69, def: 115, spa: 135, spd: 130, spe: 110},
 		megaAbility: {0: "Clairvoyance"},
 		megaStone: "Delphite",
@@ -935,8 +935,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	dragalge: {
 		inherit: true,
-		mega: "dragalgemega",
-		megaName: "Dragalge-Mega",
+		mega: "dragalgemegam",
+		megaName: "Dragalge-Mega-M",
 		megaStats: {hp: 65, atk: 95, def: 90, spa: 147, spd: 153, spe: 44},
 		megaAbility: {0: "Acidic Surge"},
 		megaStone: "Dragalgite",
@@ -968,8 +968,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	hawlucha: {
 		inherit: true,
-		mega: "hawluchamega",
-		megaName: "Hawlucha-Mega",
+		mega: "hawluchamegam",
+		megaName: "Hawlucha-Mega-M",
 		megaStats: {hp: 78, atk: 112, def: 110, spa: 84, spd: 88, spe: 128},
 		megaAbility: {0: "Masquerade"},
 		megaStone: "Hawluchanite",
@@ -1803,8 +1803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	skarmory: {
 		inherit: true,
-		mega: "skarmorymega",
-		megaName: "Skarmory-Mega",
+		mega: "skarmorymegam",
+		megaName: "Skarmory-Mega-M",
 		megaAbility: {0: "Poison Point"},
 		megaStats: {hp: 65, atk: 95, def: 158, spa: 40, spd: 105, spe: 102},
 		megaStone: "Skarmorite",
@@ -1824,8 +1824,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	chesnaught: {
 		inherit: true,
-		mega: "chesnaughtmega",
-		megaName: "Chesnaught-Mega",
+		mega: "chesnaughtmegam",
+		megaName: "Chesnaught-Mega-M",
 		megaAbility: {0: "Flash Fire"},
 		megaStats: {hp: 88, atk: 137, def: 142, spa: 74, spd: 95, spe: 94},
 		megaStone: "Chesnite",
@@ -1882,8 +1882,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	pyroar: {
 		inherit: true,
-		mega: "pyroarmega",
-		megaName: "Pyroar-Mega",
+		mega: "pyroarmegam",
+		megaName: "Pyroar-Mega-M",
 		megaAbility: {0: "Grassy Surge"},
 		megaStats: {hp: 86, atk: 68, def: 92, spa: 149, spd: 86, spe: 126},
 		megaStone: "Pyroarite",
