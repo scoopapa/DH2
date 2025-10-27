@@ -17,8 +17,8 @@ const viabilityList = [
 	"toxapex", "tyranitar", "urshifurapidstrike", "victini", "volcanion", "volcarona", "weavile", "zapdos", "zapdosgalar", "zeraora",
 ];
 const megaViabilityList = [
-	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremega", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemega",
-	"eelektrossmega", "falinksmega", "flygonmega", "froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "infernapemega", "inteleonmega",
+	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremegam", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemega",
+	"eelektrossmega", "falinksmega", "flygonmega", "froslassmegam", "garbodormega", "hawluchamegam", "honchkrowmega", "infernapemega", "inteleonmega",
 	"krookodilemega", "lanturnmega", "latiasmega", "lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "medichammega",
 	"meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", "raichumega", "regicemega", "reuniclusmega",
 	"scizormega", "sirfetchdmega", "slowkingmega", "staraptormega", "starmiemega", "stoutlandmega", "swampertmega", "talonflamemega",
