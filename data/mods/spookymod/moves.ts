@@ -356,7 +356,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
-			return move.basePower + 10 * (move.pp - moveSlot.pp);
+			return 50 + 10 * ((move.pp * 1.6) - moveSlot.pp);
 		},
 		secondary: null,
 	},
