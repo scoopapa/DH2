@@ -178,14 +178,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.actions.useMove('Explosion', pokemon, pokemon);
 			}
 		},
-		onTryAddVolatile: null,
-		onBeforeSwitchOutPriority: null,
-		onBeforeSwitchOut: null,
-		onSourceModifyDamage: null,
-		onDragOutPriority: null,
-		onDragOut: null,
-		onResidualPriority: null,
-		onResidual: null,
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax', '[silent]');
 		}
