@@ -88,7 +88,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Wish", "Protect", "Moonblast", "Ominous Wind", "Night Shade", "Shadow Ball", "Defog"],
+                "movepool": ["Wish", "Protect", "Moonblast", "Ominous Wind", "Night Shade", "Lick", "Defog"],
                 "abilities": ["Levitate"],
                 "teraTypes": ["Ghost"]
             }
@@ -167,7 +167,7 @@
             },
 			{
                 "role": "Bulky Support",
-                "movepool": ["Shadow Bone", "Crunch", "Roar", "Teleport", "Recover", "Will-o-Wisp"],
+                "movepool": ["Shadow Bone", "Lick", "Crunch", "Roar", "Teleport", "Recover", "Will-o-Wisp"],
                 "abilities": ["Fluffy"],
                 "teraTypes": ["Ghost"]
             },
@@ -206,6 +206,12 @@
                 "teraTypes": ["Ghost"]
             },
 			{
+                "role": "Bulky Support",
+                "movepool": ["Hex", "Confuse Ray", "Nightmare", "Recover", "Strength Sap", "Thunder Wave", "Toxic", "Will-o-Wisp"],
+                "abilities": ["Jankster"],
+                "teraTypes": ["Ghost"]
+            },
+			{
                 "role": "Bulky Setup",
                 "movepool": ["Bitter Malice", "Calm Mind", "Dark Pulse", "Recover", "Strength Sap", "Thunder Wave", "Toxic", "Will-o-Wisp"],
                 "abilities": ["Jankster"],
@@ -221,7 +227,13 @@
                 "movepool": ["Spirit Shackle", "Lash Out", "Shadow Sneak", "Superpower", "Tidy Up", "Return", "Slack Off"],
                 "abilities": ["Jumpscare"],
                 "teraTypes": ["Ghost"]
-            }
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Lash Out", "Shadow Sneak", "Astonish", "Parting Shot"],
+                "abilities": ["Jumpscare"],
+                "teraTypes": ["Ghost"]
+            },
         ]
     },
 	"kilotic": {
@@ -266,7 +278,13 @@
                 "movepool": ["BOMBINOMICON!", "Substitute", "Expanding Force", "Spirit Break", "Protect"],
                 "abilities": ["Magician"],
                 "teraTypes": ["Ghost"]
-            }
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Feint Attack", "Substitute", "Curse", "Protect"],
+                "abilities": ["Magician"],
+                "teraTypes": ["Ghost"]
+            },
         ]
     },
 	"nursola": {
@@ -274,7 +292,13 @@
         "sets": [
 			{
                 "role": "Bulky Support",
-                "movepool": ["Ominous Wind", "Giga Drain", "Stealth Rock", "Strength Sap", "Will-o-Wisp"],
+                "movepool": ["Ominous Wind", "Infernal Parade", "Giga Drain", "Stealth Rock", "Haze", "Wish", "Spiky Shield", "Will-o-Wisp"],
+                "abilities": ["Purifying Salt", "Solid Rock"],
+                "teraTypes": ["Ghost"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Hex", "Giga Drain", "Stealth Rock", "Haze", "Strength Sap", "Will-o-Wisp"],
                 "abilities": ["Purifying Salt", "Solid Rock"],
                 "teraTypes": ["Ghost"]
             },
@@ -353,7 +377,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Shadow Force", "Shadow Ball", "Shadow Sneak", "Toxic", "Will-o-Wisp", "Protect"],
+                "movepool": ["Shadow Force", "Shadow Ball", "Nightmare", "Toxic", "Will-o-Wisp", "Protect"],
                 "abilities": ["Wonder Guard"],
                 "teraTypes": ["Ghost"]
             },
@@ -404,7 +428,13 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Volt Switch", "Thunderbolt", "Ominous Wind", "Spectral Thief", "Core Enforcer", "Moonlight"],
+                "movepool": ["Volt Switch", "Thunderbolt", "Ominous Wind", "Moongeist Beam", "Spectral Thief", "Core Enforcer", "Moonlight"],
+                "abilities": ["Vamp"],
+                "teraTypes": ["Ghost"]
+            },
+			{
+                "role": "Wallbreaker",
+                "movepool": ["Volt Switch", "Thunderbolt", "Shadow Ball", "Infernal Parade", "Core Enforcer", "Moonblast"],
                 "abilities": ["Vamp"],
                 "teraTypes": ["Ghost"]
             }
@@ -473,7 +503,7 @@
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Ice Beam", "Shadow Ball", "Nasty Plot", "Flamethrower", "Taunt", "Sludge Bomb"],
-                "abilities": ["Cursed Body","Illusion"],
+                "abilities": ["Cursed Body", "Illusion"],
                 "teraTypes": ["Ghost"]
             }
         ]

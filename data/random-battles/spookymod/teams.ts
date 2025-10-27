@@ -119,9 +119,16 @@ const MOVE_PAIRS = [
 	['lightscreen', 'reflect'],
 	['sleeptalk', 'rest'],
 	['protect', 'wish'],
+	['spikyshield', 'wish'],
 	['leechseed', 'protect'],
 	['leechseed', 'substitute'],
 	['moongeistbeam', 'moonlight'],
+	['hex', 'willowisp'],
+	['hex', 'toxic'],
+	['hex', 'thunderwave'],
+	['nightmare', 'willowisp'],
+	['nightmare', 'toxic'],
+	['nightmare', 'thunderwave'],
 ];
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
