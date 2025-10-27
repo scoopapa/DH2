@@ -4085,7 +4085,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	stakataka: {
 		tier: "RU",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	blacephalon: {
 		tier: "UU",
@@ -5458,10 +5458,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NU",
 		doublesTier: "DUU",
 	},
-	/*scrafree: {
-		tier: "PU",
-		doublesTier: "DUU",
-	},*/
 	gevauyena: {
 		tier: "OU",
 		doublesTier: "DUU",
@@ -5484,7 +5480,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	remobault: {
 		tier: "RU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	whitewhale: {
 		tier: "UU",
@@ -5496,7 +5492,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	coalkaiju: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	ironbike: {
 		tier: "RU",
@@ -5504,11 +5500,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	purerainbow: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	irondart: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 
 	//unavailable
