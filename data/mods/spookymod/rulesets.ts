@@ -27,7 +27,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		name: 'Spokymod',
 		desc: 'spookymod jumpscare',
 		onBegin() {
-			this.add(`raw|<img src="https://cdn.discordapp.com/attachments/885011212776128572/894007367069491230/eminem11.JPG?ex=653d9d3e&is=652b283e&hm=c4c41ba3016b5392853143f7c3ab1c35aa1fc894115f52244d8e8bb0b76167da&" height="16" width="16">`);
+			const intro = ["Welcome mortals to my Magic Kingdom!...which is unaffiliated with any other Magic Kingdom that may or may not exist. Step right up and get your spells from me! For I am the Spell Master!...again, not a term Merasmus officially owns.",
+			"Greetings mortals...and こんにちは! Yes, Merasmus is learning Japanese...in the likely event he will have to beg for his life! Why? Well, therein lies a tale of horror! Short version: Merasmus owes $12,000 to the Japanese Mafia!",
+			"It is Halloween! The time of year when the doorways between our world and the next swing wide! That...and President's Day. That's still only two times! So you've got to pick your battles if you're Merasmus!",
+			"A harvest moon hangs pendulously in the sky, mortals! That's right, the moon's giving us the green light for harvesting! Apropos of nothing, I hope you all brought your souls! (laughter) And money. Because Merasmus has sunk a lot into this metagame.",
+			"It is I, mortals, Merasmus the wizard! Welcome to my dark carnival of the macabre! Admit One...to MADNESS! (laughter) Step right up and test your measly minds on my Metagame of the Damned!"];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(intro)}`);
 		},
 
 		onResidual(pokemon) {
