@@ -3297,7 +3297,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	talonflame: {
 		tier: "RUBL",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	scatterbug: {
 		tier: "LC",
