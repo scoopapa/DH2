@@ -11,10 +11,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	kingdrabard: {
 		tier: "King",
 	},
-	/*
-	kingdra: {
+	kingdragourmet: {
 		tier: "King",
 	},
+	/*
 	kingdra: {
 		tier: "King",
 	},
@@ -31,10 +31,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	nidoqueenrosegold: {
 		tier: "Queen",
 	},
-	/*
-	nidoqueen: {
+	nidoqueenshaman: {
 		tier: "Queen",
 	},
+	/*
 	nidoqueen: {
 		tier: "Queen",
 	},
@@ -51,10 +51,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bisharpmantis: {
 		tier: "Bishop",
 	},
-	/*
-	bisharp: {
+	bisharprevenant: {
 		tier: "Bishop",
 	},
+	/*
 	bisharp: {
 		tier: "Bishop",
 	},
@@ -71,10 +71,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	corviknightanalytical: {
 		tier: "Knight",
 	},
-	/*
-	corviknight: {
+	corviknightmartian: {
 		tier: "Knight",
 	},
+	/*
 	corviknight: {
 		tier: "Knight",
 	},
@@ -91,10 +91,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	krookodilecavedweller: {
 		tier: "Rook",
 	},
-	/*
-	krookodile: {
+	krookodilecliffside: {
 		tier: "Rook",
 	},
+	/*
 	krookodile: {
 		tier: "Rook",
 	},
@@ -111,10 +111,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ogerponeid: {
 		tier: "Pawn",
 	},
-	/*
-	ogerpon: {
+	ogerponvessel: {
 		tier: "Pawn",
 	},
+	/*
 	ogerpon: {
 		tier: "Pawn",
 	},

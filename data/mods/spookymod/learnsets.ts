@@ -1302,6 +1302,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	jobapplication: {
 		learnset: {
 			spite: ["9M"],
+			partingshot: ["9M"],
 			poltergeist: ["9L1"],
 			phantomforce: ["9L1"],
 			spiritshackle: ["9L1"],
@@ -1560,6 +1561,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bonerush: ["9L1"],
 			bonemerang: ["9L1"],
 			confusion: ["9L1"],
+			curse: ["9L1"],
 			teleport: ["9L1"],
 			trick: ["9L1"],
 			doublehit: ["9L1"],

@@ -209,6 +209,47 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "flittle").learnset.bravebird = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.shadowball = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
+		delete this.modData('Learnsets', 'skiddo').learnset.milkdrink;
+		delete this.modData('Learnsets', 'skiddo').learnset.grassyglide;
+	   this.modData('Learnsets', 'gogoat').learnset.milkdrinkage = ['9L1'];
+	   this.modData('Learnsets', 'gogoat').learnset.grassyglideage = ['9L1'];
+		this.modData("Learnsets", "clodsire").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.crunch = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.snarl = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.jetpunch = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.bulletpunch = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.machpunch = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.hammerarm = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.brickbreakvaporemons = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.lashoutvaporemons = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.stormthrowvaporemons = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.sledgehammerblow = ["9L1"];
+		delete this.modData('Learnsets', 'crabrawler').learnset.brickbreak;
+		delete this.modData('Learnsets', 'crabominable').learnset.brickbreak;
+		delete this.modData('Learnsets', 'eevee').learnset.rest;
+		delete this.modData('Learnsets', 'eevee').learnset.sleeptalk;
+		delete this.modData('Learnsets', 'glaceon').learnset.rest;
+		delete this.modData('Learnsets', 'glaceon').learnset.sleeptalk;
+		this.modData("Learnsets", "glaceon").learnset.slackoffglacemons = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.earthpower = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.scorchingsands = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.chargebeam = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.stealthrock = ['9L1'];
+		this.modData('Learnsets', 'glaceon').learnset.quicksanddrain = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.restglacemons = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.sleeptalkglacemons = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.tripleaxelglacemons = ['9L1'];
+		delete this.modData('Learnsets', 'glaceon').learnset.tripleaxel;
+		this.modData("Learnsets", "glaceon").learnset.synchronoiseglacemons = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.salvestrike = ['9L1'];
+		this.modData("Learnsets", "glaceon").learnset.rainbowblast = ['9L1'];
+		// this.modData('Learnsets', 'glaceon').learnset.frostnip = ['9L1'];
+		this.modData('Learnsets', 'glaceon').learnset.breezeburn = ['9L1'];
+		this.modData('Learnsets', 'glaceon').learnset.breezeshock = ['9L1'];
 	},
 	pokemon: {
 		inherit: true,
@@ -567,6 +608,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.side.addSideCondition('teraused', pokemon);
 			if (pokemon.species.baseSpecies === 'Ogerpon') {
 				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Clodsire') {
+				const tera = pokemon.species.id === 'clodsire' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {

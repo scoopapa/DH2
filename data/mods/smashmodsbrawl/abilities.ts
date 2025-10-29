@@ -421,4 +421,94 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fumigation",
 		shortDesc: "When this Pokemon is damaged by a move, it uses Poison Gas against the attacker.",
 	},
+	starguard: {
+		onDamage(damage, target, source, effect) {
+			if (this.field.isWeather('meteorshower') && effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Star Guard",
+		shortDesc: "If Meteor Shower is active, this Pokemon is immune to indirect damage.",
+	},
+	hauntingmelody: {
+		onModifyMove(move, pokemon, target) {
+			console.log("target is " + target);
+			if (move.flags['sound']) {
+				if (target.hasType('Ghost')) return false;
+				if (!target.addType('Ghost')) return false;
+				this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			}
+		},
+		flags: {},
+		name: "Haunting Melody",
+		shortDesc: "The user's sound moves add ghost type to the target.",
+		rating: 1.5,
+		num: -37,
+	},
+	fairfight: {
+		name: "Fair Fight",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.foes()) {
+				if (!activated) {
+					this.add('-ability', source, 'Fair Fight');
+					this.add('-message', `${source.name} wants to have a fair fight!`);
+				}
+				activated = true;
+				if (!pokemon.volatiles['fairfight']) {
+					pokemon.addVolatile('fairfight');
+				}
+				if (!source.volatiles['fairfight']) {
+					source.addVolatile('fairfight');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectState.target;
+			if (pokemon === source) return;
+			for (const target of source.foes()) {
+				if (!target.volatiles['fairfight']) {
+					target.addVolatile('fairfight');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of pokemon.foes()) {
+				target.removeVolatile('fairfight');
+			}
+		},
+		condition: {
+			onTryBoost(boost, target, source, effect) {
+				let showMsg = false;
+				let i: BoostID;
+				for (i in boost) {
+					if (boost[i]! < 0 || boost[i]! > 0) {
+						delete boost[i];
+						showMsg = true;
+					}
+				}
+				if (showMsg && !(effect as ActiveMove).secondaries) {
+					this.add('-activate', target, 'ability: Fair Fight');
+					this.add('-message', `${target.name} can't change its stats!`);
+				}
+			},
+		},
+		flags: {},
+		shortDesc: "While this Pokemon is active, no stat changes can occur.",
+	},
+	icebody: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 32);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		name: "Ice Body",
+		rating: 1,
+		num: 115,
+	},
 };

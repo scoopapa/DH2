@@ -307,4 +307,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	metarachne: {
 		tier: "BC C",
 	},
+	monsnooze: {
+		tier: "BC C",
+	},
+	oreamoss: {
+		tier: "BC C",
+	},
+	sucrillon: {
+		tier: "BC C",
+	},
+	taranferno: {
+		tier: "BC C",
+	},
+	armie: {
+		tier: "BC C",
+	},
+	bunnyumi: {
+		tier: "BC C",
+	},
+	parfae: {
+		tier: "BC C",
+	},
+	siltworm: {
+		tier: "BC C",
+	},
 };

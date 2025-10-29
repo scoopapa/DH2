@@ -716,13 +716,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -37,
 	},
 	cosmicenergy: {
-		desc: "This Pokémon can skip the charging turn of its moves.",
-		shortDesc: "Skip charging turns of moves.",
+		desc: "This Pokemon's attacks do not have to charge or recharge, and can always be used twice in a row.",
+		shortDesc: "Skip charging and recharging turns of moves.",
+		onModifyMove(move) {
+			delete move.flags['charge', 'recharge', 'cantusetwice'];
+		},
 		onChargeMove(pokemon, target, move) {
 			this.debug('Cosmic Energy - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; 
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+			}
 		},
 		name: "Cosmic Energy",
 		rating: 2,
@@ -2940,20 +2948,34 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Heavy Weapon",
 		num: -97,
 	},
-	triheaded: {
-		shortDesc: "This Pokemon's moves have x0.5 BP, but hits 3 times.",
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihit || move.category === 'Status') return;
-			return this.chainModify(0.5);
-		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.multihit || move.category === 'Status') return;
+	multiheaded: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+				move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
 			move.multihit = 3;
+			move.multihitType = 'multiheaded' as 'parentalbond';
 		},
-		name: "Tri-Headed",
-		num: -98,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.effectType === 'Move' && effect.multihitType && effect.hit > 1 &&
+				source && target === source) {
+				let i: keyof BoostsTable;
+				for (i in boost) {
+					delete boost[i];
+				}
+			}
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType && move.hit > 1) {
+				return [];
+			}
+		},
+		flags: {},
+		name: "Multiheaded",
+		gen: 9,
+		desc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		shortDesc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
+		num: -98
 	},
 	stymphaleblade: {
 		desc: "Pokemon making contact with this Pokemon or getting hit from contact moves from this Pokemon lose 1/8 of their maximum HP, rounded down.",
@@ -2981,14 +3003,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (move.flags['bite'] && !move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity[move.type] = true;
-			}
+			if (move.flags['bite']) move.ignoreAbility = true;
 		},
 		flags: {},
 		name: "Savage Bite",
-		shortDesc: "This Pokemon's biting attacks ignore resistances and immunities.",
+		shortDesc: "This Pokemon's biting attacks ignore resistances and abilities.",
 		rating: 4,
 		num: -100,
 	},
@@ -3079,6 +3098,95 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		rating: 3,
+	},
+	psychicprowess: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Psychic Prowess boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Psychic Prowess",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic type attack. Amnesia also boosts SpA by 2.",
+		rating: 3.5,
+		num: -104,
+	},
+	rewind: {
+		name: "Rewind",
+		shortDesc: "When brought to 50% HP or less, restores lost items on user's side.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		rating: 4,
+		num: -105,
+		onStart(pokemon) {
+			pokemon.addVolatile('rewind');
+		},
+		onDamage(damage, target, source, effect) {
+			const rewindState = target.volatiles['rewind'];
+			if (!rewindState || typeof damage !== 'number') return;
+			const hpBefore = target.hp;
+			const hpAfter = hpBefore - damage;
+			if (rewindState.triggeredThisTurn) return;
+			if (hpBefore > target.maxhp / 2 && hpAfter <= target.maxhp / 2) {
+				rewindState.shouldTrigger = true;
+				rewindState.triggeredThisTurn = true;
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (rewindState) {
+				rewindState.triggeredThisTurn = false;
+				if (rewindState.shouldTrigger) {
+					rewindState.shouldTrigger = false;
+					this.add('-message', `${pokemon.name} has triggered Rewind!`);
+					let itemRestored = false;
+					if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+						for (const ally of pokemon.side.active) {
+							if (ally && !ally.item) {
+								this.actions.useMove('Recycle', ally);
+								itemRestored = true;
+							}
+						}
+						if (itemRestored) {
+							this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+						}
+					}
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			const rewindState = pokemon.volatiles['rewind'];
+			if (!rewindState || !rewindState.shouldTrigger) return;
+			rewindState.shouldTrigger = false;
+			let itemRestored = false;
+			this.add('-ability', pokemon, 'Rewind');
+			if (pokemon.side && Array.isArray(pokemon.side.pokemon)) {
+				for (const ally of pokemon.side.active) {
+					if (ally && !ally.item) {
+						this.actions.useMove('Recycle', ally);
+						itemRestored = true;
+					}
+				}
+				if (itemRestored) {
+					this.add('-message', `${pokemon.name} rewound time to restore its team's items!`);
+				}
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart() {
+				this.effectState.shouldTrigger = false;
+				this.effectState.triggeredThisTurn = false;
+			}
+		},
 	},
 
 

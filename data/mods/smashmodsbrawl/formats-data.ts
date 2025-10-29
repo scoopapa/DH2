@@ -113,7 +113,31 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ironcrest: {
 		tier: "SSB",
 	},
-	flittle: {
+	glaceon: {
+		tier: "SSB",
+	},
+	crabominable: {
+		tier: "SSB",
+	},
+	skeledirge: {
+		tier: "SSB",
+	},
+	skeledirgemega: {
+		tier: "SSB",
+	},
+	clodsire: {
+		tier: "SSB",
+	},
+	clodsiretera: {
+		tier: "SSB",
+	},	
+	icaruff: {
+		tier: "SSB",
+	},
+	bigclefable: {
+		tier: "SSB",
+	},	
+	nidoqueenrosegold: {
 		tier: "SSB",
 	},
 };

@@ -770,4 +770,117 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		rating: 3,
 	},
+	baseballbat: {
+		name: "Baseball Bat",
+		spritenum: 465,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				this.debug('Baseball Bat boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['bullet']) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				
+				if (target.useItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+					this.add('-message', `${pokemon.name} tried to hit the ball back, but its Baseball Bat broke!`);
+				}
+			}
+		},
+		desc: "Holder's contact moves have 1.2x power. If hit by a bullet move, it deals 50% damage and the item breaks.",
+		num: -1007,
+		gen: 9,
+		rating: 3,
+	},
+	handmirror: {
+		name: "Hand Mirror",
+		spritenum: 747,
+		fling: {
+			basePower: 30,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasType(source.getTypes())) {
+				return this.chainModify(0.66);
+			}
+		},
+		num: -1035,
+		gen: 8,
+		desc: "Holder takes 2/3 damage from foes that share a type.",
+		rating: 3,
+	},
+	sandclock: {
+		name: "Sand Clock",
+		spritenum: 453,
+		fling: {
+			basePower: 30,
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hasType('Rock')) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: -1033,
+		gen: 8,
+		desc: "If the holder is a Rock-type, its SpD is boosted 1.5x.",
+		rating: 3,
+	},
+	terashard: {
+		name: "Tera Shard",
+		spritenum: 658,
+		onTakeItem: false,
+		onStart(pokemon) {
+			if (['Clodsire'].includes(pokemon.baseSpecies.baseSpecies)) {
+	  			if (pokemon.side.sideConditions['teraused']) {
+	  				pokemon.canTerastallize = null;
+	  			} else {
+	        		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+	  			}
+      	}
+		},
+		itemUser: ["Clodsire"],
+		num: -1001,
+		gen: 9,
+		desc: "Allows certain Pokemon to Terastallize.",
+    	rating: 3,
+	},
+	pokeball: {
+		name: "Poke Ball",
+		spritenum: 345,
+		onTakeItem: false,
+		onStart(pokemon) {
+			if (['Clodsire'].includes(pokemon.baseSpecies.baseSpecies)) {
+	  			if (pokemon.side.sideConditions['teraused']) {
+	  				pokemon.canTerastallize = null;
+	  			} else {
+	        		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+	  			}
+      	}
+		},
+		num: 4,
+		gen: 1,
+		isPokeball: true,
+		desc: "Allows certain Pokemon to Terastallize.",
+    	rating: 3,
+	},
+	skeledite: { 
+		name: "Skeledite",
+		spritenum: 578,
+		megaStone: "Skeledirge-Mega",
+		megaEvolves: "Skeledirge",
+		itemUser: ["Skeledirge"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2038,
+		gen: 9,
+		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
+	},
 };

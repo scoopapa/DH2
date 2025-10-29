@@ -319,7 +319,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 		desc: "User must have used Moonlight last turn. Ignores abilities.",
-		shortDesc: "User must have used Moonlight last turn. Ignores abilities.",
+		shortDesc: "Must use Moonlight first. Ignores abilities.",
 		onTry(source, target) {
 			return source.lastMove === 'Moonlight';
 		},
@@ -327,8 +327,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowball: {
 		inherit: true,
 		viable: true,
-		desc: "10% chance to lower the target's/user's Sp. Def by 1",
-		shortDesc: "10% chance to lower the target's/user's Sp. Def by 1",
+		desc: "10% chance to lower target/user's Sp. Def by 1.",
+		shortDesc: "10% chance to lower target/user's Sp. Def by 1.",
 		basePower: 70,
 		secondary: {
 			chance: 20,
@@ -356,7 +356,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
-			return move.basePower + 10 * (move.pp - moveSlot.pp);
+			return 50 + 10 * ((move.pp * 1.6) - moveSlot.pp);
 		},
 		secondary: null,
 	},
