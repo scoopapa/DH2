@@ -267,7 +267,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Gemini Core",
 		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
-		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
+		shortDesc: "This Pokemon's attacks skip charging and recharging turns. (Ignore Recharge/Charge status in-battle)",
 		activate: "[POKEMON] became energized immediately!",
         flags: {},
 	},
@@ -1342,20 +1342,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	pulpup: {
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') {
+			if (target !== source && move.category === 'Status') {
 				pokemon.addVolatile('stockpile');
 				this.add('-ability', pokemon, 'Pulp-Up');
 			}
 		},
 		flags: {},
 		name: "Pulp Up",
-		shortDesc: "When this Pokemon uses a status move, Stockpiles 1.",
+		shortDesc: "When this Pokemon targets another pokemon with a status move, Stockpiles 1.",
 	},
 	mucusveil: {
-		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by an attack.",
+		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by a physical attack.",
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp) {
+			if (!move.noreact && target.hp && source.hp && move.category === 'Physical') {
 				const reaction = this.dex.getActiveMove('soak');
 				reaction.noreact = true;
 				this.actions.useMove(reaction, target, source);
