@@ -317,6 +317,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "spectrier").learnset.mysticalfire = ["9L1"];
 		this.modData("Learnsets", "spectrier").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "spectrier").learnset.topsyturvy = ["9L1"];
+		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
+		delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
 		//this.modData("Learnsets", "calyrexicerider").learnset.iceshard = ["9L1"];
 		//this.modData("Learnsets", "calyrexshadowrider").learnset.mysticalfire = ["9L1"];
 		//this.modData("Learnsets", "calyrexshadowrider").learnset.moonblast = ["9L1"];
