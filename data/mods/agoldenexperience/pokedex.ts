@@ -843,7 +843,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	skarmorymega: {
 		inherit: true,
-		abilities: { 0: "Stymphale Blade" },
+		abilities: { 0: "Tough Claws" },
 	},
 	phanpy: {
 		inherit: true,
@@ -2380,7 +2380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	greninjamega: {
 		inherit: true,
-		abilities: { 0: "Ninja Gaiden" },
+		abilities: { 0: "Protean" },
 	},
 	pyroarmega: {
 		inherit: true,
@@ -2523,7 +2523,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	hawluchamega: {
 		inherit: true,
-		abilities: { 0: "Stamina" },
+		abilities: { 0: "Fluffy" },
 	},
 	sylveon: {
 		inherit: true,

@@ -2564,7 +2564,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Bitter Hatred",
 		num: -84,
 	},
-	ninjagaiden: {
+	/*ninjagaiden: {
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
 			const type = move.type;
@@ -2579,7 +2579,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
 		rating: 4.5,
 		num: -85,
-	},
+	},*/
 	surgesurfer: {
 		inherit: true,
 		onModifySpe(spe) {
@@ -2977,7 +2977,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
 		num: -98
 	},
-	stymphaleblade: {
+	/*stymphaleblade: {
 		desc: "Pokemon making contact with this Pokemon or getting hit from contact moves from this Pokemon lose 1/8 of their maximum HP, rounded down.",
 		shortDesc: "Pokemon making contact or being targeted by contact moves from this Pokemon lose 1/8 of their max HP.",
 		onDamagingHitOrder: 1,
@@ -2993,7 +2993,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Stymphale Blade",
 		num: -99,
-	},
+	},*/
 	savagebite: {
 		onModifyDamage(damage, source, target, move) {
 			if (move.flags['bite'] && target.getMoveHitData(move).typeMod < 0) {
