@@ -554,7 +554,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos Uber') {
+				if (template.tier !== 'Kalos OU' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos (LC)' && template.tier !== 'Kalos Uber') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
 				}
 				else if (template.tier === 'Kalos Uber') {
@@ -589,7 +589,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+				if (template.tier !== 'Kalos OU' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos (LC)') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
 				}
 			}

@@ -3,8 +3,8 @@ export const Scripts: { [k: string]: ModdedBattleScriptsData; } = {
 	inherit: 'gen6',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
-		customDoublesTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
+		customTiers: ['Kalos OU', 'Kalos', 'Kalos Uber', 'Kalos (NFE)', 'Kalos (LC)'],
+		customDoublesTiers: ['Kalos OU', 'Kalos', 'Kalos Uber', 'Kalos (NFE)', 'Kalos (LC)'],
 	},
 	init() {
 		// vocalstrain 
