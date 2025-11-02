@@ -1341,7 +1341,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
         flags: {},
 	},
 	pulpup: {
-		onModifyMove(move, pokemon) {
+		onTryHit(move, pokemon, target, source) {
 			if (target !== source && move.category === 'Status') {
 				pokemon.addVolatile('stockpile');
 				this.add('-ability', pokemon, 'Pulp-Up');
