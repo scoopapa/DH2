@@ -9,16 +9,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			this.field.setWeather('haxmeterweather');
+			const initialValue = 10 * Math.floor(6 * Math.random() + 2);
 			for (const side of this.sides) {
-				side.miss = 30;
-				side.effect = 30;
-				side.crit = 30;
-				side.status = 30;
+				side.miss = initialValue;
+				side.effect = initialValue;
+				side.crit = initialValue;
+				side.status = initialValue;
 				
-				side.pmiss = 30;
-				side.peffect = 30;
-				side.pcrit = 30;
-				side.pstatus = 30;
+				side.pmiss = initialValue;
+				side.peffect = initialValue;
+				side.pcrit = initialValue;
+				side.pstatus = initialValue;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
