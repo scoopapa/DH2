@@ -3181,6 +3181,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	raknakadaki: {
 		learnset: {
 			absorb: ["9L1"],
+			spiderweb: ["9L1"],
 			acidspray: ["9M"],
 			attackorder: ["9M"],
 			attract: ["9M"],
@@ -3267,6 +3268,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			absorb: ["9L1"],
 			amnesia: ["9M"],
 			attackorder: ["9M"],
+			spiderweb: ["9L1"],
 			attract: ["9M"],
 			bodyslam: ["9M"],
 			searingshot: ["9L1"],
@@ -8277,6 +8279,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			twineedle: ["9L1"],
 			acupressure: ["9L1"],
 			attackorder: ["9L1"],
+			spiderweb: ["9L1"],
 			attract: ["9L1"],
 			sedativespine: ["9L1"],
 			banefulbunker: ["9L1"],
@@ -11918,6 +11921,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	shroudcylla: {
 		learnset: {
 			sedativespine: ["9L1"],
+			spiderweb: ["9L1"],
 			acupressure: ["9L1"],
 			attackorder: ["9L1"],
 			attract: ["9L1"],
