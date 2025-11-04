@@ -4,6 +4,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		viable: true,
 		name: "Attract",
 		pp: 15,
 		priority: 0,
@@ -14,6 +15,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(pokemon, source, effect) {
 				if (!(source.gender === 'M' || source.gender === 'F')) {
 					this.debug('incompatible gender');
+					return false;
+				}
+				if (source.status === 'cfs') {
+					this.debug('target is confused');
 					return false;
 				}
 				if (!this.runEvent('Attract', pokemon, source)) {
@@ -57,6 +62,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		shortDesc: "50% chance to infatuate the target.",
+		viable: true,
 		name: "Bliss Blast",
 		pp: 10,
 		priority: 0,
@@ -113,6 +119,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
 		shortDesc: "Bounces + raises Speed turn 1. Hits turn 2.",
+		viable: true,
 		name: "Bounce",
 		pp: 5,
 		priority: 0,
@@ -150,12 +157,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Cute",
 	},
+	burningjealousy: {
+		num: 807,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Burning Jealousy",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target?.statsRaisedThisTurn) {
+					target.addVolatile('burn', this.effectState.source);
+				}
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	confusion: {
+		num: 93,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Confusion",
+		pp: 25,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			status: 'cfs',
+		},
+	},
 	drainingkiss: {
 		num: 577,
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
 		shortDesc: "User recovers 75% damage dealt. x2 power if target is infatuated.",
+		viable: true,
 		name: "Draining Kiss",
 		pp: 10,
 		priority: 0,
@@ -169,6 +212,40 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
+		contestType: "Cute",
+	},
+	dynamicpunch: {
+		num: 223,
+		accuracy: 50,
+		basePower: 100,
+		category: "Physical",
+		name: "Dynamic Punch",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			status: 'cfs',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	ember: {
+		num: 52,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Ember",
+		pp: 25,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'burn',
+		},
+		target: "normal",
+		type: "Fire",
 		contestType: "Cute",
 	},
 	firefang: {
@@ -228,6 +305,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Cool",
 	},
+	flatter: {
+		num: 260,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Flatter",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
+		status: 'cfs',
+		boosts: {
+			spa: 1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
 	heatwave: {
 		num: 257,
 		accuracy: 110,
@@ -278,6 +374,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		shortDesc: "+1 Priority. 30% chance to burn the target.",
+		viable: true,
 		name: "Hot Shot",
 		pp: 30,
 		priority: 1,
@@ -289,6 +386,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+	},
+	hurricane: {
+		num: 542,
+		accuracy: 70,
+		basePower: 110,
+		category: "Special",
+		name: "Hurricane",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, wind: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = 50;
+				break;
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'cfs',
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Tough",
 	},
 	hydropump: {
 		num: 56,
@@ -354,11 +480,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mirrorshot: {
 		num: 429,
-		accuracy: 85,
+		accuracy: 100,
 		basePower: 65,
 		category: "Special",
 		shortDesc: "Confuses the target.",
-		isNonstandard: "Past",
+		viable: true,
 		name: "Mirror Shot",
 		pp: 10,
 		priority: 0,
@@ -377,6 +503,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Poisons the target. Can't miss if used by a Poison type.",
+		viable: true,
 		name: "Poison Gas",
 		pp: 20,
 		priority: 0,
@@ -394,6 +521,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Poisons the target and lowers their SpDef one stage.",
+		viable: true,
 		name: "Poison Powder",
 		pp: 15,
 		priority: 0,
@@ -422,6 +550,81 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Beautiful",
 	},
+	psybeam: {
+		num: 60,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Psybeam",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			status: 'cfs',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
+	safeguard: {
+		num: 219,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Safeguard",
+		pp: 25,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'safeguard',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Safeguard');
+					return 7;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.id === 'yawn') return;
+				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
+				if (target !== source) {
+					this.debug('interrupting setStatus');
+					if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Safeguard');
+					}
+					return null;
+				}
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
+				if ((status.id === 'confusion' || status.id === 'burn' || status.id === 'yawn') && target !== source) {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Safeguard');
+					return null;
+				}
+			},
+			onSideStart(side, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-sidestart', side, 'Safeguard', '[persistent]');
+				} else {
+					this.add('-sidestart', side, 'Safeguard');
+				}
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 3,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Safeguard');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+	},
 	scorchingsands: {
 		num: 815,
 		accuracy: 100,
@@ -446,6 +649,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Burns the target.",
+		viable: true,
 		name: "Singe",
 		pp: 20,
 		priority: 0,
@@ -460,6 +664,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	skydrop: {
 		inherit: true,
 		basePower: 100,
+		viable: true,
+	},
+	supersonic: {
+		num: 48,
+		accuracy: 80,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Confuses the target and harshly lowers their Special Attack.",
+		viable: true,
+		name: "Supersonic",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		status: 'cfs',
+		boosts: {
+			spa: -2,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
+	swagger: {
+		num: 207,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Swagger",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
+		status: 'cfs',
+		boosts: {
+			atk: 2,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 	sweetkiss: {
 		num: 186,
@@ -467,6 +712,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Confuses the target and lowers their Defense one stage.",
+		viable: true,
 		name: "Sweet Kiss",
 		pp: 10,
 		priority: 0,
@@ -487,6 +733,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "User dodges all attacks next turn.",
+		viable: true,
 		name: "Tempo Shift",
 		pp: 10,
 		priority: -7,
@@ -651,5 +898,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	voltswitch: {
 		inherit: true,
 		basePower: 50,
+	},
+	waterpulse: {
+		num: 352,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Water Pulse",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
+		secondary: {
+			chance: 20,
+			status: 'cfs',
+		},
+		target: "any",
+		type: "Water",
+		contestType: "Beautiful",
 	},
 };

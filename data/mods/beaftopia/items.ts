@@ -1,4 +1,31 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	aguavberry: {
+		name: "Aguav Berry",
+		spritenum: 5,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Dragon",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.trySetStatus('cfs', pokemon);
+			}
+		},
+		num: 162,
+		gen: 3,
+		rating: 3,
+	},
 	choiceband: {
 		name: "Choice Band",
 		spritenum: 68,
@@ -49,6 +76,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		rating: 3,
 	},
+	figyberry: {
+			name: "Figy Berry",
+			spritenum: 140,
+			isBerry: true,
+			naturalGift: {
+				basePower: 80,
+				type: "Bug",
+			},
+			onUpdate(pokemon) {
+				if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+						pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+					pokemon.eatItem();
+				}
+			},
+			onTryEatItem(item, pokemon) {
+				if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+			},
+			onEat(pokemon) {
+				this.heal(pokemon.baseMaxhp / 3);
+				if (pokemon.getNature().minus === 'atk') {
+					pokemon.trySetStatus('cfs', pokemon);
+				}
+			},
+			num: 159,
+			gen: 3,
+			rating: 3,
+		},
 	flameorb: {
 		name: "Flame Orb",
 		spritenum: 145,
@@ -64,6 +118,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 273,
 		gen: 4,
 	},
+	iapapaberry: {
+			name: "Iapapa Berry",
+			spritenum: 217,
+			isBerry: true,
+			naturalGift: {
+				basePower: 80,
+				type: "Dark",
+			},
+			onUpdate(pokemon) {
+				if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+						pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+					pokemon.eatItem();
+				}
+			},
+			onTryEatItem(item, pokemon) {
+				if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+			},
+			onEat(pokemon) {
+				this.heal(pokemon.baseMaxhp / 3);
+				if (pokemon.getNature().minus === 'def') {
+					pokemon.trySetStatus('cfs', pokemon);
+				}
+			},
+			num: 163,
+			gen: 3,
+			rating: 3,
+		},
 	lifeorb: {
 		name: "Life Orb",
 		spritenum: 249,
@@ -82,6 +163,101 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		rating: 3,
 	},
+	lumberry: {
+		name: "Lum Berry",
+		spritenum: 262,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Flying",
+		},
+		onAfterSetStatusPriority: -1,
+		onAfterSetStatus(status, pokemon) {
+			pokemon.eatItem();
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status || pokemon.volatiles['burn']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.cureStatus();
+			pokemon.removeVolatile('burn');
+		},
+		num: 157,
+		gen: 3,
+	},
+	magoberry: {
+		name: "Mago Berry",
+		spritenum: 274,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ghost",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.trySetStatus('cfs', pokemon);
+			}
+		},
+		num: 161,
+		gen: 3,
+		rating: 3,
+	},
+	persimberry: {
+		name: "Persim Berry",
+		spritenum: 334,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ground",
+		},
+		onUpdate(pokemon) {
+					if (pokemon.status === 'cfs') {
+						pokemon.eatItem();
+					}
+				},
+				onEat(pokemon) {
+					if (pokemon.status === 'cfs') {
+						pokemon.cureStatus();
+					}
+				},
+		num: 156,
+		gen: 3,
+		rating: 1,
+	},
+	rawstberry: {
+		name: "Rawst Berry",
+		spritenum: 381,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Grass",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['burn']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (target.volatiles['burn']) {
+				pokemon.removeVolatile('burn');
+			}
+		},
+		num: 152,
+		gen: 3,
+		rating: 1,
+	},
 	toxicorb: {
 		name: "Toxic Orb",
 		spritenum: 515,
@@ -97,4 +273,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 272,
 		gen: 4,
 	},
+	wikiberry: {
+			name: "Wiki Berry",
+			spritenum: 538,
+			isBerry: true,
+			naturalGift: {
+				basePower: 80,
+				type: "Rock",
+			},
+			onUpdate(pokemon) {
+				if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+						pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+					pokemon.eatItem();
+				}
+			},
+			onTryEatItem(item, pokemon) {
+				if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+			},
+			onEat(pokemon) {
+				this.heal(pokemon.baseMaxhp / 3);
+				if (pokemon.getNature().minus === 'spa') {
+					pokemon.trySetStatus('cfs', pokemon);
+				}
+			},
+			num: 160,
+			gen: 3,
+			rating: 3,
+		},
 };

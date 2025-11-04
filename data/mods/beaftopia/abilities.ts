@@ -61,20 +61,63 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 1003,
 	},
+	owntempo: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'cfs') {
+				this.add('-activate', pokemon, 'ability: Own Tempo');
+				pokemon.cureStatus();
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'cfs') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.status === 'cfs') {
+				this.add('-immune', target, 'cfs', '[from] ability: Own Tempo');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Own Tempo",
+		rating: 1.5,
+		num: 20,
+	},
 	snowcloak: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (pokemon.status && ['snow'].includes(pokemon.effectiveWeather())) {
+			if ((pokemon.status || pokemon.volatiles['burn']) && ['snow'].includes(pokemon.effectiveWeather())) {
 				this.debug('snowcloak');
 				this.add('-activate', pokemon, 'ability: Snow Cloak');
 				pokemon.cureStatus();
+				pokemon.removeVolatile('burn');
 			}
 		},
 		flags: {},
 		name: "Snow Cloak",
 		rating: 1.5,
 		num: 81,
+	},
+	sunblock: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if ((pokemon.status || pokemon.volatiles['burn']) && ['sun'].includes(pokemon.effectiveWeather())) {
+				this.debug('sunblock');
+				this.add('-activate', pokemon, 'ability: Sunblock');
+				pokemon.cureStatus();
+				pokemon.removeVolatile('burn');
+			}
+		},
+		flags: {},
+		name: "Sunblock",
+		rating: 1.5,
+		num: 1003,
 	},
 	technician: {
 		onBasePowerPriority: 30,

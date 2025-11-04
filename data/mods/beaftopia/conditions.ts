@@ -11,6 +11,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'cfs');
 			}
 		},
+		onTryAddVolatile(status, target, source, effect) {
+			if (!effect || !source) return;
+			if (status.id === 'attract') return null;
+		},
 		onAfterMove(pokemon) {
 			this.add('-activate', pokemon, 'cfs');
 			this.activeTarget = pokemon;
@@ -32,14 +36,46 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-start', target, 'burn');
 			}
 		},
-		onEnd(target) {
-			this.add('-end', target, 'burn');
-		},
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType == 'Move') {
 				this.damage(pokemon.baseMaxhp / 8);
 				this.add('-message', `${pokemon.name} was hurt by its burn!`);
 			}
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Fire');
+		},
+		onEnd(target) {
+			this.add('-end', target, 'burn');
+		},
+	},
+	lockedmove: {
+		// Outrage, Thrash, Petal Dance...
+		name: 'lockedmove',
+		duration: 2,
+		onResidual(target) {
+			if (target.status === 'slp') {
+				// don't lock, and bypass confusion for calming
+				delete target.volatiles['lockedmove'];
+			}
+			this.effectState.trueDuration--;
+		},
+		onStart(target, source, effect) {
+			this.effectState.trueDuration = this.random(2, 4);
+			this.effectState.move = effect.id;
+		},
+		onRestart() {
+			if (this.effectState.trueDuration >= 2) {
+				this.effectState.duration = 2;
+			}
+		},
+		onEnd(target) {
+			if (this.effectState.trueDuration > 1) return;
+			source.trySetStatus('cfs', target);
+		},
+		onLockMove(pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			return this.effectState.move;
 		},
 	},
 	raindance: {
