@@ -1341,7 +1341,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
         flags: {},
 	},
 	pulpup: {
-		onAfterMove(move, pokemon, target, source) {
+		onModifyMove(move, pokemon, target, source) {
 			if (target !== source && move.category === 'Status') {
 				pokemon.addVolatile('stockpile');
 				this.add('-ability', pokemon, 'Pulp-Up');
@@ -1349,7 +1349,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Pulp Up",
-		shortDesc: "After this Pokemon targets another pokemon with a status move, Stockpiles 1.",
+		shortDesc: "After this Pokemon targets another pokemon with a status move, Stockpiles 1. (Under Testing)",
 	},
 	mucusveil: {
 		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by a physical attack.",
