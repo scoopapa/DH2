@@ -511,4 +511,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1,
 		num: 115,
 	},
+	multitasker: {
+		name: "Multitasker",
+		flags: {},
+		shortDesc: "placeholder until i get the code.",
+	},
 };
