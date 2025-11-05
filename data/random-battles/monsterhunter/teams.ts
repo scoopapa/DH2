@@ -1150,6 +1150,7 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'yiankutku' && moves.has('facade') || species.id === 'bluekutku' && moves.has('facade')) return 'Frost Orb';
+		if (species.id === 'xenojiiva' && ability === 'Quark Drive') return 'Booster Energy';
 		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
