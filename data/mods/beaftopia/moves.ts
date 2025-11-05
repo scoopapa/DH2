@@ -571,6 +571,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
+	rockslide: {
+		num: 157,
+		accuracy: 90,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "50% chance to lower the target's Speed.",
+		name: "Rock Slide",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 50,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+		contestType: "Tough",
+	},
 	safeguard: {
 		num: 219,
 		accuracy: true,

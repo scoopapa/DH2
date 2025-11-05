@@ -55,7 +55,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! > 0) {
-					source.trySetStatus('cfs', target);
+					target.trySetStatus('cfs', target);
 					return;
 				}
 			}

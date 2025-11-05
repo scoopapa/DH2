@@ -2903,7 +2903,6 @@ export const Formats: FormatList = [
 		],
 		mod: 'beaftopia',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Light Ball'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['OU'];

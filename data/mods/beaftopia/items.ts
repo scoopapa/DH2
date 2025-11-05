@@ -48,6 +48,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		isChoice: true,
 		num: 220,
+		desc: "Holder's Attack is 1.3x, but it can only select the first attack it uses upon switch-in.",
 		rating: 3,
 		gen: 3,
 	},
@@ -73,6 +74,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		isChoice: true,
 		num: 297,
+		desc: "Holder's Special Attack is 1.3x, but it can only select the first attack it uses upon switch-in.",
 		gen: 4,
 		rating: 3,
 	},
@@ -160,8 +162,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 270,
+		desc: "Holder's attacks have 1.3x power, but it takes 1/8 damage after each attack.",
 		gen: 4,
 		rating: 3,
+	},
+	lightball: {
+		name: "Light Ball",
+		spritenum: 251,
+		fling: {
+			basePower: 30,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World"],
+		num: 236,
+		gen: 2,
 	},
 	lumberry: {
 		name: "Lum Berry",
@@ -271,6 +296,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			pokemon.trySetStatus('psn', pokemon);
 		},
 		num: 272,
+		desc: "Attempts to Poison the holder at the end of each turn.",
 		gen: 4,
 	},
 	wikiberry: {
