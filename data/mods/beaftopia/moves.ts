@@ -178,6 +178,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	confuseray: {
+		inherit: true,
+		viable: true,
+	},
 	confusion: {
 		num: 93,
 		accuracy: 100,
@@ -326,8 +330,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	heatwave: {
 		num: 257,
-		accuracy: 110,
-		basePower: 80,
+		accuracy: 80,
+		basePower: 110,
 		category: "Special",
 		shortDesc: "30% chance to burn. Can't miss in Sun.",
 		name: "Heat Wave",

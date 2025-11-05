@@ -235,6 +235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1030,
 		name: "Wintail",
 		types: ["Ice", "Bug"],
+		baseStats: {hp: 80, atk: 55, def: 75, spa: 100, spd: 65, spe: 102},
 		abilities: {0: "Snow Cloak", H: "Swarm"},
 		weightkg: 15.0,
 	},
