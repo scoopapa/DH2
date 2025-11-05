@@ -471,4 +471,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 105, atk: 125, def: 105, spa: 50, spd: 105, spe: 100},
 	},
+	pirrote: {
+		num: 3047,
+		name: "Pirrote",
+		types: ["Flying", "Steel"],
+		baseStats: {hp: 98, atk: 121, def: 82, spa: 52, spd: 80, spe: 91},
+		abilities: {0: "Trace", H: "Iron Barbs"},
+		weightkg: 100.7,
+	},
 };
