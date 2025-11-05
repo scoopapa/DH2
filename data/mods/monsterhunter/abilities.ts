@@ -862,16 +862,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.cureStatus();
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'brn') return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Water Veil');
-			}
-			return false;
-		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in.",
 	},
 	incandescent: {
 		onModifyAtkPriority: 5,
