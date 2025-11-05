@@ -741,7 +741,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		stallingMove: true,
 		volatileStatus: 'temposhift',
 		condition: {
-			duration: 2
+			duration: 2,
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon, source, effect) {
 				if (!this.runEvent('Tempo Shift', pokemon, source)) {
@@ -756,7 +756,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.battle.add('-miss', source, target);
 					return null;
 				}
-			}
+			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Tempo Shift', '[silent]');
 			},
