@@ -46,14 +46,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	clefable: {
 		inherit: true,
-		mega: "clefablemegam",
-		megaName: "Clefable-Mega-M",
-		megaType: ["Fairy", "Ghost"],
-		megaStats: {hp: 95, atk: 86, def: 83, spa: 125, spd: 90, spe: 104},
-		megaAbility: {0: "Prankster"},
-		megaStone: "Clefabite",
-		megaCreator: "zxgzxg",
+		otherFormes: ["Clefable-Mega", "Clefable-Mega-M"],
+		formeOrder: ["Clefable", "Clefable-Mega", "Clefable-Mega-M"],
 		movepoolAdditions: ["hex", "nastyplot"],
+	},
+	clefablemegam: {
+		num: 36,
+		name: "Clefable-Mega-M",
+		baseSpecies: "Clefable",
+		forme: "Mega-M",
+		types: ["Fairy", "Ghost"],
+		genderRatio: { M: 0.25, F: 0.75 },
+		baseStats: {hp: 95, atk: 86, def: 83, spa: 125, spd: 90, spe: 104},
+		abilities: { 0: "Prankster" },
+		heightm: 1.7,
+		weightkg: 42.3,
+		color: "Pink",
+		eggGroups: ["Field"],
+		requiredItem: "Clefabite",
+		creator: "zxgzxg",		
 	},
 
 	ninetalesalola: {
