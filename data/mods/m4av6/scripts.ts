@@ -18,10 +18,10 @@ const viabilityList = [
 ];
 const megaViabilityList = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremegam", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemegam",
-	"eelektrossmega", "falinksmega", "flygonmega", "froslassmegam", "garbodormega", "hawluchamegam", "honchkrowmega", "infernapemega", "inteleonmega",
+	"eelektrossmegam", "falinksmega", "flygonmega", "froslassmegam", "garbodormega", "hawluchamegam", "honchkrowmega", "infernapemega", "inteleonmega",
 	"krookodilemega", "lanturnmega", "latiasmega", "lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "medichammega",
 	"meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", "raichumega", "regicemega", "reuniclusmega",
-	"scizormega", "sirfetchdmega", "slowkingmega", "staraptormega", "starmiemega", "stoutlandmega", "swampertmega", "talonflamemega",
+	"scizormega", "sirfetchdmega", "slowkingmega", "staraptormega", "starmiemegam", "stoutlandmega", "swampertmega", "talonflamemega",
 	"typhlosionmega", "tyranitarmega", "tyrantrummega", "vanilluxemega", "wailordmega",
 ];
 /*
