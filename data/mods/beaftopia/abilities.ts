@@ -120,6 +120,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('burn');
 			}
 		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['burn']) {
+				this.add('-activate', pokemon, 'ability: Sunblock');
+				pokemon.removeVolatile('burn');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'burn') return null;
+		},
 		flags: {},
 		name: "Sunblock",
 		shortDesc: "This Pokemon is immune to Burn. In Sun, this Pokemon is immune to all status and has its status cured at the end of each turn.",
