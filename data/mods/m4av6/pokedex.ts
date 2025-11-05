@@ -64,6 +64,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Field"],
 		requiredItem: "Clefabite",
+		battleOnly: "Clefable",
 		creator: "zxgzxg",		
 	},
 
@@ -135,13 +136,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	starmie: {
 		inherit: true,
-		mega: "starmiemegam",
-		megaName: "Starmie-Mega-M",
-		megaStats: {hp: 60, atk: 95, def: 95, spa: 140, spd: 95, spe: 135},
-		megaAbility: {0: "Rotation"},
-		megaStone: "Starminite",
-		megaCreator: "BlueRay",
+		otherFormes: ["Starmie-Mega", "Starmie-Mega-M"],
+		formeOrder: ["Starmie", "Starmie-Mega", "Starmie-Mega-M"],
 		movepoolAdditions: ["futuresight", "followme", "moonblast", "storedpower"],
+	},
+	starmiemegam: {
+		num: 121,
+		name: "Starmie-Mega-M",
+		baseSpecies: "Starmie",
+		forme: "Mega-M",
+		types: ["Water", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 60, atk: 95, def: 95, spa: 140, spd: 95, spe: 135},
+		abilities: { 0: "Rotation" },
+		heightm: 2.3,
+		weightkg: 80,
+		color: "Purple",
+		eggGroups: ["Water 3"],
+		requiredItem: "Starminite",
+		battleOnly: "Starmie",
+		creator: "BlueRay",
 	},
 
 	vaporeon: {
