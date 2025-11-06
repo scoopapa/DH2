@@ -720,7 +720,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	teddiursa: {tier: "Kalos (LC)"},
 	ursaring: {tier: "Kalos"}, 
 
-	lickitung: {tier: "Kalos (LC"},
+	lickitung: {tier: "Kalos (LC)"},
 	lickilicky: {tier: "Kalos"},
 
 	scyther: {tier: "Kalos (LC)"},

@@ -137,7 +137,31 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bigclefable: {
 		tier: "SSB",
 	},	
-	nidoqueenrosegold: {
+	pirrote: {
 		tier: "SSB",
+	},
+	kangaskhanmega: {
+		tier: "SSB",
+	},
+	kangaskhan: {
+		tier: "SSB",
+	},
+	krookodilecliffside: {
+		tier: "SSB",
+	},
+	felapstan: {
+		tier: "SSB",
+	},
+	yanmega: {
+		tier: "SSB",
+	},
+	tynar: {
+		tier: "SSB",
+	},
+	zinogre: {
+		tier: "SSB",
+	},
+	thunderlordzinogre: {
+		tier: "Illegal",
 	},
 };
