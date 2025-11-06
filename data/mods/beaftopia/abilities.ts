@@ -7,6 +7,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Cute Charm",
+		shortDesc: "Has a 30% chance to Infatuate Pokemon that damage the user with an attack.",
 		rating: 2,
 		num: 56,
 	},
@@ -18,6 +19,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Flame Body",
+		shortDesc: "Burns any Pokemon that makes contact with the user.",
 		rating: 2,
 		num: 49,
 	},
@@ -29,6 +31,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Iceblink",
+		shortDesc: "This Pokemon's Special Defense is doubled in Snow.",
 		rating: 4,
 		num: 1001,
 	},
@@ -42,6 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Mirror Armor",
+		shortDesc: "Has a 30% chance to Confuse Pokemon that make contact with the user.",
 		rating: 2,
 		num: 240,
 	},
@@ -51,13 +55,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! > 0) {
-					source.trySetStatus('cfs', target);
+					target.trySetStatus('cfs', target);
 					return;
 				}
 			}
 		},
 		flags: {},
 		name: "Nitrate Doping",
+		shortDesc: "If an opponent has a stat raised while this Pokemon is active, they become Confused.",
 		rating: 3,
 		num: 1003,
 	},
@@ -100,6 +105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Snow Cloak",
+		shortDesc: "This Pokemon is immune to status and has its status cured at the end of each turn in Snow.",
 		rating: 1.5,
 		num: 81,
 	},
@@ -114,8 +120,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('burn');
 			}
 		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['burn']) {
+				this.add('-activate', pokemon, 'ability: Sunblock');
+				pokemon.removeVolatile('burn');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'burn') return null;
+		},
 		flags: {},
 		name: "Sunblock",
+		shortDesc: "This Pokemon is immune to Burn. In Sun, this Pokemon is immune to all status and has its status cured at the end of each turn.",
 		rating: 1.5,
 		num: 1003,
 	},
@@ -131,6 +147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Technician",
+		shortDesc: "User's moves with 65 BP or less have 1.5x power.",
 		rating: 3.5,
 		num: 101,
 	},
@@ -173,6 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Virtual Reality",
+		shortDesc: "On switch-in, this Pokemon appears as the last member of its party until it takes damage.",
 		rating: 4.5,
 		num: 1004,
 	},

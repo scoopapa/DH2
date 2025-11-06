@@ -178,6 +178,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	confuseray: {
+		inherit: true,
+		viable: true,
+	},
 	confusion: {
 		num: 93,
 		accuracy: 100,
@@ -326,8 +330,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	heatwave: {
 		num: 257,
-		accuracy: 110,
-		basePower: 80,
+		accuracy: 80,
+		basePower: 110,
 		category: "Special",
 		shortDesc: "30% chance to burn. Can't miss in Sun.",
 		name: "Heat Wave",
@@ -566,6 +570,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
+	},
+	rockslide: {
+		num: 157,
+		accuracy: 90,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "50% chance to lower the target's Speed.",
+		name: "Rock Slide",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 50,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+		contestType: "Tough",
 	},
 	safeguard: {
 		num: 219,
