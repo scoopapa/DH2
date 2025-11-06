@@ -12821,7 +12821,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			aurorabeam: ["9L1"],
 			brine: ["9L1"],
-			meteorbeam: ["9L1"],
 			charge: ["9L1"],
 			chargebeam: ["9L1"],
 			cloakingglow: ["9L1"],
