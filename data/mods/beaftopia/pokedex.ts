@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aftermath", 1: "Shell Armor", H: "Sturdy"},
 		weightkg: 170.0,
 	},
-	dümwyrm: {
+	dumwyrm: {
 		num: 1007,
 		name: "Dümwyrm",
 		types: ["Dragon", "Poison"],

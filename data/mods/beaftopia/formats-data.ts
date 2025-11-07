@@ -23,7 +23,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BT OU",
 		doublesTier: "BT DOU",
 	},
-	dümwyrm: {
+	dumwyrm: {
 		tier: "BT OU",
 		doublesTier: "BT DOU",
 	},

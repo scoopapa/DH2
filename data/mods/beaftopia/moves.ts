@@ -879,7 +879,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -909,7 +911,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -925,12 +929,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
-		secondaries: [
-			{
-				chance: 50,
+		secondary: {
+			chance: 50,
+			self: {
 				volatileStatus: 'charge',
 			},
-		],
+		}
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
@@ -947,7 +951,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -1017,21 +1023,40 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	zenheadbutt: {
-			num: 428,
-			accuracy: 90,
-			basePower: 80,
-			category: "Physical",
-			shortDesc: "20% chance to confuse the target.",
-			name: "Zen Headbutt",
-			pp: 15,
-			priority: 0,
-			flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-			secondary: {
-				chance: 20,
-				status: 'cfs',
-			},
-			target: "normal",
-			type: "Psychic",
-			contestType: "Clever",
+		num: 428,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "20% chance to confuse the target.",
+		name: "Zen Headbutt",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			status: 'cfs',
 		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	zingzap: {
+		num: 716,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Zing Zap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			self: {
+				volatileStatus: 'charge',
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
 };
