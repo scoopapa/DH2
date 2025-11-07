@@ -1475,7 +1475,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	swampertmega: {
 		tier: "RU",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	poochyena: {
 		tier: "LC",
@@ -4547,7 +4547,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	spectrier: {
 		tier: "Uber",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	calyrex: {
 		tier: "PU",
