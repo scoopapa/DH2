@@ -1045,6 +1045,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "30% chance to give the user the Charge effect.",
 		name: "Zing Zap",
 		pp: 10,
 		priority: 0,
