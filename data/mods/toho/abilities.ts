@@ -364,23 +364,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Heals status conditions at the end of the turn while in grassy terrain.",
 	},
 	wickedpower: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark') {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
+		// onModifyAtkPriority: 5,
+		// onModifyAtk(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		// onModifySpAPriority: 5,
+		// onModifySpA(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('wickedenergy');
 		},
 		flags: {},
 		name: "Wicked Power",
-		shortDesc: "Dark-Type moves are 1.5x stronger while under 33% HP.",
+		shortDesc: "When this Pokémon is hit, its next Dark-Type move has 2x power.",
 	},
 	growbigger: {
 		//effects in scripts/battle, pokemon, etc
