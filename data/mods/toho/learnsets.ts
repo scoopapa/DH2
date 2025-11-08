@@ -4922,6 +4922,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			torchsong: ["9L1"],
 		},
 	},
 	junko: {
@@ -6594,6 +6595,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			growth: ["9l1"],
 		},
 	},
 
