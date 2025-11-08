@@ -398,6 +398,59 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	wickedenergy: {
+		num: 268,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Wicked Energy",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'wickedenergy',
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Wicked Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Wicked Energy', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Wicked Energy');
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Wicked Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Wicked Energy', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Wicked Energy');
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dark') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Dark' && move.id !== 'wickedenergy') {
+					pokemon.removeVolatile('wickedenergy');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Dark' && move.id !== 'wickedenergy') {
+					pokemon.removeVolatile('wickedenergy');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Wicked Energy', '[silent]');
+			},
+		},
+		boosts: {
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Dark",
+	},
 
 	//vanilla
 	toxicspikes: {
