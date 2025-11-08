@@ -6,6 +6,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['BT DOU'],
 	},
 
+	/** Unlike clearStatus, gives cure message */
+	cureStatus(silent = false) {
+		if (!this.hp || !this.status) return false;
+		this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+		if (this.status === 'slp' && this.removeVolatile('nightmare')) {
+			this.battle.add('-end', this, 'Nightmare', '[silent]');
+		}
+		if (this.status === 'cfs') {
+			this.battle.add('-end', this, 'cfs', '[silent]');
+		}
+		this.setStatus('');
+		return true;
+	},
+
+	clearStatus() {
+		if (!this.hp || !this.status) return false;
+		if (this.status === 'slp' && this.removeVolatile('nightmare')) {
+			this.battle.add('-end', this, 'Nightmare', '[silent]');
+		}
+		if (this.status === 'cfs') {
+			this.battle.add('-end', this, 'cfs', '[silent]');
+		}
+		this.setStatus('');
+		return true;
+	},
+
 	hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
 		const hitResults = [];
 		for (const [i, target] of targets.entries()) {
