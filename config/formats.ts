@@ -4051,6 +4051,16 @@ export const Formats: FormatList = [
 		unbanlist: ['Mewtwo', 'Mew'],
     },
 	{
+		name: "[Gen 9] NatDex The Bore",
+		threads: [
+		],
+
+		mod: 'thebore',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Terastal Clause'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
+		teambuilderFormat: 'National Dex',
+	},
+	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
 		mod: 'patratdex',
