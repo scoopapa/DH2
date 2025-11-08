@@ -9,16 +9,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			this.field.setWeather('haxmeterweather');
+			const initialValue = 10 * Math.floor(6 * Math.random() + 2);
 			for (const side of this.sides) {
-				side.miss = 30;
-				side.effect = 30;
-				side.crit = 30;
-				side.status = 30;
+				side.miss = initialValue;
+				side.effect = initialValue;
+				side.crit = initialValue;
+				side.status = initialValue;
 				
-				side.pmiss = 30;
-				side.peffect = 30;
-				side.pcrit = 30;
-				side.pstatus = 30;
+				side.pmiss = initialValue;
+				side.peffect = initialValue;
+				side.pcrit = initialValue;
+				side.pstatus = initialValue;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
@@ -42,17 +43,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			let suffix = "";
 			for (const status of pokemon.statuses) {
 				let toAdd = 0;
-				let para = false;
+				let nonVolatileStatus = false;
 				switch(status) {
 					case 'Paralysis':
 						toAdd = 25;
-						para = true;
+						nonVolatileStatus = true;
 						clauses ++;
 						break;
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
-						para = true;
+						nonVolatileStatus = true;
 						clauses ++;
 						break;
 					case 'Confusion':
@@ -75,7 +76,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				} else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
 				if (toAdd > 0) {
 					if (clauses === 1) {
-						if (para) this.add('-message', `\n(${status}: ${suffix})`);
+						if (nonVolatileStatus) this.add('-message', `\n(${status}: ${suffix})`);
 						else this.add('-message', `(${status}: ${suffix})`);
 					}
 					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);

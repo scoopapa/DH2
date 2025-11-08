@@ -883,4 +883,59 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
 	},
+	dragapultplushie: {
+		name: "Dragapult Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHit(source, target, move) {
+			if (
+				move.type === 'Dragon' && !move.multihit && !move.flags['noparentalbond'] && !move.flags['charge'] &&
+				!move.flags['futuremove'] && !move.spreadHit && !move.isZ && !move.isMax && move.category !== 'Status'
+			) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+      	}
+		},
+		num: -1002,
+		desc: "This Pokemon's Dragon-type moves hit a second time at 0.25x power.",
+		gen: 9,
+		rating: 3,
+	},
+	quickclaw: {
+		name: "Quick Claw",
+		spritenum: 373,
+		fling: {
+			basePower: 20,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move?.priority > 0.1) {
+				this.debug('Quick Claw boost');
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move?.priority > 0.1) delete move.flags['contact'];
+		},
+		desc: "Holder's priority attacks have 1.3x power and do not make contact.",
+		num: 217,
+		gen: 2,
+		rating: 3,
+	},
+	zinogrite: {
+		name: "Zinogrite",
+		gen: 9,
+		shortDesc: "If held by Zinogre, allows it to transform into Thunderlord. (Mega-Evolution)",
+		megaStone: "Thunderlord Zinogre",
+		megaEvolves: "Zinogre",
+		itemUser: ["Zinogre", "Thunderlord Zinogre"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
 };
