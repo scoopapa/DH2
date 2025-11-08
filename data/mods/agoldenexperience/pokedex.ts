@@ -1633,7 +1633,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	yanmega: {
 		inherit: true,
-		baseStats: {hp: 86, atk: 60, def: 86, spa: 129, spd: 56, spe: 98},
 		otherFormes: ["Yanmega-Mega"],
 		formeOrder: ["Yanmega", "Yanmega-Mega"],
 	},
@@ -1959,28 +1958,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 75, atk: 113, def: 80, spa: 50, spd: 80, spe: 102},
 		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Leaf Dress"},
 	},
-	// ZA mega
-	scolipede: {
-		inherit: true,
-		otherFormes: ["Scolipede-Mega"],
-		formeOrder: ["Scolipede", "Scolipede-Mega"],
-	},
 	scolipedemega: {
-		num: 545,
-		name: "Scolipede-Mega",
-		baseSpecies: "Scolipede",
-		forme: "Mega",
-		types: ["Bug", "Poison"],
-		baseStats: { hp: 60, atk: 140, def: 149, spa: 75, spd: 99, spe: 62 },
-		abilities: { 0: "Speed Boost" },
-		heightm: 3.2,
-		weightkg: 230.5,
-		color: "Red",
-		eggGroups: ["Bug"],
-		requiredItem: "Scolipite",
-		gen: 9,
+		inherit: true,
+		abilities: {0: "Speed Boost"},
 	},
-	// end of ZA mega
 	whimsicott: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 67, def: 85, spa: 77, spd: 75, spe: 116},
@@ -2125,14 +2106,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     zoroark: {
         inherit: true,
-        baseStats: {hp: 60, atk: 95, def: 60, spa: 120, spd: 60, spe: 115},
         otherFormes: ["Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
         formeOrder: ["Zoroark", "Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
     },
-	zoroarkhisui: {
-		inherit: true,
-		baseStats: {hp: 55, atk: 90, def: 60, spa: 125, spd: 60, spe: 120},
-	},
     zoroarkmega: {
         num: 571,
         name: "Zoroark-Mega",
@@ -2155,7 +2131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Mega-Hisui",
         types: ["Normal", "Ghost"],
         genderRatio: {M: 0.875, F: 0.125},
-        baseStats: {hp: 60, atk: 90, def: 100, spa: 130, spd: 100, spe: 130},
+        baseStats: {hp: 55, atk: 95, def: 100, spa: 130, spd: 100, spe: 130},
         abilities: {0: "Bitter Hatred"},
         heightm: 1.6,
         weightkg: 81.1,
