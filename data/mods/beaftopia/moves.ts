@@ -934,7 +934,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			self: {
 				volatileStatus: 'charge',
 			},
-		}
+		},
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",

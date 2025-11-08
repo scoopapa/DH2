@@ -18,7 +18,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		this.setStatus('');
 		return true;
-	}
+	},
 
 	clearStatus() {
 		if (!this.hp || !this.status) return false;
@@ -30,7 +30,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		this.setStatus('');
 		return true;
-	}
+	},
 
 	hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
 		const hitResults = [];
