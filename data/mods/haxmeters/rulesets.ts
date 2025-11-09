@@ -8,7 +8,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         name: 'Hax Meter Rule',
         desc: "Implements the Hax Meter",
 		onBegin() {
-			this.field.setWeather('haxmeterweather');
+			this.field.addPseudoWeather('haxmeterweather');
 			const initialValue = 10 * Math.floor(6 * Math.random() + 2);
 			for (const side of this.sides) {
 				side.miss = initialValue;
