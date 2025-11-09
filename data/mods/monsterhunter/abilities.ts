@@ -1345,10 +1345,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "After this Pokemon targets another pokemon with a status move, Stockpiles 1. (Under Testing)",
 	},
 	mucusveil: {
-		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by a physical attack.",
+		shortDesc: "This Pokemon retaliates with Soak whenever it is attacked by a contact move.",
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp && move.category === 'Physical') {
+			if (this.checkMoveMakesContact(move, source, target)) {
 				const reaction = this.dex.getActiveMove('soak');
 				reaction.noreact = true;
 				this.actions.useMove(reaction, target, source);
