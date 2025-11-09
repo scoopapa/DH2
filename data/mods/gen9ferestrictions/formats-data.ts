@@ -47,6 +47,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
+	pangonacl: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	tangalge: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	toedzone: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
   // LCs
 	typedew: {
 		tier: "FERELC",
@@ -77,6 +89,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	piqwilhisui: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	pannacli: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	tangelp: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	toedmite: {
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},

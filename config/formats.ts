@@ -522,6 +522,8 @@ export const Formats: FormatList = [
 		mod: 'gen9crossoverchaosc',
 		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: ["Buginium Z", "Darkinium Z", "Dragonium Z", "Electrium Z", "Fairium Z", "Fightinium Z", "Firium Z", "Flyinium Z", "Ghostium Z", 
+			"Grassium Z", "Groundium Z", "Icium Z", "Normalium Z", "Poisonium Z", "Psychium Z", "Rockium Z", "Steelium Z", "Waterium Z"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -2903,8 +2905,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10762760">Post in Solomods Megathread</a>`,
 		],
 		mod: 'beaftopia',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Light Ball'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod', 'Status Mod'],
+		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['OU'];
@@ -4049,6 +4051,16 @@ export const Formats: FormatList = [
 		banlist: [],
 		unbanlist: ['Mewtwo', 'Mew'],
     },
+	{
+		name: "[Gen 9] NatDex The Bore",
+		threads: [
+		],
+
+		mod: 'thebore',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Terastal Clause'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
+		teambuilderFormat: 'National Dex',
+	},
 	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,

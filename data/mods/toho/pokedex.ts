@@ -273,7 +273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Aya Shameimaru",
 		types: ["Flying"],
 		gender: "F",
-		baseStats: {hp: 66, atk: 100, def: 72, spa: 100, spd: 72, spe: 165},
+		baseStats: {hp: 66, atk: 100, def: 72, spa: 100, spd: 72, spe: 170},
 		abilities: {0: "Infiltrator", 1: "Early Bird", H: "Forewarn"},
 	},
 	medicinemelancholy: {
@@ -569,7 +569,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark"],
 		gender: "F",
 		baseStats: {hp: 66, atk: 74, def: 70, spa: 130, spd: 80, spe: 120},
-		abilities: {0: "Infiltrator"},
+		abilities: {0: "Infiltrator", H: "Limber"},
 	},
 	soganotojiko: {
 		num: 72,
@@ -649,7 +649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Electric"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 62, def: 99, spa: 105, spd: 70, spe: 99},
-		abilities: {0: "Vital Spirit", H: "Minus"},
+		abilities: {0: "Vital Spirit", 1: "Volt Absorb", H: "Minus"},
 	},
 	yatsuhashitsukumo: {
 		num: 82,
@@ -657,7 +657,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Electric"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 62, def: 99, spa: 115, spd: 70, spe: 99},
-		abilities: {0: "Vital Spirit", H: "Plus"},
+		abilities: {0: "Vital Spirit", 1: "Motor Drive", H: "Plus"},
 	},
 	seijakijin: {
 		num: 83,
@@ -944,7 +944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 81, atk: 75, def: 42, spa: 104, spd: 70, spe: 118},
 		abilities: {0: "Technician", 1: "Infiltrator", H: "Prankster"},
 	},
-	megumuiinzumaru: {
+	megumuiizunamaru: {
 		num: 118,
 		name: "Megumu Iinzumaru",
 		types: ["Flying", "Psychic"],

@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aftermath", 1: "Shell Armor", H: "Sturdy"},
 		weightkg: 170.0,
 	},
-	dümwyrm: {
+	dumwyrm: {
 		num: 1007,
 		name: "Dümwyrm",
 		types: ["Dragon", "Poison"],
@@ -76,7 +76,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Glapata",
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 85, atk: 50, def: 60, spa: 100, spd: 100, spe: 78},
-		abilities: {0: "Magic Bounce", H: "Leaf Guard"},
+		abilities: {0: "Magic Bounce", 1: "Leaf Guard", H: "Mirror Armor"},
 		weightkg: 2.1,
 	},
 	hapika: {
@@ -235,6 +235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1030,
 		name: "Wintail",
 		types: ["Ice", "Bug"],
+		baseStats: {hp: 80, atk: 55, def: 75, spa: 100, spd: 65, spe: 102},
 		abilities: {0: "Snow Cloak", H: "Swarm"},
 		weightkg: 15.0,
 	},
