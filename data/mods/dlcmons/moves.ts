@@ -364,7 +364,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "King's Shield",
 		pp: 10,
 		priority: 4,
