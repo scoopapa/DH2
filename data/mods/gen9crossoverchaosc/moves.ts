@@ -1106,7 +1106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) {
+			if (source.getStat('atk', false, true) < source.getStat('spa', false, true)) {
 				this.add('-anim', source, "Sludge Bomb", target);
 			}
 			else {
