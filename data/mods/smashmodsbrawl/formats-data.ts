@@ -164,4 +164,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	thunderlordzinogre: {
 		tier: "Illegal",
 	},
+	flittle: {
+		tier: "SSB",
+	},
 };
