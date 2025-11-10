@@ -652,7 +652,7 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'hornet' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'scout' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'metaknight' && role === 'Choice Item user') return 'Choice Band';
-		
+		if (species.id === 'thedefect' && role === 'Choice Item user') return 'Choice Scarf';
 		
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';
 		if (ability === 'Sand Stream') return 'Smooth Rock';

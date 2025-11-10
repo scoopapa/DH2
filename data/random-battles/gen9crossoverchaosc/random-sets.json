@@ -26,8 +26,8 @@
 		"sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Defog", "Thunder Wave", "Hurricane", "Blizzard"],
-                "abilities": ["Rattled"],
+                "movepool": ["Defog", "Thunder Wave", "Hurricane", "Recover"],
+                "abilities": ["Analytic"],
                 "teraTypes": ["Flying"]
             }
 		]
@@ -47,10 +47,10 @@
 		"level": 90,
 		"sets": [
             {
-                "role": "Wallbreaker",
-                "movepool": ["First Impression", "Precipice Blades", "Flare Blitz", "U-turn"],
-                "abilities": ["Compound Eyes"],
-                "teraTypes": ["Fire"]
+                "role": "Choice Item user",
+                "movepool": ["Volt Switch", "Tachyon Cutter", "Ice Beam", "Knock Off", "Discharge"],
+                "abilities": ["Electric Surge"],
+                "teraTypes": ["Steel"]
             }
 		]
 	},
