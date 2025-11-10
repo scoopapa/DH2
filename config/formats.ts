@@ -4929,6 +4929,13 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Crossover Chaos [Ver. C] Random Battle",
+		mod: 'gen9crossoverchaosc',
+		team: 'random',
+		desc: `gen9crossoverchaosc`,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+	},
+	{
 		name: "[Gen 9] Dream World Theorymons",
 		desc: '<b>[Gen 8] Gen 9 Dream World Theorymons</b>: A testing ground for the Gen 9 OU Theorymons metagame.',
 		mod: 'outheorymons',
