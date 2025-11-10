@@ -335,7 +335,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["9L1"],
 		},
 	},
-	dumwyrm: {
+	dmwyrm: {
 		learnset: {
 			acrobatics: ["9L1"],
 			boomburst: ["9L1"],
