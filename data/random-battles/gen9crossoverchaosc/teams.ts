@@ -650,9 +650,11 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'djoctavio') return 'Booster Energy';
 		if (species.id === 'hornet' && role === 'Fast Support') return 'Focus Sash';
 		if (species.id === 'hornet' && role === 'Choice Item user') return 'Choice Band';
-		if (species.id === 'scout' && role === 'Choice Item user') return 'Choice Band';
+		if (species.id === 'scout') return 'Choice Band';
 		if (species.id === 'metaknight' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'thedefect' && role === 'Choice Item user') return 'Choice Scarf';
+		if (species.id === 'mermaid' && role === 'Choice Item user') return 'Choice Scarf';
+		if (species.id === 'mawjaw') return 'Rocky Helmet';
 		
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';
 		if (ability === 'Sand Stream') return 'Smooth Rock';

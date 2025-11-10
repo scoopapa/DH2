@@ -15,7 +15,13 @@
 		"sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Will-O-Wisp", "Knock Off", "Poison Jab", "Mortal Spin"],
+                "movepool": ["Will-O-Wisp", "Knock Off", "Poison Jab", "Mortal Spin", "Rapid Spin"],
+                "abilities": ["Pressure"],
+                "teraTypes": ["Poison"]
+            },
+			{
+                "role": "AV Pivot",
+                "movepool": ["Knock Off", "Mortal Spin", "Rapid Spin", "Volt Switch"],
                 "abilities": ["Pressure"],
                 "teraTypes": ["Poison"]
             }
@@ -80,7 +86,7 @@
 		"level": 90,
 		"sets": [
             {
-                "role": "Wallbreaker",
+                "role": "Bulky Attacker",
                 "movepool": ["Eruption", "Mist Ball", "Roost", "Future Sight"],
                 "abilities": ["Regenerator"],
                 "teraTypes": ["Fire"]
@@ -131,7 +137,7 @@
 		"sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Parting Shot", "Ice Beam", "Moonblast", "Focus Blast", "Aura Sphere"],
+                "movepool": ["Parting Shot", "Ice Beam", "Moonblast", "Aura Sphere"],
                 "abilities": ["Pickpocket"],
                 "teraTypes": ["Ice"]
             }
@@ -143,6 +149,12 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Calm Mind", "Stormcaller Song", "Icicle Spear", "Moonblast"],
+                "abilities": ["Pandemonic Feast"],
+                "teraTypes": ["Water"]
+            },
+			{
+                "role": "Choice Item User",
+                "movepool": ["Stormcaller Song", "Flip Turn", "Icicle Spear", "Moonblast"],
                 "abilities": ["Pandemonic Feast"],
                 "teraTypes": ["Water"]
             }
@@ -173,7 +185,13 @@
                 "movepool": ["Shade Mend", "Play Rough", "Poltergeist", "Headlong Rush"],
                 "abilities": ["Shadow Pounce"],
                 "teraTypes": ["Ghost"]
-            }
+            },
+			{
+				"role": "Bulky Support",
+                "movepool": ["Shade Mend", "Spikes", "Poltergiest", "High Horsepower"],
+                "abilities": ["Shadow Pounce"],
+                "teraTypes": ["Ghost"]
+			}
 		]
 	},
 	"amingo": {
@@ -192,7 +210,7 @@
 		"sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Parting Shot", "Drain Punch", "Knock Off", "Dragon Tail"],
+                "movepool": ["Parting Shot", "Body Press", "Knock Off", "Dragon Tail"],
                 "abilities": ["Intimidate"],
                 "teraTypes": ["Dragon"]
             }
@@ -205,6 +223,12 @@
                 "role": "Choice Item user",
                 "movepool": ["Knock Off", "Force-A-Nature", "Extreme Speed", "U-turn"],
                 "abilities": ["Libero"],
+                "teraTypes": ["Normal"]
+            }
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Knock Off", "Jump Kick", "Rapid Spin", "Extreme Speed", "U-turn"],
+                "abilities": ["Scrappy"],
                 "teraTypes": ["Normal"]
             }
 		]
@@ -251,16 +275,22 @@
                 "movepool": ["Future Sight", "Light Screen", "Reflect", "U-turn"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Psychic"]
+            },
+			{
+                "role": "Bulky Attacker",
+                "movepool": ["Scald", "Psychic Noise", "Future Sight", "Recover", "U-turn"],
+                "abilities": ["Magic Guard"],
+                "teraTypes": ["Psychic"]
             }
 		]
 	},
 	"pit": {
 		"level": 90,
 		"sets": [
-            {
+             {
                 "role": "Setup Sweeper",
-                "movepool": ["Calm Mind", "Final Strike", "Hurricane", "Agility"],
-                "abilities": ["Justified"],
+                "movepool": ["Swords Dance", "Brave Bird", "Flare Blitz", "Play Rough", "Mach Punch", "Bullet Punch"],
+                "abilities": ["Justified", "Reckless"],
                 "teraTypes": ["Flying"]
             }
 		]
@@ -272,8 +302,14 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Swords Dance", "Upperdash Arm", "Bullet Punch", "Sacred Fire"],
                 "abilities": ["Justified"],
-                "teraTypes": ["Fire"]
+                "teraTypes": ["Flying"]
             }
+			 {
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Moonblast", "Mystical Fire", "Flash Cannon", "Aura Sphere"],
+                "abilities": ["Justified"],
+                "teraTypes": ["Flying"]
+            } 
 		]
 	},
 	"nifl": {
