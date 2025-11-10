@@ -287,7 +287,7 @@
 	"pit": {
 		"level": 90,
 		"sets": [
-             {
+            {
                 "role": "Setup Sweeper",
                 "movepool": ["Swords Dance", "Brave Bird", "Flare Blitz", "Play Rough", "Mach Punch", "Bullet Punch"],
                 "abilities": ["Justified", "Reckless"],
@@ -303,8 +303,8 @@
                 "movepool": ["Swords Dance", "Upperdash Arm", "Bullet Punch", "Sacred Fire"],
                 "abilities": ["Justified"],
                 "teraTypes": ["Flying"]
-            }
-			 {
+            },
+			{
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Moonblast", "Mystical Fire", "Flash Cannon", "Aura Sphere"],
                 "abilities": ["Justified"],
