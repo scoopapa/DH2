@@ -7688,7 +7688,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			tackle: ["9L1"],
 			terablast: ["9L1"],
-			thunderwave: ["9L1"],
 			uturn: ["9L1"],
 			willowisp: ["9L1"],
 			zenheadbutt: ["9L1"],
