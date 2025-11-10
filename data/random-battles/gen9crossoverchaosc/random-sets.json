@@ -224,7 +224,7 @@
                 "movepool": ["Knock Off", "Force-A-Nature", "Extreme Speed", "U-turn"],
                 "abilities": ["Libero"],
                 "teraTypes": ["Normal"]
-            }
+            },
 			{
                 "role": "Fast Attacker",
                 "movepool": ["Knock Off", "Jump Kick", "Rapid Spin", "Extreme Speed", "U-turn"],
