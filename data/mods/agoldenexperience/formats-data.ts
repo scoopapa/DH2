@@ -1050,7 +1050,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	meganiummega: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	cyndaquil: {
@@ -3434,7 +3434,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	dragalgemega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	clauncher: {
@@ -3503,7 +3503,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	goodrahisui: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	klefki: {
@@ -4001,7 +4001,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	tapubulu: {
 		tier: "UU",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	tapufini: {
 		tier: "OU",
@@ -4093,7 +4093,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	zeraora: {
-		tier: "RUBL",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	meltan: {
