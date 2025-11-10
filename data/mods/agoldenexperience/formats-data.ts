@@ -163,7 +163,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	pikachubelle: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	pikachupopstar: {
@@ -952,7 +952,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	omastarrevived: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	kabuto: {
@@ -963,7 +963,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	kabutopsrevived: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	aerodactyl: {
@@ -1406,7 +1406,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	suicune: {
-		tier: "NUBL",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	larvitar: {
@@ -1669,7 +1669,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	aggronmega: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	meditite: {
@@ -1978,7 +1978,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	walrein: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	clamperl: {
@@ -3430,7 +3430,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	dragalge: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	dragalgemega: {
@@ -3843,7 +3843,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	palossand: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	pyukumuku: {
@@ -3958,7 +3958,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "Illegal",
 	},
 	bruxish: {
-		tier: "NUBL",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	drampa: {
@@ -4050,7 +4050,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	necrozma: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	necrozmaduskmane: {
