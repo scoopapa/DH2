@@ -1494,6 +1494,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	ironfist: {
+		inherit: true,
+		onModifyMove(move) {
+			if (move.flags['punch']) delete move.flags['contact'];
+		},
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
+		shortDesc: "Punching attacks have 1.2x power, sans Sucker Pun. All Punch M. are contactless.",
+	},
 	icebody: {
 		inherit: true,
 		shortDesc: "If Snow is active, this Pokemon heals 1/8th of its max HP each turn.",
