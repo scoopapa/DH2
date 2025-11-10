@@ -38,8 +38,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType == 'Move') {
-				this.damage(pokemon.baseMaxhp / 8);
-				this.add('-message', `${pokemon.name} was hurt by its burn!`);
+				this.damage(target.baseMaxhp / 8);
+				this.add('-message', `${target.name} was hurt by its burn!`);
 			}
 		},
 		onTryImmunity(target) {
