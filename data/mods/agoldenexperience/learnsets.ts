@@ -1,5 +1,6 @@
 export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	// WIP, gotta make that cleaner later
+	// Gen 1
 	pikachucosplay: {
 		learnset: {
 			agility: ["6L45"],
@@ -272,7 +273,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			yawn: ["9E", "8E", "7E", "6E", "5E", "4E"],
 		},
 	},
-	// Gen 1
 	kangaskhan: {
 		learnset: {
 			aerialace: ["9M"],
@@ -2010,7 +2010,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			grassyterrain: ["9M", "9L27", "6L27"],
 			healbell: ["7T"],
 			helpinghand: ["9M", "7T"],
-			hiddenpower: ["6M"],
 			lightofruin: ["9L50", "6L50"],
 			luckychant: ["9L10", "6L10"],
 			magicalleaf: ["9M", "9L25", "6L25"],
