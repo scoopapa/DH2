@@ -9158,7 +9158,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	ukanlos: {
 		learnset: {
 			attract: ["9L1"],
-			auroraveil: ["9L1"],
 			snowballcannon: ["9L1"],
 			avalanche: ["9L1"],
 			behemothbash: ["9L1"],
