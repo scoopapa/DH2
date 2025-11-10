@@ -86,8 +86,8 @@
 		"level": 90,
 		"sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Eruption", "Mist Ball", "Roost", "Future Sight"],
+                "role": "Fast Attacker",
+                "movepool": ["Eruption", "Mist Ball", "Roost", "Future Sight", "Defog"],
                 "abilities": ["Regenerator"],
                 "teraTypes": ["Fire"]
             }
