@@ -2042,6 +2042,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		basePower: 70,
 	},
+	strengthsap: {
+		inherit: true,
+		pp: 5,
+	},
 	poisonfang: {
 		inherit: true,
 		basePower: 70,
