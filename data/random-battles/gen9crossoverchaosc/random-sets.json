@@ -328,7 +328,7 @@
 		"sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Infected Dreams", "Bug Buzz", "Fiery Wrath", "Morning Sun"],
+                "movepool": ["Infected Dreams", "Bug Buzz", "Spikes", "Morning Sun", "Teleport"],
                 "abilities": ["Blinding Light"],
                 "teraTypes": ["Bug"]
             }
@@ -339,7 +339,7 @@
 		"sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Strength Sap", "Spore", "Hex", "Leaf Storm"],
+                "movepool": ["Strength Sap", "Spore", "Shadow Ball", "Leaf Storm"],
                 "abilities": ["Flash Fire"],
                 "teraTypes": ["Grass"]
             }
@@ -427,7 +427,7 @@
 		"sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Dragon Claw", "Earthquake", "Flare Blitz", "Stealth Rock"],
+                "movepool": ["Dragon Claw", "Earthquake", "Flare Blitz", "Stealth Rock", "Knock Off"],
                 "abilities": ["Stamina"],
                 "teraTypes": ["Dragon"]
             }
@@ -471,7 +471,7 @@
 		"sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Earthquake", "Bulk Up", "Gyro Ball", "Outrage"],
+                "movepool": ["Earthquake", "Bulk Up", "Ice Spinner", "Outrage"],
                 "abilities": ["Gifts Given"],
                 "teraTypes": ["Ground"]
             }
@@ -543,7 +543,7 @@
 		"sets": [
             {
                 "role": "Z-Move user",
-                "movepool": ["Brave Bird", "Stealth Rock", "Gemstone Rush", "Blaze Kick"],
+                "movepool": ["Brave Bird", "Roost", "Stealth Rock", "Gemstone Rush", "Blaze Kick"],
                 "abilities": ["Stormwing Matriarch"],
                 "teraTypes": ["Fire"]
             }
@@ -587,7 +587,7 @@
 		"sets": [
             {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Bulk Up", "Bunny Beam", "Meteor Mash", "Stone Edge"],
+                "movepool": ["Bulk Up", "Bunny Beam", "Meteor Mash", "Stone Edge", "Poltergeist"],
                 "abilities": ["Battle Armor"],
                 "teraTypes": ["Ice"]
             }
@@ -599,7 +599,7 @@
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Splat Bomb", "Overdrive", "Boomburst", "Psychic Noise"],
-                "abilities": ["Compound Eyes"],
+                "abilities": ["Quark Drive"],
                 "teraTypes": ["Poison"]
             }
 		]
