@@ -1047,6 +1047,83 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Tough",
 	},
+	coralstrike: {
+		num: -37,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.side.getSideCondition('stealthrock')) {
+				this.debug('Coral Strike damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Coral Strike NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Coral Strike",
+		shortDesc: "Power is doubled if target side has Stealth Rock active.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Origin Pulse", target);
+			this.add('-anim', source, "Stone Edge", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+	bunnybeam: {
+		num: -38,
+		accuracy: true,
+		basePower: 90,
+		category: "Physical",
+		name: "Bunny Beam",
+		shortDesc: "This move does not check accuracy.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Beam", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	splatbomb: {
+		num: -39,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Splat Bomb",
+		shortDesc: "Uses the higher attacking stat to calculate damage. Super effective on Poison types.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.getStat('atk', false, true) < source.getStat('spa', false, true)) {
+				this.add('-anim', source, "Sludge Bomb", target);
+			}
+			else {
+				this.add('-anim', source, "Gunk Shot", target);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {

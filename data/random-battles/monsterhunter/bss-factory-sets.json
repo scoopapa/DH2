@@ -4,13 +4,13 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Armor Cannon", "Discharge", "Earth Power", "Tachyon Cutter", "Fire Blast"],
+                "movepool": ["Discharge", "Earth Power", "Tachyon Cutter", "Fire Blast"],
                 "abilities": ["Protopyre"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["Armor Cannon", "Discharge", "Earth Power", "Tachyon Cutter", "Fire Blast"],
+                "movepool": ["Discharge", "Earth Power", "Tachyon Cutter", "Fire Blast"],
                 "abilities": ["Protopyre"],
                 "teraTypes": ["Normal"]
 
@@ -341,7 +341,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Attack Order", "Heal Order", "Defend Order", "Protect", "Toxic", "Knock Off", "Rock Slide", "Dragon Tail", "Body Press"],
+                "movepool": ["Heal Order", "Protect", "Toxic", "Knock Off", "Dragon Rush", "Body Press"],
                 "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             }
@@ -649,7 +649,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Apex Burst", "Dark Pulse", "Dragon Pulse", "Shadow Ball", "Hyper Voice", "Secret Sword"],
+                "movepool": ["Apex Burst", "Dark Pulse", "Dragon Pulse", "Shadow Ball", "Secret Sword"],
                 "abilities": ["Multiscale"],
                 "teraTypes": ["Normal"]
             },
@@ -702,7 +702,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Blaze Ball", "Heat Wave", "Dazzling Gleam", "Focus Blast", "Infernal Parade", "Scald", "Fiery Dance"],
+                "movepool": ["Blaze Ball", "Dazzling Gleam", "Focus Blast", "Infernal Parade", "Scald", "Fiery Dance"],
                 "abilities": ["Serene Grace"],
                 "teraTypes": ["Normal"]
             }
@@ -774,7 +774,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Behemoth Blade", "Poison Tail", "Poltergeist", "Spectral Thief", "U-turn", "Cut"],
+                "movepool": ["Behemoth Blade", "Poison Tail", "Spectral Thief", "U-turn"],
                 "abilities": ["Clear Body"],
                 "teraTypes": ["Normal"]
             },
@@ -953,15 +953,21 @@
         "level": 85,
         "sets": [
             {
+                "role": "Fast Attacker",
+                "movepool": ["Clanging Scales", "Power Gem", "Thunderbolt", "Tailwind"],
+                "abilities": ["Tempest Energy"],
+                "teraTypes": ["Normal"]
+            },
+            {
                 "role": "Setup Sweeper",
-                "movepool": ["Discharge", "Clanging Scales", "Power Gem", "Thunderbolt", "Thunderclap", "Nasty Plot", "Tailwind"],
-                "abilities": ["Rocky Payload", "Volt Absorb", "Tempest Energy"],
+                "movepool": ["Clanging Scales", "Power Gem", "Thunderbolt", "Thunderclap", "Nasty Plot"],
+                "abilities": ["Rocky Payload"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Wallbreaker",
                 "movepool": ["Discharge", "Clanging Scales", "Power Gem", "Thunderbolt", "Thunderclap"],
-                "abilities": ["Rocky Payload", "Volt Absorb", "Tempest Energy"],
+                "abilities": ["Volt Absorb"],
                 "teraTypes": ["Normal"]
 
             }
@@ -1112,7 +1118,7 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Protect", "Cold Snap", "Double Iron Bash", "Snowball Cannon", "Body Press", "High Horsepower"],
-                "abilities": ["Mirror Armor"],
+                "abilities": ["Absolute Zero"],
                 "teraTypes": ["Normal"]
 
             }
@@ -1180,13 +1186,13 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Freezing Glare", "Alluring Voice", "Blizzard", "Draco Meteor", "Freeze-Dry"],
-                "abilities": ["Ice Scales", "Snow Warning"],
+                "abilities": ["Snow Warning"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Cold Snap", "Heal Bell", "Protect", "Glaciate", "Freeze-Dry", "Freezing Glare", "Draco Meteor", "Blizzard"],
-                "abilities": ["Ice Scales", "Snow Warning"],
+                "movepool": ["Cold Snap", "Heal Bell", "Protect", "Freeze-Dry", "Freezing Glare", "Draco Meteor", "Arctic Shriek"],
+                "abilities": ["Ice Scales"],
                 "teraTypes": ["Normal"]
 
             }
@@ -1273,13 +1279,13 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Earth Power", "Blue Flare", "Aura Sphere", "Aeroblast", "Nasty Plot"],
-                "abilities": ["Flare Boost"],
+                "abilities": ["Flare Boost", "Desolate Land"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Earth Power", "Blue Flare", "Focus Blast", "Aeroblast", "Dragon Pulse"],
-                "abilities": ["Flare Boost"],
+                "abilities": ["Flare Boost", "Desolate Land"],
                 "teraTypes": ["Normal"]
             },
             {
@@ -2603,13 +2609,13 @@
         "sets": [ 
             {
                 "role": "Fast Support", 
-                "movepool": ["Scald", "Mist Ball", "Glare", "Flip Turn"],
+                "movepool": ["Scald", "Shadow Ball", "Glare", "Flip Turn"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["Scald", "Luster Purge", "Flip Turn", "Arctic Shriek", "Alluring Voice"],
+                "movepool": ["Scald", "Shadow Ball", "Flip Turn", "Arctic Shriek"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
             }
@@ -2648,7 +2654,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Revival Blessing", "Wish", "Rapid Spin", "Revelation Dance", "Will-o-Wisp", "Heat Wave"],
+                "movepool": ["Revival Blessing", "Wish", "Rapid Spin", "Will-o-Wisp", "Heat Wave"],
                 "abilities": ["Shield Dust"],
                 "teraTypes": ["Normal"]
             }
@@ -2659,7 +2665,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Revival Blessing", "Wish", "Rapid Spin", "Revelation Dance", "Fickle Beam"],
+                "movepool": ["Revival Blessing", "Wish", "Rapid Spin", "Fickle Beam"],
                 "abilities": ["Shield Dust"],
                 "teraTypes": ["Normal"]
             }
@@ -2710,7 +2716,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Toxic", "Wish", "Heal Order", "Defog", "Hurricane", "Creepy Noise"],
+                "movepool": ["Wish", "Heal Order", "Defog", "Hurricane", "Creepy Noise"],
                 "abilities": ["Static"],
                 "teraTypes": ["Normal"]
             }
@@ -2879,13 +2885,13 @@
         "level": 84,
         "sets": [ 
             {
-                "role": "Wallbreaker", 
+                "role": "Bulky Attacker", 
                 "movepool": ["Dragon Rush", "Brave Bird", "Iron Tail", "Crimson Dawn"],
                 "abilities": ["Wylk Encasing"],
                 "teraTypes": ["Normal"]
             },
             {
-                "role": "Wallbreaker", 
+                "role": "Bulky Attacker", 
                 "movepool": ["Fickle Beam", "Freezing Glare", "Fiery Wrath", "Ancestral Thunder"],
                 "abilities": ["Wylk Encasing"],
                 "teraTypes": ["Normal"]

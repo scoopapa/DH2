@@ -862,16 +862,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.cureStatus();
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'brn') return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Water Veil');
-			}
-			return false;
-		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in.",
 	},
 	incandescent: {
 		onModifyAtkPriority: 5,
@@ -1341,7 +1334,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
         flags: {},
 	},
 	pulpup: {
-		onModifyMove(move, pokemon) {
+		onModifyMove(move, pokemon, target, source) {
 			if (target !== source && move.category === 'Status') {
 				pokemon.addVolatile('stockpile');
 				this.add('-ability', pokemon, 'Pulp-Up');
@@ -1349,7 +1342,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Pulp Up",
-		shortDesc: "When this Pokemon targets another pokemon with a status move, Stockpiles 1.",
+		shortDesc: "After this Pokemon targets another pokemon with a status move, Stockpiles 1. (Under Testing)",
 	},
 	mucusveil: {
 		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by a physical attack.",

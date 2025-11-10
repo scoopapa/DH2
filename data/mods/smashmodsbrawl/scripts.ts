@@ -250,6 +250,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// this.modData('Learnsets', 'glaceon').learnset.frostnip = ['9L1'];
 		this.modData('Learnsets', 'glaceon').learnset.breezeburn = ['9L1'];
 		this.modData('Learnsets', 'glaceon').learnset.breezeshock = ['9L1'];
+		this.modData('Learnsets', "yanmega").learnset.earthpower = ["9L1"];
 	},
 	pokemon: {
 		inherit: true,

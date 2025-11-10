@@ -921,7 +921,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			knockoff: ["9L1"],
 			poltergeist: ["9L1"],
 			shadowclaw: ["9L1"],
-			shadowsneak: ["9L1"],
 			throatchop: ["9L1"],
 			uturn: ["9L1"],
 			astonish: ["9L1"],

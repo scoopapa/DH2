@@ -312,13 +312,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	undefineddefense: {
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === target.hpType) {
+			if (move.type === target.teraType) {
 				return this.chainModify(0.5);
 			}
 		},
 		flags: {},
 		name: "Undefined Defense",
-		shortDesc: "Halves damage taken from moves of the Pokémon's hidden power type.",
+		shortDesc: "Halves damage taken from moves of the Pokémon's Tera type.",
 	},
 	echo: {
 		onTryHit(target, source, move) {
@@ -364,23 +364,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Heals status conditions at the end of the turn while in grassy terrain.",
 	},
 	wickedpower: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
+		// onModifyAtkPriority: 5,
+		// onModifyAtk(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		// onModifySpAPriority: 5,
+		// onModifySpA(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('wickedenergy');
 		},
 		flags: {},
 		name: "Wicked Power",
-		shortDesc: "Dark-Type moves are 1.5x stronger while under 33% HP.",
+		shortDesc: "When this Pokémon is hit, its next Dark-Type move has 2x power.",
 	},
 	growbigger: {
 		//effects in scripts/battle, pokemon, etc
@@ -480,25 +484,55 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
+			// switch (pokemon.effectiveWeather()) {
+			// 	case 'sunnyday':
+			// 	case 'desolateland':
+			// 		pokemon.setType(['Fire', 'Dark']);
+			// 		break;
+			// 	case 'raindance':
+			// 	case 'primordialsea':
+			// 		pokemon.setType(['Water', 'Dark']);
+			// 		break;
+			// 	case 'sandstorm':
+			// 		pokemon.setType(['Rock', 'Dark']);
+			// 		break;
+			// 	case 'hail':
+			// 	case 'snowscape':
+			// 		pokemon.setType(['Ice', 'Dark']);
+			// 		break;
+			// 	default:
+			// 		// pokemon.setType(['Normal', 'Dark']);
+			// 		pokemon.setType(pokemon.baseSpecies.types);
+			// }
+
+			let types;
 			switch (pokemon.effectiveWeather()) {
-				case 'sunnyday':
-				case 'desolateland':
-					pokemon.setType(['Fire', 'Dark']);
-					break;
-				case 'raindance':
-				case 'primordialsea':
-					pokemon.setType(['Water', 'Dark']);
-					break;
-				case 'sandstorm':
-					pokemon.setType(['Rock', 'Dark']);
-					break;
-				case 'hail':
-				case 'snowscape':
-					pokemon.setType(['Ice', 'Dark']);
-					break;
-				default:
-					pokemon.setType(['Normal', 'Dark']);
-					break;
+			case 'sunnyday':
+			case 'desolateland':
+				types = ['Fire, Dark'];
+				break;
+			case 'raindance':
+			case 'primordialsea': 
+				types = ['Water, Dark'];
+				break;
+			case 'sandstorm':
+				types = ['Rock, Dark'];
+				break;
+			case 'hail':
+			case 'snowscape':
+				types = ['Ice, Dark'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (pokemon.effectiveWeather() || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Four Seasons');
+				if (!pokemon.effectiveWeather()) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Four Seasons');
+				this.add('-end', pokemon, 'typechange', '[silent]');
 			}
 		},
 		flags: {failroleplay: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},

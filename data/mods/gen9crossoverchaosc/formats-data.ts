@@ -183,4 +183,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	crustkingkhann: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	usapyon: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	usapyonmega: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	djoctavio: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+
 };
