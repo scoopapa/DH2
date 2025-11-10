@@ -13403,6 +13403,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acupressure: ["9L1"],
 			armthrust: ["9L1"],
+			drainpunch: ["9L1"],
 			blazekick: ["9L1"],
 			blazingtorque: ["9L1"],
 			bodyslam: ["9L1"],
