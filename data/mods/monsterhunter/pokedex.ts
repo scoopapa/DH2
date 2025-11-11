@@ -327,7 +327,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Lao-Shan Lung",
 		types: ["Dragon"],
 		baseStats: {hp: 113, atk: 111, def: 108, spa: 81, spd: 135, spe: 69},
-		abilities: {0: "Unaware", H: "Oblivious"},
+		abilities: {0: "Oblivious", H: "Unaware"},
 		weightkg: 400.0,
 		tags: ["Elder Dragon"],
 	},
