@@ -387,7 +387,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Daimyo Hermitaur",
 		types: ["Water"],
 		baseStats: {hp: 80, atk: 102, def: 138, spa: 78, spd: 112, spe: 52},
-		abilities: {0: "Shell Armor", H: "Weak Armor"},
+		abilities: {0: "Shell Armor", H: "Unaware"},
 		weightkg: 160.0,
 		tags: ["Carapaceon"],
 	},
