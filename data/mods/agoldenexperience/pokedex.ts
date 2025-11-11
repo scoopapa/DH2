@@ -3097,6 +3097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 40,
 		color: "Purple",
 		eggGroups: ["Human-Like"],
+		battleOnly: "Toxtricity-Low-Key",
 		requiredItem: "Toxtricitite",
 	},
 	centiskorch: {

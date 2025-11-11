@@ -761,7 +761,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9094,
 		name: "Formaldehydra",
 		types: ["Poison", "Dragon"],
-		baseStats: {hp: 95, atk: 100, def: 110, spa: 60, spd: 85, spe: 60},
+		baseStats: {hp: 95, atk: 100, def: 100, spa: 60, spd: 85, spe: 60},
 		abilities: {0: "Rough Skin", H: "Stench"},
 		weightkg: 165.5,
 	},
@@ -843,7 +843,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Sucrillon",
 		types: ["Fairy", "Flying"],
 		baseStats: {hp: 65, atk: 50, def: 65, spa: 90, spd: 75, spe: 105},
-		abilities: {0: "Dazzling"},
+		abilities: {0: "Shield Dust"},
 		weightkg: 0.5,
 	},
 	taranferno: {

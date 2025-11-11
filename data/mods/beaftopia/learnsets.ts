@@ -335,7 +335,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["9L1"],
 		},
 	},
-	dumwyrm: {
+	dmwyrm: {
 		learnset: {
 			acrobatics: ["9L1"],
 			boomburst: ["9L1"],
@@ -1348,7 +1348,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			snore: ["9L1"],
 			solarbeam: ["9L1"],
-			strengthsap: ["9L1"],
 			substitute: ["9L1"],
 			sunnyday: ["9L1"],
 			synthesis: ["9L1"],
@@ -1585,6 +1584,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			bugbuzz: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			endure: ["9L1"],
+			freezedry: ["9L1"],
 			frostbreath: ["9L1"],
 			gigaimpact: ["9L1"],
 			helpinghand: ["9L1"],

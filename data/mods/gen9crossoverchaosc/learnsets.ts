@@ -2560,7 +2560,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			snore: ["9L1"],
 			substitute: ["9L1"],
-			takedown: ["9L1"],
 			terablast: ["9L1"],
 			avalanche: ["9L1"],
 			flashcannon: ["9L1"],

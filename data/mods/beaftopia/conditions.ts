@@ -24,6 +24,46 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 		},
 	},
+	psn: {
+		name: 'psn',
+		duration: 2,
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'psn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'psn');
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onBeforeMovePriority: 6,
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, pokemon.status, move);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, pokemon.status, move);
+				return false;
+			}
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onTryHeal(damage, target, source, effect) {
+			if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
+			return false;
+		},
+	},
 	burn: {
 		name: 'burn',
 		// this is a volatile status
@@ -38,12 +78,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType == 'Move') {
-				this.damage(pokemon.baseMaxhp / 8);
-				this.add('-message', `${pokemon.name} was hurt by its burn!`);
+				this.damage(target.baseMaxhp / 8);
+				this.add('-message', `${target.name} was hurt by its burn!`);
 			}
 		},
-		onTryImmunity(target) {
-			return !target.hasType('Fire');
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			const source = this.effectState.source;
+			this.boost({def: -1, spd: -1}, pokemon, source);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'burn');

@@ -3766,16 +3766,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onModifyMove(move, pokemon, target) {
-			if (target && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				move.secondaries.push({
-					chance: 100,
-					boosts: {
-						atk: -1,
-					},
-				});
-			}
-		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dazzling Gleam", target);
@@ -3784,7 +3774,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "allAdjacent",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "Lowers the target's Atk by 1 in Sun.",
+		shortDesc: "No additional effect.",
 	},
 	waterslash: {
 		num: -95,
