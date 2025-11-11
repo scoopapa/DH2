@@ -335,13 +335,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	rickroll: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.All self-KO moves used by this Pokémon have x0.8 base power.",
 		shortDesc: "Ignores recoil and self-KO effects of its moves. Self-KO moves have x0.8 BP.",
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.selfdestruct && move.selfdestruct === 'always' && move.category !== 'Status') return this.chainModify(0.8);
-		},
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
+					move.flags.explosive = true;
 					delete move.selfdestruct;
 				}
 				if (move.recoil) {
@@ -351,6 +348,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					move.mindBlownRecoil = false;
 				}
 			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['explosive'] && move.category !== 'Status') return this.chainModify(0.8);
 		},
 		name: "Rick Roll",
 		rating: 4,
@@ -828,13 +829,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	explosive: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.All self-KO moves used by this Pokémon have x0.8 base power.",
 		shortDesc: "Ignores recoil and self-KO effects of its moves. Self-KO moves have x0.8 BP.",
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.selfdestruct && move.selfdestruct === 'always' && move.category !== 'Status') return this.chainModify(0.8);
-		},
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
+					move.flags.explosive = true;
 					delete move.selfdestruct;
 				}
 				if (move.recoil) {
@@ -844,6 +842,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					move.mindBlownRecoil = false;
 				}
 			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['explosive'] && move.category !== 'Status') return this.chainModify(0.8);
 		},
 		name: "Explosive",
 		rating: 4,
