@@ -853,14 +853,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	oceanicveil: {
 		onStart(source) {
 			//this.actions.useMove("Aqua Ring", source);
-			this.add('-ability', source, 'Water Veil');
+			this.add('-ability', source, 'Oceanic Veil');
 			source.addVolatile('aquaring');
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				this.add('-activate', pokemon, 'ability: Water Veil');
-				pokemon.cureStatus();
-			}
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
@@ -1345,10 +1339,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "After this Pokemon targets another pokemon with a status move, Stockpiles 1. (Under Testing)",
 	},
 	mucusveil: {
-		shortDesc: "This Pokemon retaliates with Soak whenever it is damaged by a physical attack.",
+		shortDesc: "This Pokemon retaliates with Soak whenever it is attacked by a contact move.",
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp && move.category === 'Physical') {
+			if (this.checkMoveMakesContact(move, source, target)) {
 				const reaction = this.dex.getActiveMove('soak');
 				reaction.noreact = true;
 				this.actions.useMove(reaction, target, source);
@@ -1493,6 +1487,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	mountaineer: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	ironfist: {
+		inherit: true,
+		onModifyMove(move) {
+			if (move.flags['punch']) delete move.flags['contact'];
+		},
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
+		shortDesc: "Punching attacks have 1.2x power, sans Sucker Pun. All Punch M. are contactless.",
 	},
 	icebody: {
 		inherit: true,

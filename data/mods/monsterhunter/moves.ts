@@ -802,7 +802,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	slimepunch: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 95,
 		category: "Physical",
 		name: "Slime Punch",
 		pp: 15,
@@ -856,7 +856,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		secondaries: [
 			{
-				chance: 100,
+				chance: 10,
 				volatileStatus: 'flinch',
 			},
 		],
@@ -1126,10 +1126,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		critRatio: 2,
 		secondary: {
-			chance: 10,
+			chance: 100,
 			volatileStatus: 'bleeding',
 		},
-		shortDesc: "High crit ratio. 10% chance to bleed.",
+		shortDesc: "High crit ratio. 100% chance to bleed.",
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
@@ -2041,6 +2041,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 	thunderfang: {
 		inherit: true,
 		basePower: 70,
+	},
+	strengthsap: {
+		inherit: true,
+		pp: 5,
 	},
 	poisonfang: {
 		inherit: true,
