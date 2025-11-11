@@ -853,14 +853,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	oceanicveil: {
 		onStart(source) {
 			//this.actions.useMove("Aqua Ring", source);
-			this.add('-ability', source, 'Water Veil');
+			this.add('-ability', source, 'Oceanic Veil');
 			source.addVolatile('aquaring');
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				this.add('-activate', pokemon, 'ability: Water Veil');
-				pokemon.cureStatus();
-			}
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
