@@ -3618,7 +3618,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			darkpulse: ["9L1"],
 			temperflare: ["9L1"],
 			dragondarts: ["9L1"],
-			mortalspin: ["9L1"],
 			dragontail: ["9L1"],
 			acidarmor: ["9L1"],
 			shellsidearm: ["9L1"],
