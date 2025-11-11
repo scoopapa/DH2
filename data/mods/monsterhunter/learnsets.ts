@@ -5737,6 +5737,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	deviljho: {
 		learnset: {
 			agility: ["9L1"],
+			recycle: ["9L1"],
 			chipaway: ["9L1"],
 			assurance: ["9L1"],
 			attract: ["9L1"],
