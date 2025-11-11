@@ -3729,7 +3729,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Hax Meters",
 		mod: 'gen8haxmeters',
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', '!Min Source Gen = 9', 'Hax Meter Rule'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', 'Hax Meter Rule'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Stench'],
 	},
    /* {
