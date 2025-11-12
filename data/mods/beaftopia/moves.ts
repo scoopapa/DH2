@@ -870,7 +870,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHit(target, source, move) {
 				if (move?.accuracy != true) {
-					this.battle.add('-miss', source, target);
+					this.add('-miss', source, target);
 					return null;
 				}
 			},
