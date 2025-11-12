@@ -2551,7 +2551,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			shadowball: ["9L1"],
 			terablast: ["9L1"],
 			weatherball: ["9L1"],
-			weatherball: ["9L1"],
 			disarmingvoice: ["9L1"],
 			hyperbeam: ["9L1"],
 			icywind: ["9L1"],
