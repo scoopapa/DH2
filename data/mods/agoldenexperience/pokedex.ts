@@ -364,7 +364,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	kingler: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 150, def: 115, spa: 50, spd: 50, spe: 75},
+		baseStats: {hp: 100, atk: 130, def: 115, spa: 50, spd: 50, spe: 50},
+		abilities: {0: "Hyper Cutter", 1: "Huge Clamp", H: "Sheer Force"},
 	},
 	hypno: {
 		inherit: true,

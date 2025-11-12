@@ -2578,22 +2578,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Bitter Hatred",
 		num: -84,
 	},
-	/*ninjagaiden: {
-		onPrepareHit(source, target, move) {
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
-			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Ninja Gaiden');
-			}
-		},
-		flags: {},
-		name: "Ninja Gaiden",
-		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
-		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
-		rating: 4.5,
-		num: -85,
-	},*/
 	surgesurfer: {
 		inherit: true,
 		onModifySpe(spe) {
@@ -2638,7 +2622,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "Poison Point. This Pokemon's offensive stat is doubled while using a Poison-type attack. If a Pokemon uses a Water-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
 		shortDesc: "Poison Point. This Pokemon's Poison power is 2x; Water power against it is halved.",
 		rating: 4.5,
-		num: -86,
+		num: -85,
 	},
 	freegullet: {
 		onBasePowerPriority: 19,
@@ -2656,7 +2640,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {cantsuppress: 1, notransform: 1},
 		name: "Free Gullet",
 		rating: 2.5,
-		num: -87,
+		num: -86,
 		shortDesc: "If the user uses Surf/Dive, it gains the Stockpile effect. Surf/Dive has 1.5x power.",
 	},
 	gulp: {
@@ -2677,7 +2661,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {cantsuppress: 1, notransform: 1},
 		name: "Gulp",
 		rating: 2.5,
-		num: -88,
+		num: -87,
 		shortDesc: "If the user uses Surf/Dive, the target takes 1/4 max HP on top of the damage. Surf/Dive has 1,5x power. Surf/Dive breaks protection.",
 	},
 	gorge: {
@@ -2705,7 +2689,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {cantsuppress: 1, notransform: 1},
 		name: "Gorge",
 		rating: 2.5,
-		num: -89,
+		num: -88,
 		shortDesc: "If the user uses Surf/Dive, user gains the Charge effect. Surf/Dive has 1,5x power. Surf/Dive has an added 20% chance of paralysis",
 	},
 	gulpmissile: {
@@ -2728,7 +2712,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon's affinities are reversed.",
 		shortDesc: "This Pokemon's affinities are reversed.",
 		rating: 4.5,
-		num: -90,
+		num: -89,
 	},
 	myceliummight: {
 		inherit: true,
@@ -2770,7 +2754,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Counter Strike",
 		rating: 3.5,
-		num: -91,
+		num: -90,
 	},
 	magician: {
 		inherit: true,
@@ -2833,7 +2817,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Climatic Change",
 		rating: 4,
-		num: -92,
+		num: -91,
 	},
 	hyperglycemia: {
 		desc: "At the end of each turn, every Pokemon gets 1 Stockpile. Reduces the damage taken by X*10%, with X the amount of Stockpiles this Pokemon has, and boosts this Pokemon's damage by Y*10%, Y being the amount of Stockpiles the target has.",
@@ -2870,7 +2854,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {breakable: 1},
 		name: "Hyperglycemia",
 		rating: 4.5,
-		num: -93,
+		num: -92,
 	},
 	graviton: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
@@ -2879,7 +2863,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Graviton",
 		rating: 4,
-		num: -94,
+		num: -93,
 	},
 	solarenergy: {
 		onModifySpe(spe, pokemon) {
@@ -2901,7 +2885,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "If Sunny Day is active, this Pokemon's Speed is multiplied by 1.5, and this Pokemon's Electric moves have x1.5. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "If Sunny Day is active, Speed x1.5, and Electric moves x1.5.",
 		rating: 3,
-		num: -95,
+		num: -94,
 	},
 	punchprodigee: {
 		shortDesc: "Gives a +1 priority to punch moves.",
@@ -2909,7 +2893,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.flags['punch']) return priority + 1;
 		},
 		name: "Punch Prodigee",
-		num: -96,
+		num: -95,
 	},
 	wanderingspirit: {
 		inherit: true,
@@ -2960,7 +2944,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			},
 		},
 		name: "Heavy Weapon",
-		num: -97,
+		num: -96,
 	},
 	multiheaded: {
 		onPrepareHit(source, target, move) {
@@ -2989,25 +2973,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		gen: 9,
 		desc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
 		shortDesc: "This Pokemon's damaging moves hit 3x. Successive hits do 15% damage without added effects.",
-		num: -98
+		num: -97
 	},
-	/*stymphaleblade: {
-		desc: "Pokemon making contact with this Pokemon or getting hit from contact moves from this Pokemon lose 1/8 of their maximum HP, rounded down.",
-		shortDesc: "Pokemon making contact or being targeted by contact moves from this Pokemon lose 1/8 of their max HP.",
-		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.damage(source.baseMaxhp / 8, source, target);
-			}
-		},
-      	onAfterMove(target, source, move) {
-			if (target !== source && move.category !== 'Status' && move.totalDamage && move.flags['contact']) {
-				this.damage(source.baseMaxhp / 8, source, target);
-			}
-		},
-		name: "Stymphale Blade",
-		num: -99,
-	},*/
 	savagebite: {
 		onModifyDamage(damage, source, target, move) {
 			if (move.flags['bite'] && target.getMoveHitData(move).typeMod < 0) {
@@ -3023,7 +2990,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Savage Bite",
 		shortDesc: "This Pokemon's biting attacks ignore resistances and abilities.",
 		rating: 4,
-		num: -100,
+		num: -98,
 	},
 	lightpower: {
 		onModifySpAPriority: 5,
@@ -3033,7 +3000,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Light Power",
 		shortDesc: "This Pokemon's Special Attack is doubled.",
 		rating: 5,
-		num: -101,
+		num: -99,
 	},
 	comatose: {
 		inherit: true,
@@ -3100,10 +3067,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "Immunity to Burn. This Pokemon has two forms, Passive and Active. It starts the fight with Passive form. If Sun is set or it's hit by a Fire-type move, it switches to Active form until it switches out. If Snow is set, it's frozen, or it's hit by an Ice-type move, it switches to Passive form.",
 		shortDesc: "Burn immunity. Sun or Fire-type move: Active form; Snow, frozen or Ice-type move: Passive form.",
 		rating: 4,
-		num: -102,
+		num: -100,
 	},
 	ironbody: {
-		num: -103,
+		num: -101,
 		name: "Iron Body",
 		shortDesc: "On switch in, adds Steel type to the user. Has no effect if the user is Steel-type.",
 		onStart(pokemon) {
@@ -3131,14 +3098,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Psychic Prowess",
 		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic type attack. Amnesia also boosts SpA by 2.",
 		rating: 3.5,
-		num: -104,
+		num: -102,
 	},
 	rewind: {
 		name: "Rewind",
 		shortDesc: "When brought to 50% HP or less, restores lost items on user's side.",
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		rating: 4,
-		num: -105,
+		num: -103,
 		onStart(pokemon) {
 			pokemon.addVolatile('rewind');
 		},
@@ -3201,6 +3168,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.effectState.triggeredThisTurn = false;
 			}
 		},
+	},
+	hugeclamp: {
+		onModifyAtkPriority: 6,
+		onModifyAtk(pokemon) {
+			return this.chainModify(1.5);
+		},
+		onModifySpePriority: 6,
+		onModifySpe(pokemon) {
+			return this.chainModify(0.5);
+		},
+		name: "Huge Clamp",
+		shortDesc: "This Pokemon's Atk is boosted by 1.5, but its Speed is halved.",
+		rating: 1.5,
+		num: -104,
 	},
 
 
