@@ -1478,6 +1478,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	baddybad: {
 		inherit: true,
 		isNonstandard: null,
+		category: "Physical",
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
@@ -1489,7 +1490,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	sappyseed: {
 		inherit: true,
 		accuracy: 100,
-		basePower: 40,
 		isNonstandard: null,
 	},
 	freezyfrost: {
@@ -1521,14 +1521,11 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	zippyzap: {
 		inherit: true,
 		isNonstandard: null,
-		secondary: {
-			chance: 100,
-			boosts: {
-				evasion: -1,
-			},
-		},
-		shortDesc: "100% chance to lower the target's evasion by 1.",
-		desc: "100% chance to lower the target's evasion by 1.",
+		basePower: 50,
+		willCrit: true,
+		secondary: null,
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities.",
+		shortDesc: "Goes first. Always results in a critical hit.",
 	},
 	floatyfall: {
 		inherit: true,
@@ -2070,13 +2067,13 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		basePower: 75,
 		category: "Physical",
 		name: "Teramorphosis",
-		shortDesc: "Has 33% recoil. 50% chance to raise the user's Spe by 1.",
+		shortDesc: "Has 33% recoil. 100% chance to raise the user's Spe by 1.",
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [1, 3],
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					spe: 1,
@@ -2085,7 +2082,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Grassy Glide", target);
+			this.add('-anim', source, "Trailblaze", target);
 		},
 		target: "normal",
 		type: "Grass",
