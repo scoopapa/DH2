@@ -1530,6 +1530,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "100% chance to lower the target's evasion by 1.",
 		desc: "100% chance to lower the target's evasion by 1.",
 	},
+	floatyfall: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ragingfury: {
 		inherit: true,
 		basePower: 130,
