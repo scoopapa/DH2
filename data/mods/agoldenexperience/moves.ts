@@ -2099,6 +2099,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { snatch: 1, dance: 1 },
 		self: {
 			boosts: {
+				atk: 1,
 				spa: 1,
 			},
 		},
@@ -2110,21 +2111,25 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "all",
 		type: "Water",
-		shortDesc: "Raises the user's SpA by 1. Summons Rain Dance.",
+		shortDesc: "Raises the user's Atk and SpA by 1. Summons Rain Dance.",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Beautiful",
 	},
 	windscall: {
 		num: -52,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		shortDesc: "Sets Tailwind.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's Atk and SpA by 1. Sets Tailwind.",
 		name: "Wind's Call",
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, wind: 1, mirror: 1 },
 		self: {
+			boosts: {
+				atk: 1,
+				spa: 1,
+			},
 			sideCondition: 'tailwind',
 		},
 		onPrepareHit(target, source) {
@@ -2132,7 +2137,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Tailwind", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Flying",
 		contestType: "Clever",
 	},
