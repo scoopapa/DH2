@@ -267,10 +267,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: "Illegal",
 	},
-	sparklingaria: {
-		inherit: true,
-		isNonstandard: "Illegal",
-	},
 	spicyextract: {
 		inherit: true,
 		isNonstandard: "Illegal",
