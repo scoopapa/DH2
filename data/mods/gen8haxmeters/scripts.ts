@@ -5,7 +5,7 @@ export function roundNum(n: number): number {
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 8,
-	
+	inherit: 'gen8',
 	side: {
 		addMiss(amount) {
 			if (amount <= 0) return;
