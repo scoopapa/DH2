@@ -13964,6 +13964,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			ancientpower: ["9L1"],
 			aquatail: ["9L1"],
 			substitute: ["9L1"],
+			surgingstrikes: ["9L1"],
 			endure: ["9L1"],
 			auroraveil: ["9L1"],
 			avalanche: ["9L1"],
