@@ -26,7 +26,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	psn: {
 		name: 'psn',
-		duration: 2,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -34,6 +33,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'psn');
 			}
+			target.statusState.startTime = 2;
+			target.statusState.time = target.statusState.startTime;
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
@@ -58,6 +59,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
+				pokemon.cureStatus();
+				return;
+			}
 		},
 		onTryHeal(damage, target, source, effect) {
 			if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
@@ -86,6 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			const source = this.effectState.source;
 			this.boost({def: -1, spd: -1}, pokemon, source);
+			this.add('-message', `${pokemon.name} is being weakened by its burn!`);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'burn');

@@ -2370,13 +2370,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	floetteeternal: {
 		inherit: true,
-		types: ["Fairy", "Ghost"],
-		abilities: {0: "Flower Veil", 1: "Curse of Life", H: "Symbiosis"},
+		abilities: {0: "Flower Veil", 1: "Leaf Dress", H: "Symbiosis"},
 	},
 	floettemega: {
 		inherit: true,
-		types: ["Fairy", "Ghost"],
-		abilities: { 0: "Curse of Life" },
+		abilities: { 0: "Ange" },
 	},
 	florges: {
 		inherit: true,

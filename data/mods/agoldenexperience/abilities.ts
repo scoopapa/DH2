@@ -333,11 +333,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -17,
 	},
 	rickroll: {
-		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
-		shortDesc: "Ignores recoil and self-KO effects of that move.",
+		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.All self-KO moves used by this Pokémon have x0.8 base power.",
+		shortDesc: "Ignores recoil and self-KO effects of its moves. Self-KO moves have x0.8 BP.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
+					move.flags.explosive = true;
 					delete move.selfdestruct;
 				}
 				if (move.recoil) {
@@ -347,6 +348,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					move.mindBlownRecoil = false;
 				}
 			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['explosive'] && move.category !== 'Status') return this.chainModify(0.8);
 		},
 		name: "Rick Roll",
 		rating: 4,
@@ -822,11 +827,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -42,
 	},
 	explosive: {
-		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
-		shortDesc: "Ignores recoil and self-KO effects of its moves.",
+		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.All self-KO moves used by this Pokémon have x0.8 base power.",
+		shortDesc: "Ignores recoil and self-KO effects of its moves. Self-KO moves have x0.8 BP.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
+					move.flags.explosive = true;
 					delete move.selfdestruct;
 				}
 				if (move.recoil) {
@@ -836,6 +842,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					move.mindBlownRecoil = false;
 				}
 			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['explosive'] && move.category !== 'Status') return this.chainModify(0.8);
 		},
 		name: "Explosive",
 		rating: 4,
@@ -876,15 +886,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -45,
 	},
 	blowhole: {
-		desc: "Before this Pokemon uses Water Spout, it sets Rain Dance. Water Spout is always at max BP.",
-		shortDesc: "Sets Rain Dance before using Water Spout. Water Spout is at max BP.",
+		desc: "Before this Pokemon uses any Water-type move, it sets Rain Dance.",
+		shortDesc: "Sets Rain Dance before using a Water-type move.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (move.id === 'waterspout' && this.field.getWeather().id !== 'raindance') {
+			if (move.type === 'Water' && this.field.getWeather().id !== 'raindance') {
 				this.field.setWeather('raindance');
 			}
 		},
-		// Water Spout modified in moves.ts
 		name: "Blowhole",
 		rating: 3,
 		num: -46,
@@ -2471,26 +2480,30 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: -81,
 	},
-	curseoflife: {
+	ange: {
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
-				this.add('-immune', pokemon, '[from] ability: Curse of Life');
+				this.add('-immune', pokemon, '[from] ability: Ange');
 				return null;
 			}
 		},
 		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
 			if (target.hp >= target.maxhp / 2 && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'Curse of Life');
+				this.add('-ability', target, 'Ange');
 				return target.hp - 1;
+			}
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
 		flags: {breakable: 1},
-		name: "Curse of Life",
+		name: "Ange",
 		rating: 3,
 		num: -82,
-		desc: "If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
-		shortDesc: "If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
+		desc: "This Pokemon does not take recoil damage, except Struggle. Does not affect Life Orb damage or crash damage. If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
+		shortDesc: "This Pokemon does not take recoil damage besides Struggle/Life Orb/crash damage. If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
 	},
 	seasonpass: {
 		onPrepareHit(source, target, move) {
