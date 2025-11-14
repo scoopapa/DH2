@@ -657,7 +657,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	stunfiskgalar: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	chespin: {
 		tier: "LC ZA",
