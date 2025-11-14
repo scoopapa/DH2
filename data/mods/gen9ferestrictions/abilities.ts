@@ -647,6 +647,40 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		shortDesc: "Chlorophyll + Adaptability",
 	},
+	fungalsurveillance: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Fungal Surveillance boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				move.ignoreAbility = true;
+			}
+		},
+		flags: {},
+		name: "Fungal Surveillance",
+		rating: 2.5,
+		shortDesc: "This Pokemon's attacks have 1.3x power and ignore abilities if it moves last.",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
