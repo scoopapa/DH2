@@ -1313,7 +1313,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Zamtrios",
 		forme: "Iced",
 		types: ["Water", "Ice"],
-		baseStats: {hp: 110, atk: 115, def: 60, spa: 70, spd: 90, spe: 120},
+		baseStats: {hp: 110, atk: 125, def: 60, spa: 60, spd: 90, spe: 120},
 		abilities: {0: "Ice-Armor"},
 		weightkg: 110,
 		tags: ["Amphibian"],
