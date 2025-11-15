@@ -16,7 +16,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
 		name: "Direspike Scales",
-		shortDesc: "Dalamadur: If full HP, attacks taken have 0.5 effectiveness unless naturally immune.",
+		shortDesc: "If full HP; attacks taken have 0.5 effectiveness unless immune.",
 	},
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
@@ -46,7 +46,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Ice-Armor",
-		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice. Also activates under Snow.",
+		shortDesc: "After taking a PHYS. Attack/Under Snow; Transform into Zamtrios-Iced",
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
@@ -66,7 +66,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Puff-Up",
-		shortDesc: "This pokemon will react to a special attack by puffing up it's body. Also activates under Rain.",
+		shortDesc: "After taking a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
@@ -79,7 +79,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Debris",
-		shortDesc: "If this pokemon is hit by a physical attack, Spikes are set on the opposing side.",
+		shortDesc: "After taking a PHYS. Attack; Spikes are set on the opposing side.",
 	},
 	solarwrath: {
 		onModifyAtkPriority: 5,
@@ -96,7 +96,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Solar Wrath",
-		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
+		shortDesc: "Under Sunny Day; this Pokemon's Atk is 1.5x, loses 1/8 max HP per turn.",
 	},
 	tempestenergy: {
 		onImmunity(type, pokemon) {
@@ -123,7 +123,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
+		shortDesc: "Hit by Wind Move OR Under Tailwind/Sandstorm; +1 SpA. (Grants Immunity)",
 		name: "Tempest Energy",
 	},
 	tempestforce: {
@@ -152,7 +152,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
+		shortDesc: "Hit by Wind Move OR Under Tailwind/Sandstorm; +1 ATK. (Grants Immunity)",
 		name: "Tempest Force",
 	},
 	mightywall: {
@@ -241,7 +241,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Aggravation",
-		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its Max HP.",
+		shortDesc: "When at or below 1/2 Max HP; +1 ATK.",
 	},
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
@@ -267,7 +267,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Gemini Core",
 		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
-		shortDesc: "This Pokemon's attacks skip charging and recharging turns. (Ignore Recharge/Charge status in-battle)",
+		shortDesc: "This Pokemon ignores charging and recharging turns on it's moves. (Ignore Recharge/Charge status in-battle)",
 		activate: "[POKEMON] became energized immediately!",
         flags: {},
 	},
@@ -760,7 +760,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ice Breaker",
 		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
-		shortDesc: "This Pokemon's attacks have 1.3x power in snow; immunity to it.",
+		shortDesc: "Under Snow: Attacks have 1.3x Power (Grants Immunity)",
         flags: {},
 	},
 	oilmucus: {
@@ -809,10 +809,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (target.status === 'brn') {
 				return this.chainModify(2);
 			}
+			if (target.volatiles['blastblight']) {
+					return this.chainModify(2);
+			}
 		},
 		flags: {},
 		name: "Gravedrum",
-		shortDesc: "Speed is doubled if an opponent is burned.",
+		shortDesc: "Speed doubled if the target has BRN or Blast.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -1183,7 +1186,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Destruction Star",
-		shortDesc: "After KOing a Pokemon; becomes Charged.",
+		shortDesc: "After KOing a Pokemon; enters Charged-Forme.",
 	},
 	disasterstar: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -1197,7 +1200,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Disaster Star",
-		shortDesc: "After KOing a Pokemon; becomes Charged.",
+		shortDesc: "After KOing a Pokemon; enters Charged-Forme.",
 	},
 	empressthrone: {
 		onResidualOrder: 29,
@@ -1230,7 +1233,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Crystalblight",
-		shortDesc: "If opponent is paralyzed: Inflicts fatigue, takes 1/16th residual damage.",
+		shortDesc: "If opponent has PARA: Inflicts fatigue, takes 1/16th residual damage.",
 	},
 	corruptedpoison: {
 		onSourceHit(target, source, move) {
@@ -1328,7 +1331,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
         flags: {},
 	},
 	pulpup: {
-		onModifyMove(move, pokemon, target, source) {
+		onTryHitPriority: 4,
+		onTryHit(move, pokemon, target, source) {
 			if (target !== source && move.category === 'Status') {
 				pokemon.addVolatile('stockpile');
 				this.add('-ability', pokemon, 'Pulp-Up');
@@ -1486,6 +1490,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	*/
 	mountaineer: {
 		inherit: true,
+		shortDesc: "On switch-in, this Pokemon is immune to Rock-type attacks and Stealth Rock.",
 		isNonstandard: null,
 	},
 	ironfist: {
