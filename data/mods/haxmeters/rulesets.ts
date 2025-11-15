@@ -2,6 +2,10 @@ export function roundNum(n: number, places: number): number {
 	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
 }
 
+export function randomMeterValue(): number {
+	return 10 * Math.floor(6 * Math.random() + 2);
+}
+
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	haxmeterrule: {
         effectType: 'Rule',
@@ -9,17 +13,20 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			this.field.addPseudoWeather('haxmeterweather');
-			const initialValue = 10 * Math.floor(6 * Math.random() + 2);
+			const missValue = randomMeterValue()
+			const effectValue = randomMeterValue()
+			const critValue = randomMeterValue()
+			const statusValue = randomMeterValue()
 			for (const side of this.sides) {
-				side.miss = initialValue;
-				side.effect = initialValue;
-				side.crit = initialValue;
-				side.status = initialValue;
+				side.miss = missValue;
+				side.effect = effectValue;
+				side.crit = critValue;
+				side.status = statusValue;
 				
-				side.pmiss = initialValue;
-				side.peffect = initialValue;
-				side.pcrit = initialValue;
-				side.pstatus = initialValue;
+				side.pmiss = missValue;
+				side.peffect = effectValue;
+				side.pcrit = critValue;
+				side.pstatus = statusValue;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 				}
