@@ -1705,6 +1705,51 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Rock Wrecker", target);
         },
 	},
+	mentalload: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Mental Load",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		overrideOffensiveStat: 'spd',
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Gravity", target);
+        },
+	},
+	pyrotoxicgale: {
+		accuracy: 90,
+		basePower: 100,
+		category: "Special",
+		name: "Pyrotoxic Gale",
+		shortDesc: "30% chance to burn. Sets Fire/Grass Pledge for 3 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+    		chance: 30,
+    		status: 'brn',
+  		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Fire Pledge", target);
+        },
+		onHit(target, source, move) {
+			if (!source.side.sideConditions['firepledge']) {
+				source.side.addSideCondition('firepledge');
+				source.side.sideConditions['firepledge'].duration = 3;
+				this.add('-fieldactivate', 'move: Fire Pledge');
+				this.add('-message', `${source.name} summoned fiery winds with Pyrotoxic Gale!`);
+			}
+		},
+		target: "normal",
+		type: "Poison",
+	},
 	/*
 	Edits
 	*/

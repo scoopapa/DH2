@@ -77,29 +77,35 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
     	}
 	},
-	heatresistance: {
-		name: 'Heat Resistance',
+	warmed: {
+		name: 'Warmed',
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'HeatRes');
-			this.add('-message', `${pokemon.name} gained Heat Resistance! Immune to burn residual!`);
+			this.add('-start', pokemon, 'Warmed');
+			this.add('-message', `${pokemon.name} is warmed up! Offenses are 1.33...x!`);
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'brn') {
-				return false;
-			}
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify([5461, 4096]);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify([5461, 4096]);
 		},
 	},
-	coldresistance: {
-		name: 'Cold Resistance',
+	cooled: {
+		name: 'Cooled',
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'ColdRes');
-			this.add('-message', `${pokemon.name} gained Cold Resistance! Immune to frostbite residual!`);
+			this.add('-start', pokemon, 'Cooled');
+			this.add('-message', `${pokemon.name} cooled down! Defenses are 1.33...x!`);
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'frz') {
-				return false;
-			}
-		},
+		onModifyDefPriority: 5,
+    	onModifyDef(def, pokemon) {
+            return this.chainModify([5325, 4096]);
+    	},
+    	onModifySpDPriority: 5,
+    	onModifySpD(spd, pokemon) {
+            	return this.chainModify([5325, 4096]);
+    	},
 	},
 	blastblight: {
 		name: 'Blastblight',
