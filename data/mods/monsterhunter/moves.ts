@@ -1720,7 +1720,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Gravity", target);
+            this.add('-anim', source, "Cosmic Power", target);
         },
 	},
 	pyrotoxicgale: {
@@ -1728,7 +1728,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "30% chance to burn. Fire/Grass Pledge for 3 turns.",
+		shortDesc: "30% chance to burn. Sea of Fire for 3 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -1739,13 +1739,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Fire Pledge", target);
+            this.add('-anim', target, "Toxic", target);
         },
 		onHit(target, source, move) {
-			if (!source.side.sideConditions['firepledge']) {
-				source.side.addSideCondition('firepledge');
-				source.side.sideConditions['firepledge'].duration = 3;
+			if (!target.side.sideConditions['firepledge']) {
+				target.side.addSideCondition('firepledge');
+				target.side.sideConditions['firepledge'].duration = 4;
 				this.add('-fieldactivate', 'move: Fire Pledge');
-				this.add('-message', `${source.name} summoned fiery winds with Pyrotoxic Gale!`);
 			}
 		},
 		target: "normal",
