@@ -343,4 +343,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pyrelli: {
 		tier: "BC C",
 	},
+	boreetle: {
+		tier: "BC C",
+	},
+	hyakutari: {
+		tier: "BC C",
+	},
+	kaovern: {
+		tier: "BC C",
+	},
+	zhuguo: {
+		tier: "BC C",
+	},
 };

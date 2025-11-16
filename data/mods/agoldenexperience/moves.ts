@@ -1478,6 +1478,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	baddybad: {
 		inherit: true,
 		isNonstandard: null,
+		category: "Physical",
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
@@ -1489,7 +1490,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	sappyseed: {
 		inherit: true,
 		accuracy: 100,
-		basePower: 40,
 		isNonstandard: null,
 	},
 	freezyfrost: {
@@ -1521,14 +1521,15 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	zippyzap: {
 		inherit: true,
 		isNonstandard: null,
-		secondary: {
-			chance: 100,
-			boosts: {
-				evasion: -1,
-			},
-		},
-		shortDesc: "100% chance to lower the target's evasion by 1.",
-		desc: "100% chance to lower the target's evasion by 1.",
+		basePower: 50,
+		willCrit: true,
+		secondary: null,
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities.",
+		shortDesc: "Goes first. Always results in a critical hit.",
+	},
+	floatyfall: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	ragingfury: {
 		inherit: true,
@@ -2066,13 +2067,13 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		basePower: 75,
 		category: "Physical",
 		name: "Teramorphosis",
-		shortDesc: "Has 33% recoil. 50% chance to raise the user's Spe by 1.",
+		shortDesc: "Has 33% recoil. 100% chance to raise the user's Spe by 1.",
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [1, 3],
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					spe: 1,
@@ -2081,7 +2082,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Grassy Glide", target);
+			this.add('-anim', source, "Trailblaze", target);
 		},
 		target: "normal",
 		type: "Grass",
@@ -2098,6 +2099,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { snatch: 1, dance: 1 },
 		self: {
 			boosts: {
+				atk: 1,
 				spa: 1,
 			},
 		},
@@ -2109,21 +2111,25 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "all",
 		type: "Water",
-		shortDesc: "Raises the user's SpA by 1. Summons Rain Dance.",
+		shortDesc: "Raises the user's Atk and SpA by 1. Summons Rain Dance.",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Beautiful",
 	},
 	windscall: {
 		num: -52,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		shortDesc: "Sets Tailwind.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's Atk and SpA by 1. Sets Tailwind.",
 		name: "Wind's Call",
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, wind: 1, mirror: 1 },
 		self: {
+			boosts: {
+				atk: 1,
+				spa: 1,
+			},
 			sideCondition: 'tailwind',
 		},
 		onPrepareHit(target, source) {
@@ -2131,7 +2137,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Tailwind", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Flying",
 		contestType: "Clever",
 	},

@@ -159,7 +159,8 @@ export const Formats: FormatList = [
 			'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
 			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
 			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
-			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli',
+			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
+			'Kaovern', 'Zhuguo',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -185,7 +186,8 @@ export const Formats: FormatList = [
 			'Lyvamp', 'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
 			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
 			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
-			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli',
+			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
+			'Kaovern', 'Zhuguo',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

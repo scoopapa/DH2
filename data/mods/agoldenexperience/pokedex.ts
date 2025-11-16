@@ -364,7 +364,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	kingler: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 150, def: 115, spa: 50, spd: 50, spe: 75},
+		baseStats: {hp: 100, atk: 130, def: 115, spa: 50, spd: 50, spe: 50},
+		abilities: {0: "Hyper Cutter", 1: "Huge Clamp", H: "Sheer Force"},
 	},
 	hypno: {
 		inherit: true,
@@ -940,15 +941,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 55, def: 75, spa: 55, spd: 110, spe: 65},
 	},
+	lotad: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 20, def: 30, spa: 50, spd: 50, spe: 40},
+	},
+	lombre: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 40, def: 50, spa: 70, spd: 70, spe: 60},
+	},
 	ludicolo: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 80, def: 70, spa: 80, spd: 85, spe: 85}, 
-		abilities: {0: "Swift Swim", 1: "Rain Dish", H: "Mad Dancer"},
+		baseStats: {hp: 80, atk: 60, def: 70, spa: 100, spd: 100, spe: 80}, 
+	},
+	seedot: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 40, def: 50, spa: 30, spd: 40, spe: 30},
+	},
+	nuzleaf: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 80, def: 40, spa: 70, spd: 40, spe: 60},
 	},
 	shiftry: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 110, def: 60, spa: 90, spd: 60, spe: 80},
-		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Cold Wind"},
+		baseStats: {hp: 80, atk: 110, def: 60, spa: 100, spd: 60, spe: 80},
+		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "North Wind"},
 	},
 	swellow: {
 		inherit: true,
@@ -1323,7 +1339,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	walrein: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 105, def: 100, spa: 60, spd: 100, spe: 45},
-		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Icebreaker"},
 	},
 	huntail: {
 		inherit: true,
@@ -2207,12 +2222,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	haxorus: {
 		inherit: true,
 		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Steelbreaker"},
-	},
-	beartic: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 130, def: 80, spa: 50, spd: 80, spe: 70},
-		abilities: {0: "Icebreaker", 1: "Slush Rush", H: "Swift Swim"},
-		evos: ["Meltic"],
 	},
 	cryogonal: {
 		inherit: true,
@@ -4536,12 +4545,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Tropius",
 		eggGroups: ["Monster", "Grass"],
 	},
+	beartic: {
+		inherit: true,
+		evos: ["Meltic"],
+	},
 	meltic: {
 		num: -64,
 		name: "Meltic",
 		types: ["Ice", "Water"],
 		baseStats: {hp: 100, atk: 135, def: 80, spa: 85, spd: 80, spe: 75},
-		abilities: {0: "Icebreaker", 1: "Slush Rush", H: "Swift Swim"},
+		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Swift Swim"},
 		heightm: 2.8,
 		weightkg: 200,
 		prevo: "Beartic",
