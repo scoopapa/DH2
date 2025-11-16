@@ -1710,6 +1710,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Mental Load",
+		shortDesc: "Uses user's SpD. stat as Atk in damage calculation.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1727,7 +1728,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "30% chance to burn. Sets Fire/Grass Pledge for 3 turns.",
+		shortDesc: "30% chance to burn. Fire/Grass Pledge for 3 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -1825,6 +1826,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	irontail: {
 		inherit: true,
+		viable: true,
 		accuracy: 90,
 	},
 	chipaway: {
@@ -1838,6 +1840,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	crushclaw: {
 		inherit: true,
+		viable: true,
 		accuracy: 100,
 		basePower: 85,
 	},
@@ -1938,6 +1941,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	submission: {
 		inherit: true,
+		viable: true,
 		accuracy: 100,
 		basePower: 100,
 	},
@@ -2085,6 +2089,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	thunderfang: {
 		inherit: true,
+		viable: true,
 		basePower: 70,
 	},
 	strengthsap: {
@@ -2093,6 +2098,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	poisonfang: {
 		inherit: true,
+		viable: true,
 		basePower: 70,
 		secondary: {},
 		shortDesc: "10% chance to poison. 10% chance to flinch.",

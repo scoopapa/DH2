@@ -1509,7 +1509,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Starving Bite",
 		shortDesc: "This Pokemon's biting attacks ignore immunities and abilities.",
 	},
-	thunderpower: {
+	howlingthunder: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.volatiles['charge']) {
@@ -1559,7 +1559,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Reactive Core",
 		shortDesc: "Hit By Fire/BRN: Offenses are 1.3x | Hit by Water/Ice/FRZ: Defenses or 1.3x",
 	},
-	snowseeth: {
+	snowseethe: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (['snow', 'absolutezero'].includes(pokemon.effectiveWeather())) {
@@ -1573,7 +1573,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Snow Seeth",
+		name: "Snow Seethe",
 		shortDesc: "Under Snow; this Pokemon's Atk is 1.5x, loses 1/8 max HP per turn.",
 	},
 	/*
@@ -1692,6 +1692,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifyAccuracy(accuracy) {},
 		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Sandstorm is active, this Pokemon's Def is 1.3x; cannot be statused and Rest will fail for it.",
+		shortDesc: "Under Sandstorm; Def is 1.3x. Cannot be statused, including Rest.",
 	},
 }

@@ -6,5 +6,11 @@ statusmod: {
         onSwitchIn (pokemon) {
             if(pokemon.status) this.add('-start', pokemon, pokemon.status, '[silent]');
         },
+        onSetStatus(status, target, source, effect) {
+            this.add('-start', target, status, '[silent]');
+        },
+        onCureStatus(pokemon) {
+            this.add('-end', pokemon, pokemon.status, '[silent]');
+        },
     },
 }

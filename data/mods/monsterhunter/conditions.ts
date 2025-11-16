@@ -91,6 +91,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onModifyAtk(atk, pokemon) {
 			return this.chainModify([5461, 4096]);
 		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Warmed');
+		},
 	},
 	cooled: {
 		name: 'Cooled',
@@ -106,6 +109,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
     	onModifySpD(spd, pokemon) {
             	return this.chainModify([5325, 4096]);
     	},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Cooled');
+		},
 	},
 	blastblight: {
 		name: 'Blastblight',
