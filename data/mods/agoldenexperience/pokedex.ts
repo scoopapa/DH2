@@ -3628,6 +3628,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	koraidon: {
 		inherit: true,
 		baseForme: "Final",
+		otherFormes: ["Koraidon-Weakened"],
+		formeOrder: ["Koraidon", "Koraidon-Weakened"],
 	},
 	koraidonweakened: {
 		num: 1007,
@@ -3647,6 +3649,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	miraidon: {
 		inherit: true,
 		baseForme: "Final",
+		otherFormes: ["Miraidon-Weakened"],
+		formeOrder: ["Miraidon", "Miraidon-Weakened"],
 	},
 	miraidonweakened: {
 		num: 1008,
