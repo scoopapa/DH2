@@ -248,35 +248,40 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Snowman');
 		},
 	},
-	/*
 	rusted: {
 		name: 'Rusted',
 		duration: 4,
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'Rusted');
-			this.add('-message', `${pokemon.name} is Rusted! Steel-type resistances nullified!`);
-		},
-		onDamagingHit(damage, source, target, move) {
-			if (this.dex.types.get('Steel').damageTaken[move.type] == 2) {
-  				this.debug('Is rusted!');
-  				return this.chainModify(1);
+        	if (pokemon.hasType('Steel')) {
+            	this.add('-start', pokemon, 'Rusted');
+            	this.add('-message', `${pokemon.name}'s steel defenses have rusted away!`);
+        	} else {
+            	pokemon.removeVolatile('rusted');
+        	}
+    	},
+		onModifyEffectiveness(typeMod, target, type, move) {
+			if (target.hasType('Steel') && target.volatiles['rusted']) {
+				if (typeMod < 0) {
+					return 0;
+				}
+				if (typeMod === 0 && this.dex.getImmunity(type, target)) {
+					return 1;
+				}
 			}
-		},
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Poison'] = true;
-			}
-		},
+    	},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');
-		},
+			this.add('-message', `${pokemon.name}'s steel defenses are restored!`);
+    	},
 	},
-	*/
 	dragonblight: {
 		name: 'Dragonblight',
 		effectType: 'Status',
 		onStart(pokemon) {
+			if (pokemon.hasType('Fairy')) {
+            	this.add('-immune', pokemon, '[from] status: Dragonblight');
+            	return false;
+        	}
 			this.add('-start', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
 		},
@@ -285,15 +290,11 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.damage(pokemon.baseMaxhp / 16);
 		},
 		onModifySTAB(stab, source, target, move) {
-			if (move.forceSTAB || source.hasType(move.type)) {
-				if (stab === 2) {
-					return 1;
-				}
-				return 1;
-			}
-		},
+        	return 1;
+    	},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
+			this.add('-message', `${pokemon.name} overcame Dragonblight!`);
 		},
 	},
 	/* Weather */

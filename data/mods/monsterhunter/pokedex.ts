@@ -1289,7 +1289,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Glavenus",
 		forme: "Mega",
 		types: ["Fire", "Steel"],
-		baseStats: {hp: 99, atk: 135, def: 115, spa: 90, spd: 110, spe: 101},
+		baseStats: {hp: 99, atk: 135, def: 115, spa: 95, spd: 100, spe: 106},
 		abilities: {0: "Sharpness"},
 		weightkg: 80.0,
 		tags: ["Brute Wyvern"],

@@ -325,7 +325,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	apexburst: {
 		accuracy: 85,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		name: "Apex Burst",
 		shortDesc: "Cures the user's party of all status conditions.",
@@ -1224,7 +1224,6 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Blizzard", target);
         },
 	},
-	/*
 	oxideairstrike: {
 		accuracy: 95,
 		basePower: 70,
@@ -1232,7 +1231,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Oxide Airstrike",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			volatileStatus: 'rusted',
@@ -1246,7 +1245,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	*/
 	dracophage: {
 		accuracy: 85,
 		basePower: 0,
@@ -1824,6 +1822,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'bubbleblight',
 		},
 	},
+	dragonclaw: {
+		inherit: true,
+		desc: "30% chance to inflict bleed.",
+		shortDesc: "30% chance to inflict bleed.",
+		secondary: {
+			chance: 10,
+			volatileStatus: 'bleeding',
+		},
+	},
+	dualchop: {
+    	inherit: true,
+    	shortDesc: "Hits twice. Removes Reflect, Light Screen, and Aurora Veil on hit.",
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+	},
 	irontail: {
 		inherit: true,
 		viable: true,
@@ -1833,6 +1850,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		basePower: 90,
+	},
+	bitterblade: {
+		inherit: true,
+		viable: true,
+		basePower: 80,
+	},
+	shadowclaw: {
+		inherit: true,
+		viable: true,
+		basePower: 85,
 	},
 	tailslap: {
 		inherit: true,
@@ -2028,7 +2055,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	facade: {
 		inherit: true,
-		shortDesc: "Power doubles if user has a non-volatile status.",
+		shortDesc: "Power doubles if user has any non-volatile status.",
 		onBasePower(basePower, pokemon) {
 			if (pokemon.status) {
 				return this.chainModify(2);
