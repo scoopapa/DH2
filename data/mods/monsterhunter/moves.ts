@@ -97,17 +97,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "Recovers HP and eats held berry. Fails if user isn't holding a berry.",
+		shortDesc: "Heals 25% HP. If holding a berry, eats it and heals 50%.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1, 2],
-		onTry(source) {
-			return source.getItem().isBerry;
-		},
 		onHit(pokemon) {
-			pokemon.eatItem(true);
-		},
+			const item = pokemon.getItem();
+			if (item && item.isBerry) {
+				// Heal 50% if berry is present
+				this.heal(pokemon.baseMaxhp / 2, pokemon);
+				pokemon.eatItem(true);
+				this.add('-message', `${pokemon.name} devoured its ${item.name} and restored more HP!`);
+			} else {
+				// Heal 25% if no berry
+				this.heal(pokemon.baseMaxhp / 4, pokemon);
+				this.add('-message', `${pokemon.name} devoured nothing... but still restored some HP!`);
+			}
+    	},
 		secondary: null,
 		target: "self",
 		type: "Normal",

@@ -9,8 +9,9 @@ statusmod: {
         onSetStatus(status, target, source, effect) {
             this.add('-start', target, status, '[silent]');
         },
-        onCureStatus(pokemon) {
-            this.add('-end', pokemon, pokemon.status, '[silent]');
+        onCureStatus(pokemon, source, effect) {
+            const cured = effect?.status || pokemon.statusState?.prevStatus;
+            if (cured) this.add('-end', pokemon, cured, '[silent]');
         },
     },
 }

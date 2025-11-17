@@ -259,7 +259,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
             	pokemon.removeVolatile('rusted');
         	}
     	},
-		onModifyEffectiveness(typeMod, target, type, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			if (target.hasType('Steel') && target.volatiles['rusted']) {
 				if (typeMod < 0) {
 					return 0;
