@@ -245,31 +245,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
-			this.debug('tireless - remove charge turn for ' + move.id);
-			this.add('-activate', pokemon, 'ability: Gemini Core');
 			this.attrLastMove('[still]');
-			this.addMove('-anim', pokemon, move.name, target);
-			return false; // skip charge turn
+			this.add('-message', `${pokemon.name} drew energy from its core!`);
+			this.add('-anim', pokemon, 'Cosmic Power', pokemon);
+			this.add('-anim', pokemon, move.name, target);
+			return false;
 		},
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
-				this.debug('tireless - remove recharge');
-				this.add('-activate', pokemon, 'ability: Gemini Core');
+				this.add('-message', `${pokemon.name} drew energy from its core!`);
+				this.add('-anim', pokemon, 'Cosmic Power', pokemon);
 			}
 		},
 		onBeforeMovePriority: 11,
 		onBeforeMove(pokemon) {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
-				this.debug('geminicore - failsafe remove recharge');
+				this.add('-message', `${pokemon.name} drew energy from its core!`);
+				this.add('-anim', pokemon, 'Cosmic Power', pokemon);
 			}
 		},
 		name: "Gemini Core",
-		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
-		shortDesc: "This Pokemon ignores charging and recharging turns on it's moves. (Ignore Recharge/Charge status in-battle)",
-		activate: "[POKEMON] became energized immediately!",
-        flags: {},
+		desc: "This Pokémon ignores charging and recharging turns on its moves.",
+		shortDesc: "Ignores charge and recharge turns.",
+		flags: {},
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
@@ -369,7 +369,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Fire moves; Fire immunity.",
 		name: "Heat Sink",
 	},
-	rustedgale: {
+	/*rustedgale: {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Rusted Gale');
@@ -387,6 +387,48 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Rusted Gale",
 		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
+	},
+	*/
+	rustedgale: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Rusted Gale');
+			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
+		},
+		onAnyModifyDef(def, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.hasAbility('Rusted Gale')) return;
+			if (!move.ruinedDef?.hasAbility('Rusted Gale')) move.ruinedDef = abilityHolder;
+			if (move.ruinedDef !== abilityHolder) return;
+
+			if (target.hasType('Steel')) {
+				if (!target.volatiles['rusted']) {
+					target.addVolatile('rusted');
+					this.add('-message', `${target.name} is afflicted by rust!`);
+				}
+				return;
+			} else {
+				this.debug('Rusted Gale Def drop');
+				return this.chainModify(0.75);
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.volatiles['rusted']) {
+				pokemon.removeVolatile('rusted');
+				this.add('-message', `${pokemon.name} shook off the rust as it left the field!`);
+			}
+		},
+		onEnd(pokemon) {
+			for (const mon of this.getAllActive()) {
+				if (mon.volatiles['rusted']) {
+					mon.removeVolatile('rusted');
+					this.add('-message', `${mon.name}'s rust faded as ${pokemon.name} left the field!`);
+				}
+			}
+		},
+		flags: {},
+		name: "Rusted Gale",
+		shortDesc: "Steel-types w/o this Ability become Rusted; others have Defense ×0.75.",
 	},
 	frostnip: {
 		shortDesc: "This Pokemon's moves have 1.3x power against frostbitten targets.",

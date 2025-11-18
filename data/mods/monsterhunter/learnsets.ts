@@ -10724,6 +10724,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			furycutter: ["9L1"],
 			headbutt: ["9L1"],
 			snarl: ["9L1"],
+			stoneaxe: ["9L1"],
 			strength: ["9L1"],
 			swagger: ["9L1"],
 			torment: ["9L1"],
