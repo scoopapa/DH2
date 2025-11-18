@@ -10,7 +10,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Lumiquatro", "Lumiquatro-Galar"],
 	},
 	lumiquatrogalar: {
-		num: 9002,
+		num: 9001,
 		name: "Lumiquatro-Galar",
 		baseSpecies: "Lumiquatro",
 		forme: "Galar",
