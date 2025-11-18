@@ -185,7 +185,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Frenzy Slam",
-		shortDesc: "Summons Reflect.",
+		shortDesc: "Summons Reflect. Only usable by Dark-types.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -197,9 +197,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Kowtow Cleave", target);
-        },
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Kowtow Cleave", target);
+		},
+		onTry(source, target, move) {
+			if (!source.hasType('Dark')) {
+				this.add('-fail', source, 'move: Frenzy Slam');
+				return null;
+			}
+		},
 	},
 	bewitchedbubble: {
 		accuracy: 100,
