@@ -403,7 +403,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	kirinite: {
 		name: "Kirinite",
-		gen: 9,
+		gen: 9, 
 		shortDesc: "If held by Kirin, allows it to transform into Emperor. (Mega-Evolution)",
 		megaStone: "Emperor Kirin",
 		megaEvolves: "Kirin",

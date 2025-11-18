@@ -570,12 +570,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.volatiles['charge']) {
 				this.add('-anim', pokemon, 'Charge', pokemon);
 				this.add('-message', `${pokemon.name} is brimming with a Howling Thunder!`);
-				return this.chainModify(1.5);
+				return this.chainModify(2.0);
 			}
 		},
 		flags: {},
 		name: "Howling Thunder",
-		shortDesc: "When under Charge: Attack is 1.5×",
+		shortDesc: "When under Charge: Attack is doubled",
 	},
 	icebreaker: {
 		onBasePowerPriority: 21,
