@@ -13664,6 +13664,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["9L1"],
 			aquaring: ["9L1"],
 			aquatail: ["9L1"],
+			focusenergy: ["9L1"],
+			aquacutter: ["9L1"],
 			bodyslam: ["9L1"],
 			brutalswing: ["9L1"],
 			calmmind: ["9L1"],
