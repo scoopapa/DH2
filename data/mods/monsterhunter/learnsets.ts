@@ -5662,6 +5662,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			arcticshriek: ["9L1"],
 			aviniasblessing: ["9L1"],
+			ignitionflare: ["9L1"],
 			armorcannon: ["9L1"],
 			blastbite: ["9L1"],
 			aurorabeam: ["9L1"],
