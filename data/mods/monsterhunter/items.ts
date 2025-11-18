@@ -412,7 +412,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		spritenum: 590,
+		spritenum: 602,
 	},
 	uragaanite: {
 		name: "Uragaanite",
@@ -425,7 +425,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		spritenum: 590,
+		spritenum: 663,
 	},
 	daimyite: {
 		name: "Daimyite",
@@ -438,7 +438,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		spritenum: 590,
+		spritenum: 612,
 	},
 	glavenite: {
 		name: "Glavenite",
@@ -451,7 +451,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		spritenum: 590,
+		spritenum: 586,
 	},
 	/*
 	Fatalis Orbs

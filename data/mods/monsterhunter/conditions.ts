@@ -19,31 +19,36 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	},
 	slp: {
-        name: 'slp',
-        effectType: 'Status',
-        onStart(target, source, sourceEffect) {
-            this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
-            if (sourceEffect && sourceEffect.effectType === 'Ability') {
-                this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-            } else if (sourceEffect && sourceEffect.effectType === 'Move') {
-                this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
-            } else {
-                this.add('-status', target, 'slp');
-            }
-            if (target.removeVolatile('nightmare')) {
-                this.add('-end', target, 'Nightmare', '[silent]');
-            }
-        },
-        onSourceModifyDamage(damage, source, target, move) {
-            if (!source.hasAbility('Dozing')) return this.chainModify(1.2);
-        },
-        onModifyMove(move, pokemon) {
-            if (!pokemon.hasAbility('Dozing') && move.multhit) delete move.multihit; 
-        },
-        onDisableMove(pokemon) {
-            if (!pokemon.hasAbility('Dozing') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-        },
-    },
+		name: 'slp',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasAbility('Dozing')) return;
+			return this.chainModify(1.2);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasAbility('Dozing')) return;
+			if (move.multihit) delete move.multihit;
+		},
+		onDisableMove(pokemon) {
+			if (pokemon.hasAbility('Dozing')) return;
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') {
+				pokemon.disableMove(pokemon.lastMove.id);
+			}
+		},
+	},
 	par: {
         inherit: true,
 		onStart(target, source, sourceEffect) {

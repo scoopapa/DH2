@@ -13075,6 +13075,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acupressure: ["9L1"],
 			ancientpower: ["9L1"],
+			mentalload: ["9L1"],
 			bodyslam: ["9L1"],
 			calmmind: ["9L1"],
 			cloakingglow: ["9L1"],
@@ -13835,7 +13836,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			attract: ["9L1"],
 			biocharge: ["9L1"],
 			bodyslam: ["9L1"],
-			boltbreath: ["9L1"],
 			breakingswipe: ["9L1"],
 			charge: ["9L1"],
 			chargebeam: ["9L1"],
