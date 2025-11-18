@@ -121,7 +121,7 @@
 			},
 			{
 				"role": "Bulky Setup",
-				"movepool": ["Quiver Dance", "Bug Buzz", "Mystical Fire", "Hidden Power Fire", "Synthesis"],
+				"movepool": ["Quiver Dance", "Bug Buzz", "Mystical Fire", "Hidden Power Ground", "Synthesis"],
 				"abilities": ["Tinted Lens"],
 				"teraTypes": ["Bug"]
 			}
