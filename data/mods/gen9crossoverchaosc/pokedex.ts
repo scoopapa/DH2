@@ -406,6 +406,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 40,
 		name: "Corrin",
 		types: ["Water"],
+		gender: "F",
 		baseStats: {hp: 95, atk: 102, def: 92, spa: 92, spd: 77, spe: 87},
 		abilities: {0: "Power Spot", 1: "Unaware", H: "Berserk"},
 		weightkg: 75,
