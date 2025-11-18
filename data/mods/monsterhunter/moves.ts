@@ -1766,7 +1766,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Ignition Flare",
-		shortDesc: "Charges turn 1, hits turn 2. Fire-type Meteor Beam clone without Sp. Atk boost.",
+		shortDesc: "Charges turn 1, hits turn 2.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
