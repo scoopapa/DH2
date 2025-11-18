@@ -612,7 +612,7 @@
 		"sets": [
 			{
 				"role": "Bulky Setup",
-				"movepool": ["Bulk Up", "Coral Strike", "Megahorn", "Accelrock"],
+				"movepool": ["Bulk Up", "Coral Strike", "Megahorn", "Accelerock"],
 				"abilities": ["Rocky Payload"],
 				"teraTypes": ["Bug"]
 			}
@@ -658,3 +658,4 @@
 		]
 	}
 }
+
