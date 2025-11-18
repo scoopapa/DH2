@@ -19,7 +19,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Grass",
 		contestType: "Beautiful",
 	},
-	elementaltempest‎: {
+	elementaltempest: {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
