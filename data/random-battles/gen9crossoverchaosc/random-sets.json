@@ -118,6 +118,12 @@
                 "movepool": ["Tail Glow", "Bug Buzz", "Dark Pulse", "Mystical Fire", "Psychic", "Sludge Bomb"],
                 "abilities": ["Tinted Lens"],
                 "teraTypes": ["Bug"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Quiver Dance", "Bug Buzz", "Mystical Fire", "Hidden Power Fire", "Synthesis"],
+                "abilities": ["Tinted Lens"],
+                "teraTypes": ["Bug"]
             }
 		]
 	},
