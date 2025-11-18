@@ -90,6 +90,12 @@
                 "movepool": ["Eruption", "Mist Ball", "Roost", "Future Sight", "Defog"],
                 "abilities": ["Regenerator"],
                 "teraTypes": ["Fire"]
+            },
+			{
+                "role": "Bulky Attacker",
+                "movepool": ["Overheat", "Fire Blast", "Lava Plume", "Mist Ball", "Psyshock", "Roost", "Will-O-Wisp", "Defog"],
+                "abilities": ["Regenerator"],
+                "teraTypes": ["Fire"]
             }
 		]
 	},
@@ -278,7 +284,7 @@
             },
 			{
                 "role": "Bulky Attacker",
-                "movepool": ["Scald", "Psychic Noise", "Future Sight", "Recover", "U-turn"],
+                "movepool": ["Scald", "Psychic Noise", "Psyshock", "Future Sight", "Recover", "U-turn"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Psychic"]
             }
@@ -316,11 +322,17 @@
 		"level": 90,
 		"sets": [
             {
-                "role": "Wallbreaker",
-				"movepool": ["Frostbite Breath", "Dragon Hammer", "Spikes", "Trick"],
+                "role": "Choice Item user",
+				"movepool": ["Frostbite Breath", "Dragon Hammer", "Brick Break", "Trick"],
 				"abilities": ["Domain of Ice"],
 				"teraTypes": ["Ice"]
-            }
+            },
+			{
+                "role": "Wallbreaker",
+                "movepool": ["Frostbite Breath", "Dragon Hammer", "Brick Break", "Chilly Reception", "Spikes"],
+                "abilities": ["Domain of Ice"],
+                "teraTypes": ["Ice"]
+			}
 		]
 	},
 	"radiance": {
@@ -364,6 +376,12 @@
                 "movepool": ["Fake Out", "Bubble Swathe", "Barb Barrage", "Slack Off", "Aqua Jet"],
                 "abilities": ["Poison Touch"],
                 "teraTypes": ["Poison"]
+            },
+			{
+                "role": "Choice Item user",
+                "movepool": ["Bubble Swathe", "Barb Barrage", "High Jump Kick", "Aqua Jet"],
+                "abilities": ["Poison Touch"],
+                "teraTypes": ["Poison"]
             }
 		]
 	},
@@ -371,8 +389,14 @@
 		"level": 90,
 		"sets": [
             {
-                "role": "Fast Support",
+                "role": "Bulky Support",
                 "movepool": ["Taunt", "Haze", "Dark Pulse", "Medi-Gun"],
+                "abilities": ["Prankster"],
+                "teraTypes": ["Dark"]
+            },
+			{
+                "role": "Fast Support",
+                "movepool": ["Reflect", "Light Screen", "Taunt", "Healing Wish", "Haze"],
                 "abilities": ["Prankster"],
                 "teraTypes": ["Dark"]
             }
@@ -417,8 +441,14 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Orb of Discord", "Psychic", "Recover", "Flash Cannon"],
-                "abilities": ["Compound Eyes"],
-                "teraTypes": ["Fire"]
+                "abilities": ["Levitate"],
+                "teraTypes": ["Psychic"]
+            },
+			{
+                "role": "Choice Item user",
+                "movepool": ["Orb of Discord", "Psychic", "Flash Cannon", "Trick", "Doom Desire"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Psychic"]
             }
 		]
 	},
@@ -436,9 +466,9 @@
 	"bowsermega": {
 		"level": 90,
 		"sets": [
-            {
+			{
                 "role": "Bulky Setup",
-                "movepool": ["Dragon Claw", "Bulk Up", "Drain Punch", "Spiky Shield"],
+                "movepool": ["Dragon Claw", "Bulk Up", "Rest", "Sleep Talk"],
                 "abilities": ["Stamina"],
                 "teraTypes": ["Dragon"]
             }
@@ -578,6 +608,12 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Bunny Beam", "Agility", "Stone Edge", "Poltergeist"],
                 "abilities": ["Victory Star"],
+                "teraTypes": ["Ice"]
+            },
+			{
+                "role": "Choice Item User",
+                "movepool": ["Bunny Beam", "Shadow Punch", "Ice Shard", "Chilly Reception"],
+                "abilities": ["Technician"],
                 "teraTypes": ["Ice"]
             }
 		]

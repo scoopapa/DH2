@@ -181,7 +181,7 @@ export class RandomCCVCTeams extends RandomTeams {
 			['trick', 'uturn'],
 
 			// These attacks are redundant with each other
-			[['psychic', 'psychicnoise'], ['psyshock', 'psychicnoise']],
+			[['psychic', 'psychicnoise', 'mistball'], ['psyshock', 'psychicnoise', 'mistball']],
 			['surf', ['hydropump', 'scald']],
 			['liquidation', 'wavecrash'],
 			['aquajet', 'flipturn'],
@@ -191,7 +191,7 @@ export class RandomCCVCTeams extends RandomTeams {
 			['knockoff', 'foulplay'],
 			['throatchop', ['crunch', 'lashout']],
 			['doubleedge', ['bodyslam', 'headbutt']],
-			[['fireblast', 'magmastorm'], ['fierydance', 'flamethrower', 'lavaplume']],
+			[['fireblast', 'magmastorm', 'overheat', 'lava plume'], ['fierydance', 'flamethrower', 'lavaplume']],
 			['thunderpunch', 'wildcharge'],
 			['thunderbolt', 'discharge'],
 			['gunkshot', ['direclaw', 'poisonjab', 'sludgebomb']],
@@ -361,6 +361,12 @@ export class RandomCCVCTeams extends RandomTeams {
 		// Enforce Dragon Dance on certain Corrin sets
 		if (species.id === 'corrin' && movePool.includes('dragondance')) {
 			counter = this.addMove('dragondance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+				movePool, teraType, role);
+		}
+		if (species.id === 'medic' && role === 'Fast Support') {
+			counter = this.addMove('reflect', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+				movePool, teraType, role);
+			counter = this.addMove('lightscreen', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 				movePool, teraType, role);
 		}
 
@@ -654,6 +660,10 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'metaknight' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'thedefect' && role === 'Choice Item user') return 'Choice Scarf';
 		if (species.id === 'mermaid' && role === 'Choice Item user') return 'Choice Scarf';
+		if (species.id === 'nifl' && role === 'Choice Item user') return 'Choice Band';
+		if (species.id === 'zenyatta' && role === 'Choice Item user') return 'Choice Scarf';
+		if (species.id === 'usapyon' && role === 'Choice Item user') return 'Choice Band';
+		if (species.id === 'ranno' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'mawjaw') return 'Rocky Helmet';
 		
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';

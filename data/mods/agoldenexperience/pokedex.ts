@@ -331,7 +331,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	doduo: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Early Bird", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Multiheaded", H: "Striker"},
 	},
 	dodrio: {
 		inherit: true,
@@ -392,17 +392,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	exeggcute: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Chlorophyll", 1: "Multiheaded", H: "Harvest"},
 	},
 	exeggutor: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 85, def: 85, spa: 125, spd: 75, spe: 65},
-		abilities: {0: "Chlorophyll", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Chlorophyll", 1: "Multiheaded", H: "Harvest"},
 	},
 	exeggutoralola: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 125, def: 85, spa: 125, spd: 75, spe: 25},
-		abilities: {0: "Frisk", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Unconcerned", 1: "Multiheaded", H: "Harvest"},
 	},
 	hitmonlee: {
 		inherit: true,
@@ -1843,7 +1843,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	watchog: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 69, spa: 80, spd: 69, spe: 87},
+		baseStats: {hp: 60, atk: 85, def: 69, spa: 60, spd: 69, spe: 97},
+		abilities: {0: "Illuminate", 1: "Tinted Lens", H: "Light Power"},
 	},
 	herdier: {
 		inherit: true,
