@@ -1761,6 +1761,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 	},
+	ignitionflare: {
+		accuracy: 90,
+		basePower: 120,
+		category: "Special",
+		name: "Ignition Flare",
+		shortDesc: "Charges turn 1, hits turn 2. Fire-type Meteor Beam clone without Sp. Atk boost.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onTryMove(attacker, target, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			attacker.addVolatile(move.id);
+			this.add('-prepare', attacker, move.name);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Eruption", target);
+		},
+	},
 	/*
 	Edits
 	*/

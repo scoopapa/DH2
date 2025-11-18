@@ -13452,6 +13452,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			blazeball: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
+			ignitionflare: ["9L1"],
 			bulldoze: ["9L1"],
 			counter: ["9L1"],
 			crunch: ["9L1"],
