@@ -12,5 +12,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "moltresgalar").learnset.elementaltempest = ["9L1"];
 		this.modData('Learnsets', "lumiquatrogalar").learnset.elementaltempest = ["9L1"];
 		this.modData('Learnsets', "lumiquatro").learnset.elementaltempest = ["9L1"];
+		this.modData('Learnsets', "articunogalar").learnset.hiddenpower = ["9L1"];
 	},
 };
