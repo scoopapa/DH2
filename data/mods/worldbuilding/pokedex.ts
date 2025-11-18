@@ -19,4 +19,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Moxie"},
 		weightkg: 50.9,
 	},
+	articuno: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 85, def: 90, spa: 105, spd: 125, spe: 100},
+		abilities: {0: "Pressure", H: "Snow Warning"},
+	},
+	articunogalar: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 85, def: 100, spa: 125, spd: 90, spe: 105},
+	},
 };
