@@ -1730,7 +1730,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Cosmic Power", target);
+            this.add('-anim', target, "Psycho Boost", target);
         },
 	},
 	pyrotoxicgale: {
@@ -1748,8 +1748,7 @@ export const Moves: {[moveid: string]: MoveData} = {
   		},
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Fire Pledge", target);
-            this.add('-anim', target, "Toxic", target);
+            this.add('-anim', source, "Heat Wave", target);
         },
 		onHit(target, source, move) {
 			if (!target.side.sideConditions['firepledge']) {
