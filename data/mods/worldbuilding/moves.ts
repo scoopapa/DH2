@@ -23,7 +23,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "Nullifies the Brn/Frz/Par foe(s) Ability.",
+		shortDesc: "Nullifies the Brn/Frz/Par foe(s)'s Ability.",
 		name: "Elemental Tempest",
 		pp: 10,
 		priority: 0,
