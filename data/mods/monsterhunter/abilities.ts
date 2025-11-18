@@ -800,7 +800,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ice Breaker",
 		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
-		shortDesc: "Under Snow: Attacks have 1.3x Power (Grants Immunity)",
+		shortDesc: "Under Snow: Attacks have 1.3x Power",
         flags: {},
 	},
 	oilmucus: {
