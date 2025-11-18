@@ -395,18 +395,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-ability', pokemon, 'Rusted Gale');
 			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
 		},
-		onAnyModifyDef(def, target, source, move) {
+		onAnyModifyDef(def, target) {
 			const abilityHolder = this.effectState.target;
 			if (target.hasAbility('Rusted Gale')) return;
-			if (!move.ruinedDef?.hasAbility('Rusted Gale')) move.ruinedDef = abilityHolder;
-			if (move.ruinedDef !== abilityHolder) return;
 
 			if (target.hasType('Steel')) {
 				if (!target.volatiles['rusted']) {
 					target.addVolatile('rusted');
 					this.add('-message', `${target.name} is afflicted by rust!`);
 				}
-				return;
+				return def;
 			} else {
 				this.debug('Rusted Gale Def drop');
 				return this.chainModify(0.75);
@@ -428,7 +426,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Rusted Gale",
-		shortDesc: "Steel-types w/o this Ability become Rusted; others have Defense ×0.75.",
+		shortDesc: "Steel-types w/o this Ability gain Rusted volatile; others have Defense ×0.75. Ends when holder leaves.",
 	},
 	frostnip: {
 		shortDesc: "This Pokemon's moves have 1.3x power against frostbitten targets.",
