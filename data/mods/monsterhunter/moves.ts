@@ -101,7 +101,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
-		heal: [1, 2],
 		onHit(pokemon) {
 			const item = pokemon.getItem();
 			if (item && item.isBerry) {
