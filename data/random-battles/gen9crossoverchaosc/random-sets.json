@@ -103,9 +103,15 @@
 		"level": 90,
 		"sets": [
 			{
-				"role": "Wallbreaker",
+				"role": "Bulky Setup",
 				"movepool": ["Rock Polish", "Bullet Seed", "Rock Blast", "Earthquake"],
 				"abilities": ["Skill Link"],
+				"teraTypes": ["Grass"]
+			},
+			{
+				"role": "Wallbreaker",
+				"movepool": ["Head Smash", "Wood Hammer", "Synthesis", "Earthquake"],
+				"abilities": ["Rock Head"],
 				"teraTypes": ["Grass"]
 			}
 		]
@@ -541,7 +547,7 @@
 			{
 				"role": "Bulky Support",
 				"movepool": ["Energy Ball", "Sun Beam", "Recover", "Toxic", "Wish"],
-				"abilities": ["Grassy Terrain"],
+				"abilities": ["Grassy Surge"],
 				"teraTypes": ["Grass"]
 			}
 		]
@@ -594,6 +600,12 @@
 				"abilities": ["Stormwing Matriarch"],
 				"teraTypes": ["Fire"]
 			}
+			{
+				"role": "Bulky Attacker",
+				"movepool": ["Brave Bird", "Roost", "Stealth Rock", "Gemstone Rush", "Blaze Kick"],
+				"abilities": ["Stormwing Matriarch"],
+				"teraTypes": ["Fire"]
+			}
 		]
 	},
 	"monokuma": {
@@ -601,6 +613,12 @@
 		"sets": [
 			{
 				"role": "Z-Move user",
+				"movepool": ["Punishment Time!", "Supercell Slam", "Knock Off", "Flare Blitz", "Iron Head", "Waterfall"],
+				"abilities": ["Dark Aura"],
+				"teraTypes": ["Electric"]
+			},
+			{
+				"role": "Bulky Attacker",
 				"movepool": ["Punishment Time!", "Supercell Slam", "Knock Off", "Flare Blitz", "Iron Head", "Waterfall"],
 				"abilities": ["Dark Aura"],
 				"teraTypes": ["Electric"]

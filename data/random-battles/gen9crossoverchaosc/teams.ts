@@ -665,6 +665,8 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'usapyon' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'ranno' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'mawjaw') return 'Rocky Helmet';
+		if (species.id === 'morian' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'eox' && role === 'Bulky Setup') return 'Leftovers';
 		
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';
 		if (ability === 'Sand Stream') return 'Smooth Rock';
