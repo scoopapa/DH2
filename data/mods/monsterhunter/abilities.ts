@@ -573,9 +573,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(2.0);
 			}
 		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.volatiles['charge']) {
+				return this.chainModify(1.5);
+			}
+		},
 		flags: {},
 		name: "Howling Thunder",
-		shortDesc: "When under Charge: Attack is doubled",
+		desc: "When this Pokémon is under the effect of Charge, its Attack is doubled and its Speed is multiplied by 1.5x.",
+		shortDesc: "When under Charge: Attack is 2x, Speed is 1.5x",
 	},
 	icebreaker: {
 		onBasePowerPriority: 21,
@@ -1375,18 +1382,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Spongy",
 	},
 	starvingbite: {
-		onModifyMovePriority: -5,
-		onModifyMove(move, source) {
-			if (move.flags['bite']) {
-				move.ignoreAbility = true;
-				move.ignoreImmunity = true; 
-				this.add('-activate', source, 'ability: Starving Bite');
-			}
-		},
-		flags: {},
-		name: "Starving Bite",
-		desc: "This Pokémon's biting attacks ignore target abilities and type immunities.",
-		shortDesc: "Biting attacks ignore immunities and abilities.",
+	onModifyMovePriority: 99,
+	onModifyMove(move, source, target) {
+		if (move.flags?.bite) {
+		move.ignoreAbility = true; 
+		move.ignoreImmunity = true; 
+		this.add('-activate', source, 'ability: Starving Bite');
+		}
+	},
+	onEffectiveness(typeMod, target, type, move) {
+		if (!move || !move.flags?.bite) return;
+		if (typeMod < 0) return 0;
+	},
+	flags: {},
+	name: "Starving Bite",
+	desc: "This Pokémon's biting attacks ignore target abilities and type immunities, but still respect resistances and weaknesses.",
+	shortDesc: "Biting attacks ignore immunities and abilities.",
 	},
 	stealthsilver: {
 		onStart(pokemon, source) {
