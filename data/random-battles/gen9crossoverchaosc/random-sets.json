@@ -110,6 +110,17 @@
             }
 		]
 	},
+	"wriggle": {
+		"level": 90,
+		"sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Tail Glow", "Bug Buzz", "Dark Pulse", "Mystical Fire", "Psychic", "Sludge Bomb"],
+                "abilities": ["Tinted Lens"],
+                "teraTypes": ["Bug"]
+            }
+		]
+	},
 	"roy": {
 		"level": 90,
 		"sets": [
