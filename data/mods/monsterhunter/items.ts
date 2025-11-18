@@ -401,6 +401,58 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		spritenum: 590,
 	},
+	kirinite: {
+		name: "Kirinite",
+		gen: 9,
+		shortDesc: "If held by Kirin, allows it to transform into Emperor. (Mega-Evolution)",
+		megaStone: "Emperor Kirin",
+		megaEvolves: "Kirin",
+		itemUser: ["Kirin", "Emperor Kirin"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	uragaanite: {
+		name: "Uragaanite",
+		gen: 9,
+		shortDesc: "If held by Uragaan, allows it to transform into Crystalbeard. (Mega-Evolution)",
+		megaStone: "Crystalbeard Uragaan",
+		megaEvolves: "Uragaan",
+		itemUser: ["Uragaan", "Crystalbeard Uragaan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	daimyite: {
+		name: "Daimyite",
+		gen: 9,
+		shortDesc: "If held by Daimyo Hermitaur, allows it to transform into Stonefist. (Mega-Evolution)",
+		megaStone: "Stonefist Daimyo",
+		megaEvolves: "Daimyo Hermitaur",
+		itemUser: ["Daimyo Hermitaur", "Stonefist Daimyo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	glavenite: {
+		name: "Glavenite",
+		gen: 9,
+		shortDesc: "If held by Glavenus, allows it to transform into Hellblade. (Mega-Evolution)",
+		megaStone: "Hellblade Glavenus",
+		megaEvolves: "Glavenus",
+		itemUser: ["Glavenus", "Hellblade Glavenus"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
 	/*
 	Fatalis Orbs
 	*/
