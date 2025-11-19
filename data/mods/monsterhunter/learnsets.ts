@@ -3792,6 +3792,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				dragonclaw: ["9L1"],
 				dragondance: ["9L1"],
 				dragondarts: ["9L1"],
+				dragonrush: ["9L1"],
 				dragonpulse: ["9L1"],
 				dragontail: ["9L1"],
 				drainingkiss: ["9L1"],
@@ -3832,8 +3833,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				vacuumwave: ["9L1"],
 				wish: ["9L1"],
 				endure: ["9L1"],
-			facade: ["9L1"],
-			substitute: ["9L1"],
+				facade: ["9L1"],
+				substitute: ["9L1"],
 			},
 		},	
 	rajang: {
