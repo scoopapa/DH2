@@ -1771,14 +1771,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile(move.id);
-			this.add('-prepare', attacker, move.name, '[from] move: Ignition Flare');
+			this.add('-message', `${attacker.name} is charging up Ignition Flare!`);
 			return null;
 		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		prepareAnim: "Eruption",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Eruption", target);
