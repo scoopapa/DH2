@@ -746,6 +746,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Megiddo's Gift",
 		shortDesc: "Before using Fire/Water moves: Sets Sunny Day or Rain Dance",
 	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && target.activeTurns === 0) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		shortDesc: "1st turn this ability is active: Immune to Rock-type attacks and Stealth Rock.",
+		flags: {breakable: 1},
+		name: "Mountaineer",
+		rating: 3,
+		num: -2,
+	},
 	mightywall: {
 		flags: {},
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1033,16 +1052,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
 	pulpup: {
-		onAfterMoveSecondarySelf(source, target, move) {
+		onAfterMove(source, target, move) {
 			if (move.category === 'Status' && target && target !== source) {
-				source.addVolatile('stockpile');
-				this.add('-activate', source, 'ability: Pulp Up');
+				const totalBoosts = (source.boosts.def || 0) + (source.boosts.spd || 0);
+				if (totalBoosts < 6) { // max +3 in each stat
+					this.boost({def: 1, spd: 1}, source);
+					this.add('-activate', source, 'ability: Pulp Up');
+				}
 			}
 		},
 		flags: {},
 		name: "Pulp Up",
-		desc: "When this Pokémon uses a status move on a foe, it gains 1 Stockpile stage.",
-		shortDesc: "When using status moves on a foe: Stockpiles 1.",
+		desc: "When this Pokémon uses a status move on a foe, it boosts its Defense and Sp. Def by 1 stage, up to +3 each.",
+		shortDesc: "When using a status move on a foe: +1 Def/SpD (max +3).",
 	},
 	pungency: {
 		onDamagingHit(damage, target, source, move) {
@@ -1619,22 +1641,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	/*
 	Edits
 	*/
-	mountaineer: {
-		inherit: true,
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && target.activeTurns === 0) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return null;
-			}
-		},
-		shortDesc: "On the first turn this ability is active: Immune to Rock-type attacks and Stealth Rock.",
-	},
 	ironfist: {
 		inherit: true,
 		onModifyMove(move) {

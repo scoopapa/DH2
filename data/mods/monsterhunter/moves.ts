@@ -1738,14 +1738,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "30% chance to burn. Sea of Fire for 3 turns.",
+		shortDesc: "Sea of Fire for 3 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-    		chance: 30,
-    		status: 'brn',
-  		},
+		secondary: null,
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Heat Wave", target);
