@@ -278,34 +278,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Direspike Scales",
 		shortDesc: "If at full HP: Incoming attacks deal 0.5x damage unless immune",
 	},
-	dozing: {
-		onResidualOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.status === 'slp') {
-				this.heal(pokemon.baseMaxhp / 8, pokemon);
-				this.add('-ability', pokemon, 'Dozing');
-			}
-		},
-		onDisableMove(pokemon) {
-			if (pokemon.status === 'slp' && pokemon.volatiles['torment']) {
-				pokemon.removeVolatile('torment');
-			}
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (target.status === 'slp') {
-				return damage;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (pokemon.status === 'slp' && move.multihit) {
-				return;
-			}
-		},
-		flags: {},
-		name: "Dozing",
-		desc: "If this Pokémon is asleep, it restores 1/8 of its max HP each turn and ignores negative side-effects of sleep, including Torment, damage modifiers, and multihit suppression.",
-		shortDesc: "If asleep: Restores 1/8 max HP; ignores sleep side-effects.",
-	},
 	dragoneater: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dragon') {
@@ -1061,8 +1033,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
 	pulpup: {
-		onPrepareHit(source, target, move) {
-			if (target && target !== source && move.category === 'Status') {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.category === 'Status' && target && target !== source) {
 				source.addVolatile('stockpile');
 				this.add('-activate', source, 'ability: Pulp Up');
 			}
@@ -1624,7 +1596,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
 				}
 				target.addVolatile('dragoncharge');
-				this.add('-activate', target, 'ability: Wyversion');
 			}
 		},
 		onUpdate(pokemon) {
@@ -1632,13 +1603,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.cureStatus();
 				this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Wyversion');
 				pokemon.addVolatile('dragoncharge');
-				this.add('-activate', pokemon, 'ability: Wyversion');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.volatiles['dragoncharge']) {
+				this.add('-immune', target, '[from] ability: Wyversion');
+				return false;
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a status condition, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move.",
-		shortDesc: "When hit or statused: Cures status, gains Dragon-type Charge effect.",
+		desc: "When this Pokémon is hit by an attack or has a status condition, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status.",
+		shortDesc: "When hit/statused: Cures status, gains Dragon Charge. Immune to status while charged.",
 	},
 	/*
 	Edits
@@ -1652,19 +1628,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (move.type === 'Rock') {
-				// Switch-in check
-				if (target.activeTurns === 0) {
-					this.add('-immune', target, '[from] ability: Mountaineer');
-					return null;
-				}
-				if (target.m && target.m.originalSpecies && target.m.originalSpecies !== target.species) {
-					this.add('-immune', target, '[from] ability: Mountaineer');
-					return null;
-				}
+			if (move.type === 'Rock' && target.activeTurns === 0) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
 			}
 		},
-		shortDesc: "On switch-in or Mega Evolution: Immune to Rock-type attacks and Stealth Rock.",
+		shortDesc: "On the first turn this ability is active: Immune to Rock-type attacks and Stealth Rock.",
 	},
 	ironfist: {
 		inherit: true,

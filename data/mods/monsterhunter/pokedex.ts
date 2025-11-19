@@ -1865,7 +1865,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Nightlumu",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 102, atk: 60, def: 105, spa: 107, spd: 103, spe: 80},
-		abilities: {0: "Cursed Body", 1: "Dozing", H: "Fluffy"},
+		abilities: {0: "Cursed Body", H: "Fluffy"},
 		weightkg: 40.0,
 		tags: ["Flying Wyvern"],
 	},
