@@ -1746,6 +1746,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Heat Wave", target);
+            this.add('-anim', target, "Corrosive Gas", target);
         },
 		onHit(target, source, move) {
 			if (!target.side.sideConditions['firepledge']) {

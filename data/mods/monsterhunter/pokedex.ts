@@ -2350,7 +2350,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 187,
 		name: "Duremudira",
 		types: ["Ice", "Poison"],
-		baseStats: {hp: 95, atk: 124, def: 81, spa: 114, spd: 75, spe: 131},
+		baseStats: {hp: 95, atk: 119, def: 81, spa: 119, spd: 75, spe: 131},
 		abilities: {0: "Corrupted Poison"},
 		weightkg: 200.0,
 		tags: ["Elder Dragon"],
