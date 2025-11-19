@@ -1766,6 +1766,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		prepareAnim: "Burning Bulwark",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -1776,6 +1777,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
+		},
+			onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Eruption", target);
 		},
 		secondary: null,
 		target: "normal",

@@ -1130,7 +1130,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Reactive Core",
-		shortDesc: "Hit By Fire/BRN: Offenses are 1.3x | Hit by Water/Ice/FRZ: Defenses or 1.3x",
+		shortDesc: "Hit By Fire/BRN: Offenses are 1.3x | Hit by Water/Ice/FRZ: Defenses are 1.3x",
 	},
 	reactivetouch: {
 		onSourceDamagingHit(damage, target, source, move) {
@@ -1339,8 +1339,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				this.debug('Solar Core - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
+				this.add('-activate', pokemon, 'ability: Solar Core');
 				this.addMove('-anim', pokemon, move.name, target);
-				return false; // skip charge turn
+				return false;
 			}
 		},
 		flags: {},
