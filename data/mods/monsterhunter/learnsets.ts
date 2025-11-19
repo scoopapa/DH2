@@ -12701,9 +12701,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	coralpukei: {
 		learnset: {
 			acidarmor: ["9L1"],
+			roost: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
-			roost: ["9L1"],
 			aircutter: ["9L1"],
 			airslash: ["9L1"],
 			aquatail: ["9L1"],
