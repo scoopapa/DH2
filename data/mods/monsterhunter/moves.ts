@@ -1765,15 +1765,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Charges turn 1, hits turn 2.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onTryMove(attacker, target, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			attacker.addVolatile(move.id);
-			this.add('-message', `${attacker.name} is charging up Ignition Flare!`);
-			return null;
-		},
+		flags: {protect: 1, mirror: 1, charge: 1},
+		twoTurnMove: true,
 		secondary: null,
 		target: "normal",
 		type: "Fire",
