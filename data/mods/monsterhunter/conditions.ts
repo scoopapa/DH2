@@ -35,15 +35,12 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hasAbility('Dozing')) return;
 			return this.chainModify(1.2);
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.hasAbility('Dozing')) return;
 			if (move.multihit) delete move.multihit;
 		},
 		onDisableMove(pokemon) {
-			if (pokemon.hasAbility('Dozing')) return;
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') {
 				pokemon.disableMove(pokemon.lastMove.id);
 			}

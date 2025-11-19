@@ -279,17 +279,32 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "If at full HP: Incoming attacks deal 0.5x damage unless immune",
 	},
 	dozing: {
-		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-			if (effect?.id === 'slp') {
-				this.heal(target.baseMaxhp / 8, target);
-				this.add('-ability', target, 'Dozing');
-				return false;
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 8, pokemon);
+				this.add('-ability', pokemon, 'Dozing');
+			}
+		},
+		onDisableMove(pokemon) {
+			if (pokemon.status === 'slp' && pokemon.volatiles['torment']) {
+				pokemon.removeVolatile('torment');
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.status === 'slp') {
+				return damage;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.status === 'slp' && move.multihit) {
+				return;
 			}
 		},
 		flags: {},
 		name: "Dozing",
-		shortDesc: "If drowsy: Restores 1/8 max HP each turn. Ignores drowsy side-effects.",
+		desc: "If this Pokémon is asleep, it restores 1/8 of its max HP each turn and ignores negative side-effects of sleep, including Torment, damage modifiers, and multihit suppression.",
+		shortDesc: "If asleep: Restores 1/8 max HP; ignores sleep side-effects.",
 	},
 	dragoneater: {
 		onTryHit(target, source, move) {
@@ -1046,15 +1061,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
 	pulpup: {
-		onTryHitPriority: 4,
-		onTryHit(target, source, move) {
-			if (target !== source && move.category === 'Status') {
+		onPrepareHit(source, target, move) {
+			if (target && target !== source && move.category === 'Status') {
 				source.addVolatile('stockpile');
 				this.add('-activate', source, 'ability: Pulp Up');
 			}
 		},
 		flags: {},
 		name: "Pulp Up",
+		desc: "When this Pokémon uses a status move on a foe, it gains 1 Stockpile stage.",
 		shortDesc: "When using status moves on a foe: Stockpiles 1.",
 	},
 	pungency: {
@@ -1387,7 +1402,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		if (move.flags?.bite) {
 		move.ignoreAbility = true; 
 		move.ignoreImmunity = true; 
-		this.add('-activate', source, 'ability: Starving Bite');
 		}
 	},
 	onEffectiveness(typeMod, target, type, move) {
@@ -1605,36 +1619,49 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
+				if (target.status) {
+					target.cureStatus();
+					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
+				}
 				target.addVolatile('dragoncharge');
 				this.add('-activate', target, 'ability: Wyversion');
 			}
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status && !pokemon.volatiles['dragoncharge']) {
+				pokemon.cureStatus();
+				this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Wyversion');
 				pokemon.addVolatile('dragoncharge');
 				this.add('-activate', pokemon, 'ability: Wyversion');
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a status condition, it gains the Dragon Charge effect, boosting its next Dragon-type move.",
-		shortDesc: "When hit or statused: Gains Dragon-type Charge effect.",
+		desc: "When this Pokémon is hit by an attack or has a status condition, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move.",
+		shortDesc: "When hit or statused: Cures status, gains Dragon-type Charge effect.",
 	},
 	/*
 	Edits
 	*/
 	mountaineer: {
-    inherit: true,
+		inherit: true,
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
+				this.add('-immune', target, '[from] ability: Mountaineer');
 				return false;
 			}
 		},
 		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && (!target.activeTurns || target.volatiles['formechange'])) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				this.add('-activate', target, 'ability: Mountaineer');
-				return null;
+			if (move.type === 'Rock') {
+				// Switch-in check
+				if (target.activeTurns === 0) {
+					this.add('-immune', target, '[from] ability: Mountaineer');
+					return null;
+				}
+				if (target.m && target.m.originalSpecies && target.m.originalSpecies !== target.species) {
+					this.add('-immune', target, '[from] ability: Mountaineer');
+					return null;
+				}
 			}
 		},
 		shortDesc: "On switch-in or Mega Evolution: Immune to Rock-type attacks and Stealth Rock.",
