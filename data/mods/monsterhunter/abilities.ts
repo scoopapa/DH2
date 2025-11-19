@@ -1051,21 +1051,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Puff-Up",
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
-	pulpup: {
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (move.category === 'Status' && target && target !== source) {
-				const totalBoosts = (source.boosts.def || 0) + (source.boosts.spd || 0);
-				if (totalBoosts < 6) {
-					this.boost({def: 1, spd: 1}, source);
-					this.add('-activate', source, 'ability: Pulp Up');
-				}
-			}
-		},
-		flags: {},
-		name: "Pulp Up",
-		desc: "When this Pokémon uses a status move on a foe, it boosts its Defense and Sp. Def by 1 stage, up to +3 each.",
-		shortDesc: "When using a status move on a foe: +1 Def/SpD (max +3).",
-	},
 	pungency: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -1623,7 +1608,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.status && !pokemon.volatiles['dragoncharge']) {
 				pokemon.cureStatus();
-				this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Wyversion');
 				pokemon.addVolatile('dragoncharge');
 			}
 		},
