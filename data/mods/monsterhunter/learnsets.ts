@@ -1209,6 +1209,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
+			strengthsap: ["9L1"],
 			naturalgift: ["9L1"],
 			aircutter: ["9L1"],
 			roost: ["9L1"],

@@ -1770,7 +1770,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Great Jagras",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 123, atk: 90, def: 107, spa: 65, spd: 90, spe: 50},
-		abilities: {0: "Innards Out", 1: "Pulp Up", H: "Tangling Hair"},
+		abilities: {0: "Innards Out", H: "Tangling Hair"},
 		weightkg: 60.0,
 		tags: ["Fanged Wyvern"],
 	},
