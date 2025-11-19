@@ -1765,16 +1765,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Charges turn 1, hits turn 2.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, charge: 1},
-		twoTurnMove: true,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-		contestType: "Beautiful",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Eruption", target);
-		},
 	},
 	/*
 	Edits
