@@ -813,7 +813,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		forme: "Mega",
 		types: ["Ice", "Flying"],
 		baseStats: {hp: 92, atk: 128, def: 90, spa: 125, spd: 110, spe: 105},
-		abilities: {0: "Mountaineer"},
+		abilities: {0: "Fur Coat"},
 		weightkg: 152.2,
 		tags: ["Flying Wyvern"],
 		requiredItem: "Bariothite",

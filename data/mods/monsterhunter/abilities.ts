@@ -1052,10 +1052,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
 	pulpup: {
-		onAfterMove(source, target, move) {
+		onAfterMoveSecondarySelf(source, target, move) {
 			if (move.category === 'Status' && target && target !== source) {
 				const totalBoosts = (source.boosts.def || 0) + (source.boosts.spd || 0);
-				if (totalBoosts < 6) { // max +3 in each stat
+				if (totalBoosts < 6) {
 					this.boost({def: 1, spd: 1}, source);
 					this.add('-activate', source, 'ability: Pulp Up');
 				}
