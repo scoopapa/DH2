@@ -1771,7 +1771,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
-			this.add('-prepare', attacker, move.name);
+			this.attrLastMove('[still]');
+        	this.add('-anim', attacker, "Burning Bulwark", attacker);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
