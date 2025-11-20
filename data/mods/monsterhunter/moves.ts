@@ -1738,17 +1738,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "30% chance to burn. Sea of Fire for 3 turns.",
+		shortDesc: "Sea of Fire for 3 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-    		chance: 30,
-    		status: 'brn',
-  		},
+		secondary: null,
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Heat Wave", target);
+            this.add('-anim', target, "Corrosive Gas", target);
         },
 		onHit(target, source, move) {
 			if (!target.side.sideConditions['firepledge']) {
@@ -1768,23 +1766,44 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Charges turn 1, hits turn 2.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onTryMove(attacker, target, move) {
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		prepareAnim: "Burning Bulwark",
+		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
-			attacker.addVolatile(move.id);
-			this.add('-prepare', attacker, move.name);
+			this.attrLastMove('[still]');
+        	this.add('-anim', attacker, "Burning Bulwark", attacker);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		contestType: "Beautiful",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Eruption", target);
 		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	lightofruin: {
+		num: 617,
+		accuracy: 90,
+		basePower: 140,
+		category: "Special",
+		name: "Light of Ruin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
 	},
 	/*
 	Edits
