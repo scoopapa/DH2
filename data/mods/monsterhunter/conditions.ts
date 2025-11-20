@@ -83,7 +83,6 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		name: 'Warmed',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Warmed');
-			this.add('-message', `${pokemon.name} is warmed up! Offenses are 1.33...x!`);
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
@@ -101,7 +100,6 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		name: 'Cooled',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Cooled');
-			this.add('-message', `${pokemon.name} cooled down! Defenses are 1.33...x!`);
 		},
 		onModifyDefPriority: 5,
     	onModifyDef(def, pokemon) {

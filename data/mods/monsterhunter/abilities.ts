@@ -1102,7 +1102,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.removeVolatile('cooled');
 					target.addVolatile('warmed');
 					this.add('-ability', target, 'Reactive Core');
-					this.add('-message', `${target.name}'s core surged with fire!`);
+					this.add('-message', `${target.name}'s core surged with fire! (1.33x Offenses)`);
 				}
 			}
 			if (move.type === 'Water' || move.type === 'Ice') {
@@ -1110,7 +1110,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
 					this.add('-ability', target, 'Reactive Core');
-					this.add('-message', `${target.name}'s core subsided to a chill!`);
+					this.add('-message', `${target.name}'s core subsided to a chill! (1.33x Defenses)`);
 				}
 			}
 		},
@@ -1120,7 +1120,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('warmed');
 				target.cureStatus();
 				this.add('-ability', target, 'Reactive Core');
-				this.add('-message', `${target.name}'s core ignited!`);
+				this.add('-message', `${target.name}'s core ignited! (1.33x Offenses)`);
 				return false;
 			}
 			if (status.id === 'frz') {
@@ -1128,7 +1128,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('cooled');
 				target.cureStatus();
 				this.add('-ability', target, 'Reactive Core');
-				this.add('-message', `${target.name}'s core froze!`);
+				this.add('-message', `${target.name}'s core froze! (1.33x Defenses)`);
 				return false;
 			}
 		},
@@ -1139,14 +1139,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.removeVolatile('cooled');
 					target.addVolatile('warmed');
 					this.add('-ability', target, 'Reactive Core');
-					this.add('-message', `${target.name}'s core glows in the sunlight!`);
+					this.add('-message', `${target.name}'s core glows in the sunlight! (1.33x Offenses)`);
 				}
 			} else if (['hail', 'snow'].includes(weather)) {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
 					this.add('-ability', target, 'Reactive Core');
-					this.add('-message', `${target.name}'s core hardened against the snow!`);
+					this.add('-message', `${target.name}'s core hardened against the snow! (1.33x Defenses)`);
 				}
 			} else {
 				target.removeVolatile('warmed');
