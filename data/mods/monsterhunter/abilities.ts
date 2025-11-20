@@ -1102,6 +1102,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.removeVolatile('cooled');
 					target.addVolatile('warmed');
 					this.add('-ability', target, 'Reactive Core');
+					this.add('-message', `${target.name}'s core surged with fire!`);
 				}
 			}
 			if (move.type === 'Water' || move.type === 'Ice') {
@@ -1109,6 +1110,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
 					this.add('-ability', target, 'Reactive Core');
+					this.add('-message', `${target.name}'s core subsided to a chill!`);
 				}
 			}
 		},
@@ -1118,6 +1120,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('warmed');
 				target.cureStatus();
 				this.add('-ability', target, 'Reactive Core');
+				this.add('-message', `${target.name}'s core ignited!`);
 				return false;
 			}
 			if (status.id === 'frz') {
@@ -1125,12 +1128,34 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('cooled');
 				target.cureStatus();
 				this.add('-ability', target, 'Reactive Core');
+				this.add('-message', `${target.name}'s core froze!`);
 				return false;
+			}
+		},
+		onWeather(target) {
+			const weather = this.field.weather;
+			if (['sunnyday', 'desolateland'].includes(weather)) {
+				if (!target.volatiles['warmed']) {
+					target.removeVolatile('cooled');
+					target.addVolatile('warmed');
+					this.add('-ability', target, 'Reactive Core');
+					this.add('-message', `${target.name}'s core glows in the sunlight!`);
+				}
+			} else if (['hail', 'snow'].includes(weather)) {
+				if (!target.volatiles['cooled']) {
+					target.removeVolatile('warmed');
+					target.addVolatile('cooled');
+					this.add('-ability', target, 'Reactive Core');
+					this.add('-message', `${target.name}'s core hardened against the snow!`);
+				}
+			} else {
+				target.removeVolatile('warmed');
+				target.removeVolatile('cooled');
 			}
 		},
 		flags: {},
 		name: "Reactive Core",
-		shortDesc: "Hit By Fire/BRN: Offenses are 1.3x | Hit by Water/Ice/FRZ: Defenses are 1.3x",
+		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Water/Ice/FRZ/Snow: Defenses 1.3x",
 	},
 	reactivetouch: {
 		onSourceDamagingHit(damage, target, source, move) {
