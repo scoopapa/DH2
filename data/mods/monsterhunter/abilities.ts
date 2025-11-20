@@ -90,7 +90,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				stats.spe = this.chainModify([stats.spe, 0x1333]);
 			}
 		},
-		
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.status === 'slp') {
 				return this.chainModify(0.833);
@@ -98,7 +97,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Bewitching Tail",
-		shortDesc: "Vs drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
+		shortDesc: "Targeting drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -654,7 +653,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (move.type === 'Fire') {
 				this.debug('Incandescent immunity');
 				this.add('-immune', target, '[from] ability: Incandescent');
-				this.add('-activate', target, 'ability: Incandescent');
 				return 0;
 			}
 		},
@@ -734,13 +732,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
-		onBeforeMove(target, source, move) {
+		onBeforeMove(pokemon, target, move) {
 			if (move.type === 'Fire') {
 				this.field.setWeather('sunnyday');
-				this.add('-activate', source, 'ability: Megiddo\'s Gift', 'Sunny Day');
+				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Sunny Day');
 			} else if (move.type === 'Water') {
 				this.field.setWeather('raindance');
-				this.add('-activate', source, 'ability: Megiddo\'s Gift', 'Rain Dance');
+				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Rain Dance');
 			}
 		},
 		name: "Megiddo's Gift",
@@ -1624,7 +1622,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
-				if (target.status) {
+				if (target.status && target.status !== 'slp') {
 					target.cureStatus();
 					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
 				}
@@ -1632,21 +1630,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status && !pokemon.volatiles['dragoncharge']) {
+			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
 				pokemon.cureStatus();
 				pokemon.addVolatile('dragoncharge');
 			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (target.volatiles['dragoncharge']) {
+				if (status.id === 'slp') {
+					return;
+				}
 				this.add('-immune', target, '[from] ability: Wyversion');
 				return false;
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a status condition, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status.",
-		shortDesc: "When hit/statused: Cures status, gains Dragon Charge. Immune to status while charged.",
+		desc: "When this Pokémon is hit by an attack or has a non-Sleep status, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
+		shortDesc: "When Hit: Gain Dragon-Type Charge | BRN/FRZ/PARA/DRGB: Cures, Gain D-Charge. Immunity while charged.",
 	},
 	/*
 	Edits
