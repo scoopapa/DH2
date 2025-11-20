@@ -9154,6 +9154,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acupressure: ["9L1"],
 			agility: ["9L1"],
+			blazekick: ["9L1"],
 			attract: ["9L1"],
 			batonpass: ["9L1"],
 			bodyslam: ["9L1"],
@@ -10989,6 +10990,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	bluekutku: {
 		learnset: {
 			acupressure: ["9L1"],
+			blazekick: ["9L1"],
 			agility: ["9L1"],
 			attract: ["9L1"],
 			batonpass: ["9L1"],
