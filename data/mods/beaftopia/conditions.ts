@@ -5,10 +5,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect?.id === 'lockedmove') {
 				this.add('-status', target, 'cfs', '[fatigue]');
+				this.add('-start', target, target.status, '[silent]');
+				this.add('-message', `${target.name} became confused due to fatigue!`);
 			} else if (sourceEffect?.effectType === 'Ability') {
 				this.add('-status', target, 'cfs', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-start', target, target.status, '[silent]');
+				this.add('-message', `${target.name} became confused!`);
 			} else {
 				this.add('-status', target, 'cfs');
+				this.add('-start', target, target.status, '[silent]');
+				this.add('-message', `${target.name} became confused!`);
 			}
 		},
 		onTryAddVolatile(status, target, source, effect) {
@@ -81,10 +87,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-start', target, 'burn');
 			}
+			target.statusState.startTime = 0;
+			target.statusState.time = target.statusState.startTime;
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect.effectType == 'Move') {
-				this.damage(target.baseMaxhp / 8);
+		onDamagingHit(damage, target, source, move) {
+			if (target !== source && target.statusState.time > 0) {
+				this.damage(target.baseMaxhp / 8, target, source);
 				this.add('-message', `${target.name} was hurt by its burn!`);
 			}
 		},
@@ -93,6 +101,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const source = this.effectState.source;
 			this.boost({def: -1, spd: -1}, pokemon, source);
 			this.add('-message', `${pokemon.name} is being weakened by its burn!`);
+			pokemon.statusState.time++;
 		},
 		onEnd(target) {
 			this.add('-end', target, 'burn');
@@ -120,7 +129,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd(target) {
 			if (this.effectState.trueDuration > 1) return;
-			source.trySetStatus('cfs', target);
+			target.trySetStatus('cfs', target);
 		},
 		onLockMove(pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
