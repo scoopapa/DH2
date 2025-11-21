@@ -1640,14 +1640,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (status.id === 'slp') {
 					return;
 				}
-				this.add('-immune', target, '[from] ability: Wyversion');
-				return false;
+				if (effect && effect.effectType === 'Move') {
+					this.add('-immune', target, '[from] ability: Wyversion');
+					return false;
+				} else if (effect && effect.effectType === 'Item') {
+					this.add('-message', `${target.name}'s Wyversion does not react to item-based status!`);
+				}
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a non-Sleep status, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
-		shortDesc: "When Hit: Gain Dragon-Type Charge | BRN/FRZ/PARA/DRGB: Cures, Gain D-Charge. Immunity while charged.",
+		desc: "When this Pokémon is hit by an attack or has a non-Sleep status from a move, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status from moves except Sleep. Status from items bypasses this effect.",
+		shortDesc: "Hit/BRN/FRZ/PARA/DRAGB: Gains Dragon-Type Charge | Cures Status. Immune while Blighted.",
 	},
 	/*
 	Edits
