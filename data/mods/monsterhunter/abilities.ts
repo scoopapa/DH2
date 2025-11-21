@@ -1635,14 +1635,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if ((pokemon.item === 'flameorb' || pokemon.item === 'frostorb' || pokemon.item === 'toxicorb') && pokemon.status) {
 				const consumed = pokemon.item;
 				pokemon.setItem('');
-				this.add('-enditem', pokemon, consumed, '[from] ability: Wyversion');
 				this.add('-message', `${pokemon.name}'s Wyversion consumed its ${consumed}!`);
 			}
 
 			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
 				const oldStatus = pokemon.status;
 				pokemon.cureStatus();
-				this.add('-curestatus', pokemon, oldStatus, '[from] ability: Wyversion');
 				pokemon.addVolatile('dragoncharge');
 			}
 		},
