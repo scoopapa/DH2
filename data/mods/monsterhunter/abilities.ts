@@ -1635,7 +1635,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if ((pokemon.item === 'flameorb' || pokemon.item === 'frostorb' || pokemon.item === 'toxicorb') && pokemon.status) {
 				const consumed = pokemon.item;
 				pokemon.setItem('');
-				this.add('-message', `${pokemon.name}'s Wyversion consumed its ${consumed}!`);
+				this.add('-enditem', pokemon, consumed, '[from] ability: Wyversion');
 			}
 
 			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
