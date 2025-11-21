@@ -1619,39 +1619,37 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Zoh Shia: Starts Encased, becomes Unencased at the end of the turn if at ≤50% Max HP.",
 	},
 	wyversion: {
+		onUpdate(pokemon) {
+			// Disable Flame Orb and Frost Orb before they can inflict status
+			if (pokemon.item === 'flameorb' || pokemon.item === 'frostorb') {
+				pokemon.setItem('');
+				this.add('-enditem', pokemon, pokemon.item, '[from] ability: Wyversion');
+				this.add('-message', `${pokemon.name}'s Wyversion only converts from moves!`);
+			}
+		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
-				// Do not cure here; just grant the charge on hit
+				if (target.status && target.status !== 'slp') {
+					target.cureStatus();
+					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
+				}
 				target.addVolatile('dragoncharge');
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			// Sleep is the exception: allow it
-			if (status.id === 'slp') return;
-
-			// Only convert if the status was applied by a move
-			if (effect && effect.effectType === 'Move') {
-				if (!target.volatiles['dragoncharge']) {
-					target.cureStatus();
-					this.add('-curestatus', target, status, '[from] ability: Wyversion');
-					target.addVolatile('dragoncharge');
-				}
-				// While charged, block further non-sleep statuses from moves
-				this.add('-immune', target, '[from] ability: Wyversion');
-				return false;
-			}
-
-			// Non-move sources (items, abilities, hazards): do nothing
 			if (target.volatiles['dragoncharge']) {
-				// Charged state does not block item-based statuses
-				this.add('-message', `${target.name}'s Wyversion only converts status from moves!`);
+				if (status.id === 'slp') return;
+				if (effect && effect.effectType === 'Move') {
+					this.add('-immune', target, '[from] ability: Wyversion');
+					return false;
+				}
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack, it gains Dragon Charge. When inflicted with a non-Sleep status by a move, it cures the status and gains Dragon Charge. While charged, it blocks non-Sleep statuses from moves; item-based statuses bypass it.",
-		shortDesc: "Hit/BRN/FRZ/PARA/DRAGB: Gains Dragon-Type Charge | Cures Status. Immune while Blighted.",
+		desc: "Flame Orb and Frost Orb are disabled. When hit or inflicted with a non-Sleep status from a move, this Pokémon cures the status and gains Dragon Charge, boosting its next Dragon-type move. While charged, it cannot be inflicted with status from moves except Sleep.",
+		shortDesc: "Hit/BRN/FRZ/PARA/DRAGB: Gains Dragon-Type Charge | Cures Status. Immune if Blighted.",
 	},
 	/*
 	Edits
