@@ -1618,43 +1618,40 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "If this Pokemon is a Zoh Shia, it changes to its true forme if it has 1/2 or less of its maximum HP, and changes to Encased Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Encased Form, it cannot become affected by a non-volatile status condition or Yawn.",
 		shortDesc: "Zoh Shia: Starts Encased, becomes Unencased at the end of the turn if at ≤50% Max HP.",
 	},
-		wyversion: {
+	wyversion: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
-				if (target.status && target.status !== 'slp') {
-					target.cureStatus();
-					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
-				}
+				// Do not cure here; just grant the charge on hit
 				target.addVolatile('dragoncharge');
 			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
-				pokemon.cureStatus();
-				pokemon.addVolatile('dragoncharge');
-			}
-		},
 		onSetStatus(status, target, source, effect) {
+			// Sleep is the exception: allow it
+			if (status.id === 'slp') return;
+
+			// Only convert if the status was applied by a move
+			if (effect && effect.effectType === 'Move') {
+				if (!target.volatiles['dragoncharge']) {
+					target.cureStatus();
+					this.add('-curestatus', target, status, '[from] ability: Wyversion');
+					target.addVolatile('dragoncharge');
+				}
+				// While charged, block further non-sleep statuses from moves
+				this.add('-immune', target, '[from] ability: Wyversion');
+				return false;
+			}
+
+			// Non-move sources (items, abilities, hazards): do nothing
 			if (target.volatiles['dragoncharge']) {
-				if (status.id === 'slp') {
-					return;
-				}
-				// Only trigger if the status came from a move
-				if (effect && effect.effectType === 'Move') {
-					this.add('-immune', target, '[from] ability: Wyversion');
-					return false;
-				}
-				// If the source is not a move (items, abilities, hazards), Wyversion does nothing
-				if (effect && effect.effectType !== 'Move') {
-					this.add('-message', `${target.name}'s Wyversion only converts from a move!`);
-				}
+				// Charged state does not block item-based statuses
+				this.add('-message', `${target.name}'s Wyversion only converts status from moves!`);
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a non-Sleep status from a move, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status from moves except Sleep. Status from items or other sources bypasses this effect.",
-		shortDesc: "Hit/BRN/FRZ/PARA/DRAGB: Gains Dragon-Type Charge | Cures Status. Immune to move-based status while charged.",
+		desc: "When this Pokémon is hit by an attack, it gains Dragon Charge. When inflicted with a non-Sleep status by a move, it cures the status and gains Dragon Charge. While charged, it blocks non-Sleep statuses from moves; item-based statuses bypass it.",
+		shortDesc: "Hit/BRN/FRZ/PARA/DRAGB: Gains Dragon-Type Charge | Cures Status. Immune while Blighted.",
 	},
 	/*
 	Edits
