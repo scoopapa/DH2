@@ -659,6 +659,54 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	landgiacrus: {
 		tier: "MHOU",
 	},
+	ashshanlung: {
+		tier: "MHOU",
+	},
+	blackvios: {
+		tier: "MHUU",
+	},
+	crysarios: {
+		tier: "MHRU",
+	},
+	glanaktor: {
+		tier: "MHUU",
+	},
+	greensioth: {
+		tier: "MHUU",
+	},
+	zinogrehowling: {
+		tier: "MHUU",
+	},
+	palepinas: {
+		tier: "MHOU",
+	},
+	redzu: {
+		tier: "MHRU",
+	},
+	basariossandstone: {
+		tier: "MHUU",
+	},
+	shahmadur: {
+		tier: "MHOU",
+	},
+	deviljhostarving: {
+		tier: "MHOU",
+	},
+	whiteblos: {
+		tier: "MHUU",
+	},
+	hellbladeglavenus: {
+		tier: "MEGAS",
+	},
+	crystalbearduragaan: {
+		tier: "MEGAS",
+	},
+	stonefistdaimyo: {
+		tier: "MEGAS",
+	},
+	emperorkirin: {
+		tier: "MEGAS",
+	},
 	frostfangbarioth: {
 		tier: "MEGAS",
 	},

@@ -1438,14 +1438,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			move.type = type;
 		},
 	},
-	prismaticlaser: {
-		inherit: true,
-		isViable: true,
-		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
-		self: null,
-		shortDesc: "Cannot be selected the turn after it's used.",
-		desc: "Cannot be selected the turn after it's used.",
-	},
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
@@ -1486,6 +1478,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	baddybad: {
 		inherit: true,
 		isNonstandard: null,
+		category: "Physical",
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
@@ -1497,7 +1490,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	sappyseed: {
 		inherit: true,
 		accuracy: 100,
-		basePower: 40,
 		isNonstandard: null,
 	},
 	freezyfrost: {
@@ -1529,14 +1521,15 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	zippyzap: {
 		inherit: true,
 		isNonstandard: null,
-		secondary: {
-			chance: 100,
-			boosts: {
-				evasion: -1,
-			},
-		},
-		shortDesc: "100% chance to lower the target's evasion by 1.",
-		desc: "100% chance to lower the target's evasion by 1.",
+		basePower: 50,
+		willCrit: true,
+		secondary: null,
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities.",
+		shortDesc: "Goes first. Always results in a critical hit.",
+	},
+	floatyfall: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	ragingfury: {
 		inherit: true,
@@ -1954,7 +1947,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Rock",
+		type: "Steel",
 	},
 	awakening: {
 		num: -47,
@@ -2074,13 +2067,13 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		basePower: 75,
 		category: "Physical",
 		name: "Teramorphosis",
-		shortDesc: "Has 33% recoil. 50% chance to raise the user's Spe by 1.",
+		shortDesc: "Has 33% recoil. 100% chance to raise the user's Spe by 1.",
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [1, 3],
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					spe: 1,
@@ -2089,7 +2082,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Grassy Glide", target);
+			this.add('-anim', source, "Trailblaze", target);
 		},
 		target: "normal",
 		type: "Grass",
@@ -2106,6 +2099,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		flags: { snatch: 1, dance: 1 },
 		self: {
 			boosts: {
+				atk: 1,
 				spa: 1,
 			},
 		},
@@ -2117,21 +2111,25 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "all",
 		type: "Water",
-		shortDesc: "Raises the user's SpA by 1. Summons Rain Dance.",
+		shortDesc: "Raises the user's Atk and SpA by 1. Summons Rain Dance.",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Beautiful",
 	},
 	windscall: {
 		num: -52,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		shortDesc: "Sets Tailwind.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's Atk and SpA by 1. Sets Tailwind.",
 		name: "Wind's Call",
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, wind: 1, mirror: 1 },
 		self: {
+			boosts: {
+				atk: 1,
+				spa: 1,
+			},
 			sideCondition: 'tailwind',
 		},
 		onPrepareHit(target, source) {
@@ -2139,7 +2137,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Tailwind", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Flying",
 		contestType: "Clever",
 	},
@@ -2245,9 +2243,9 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	lifedew: {
 		inherit: true,
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
-			return pokemon.cureStatus() || success;
+			pokemon.cureStatus();
 		},
+		heal: [1, 3],
 		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
 	},
 	lunarblessing: {
@@ -2343,7 +2341,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	enragedtext: {
+	/*enragedtext: {
 		num: -58,
 		accuracy: 100,
 		basePower: 90,
@@ -2362,7 +2360,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
-	},
+	},*/
 	shattering: {
 		num: -59,
 		accuracy: 100,
@@ -2509,14 +2507,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -2,
 			},
 		},
-	},
-	ragefist: {
-		inherit: true,
-		basePowerCallback(pokemon) {
-			return Math.min(100, 50 + 50 * pokemon.timesAttacked);
-		},
-		shortDesc: "+50 power for each time user was hit. Max 100 BP.",
-		desc: "Power increases by 50 for each time the user was hit this turn. Max 100 BP.",
 	},
 	gigatonhammer: {
 		inherit: true,
@@ -3500,19 +3490,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		shortDesc: "Hits once in this turn, then hits again in the next turn. Ignores protection.",
 	},
-	overdrive: {
-		inherit: true,
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
-	},
 	wyvernflight: {
 		num: -84,
 		accuracy: 100,
@@ -3670,27 +3647,37 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bullet: 1},
 	},
-	strongbite: {
+	corrosiveacid: {
 		num: -90,
 		accuracy: 100,
-		basePower: 75,
-		category: "Physical",
-		name: "Strong Bite",
-		pp: 15,
+		basePower: 70,
+		category: "Special",
+		name: "Corrosive Acid",
+		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
-		overrideDefensiveStat: 'spd',
-		ignoreAbility: true,
-		secondary: null,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Crunch", target);
+			this.add('-anim', source, "Acid", target);
 		},
 		target: "normal",
-		type: "Dark",
-		contestType: "Tough",
-		desc: "Deals damage to the target based on its Special Defense instead of Defense. This move and its effects ignore the Abilities of other Pokemon.",
-		shortDesc: "Damages target based on Sp. Defense, not Def. Ignores the Abilities of other Pokemon.",
+		type: "Poison",
+		contestType: "Beautiful",
+		desc: "Has a 10% chance to poison the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "10% chance to poison. Super effective on Steel.",
 	},
 	jumpscare: {
 		num: -91,
@@ -3785,16 +3772,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onModifyMove(move, pokemon, target) {
-			if (target && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				move.secondaries.push({
-					chance: 100,
-					boosts: {
-						atk: -1,
-					},
-				});
-			}
-		},
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dazzling Gleam", target);
@@ -3803,7 +3780,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "allAdjacent",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "Lowers the target's Atk by 1 in Sun.",
+		shortDesc: "No additional effect.",
 	},
 	waterslash: {
 		num: -95,
@@ -3844,6 +3821,18 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fire",
 		shortDesc: "Uses user's Speed stat instead of Attack in damage calculation.",
+	},
+	ragefist: {
+		inherit: true,
+		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted. After attacking, this Pokemon takes damage, depending on the Basepower of the move.",
+		shortDesc: "+50 BP for each time user was hit. Recoil = BP.",
+		self: {
+			onHit(pokemon) {
+				let bp = Math.min(350, 50 + 50 * pokemon.timesAttacked);
+				this.damage(bp, pokemon, pokemon);
+				this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
+			},
+		},
 	},
 
 
@@ -4128,14 +4117,11 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			return source.status === 'slp' || source.hasAbility('comatose') || usable;
 		},
 	},
-	// Blowhole
-	waterspout: {
+	// Psychic Prowess
+	amnesia: {
 		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.hasAbility('blowhole')) return 150;
-			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
-			this.debug('BP: ' + bp);
-			return bp;
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasAbility('psychicprowess')) move.boosts = {spa: 2, spd: 2};
 		},
 	},
 };

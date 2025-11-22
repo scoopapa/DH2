@@ -286,4 +286,32 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		isNonstandard: null,
 		shortDesc: "If held by a Gyarafable, this item allows it to Mega Evolve in battle.",
 	},
+	gardevoirite: {
+		name: "Gardevoirite",
+		spritenum: 587,
+		megaStone: "Gardepharos-Mega-X",
+		megaEvolves: "Gardepharos",
+		itemUser: ["Gardepharos"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 657,
+		gen: 6,
+		shortDesc: "If held by a Gardepharos, this item allows it to Mega Evolve in battle.",
+	},
+	ampharosite: {
+		name: "Ampharosite",
+		spritenum: 580,
+		megaStone: "Gardepharos-Mega-Y",
+		megaEvolves: "Gardepharos",
+		itemUser: ["Gardepharos"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 658,
+		gen: 6,
+		shortDesc: "If held by a Gardepharos, this item allows it to Mega Evolve in battle.",
+	},
 };

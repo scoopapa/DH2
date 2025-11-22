@@ -144,13 +144,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	tripwire: {
-		shortDesc: "If this Pokemon flinches: +1 Speed, opposing grounded Pokemon is now trapped.",
-		onFlinch(attacker, defender) {
+		shortDesc: "(Non-functional placeholder) If this Pokemon flinches: +1 Speed, opposing grounded Pokemon is now trapped.",
+		/* onFlinch(attacker, defender) {
 			this.boost({spe: 1}, defender, defender);
 			if (attacker.isGrounded()) {
 				this.actions.useMove("Block", defender);
 			}
-		},
+		}, */
 		flags: {},
 		name: "Tripwire",
 		rating: 3,
@@ -355,12 +355,346 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Proto Veil",
 		rating: 3,
 	},
+	sinkorswim: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Sink or Swim', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Sink or Swim",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+	},
+	debilitate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Sink or Swim', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Debilitate",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon lowers the SpA of opponents by 1 stage.",
+	},
+	smarts: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Smarts",
+		rating: 3.5,
+		shortDesc: "If this Pokemon is statused, its SpA is 1.5x.",
+	},
+	innersync: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || 
+				 pokemon.status === 'brn' || pokemon.status === 'par') {
+				this.add('-activate', pokemon, 'ability: Inner Sync');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id === 'slp' || status.id === 'frz') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Inner Sync');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Sync', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Inner Sync",
+		rating: 1,
+		shortDesc: "This Pokemon is immune to Burn, Poison, Paralysis, flinching, and Intimidate.",
+	},
+	berserker: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Berserker boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		condition: {
+			duration: 1,
+		},
+		flags: {breakable: 1},
+		name: "Berserker",
+		rating: 3.5,
+		shortDesc: "Magic Bounce + Reckless",
+	},
+	migration: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+		name: "Migration",
+		rating: 4.5,
+		shortDesc: "Regenerator + Early Bird",
+	},
+	purifyingmold: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Purifying Mold');
+			this.add('-message', `${pokemon.name} breaks the mold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Purifying Mold');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Purifying Mold');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Purifying Mold weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Purifying Mold weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Purifying Mold",
+		rating: 4,
+		shortDesc: "Purifying Salt + Mold Breaker",
+	},
+	glassknuckles: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Glass Knuckles", "[of] " + target);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Glass Knuckles boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Glass Knuckles",
+		rating: 2,
+		shortDesc: "Clear Body + Iron Fist",
+	},
+	rockyii: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Rocky II');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Rocky II');
+				return target.hp - 1;
+			}
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Rocky II', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Rocky II', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Rocky II', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Rocky II",
+		rating: 3,
+		shortDesc: "Sturdy + Scrappy",
+	},
+	degenerator: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(3, 10)) {
+					target.trySetStatus('psn', source);
+				}
+			}
+		},
+		flags: {},
+		name: "Degenerator",
+		rating: 4.5,
+		shortDesc: "Regenerator + Poison Touch",
+	},
+	toxiccleansing: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !source.hasAbility('toxiccleansing')) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Toxic Cleansing",
+		rating: 1.5,
+		shortDesc: "Effects of Poison Point. This Pokemon avoids status infliction from making contact.",
+	},
+	solarzenith: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				if (stab === 2) {
+					return 2.25;
+				}
+				return 2;
+			}
+		},
+		flags: {},
+		name: "Solar Zenith",
+		rating: 3,
+		shortDesc: "Chlorophyll + Adaptability",
+	},
+	fungalsurveillance: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Fungal Surveillance boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				move.ignoreAbility = true;
+			}
+		},
+		flags: {},
+		name: "Fungal Surveillance",
+		rating: 2.5,
+		shortDesc: "This Pokemon's attacks have 1.3x power and ignore abilities if it moves last.",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
+				this.boost({atk: 1}, target, target, null, false, true);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.boost({atk: 1}, target, target, null, false, true);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
 				this.boost({atk: 1}, target, target, null, false, true);
 			}
 		},
@@ -372,6 +706,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Focus', '[of] ' + target);
+			}
 		},
 	},
 	oblivious: {
@@ -380,6 +722,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Oblivious', '[of] ' + target);
 			}
 		},
 	},
@@ -390,6 +740,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Own Tempo', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Tempo', '[of] ' + target);
+			}
 		},
 	},
 	scrappy: {
@@ -399,6 +757,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
 			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Scrappy', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrappy', '[of] ' + target);
+			}
 		},
 	},
 	rattled: {
@@ -406,6 +772,61 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAfterBoost(boost, target, source, effect) {
 			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
 				this.boost({spe: 1});
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				this.boost({spe: 1});
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				this.boost({spe: 1});
+			}
+		},
+	},
+	poisonpoint: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !source.hasAbility('toxiccleansing')) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+	},
+	static: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !source.hasAbility('toxiccleansing')) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+	},
+	flamebody: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !source.hasAbility('toxiccleansing')) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+	},
+	effectspore: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) &&
+				 !source.status &&
+				 source.runStatusImmunity('powder') &&
+				 !source.hasAbility('toxiccleansing')
+				) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
 			}
 		},
 	},

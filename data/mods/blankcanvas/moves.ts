@@ -23,4 +23,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	synchronoise: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

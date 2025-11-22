@@ -883,4 +883,116 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
 	},
+	dragapultplushie: {
+		name: "Dragapult Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHit(source, target, move) {
+			if (
+				move.type === 'Dragon' && !move.multihit && !move.flags['noparentalbond'] && !move.flags['charge'] &&
+				!move.flags['futuremove'] && !move.spreadHit && !move.isZ && !move.isMax && move.category !== 'Status'
+			) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+      	}
+		},
+		num: -1002,
+		desc: "This Pokemon's Dragon-type moves hit a second time at 0.25x power.",
+		gen: 9,
+		rating: 3,
+	},
+	quickclaw: {
+		name: "Quick Claw",
+		spritenum: 373,
+		fling: {
+			basePower: 20,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move?.priority > 0.1) {
+				this.debug('Quick Claw boost');
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move?.priority > 0.1) delete move.flags['contact'];
+		},
+		desc: "Holder's priority attacks have 1.3x power and do not make contact.",
+		num: 217,
+		gen: 2,
+		rating: 3,
+	},
+	zinogrite: {
+		name: "Zinogrite",
+		gen: 9,
+		shortDesc: "If held by Zinogre, allows it to transform into Thunderlord. (Mega-Evolution)",
+		megaStone: "Thunderlord Zinogre",
+		megaEvolves: "Zinogre",
+		itemUser: ["Zinogre", "Thunderlord Zinogre"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	armoredmask: {
+		name: "Armored Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Chesnaught') return false;
+			return true;
+		},
+		forcedForme: "Chesnaught-Armored",
+		itemUser: ["Chesnaught-Armored"],
+		num: -1004,
+		gen: 9,
+		desc: "Chesnaught-Armored: Terastallize to gain Heatproof.",
+	},
+	shedshell: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && this.activeMove.id === 'pursuit') {
+				this.add('-immune', target, '[from] item: Shed Shell');
+				return null;
+			}
+		},
+		shortDesc: "Holder may switch out when trapped, even by Ingrain or Pursuit.",
+		rating: 3,
+	},
+	honey: {
+		name: "Honey",
+		spritenum: 22, // Replace with the correct sprite number
+		fling: {
+			basePower: 30,
+		},
+		onResidualOrder: 26, // Executes at the end of the turn
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (
+				pokemon.hasType('Bug') || 
+				pokemon.hasAbility('honeygather')
+			) {
+				if (pokemon.useItem()) {
+					const bestStat = pokemon.getBestStat(false, true);
+					this.boost({ [bestStat]: 1 }, pokemon);
+				}
+			}
+		},
+		num: -1000, // It doesn't seem like Honey item is on DH.. So, it's technically considered a new item here, I guess...
+		gen: 9,
+		desc: "At the end of turn, boosts Bug's best stat. Consumable.",
+	},
 };

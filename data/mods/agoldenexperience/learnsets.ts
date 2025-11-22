@@ -1,5 +1,6 @@
 export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	// WIP, gotta make that cleaner later
+	// Gen 1
 	pikachucosplay: {
 		learnset: {
 			agility: ["6L45"],
@@ -272,7 +273,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			yawn: ["9E", "8E", "7E", "6E", "5E", "4E"],
 		},
 	},
-	// Gen 1
 	kangaskhan: {
 		learnset: {
 			aerialace: ["9M"],
@@ -1986,6 +1986,63 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 		},
 	},
 	// Gen 6
+	floetteeternal: {
+		learnset: {
+			afteryou: ["7T"],
+			allyswitch: ["7T"],
+			aromatherapy: ["9L38", "6L38"],
+			attract: ["6M"],
+			calmmind: ["9M", "6M"],
+			confide: ["6M"],
+			covet: ["7T"],
+			dazzlinggleam: ["9M", "6M"],
+			doubleteam: ["6M"],
+			echoedvoice: ["6M"],
+			endeavor: ["7T"],
+			endure: ["9M"],
+			energyball: ["9M", "6M"],
+			facade: ["9M", "6M"],
+			fairywind: ["9L1", "6L6"],
+			flash: ["6M"],
+			frustration: ["6M"],
+			gigadrain: ["9M", "7T"],
+			grassknot: ["9M", "6M"],
+			grassyterrain: ["9M", "9L27", "6L27"],
+			healbell: ["7T"],
+			helpinghand: ["9M", "7T"],
+			lightofruin: ["9L50", "6L50"],
+			luckychant: ["9L10", "6L10"],
+			magicalleaf: ["9M", "9L25", "6L25"],
+			magiccoat: ["7T"],
+			mistyterrain: ["9M", "9L43", "6L43"],
+			moonblast: ["9L46", "6L46"],
+			naturepower: ["6M"],
+			petalblizzard: ["9L33", "6L33"],
+			petaldance: ["9L51", "6L51"],
+			protect: ["9M", "6M"],
+			psychic: ["9M", "6M"],
+			raindance: ["9M", "6M"],
+			razorleaf: ["9L15", "6L15"],
+			rest: ["9M", "6M"],
+			return: ["6M"],
+			round: ["6M"],
+			safeguard: ["6M"],
+			secretpower: ["6M"],
+			seedbomb: ["9M", "7T"],
+			sleeptalk: ["9M", "6M"],
+			snore: ["7T"],
+			solarbeam: ["9M", "9L58", "6M", "6L58"],
+			substitute: ["9M", "6M"],
+			sunnyday: ["9M", "6M"],
+			swagger: ["6M"],
+			synthesis: ["7T"],
+			tackle: ["9L1", "6L1"],
+			toxic: ["6M"],
+			vinewhip: ["9L1", "6L1"],
+			wish: ["9L20", "6L20"],
+			worryseed: ["7T"],
+		},
+	},
 	// Gen 7
 	tapukoko: {
 		learnset: {
@@ -2175,6 +2232,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			substitute: ["9M"],
 			sunnyday: ["9M"],
 			superpower: ["9L1"],
+			swordsdance: ["9M"],
 			taunt: ["9M"],
 			trailblaze: ["9M"],
 			upperhand: ["9M"],
@@ -7091,13 +7149,12 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			jumpscare: ["9L1"],
 		},
 	},
-	scrafree: {
+	mayatu: {
 		learnset: {
-			enragedtext: ["9L1"],
-			boomburst: ["9L1"],
-			dragontail: ["9L1"],
-			tailslap: ["9L1"],
-			powerwhip: ["9L1"],
+			meteorbeam: ["9L1"],
+			speedswap: ["9L1"],
+			clearmind: ["9L1"],
+			magicpowder: ["9L1"],
 		},
 	},
 	isaapple: {
@@ -7118,7 +7175,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 		learnset: {
 			pursuit: ["9L1"],
 			jawlock: ["9L1"],
-			strongbite: ["9L1"],
 		},
 	},
 	arsief: {

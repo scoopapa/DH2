@@ -5810,7 +5810,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	torsion: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (effect?.effectType === 'Move' && ['klefikyu', 'klefikyuunlocked'].includes(target.species.id)) {
+			if (effect?.effectType === 'Move' && ['klefikyu', 'klefikyutotem'].includes(target.species.id)) {
 				this.add('-activate', target, 'ability: Torsion');
 				this.effectState.busted = true;
 				return 0;

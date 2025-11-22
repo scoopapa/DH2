@@ -27,6 +27,38 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
+	raiqwilalola: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gardepharos: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gardepharosmegax: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gardepharosmegay: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	mientu: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	pangonacl: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	tangalge: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	toedzone: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
   // LCs
 	typedew: {
 		tier: "FERELC",
@@ -41,6 +73,34 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	scypinch: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	mitu: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	ralreep: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	kirffy: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	piqwilhisui: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	pannacli: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	tangelp: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	toedmite: {
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},

@@ -250,6 +250,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		// this.modData('Learnsets', 'glaceon').learnset.frostnip = ['9L1'];
 		this.modData('Learnsets', 'glaceon').learnset.breezeburn = ['9L1'];
 		this.modData('Learnsets', 'glaceon').learnset.breezeshock = ['9L1'];
+		this.modData('Learnsets', "yanmega").learnset.earthpower = ["9L1"];
+		this.modData('Learnsets', 'ampharos').learnset.overvoltrail = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.parabolicchargeglacemons = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.sleeptalkglacemons = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.restglacemons = ['9L1'];
+
 	},
 	pokemon: {
 		inherit: true,
@@ -612,6 +618,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Clodsire') {
 				const tera = pokemon.species.id === 'clodsire' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Chesnaught') {
+				const tera = pokemon.species.id === 'chesnaught' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {

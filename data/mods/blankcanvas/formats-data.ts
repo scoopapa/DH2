@@ -319,4 +319,40 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	taranferno: {
 		tier: "BC C",
 	},
+	armie: {
+		tier: "BC C",
+	},
+	bunnyumi: {
+		tier: "BC C",
+	},
+	parfae: {
+		tier: "BC C",
+	},
+	siltworm: {
+		tier: "BC C",
+	},
+	ptoxidactyl: {
+		tier: "BC C",
+	},
+	staroboros: {
+		tier: "BC C",
+	},
+	kodiacomb: {
+		tier: "BC C",
+	},
+	pyrelli: {
+		tier: "BC C",
+	},
+	boreetle: {
+		tier: "BC C",
+	},
+	hyakutari: {
+		tier: "BC C",
+	},
+	kaovern: {
+		tier: "BC C",
+	},
+	zhuguo: {
+		tier: "BC C",
+	},
 };

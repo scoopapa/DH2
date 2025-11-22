@@ -511,4 +511,142 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1,
 		num: 115,
 	},
+	multitasker: {
+		name: "Multitasker",
+		flags: {},
+		shortDesc: "placeholder until i get the code.",
+	},
+	insectarmor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Insect Armor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Insect Armor weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Insect Armor",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+	},
+	stalwartglacemons: {
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			// most of the implementation is in Battle#getTarget
+			move.tracksTarget = move.target !== 'scripted';
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.hp <= target.hp) return this.chainModify(1.25);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp <= source.hp) return this.chainModify(0.75);
+		},
+		shortDesc: "Moves used by/against this Pokemon is modified by 1.25x/0.75x if the target has more HP.",
+		flags: {},
+		name: "Stalwart (GlaceMons)",
+		rating: 0,
+		num: 242,
+	},
+	cottondownglacemons: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Cotton Down', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Cotton Down (GlaceMons)",
+		rating: 2,
+		num: 238,
+	},
+	archetype: {
+		shortDesc: "Gains opposite effect of target's lowered stat.",
+		onPrepareHit(source, target, move) {
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						const boosts = { ...foe.boosts };
+						foe.addVolatile('archetype', source);
+						foe.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', foe, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${foe.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						const boosts = { ...adjacent.boosts };
+						adjacent.addVolatile('archetype', source);
+						adjacent.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', adjacent, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${adjacent.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				const boosts = { ...target.boosts };
+				target.addVolatile('archetype', source);
+				target.volatiles['archetype'].boosts = boosts;
+			//	this.add('-start', target, 'Archetype', '[from] ability: Archetype');
+			//	this.add('-message', `${target.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (target === source) return; // originally had "target.fainted" but its inclusion might be unnecessary, especially in VGC where if one ally faints, the other becomes unaffected by ability
+			const stats = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'] as const;
+			type BoostStatistics = typeof stats[number];
+			const boostGains: Partial<Record<BoostStatistics, number>> = {};
+			for (const activeTarget of this.getAllActive()) {
+				if (!activeTarget.volatiles['archetype']) continue;
+				const storedBoosts = activeTarget.volatiles['archetype'].boosts;
+				const currentBoosts = activeTarget.boosts;
+				for (const stat of stats) {
+					if (currentBoosts[stat] < storedBoosts[stat] || 
+						(currentBoosts[stat] < 0 && currentBoosts[stat] < storedBoosts[stat])) {
+						const difference = storedBoosts[stat] - currentBoosts[stat];
+						boostGains[stat] = (boostGains[stat] || 0) + difference;
+	
+					//	this.add('-message', `${source.name} gains ${difference} ${stat} boost from ${activeTarget.name}'s lower boost.`);
+					}
+				}
+				delete activeTarget.volatiles['archetype'];
+			//	this.add('-end', activeTarget, 'Archetype', '[from] ability: Archetype');
+			}
+			// Apply all boost gains at once and trigger visual display
+			if (Object.keys(boostGains).length > 0) {
+				this.boost(boostGains, source, source, this.effect);
+			}
+		},	
+		flags: {},
+		name: "Archetype",
+		rating: 4,
+		num: -17,
+	},
 };

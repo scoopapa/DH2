@@ -67,7 +67,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
-	ttos: {
+	tynar: {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
