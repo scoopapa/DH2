@@ -519,11 +519,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	ampharos: {
 		inherit: true,
-		abilities: {0: "Static", H: "Stalwart"},
+		abilities: {0: "Static", H: "Stalwart (GlaceMons)"},
 	},
 	ampharosmega: {
 		inherit: true,
-		abilities: {0: "Cotton Down", H: "Stalwart"},
+		abilities: {0: "Cotton Down (GlaceMons)", H: "Stalwart (GlaceMons)"},
 	},
 	ogerpon: {
 		inherit: true,
