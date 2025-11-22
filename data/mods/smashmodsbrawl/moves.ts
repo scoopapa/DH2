@@ -1521,6 +1521,79 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	overvoltrail: {
+		num: -3,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Overvolt Rail",
+		pp: 10,
+		priority: 1,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		recoil: [33, 100],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zap Cannon", source);
+			this.add('-anim', source, "Zap Cannon", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil. Usually goes first.",
+	},
+	parabolicchargeglacemons: {
+		num: 570,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		desc: "User recovers 50% of the damage dealt.",
+		name: "Parabolic Charge (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parabolic Charge", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	paranoia: {
+		num: -7,  
+		accuracy: 95,  
+		basePower: 0,  
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 4), 1);
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic", target);
+		},
+		onHit(target, source) {
+			if (!target) return;		
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+			// Create boosts object to lower the best stat
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -1;
+			this.boost(boosts, target);
+		},
+		shortDesc: "Quarters targets' HP + lowers best stat.",
+		name: "Paranoia",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1},
+		secondary: {},  
+		target: "allAdjacentFoes",  
+		type: "Bug",  
+		contestType: "Clever", 
+	},
 	// collateral
 	gravity: {
 		num: 356,
