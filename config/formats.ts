@@ -2923,6 +2923,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'beaftopia',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod', 'Status Mod'],
+		banlist: ['King\'s Rock', 'Razor Fang'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -4950,7 +4951,7 @@ export const Formats: FormatList = [
 		mod: 'gen9crossoverchaosc',
 		team: 'random',
 		desc: `gen9crossoverchaosc`,
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod', '!Team Preview'],
 	},
 	{
 		name: "[Gen 9] Dream World Theorymons",

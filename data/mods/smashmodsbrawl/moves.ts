@@ -1295,6 +1295,305 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "1.5x power if user is statused; heals status.",
 		shortDesc: "1.5x power if user is statused; heals status.",
 	},
+	thunderrush: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Thunder Rush",
+		shortDesc: "Always crits.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+         this.attrLastMove('[still]');
+         this.add('-anim', source, "Supercell Slam", target);
+      },
+	},
+	megapunchmhou: {
+		num: 5,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		desc: "No additional effect.",
+		name: "Mega Punch (MHOU)",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mega Punch", target);
+		},
+	},
+	megakickmhou: {
+		num: 25,
+		accuracy: 85,
+		basePower: 120,
+		category: "Physical",
+		desc: "No additional effect.",
+		name: "Mega Kick (MHOU)",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mega Kick", target);
+		},
+	},
+	crushclawmhou: {
+		num: 306,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		desc: "50% chance to lower the target's Defense by 1.",
+		name: "Crush Claw (MHOU)",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crush Claw", target);
+		},
+		secondary: {
+			chance: 50,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	firefangmhou: {
+		num: 424,
+		accuracy: 95,
+		basePower: 70,
+		category: "Physical",
+		desc: "10% chance to burn. 10% chance to flinch.",
+		name: "Fire Fang (MHOU)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fire Fang", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'brn',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	icefangmhou: {
+		num: 423,
+		accuracy: 95,
+		basePower: 70,
+		category: "Physical",
+		desc: "10% chance to freeze. 10% chance to flinch.",
+		name: "Ice Fang (MHOU)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Fang", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'frz',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	thunderfangmhou: {
+		num: 422,
+		accuracy: 95,
+		basePower: 70,
+		category: "Physical",
+		desc: "10% chance to paralyze. 10% chance to flinch.",
+		name: "Thunder Fang (MHOU)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thunder Fang", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'par',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	irontailmhou: {
+		num: 231,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		desc: "30% chance to lower the target's Defense by 1.",
+		name: "Iron Tail (MHOU)",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Tail", target);
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	parabolicchargemhou: {
+		num: 570,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		desc: "User recovers 50% of the damage dealt.",
+		name: "Parabolic Charge (MHOU)",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parabolic Charge", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	swiftmhou: {
+		num: 129,
+		accuracy: true,
+		basePower: 60,
+		category: "Special",
+		desc: "Does not check accuracy. Usually goes first.",
+		shortDesc: "Does not check accuracy. Usually goes first.",
+		name: "Swift (MHOU)",
+		pp: 20,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swift", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	overvoltrail: {
+		num: -3,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Overvolt Rail",
+		pp: 10,
+		priority: 1,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		recoil: [33, 100],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zap Cannon", source);
+			this.add('-anim', source, "Zap Cannon", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil. Usually goes first.",
+	},
+	parabolicchargeglacemons: {
+		num: 570,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		desc: "User recovers 50% of the damage dealt.",
+		name: "Parabolic Charge (GlaceMons)",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parabolic Charge", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	paranoia: {
+		num: -7,  
+		accuracy: 95,  
+		basePower: 0,  
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 4), 1);
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic", target);
+		},
+		onHit(target, source) {
+			if (!target) return;		
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+			// Create boosts object to lower the best stat
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -1;
+			this.boost(boosts, target);
+		},
+		shortDesc: "Quarters targets' HP + lowers best stat.",
+		name: "Paranoia",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1},
+		secondary: {},  
+		target: "allAdjacentFoes",  
+		type: "Bug",  
+		contestType: "Clever", 
+	},
 	// collateral
 	gravity: {
 		num: 356,

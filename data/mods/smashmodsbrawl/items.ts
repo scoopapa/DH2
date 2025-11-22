@@ -938,4 +938,61 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		spritenum: 590,
 	},
+	armoredmask: {
+		name: "Armored Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Chesnaught') return false;
+			return true;
+		},
+		forcedForme: "Chesnaught-Armored",
+		itemUser: ["Chesnaught-Armored"],
+		num: -1004,
+		gen: 9,
+		desc: "Chesnaught-Armored: Terastallize to gain Heatproof.",
+	},
+	shedshell: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && this.activeMove.id === 'pursuit') {
+				this.add('-immune', target, '[from] item: Shed Shell');
+				return null;
+			}
+		},
+		shortDesc: "Holder may switch out when trapped, even by Ingrain or Pursuit.",
+		rating: 3,
+	},
+	honey: {
+		name: "Honey",
+		spritenum: 22, // Replace with the correct sprite number
+		fling: {
+			basePower: 30,
+		},
+		onResidualOrder: 26, // Executes at the end of the turn
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (
+				pokemon.hasType('Bug') || 
+				pokemon.hasAbility('honeygather')
+			) {
+				if (pokemon.useItem()) {
+					const bestStat = pokemon.getBestStat(false, true);
+					this.boost({ [bestStat]: 1 }, pokemon);
+				}
+			}
+		},
+		num: -1000, // It doesn't seem like Honey item is on DH.. So, it's technically considered a new item here, I guess...
+		gen: 9,
+		desc: "At the end of turn, boosts Bug's best stat. Consumable.",
+	},
 };

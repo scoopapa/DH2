@@ -503,6 +503,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Cool",
 	},
+	ironhead: {
+		num: 442,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Iron Head",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
 	knockoff: {
 		num: 282,
 		accuracy: 100,
