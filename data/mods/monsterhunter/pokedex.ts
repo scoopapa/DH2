@@ -1787,7 +1787,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 101,
 		name: "Kulu-Ya-Ku",
 		types: ["Normal", "Flying"],
-		baseStats: {hp: 75, atk: 105, def: 117, spa: 49, spd: 79, spe: 105},
+		baseStats: {hp: 75, atk: 95, def: 117, spa: 54, spd: 84, spe: 105},
 		abilities: {0: "Quick Feet", H: "Unburden"},
 		weightkg: 30.0,
 		tags: ["Bird Wyvern"],

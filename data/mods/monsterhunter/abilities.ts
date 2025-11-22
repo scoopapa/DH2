@@ -734,11 +734,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(pokemon, target, move) {
 			if (move.type === 'Fire') {
-				this.field.setWeather('sunnyday');
-				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Sunny Day');
+				this.field.setWeather('sunnyday', pokemon, this.effect);
 			} else if (move.type === 'Water') {
-				this.field.setWeather('raindance');
-				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Rain Dance');
+				this.field.setWeather('raindance', pokemon, this.effect);
 			}
 		},
 		name: "Megiddo's Gift",
@@ -792,11 +790,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	oceanicveil: {
 		onStart(source) {
 			this.add('-activate', source, 'ability: Oceanic Veil');
-			source.addVolatile('aquaring');
+		},
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			const heal = pokemon.maxhp / 16;
+			this.heal(heal, pokemon, pokemon);
+			this.add('-ability', pokemon, 'Oceanic Veil');
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		shortDesc: "On switch-in: User gains Aqua Ring.",
+		shortDesc: "On switch-in: Heals 1/16 max HP each turn.",
 	},
 	oilmucus: {
 		onTryHit(target, source, move) {
