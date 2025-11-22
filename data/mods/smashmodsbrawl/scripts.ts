@@ -252,7 +252,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'glaceon').learnset.breezeshock = ['9L1'];
 		this.modData('Learnsets', "yanmega").learnset.earthpower = ["9L1"];
 		this.modData('Learnsets', 'ampharos').learnset.overvoltrail = ['9L1'];
-		this.modData('Learnsets', 'ampharos').learnset.paraboliccharge = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.parabolicchargeglacemons = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.sleeptalkglacemons = ['9L1'];
+		this.modData('Learnsets', 'ampharos').learnset.restglacemons = ['9L1'];
+
 	},
 	pokemon: {
 		inherit: true,
