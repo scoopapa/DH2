@@ -694,15 +694,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		volatileStatus: 'dragoncharge',
 		condition: {
 			onStart(pokemon, source, effect) {
-				if (effect && ['Wyversion'].includes(effect.name)) {
-					this.add('-start', pokemon, 'Dragon Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				if (effect && effect.name === 'Wyversion') {
+					this.add('-start', pokemon, 'Dragon Charge', '[from] ability: Wyversion');
 				} else {
 					this.add('-start', pokemon, 'Dragon Charge');
 				}
 			},
 			onRestart(pokemon, source, effect) {
-				if (effect && ['Wyversion'].includes(effect.name)) {
-					this.add('-start', pokemon, 'Dragon Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				if (effect && effect.name === 'Wyversion') {
+					this.add('-start', pokemon, 'Dragon Charge', '[from] ability: Wyversion');
 				} else {
 					this.add('-start', pokemon, 'Dragon Charge');
 				}
@@ -727,9 +727,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Dragon Charge', '[silent]');
 			},
-		},
-		boosts: {
-			spd: 1,
 		},
 		secondary: null,
 		target: "self",

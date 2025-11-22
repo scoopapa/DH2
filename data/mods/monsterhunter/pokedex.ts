@@ -1457,7 +1457,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	tetsucabra: {
 		num: 78,
 		name: "Tetsucabra",
-		types: ["Rock"],
+		types: ["Rock", "Steel"],
 		baseStats: {hp: 110, atk: 135, def: 105, spa: 60, spd: 81, spe: 65},
 		abilities: {0: "Strong Jaw", 1: "Stamina", H: "Plow"},
 		weightkg: 110.0,

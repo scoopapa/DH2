@@ -1,17 +1,23 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
-statusmod: {
+    statusmod: {
         effectType: 'Rule',
         name: 'Status Mod',
-        desc: "Displays new statuses as a volatile",
-        onSwitchIn (pokemon) {
-            if(pokemon.status) this.add('-start', pokemon, pokemon.status, '[silent]');
+        desc: "Displays Dragonblight as a volatile",
+        onSwitchIn(pokemon) {
+            if (pokemon.status === 'dragonblight') {
+                this.add('-start', pokemon, 'dragonblight', '[silent]');
+            }
         },
         onSetStatus(status, target, source, effect) {
-            this.add('-start', target, status, '[silent]');
+            if (status === 'dragonblight') {
+                this.add('-start', target, 'dragonblight', '[silent]');
+            }
         },
         onCureStatus(pokemon, source, effect) {
             const cured = effect?.status || pokemon.statusState?.prevStatus;
-            if (cured) this.add('-end', pokemon, cured, '[silent]');
+            if (cured === 'dragonblight') {
+                this.add('-end', pokemon, 'dragonblight', '[silent]');
+            }
         },
     },
 }

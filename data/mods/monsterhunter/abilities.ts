@@ -1623,31 +1623,38 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
 				if (target.status && target.status !== 'slp') {
+					const oldStatus = target.status;
 					target.cureStatus();
-					this.add('-curestatus', target, target.status, '[from] ability: Wyversion');
+					this.add('-curestatus', target, oldStatus, '[from] ability: Wyversion');
 				}
 				target.addVolatile('dragoncharge');
 			}
 		},
 		onUpdate(pokemon) {
+			// If Flame Orb, Frost Orb, or Toxic Orb has already triggered, consume it
+			if ((pokemon.item === 'flameorb' || pokemon.item === 'frostorb' || pokemon.item === 'toxicorb') && pokemon.status) {
+				const consumed = pokemon.item;
+				pokemon.setItem('');
+				this.add('-enditem', pokemon, consumed, '[from] ability: Wyversion');
+			}
+
 			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
+				const oldStatus = pokemon.status;
 				pokemon.cureStatus();
 				pokemon.addVolatile('dragoncharge');
 			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (target.volatiles['dragoncharge']) {
-				if (status.id === 'slp') {
-					return;
-				}
+				if (status.id === 'slp') return;
 				this.add('-immune', target, '[from] ability: Wyversion');
 				return false;
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "When this Pokémon is hit by an attack or has a non-Sleep status, it cures the status and gains the Dragon Charge effect, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
-		shortDesc: "When Hit: Gain Dragon-Type Charge | BRN/FRZ/PARA/DRGB: Cures, Gain D-Charge. Immunity while charged.",
+		desc: "Flame Orb, Frost Orb, and Toxic Orb are consumed after they trigger. When hit or inflicted with a non-Sleep status, this Pokémon cures the status and gains Dragon Charge, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
+		shortDesc: "Hit/BRN/FRZ/PARA/POI/DRAGB: Gains Dragon-Charge | Cures Status. Immune if Blighted.",
 	},
 	/*
 	Edits
