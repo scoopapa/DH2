@@ -131,7 +131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1017,
 		name: "Mirgana",
 		types: ["Normal", "Psychic"],
-		baseStats: {hp: 65, atk: 65, def: 60, spa: 120, spd: 60, spe: 112},
+		baseStats: {hp: 65, atk: 65, def: 60, spa: 115, spd: 60, spe: 112},
 		abilities: {0: "Iceblink", H: "Synchronize"},
 		weightkg: 36.6,
 	},
