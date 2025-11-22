@@ -539,7 +539,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fire') {
 				this.debug('Heat Sink immunity');
-				if (!this.heal(target.baseMaxhp / 4)) {
+				// Heal the target (defender) by 25% of its max HP
+				if (!this.heal(target.baseMaxhp / 4, target)) {
 					this.add('-immune', target, '[from] ability: Heat Sink');
 				}
 				this.add('-activate', target, 'ability: Heat Sink');
