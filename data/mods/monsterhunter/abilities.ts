@@ -178,6 +178,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!target.hp) return;
 			if (move.hit && move.hit > 1) return;
 
+			// Block effect if target has Covert Cloak
+			if (target.hasItem('covertcloak')) {
+				this.add('-block', target, 'item: Covert Cloak', '[ability] Corrupted Poison');
+				return;
+			}
+
 			if (move.category === 'Physical') {
 				if (target.boosts.def > -6) {
 					this.boost({def: -1}, target, source, null, this.dex.abilities.get('corruptedpoison'));
@@ -191,8 +197,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Corrupted Poison",
-		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage.",
-		shortDesc: "Non-resisted Poison Moves: Lower target's Def/SpD by -1",
+		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage, unless the foe is holding a Covert Cloak.",
+		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
 	},
 	crystalblight: {
 		onResidual(pokemon) {
