@@ -99,17 +99,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Bewitching Tail",
 		shortDesc: "Targeting drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
 	},
-	blindrage: {
+		blindrage: {
 		onDamagingHit(damage, target, source, move) {
 			if (!move || !target) return;
-			if (this.getEffectiveness(move, target) > 0) {
-				this.boost({atk: 1, spa: 1}, target);
+			if (this.dex.getEffectiveness(move.type, target) > 0) {
+				this.boost({atk: 1, spa: 1}, target, target, null, this.dex.abilities.get('blindrage'));
 				this.add('-ability', target, 'Blind Rage');
 				this.add('-message', target.name + "flew into a blind rage!");
 			}
 		},
 		name: "Blind Rage",
-		shortDesc: "When hit by a super effective attack: Atk & SpA +1.",
+		shortDesc: "When hit by a super-effective attack: Atk & SpA +1.",
 	},
 	butterflystar: {
 		onModifyMovePriority: 1,
