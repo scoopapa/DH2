@@ -374,7 +374,7 @@
 		"sets": [
 			{
 				"role": "Bulky Support",
-				"movepool": ["Strength Sap", "Spore", "Shadow Ball", "Leaf Storm"],
+				"movepool": ["Strength Sap", "Psychic Noise", "Shadow Ball", "Leaf Storm"],
 				"abilities": ["Flash Fire"],
 				"teraTypes": ["Grass"]
 			}
@@ -676,4 +676,5 @@
 		]
 	}
 }
+
 
