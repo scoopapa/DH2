@@ -1580,6 +1580,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
+		flags: {breakable: 1},
 		name: "Water Compaction",
 		desc: "This Pokemon is immune to Water-type moves and raises its Def by 2 stages when hit by an Water-type move.",
 		shortDesc: "When hit by a Water move: Immunity, Raises Def. by +2.",
