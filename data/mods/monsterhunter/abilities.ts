@@ -178,6 +178,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!target.hp) return;
 			if (move.hit && move.hit > 1) return;
 
+			// Block effect if target has Covert Cloak
+			if (target.hasItem('covertcloak')) {
+				this.add('-block', target, 'item: Covert Cloak', '[ability] Corrupted Poison');
+				return;
+			}
+
 			if (move.category === 'Physical') {
 				if (target.boosts.def > -6) {
 					this.boost({def: -1}, target, source, null, this.dex.abilities.get('corruptedpoison'));
@@ -191,8 +197,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Corrupted Poison",
-		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage.",
-		shortDesc: "Non-resisted Poison Moves: Lower target's Def/SpD by -1",
+		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage, unless the foe is holding a Covert Cloak.",
+		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
 	},
 	crystalblight: {
 		onResidual(pokemon) {
@@ -539,7 +545,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fire') {
 				this.debug('Heat Sink immunity');
-				if (!this.heal(target.baseMaxhp / 4)) {
+				// Heal the target (defender) by 25% of its max HP
+				if (!this.heal(target.baseMaxhp / 4, target)) {
 					this.add('-immune', target, '[from] ability: Heat Sink');
 				}
 				this.add('-activate', target, 'ability: Heat Sink');
@@ -734,11 +741,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(pokemon, target, move) {
 			if (move.type === 'Fire') {
-				this.field.setWeather('sunnyday');
-				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Sunny Day');
+				this.field.setWeather('sunnyday', pokemon, this.effect);
 			} else if (move.type === 'Water') {
-				this.field.setWeather('raindance');
-				this.add('-activate', pokemon, 'ability: Megiddo\'s Gift', 'Rain Dance');
+				this.field.setWeather('raindance', pokemon, this.effect);
 			}
 		},
 		name: "Megiddo's Gift",
@@ -792,11 +797,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	oceanicveil: {
 		onStart(source) {
 			this.add('-activate', source, 'ability: Oceanic Veil');
-			source.addVolatile('aquaring');
+		},
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			const heal = pokemon.maxhp / 16;
+			this.heal(heal, pokemon, pokemon);
+			this.add('-ability', pokemon, 'Oceanic Veil');
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		shortDesc: "On switch-in: User gains Aqua Ring.",
+		shortDesc: "On switch-in: Heals 1/16 max HP each turn.",
 	},
 	oilmucus: {
 		onTryHit(target, source, move) {
