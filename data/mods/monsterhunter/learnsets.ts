@@ -8480,7 +8480,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acidspray: ["9L1"],
 			aquaring: ["9L1"],
-			knockoff: ["9L1"],
 			assurance: ["9L1"],
 			attract: ["9L1"],
 			megakick: ["9M"],
