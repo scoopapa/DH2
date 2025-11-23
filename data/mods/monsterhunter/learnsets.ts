@@ -3474,7 +3474,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			chillyreception: ["9M"],
-			coldsnap: ["9L1"],
 			defog: ["9M"],
 			dracometeor: ["9M"],
 			dragonpulse: ["9M"],
@@ -8481,7 +8480,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			acidspray: ["9L1"],
 			aquaring: ["9L1"],
-			knockoff: ["9L1"],
 			assurance: ["9L1"],
 			attract: ["9L1"],
 			megakick: ["9M"],
@@ -10915,7 +10913,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			sunsteelstrike: ["9L1"],
 			swift: ["9L1"],
-			swordsdance: ["9L1"],
 			tachyoncutter: ["9L1"],
 			tailwind: ["9L1"],
 			takedown: ["9L1"],
