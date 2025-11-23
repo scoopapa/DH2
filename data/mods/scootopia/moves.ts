@@ -446,6 +446,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Puts the opponent to sleep for 1 turn",
 		viable: true,
 	},
+	sing: {
+		inherit: true,
+		isNonstandard: null,
+		pp: 25,
+		accuracy: 80,
+		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
+	},
 	// lodestone: {
 	// num: 393,
 	// accuracy: true,
