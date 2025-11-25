@@ -428,7 +428,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 663,
 	},
 	daimyite: {
-		name: "Daimyite",
+		name: "Daimyoite",
 		gen: 9,
 		shortDesc: "If held by Daimyo Hermitaur, allows it to transform into Stonefist. (Mega-Evolution)",
 		megaStone: "Stonefist Daimyo",
