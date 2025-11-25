@@ -368,10 +368,41 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
 					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
-					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
-					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
-						if (source.side.effect >= 100) source.side.subtractEffect(100);
+					/*
+					if (secondary.volatileStatus === 'flinch' && !target.newlySwitched && this.battle.queue.willMove(target)) {
+						
+					}
+					const meter, addFunc, subtractFunc;
+					if (secondary.volatileStatus === 'flinch') {
+						if (!this.battle.queue.willMove(target) || target.newlySwitched) continue; //flinch on target who switched or already moved
+						else {
+							meter = target.side.status;
+							addFunc = target.side.addStatus;
+							subtractFunc = target.side.subtractStatus;
+						}
+					}
+					else {
+						addFunc = source.side.addEffect;
+						subtractFunc = source.side.subtractEffect;
+					} */
+					else if (typeof secondary.chance === 'undefined' || secondary.chance >= 100) {
 						this.moveHit(target, source, move, secondary, true, isSelf);
+					}
+					else {
+						if (secondary.volatileStatus === 'flinch') {
+							target.side.addStatus(secondary.chance);
+							if (target.side.status >= 100) {
+								target.side.subtractStatus(100);
+								this.moveHit(target, source, move, secondary, true, isSelf);
+							}
+						}
+						else {
+							source.side.addEffect(secondary.chance);
+							if (source.side.effect >= 100) {
+								source.side.subtractEffect(100);
+								this.moveHit(target, source, move, secondary, true, isSelf);							
+							}
+						}
 					}
 				}
 			}
