@@ -503,7 +503,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Magic Bounce"},
 		weightkg: 160.0,
 		tags: ["Carapaceon"],
-		requiredItem: "Daimyoite",
+		requiredItem: "Daimyite",
 	},
 	giadrome: {
 		num: 24,
