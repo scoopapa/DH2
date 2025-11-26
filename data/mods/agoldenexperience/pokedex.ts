@@ -2396,7 +2396,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	greninjamega: {
 		inherit: true,
-		abilities: { 0: "Protean" },
+		abilities: { 0: "Skill Link" },
 	},
 	pyroarmega: {
 		inherit: true,
@@ -4133,7 +4133,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Terreptile",
 		forme: "Mega",
 		types: ["Ground", "Poison"],
-		baseStats: {hp: 70, atk: 130, def: 80, spa: 100, spd: 80, spe: 150},
+		baseStats: {hp: 70, atk: 135, def: 90, spa: 100, spd: 90, spe: 125},
 		abilities: {0: "Sharpness"},
 		heightm: 1.8,
 		weightkg: 35,	
@@ -4920,6 +4920,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	thievul: {
 		inherit: true,
+		abilities: {0: "Racketeering", 1: "Unburden", H: "Stakeout"},
 		evos: ["Arsief"],
 	},
 	arsief: {
@@ -4927,7 +4928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Arsief",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 75, atk: 58, def: 78, spa: 112, spd: 97, spe: 115},
-		abilities: {0: "Sleight of Hand", 1: "Unburden", H: "Stakeout"},
+		abilities: {0: "Racketeering", 1: "Unburden", H: "Sleight of Hand"},
 		heightm: 1.75,
 		weightkg: 74.4,
 		prevo: "Thievul",
