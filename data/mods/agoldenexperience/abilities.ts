@@ -2956,6 +2956,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Heals 1/16 HP per turn. This Pokemon cannot be statused, and is considered to be asleep.",
 	},
 	thermalswitch: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
 		onWeatherChange(pokemon) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Draggoyle' || pokemon.transformed) return;
 			if (!pokemon.hp) return;
@@ -3125,6 +3128,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's Atk is boosted by 1.5, but its Speed is halved.",
 		rating: 1.5,
 		num: -101,
+	},
+	contrarian: {
+		onStart(source) {
+			this.add('-ability', source, 'Contrarian');
+			this.field.addPseudoWeather('contrarian');
+			this.hint("All Pokemon are under Contrary effect!");
+		},
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd(pokemon) {
+			this.field.removePseudoWeather('contrarian');
+		},
+		name: "Contrarian",
+		shortDesc: "As long as this Pokémon is on the field, every Pokémon on the field is under Contrary effect.",
+		rating: 4.5,
+		num: -102,
 	},
 
 

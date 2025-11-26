@@ -191,4 +191,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	scarachnid: {
 		tier: "SSB",
 	},
+	nidoqueenrosegold: {
+		tier: "SSB",
+	},
 };

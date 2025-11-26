@@ -542,20 +542,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Speed doubled if any adjacent foe has BRN or Blast.",
 	},
 	heatsink: {
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Fire') {
-				this.debug('Heat Sink immunity');
-				// Heal the target (defender) by 25% of its max HP
-				if (!this.heal(target.baseMaxhp / 4, target)) {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Heat Sink');
 				}
-				this.add('-activate', target, 'ability: Heat Sink');
-				return 0;
+				return null;
 			}
 		},
 		flags: {breakable: 1},
 		name: "Heat Sink",
-		shortDesc: "When hit by Fire moves: Immunity, Heals 25% Max HP.",
+		shortDesc: "When hit by Fire moves: Immune and heals 25% Max HP.",
 	},
 	howlingthunder: {
 		onModifyAtkPriority: 5,
