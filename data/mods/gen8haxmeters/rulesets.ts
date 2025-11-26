@@ -45,6 +45,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
+			if (pokemon !== target) target.side.flinchChance = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
 			let clauses = 0;
