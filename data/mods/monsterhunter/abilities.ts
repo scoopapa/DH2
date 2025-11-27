@@ -201,13 +201,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
 	},
 	crystalblight: {
+		onResidualOrder: 26,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
+			let activated = false;
 			for (const foe of pokemon.foes()) {
 				if (foe && foe.hp && foe.status === 'par') {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Crystalblight');
+						activated = true;
+					}
 					this.damage(foe.baseMaxhp / 16, foe, pokemon);
 					foe.addVolatile('fatigue');
-					this.add('-ability', pokemon, 'Crystalblight');
 				}
 			}
 		},
