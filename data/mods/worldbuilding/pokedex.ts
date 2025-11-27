@@ -28,4 +28,28 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 90, atk: 85, def: 100, spa: 125, spd: 90, spe: 105},
 	},
+	mewtation: {
+		num: 9002,
+		name: "Mewtation",
+		types: ["Psychic", "Poison"],
+		baseStats: {hp: 121, atk: 94, def: 115, spa: 165, spd: 115, spe: 60},
+		abilities: {0: "Ionization", H: "Perish Body"},
+		weightkg: 63,
+	},
+	mew: {
+		inherit: true,
+		abilities: {0: "Protean"},
+	},
+	mewtwo: {
+		inherit: true,
+		abilities: {0: "Neuroforce"},
+	},
+	mewtwomegax: {
+		inherit: true,
+		abilities: {0: "Inner Focus"},
+	},
+	mewtwomegay: {
+		inherit: true,
+		abilities: {0: "Natural Cure"},
+	},
 };
