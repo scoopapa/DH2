@@ -603,7 +603,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (target.hasAbility('shielddust') ||
+				 target.hasAbility('nopressure') ||
+				 target.hasItem('covertcloak')) return;
 			if (this.checkMoveMakesContact(move, target, source)) {
 				if (this.randomChance(3, 10)) {
 					target.trySetStatus('psn', source);
@@ -680,6 +682,263 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fungal Surveillance",
 		rating: 2.5,
 		shortDesc: "This Pokemon's attacks have 1.3x power and ignore abilities if it moves last.",
+	},
+	thermalconductor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				this.boost({atk: 1});
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Thermal Conductor');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Thermal Conductor');
+			}
+			return false;
+		},
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Steel')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Thermal Conductor",
+		rating: 2.5,
+		shortDesc: "Thermal Exchange + Magnet Pull",
+	},
+	chilledcharge: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Electric';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.type === 'Electric') {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Chilled Charge",
+		rating: 4,
+		shortDesc: "Normal-type moves become Electric type, have 1.2x power, and heal the user by 1/16.",
+	},
+	nopressure: {
+		onModifySecondaries(secondaries) {
+			this.debug('No Pressure prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		flags: {breakable: 1},
+		name: "No Pressure",
+		rating: 2,
+		shortDesc: "Attacks targeting this Pokemon have their secondary effects removed.",
+	},
+	fetch: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Fetch');
+			this.add('-message', `${pokemon.name} is exerting its Pressure!`);
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Fetch",
+		rating: 2.5,
+		shortDesc: "Pressure + Pickup",
+	},
+	zentrance: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmacroak' || pokemon.transformed) {
+				return;
+			}
+			if (!['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zentrance');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zentrance'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zentrance'];
+			if (pokemon.species.baseSpecies === 'Darmacroak' && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmacroakzen') pokemon.formeChange('Darmacroak-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmacroakgalarzen') pokemon.formeChange('Darmacroak-Galar-Zen');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Zentrance",
+		rating: 0,
+		shortDesc: "If Darmacroak, enters Zen Mode on switch-in.",
+	},
+	dryforce: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Dry Force');
+				}
+				return null;
+			}
+		},
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		flags: {breakable: 1},
+		name: "Dry Force",
+		rating: 3,
+		shortDesc: "Dry Skin + Sheer Force",
+	},
+	callousedskin: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Calloused Skin');
+				}
+				return null;
+			}
+		},
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Calloused Skin",
+		rating: 3,
+		shortDesc: "Dry Skin + Sheer Force",
+	},
+	prediction: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Prediction');
+						return;
+					}
+				}
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Prediction', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Prediction', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Prediction', '[of] ' + target);
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		flags: {breakable: 1},
+		name: "Prediction",
+		rating: 0.5,
+		shortDesc: "Anticipation + Inner Focus",
 	},
 	// collateral
 	guarddog: {
