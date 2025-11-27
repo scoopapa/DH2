@@ -374,23 +374,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
-					/*
-					if (secondary.volatileStatus === 'flinch' && !target.newlySwitched && this.battle.queue.willMove(target)) {
-						
-					}
-					const meter, addFunc, subtractFunc;
-					if (secondary.volatileStatus === 'flinch') {
-						if (!this.battle.queue.willMove(target) || target.newlySwitched) continue; //flinch on target who switched or already moved
-						else {
-							meter = target.side.status;
-							addFunc = target.side.addStatus;
-							subtractFunc = target.side.subtractStatus;
-						}
-					}
-					else {
-						addFunc = source.side.addEffect;
-						subtractFunc = source.side.subtractEffect;
-					} */
 					if (typeof secondary.chance === 'undefined' || secondary.chance >= 100) {
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}
