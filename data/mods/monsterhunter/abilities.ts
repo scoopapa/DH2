@@ -889,6 +889,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				const oldAbility = source.setAbility('pathogenic', target);
 				if (oldAbility) {
 					this.add('-activate', target, 'ability: Pathogenic', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+					this.add('-message', `${source.name} has been infected by the pathogen!`);
 				}
 			}
 		},
@@ -898,7 +899,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.hasType('Poison') || pokemon.baseSpecies.name === 'Blackveil Hazak') {
 				this.debug('Immune to Pathogenic');
 			} else {
-				this.add('-message', `${pokemon.name} is hurt by the Pathogen!`);
+				this.add('-ability', pokemon, 'Pathogenic');
+				this.add('-message', `${pokemon.name} is ravaged by the pathogen!`);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
