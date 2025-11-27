@@ -644,25 +644,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "When using Normal-type moves: Become Fire-type with 1.2x power",
 	},
 	incandescent: {
-    onModifyAtkPriority: 5,
-    onModifyAtk(atk, attacker, defender, move) {
-        if (move.type === 'Fire') {
-            this.debug('Incandescent Boost');
-            return this.chainModify(1.5);
-        }
-    },
-    onModifySpAPriority: 5,
-    onModifySpA(atk, attacker, defender, move) {
-        if (move.type === 'Fire') {
-            this.debug('Incandescent Boost');
-            return this.chainModify(1.5);
-        }
-    },
-    onSourceModifyDamage(damage, source, target, move) {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Incandescent immunity');
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Fire' && target !== source) {
 				this.add('-immune', target, '[from] ability: Incandescent');
-				return 0;
+				return null;
 			}
 		},
 		flags: {breakable: 1},
