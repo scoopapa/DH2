@@ -23,4 +23,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	moltresgalar: {
 		tier: "WLB",
 	},
+	mewtwomegay: {
+		tier: "WLB",
+	},
+	mewtwomegax: {
+		tier: "WLB",
+	},
+	mewtwo: {
+		tier: "WLB",
+	},
+	mewtation: {
+		tier: "WLB",
+	},
+	mew: {
+		tier: "WLB",
+	},
 };
