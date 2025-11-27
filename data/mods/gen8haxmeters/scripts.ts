@@ -372,8 +372,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						if (target.status) continue; //target already statused
 						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
 					}
-					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
+					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
 					if (typeof secondary.chance === 'undefined' || secondary.chance >= 100) {
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}
