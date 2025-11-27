@@ -1748,7 +1748,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source, move) {
 			if (!target.side.sideConditions['firepledge']) {
 				target.side.addSideCondition('firepledge');
-				target.side.sideConditions['firepledge'].duration = 4;
+				target.side.sideConditions['firepledge'].duration = 3;
 				this.add('-fieldactivate', 'move: Fire Pledge');
 			}
 		},
