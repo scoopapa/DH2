@@ -234,7 +234,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to paralyze the foe.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',
