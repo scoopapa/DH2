@@ -10565,7 +10565,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			muddywater: ["9L1"],
 			playrough: ["9L1"],
 			raindance: ["9L1"],
-			recover: ["9L1"],
 			recycle: ["9L1"],
 			reflect: ["9L1"],
 			refresh: ["9L1"],
