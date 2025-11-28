@@ -234,7 +234,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to paralyze the foe.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -1748,7 +1748,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source, move) {
 			if (!target.side.sideConditions['firepledge']) {
 				target.side.addSideCondition('firepledge');
-				target.side.sideConditions['firepledge'].duration = 4;
+				target.side.sideConditions['firepledge'].duration = 3;
 				this.add('-fieldactivate', 'move: Fire Pledge');
 			}
 		},
