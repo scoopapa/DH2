@@ -145,16 +145,19 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
-		},
-		onResidual(pokemon) {
-			this.boost({def: -1, spd: -1}, pokemon);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses halved for 3 turns!`);
+			// Halve raw Defense and Sp. Def
+			pokemon.storedStats.def = Math.floor(pokemon.storedStats.def / 2);
+			pokemon.storedStats.spd = Math.floor(pokemon.storedStats.spd / 2);
+			pokemon.markAbilityDirty(); // force recalculation
 		},
 		onEnd(pokemon) {
-			this.boost({def: 3, spd: 3}, pokemon);
+			// Reset stats to base values
+			pokemon.storedStats = this.dex.species.get(pokemon.species.name).baseStats;
+			pokemon.markAbilityDirty();
 			this.add('-end', pokemon, 'Defense Down');
 		},
-		},
+	},
 	stench: {
 		name: 'Stench',
 		duration: 4,
