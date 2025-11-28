@@ -145,16 +145,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses halved for 3 turns!`);
-			// Halve raw Defense and Sp. Def
-			pokemon.storedStats.def = Math.floor(pokemon.storedStats.def / 2);
-			pokemon.storedStats.spd = Math.floor(pokemon.storedStats.spd / 2);
-			pokemon.markAbilityDirty(); // force recalculation
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses reduced by one stage for 3 turns!`);
+		},
+		onModifyDef(def, pokemon) {
+			return this.chainModify([0xAAAA, 0x100000]);
+		},
+		onModifySpD(spd, pokemon) {
+			return this.chainModify([0xAAAA, 0x100000]);
 		},
 		onEnd(pokemon) {
-			// Reset stats to base values
-			pokemon.storedStats = this.dex.species.get(pokemon.species.name).baseStats;
-			pokemon.markAbilityDirty();
 			this.add('-end', pokemon, 'Defense Down');
 		},
 	},
