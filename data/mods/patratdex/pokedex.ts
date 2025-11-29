@@ -413,7 +413,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		types: ["Normal", "Dark"],
 		genderRatio: {M: 0.5, F: 0.5},
 		baseStats: {hp: 63, atk: 90, def: 60, spa: 50, spd: 60, spe: 122},
-		abilities: {0: "Pickup", 1: "Pickpocket", H: "Limber"},
+		abilities: {0: "Pickup", 1: "Pickpocket", H: "Skill Link"},
 		weightkg: 27.5,
 	},
 	specsnek: {
