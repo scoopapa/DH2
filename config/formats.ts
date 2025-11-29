@@ -3742,13 +3742,13 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Hax Meters",
 		mod: 'haxmeters',
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', 'Hax Meter Rule'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Stench'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
 		name: "[Gen 8] Hax Meters",
 		mod: 'gen8haxmeters',
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Stench'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
 	},
    /* {
 		name: "[Gen 3] Hoennification",

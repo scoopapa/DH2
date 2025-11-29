@@ -22,7 +22,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = effectValue;
 				side.crit = critValue;
 				side.status = statusValue;
-				
+				side.flinchChance = 0;
+
 				side.pmiss = missValue;
 				side.peffect = effectValue;
 				side.pcrit = critValue;
@@ -38,11 +39,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
+			if (pokemon.side.flinchChance > 0) pokemon.statuses.push('Flinch');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
 			if (pokemon.volatiles['attract']) pokemon.statuses.push('Infatuation');
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
+			if (pokemon !== target) target.side.flinchChance = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
 			let clauses = 0;
@@ -52,17 +55,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				let toAdd = 0;
 				let nonVolatileStatus = false;
 				switch(status) {
-					case 'Paralysis':
-						toAdd = 25;
-						nonVolatileStatus = true;
-						clauses ++;
-						break;
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
 						nonVolatileStatus = true;
 						clauses ++;
 						break;
+					case 'Flinch':
+						toAdd = pokemon.side.flinchChance;
+						pokemon.side.flinchChance = 0;
+						clauses ++;		
+						break;				
 					case 'Confusion':
 						if (pokemon.volatiles['confusion']) {
 							this.add('-activate', pokemon, 'confusion');
@@ -75,6 +78,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						toAdd = 50;
 						clauses ++;
 						break;
+					case 'Paralysis':
+						toAdd = 25;
+						nonVolatileStatus = true;
+						clauses ++;
+						break;						
 				}
 				let product = toAdd * multiplier;
 				if (prefix.length === 0) {
@@ -96,11 +104,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				if (pokemon.side.status >= 100) {
 					pokemon.side.subtractStatus(100);
 					switch(status) {
-						case 'Paralysis':
-							this.add('cant', pokemon, 'par');
-							break;
 						case 'Freeze':
 							this.add('cant', pokemon, 'frz');
+							break;
+						case 'Flinch':
+							this.add('cant', pokemon, 'flinch');
 							break;
 						case 'Confusion':
 							this.activeTarget = pokemon;
@@ -112,6 +120,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						case 'Infatuation':
 							this.add('cant', pokemon, 'Attract');
 							break;
+						case 'Paralysis':
+							this.add('cant', pokemon, 'par');
+							break;						
 					}
 					return false;
 				} else if (pokemon.status === 'frz') pokemon.cureStatus();
