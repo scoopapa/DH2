@@ -1543,4 +1543,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Pickup", 1: "Solid Rock", H: "Rocky Payload"},
 		weightkg: 999,
 	},
+	paddox: {
+		num: 9155,
+		name: "Paddox",
+		types: ["Grass", "Ground"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 108, atk: 100, def: 87, spa: 85, spd: 80, spe: 70},
+		abilities: {0: "Overgrow", H: "Grass Pelt"},
+		weightkg: 800,
+	},
+	vesperado: {
+		num: 9156,
+		name: "Vesperado",
+		types: ["Bug", "Poison"],
+		baseStats: {hp: 60, atk: 71, def: 54, spa: 125, spd: 65, spe: 93},
+		abilities: {0: "Overcoat", 1: "Sniper", H: "Sand Rush"},
+		weightkg: 6,
+	},
 };
