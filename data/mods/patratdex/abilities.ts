@@ -159,4 +159,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 9007,
 	},
+	superconductor: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Electric') return priority + 1;
+		},
+		flags: {},
+		name: "Super Conductor",
+		shortDesc: "Electric moves: +1 priority.",
+		rating: 1.5,
+		num: 177,
+	},
 };
