@@ -163,7 +163,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			amnesia: ["9L1"],
 			bulkup: ["9L1"],
 			calmmind: ["9L1"],
-			confusion: ["9L1"],
 			endure: ["9L1"],
 			healblock: ["9L1"],
 			imprison: ["9L1"],
