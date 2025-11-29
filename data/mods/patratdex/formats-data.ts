@@ -619,4 +619,80 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 1 OU",
 		doublesTier: "Patratdex Doubles OU",
 	},
+	paddox: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	vesperado: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	matriach: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	machinjay: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	maracadda: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	grubuggy: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	spectroe: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	pashsquatch: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	gildeneye: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	chumbahjack: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	greedentpatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	roderope: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	thermoram: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	thermoramfemale: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	plesioak: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	staticaw: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	skewefly: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	mosscargo: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	whirlutra: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
 };
