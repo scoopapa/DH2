@@ -1203,9 +1203,11 @@ export class RandomTeams {
 		if (ability === 'Unburden') {
 			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
 		}
-		if (moves.has('devour') && ability !== 'Unburden') return 'Liechi Berry';
+		if (moves.has('devour') && ability === 'Unburden') return 'Liechi Berry';
 		if (moves.has('virulentvolley')) return 'Loaded Dice';
 		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
+		if (moves.has('magnalance') && ability === 'Reactive Core') return 'Flame Orb';
+		if (moves.has('dragondance') && ability === 'Reactive Core') return 'Frost Orb';
 		if (moves.has('geomancy') || moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
