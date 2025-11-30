@@ -1596,7 +1596,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Maracadda",
 		types: ["Normal"],
 		baseStats: {hp: 70, atk: 72, def: 65, spa: 60, spd: 70, spe: 102},
-		abilities: {0: "Limber", 1: "Own Tempo", 1: "Dancer"},
+		abilities: {0: "Limber", 1: "Own Tempo", H: "Dancer"},
 		weightkg: 15,
 	},
 	grubuggy: {
