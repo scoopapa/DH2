@@ -264,7 +264,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	wheatshield: {
-		num: 588,
+		num: 9010,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
