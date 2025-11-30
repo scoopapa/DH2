@@ -210,6 +210,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		psychicnoise: ["9L1"],
 		recycle: ["9L1"],
 		rest: ["9L1"],
+		roost: ["9L1"],
 		round: ["9L1"],
 		scaryface: ["9L1"],
 		seedbomb: ["9L1"],
