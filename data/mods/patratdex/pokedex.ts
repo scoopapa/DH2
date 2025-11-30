@@ -1620,7 +1620,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Pashsquatch",
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 120, atk: 101, def: 72, spa: 62, spd: 61, spe: 60},
-		abilities: {0: "Long Reach", 1: "Iron Fist"},
+		abilities: {0: "Long Reach", H: "Iron Fist"},
 		weightkg: 160,
 	},
 	gildeneye: {
