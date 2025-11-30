@@ -259,7 +259,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Rathian",
 		types: ["Ground", "Poison"],
 		gender: "F",
-		baseStats: {hp: 120, atk: 75, def: 120, spa: 75, spd: 120, spe: 75},
+		baseStats: {hp: 110, atk: 80, def: 120, spa: 80, spd: 120, spe: 75},
 		abilities: {0: "Poison Point", H: "Queenly Majesty"},
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
