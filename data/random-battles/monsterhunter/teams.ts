@@ -1392,31 +1392,7 @@ export class RandomTeams {
 		return 'Leftovers';
 	}
 
-	getLevel(
-		species: Species,
-		isDoubles: boolean,
-	): number {
-		if (this.adjustLevel) return this.adjustLevel;
-		// doubles levelling
-		if (isDoubles && this.randomDoublesSets[species.id]["level"]) return this.randomDoublesSets[species.id]["level"]!;
-		if (!isDoubles && this.randomSets[species.id]["level"]) return this.randomSets[species.id]["level"]!;
-		// Default to tier-based levelling
-		const tier = species.tier;
-		const tierScale: Partial<Record<Species['tier'], number>> = {
-			Uber: 76,
-			OU: 80,
-			UUBL: 81,
-			UU: 82,
-			RUBL: 83,
-			RU: 84,
-			NUBL: 85,
-			NU: 86,
-			PUBL: 87,
-			PU: 88, "(PU)": 88, NFE: 88,
-		};
-		return tierScale[tier] || 80;
-	}
-
+	
 	getForme(species: Species): string {
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
