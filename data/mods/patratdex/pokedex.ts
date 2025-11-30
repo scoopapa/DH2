@@ -1708,4 +1708,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Swift Swim", H: "Fluffy"},
 		weightkg: 18,
 	},
+	formicoal: {
+		num: 9172,
+		name: "Formicoal",
+		types: ["Fire", "Bug"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 78, atk: 123, def: 102, spa: 81, spd: 71, spe: 75},
+		abilities: {0: "Blaze", H: "Heatproof"},
+		weightkg: 230.5,
+	},
 };
