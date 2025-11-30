@@ -280,7 +280,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Pinkthian",
 		types: ["Fairy", "Poison"],
 		gender: "F",
-		baseStats: {hp: 120, atk: 75, def: 120, spa: 75, spd: 120, spe: 75},
+		baseStats: {hp: 110, atk: 80, def: 120, spa: 75, spd: 120, spe: 80},
 		abilities: {0: "Merciless", H: "Queenly Majesty"},
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
