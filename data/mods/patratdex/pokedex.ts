@@ -1681,7 +1681,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Staticaw",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 105, atk: 90, def: 74, spa: 73, spd: 72, spe: 51},
-		abilities: {0: "Early Bird", 1: "Big Pecks", 1: "Lightning Rod"},
+		abilities: {0: "Early Bird", 1: "Big Pecks", H: "Lightning Rod"},
 		weightkg: 14,
 	},
 	skewefly: {
