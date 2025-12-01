@@ -800,7 +800,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidual(pokemon) {
 			const heal = pokemon.maxhp / 16;
 			this.heal(heal, pokemon, pokemon);
-			this.add('-ability', pokemon, 'Oceanic Veil');
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
