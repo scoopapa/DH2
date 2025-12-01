@@ -34,7 +34,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		otherFormes: ["Delibird-Mega"],
 		formeOrder: ["Delibird", "Delibird-Mega"],
-  },
+  	},
 	delibirdmega: {
 		num: 225,
 		name: "Delibird-Mega",
@@ -465,6 +465,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
     	prevo: null,
 		eggGroups: ["Field"],
+	},
+	kangaskhan: {
+		inherit: true,
+		abilities: {0: "Early Bird", 1: "Scrappy-MR", H: "Inner Focus-MR"},
 	},
 	kangaskhanmega: {
 		inherit: true,
