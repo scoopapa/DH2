@@ -201,13 +201,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
 	},
 	crystalblight: {
+		onResidualOrder: 26,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
+			let activated = false;
 			for (const foe of pokemon.foes()) {
 				if (foe && foe.hp && foe.status === 'par') {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Crystalblight');
+						activated = true;
+					}
 					this.damage(foe.baseMaxhp / 16, foe, pokemon);
 					foe.addVolatile('fatigue');
-					this.add('-ability', pokemon, 'Crystalblight');
 				}
 			}
 		},
@@ -639,25 +644,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "When using Normal-type moves: Become Fire-type with 1.2x power",
 	},
 	incandescent: {
-    onModifyAtkPriority: 5,
-    onModifyAtk(atk, attacker, defender, move) {
-        if (move.type === 'Fire') {
-            this.debug('Incandescent Boost');
-            return this.chainModify(1.5);
-        }
-    },
-    onModifySpAPriority: 5,
-    onModifySpA(atk, attacker, defender, move) {
-        if (move.type === 'Fire') {
-            this.debug('Incandescent Boost');
-            return this.chainModify(1.5);
-        }
-    },
-    onSourceModifyDamage(damage, source, target, move) {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Incandescent immunity');
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Incandescent Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Fire' && target !== source) {
 				this.add('-immune', target, '[from] ability: Incandescent');
-				return 0;
+				return null;
 			}
 		},
 		flags: {breakable: 1},
@@ -792,9 +796,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "When hit by contact moves: User retaliates with Soak.",
 	},
 	oceanicveil: {
-		onStart(source) {
-			this.add('-activate', source, 'ability: Oceanic Veil');
-		},
 		onResidualOrder: 10,
 		onResidual(pokemon) {
 			const heal = pokemon.maxhp / 16;
@@ -803,7 +804,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
-		shortDesc: "On switch-in: Heals 1/16 max HP each turn.",
+		shortDesc: "Heals 1/16 max HP each turn.",
 	},
 	oilmucus: {
 		onTryHit(target, source, move) {
@@ -884,6 +885,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				const oldAbility = source.setAbility('pathogenic', target);
 				if (oldAbility) {
 					this.add('-activate', target, 'ability: Pathogenic', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+					this.add('-message', `${source.name} has been infected by the pathogen!`);
 				}
 			}
 		},
@@ -893,7 +895,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.hasType('Poison') || pokemon.baseSpecies.name === 'Blackveil Hazak') {
 				this.debug('Immune to Pathogenic');
 			} else {
-				this.add('-message', `${pokemon.name} is hurt by the Pathogen!`);
+				this.add('-ability', pokemon, 'Pathogenic');
+				this.add('-message', `${pokemon.name} is ravaged by the pathogen!`);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
