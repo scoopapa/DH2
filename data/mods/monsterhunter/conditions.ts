@@ -71,6 +71,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onSwitchIn(pokemon) {
 			pokemon.static = 0;
 		},
+		onCureStatus(pokemon) {
+        pokemon.static = 0;
+    	},
 		onBeforeMove(pokemon) {
  			if (pokemon.static >= 3) {
 				this.add('cant', pokemon, 'par');
