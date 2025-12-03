@@ -268,11 +268,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	clefable: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	clefablemega: {
-		tier: "(OU)",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	vulpix: {
@@ -848,7 +848,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	pinsirmega: {
-		tier: "RUBL",
+		tier: "UUBL",
 		doublesTier: "DUU",
 	},
 	tauros: {
@@ -1002,7 +1002,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	moltres: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	moltresgalar: {
@@ -1361,11 +1361,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	skarmory: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	skarmorymega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	houndour: {
@@ -1903,6 +1903,12 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	castform: {
 		tier: "PU",
 		doublesTier: "DUU",
+	},
+	castformsunny: {
+	},
+	castformrainy: {
+	},
+	castformsnowy: {
 	},
 	castformmega: {
 		tier: "OU",
@@ -3225,7 +3231,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	genesect: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	genesectburn: {
@@ -4610,7 +4616,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	enamorustherian: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 
@@ -5133,7 +5139,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	terapagos: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	terapagosstellar: {
@@ -5500,7 +5506,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	coalkaiju: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	ironbike: {
@@ -5508,7 +5514,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	purerainbow: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	irondart: {
