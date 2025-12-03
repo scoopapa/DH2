@@ -1735,7 +1735,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "Sea of Fire for 3 turns.",
+		shortDesc: "Sea of Fire for 3-4 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
