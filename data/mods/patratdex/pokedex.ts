@@ -1596,7 +1596,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Maracadda",
 		types: ["Normal"],
 		baseStats: {hp: 70, atk: 72, def: 65, spa: 60, spd: 70, spe: 102},
-		abilities: {0: "Limber", 1: "Own Tempo", 1: "Dancer"},
+		abilities: {0: "Limber", 1: "Own Tempo", H: "Dancer"},
 		weightkg: 15,
 	},
 	grubuggy: {
@@ -1620,7 +1620,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Pashsquatch",
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 120, atk: 101, def: 72, spa: 62, spd: 61, spe: 60},
-		abilities: {0: "Long Reach", 1: "Iron Fist"},
+		abilities: {0: "Long Reach", H: "Iron Fist"},
 		weightkg: 160,
 	},
 	gildeneye: {
@@ -1681,7 +1681,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Staticaw",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 105, atk: 90, def: 74, spa: 73, spd: 72, spe: 51},
-		abilities: {0: "Early Bird", 1: "Big Pecks", 1: "Lightning Rod"},
+		abilities: {0: "Early Bird", 1: "Big Pecks", H: "Lightning Rod"},
 		weightkg: 14,
 	},
 	skewefly: {
@@ -1707,5 +1707,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 70, atk: 65, def: 75, spa: 80, spd: 75, spe: 110},
 		abilities: {0: "Swift Swim", H: "Fluffy"},
 		weightkg: 18,
+	},
+	formicoal: {
+		num: 9172,
+		name: "Formicoal",
+		types: ["Fire", "Bug"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 78, atk: 123, def: 102, spa: 81, spd: 71, spe: 75},
+		abilities: {0: "Blaze", H: "Heatproof"},
+		weightkg: 230.5,
 	},
 };

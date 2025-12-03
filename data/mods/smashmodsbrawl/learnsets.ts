@@ -2774,7 +2774,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9L1"],
 			workup: ["9L1"],
 			yawn: ["9L1"],
-			milkdrink: ["9L1"],
+			milkdrinkmr: ["9L1"],
 		},
 	},
 	felapstan: {
