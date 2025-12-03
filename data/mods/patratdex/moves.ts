@@ -25,6 +25,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 		name: "Bramble Cage",
 		pp: 5,
 		priority: 0,
@@ -64,7 +65,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		name: "Grassy Glide",
+		shortDesc: "At 50% HP or less: +1 priority.",
+		name: "Coal Rush",
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
@@ -262,7 +264,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	wheatshield: {
-		num: 588,
+		num: 9010,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
