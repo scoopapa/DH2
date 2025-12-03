@@ -292,7 +292,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		forme: "Mega",
 		types: ["Flying", "Poison"],
 		gender: "F",
-		baseStats: {hp: 120, atk: 100, def: 140, spa: 75, spd: 140, spe: 75},
+		baseStats: {hp: 110, atk: 100, def: 140, spa: 80, spd: 140, spe: 80},
 		abilities: {0: "Toxic Chain"},
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
