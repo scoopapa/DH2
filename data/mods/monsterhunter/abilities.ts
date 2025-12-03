@@ -800,7 +800,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidual(pokemon) {
 			const heal = pokemon.maxhp / 16;
 			this.heal(heal, pokemon, pokemon);
-			this.add('-ability', pokemon, 'Oceanic Veil');
 		},
 		flags: {breakable: 1},
 		name: "Oceanic Veil",
@@ -1506,7 +1505,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "Hit by Wind Move/Sandstorm: Immunity, +1 SpA | Under Tailwind: +1 Atk.",
+		shortDesc: "Hit by Wind Move/Sandstorm: Immunity, +1 Atk | Under Tailwind: +1 Atk.",
 		name: "Tempest Force",
 	},
 	terrestrial: {

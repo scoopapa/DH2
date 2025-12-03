@@ -71,6 +71,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onSwitchIn(pokemon) {
 			pokemon.static = 0;
 		},
+		onCureStatus(pokemon) {
+        pokemon.static = 0;
+    	},
 		onBeforeMove(pokemon) {
  			if (pokemon.static >= 3) {
 				this.add('cant', pokemon, 'par');
@@ -145,13 +148,13 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses reduced by one stage for 3 turns!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses reduced by half for 3 turns!`);
 		},
 		onModifyDef(def, pokemon) {
-			return this.chainModify([0xAAAA, 0x100000]);
+			return this.chainModify(0.5);
 		},
 		onModifySpD(spd, pokemon) {
-			return this.chainModify([0xAAAA, 0x100000]);
+			return this.chainModify(0.5);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Defense Down');

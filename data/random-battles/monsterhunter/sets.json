@@ -508,13 +508,13 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Magma Storm", "Make It Rain", "Earth Power", "Fire Blast", "Power Gem"],
+                "movepool": ["Magma Storm", "Make It Rain", "Earth Power", "Searing Shot", "Power Gem"],
                 "abilities": ["Good as Gold", "Magic Guard"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Magma Storm", "Steel Beam", "Earth Power", "Fire Blast", "Power Gem"],
+                "movepool": ["Magma Storm", "Steel Beam", "Earth Power", "Searing Shot", "Power Gem"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
 
@@ -1661,7 +1661,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Devour", "Acrobatics", "Bolt Beak", "High Jump Kick", "Egg Barrage"],
+                "movepool": ["Devour", "Bolt Beak", "High Jump Kick", "Egg Barrage"],
                 "abilities": ["Unburden"],
                 "teraTypes": ["Normal"]
             }
@@ -1776,7 +1776,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Knock Off", "Acrobatics", "Close Combat", "Poison Jab"],
+                "movepool": ["Swords Dance", "Knock Off", "Spirit Break", "Close Combat", "Poison Jab"],
                 "abilities": ["Unburden"],
                 "teraTypes": ["Normal"]
             }
@@ -2724,7 +2724,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Flame Charge", "Facade", "Play Rough", "Stomping Tantrum"],
+                "movepool": ["Swords Dance", "Blaze Kick", "Facade", "Play Rough", "Stomping Tantrum"],
                 "abilities": ["Huge Power"],
                 "teraTypes": ["Normal"]
             }
@@ -2735,7 +2735,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Flame Charge", "Facade", "Rock Slide", "Earthquake"],
+                "movepool": ["Swords Dance", "Blaze Kick", "Facade", "Rock Slide", "Earthquake"],
                 "abilities": ["Huge Power"],
                 "teraTypes": ["Normal"]
             }
@@ -2833,7 +2833,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Dragon Rush", "Acrobatics", "Close Combat", "Poison Jab"],
+                "movepool": ["Swords Dance", "Dragon Rush", "Cruel Claw", "Close Combat", "Poison Jab"],
                 "abilities": ["Unburden"],
                 "teraTypes": ["Normal"]
             }
@@ -3010,7 +3010,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Dragon Rush", "Thousand Arrows", "Mountain Gale", "Sacred Fire"],
+                "movepool": ["Dragon Dance", "Dragon Rush", "Thousand Arrows", "Sacred Fire"],
                 "abilities": ["Reactive Core"],
                 "teraTypes": ["Normal"]
             }

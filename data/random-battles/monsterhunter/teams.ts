@@ -1392,7 +1392,8 @@ export class RandomTeams {
 		return 'Leftovers';
 	}
 
-	getLevel(
+	
+		getLevel(
 		species: Species,
 		isDoubles: boolean,
 	): number {
@@ -1417,6 +1418,7 @@ export class RandomTeams {
 		return tierScale[tier] || 80;
 	}
 
+	
 	getForme(species: Species): string {
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
