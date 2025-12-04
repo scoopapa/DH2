@@ -631,7 +631,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBeforeSwitchIn(pokemon) {
 			if (pokemon.m.didRandomMoves) return;
 			const moves = this.dex.moves.all();
-			const newMoves = [];
+			let newMoves = [];
 			while (newMoves.length < 8) {
 				const newMove = this.sample(moves);
 				if (newMove.basePower === 1) continue;
@@ -662,7 +662,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (!randomMove8) return false;
 			// Define new moves
-			const newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
+			newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
 			// Update move slots
 			pokemon.moveSlots = newMoves.map(move => {
 				const moveData = this.dex.moves.get(move);
