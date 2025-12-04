@@ -9,7 +9,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
 			if (!this.field.isWeather('sunnyday')) {
 				for (const proto of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
-											'protorefraction', 'protosynthesis']) { 
+											'protorefraction', 'protosynthesis']) {
 					if (pokemon.hasAbility(proto)) {
 						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
 							pokemon.addVolatile(proto);
@@ -20,7 +20,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
-											'magicdrive', 'phantomdrive', 'toxicdrive']) { 
+											'magicdrive', 'phantomdrive', 'toxicdrive']) {
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);
@@ -403,7 +403,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	kirinite: {
 		name: "Kirinite",
-		gen: 9, 
+		gen: 9,
 		shortDesc: "If held by Kirin, allows it to transform into Emperor. (Mega-Evolution)",
 		megaStone: "Emperor Kirin",
 		megaEvolves: "Kirin",

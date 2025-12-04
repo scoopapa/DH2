@@ -96,7 +96,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		shortDesc: "User regains their last used item, similar to Recycle.",
 		desc: "If the user has consumed their item, it will be restored."
-	},	  
+	},
 	aquaring: {
 		inherit: true,
 		condition: {
@@ -154,7 +154,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				Fighting: this.dex.getEffectiveness('Fighting', target),
 				Fire: this.dex.getEffectiveness('Fire', target),
 			};
-		  
+
 		  	let bestType = 'Normal';
 		  	let maxEffectiveness = -Infinity;
 		  	// gets most effective type against target (defaults to normal)
@@ -182,7 +182,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				source.setAbility('Adaptability');
 				this.add('-ability', source, 'Adaptability');
 		  	}
-	  
+
 		  	source.m.ragingBullMoveType = bestType;
 		},
 	  	// animation was remnant of Techno Blast code being copied, decided to keep because funny
@@ -196,7 +196,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		  	}
 		},
 		target: "normal",
-	}, 
+	},
 	iciclestorm: {
 		num: -1044,
 		accuracy: 95,
@@ -730,7 +730,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				Water: this.dex.getEffectiveness('Water', target),
 				Dark: this.dex.getEffectiveness('Dark', target),
 			};
-		  
+
 		  	let bestType = 'Water';
 		  	let maxEffectiveness = -Infinity;
 		  	// gets most effective type against target (defaults to the current type)
@@ -768,7 +768,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.actions.useMove('surgingstrikes', source, target);
 				this.effectState.surgingStrikesAlreadyUsed = 1;
 		  	}
-	  		
+
 		},
 		onTry(source, target, move) {
 			if (this.effectState.surgingStrikesAlreadyUsed === 1) {
@@ -798,7 +798,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				Dark: this.dex.getEffectiveness('Dark', target),
 				Water: this.dex.getEffectiveness('Water', target),
 			};
-		  
+
 		  	let bestType = 'Dark';
 		  	let maxEffectiveness = -Infinity;
 		  	// gets most effective type against target (defaults to the current type)
@@ -836,7 +836,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.actions.useMove('wickedblow', source, target);
 				this.effectState.wickedBlowAlreadyUsed = 1;
 		  	}
-	  		
+
 		},
 		onTry(source, target, move) {
 			if (this.effectState.wickedBlowAlreadyUsed === 1) {
@@ -891,4 +891,4 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		shortDesc: "-1 evasion; ends user and target hazards/terrain.",
 	}
 };
-  
+

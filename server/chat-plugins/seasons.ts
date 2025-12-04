@@ -2,7 +2,7 @@
  * @author mia-pi-git
  */
 
-import {FS, Net, Utils} from '../../lib';
+import { FS, Net, Utils } from '../../lib';
 
 export const SEASONS_PER_YEAR = 4;
 export const FORMATS_PER_SEASON = 4;
@@ -16,8 +16,8 @@ export const FORMAT_POOL = ['ubers', 'uu', 'ru', 'nu', 'pu', 'lc', 'doublesou', 
 export const PUBLIC_PHASE_LENGTH = 3;
 
 interface SeasonData {
-	current: {period: number, year: number, formatsGeneratedAt: number, season: number};
-	badgeholders: {[period: string]: {[format: string]: {[badgeType: string]: string[]}}};
+	current: { period: number, year: number, formatsGeneratedAt: number, season: number };
+	badgeholders: { [period: string]: { [format: string]: { [badgeType: string]: string[] } } };
 	formatSchedule: Record<string, string[]>;
 }
 
@@ -28,21 +28,21 @@ try {
 } catch {
 	data = {
 		// force a reroll
-		current: {season: null!, year: null!, formatsGeneratedAt: null!, period: null!},
+		current: { season: null!, year: null!, formatsGeneratedAt: null!, period: null! },
 		formatSchedule: {},
 		badgeholders: {},
 	};
 }
 
 export function getBadges(user: User, curFormat: string) {
-	let userBadges: {type: string, format: string}[] = [];
+	let userBadges: { type: string, format: string }[] = [];
 	const season = data.current.season; // don't factor in old badges
 	for (const format in data.badgeholders[season]) {
 		const badges = data.badgeholders[season][format];
 		for (const type in badges) {
 			if (badges[type].includes(user.id)) {
 				// ex badge-bronze-gen9ou-250-1-2024
-				userBadges.push({type, format});
+				userBadges.push({ type, format });
 			}
 		}
 	}
@@ -50,7 +50,7 @@ export function getBadges(user: User, curFormat: string) {
 	let curFormatBadge;
 	for (const [i, badge] of userBadges.entries()) {
 		if (badge.format === curFormat) {
-			userBadges.splice(i);
+			userBadges.splice(i, 1);
 			curFormatBadge = badge;
 		}
 	}
@@ -64,7 +64,7 @@ export function getBadges(user: User, curFormat: string) {
 
 function getUserHTML(user: User, format: string) {
 	const buf = `<username>${user.name}</username>`;
-	const badgeType = getBadges(user, format).filter(x => x.format === format)[0]?.type;
+	const badgeType = getBadges(user, format).find(x => x.format === format)?.type;
 	if (badgeType) {
 		let formatType = format.split(/gen\d+/)[1];
 		if (!['ou', 'randombattle'].includes(formatType)) formatType = 'rotating';
@@ -147,8 +147,7 @@ export async function getLadderTop(format: string) {
 		const results = await Net(`https://${Config.routes.root}/ladder/?format=${toID(format)}&json`).get();
 		const reply = JSON.parse(results);
 		return reply.toplist;
-	} catch (e) {
-		Monitor.crashlog(e, "A season ladder request");
+	} catch {
 		return null;
 	}
 }
@@ -217,7 +216,7 @@ export function rollSeason() {
 	}
 }
 
-export let updateTimeout: NodeJS.Timer | true | null = null;
+export let updateTimeout: NodeJS.Timeout | true | null = null;
 
 export function rollTimer() {
 	if (updateTimeout === true) return;
@@ -228,8 +227,7 @@ export function rollTimer() {
 	void updateBadgeholders();
 	const time = Date.now();
 	const next = new Date();
-	next.setHours(next.getHours() + 1);
-	next.setMinutes(0, 0, 0);
+	next.setHours(next.getHours() + 1, 0, 0, 0);
 	updateTimeout = setTimeout(() => rollTimer(), next.getTime() - time);
 
 	const discussionRoom = Rooms.search('seasondiscussion');
@@ -286,7 +284,7 @@ export const pages: Chat.PageTable = {
 		const format = toID(query.shift());
 		const season = toID(query.shift()) || `${data.current.season}`;
 		if (!data.badgeholders[season]) {
-			return this.errorReply(`Season ${season} not found.`);
+			throw new Chat.ErrorMessage(`Season ${season} not found.`);
 		}
 		this.title = `[Seasons]`;
 		let buf = '<div class="pad">';
@@ -300,7 +298,7 @@ export const pages: Chat.PageTable = {
 			);
 			for (const s of seasonsDesc) {
 				buf += `<h3>Season ${s}</h3><hr />`;
-				for (const f in data.badgeholders[season]) {
+				for (const f in data.badgeholders[s]) {
 					buf += `<a class="button" name="send" target="replace" href="/view-seasonladder-${f}-${s}">${Dex.formats.get(f).name}</a>`;
 				}
 				buf += `<br />`;
@@ -311,7 +309,7 @@ export const pages: Chat.PageTable = {
 		const uppercase = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 		let formatName = Dex.formats.get(format).name;
 		// futureproofing for gen10/etc
-		const room = Rooms.search(format.split(/\d+/)[1] + "");
+		const room = Rooms.search(Utils.splitFirst(format, /\d+/)[1] || '');
 		if (room) {
 			formatName = `<a href="/${room.roomid}">${formatName}</a>`;
 		}

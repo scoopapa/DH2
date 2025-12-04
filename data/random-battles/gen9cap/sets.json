@@ -57,7 +57,7 @@
         ]
     },
     "fidgit": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Fast Support",
@@ -68,7 +68,7 @@
         ]
     },
     "stratagem": {
-        "level": 80,
+        "level": 79,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -102,18 +102,18 @@
         ]
     },
     "kitsunoh": {
-        "level": 80,
+        "level": 78,
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Bullet Punch", "Close Combat", "Meteor Mash", "Poltergeist", "Strength Sap", "Trick"],
-                "abilities": ["Iron Fist"],
-                "teraTypes": ["Fairy", "Fighting", "Ghost", "Steel"]
+                "movepool": ["Close Combat", "Defog", "Meteor Mash", "Poltergeist", "Strength Sap", "Trick", "U-turn", "Will-O-Wisp"],
+                "abilities": ["Trace"],
+                "teraTypes": ["Fighting"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Defog", "Meteor Mash", "Poltergeist", "Strength Sap", "U-turn", "Will-O-Wisp"],
-                "abilities": ["Iron Fist"],
+                "abilities": ["Trace"],
                 "teraTypes": ["Dark", "Water"]
             }
         ]
@@ -147,7 +147,7 @@
         ]
     },
     "krilowatt": {
-        "level": 85,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -158,11 +158,11 @@
         ]
     },
     "voodoom": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Aura Sphere", "Dark Pulse", "Flash Cannon", "Focus Blast", "Nasty Plot", "Volt Switch"],
+                "movepool": ["Aura Sphere", "Dark Pulse", "Flash Cannon", "Focus Blast", "Nasty Plot", "Vacuum Wave", "Volt Switch"],
                 "abilities": ["Lightning Rod", "Volt Absorb"],
                 "teraTypes": ["Steel"]
             }
@@ -180,13 +180,25 @@
         ]
     },
     "necturna": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
-                "role": "Setup Sweeper",
-                "movepool": ["Power Whip", "Shadow Claw", "Shell Smash", "Stone Edge"],
+                "role": "Bulky Setup",
+                "movepool": ["Horn Leech", "Shadow Claw", "Stone Edge", "Victory Dance"],
                 "abilities": ["Forewarn"],
-                "teraTypes": ["Rock"]
+                "teraTypes": ["Fairy", "Rock", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Horn Leech", "Pain Split", "Rage Fist", "Toxic Spikes", "Will-O-Wisp"],
+                "abilities": ["Forewarn"],
+                "teraTypes": ["Fairy", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Horn Leech", "Pain Split", "Power Whip", "Shadow Claw", "Shadow Sneak", "Sticky Web", "Toxic Spikes", "Will-O-Wisp"],
+                "abilities": ["Forewarn"],
+                "teraTypes": ["Fairy", "Water"]
             }
         ]
     },
@@ -265,7 +277,7 @@
         ]
     },
     "volkraken": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -293,7 +305,7 @@
         ]
     },
     "naviathan": {
-        "level": 81,
+        "level": 78,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -304,13 +316,13 @@
         ]
     },
     "crucibelle": {
-        "level": 87,
+        "level": 85,
         "sets": [
             {
                 "role": "AV Pivot",
                 "movepool": ["Gunk Shot", "Knock Off", "Poison Jab", "Stone Edge", "U-turn", "Wood Hammer"],
                 "abilities": ["Regenerator"],
-                "teraTypes": ["Grass"]
+                "teraTypes": ["Dark", "Grass"]
             },
             {
                 "role": "Fast Support",
@@ -338,7 +350,7 @@
         ]
     },
     "pajantom": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -366,7 +378,7 @@
         ]
     },
     "caribolt": {
-        "level": 83,
+        "level": 79,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -423,7 +435,7 @@
         ]
     },
     "equilibra": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -445,7 +457,7 @@
         ]
     },
     "miasmaw": {
-        "level": 80,
+        "level": 79,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -468,7 +480,7 @@
         ]
     },
     "chromera": {
-        "level": 82,
+        "level": 81,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -502,7 +514,7 @@
         ]
     },
     "venomiconepilogue": {
-        "level": 82,
+        "level": 83,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -553,11 +565,11 @@
         ]
     },
     "cresceidon": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Encore", "Moonblast", "Recover", "Scald", "Thunder Wave"],
+                "movepool": ["Moonblast", "Recover", "Scald", "Thunder Wave"],
                 "abilities": ["Multiscale", "Rough Skin"],
                 "teraTypes": ["Poison", "Steel"]
             }
@@ -568,9 +580,43 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Clanging Scales", "Clangorous Soul", "Flamethrower", "Sludge Wave", "Surf"],
+                "movepool": ["Clanging Scales", "Clangorous Soul",  "Sludge Wave", "Surf"],
                 "abilities": ["Armor Tail"],
-                "teraTypes": ["Fire", "Water"]
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+    "shox": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Glare", "Ice Beam", "Milk Drink", "Thunderbolt"],
+                "abilities": ["Electromorphosis"],
+                "teraTypes": ["Fairy", "Ghost", "Grass"]
+            },
+            {
+                "role": "Fast Support",
+                "movepool": ["Glare", "Ice Beam", "Milk Drink", "Volt Switch"],
+                "abilities": ["Electromorphosis"],
+                "teraTypes": ["Flying", "Ghost"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Discharge", "Ice Beam", "Knock Off", "Milk Drink", "Thunderbolt"],
+                "abilities": ["Electromorphosis"],
+                "teraTypes": ["Fairy", "Ghost", "Grass"]
+            }
+        ]
+    },
+    "ramnarok": {
+        "level": 72,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Blizzard", "Inferno", "Polar Flare", "Thunder"],
+                "abilities": ["No Guard"],
+                "teraTypes": ["Electric", "Flying", "Water"]
             }
         ]
     }
