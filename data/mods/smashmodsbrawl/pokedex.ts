@@ -612,7 +612,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
     	prevo: null,
 		eggGroups: ["Water 1", "Dragon"],
 	},
-	// Hatterene #54
+	hatterene: {
+		inherit: true,
+		abilities: {0: "Healer (VaporeMons)", 1: "Anticipation", H: "Magic Bounce"},
+	},
 	frogvolver: {
 		num: 3055,
 		name: "Frogvolver",
