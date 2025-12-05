@@ -15,7 +15,7 @@
         ]
     },
     "charizard": {
-        "level": 82,
+        "level": 83,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -29,7 +29,7 @@
         "sets": [
             {
                 "role": "Spinner",
-                "movepool": ["icebeam", "rapidspin", "rest", "roar", "surf", "toxic"],
+                "movepool": ["icebeam", "rapidspin", "roar", "surf", "toxic"],
                 "abilities": ["Torrent"]
             },
             {
@@ -65,7 +65,7 @@
         ]
     },
     "pidgeot": {
-        "level": 88,
+        "level": 89,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -90,7 +90,7 @@
         ]
     },
     "fearow": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -105,7 +105,7 @@
         ]
     },
     "arbok": {
-        "level": 92,
+        "level": 93,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -137,7 +137,7 @@
         ]
     },
     "sandslash": {
-        "level": 90,
+        "level": 89,
         "sets": [
             {
                 "role": "Spinner",
@@ -157,20 +157,18 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["earthquake", "fireblast", "icebeam", "roar", "stealthrock", "toxicspikes"],
-                "abilities": ["Poison Point"],
-                "preferredTypes": ["Ice"]
+                "movepool": ["earthquake", "fireblast", "icebeam", "roar", "sludgebomb", "stealthrock", "toxicspikes"],
+                "abilities": ["Poison Point"]
             }
         ]
     },
     "nidoking": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["earthquake", "fireblast", "icebeam", "megahorn", "stealthrock", "suckerpunch", "thunderbolt"],
-                "abilities": ["Poison Point"],
-                "preferredTypes": ["Ice"]
+                "movepool": ["earthquake", "fireblast", "icebeam", "megahorn", "sludgebomb", "stealthrock", "suckerpunch", "thunderbolt"],
+                "abilities": ["Poison Point"]
             }
         ]
     },
@@ -190,7 +188,7 @@
         ]
     },
     "ninetales": {
-        "level": 84,
+        "level": 85,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -201,11 +199,16 @@
         ]
     },
     "wigglytuff": {
-        "level": 97,
+        "level": 98,
         "sets": [
             {
+                "role": "Fast Support",
+                "movepool": ["doubleedge", "protect", "thunderwave", "toxic", "wish"],
+                "abilities": ["Cute Charm"]
+            },
+            {
                 "role": "Bulky Support",
-                "movepool": ["bodyslam", "doubleedge", "fireblast", "healbell", "protect", "stealthrock", "thunderwave", "toxic", "wish"],
+                "movepool": ["bodyslam", "fireblast", "healbell", "protect", "stealthrock", "wish"],
                 "abilities": ["Cute Charm"]
             },
             {
@@ -216,7 +219,7 @@
         ]
     },
     "vileplume": {
-        "level": 89,
+        "level": 90,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -231,7 +234,7 @@
         ]
     },
     "parasect": {
-        "level": 97,
+        "level": 98,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -246,7 +249,7 @@
         ]
     },
     "venomoth": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Fast Support",
@@ -256,7 +259,7 @@
         ]
     },
     "dugtrio": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Support",
@@ -300,7 +303,7 @@
         ]
     },
     "arcanine": {
-        "level": 82,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -337,7 +340,7 @@
         ]
     },
     "alakazam": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -352,8 +355,9 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["bulkup", "bulletpunch", "dynamicpunch", "payback", "stoneedge"],
-                "abilities": ["No Guard"]
+                "movepool": ["bulletpunch", "dynamicpunch", "earthquake", "payback", "stoneedge", "toxic"],
+                "abilities": ["No Guard"],
+                "preferredTypes": ["Dark"]
             }
         ]
     },
@@ -373,7 +377,7 @@
         ]
     },
     "tentacruel": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -393,11 +397,11 @@
         ]
     },
     "rapidash": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["flareblitz", "hypnosis", "megahorn", "morningsun", "willowisp"],
+                "movepool": ["flareblitz", "megahorn", "morningsun", "toxic", "willowisp"],
                 "abilities": ["Flash Fire"]
             }
         ]
@@ -446,7 +450,7 @@
         ]
     },
     "dewgong": {
-        "level": 91,
+        "level": 92,
         "sets": [
             {
                 "role": "Staller",
@@ -466,7 +470,7 @@
         ]
     },
     "muk": {
-        "level": 88,
+        "level": 89,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -509,11 +513,16 @@
                 "role": "Staller",
                 "movepool": ["protect", "seismictoss", "toxic", "wish"],
                 "abilities": ["Insomnia"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["batonpass", "focusblast", "nastyplot", "psychic"],
+                "abilities": ["Insomnia"]
             }
         ]
     },
     "kingler": {
-        "level": 89,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -578,11 +587,11 @@
         ]
     },
     "hitmonchan": {
-        "level": 87,
+        "level": 86,
         "sets": [
             {
                 "role": "Spinner",
-                "movepool": ["closecombat", "drainpunch", "icepunch", "machpunch", "rapidspin", "stoneedge"],
+                "movepool": ["closecombat", "icepunch", "machpunch", "rapidspin", "stoneedge"],
                 "abilities": ["Iron Fist"]
             },
             {
@@ -593,11 +602,11 @@
         ]
     },
     "weezing": {
-        "level": 89,
+        "level": 90,
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["fireblast", "haze", "painsplit", "sludgebomb", "willowisp"],
+                "movepool": ["explosion", "fireblast", "haze", "painsplit", "sludgebomb", "willowisp"],
                 "abilities": ["Levitate"]
             },
             {
@@ -710,7 +719,7 @@
         ]
     },
     "gyarados": {
-        "level": 78,
+        "level": 77,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -811,7 +820,7 @@
         ]
     },
     "kabutops": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Spinner",
@@ -826,7 +835,7 @@
         ]
     },
     "aerodactyl": {
-        "level": 79,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -835,14 +844,14 @@
             },
             {
                 "role": "Fast Support",
-                "movepool": ["aerialace", "aquatail", "earthquake", "pursuit", "roost", "stealthrock", "stoneedge"],
+                "movepool": ["aerialace", "aquatail", "earthquake", "roost", "stealthrock", "stoneedge"],
                 "abilities": ["Pressure"],
                 "preferredTypes": ["Ground"]
             }
         ]
     },
     "snorlax": {
-        "level": 79,
+        "level": 77,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -863,7 +872,7 @@
         ]
     },
     "articuno": {
-        "level": 82,
+        "level": 81,
         "sets": [
             {
                 "role": "Staller",
@@ -888,7 +897,7 @@
         ]
     },
     "moltres": {
-        "level": 82,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -898,7 +907,7 @@
         ]
     },
     "dragonite": {
-        "level": 77,
+        "level": 75,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -938,7 +947,7 @@
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["batonpass", "earthquake", "explosion", "suckerpunch", "superpower", "swordsdance", "zenheadbutt"],
+                "movepool": ["batonpass", "earthquake", "explosion", "swordsdance", "zenheadbutt"],
                 "abilities": ["Synchronize"],
                 "preferredTypes": ["Ground"]
             }
@@ -965,23 +974,28 @@
         ]
     },
     "feraligatr": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["dragondance", "earthquake", "icepunch", "return", "waterfall"],
-                "abilities": ["Torrent"],
-                "preferredTypes": ["Ice"]
+                "movepool": ["dragondance", "earthquake", "icepunch", "waterfall"],
+                "abilities": ["Torrent"]
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["aquajet", "earthquake", "icepunch", "return", "swordsdance", "waterfall"],
+                "movepool": ["aquajet", "return", "swordsdance", "waterfall"],
                 "abilities": ["Torrent"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["aquajet", "earthquake", "icepunch", "superpower", "waterfall"],
+                "abilities": ["Torrent"],
+                "preferredTypes": ["Ice"]
             }
         ]
     },
     "furret": {
-        "level": 93,
+        "level": 92,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1016,7 +1030,7 @@
         ]
     },
     "ariados": {
-        "level": 98,
+        "level": 100,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1026,7 +1040,7 @@
         ]
     },
     "crobat": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1046,7 +1060,7 @@
         ]
     },
     "xatu": {
-        "level": 88,
+        "level": 89,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1062,7 +1076,7 @@
         ]
     },
     "ampharos": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1072,7 +1086,7 @@
         ]
     },
     "bellossom": {
-        "level": 91,
+        "level": 94,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1082,7 +1096,7 @@
         ]
     },
     "azumarill": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1098,7 +1112,7 @@
         ]
     },
     "sudowoodo": {
-        "level": 91,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1108,7 +1122,7 @@
         ]
     },
     "politoed": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1124,22 +1138,22 @@
         ]
     },
     "jumpluff": {
-        "level": 92,
+        "level": 90,
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["encore", "energyball", "sleeppowder", "stunspore", "toxic", "uturn"],
+                "movepool": ["encore", "energyball", "sleeppowder", "toxic", "uturn"],
                 "abilities": ["Chlorophyll"]
             },
             {
                 "role": "Fast Support",
-                "movepool": ["hiddenpowerflying", "leechseed", "protect", "substitute", "toxic"],
+                "movepool": ["hiddenpowerflying", "leechseed", "protect", "sleeppowder", "substitute"],
                 "abilities": ["Chlorophyll"]
             }
         ]
     },
     "sunflora": {
-        "level": 97,
+        "level": 100,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1153,7 +1167,13 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["earthquake", "encore", "icebeam", "recover", "toxic", "waterfall"],
+                "movepool": ["earthquake", "icebeam", "recover", "toxic"],
+                "abilities": ["Water Absorb"]
+            },
+            {
+            
+                "role": "Bulky Attacker",
+                "movepool": ["earthquake", "recover", "toxic", "waterfall"],
                 "abilities": ["Water Absorb"]
             }
         ]
@@ -1177,19 +1197,19 @@
         "level": 85,
         "sets": [
             {
-                "role": "Staller",
-                "movepool": ["healbell", "moonlight", "payback", "toxic"],
+                "role": "Bulky Support",
+                "movepool": ["curse", "healbell", "moonlight", "payback", "toxic"],
                 "abilities": ["Synchronize"]
             },
             {
-                "role": "Bulky Support",
-                "movepool": ["curse", "payback", "protect", "toxic", "wish"],
+                "role": "Staller",
+                "movepool": ["payback", "protect", "toxic", "wish"],
                 "abilities": ["Synchronize"]
             }
         ]
     },
     "slowking": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1216,7 +1236,7 @@
         ]
     },
     "wobbuffet": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1297,7 +1317,7 @@
         ]
     },
     "scizor": {
-        "level": 77,
+        "level": 76,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1316,7 +1336,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["encore", "knockoff", "protect", "stealthrock", "toxic"],
+                "movepool": ["encore", "knockoff", "stealthrock", "toxic"],
                 "abilities": ["Gluttony"]
             }
         ]
@@ -1337,17 +1357,22 @@
         ]
     },
     "ursaring": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["closecombat", "crunch", "facade", "protect", "swordsdance"],
-                "abilities": ["Guts", "Quick Feet"]
+                "movepool": ["closecombat", "crunch", "facade", "protect"],
+                "abilities": ["Guts"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["closecombat", "crunch", "facade", "swordsdance"],
+                "abilities": ["Quick Feet"]
             }
         ]
     },
     "magcargo": {
-        "level": 96,
+        "level": 99,
         "sets": [
             {
                 "role": "Staller",
@@ -1357,7 +1382,7 @@
         ]
     },
     "corsola": {
-        "level": 97,
+        "level": 98,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1387,7 +1412,7 @@
         ]
     },
     "mantine": {
-        "level": 90,
+        "level": 89,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1474,7 +1499,7 @@
         ]
     },
     "stantler": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1485,7 +1510,7 @@
         ]
     },
     "smeargle": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Fast Support",
@@ -1505,7 +1530,7 @@
         ]
     },
     "miltank": {
-        "level": 83,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1515,7 +1540,7 @@
         ]
     },
     "blissey": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Staller",
@@ -1576,11 +1601,11 @@
         ]
     },
     "tyranitar": {
-        "level": 78,
+        "level": 75,
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["crunch", "earthquake", "fireblast", "icebeam", "pursuit", "stealthrock", "stoneedge", "superpower"],
+                "movepool": ["crunch", "earthquake", "fireblast", "pursuit", "stealthrock", "stoneedge", "superpower"],
                 "abilities": ["Sand Stream"]
             },
             {
@@ -1591,7 +1616,7 @@
         ]
     },
     "lugia": {
-        "level": 73,
+        "level": 72,
         "sets": [
             {
                 "role": "Staller",
@@ -1606,7 +1631,7 @@
         ]
     },
     "hooh": {
-        "level": 73,
+        "level": 72,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1687,7 +1712,7 @@
         ]
     },
     "mightyena": {
-        "level": 93,
+        "level": 95,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1697,7 +1722,7 @@
         ]
     },
     "linoone": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1707,7 +1732,7 @@
         ]
     },
     "beautifly": {
-        "level": 99,
+        "level": 100,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1772,7 +1797,7 @@
         ]
     },
     "pelipper": {
-        "level": 91,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1799,7 +1824,7 @@
         ]
     },
     "masquerain": {
-        "level": 98,
+        "level": 99,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1849,7 +1874,7 @@
         ]
     },
     "slaking": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1874,7 +1899,7 @@
         ]
     },
     "shedinja": {
-        "level": 98,
+        "level": 100,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1894,7 +1919,7 @@
         ]
     },
     "hariyama": {
-        "level": 84,
+        "level": 85,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1930,7 +1955,7 @@
         ]
     },
     "sableye": {
-        "level": 99,
+        "level": 97,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1944,7 +1969,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["batonpass", "ironhead", "substitute", "suckerpunch", "swordsdance"],
+                "movepool": ["batonpass", "ironhead", "suckerpunch", "swordsdance"],
                 "abilities": ["Intimidate"]
             },
             {
@@ -1959,7 +1984,13 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["aquatail", "earthquake", "headsmash", "icepunch", "rockpolish", "stealthrock"],
+                "movepool": ["aquatail", "earthquake", "headsmash", "icepunch", "stealthrock"],
+                "abilities": ["Rock Head"],
+                "preferredTypes": ["Ground"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["aquatail", "earthquake", "headsmash", "icepunch", "rockpolish"],
                 "abilities": ["Rock Head"],
                 "preferredTypes": ["Ground"]
             }
@@ -1991,7 +2022,8 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["batonpass", "encore", "hiddenpowerice", "nastyplot", "thunderbolt"],
-                "abilities": ["Plus"]
+                "abilities": ["Plus"],
+                "preferredTypes": ["Ice"]
             },
             {
                 "role": "Setup Sweeper",
@@ -2006,7 +2038,8 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["batonpass", "encore", "hiddenpowerice", "nastyplot", "thunderbolt"],
-                "abilities": ["Minus"]
+                "abilities": ["Minus"],
+                "preferredTypes": ["Ice"]
             },
             {
                 "role": "Setup Sweeper",
@@ -2016,7 +2049,7 @@
         ]
     },
     "volbeat": {
-        "level": 98,
+        "level": 99,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -2049,9 +2082,10 @@
         "level": 92,
         "sets": [
             {
-                "role": "Bulky Support",
+                "role": "Bulky Attacker",
                 "movepool": ["earthquake", "encore", "explosion", "icebeam", "painsplit", "sludgebomb", "toxic", "yawn"],
-                "abilities": ["Liquid Ooze"]
+                "abilities": ["Liquid Ooze"],
+                "preferredTypes": ["Ground"]
             },
             {
                 "role": "Staller",
@@ -2061,7 +2095,7 @@
         ]
     },
     "sharpedo": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2152,7 +2186,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["earthquake", "fireblast", "outrage", "roost", "stoneedge", "uturn"],
+                "movepool": ["earthquake", "outrage", "roost", "stoneedge", "uturn"],
                 "abilities": ["Levitate"]
             },
             {
@@ -2163,21 +2197,16 @@
         ]
     },
     "cacturne": {
-        "level": 90,
+        "level": 91,
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["darkpulse", "encore", "lowkick", "seedbomb", "spikes", "suckerpunch"],
+                "movepool": ["darkpulse", "encore", "seedbomb", "spikes", "suckerpunch", "superpower"],
                 "abilities": ["Sand Veil"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["lowkick", "seedbomb", "suckerpunch", "swordsdance"],
-                "abilities": ["Sand Veil"]
-            },
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["focuspunch", "seedbomb", "substitute", "suckerpunch"],
+                "movepool": ["seedbomb", "suckerpunch", "superpower", "swordsdance"],
                 "abilities": ["Sand Veil"]
             }
         ]
@@ -2198,7 +2227,7 @@
         ]
     },
     "zangoose": {
-        "level": 84,
+        "level": 85,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2220,11 +2249,11 @@
         ]
     },
     "lunatone": {
-        "level": 93,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["batonpass", "calmmind", "earthpower", "psychic", "shadowball", "substitute"],
+                "movepool": ["batonpass", "calmmind", "earthpower", "psychic", "signalbeam", "substitute"],
                 "abilities": ["Levitate"]
             },
             {
@@ -2276,22 +2305,17 @@
         ]
     },
     "cradily": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["recover", "seedbomb", "stealthrock", "stoneedge", "toxic"],
-                "abilities": ["Suction Cups"]
-            },
-            {
-                "role": "Bulky Setup",
-                "movepool": ["curse", "recover", "seedbomb", "stoneedge", "swordsdance"],
+                "movepool": ["curse", "earthquake", "recover", "seedbomb", "stealthrock", "stoneedge", "swordsdance", "toxic"],
                 "abilities": ["Suction Cups"]
             }
         ]
     },
     "armaldo": {
-        "level": 87,
+        "level": 85,
         "sets": [
             {
                 "role": "Spinner",
@@ -2335,7 +2359,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["recover", "return", "stealthrock", "thunderwave", "toxic"],
+                "movepool": ["recover", "seismictoss", "stealthrock", "thunderwave", "toxic"],
                 "abilities": ["Color Change"]
             }
         ]
@@ -2346,12 +2370,12 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["hiddenpowerfighting", "shadowclaw", "shadowsneak", "thunderwave", "willowisp"],
-                "abilities": ["Frisk"]
+                "abilities": ["Frisk", "Insomnia"]
             }
         ]
     },
     "tropius": {
-        "level": 95,
+        "level": 97,
         "sets": [
             {
                 "role": "Staller",
@@ -2360,14 +2384,13 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["aerialace", "dragondance", "earthquake", "leafblade", "roost"],
-                "abilities": ["Chlorophyll"],
-                "preferredTypes": ["Ground"]
+                "movepool": ["aerialace", "dragondance", "earthquake", "leafblade"],
+                "abilities": ["Chlorophyll"]
             }
         ]
     },
     "chimecho": {
-        "level": 93,
+        "level": 94,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2401,14 +2424,14 @@
         "level": 88,
         "sets": [
             {
-                "role": "Fast Support",
+                "role": "Bulky Support",
                 "movepool": ["earthquake", "explosion", "icebeam", "spikes", "taunt"],
                 "abilities": ["Inner Focus"]
             }
         ]
     },
     "walrein": {
-        "level": 87,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2430,12 +2453,6 @@
                 "movepool": ["doubleedge", "hiddenpowergrass", "hydropump", "icebeam", "raindance", "surf"],
                 "abilities": ["Swift Swim"],
                 "preferredTypes": ["Ice"]
-            },
-            {
-                "role": "Fast Attacker",
-                "movepool": ["doubleedge", "hiddenpowergrass", "hydropump", "icebeam", "suckerpunch", "surf"],
-                "abilities": ["Swift Swim"],
-                "preferredTypes": ["Ice"]
             }
         ]
     },
@@ -2450,7 +2467,7 @@
         ]
     },
     "relicanth": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -2491,13 +2508,13 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["agility", "earthquake", "explosion", "icepunch", "meteormash", "thunderpunch", "zenheadbutt"],
+                "movepool": ["agility", "earthquake", "explosion", "meteormash", "zenheadbutt"],
                 "abilities": ["Clear Body"],
                 "preferredTypes": ["Ground"]
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["bulletpunch", "earthquake", "explosion", "icepunch", "meteormash", "stealthrock", "thunderpunch", "zenheadbutt"],
+                "movepool": ["bulletpunch", "earthquake", "explosion", "meteormash", "stealthrock", "zenheadbutt"],
                 "abilities": ["Clear Body"],
                 "preferredTypes": ["Ground"]
             }
@@ -2616,7 +2633,7 @@
         ]
     },
     "rayquaza": {
-        "level": 73,
+        "level": 72,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2653,7 +2670,7 @@
         ]
     },
     "deoxys": {
-        "level": 74,
+        "level": 73,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2718,7 +2735,7 @@
         ]
     },
     "infernape": {
-        "level": 77,
+        "level": 76,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2733,7 +2750,7 @@
         ]
     },
     "empoleon": {
-        "level": 79,
+        "level": 78,
         "sets": [
             {
                 "role": "Staller",
@@ -2753,7 +2770,7 @@
         ]
     },
     "staraptor": {
-        "level": 81,
+        "level": 79,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -2770,10 +2787,15 @@
         ]
     },
     "bibarel": {
-        "level": 93,
+        "level": 92,
         "sets": [
             {
                 "role": "Setup Sweeper",
+                "movepool": ["curse", "quickattack", "return", "waterfall"],
+                "abilities": ["Simple"]
+            },
+            {
+                "role": "Bulky Setup",
                 "movepool": ["curse", "quickattack", "return", "waterfall"],
                 "abilities": ["Simple"]
             }
@@ -2790,7 +2812,7 @@
         ]
     },
     "luxray": {
-        "level": 88,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -2816,7 +2838,7 @@
         ]
     },
     "rampardos": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -2836,11 +2858,6 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["metalburst", "roar", "rockslide", "stealthrock", "toxic"],
-                "abilities": ["Sturdy"]
-            },
-            {
-                "role": "Staller",
                 "movepool": ["metalburst", "protect", "roar", "rockslide", "stealthrock", "toxic"],
                 "abilities": ["Sturdy"]
             }
@@ -2857,7 +2874,7 @@
         ]
     },
     "wormadamsandy": {
-        "level": 99,
+        "level": 100,
         "sets": [
             {
                 "role": "Staller",
@@ -2867,7 +2884,7 @@
         ]
     },
     "wormadamtrash": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Staller",
@@ -2898,7 +2915,7 @@
         ]
     },
     "pachirisu": {
-        "level": 96,
+        "level": 97,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2923,7 +2940,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["aquajet", "bulkup", "icepunch", "return", "substitute", "waterfall"],
+                "movepool": ["bulkup", "icepunch", "return", "substitute", "waterfall"],
                 "abilities": ["Swift Swim"]
             }
         ]
@@ -2934,6 +2951,11 @@
             {
                 "role": "Staller",
                 "movepool": ["aromatherapy", "energyball", "hiddenpowerground", "leechseed", "synthesis", "toxic"],
+                "abilities": ["Flower Gift"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["energyball", "hiddenpowerfire", "hiddenpowerice", "leechseed", "substitute"],
                 "abilities": ["Flower Gift"]
             }
         ]
@@ -2949,7 +2971,7 @@
         ]
     },
     "ambipom": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -2969,7 +2991,7 @@
         ]
     },
     "lopunny": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Support",
@@ -3009,7 +3031,7 @@
         ]
     },
     "purugly": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3029,7 +3051,7 @@
         ]
     },
     "bronzong": {
-        "level": 80,
+        "level": 79,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -3059,7 +3081,7 @@
         ]
     },
     "spiritomb": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -3141,7 +3163,7 @@
         ]
     },
     "carnivine": {
-        "level": 96,
+        "level": 97,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -3190,7 +3212,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["explosion", "flashcannon", "hiddenpowerfire", "hiddenpowerice", "thunderbolt"],
+                "movepool": ["explosion", "flashcannon", "hiddenpowerfire", "hiddenpowerground", "hiddenpowerice", "thunderbolt"],
                 "abilities": ["Magnet Pull"]
             },
             {
@@ -3201,7 +3223,7 @@
         ]
     },
     "lickilicky": {
-        "level": 87,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -3217,7 +3239,7 @@
         ]
     },
     "rhyperior": {
-        "level": 79,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -3227,11 +3249,11 @@
         ]
     },
     "tangrowth": {
-        "level": 88,
+        "level": 89,
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["earthquake", "hiddenpowerfire", "leafstorm", "powerwhip", "rockslide", "sleeppowder", "synthesis"],
+                "movepool": ["earthquake", "hiddenpowerfire", "leafstorm", "morningsun", "powerwhip", "rockslide", "sleeppowder"],
                 "abilities": ["Chlorophyll"]
             },
             {
@@ -3257,14 +3279,14 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["earthquake", "fireblast", "focusblast", "hiddenpowergrass", "hiddenpowerice", "substitute", "thunderbolt"],
+                "movepool": ["earthquake", "fireblast", "focusblast", "hiddenpowerice", "taunt", "thunderbolt"],
                 "abilities": ["Flame Body"],
                 "preferredTypes": ["Electric"]
             }
         ]
     },
     "togekiss": {
-        "level": 79,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -3284,7 +3306,7 @@
         ]
     },
     "yanmega": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3301,11 +3323,6 @@
     "leafeon": {
         "level": 85,
         "sets": [
-            {
-                "role": "Bulky Support",
-                "movepool": ["healbell", "leafblade", "synthesis", "toxic"],
-                "abilities": ["Leaf Guard"]
-            },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["batonpass", "doubleedge", "leafblade", "substitute", "swordsdance", "synthesis", "xscissor"],
@@ -3330,7 +3347,7 @@
         ]
     },
     "gliscor": {
-        "level": 81,
+        "level": 80,
         "sets": [
             {
                 "role": "Staller",
@@ -3345,7 +3362,7 @@
         ]
     },
     "mamoswine": {
-        "level": 79,
+        "level": 78,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -3365,7 +3382,7 @@
         ]
     },
     "gallade": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3375,7 +3392,7 @@
         ]
     },
     "probopass": {
-        "level": 89,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -3416,11 +3433,16 @@
         ]
     },
     "rotom": {
-        "level": 84,
+        "level": 83,
         "sets": [
             {
                 "role": "Fast Attacker",
                 "movepool": ["hiddenpowerfighting", "hiddenpowerice", "shadowball", "thunderbolt", "trick"],
+                "abilities": ["Levitate"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["painsplit", "shadowball", "thunderbolt", "thunderwave", "willowisp"],
                 "abilities": ["Levitate"]
             }
         ]
@@ -3442,7 +3464,7 @@
         ]
     },
     "rotomwash": {
-        "level": 80,
+        "level": 79,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -3505,7 +3527,7 @@
         ]
     },
     "uxie": {
-        "level": 78,
+        "level": 76,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -3515,7 +3537,7 @@
         ]
     },
     "mesprit": {
-        "level": 82,
+        "level": 81,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3546,7 +3568,7 @@
         ]
     },
     "dialga": {
-        "level": 71,
+        "level": 70,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -3558,12 +3580,6 @@
                 "role": "Bulky Support",
                 "movepool": ["bulkup", "outrage", "rest", "sleeptalk"],
                 "abilities": ["Pressure"]
-            },
-            {
-                "role": "Bulky Setup",
-                "movepool": ["bulkup", "dragonclaw", "earthquake", "fireblast", "rest"],
-                "abilities": ["Pressure"],
-                "preferredTypes": ["Ground"]
             }
         ]
     },
@@ -3610,7 +3626,7 @@
         ]
     },
     "giratinaorigin": {
-        "level": 71,
+        "level": 70,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3660,7 +3676,7 @@
         ]
     },
     "manaphy": {
-        "level": 76,
+        "level": 75,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -3685,18 +3701,18 @@
         ]
     },
     "shaymin": {
-        "level": 80,
+        "level": 79,
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["airslash", "earthpower", "leechseed", "rest", "seedflare", "substitute"],
+                "movepool": ["airslash", "earthpower", "leechseed", "seedflare", "substitute", "synthesis"],
                 "abilities": ["Natural Cure"],
                 "preferredTypes": ["Flying"]
             }
         ]
     },
     "shayminsky": {
-        "level": 71,
+        "level": 70,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3869,14 +3885,10 @@
         "level": 69,
         "sets": [
             {
-                "role": "Bulky Setup",
-                "movepool": ["calmmind", "earthpower", "fireblast", "judgment", "recover"],
-                "abilities": ["Multitype"]
-            },
-            {
                 "role": "Setup Sweeper",
-                "movepool": ["calmmind", "darkpulse", "focusblast", "judgment"],
-                "abilities": ["Multitype"]
+                "movepool": ["calmmind", "darkpulse", "focusblast", "judgment", "recover"],
+                "abilities": ["Multitype"],
+                "preferredTypes": ["Fighting"]
             }
         ]
     },

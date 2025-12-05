@@ -2,7 +2,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	/*
 	Generation I
 	*/
-	/* BASE + MEGA 
+	/* BASE + MEGA
 	XX: {
 		num: XX,
 		name: "XX",
@@ -376,7 +376,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "White-Fatalis",
 		baseSpecies: "Fatalis",
 		forme: "Primal",
-		types: ["Dragon", "Electric"], 
+		types: ["Dragon", "Electric"],
 		baseStats: {hp: 100, atk: 90, def: 100, spa: 130, spd: 115, spe: 95},
 		abilities: {0: "Hadron Engine"},
 		weightkg: 270.0,

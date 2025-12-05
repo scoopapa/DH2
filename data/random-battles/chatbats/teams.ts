@@ -1794,7 +1794,7 @@ export class RandomTeams {
 			//let species = this.dex.species.get(this.sample(pokemonPool[baseSpecies]));
 
 			if (!species.exists) continue;
-			
+
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
 
@@ -1880,12 +1880,12 @@ export class RandomTeams {
 
 			// The Pokemon of the Day
 			//if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
-			
+
 			// Code to enforce a mon on teams for testing
 			//if (pokemon.length === 1 || this.maxTeamSize === 1) species = 'dachsbun';
 			//if (pokemon.length === 2 || this.maxTeamSize === 1) species = 'ogerponhearthflame';
 			if (pokemon.length === 3 || this.maxTeamSize === 1) species = 'mew';
-			
+
 			let set: RandomTeamsTypes.RandomSet;
 
 			if (leadsRemaining) {

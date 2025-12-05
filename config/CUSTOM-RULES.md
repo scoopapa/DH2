@@ -45,7 +45,7 @@ Bans are just a `-` followed by the thing you want to ban.
 
 `- Future` - ban things that only appears in a future generation (such as Arceus in Gen 1)
 
-`- Custom` - ban made-up things other than CAP (such as Magikarp's Revenge, or Staff Bros moves)
+`- Custom` - (DEPRECATED) ban miscellaneous other things
 
 `- Nonexistent` - catch-all to ban all nonexistent Pokémon, items, etc. Includes: `- CAP, - Past, - Future, - LGPE`
 
@@ -83,9 +83,19 @@ Syntax is identical to bans, just replace `-` with `+`, like:
 
 More specific always trumps less specific:
 
-`- all Pokemon, + Uber, - Giratina, + Giratina-Altered` - allow only Ubers other than Giratina-Origin
+`- all pokemon, + Uber, - Giratina, + Giratina-Altered` - allow only Ubers other than Giratina-Origin
+
+`- all pokemon, + Giratina-Altered, - Giratina, + Uber` - allow only Ubers other than Giratina-Origin
 
 `- Nonexistent, + Necturna` - don't allow anything from outside the game, except the CAP Necturna
+
+Except `all pokemon`, which removes all bans/unbans of pokemon before it:
+
+`- all pokemon, + Pikachu, + Raichu` - allow Pikachu and Raichu
+
+`+ Pikachu, - all pokemon, + Raichu` - allow only Raichu
+
+(Note that `all pokemon` does not affect obtainability rules. `+ all pokemon` will not allow CAPs or anything like that.)
 
 For equally specific rules, the last rule wins:
 
@@ -128,7 +138,7 @@ Whitelisting
 
 Instead of a banlist, you can have a list of allowed things:
 
-`- all Pokemon, + Charmander, + Squirtle, + Bulbasaur` - allow only Kanto starters
+`- all pokemon, + Charmander, + Squirtle, + Bulbasaur` - allow only Kanto starters
 
 `- all moves, + move: Metronome` - allow only the move Metronome
 
