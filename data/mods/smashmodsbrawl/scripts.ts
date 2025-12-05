@@ -259,7 +259,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ampharos').learnset.parabolicchargeglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.sleeptalkglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.restglacemons = ['9L1'];
-
+		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];
+		this.modData('Learnsets', 'hatterene').learnset.peekaboo = ['9L1'];
 	},
 	pokemon: {
 		inherit: true,
