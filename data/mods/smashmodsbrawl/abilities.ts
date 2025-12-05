@@ -697,4 +697,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: -17,
 	},
+	healervaporemons: {
+		name: "Healer (VaporeMons)",
+	   onFaint(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'healer');
+	   },
+	   condition: {
+			onSwap(target) {
+				 if (!target.fainted) {
+					  const source = this.effectState.source;
+					  const damage = this.heal(target.baseMaxhp / 2, target, target);
+					  if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Healer', '[of] ' + this.effectState.source);
+					  target.side.removeSlotCondition(target, 'healer');
+				 }
+			},
+	   },
+		flags: {},
+		rating: 3,
+		shortDesc: "On faint, the next Pokemon sent out heals 50% of its max HP.",
+		num: 131,
+	},
 };
