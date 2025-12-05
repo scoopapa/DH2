@@ -995,4 +995,116 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		desc: "At the end of turn, boosts Bug's best stat. Consumable.",
 	},
+	costarmask: {
+		name: "Costar Mask",
+		spritenum: 760,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Costar')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Costar",
+		itemUser: ["Ogerpon-Costar"],
+		shortDesc: "If this Pokemon is Ogerpon-Costar, its attacks have 1.2x power.",
+		num: 2408,
+		gen: 9,
+	},
+	punchingglove: {
+		name: "Punching Glove",
+		spritenum: 0, // TODO
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Punching Glove boost');
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.flags['punch']) delete move.flags['contact'];
+		},
+		desc: "Holder's punch-based attacks have 1.3x power and do not make contact.",
+		num: 1884,
+		gen: 9,
+	},
+	razorclaw: {
+		name: "Razor Claw",
+		spritenum: 382,
+		fling: {
+			basePower: 80,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Razor Claw boost');
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.flags['slicing']) delete move.flags['contact'];
+		},
+		desc: "Holder's slicing-based attacks have 1.3x power and do not make contact.",
+		num: 326,
+		gen: 4,
+	},
+	razorfang: {
+		name: "Razor Fang",
+		spritenum: 383,
+		fling: {
+			basePower: 30,
+			volatileStatus: 'flinch',
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				this.debug('Razor Fang boost');
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.flags['bite']) delete move.flags['contact'];
+		},
+		desc: "Holder's biting-based attacks have 1.3x power and do not make contact.",
+		num: 327,
+		gen: 4,
+		isNonstandard: null,
+	},
+	lifeinsurance: {
+		name: "Life Insurance",
+		// consumable: true,
+		shortDesc: "When holder faints, replacement healed for 1/4 holder's HP, status cured.",
+		spritenum: 609,
+		fling: {
+			basePower: 30,
+			effect(target, source) {
+				this.heal(source.baseMaxhp / 4);
+				target.clearStatus();
+			},
+		},
+		onFaint(pokemon) {
+			pokemon.useItem();
+			pokemon.side.lifeinsurance = pokemon.maxhp / 4;
+			pokemon.side.addSlotCondition(pokemon, 'lifeinsurance');
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(target.side.lifeinsurance);
+					target.clearStatus();
+					this.add('-heal', target, this.effectState.hp, '[from] item: Life Insurance');
+					target.side.removeSlotCondition(target, 'lifeinsurance');
+				}
+			},
+		},
+	},
 };
