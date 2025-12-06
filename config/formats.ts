@@ -5217,7 +5217,8 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monster Hunter Randoms",
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5233,7 +5234,8 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5249,7 +5251,8 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5265,7 +5268,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Sprite Viewer'],
 		banlist: [],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
@@ -5294,7 +5297,8 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail'],
 		onBegin() {
@@ -5324,7 +5328,8 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Baton Pass Clause', 'Sprite Viewer'],
 		banlist: ['Shed Tail', 'Baton Pass'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
@@ -5355,7 +5360,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		bestOfDefault: true,
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer',
-			'Open Team Sheets'],
+			'Open Team Sheets', 'Sprite Viewer'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
 		onBegin() {
@@ -5384,7 +5389,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass'],
 		onBegin() {
@@ -5413,7 +5419,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
 		banlist: [ 'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Zinogrite',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor"],
@@ -5441,7 +5448,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
 		banlist: [ 'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Zinogrite',
 			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', "Ice-Armor"],

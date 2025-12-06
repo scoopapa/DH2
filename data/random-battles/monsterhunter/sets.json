@@ -2935,14 +2935,14 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Rage Ray", "Rest", "Refresh", "Infestation"], 
-                "abilities": ["Generalist"],
+                "abilities": ["Arena Trap"],
                 "teraTypes": ["Normal"]
 
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Psyshield Bash", "Fell Stinger", "Rest", "Refresh"], 
-                "abilities": ["Generalist"],
+                "abilities": ["Arena Trap"],
                 "teraTypes": ["Normal"]
 
             }
