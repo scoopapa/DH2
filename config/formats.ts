@@ -5218,7 +5218,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		team: 'random',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5235,7 +5235,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		team: 'random',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5252,7 +5252,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		team: 'random',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview', 'Sprite Viewer'],
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5268,7 +5268,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Sprite Viewer'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod'],
 		banlist: [],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
@@ -5298,7 +5298,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail'],
 		onBegin() {
@@ -5329,7 +5329,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Baton Pass Clause', 'Sprite Viewer'],
+			'Evasion Clause', 'Species Clause', 'Baton Pass Clause'],
 		banlist: ['Shed Tail', 'Baton Pass'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
@@ -5360,7 +5360,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		bestOfDefault: true,
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer',
-			'Open Team Sheets', 'Sprite Viewer'],
+			'Open Team Sheets'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
 		onBegin() {
@@ -5390,7 +5390,7 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass'],
 		onBegin() {
@@ -5420,7 +5420,7 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor"],
 		onBegin() {
@@ -5448,7 +5448,7 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', 'Sprite Viewer'],
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor"],
 		onBegin() {
