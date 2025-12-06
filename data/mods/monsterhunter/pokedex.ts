@@ -1720,7 +1720,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 130.4,
 		tags: ["Flying Wyvern"],
 	},
-	Pearlinas: {
+	pearlinas: {
 		num: 94,
 		name: "Pearlinas",
 		types: ["Fire", "Poison"],

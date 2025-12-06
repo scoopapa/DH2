@@ -28,6 +28,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.add('rule', 'Sprite Viewer: Displays sprites in chat');
 		},
 		onSwitchIn(pokemon) {
+            const shownSpecies = pokemon.illusion ? pokemon.illusion.species : pokemon.species;
 			if (!this.effectState[pokemon.species.id]) {
 				this.add('-message', `${pokemon.species.name}'s Sprite:`);
 				this.add(`raw|<img src="https://raw.githubusercontent.com/scoopapa/DH2/refs/heads/main/data/mods/monsterhunter/sprites/front/${pokemon.species.id}.png" height="96" width="96">`);
