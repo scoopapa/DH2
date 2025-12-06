@@ -455,11 +455,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			// Boost power if the target is frostbitten (frozen)
 			if (defender?.status === 'frz') {
 				this.debug('Frostnip boost');
-				return this.chainModify(1.3);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Frostnip",
-		shortDesc: "Against frostbitten foes: Moves have 1.3x power"
+		shortDesc: "Against frostbitten foes: Moves have 1.5x power"
 	},
 	frozencalamity: {
 		onStart(pokemon) {
@@ -1674,8 +1674,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifyMove(move) {
 			if (move.flags['punch']) delete move.flags['contact'];
 		},
-		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
-		shortDesc: "Punching attacks have 1.2x power, sans Sucker Pun. All Punch M. are contactless.",
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Iron Fist boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
+		shortDesc: "Punching attacks have 1.3x power, sans Sucker Pun. All Punch M. are contactless.",
 	},
 	icebody: {
 		inherit: true,

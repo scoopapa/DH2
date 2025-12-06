@@ -509,13 +509,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	blackveilhazak: {
 		tier: "MHOU",
 	},
-	silvalos: {
+	silverlos: {
 		tier: "MHOU",
 	},
-	goldthian: {
+	goldian: {
 		tier: "MHOU",
 	},
-	pinkthian: {
+	pinkian: {
 		tier: "MHUU",
 	},
 	goldeus: {
@@ -668,7 +668,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crysarios: {
 		tier: "MHRU",
 	},
-	glanaktor: {
+	glaciaktor: {
 		tier: "MHUU",
 	},
 	greensioth: {
@@ -677,7 +677,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zinogrehowling: {
 		tier: "MHUU",
 	},
-	palepinas: {
+	pearlinas: {
 		tier: "MHOU",
 	},
 	redzu: {
@@ -708,7 +708,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MEGAS",
 	},
 	frostfangbarioth: {
-		tier: "MEGAS",
+		tier: "MHRUBL",
 	},
 	redhelmarzuros: {
 		tier: "MEGAS",
