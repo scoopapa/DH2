@@ -2698,7 +2698,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scaryface: ["9L1"],
 			shadowball: ["9L1"],
 			snarl: ["9L1"],
-			strengthsap: ["9L1"],
 			substitute: ["9L1"],
 			suckerpunch: ["9L1"],
 			taunt: ["9L1"],
