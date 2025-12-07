@@ -317,14 +317,14 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Dragon Energy", "Fiery Wrath", "Thunderbolt", "Eruption"],
-                "abilities": ["Desolate Land"],
+                "movepool": ["Dragon Energy", "Fiery Wrath", "Thunderbolt", "Eruption", "Aeroblast"],
+                "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Pyro Ball", "Dragon Ascent", "Dragon Hammer", "Earthquake", "Recover"],
-                "abilities": ["Desolate Land"],
+                "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -1007,7 +1007,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Apex Burst", "Draco Meteor", "Healing Wish", "Defog", "Strength Sap"],
+                "movepool": ["Apex Burst", "Draco Meteor", "Healing Wish", "Defog", "Recover"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
             }
