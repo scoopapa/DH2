@@ -9412,6 +9412,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aquatail: ["9L1"],
 			bleakwindstorm: ["9L1"],
 			charge: ["9L1"],
+			swift: ["9L1"],
 			chillingwater: ["9L1"],
 			coil: ["9L1"],
 			conversion: ["9L1"],
