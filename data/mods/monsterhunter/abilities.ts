@@ -1310,14 +1310,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		onAnyModifyDef(def, target) {
+		onAnyModifyDef(def, target, source, effect) {
+			// If the target itself has Rusted Gale, don't modify
 			if (target.hasAbility('Rusted Gale')) return def;
+
+			// If the source of the effect is the Rusted Gale holder, skip self-affliction
+			const holder = this.effectState?.target;
+			if (holder && target === holder) return def;
+
+			// Steel-types: keep Rusted volatile but no Defense drop
 			if (target.hasType('Steel')) {
-				return def; // Steel-types keep Rusted volatile once applied
-			} else {
-				this.debug('Rusted Gale Defense drop');
-				return this.chainModify(0.75);
+				return def;
 			}
+
+			// All other Pokémon: Defense reduced
+			this.debug('Rusted Gale Defense drop');
+			return this.chainModify(0.75);
 		},
 		onSwitchOut(pokemon) {
 			if (pokemon.volatiles['rusted']) {
