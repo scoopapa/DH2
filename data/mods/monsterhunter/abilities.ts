@@ -1759,7 +1759,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	sandforce: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([5325, 4096]);
@@ -1773,7 +1773,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	sandrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				return this.chainModify(2);
 			}
 		},
@@ -1784,32 +1784,36 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	slushrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snow', 'absolutezero'])) {
+			if (
+				this.field.isWeather('hail') ||
+				this.field.isWeather('snow') ||
+				this.field.isWeather('absolutezero')
+			) {
 				return this.chainModify(2);
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (type === 'hail'|| type === 'absolutezero') return false;
+			if (type === 'hail' || type === 'absolutezero') return false;
 		},
 	},
 	sandveil: {
 		inherit: true,
 		onSetStatus(status, target, source, effect) {
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Sand Veil');
 				}
 				return false;
 			}
 		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && this.field.isWeather('sandstorm', 'dustdevil')) {
+	onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil'))) {
 				this.add('-immune', target, '[from] ability: Sand Veil');
 				return null;
 			}
 		},
 		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				return this.chainModify(1.3);
 			}
 		},

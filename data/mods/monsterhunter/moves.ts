@@ -2307,7 +2307,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
