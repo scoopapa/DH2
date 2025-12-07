@@ -307,7 +307,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	conquescape: {
-		tier: "Unviable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	daiyakuza: {
@@ -561,6 +561,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Unviable",
 		doublesTier: "DOU",
 	},
+	solarbeanprimal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
 	
 	hiveweb: {
 		tier: "Unviable",
@@ -579,7 +583,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	carnivineif: {
-		tier: "Unviable",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	grumpig: {
