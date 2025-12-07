@@ -2671,6 +2671,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aurasphere: ["9L1"],
 			bodyslam: ["9L1"],
 			breakingswipe: ["9L1"],
+			strengthsap: ["9L1"],
 			calmmind: ["9L1"],
 			brutalswing: ["9L1"],
 			cosmicpower: ["9L1"],
