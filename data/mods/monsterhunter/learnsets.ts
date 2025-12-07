@@ -6938,6 +6938,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dragonrush: ["9L1"],
 			electricterrain: ["9L1"],
 			electrodrift: ["9L1"],
+			taunt: ["9L1"],
+			snatch: ["9L1"],
 			extremespeed: ["9L1"],
 			flamecharge: ["9L1"],
 			focusblast: ["9L1"],
