@@ -8844,6 +8844,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mentalload: ["9L1"],
 			cloakingglow: ["9L1"],
 			cosmicpower: ["9L1"],
+			dragonpulse: ["9L1"],
 			darkpulse: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			discharge: ["9L1"],
