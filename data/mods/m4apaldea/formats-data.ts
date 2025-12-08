@@ -58,4 +58,5 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mausholdfourmega: {tier: "Mega"},
 	miniormega: {tier: "Mega"},
 	miniormegameteor: {tier: "Mega"},
+	emboarmegay: {tier: "Mega"},
 };
