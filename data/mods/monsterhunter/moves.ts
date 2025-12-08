@@ -372,7 +372,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Lowers SpA by 1; Raises Spe by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
 		selfBoost: {
 			boosts: {
 				spa: -1,
@@ -662,7 +662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	boulderpunch: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 85,
 		category: "Physical",
 		name: "Boulder Punch",
 		pp: 15,
@@ -2307,7 +2307,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));

@@ -2671,6 +2671,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aurasphere: ["9L1"],
 			bodyslam: ["9L1"],
 			breakingswipe: ["9L1"],
+			strengthsap: ["9L1"],
 			calmmind: ["9L1"],
 			brutalswing: ["9L1"],
 			cosmicpower: ["9L1"],
@@ -2698,7 +2699,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scaryface: ["9L1"],
 			shadowball: ["9L1"],
 			snarl: ["9L1"],
-			strengthsap: ["9L1"],
 			substitute: ["9L1"],
 			suckerpunch: ["9L1"],
 			taunt: ["9L1"],
@@ -5704,7 +5704,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			flamethrower: ["9L1"],
 			flareblitz: ["9L1"],
 			foulplay: ["9L1"],
-			fusionflare: ["9L1"],
 			growl: ["9L1"],
 			grudge: ["9L1"],
 			hammerarm: ["9L1"],
@@ -5736,12 +5735,14 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 			taunt: ["9L1"],
 			terablast: ["9L1"],
-			vcreate: ["9L1"],
 			willowisp: ["9L1"],
 			wish: ["9L1"],
 			crimsondawn: ["9S0"],
 			powderkeg: ["9L1"],
 			ancestralthunder: ["9S1"],
+			hurricane: ["9S1"],
+			aeroblast: ["9S1"],
+			heatwave: ["9S1"],
 			endure: ["9L1"],
 		},
 		eventData: [
@@ -6937,6 +6938,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dragonrush: ["9L1"],
 			electricterrain: ["9L1"],
 			electrodrift: ["9L1"],
+			taunt: ["9L1"],
+			snatch: ["9L1"],
 			extremespeed: ["9L1"],
 			flamecharge: ["9L1"],
 			focusblast: ["9L1"],
@@ -8843,6 +8846,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mentalload: ["9L1"],
 			cloakingglow: ["9L1"],
 			cosmicpower: ["9L1"],
+			dragonpulse: ["9L1"],
 			darkpulse: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			discharge: ["9L1"],
@@ -9410,6 +9414,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aquatail: ["9L1"],
 			bleakwindstorm: ["9L1"],
 			charge: ["9L1"],
+			swift: ["9L1"],
 			chillingwater: ["9L1"],
 			coil: ["9L1"],
 			conversion: ["9L1"],
@@ -10489,7 +10494,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			toxic: ["9L1"],
 		},
 	},
-	silvalos: {
+	silverlos: {
 		learnset: {
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -10561,7 +10566,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wingattack: ["9L1"],
 		},
 	},
-	goldthian: {
+	goldian: {
 		learnset: {
 			aerialace: ["9L1"],
 			attract: ["9L1"],
@@ -11628,7 +11633,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wingattack: ["9L1"],
 		},
 	},
-	pinkthian: {
+	pinkian: {
 		learnset: {
 			aerialace: ["9L1"],
 			aromaticmist: ["9L1"],
@@ -13379,7 +13384,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mentalload: ["9L1"],
 		},
 	},
-	glanaktor: {
+	glaciaktor: {
 		learnset: {
 			acrobatics: ["9L1"],
 			agility: ["9L1"],
@@ -13577,7 +13582,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["9L1"],
 		},
 	},
-	palepinas: {
+	pearlinas: {
 		learnset: {
 			endure: ["9L1"],
 			facade: ["9L1"],
