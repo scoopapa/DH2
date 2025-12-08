@@ -1292,38 +1292,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-ability', pokemon, 'Rusted Gale');
 			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
 
-			// Apply Rusted immediately to Steel-type foes
 			for (const target of pokemon.foes()) {
-				if (target.hasType('Steel') && !target.volatiles['rusted']) {
+				if (target.hasType('Steel') && !target.volatiles['rusted'] && target !== pokemon) {
 					target.addVolatile('rusted');
 					this.add('-message', `${target.name} is afflicted by rust!`);
 				}
 			}
 		},
 		onSwitchIn(pokemon) {
-			// Apply Rusted to Steel-types that enter while Rusted Gale is active
 			const holder = this.effectState.target;
 			if (holder && holder.isActive && holder.hasAbility('Rusted Gale')) {
-				if (pokemon.hasType('Steel') && !pokemon.volatiles['rusted']) {
+				if (pokemon !== holder && pokemon.hasType('Steel') && !pokemon.volatiles['rusted']) {
 					pokemon.addVolatile('rusted');
 					this.add('-message', `${pokemon.name} is afflicted by rust!`);
 				}
 			}
 		},
 		onAnyModifyDef(def, target, source, effect) {
-			// If the target itself has Rusted Gale, don't modify
 			if (target.hasAbility('Rusted Gale')) return def;
-
-			// If the source of the effect is the Rusted Gale holder, skip self-affliction
 			const holder = this.effectState?.target;
 			if (holder && target === holder) return def;
 
-			// Steel-types: keep Rusted volatile but no Defense drop
-			if (target.hasType('Steel')) {
-				return def;
-			}
+			if (target.hasType('Steel')) return def;
 
-			// All other Pokémon: Defense reduced
 			this.debug('Rusted Gale Defense drop');
 			return this.chainModify(0.75);
 		},
@@ -1343,8 +1334,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Rusted Gale",
-		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. All effects end when the holder leaves the field.",
-		shortDesc: "Across the battlefield: Steel-types become Rusted; others have DEF lowered by x0.75.",
+		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune. All effects end when the holder leaves the field.",
+		shortDesc: "Steel-types become Rusted; others DEF x0.75. Holder immune.",
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
