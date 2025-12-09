@@ -9,6 +9,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	serperior: {
 		inherit: true,
+		baseStats: {hp: 75, atk: 90, def: 95, spa: 70, spd: 95, spe: 103},
 		unreleasedHidden: null,
 	},
 	tepig: {
@@ -63,7 +64,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simisage: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 100, def: 63, spa: 100, spd: 63, spe: 102},
+		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
 		abilities: {0: "Gluttony", 1: "Leaf Guard", H: "Overgrow"},
 		maleOnlyHidden: null,
 	},
@@ -74,7 +75,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simisear: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 100, def: 63, spa: 100, spd: 63, spe: 102},
+		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
 		abilities: {0: "Gluttony", 1: "Solar Power", H: "Blaze"},
 		maleOnlyHidden: null,
 	},
@@ -85,7 +86,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simipour: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 100, def: 63, spa: 100, spd: 63, spe: 102},
+		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
 		abilities: {0: "Gluttony", 1: "Rain Dish", H: "Torrent"},
 		maleOnlyHidden: null,
 	},
