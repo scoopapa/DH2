@@ -1787,19 +1787,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (type === 'hail' || type === 'absolutezero') return false;
 		},
 	},
-	sandveil: {
-		inherit: true,
+	sandcloak: {
 		onSetStatus(status, target, source, effect) {
 			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] ability: Sand Veil');
+					this.add('-immune', target, '[from] ability: Sand Cloak');
 				}
 				return false;
 			}
 		},
-	onTryAddVolatile(status, target) {
+		onTryAddVolatile(status, target) {
 			if (status.id === 'yawn' && (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil'))) {
-				this.add('-immune', target, '[from] ability: Sand Veil');
+				this.add('-immune', target, '[from] ability: Sand Cloak');
 				return null;
 			}
 		},
@@ -1812,6 +1811,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (type === 'sandstorm'|| type === 'dustdevil') return false;
 		},
 		onModifyAccuracy(accuracy) {},
+		flags: {breakable: 1},
+		name: "Sand Cloak",
+		rating: 1.5,
+		num: 8,
 		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "Under Sandstorm; Def is 1.3x. Cannot be statused, including Rest.",
 	},
