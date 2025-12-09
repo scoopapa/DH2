@@ -10107,6 +10107,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			agility: ["9L1"],
 			airslash: ["9L1"],
 			chipaway: ["9L1"],
+			nightshade: ["9L1"],
 			amnesia: ["9L1"],
 			babydolleyes: ["9L1"],
 			batonpass: ["9L1"],
