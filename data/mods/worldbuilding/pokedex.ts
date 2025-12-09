@@ -52,4 +52,20 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Natural Cure"},
 	},
+	morida: {
+		num: 9003,
+		name: "Morida",
+		types: ["Grass"],
+		baseStats: {hp: 85, atk: 115, def: 100, spa: 90, spd: 75, spe: 115},
+		abilities: {0: "Pressure", H: "Sap Sipper"},
+		weightkg: 184.5,
+	},
+	sunshu: {
+		num: 9004,
+		name: "Sunshu",
+		types: ["Ground"],
+		baseStats: {hp: 105, atk: 115, def: 95, spa: 75, spd: 75, spe: 115},
+		abilities: {0: "Pressure", H: "Inner Focus"},
+		weightkg: 183.5,
+	},
 };
