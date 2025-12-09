@@ -1334,8 +1334,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Rusted Gale",
-		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune. All effects end when the holder leaves the field.",
-		shortDesc: "Steel-types become Rusted; others DEF x0.75. Holder immune.",
+		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune to Rusted and the Defense drop. All effects end when the holder leaves the field.",
+		shortDesc: "Steel-types become Rusted; others DEF x0.75.",
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
