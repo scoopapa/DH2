@@ -65,7 +65,19 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Sunshu",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 115, def: 95, spa: 75, spd: 75, spe: 115},
-		abilities: {0: "Pressure", H: "Inner Focus"},
+		abilities: {0: "Pressure", H: "Earth Eater"},
 		weightkg: 183.5,
+	},
+	raikou: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Volt Absorb"},
+	},
+	entei: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Flash Fire"},
+	},
+	suicune: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Water Absorb"},
 	},
 };
