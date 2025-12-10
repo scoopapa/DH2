@@ -1292,38 +1292,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-ability', pokemon, 'Rusted Gale');
 			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
 
-			// Apply Rusted immediately to Steel-type foes
 			for (const target of pokemon.foes()) {
-				if (target.hasType('Steel') && !target.volatiles['rusted']) {
+				if (target.hasType('Steel') && !target.volatiles['rusted'] && target !== pokemon) {
 					target.addVolatile('rusted');
 					this.add('-message', `${target.name} is afflicted by rust!`);
 				}
 			}
 		},
 		onSwitchIn(pokemon) {
-			// Apply Rusted to Steel-types that enter while Rusted Gale is active
 			const holder = this.effectState.target;
 			if (holder && holder.isActive && holder.hasAbility('Rusted Gale')) {
-				if (pokemon.hasType('Steel') && !pokemon.volatiles['rusted']) {
+				if (pokemon !== holder && pokemon.hasType('Steel') && !pokemon.volatiles['rusted']) {
 					pokemon.addVolatile('rusted');
 					this.add('-message', `${pokemon.name} is afflicted by rust!`);
 				}
 			}
 		},
 		onAnyModifyDef(def, target, source, effect) {
-			// If the target itself has Rusted Gale, don't modify
 			if (target.hasAbility('Rusted Gale')) return def;
-
-			// If the source of the effect is the Rusted Gale holder, skip self-affliction
 			const holder = this.effectState?.target;
 			if (holder && target === holder) return def;
 
-			// Steel-types: keep Rusted volatile but no Defense drop
-			if (target.hasType('Steel')) {
-				return def;
-			}
+			if (target.hasType('Steel')) return def;
 
-			// All other Pokémon: Defense reduced
 			this.debug('Rusted Gale Defense drop');
 			return this.chainModify(0.75);
 		},
@@ -1343,8 +1334,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Rusted Gale",
-		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. All effects end when the holder leaves the field.",
-		shortDesc: "Across the battlefield: Steel-types become Rusted; others have DEF lowered by x0.75.",
+		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune to Rusted and the Defense drop. All effects end when the holder leaves the field.",
+		shortDesc: "Steel-types become Rusted; others DEF x0.75.",
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
@@ -1796,19 +1787,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (type === 'hail' || type === 'absolutezero') return false;
 		},
 	},
-	sandveil: {
-		inherit: true,
+	sandcloak: {
 		onSetStatus(status, target, source, effect) {
 			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] ability: Sand Veil');
+					this.add('-immune', target, '[from] ability: Sand Cloak');
 				}
 				return false;
 			}
 		},
-	onTryAddVolatile(status, target) {
+		onTryAddVolatile(status, target) {
 			if (status.id === 'yawn' && (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil'))) {
-				this.add('-immune', target, '[from] ability: Sand Veil');
+				this.add('-immune', target, '[from] ability: Sand Cloak');
 				return null;
 			}
 		},
@@ -1821,6 +1811,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (type === 'sandstorm'|| type === 'dustdevil') return false;
 		},
 		onModifyAccuracy(accuracy) {},
+		flags: {breakable: 1},
+		name: "Sand Cloak",
+		rating: 1.5,
+		num: 8,
 		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "Under Sandstorm; Def is 1.3x. Cannot be statused, including Rest.",
 	},
