@@ -305,7 +305,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			odorsleuth: ["9L1"],
 			roar: ["9L1"],
 			sandstorm: ["9L1"],
-			sleeptalk: ["9L1"],
 			spikes: ["9L1"],
 			taunt: ["9L1"],
 			torment: ["9L1"],
