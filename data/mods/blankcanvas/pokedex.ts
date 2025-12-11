@@ -984,7 +984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	psyrex: {
 		num: 9122,
-		species: "Psyrex",
+		name: "Psyrex",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 83, atk: 118, def: 80, spa: 40, spd: 95, spe: 86},
 		abilities: {0: "Mirror Armor", 1: "Illuminate", H: "Magic Bounce"},
@@ -992,7 +992,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	phantamp: {
 		num: 9123,
-		species: "Phantamp",
+		name: "Phantamp",
 		types: ["Electric", "Ghost"],
 		baseStats: {hp: 60, atk: 93, def: 50, spa: 90, spd: 50, spe: 116},
 		abilities: {0: "Electric Surge"},
@@ -1000,7 +1000,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	waroach: {
 		num: 9124,
-		species: "Waroach",
+		name: "Waroach",
 		types: ["Fighting", "Bug"],
 		baseStats: {hp: 70, atk: 100, def: 70, spa: 90, spd: 70, spe: 100},
 		abilities: {0: "Swarm", 1: "Scrappy", H: "Download"},
@@ -1008,7 +1008,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	wyldemoer: {
 		num: 9125,
-		species: "Wyldemoer",
+		name: "Wyldemoer",
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 50, atk: 45, def: 95, spa: 85, spd: 90, spe: 72},
 		abilities: {0: "Unburden"},
