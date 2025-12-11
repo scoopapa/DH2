@@ -1440,6 +1440,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'suicune').learnset.hydrosteam = ['9L1'];
     this.modData('Learnsets', 'suicune').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'suicune').learnset.flipturn = ['9L1'];
+    this.modData('Learnsets', 'tyranitar').learnset.scorchingsands = ['9L1']; // ZA addition
     this.modData('Learnsets', 'celebi').learnset.revivalblessing = ['9L1'];
     this.modData('Learnsets', 'celebi').learnset.timeparadox = ['9L1'];
 
