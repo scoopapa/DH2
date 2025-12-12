@@ -75,7 +75,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	raichualola: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	clefairy: {
 		tier: "NFE ZA",
@@ -123,7 +123,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "LC ZA",
 	},
 	slowpokegalar: {
-		tier: "Transfer",
+		tier: "LC ZA",
 	},
 	slowbro: {
 		tier: "FE ZA",
@@ -132,7 +132,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	slowbrogalar: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	gastly: {
 		tier: "LC ZA",
@@ -279,7 +279,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	slowkinggalar: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	steelix: {
 		tier: "FE ZA",
@@ -696,7 +696,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	greninjabond: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	bunnelby: {
 		tier: "LC ZA",
@@ -861,13 +861,13 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "NFE ZA",
 	},
 	sliggoohisui: {
-		tier: "Transfer",
+		tier: "NFE ZA",
 	},
 	goodra: {
 		tier: "FE ZA",
 	},
 	goodrahisui: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	klefki: {
 		tier: "FE ZA",
@@ -909,7 +909,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FE ZA",
 	},
 	avalugghisui: {
-		tier: "Transfer",
+		tier: "FE ZA",
 	},
 	noibat: {
 		tier: "LC ZA",
