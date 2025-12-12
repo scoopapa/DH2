@@ -918,8 +918,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	tatsugiri: {
 		inherit: true,
-		otherFormes: [/*"Tatsugiri-Droopy", "Tatsugiri-Stretchy", */"Tatsugiri-Mega"/*, "Tatsugiri-Droopy-Mega", "Tatsugiri-Stretchy-Mega"*/],
-		formeOrder: ["Tatsugiri, "/*"Tatsugiri-Droopy", "Tatsugiri-Stretchy", */"Tatsugiri-Mega"/*, "Tatsugiri-Droopy-Mega", "Tatsugiri-Stretchy-Mega"*/],
+		otherFormes: ["Tatsugiri-Mega"],
+		formeOrder: ["Tatsugiri", "Tatsugiri-Mega"],
 	},
 	tatsugirimega: {
 		num: 978,
