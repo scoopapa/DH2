@@ -2,7 +2,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	// commenting out every mon in gen 9, their new moves are in scripts.ts
 	/* bulbasaur: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			vinewhip: ["9L1"],
@@ -35,7 +34,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ivysaur: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			vinewhip: ["9L1"],
@@ -69,7 +67,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	venusaur: {
 		learnset: {
-			inherit: true,
 			powerwhip: ["9L1"],
 			tackle: ["9L1"],
 			growl: ["9L1"],
@@ -109,7 +106,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	charmander: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			ember: ["9L1"],
@@ -149,7 +145,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	charmeleon: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			ember: ["9L1"],
@@ -189,7 +184,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	charizard: {
 		learnset: {
-			inherit: true,
 			fireblast: ["9L1"],
 			airslash: ["9L1"],
 			tackle: ["9L1"],
@@ -237,7 +231,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	squirtle: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			watergun: ["9L1"],
@@ -277,7 +270,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	wartortle: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			watergun: ["9L1"],
@@ -317,7 +309,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	blastoise: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			watergun: ["9L1"],
@@ -367,7 +358,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	weedle: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			stringshot: ["9L1"],
 			electroweb: ["9L1"],
@@ -375,7 +365,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	kakuna: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			stringshot: ["9L1"],
 			electroweb: ["9L1"],
@@ -385,7 +374,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	beedrill: {
 		learnset: {
-			inherit: true,
 			pinmissile: ["9L1"],
 			poisonsting: ["9L1"],
 			stringshot: ["9L1"],
@@ -420,7 +408,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pidgey: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			gust: ["9L1"],
@@ -448,7 +435,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pidgeotto: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			gust: ["9L1"],
@@ -476,7 +462,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pidgeot: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			gust: ["9L1"],
@@ -506,7 +491,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* ekans: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			poisonsting: ["9L1"],
@@ -541,7 +525,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	arbok: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			poisonsting: ["9L1"],
@@ -580,7 +563,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, 
 	pikachu: {
 		learnset: {
-			inherit: true,
 			tailwhip: ["9L1"],
 			growl: ["9L1"],
 			thundershock: ["9L1"],
@@ -617,7 +599,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	raichu: {
 		learnset: {
-			inherit: true,
 			thunderpunch: ["9L1"],
 			eerieimpulse: ["9L1"],
 			tailwhip: ["9L1"],
@@ -657,7 +638,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	raichualola: {
 		learnset: {
-			inherit: true,
 			psychic: ["9L1"],
 			eerieimpulse: ["9L1"],
 			tailwhip: ["9L1"],
@@ -700,7 +680,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	clefairy: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			splash: ["9L1"],
 			fairywind: ["9L1"],
@@ -752,7 +731,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	clefable: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			splash: ["9L1"],
 			fairywind: ["9L1"],
@@ -807,7 +785,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	abra: {
 		learnset: {
-			inherit: true,
 			teleport: ["9L1"],
 			firepunch: ["9L1"],
 			icepunch: ["9L1"],
@@ -835,7 +812,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	kadabra: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			psybeam: ["9L1"],
 			teleport: ["9L1"],
@@ -869,7 +845,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	alakazam: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			psybeam: ["9L1"],
 			teleport: ["9L1"],
@@ -906,7 +881,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	machop: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			rocksmash: ["9L1"],
 			focusenergy: ["9L1"],
@@ -943,7 +917,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	machoke: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			rocksmash: ["9L1"],
 			focusenergy: ["9L1"],
@@ -980,7 +953,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	machamp: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			rocksmash: ["9L1"],
 			focusenergy: ["9L1"],
@@ -1021,7 +993,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* bellsprout: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			growth: ["9L1"],
 			infestation: ["9L1"],
@@ -1051,7 +1022,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	weepinbell: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			growth: ["9L1"],
 			infestation: ["9L1"],
@@ -1082,7 +1052,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	victreebel: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			growth: ["9L1"],
 			infestation: ["9L1"],
@@ -1116,7 +1085,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, 
 	slowpoke: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			confusion: ["9L1"],
 			curse: ["9L1"],
@@ -1157,7 +1125,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slowpokegalar: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			confusion: ["9L1"],
 			curse: ["9L1"],
@@ -1198,7 +1165,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slowbro: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			confusion: ["9L1"],
 			curse: ["9L1"],
@@ -1248,7 +1214,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slowbrogalar: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			confusion: ["9L1"],
 			curse: ["9L1"],
@@ -1303,7 +1268,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gastly: {
 		learnset: {
-			inherit: true,
 			confuseray: ["9L1"],
 			lick: ["9L1"],
 			hypnosis: ["9L1"],
@@ -1336,7 +1300,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	haunter: {
 		learnset: {
-			inherit: true,
 			confuseray: ["9L1"],
 			lick: ["9L1"],
 			hypnosis: ["9L1"],
@@ -1377,7 +1340,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gengar: {
 		learnset: {
-			inherit: true,
 			confuseray: ["9L1"],
 			lick: ["9L1"],
 			hypnosis: ["9L1"],
@@ -1422,7 +1384,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	onix: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			rockthrow: ["9L1"],
 			harden: ["9L1"],
@@ -1452,7 +1413,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	kangaskhan: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			growl: ["9L1"],
@@ -1502,7 +1462,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	staryu: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			watergun: ["9L1"],
@@ -1539,7 +1498,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	starmie: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			takedown: ["9L1"],
 			harden: ["9L1"],
@@ -1587,7 +1545,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* scyther: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			quickattack: ["9L1"],
 			wingattack: ["9L1"],
@@ -1619,7 +1576,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	pinsir: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			focusenergy: ["9L1"],
@@ -1652,7 +1608,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* magikarp: {
 		learnset: {
-			inherit: true,
 			splash: ["9L1"],
 			tackle: ["9L1"],
 			hydropump: ["9L1"],
@@ -1660,7 +1615,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gyarados: {
 		learnset: {
-			inherit: true,
 			bite: ["9L1"],
 			watergun: ["9L1"],
 			whirlpool: ["9L1"],
@@ -1706,7 +1660,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	eevee: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			growl: ["9L1"],
@@ -1732,7 +1685,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	vaporeon: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -1777,7 +1729,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	jolteon: {
 		learnset: {
-			inherit: true,
 			thundershock: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -1820,7 +1771,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	flareon: {
 		learnset: {
-			inherit: true,
 			ember: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -1862,7 +1812,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	aerodactyl: {
 		learnset: {
-			inherit: true,
 			bite: ["9L1"],
 			steelwing: ["9L1"],
 			supersonic: ["9L1"],
@@ -1902,7 +1851,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* dratini: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			twister: ["9L1"],
@@ -1941,7 +1889,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	dragonair: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			twister: ["9L1"],
@@ -1980,7 +1927,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	dragonite: {
 		learnset: {
-			inherit: true,
 			hurricane: ["9L1"],
 			firepunch: ["9L1"],
 			thunderpunch: ["9L1"],
@@ -2038,7 +1984,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	mewtwo: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			swift: ["9L1"],
 			psybeam: ["9L1"],
@@ -2103,7 +2048,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	chikorita: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			leafage: ["9L1"],
@@ -2137,7 +2081,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	bayleef: {
 		learnset: {
-			inherit: true,
 			gigadrain: ["9L1"],
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
@@ -2173,7 +2116,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	meganium: {
 		learnset: {
-			inherit: true,
 			leafblade: ["9L1"],
 			gigadrain: ["9L1"],
 			tackle: ["9L1"],
@@ -2214,7 +2156,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	totodile: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			watergun: ["9L1"],
@@ -2252,7 +2193,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	croconaw: {
 		learnset: {
-			inherit: true,
 			slash: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -2293,7 +2233,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	feraligatr: {
 		learnset: {
-			inherit: true,
 			crunch: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -2340,7 +2279,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	spinarak: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			stringshot: ["9L1"],
 			absorb: ["9L1"],
@@ -2374,7 +2312,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ariados: {
 		learnset: {
-			inherit: true,
 			swordsdance: ["9L1"],
 			poisonsting: ["9L1"],
 			stringshot: ["9L1"],
@@ -2412,7 +2349,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pichu: {
 		learnset: {
-			inherit: true,
 			tailwhip: ["9L1"],
 			growl: ["9L1"],
 			thundershock: ["9L1"],
@@ -2448,7 +2384,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	cleffa: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			splash: ["9L1"],
 			fairywind: ["9L1"],
@@ -2496,7 +2431,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	mareep: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			thundershock: ["9L1"],
@@ -2524,7 +2458,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	flaaffy: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			thundershock: ["9L1"],
@@ -2556,7 +2489,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ampharos: {
 		learnset: {
-			inherit: true,
 			thunderpunch: ["9L1"],
 			eerieimpulse: ["9L1"],
 			tackle: ["9L1"],
@@ -2600,7 +2532,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	espeon: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -2642,7 +2573,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	umbreon: {
 		learnset: {
-			inherit: true,
 			snarl: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -2684,7 +2614,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slowking: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			tackle: ["9L1"],
 			curse: ["9L1"],
@@ -2735,7 +2664,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slowkinggalar: {
 		learnset: {
-			inherit: true,
 			toxic: ["9L1"],
 			confusion: ["9L1"],
 			tackle: ["9L1"],
@@ -2793,7 +2721,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	steelix: {
 		learnset: {
-			inherit: true,
 			irontail: ["9L1"],
 			tackle: ["9L1"],
 			rockthrow: ["9L1"],
@@ -2835,7 +2762,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* scizor: {
 		learnset: {
-			inherit: true,
 			bulletpunch: ["9L1"],
 			leer: ["9L1"],
 			quickattack: ["9L1"],
@@ -2874,7 +2800,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	heracross: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			endure: ["9L1"],
@@ -2918,7 +2843,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	delibird: {
 		learnset: {
-			inherit: true,
 			peck: ["9L1"],
 			icywind: ["9L1"],
 			aerialace: ["9L1"],
@@ -2946,7 +2870,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	skarmory: {
 		learnset: {
-			inherit: true,
 			airslash: ["9L1"],
 			leer: ["9L1"],
 			peck: ["9L1"],
@@ -2988,7 +2911,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	houndour: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			ember: ["9L1"],
 			tackle: ["9L1"],
@@ -3022,7 +2944,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	houndoom: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			ember: ["9L1"],
 			nastyplot: ["9L1"],
@@ -3061,7 +2982,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	larvitar: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			rockthrow: ["9L1"],
@@ -3098,7 +3018,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pupitar: {
 		learnset: {
-			inherit: true,
 			irondefense: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -3136,7 +3055,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	tyranitar: {
 		learnset: {
-			inherit: true,
 			irondefense: ["9L1"],
 			darkpulse: ["9L1"],
 			tackle: ["9L1"],
@@ -3195,7 +3113,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ralts: {
 		learnset: {
-			inherit: true,
 			growl: ["9L1"],
 			disarmingvoice: ["9L1"],
 			confusion: ["9L1"],
@@ -3235,7 +3152,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	kirlia: {
 		learnset: {
-			inherit: true,
 			growl: ["9L1"],
 			disarmingvoice: ["9L1"],
 			confusion: ["9L1"],
@@ -3276,7 +3192,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gardevoir: {
 		learnset: {
-			inherit: true,
 			dazzlinggleam: ["9L1"],
 			growl: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -3325,7 +3240,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	sableye: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			shadowsneak: ["9L1"],
@@ -3378,7 +3292,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	mawile: {
 		learnset: {
-			inherit: true,
 			bite: ["9L1"],
 			fairywind: ["9L1"],
 			faketears: ["9L1"],
@@ -3427,7 +3340,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aron: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			screech: ["9L1"],
 			harden: ["9L1"],
@@ -3459,7 +3371,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	lairon: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			screech: ["9L1"],
 			harden: ["9L1"],
@@ -3492,7 +3403,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aggron: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			screech: ["9L1"],
 			harden: ["9L1"],
@@ -3548,7 +3458,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* meditite: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			workup: ["9L1"],
 			detect: ["9L1"],
@@ -3588,7 +3497,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	medicham: {
 		learnset: {
-			inherit: true,
 			firepunch: ["9L1"],
 			icepunch: ["9L1"],
 			thunderpunch: ["9L1"],
@@ -3631,7 +3539,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	electrike: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			quickattack: ["9L1"],
@@ -3666,7 +3573,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	manectric: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			quickattack: ["9L1"],
@@ -3705,7 +3611,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	roselia: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			absorb: ["9L1"],
 			growth: ["9L1"],
@@ -3740,7 +3645,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	carvanha: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			aquajet: ["9L1"],
 			focusenergy: ["9L1"],
@@ -3772,7 +3676,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	sharpedo: {
 		learnset: {
-			inherit: true,
 			slash: ["9L1"],
 			leer: ["9L1"],
 			nightslash: ["9L1"],
@@ -3812,7 +3715,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 /*	numel: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			ember: ["9L1"],
@@ -3851,7 +3753,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	camerupt: {
 		learnset: {
-			inherit: true,
 			rockslide: ["9L1"],
 			tackle: ["9L1"],
 			growl: ["9L1"],
@@ -3893,7 +3794,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	swablu: {
 		learnset: {
-			inherit: true,
 			growl: ["9L1"],
 			peck: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -3929,7 +3829,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	altaria: {
 		learnset: {
-			inherit: true,
 			dragonpulse: ["9L1"],
 			growl: ["9L1"],
 			peck: ["9L1"],
@@ -3975,7 +3874,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	shuppet: {
 		learnset: {
-			inherit: true,
 			screech: ["9L1"],
 			lick: ["9L1"],
 			confuseray: ["9L1"],
@@ -4008,7 +3906,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	banette: {
 		learnset: {
-			inherit: true,
 			screech: ["9L1"],
 			lick: ["9L1"],
 			slash: ["9L1"],
@@ -4045,7 +3942,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	absol: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			quickattack: ["9L1"],
 			knockoff: ["9L1"],
@@ -4091,7 +3987,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* snorunt: {
 		learnset: {
-			inherit: true,
 			headbutt: ["9L1"],
 			leer: ["9L1"],
 			bite: ["9L1"],
@@ -4116,7 +4011,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	glalie: {
 		learnset: {
-			inherit: true,
 			freezedry: ["9L1"],
 			headbutt: ["9L1"],
 			leer: ["9L1"],
@@ -4149,7 +4043,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	bagon: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			bite: ["9L1"],
 			ember: ["9L1"],
@@ -4185,7 +4078,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	shelgon: {
 		learnset: {
-			inherit: true,
 			protect: ["9L1"],
 			leer: ["9L1"],
 			bite: ["9L1"],
@@ -4221,7 +4113,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	salamence: {
 		learnset: {
-			inherit: true,
 			fly: ["9L1"],
 			leer: ["9L1"],
 			bite: ["9L1"],
@@ -4266,7 +4157,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	beldum: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			headbutt: ["9L1"],
 			agility: ["9L1"],
@@ -4277,7 +4167,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	metang: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			metalclaw: ["9L1"],
 			tackle: ["9L1"],
@@ -4316,7 +4205,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	metagross: {
 		learnset: {
-			inherit: true,
 			explosion: ["9L1"],
 			heavyslam: ["9L1"],
 			tackle: ["9L1"],
@@ -4361,7 +4249,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	budew: {
 		learnset: {
-			inherit: true,
 			absorb: ["9L1"],
 			growth: ["9L1"],
 			stunspore: ["9L1"],
@@ -4384,7 +4271,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	roserade: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			absorb: ["9L1"],
 			growth: ["9L1"],
@@ -4421,7 +4307,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	buneary: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			splash: ["9L1"],
 			drainingkiss: ["9L1"],
@@ -4456,7 +4341,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	lopunny: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			splash: ["9L1"],
 			poweruppunch: ["9L1"],
@@ -4500,7 +4384,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* gible: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			sandtomb: ["9L1"],
 			dragonbreath: ["9L1"],
@@ -4536,7 +4419,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gabite: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			sandtomb: ["9L1"],
 			dragonbreath: ["9L1"],
@@ -4577,7 +4459,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	garchomp: {
 		learnset: {
-			inherit: true,
 			crunch: ["9L1"],
 			tackle: ["9L1"],
 			sandtomb: ["9L1"],
@@ -4623,7 +4504,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	riolu: {
 		learnset: {
-			inherit: true,
 			quickattack: ["9L1"],
 			endure: ["9L1"],
 			bulletpunch: ["9L1"],
@@ -4658,7 +4538,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	lucario: {
 		learnset: {
-			inherit: true,
 			detect: ["9L1"],
 			quickattack: ["9L1"],
 			protect: ["9L1"],
@@ -4711,7 +4590,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hippopotas: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			bite: ["9L1"],
 			curse: ["9L1"],
@@ -4740,7 +4618,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hippowdon: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			bite: ["9L1"],
 			sandtomb: ["9L1"],
@@ -4774,7 +4651,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	snover: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			leafage: ["9L1"],
 			mist: ["9L1"],
@@ -4803,7 +4679,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	abomasnow: {
 		learnset: {
-			inherit: true,
 			icepunch: ["9L1"],
 			leer: ["9L1"],
 			leafage: ["9L1"],
@@ -4843,7 +4718,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	leafeon: {
 		learnset: {
-			inherit: true,
 			razorleaf: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -4885,7 +4759,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	glaceon: {
 		learnset: {
-			inherit: true,
 			icywind: ["9L1"],
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
@@ -4921,7 +4794,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gallade: {
 		learnset: {
-			inherit: true,
 			slash: ["9L1"],
 			psychic: ["9L1"],
 			confuseray: ["9L1"],
@@ -4983,7 +4855,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	froslass: {
 		learnset: {
-			inherit: true,
 			drainingkiss: ["9L1"],
 			protect: ["9L1"],
 			crunch: ["9L1"],
@@ -5025,7 +4896,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	tepig: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			ember: ["9L1"],
@@ -5056,7 +4926,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pignite: {
 		learnset: {
-			inherit: true,
 			poweruppunch: ["9L1"],
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
@@ -5100,7 +4969,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	emboar: {
 		learnset: {
-			inherit: true,
 			heatcrash: ["9L1"],
 			poweruppunch: ["9L1"],
 			tackle: ["9L1"],
@@ -5152,7 +5020,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	patrat: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			bite: ["9L1"],
@@ -5180,7 +5047,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	watchog: {
 		learnset: {
-			inherit: true,
 			confuseray: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -5223,7 +5089,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pansage: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leechseed: ["9L1"],
 			workup: ["9L1"],
@@ -5260,7 +5125,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	simisage: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leechseed: ["9L1"],
 			workup: ["9L1"],
@@ -5299,7 +5163,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pansear: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			firespin: ["9L1"],
 			workup: ["9L1"],
@@ -5339,7 +5202,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	simisear: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			firespin: ["9L1"],
 			workup: ["9L1"],
@@ -5381,7 +5243,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	panpour: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			aquaring: ["9L1"],
 			workup: ["9L1"],
@@ -5420,7 +5281,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	simipour: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			aquaring: ["9L1"],
 			workup: ["9L1"],
@@ -5462,7 +5322,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* drilbur: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			mudshot: ["9L1"],
@@ -5491,7 +5350,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	excadrill: {
 		learnset: {
-			inherit: true,
 			metalsound: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -5529,7 +5387,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	audino: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -5576,7 +5433,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	venipede: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			leer: ["9L1"],
 			rollout: ["9L1"],
@@ -5601,7 +5457,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	whirlipede: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			leer: ["9L1"],
 			rollout: ["9L1"],
@@ -5626,7 +5481,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	scolipede: {
 		learnset: {
-			inherit: true,
 			poisonsting: ["9L1"],
 			leer: ["9L1"],
 			irondefense: ["9L1"],
@@ -5662,7 +5516,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* sandile: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			sandtomb: ["9L1"],
@@ -5697,7 +5550,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	krokorok: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			sandtomb: ["9L1"],
@@ -5734,7 +5586,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	krookodile: {
 		learnset: {
-			inherit: true,
 			breakingswipe: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -5780,7 +5631,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	scraggy: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			headbutt: ["9L1"],
@@ -5820,7 +5670,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	scrafty: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			headbutt: ["9L1"],
@@ -5869,7 +5718,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	trubbish: {
 		learnset: {
-			inherit: true,
 			headbutt: ["9L1"],
 			smokescreen: ["9L1"],
 			amnesia: ["9L1"],
@@ -5897,7 +5745,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	garbodor: {
 		learnset: {
-			inherit: true,
 			headbutt: ["9L1"],
 			smokescreen: ["9L1"],
 			metalclaw: ["9L1"],
@@ -5934,7 +5781,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	vanillite: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			taunt: ["9L1"],
@@ -5957,7 +5803,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	vanillish: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			taunt: ["9L1"],
@@ -5980,7 +5825,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	vanilluxe: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			freezedry: ["9L1"],
@@ -6006,7 +5850,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	emolga: {
 		learnset: {
-			inherit: true,
 			tailwhip: ["9L1"],
 			nuzzle: ["9L1"],
 			doubleteam: ["9L1"],
@@ -6040,7 +5883,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* tynamo: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			thunderwave: ["9L1"],
 			spark: ["9L1"],
@@ -6049,7 +5891,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	eelektrik: {
 		learnset: {
-			inherit: true,
 			crunch: ["9L1"],
 			headbutt: ["9L1"],
 			tackle: ["9L1"],
@@ -6078,7 +5919,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	eelektross: {
 		learnset: {
-			inherit: true,
 			headbutt: ["9L1"],
 			tackle: ["9L1"],
 			spark: ["9L1"],
@@ -6125,7 +5965,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	litwick: {
 		learnset: {
-			inherit: true,
 			ember: ["9L1"],
 			smokescreen: ["9L1"],
 			haze: ["9L1"],
@@ -6156,7 +5995,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	lampent: {
 		learnset: {
-			inherit: true,
 			ember: ["9L1"],
 			smokescreen: ["9L1"],
 			haze: ["9L1"],
@@ -6187,7 +6025,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	chandelure: {
 		learnset: {
-			inherit: true,
 			ember: ["9L1"],
 			smokescreen: ["9L1"],
 			haze: ["9L1"],
@@ -6221,7 +6058,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	stunfisk: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			watergun: ["9L1"],
 			thundershock: ["9L1"],
@@ -6254,7 +6090,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	stunfiskgalar: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			watergun: ["9L1"],
 			screech: ["9L1"],
@@ -6287,7 +6122,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* chespin: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			growl: ["9L1"],
 			growth: ["9L1"],
@@ -6327,7 +6161,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	quilladin: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			growl: ["9L1"],
 			growth: ["9L1"],
@@ -6369,7 +6202,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	chesnaught: {
 		learnset: {
-			inherit: true,
 			spikyshield: ["9L1"],
 			vinewhip: ["9L1"],
 			growl: ["9L1"],
@@ -6423,7 +6255,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	fennekin: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			ember: ["9L1"],
@@ -6449,7 +6280,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	braixen: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			ember: ["9L1"],
@@ -6478,7 +6308,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	delphox: {
 		learnset: {
-			inherit: true,
 			mysticalfire: ["9L1"],
 			shadowball: ["9L1"],
 			futuresight: ["9L1"],
@@ -6521,7 +6350,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	froakie: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			watergun: ["9L1"],
@@ -6556,7 +6384,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	frogadier: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			watergun: ["9L1"],
@@ -6600,7 +6427,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	greninja: {
 		learnset: {
-			inherit: true,
 			watershuriken: ["9L1"],
 			tackle: ["9L1"],
 			growl: ["9L1"],
@@ -6648,7 +6474,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	greninjabond: {
 		learnset: {
-			inherit: true,
 			watershuriken: ["9L1"],
 			tackle: ["9L1"],
 			growl: ["9L1"],
@@ -6696,7 +6521,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	bunnelby: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			mudshot: ["9L1"],
@@ -6731,7 +6555,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	diggersby: {
 		learnset: {
-			inherit: true,
 			bulldoze: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -6773,7 +6596,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* fletchling: {
 		learnset: {
-			inherit: true,
 			growl: ["9L1"],
 			peck: ["9L1"],
 			quickattack: ["9L1"],
@@ -6802,7 +6624,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	fletchinder: {
 		learnset: {
-			inherit: true,
 			wingattack: ["9L1"],
 			growl: ["9L1"],
 			peck: ["9L1"],
@@ -6836,7 +6657,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	talonflame: {
 		learnset: {
-			inherit: true,
 			bravebird: ["9L1"],
 			wingattack: ["9L1"],
 			growl: ["9L1"],
@@ -6875,7 +6695,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	scatterbug: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			stringshot: ["9L1"],
 			stunspore: ["9L1"],
@@ -6884,7 +6703,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	spewpa: {
 		learnset: {
-			inherit: true,
 			protect: ["9L1"],
 			tackle: ["9L1"],
 			poisonpowder: ["9L1"],
@@ -6897,7 +6715,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	vivillon: {
 		learnset: {
-			inherit: true,
 			gust: ["9L1"],
 			tackle: ["9L1"],
 			stringshot: ["9L1"],
@@ -6932,7 +6749,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	litleo: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			ember: ["9L1"],
@@ -6967,7 +6783,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pyroar: {
 		learnset: {
-			inherit: true,
 			overheat: ["9L1"],
 			hyperbeam: ["9L1"],
 			tackle: ["9L1"],
@@ -7005,7 +6820,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	flabebe: {
 		learnset: {
-			inherit: true,
 			vinewhip: ["9L1"],
 			tackle: ["9L1"],
 			fairywind: ["9L1"],
@@ -7032,7 +6846,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	floette: {
 		learnset: {
-			inherit: true,
 			moonblast: ["9L1"],
 			vinewhip: ["9L1"],
 			tackle: ["9L1"],
@@ -7061,7 +6874,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	floetteeternal: {
 		learnset: {
-			inherit: true,
 			moonblast: ["9L1"],
 			vinewhip: ["9L1"],
 			tackle: ["9L1"],
@@ -7092,7 +6904,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* florges: {
 		learnset: {
-			inherit: true,
 			disarmingvoice: ["9L1"],
 			vinewhip: ["9L1"],
 			tackle: ["9L1"],
@@ -7123,7 +6934,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	skiddo: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growth: ["9L1"],
 			vinewhip: ["9L1"],
@@ -7161,7 +6971,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gogoat: {
 		learnset: {
-			inherit: true,
 			aerialace: ["9L1"],
 			tackle: ["9L1"],
 			growth: ["9L1"],
@@ -7203,7 +7012,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	pancham: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			taunt: ["9L1"],
@@ -7235,7 +7043,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pangoro: {
 		learnset: {
-			inherit: true,
 			nightslash: ["9L1"],
 			tackle: ["9L1"],
 			leer: ["9L1"],
@@ -7287,7 +7094,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	furfrou: {
 		learnset: {
-			inherit: true,
 			headbutt: ["9L1"],
 			tackle: ["9L1"],
 			growl: ["9L1"],
@@ -7324,7 +7130,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* espurr: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -7354,7 +7159,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	meowstic: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -7395,7 +7199,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	meowsticf: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leer: ["9L1"],
 			magicalleaf: ["9L1"],
@@ -7432,7 +7235,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	honedge: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			screech: ["9L1"],
 			shadowsneak: ["9L1"],
@@ -7457,7 +7259,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	doublade: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			screech: ["9L1"],
 			shadowsneak: ["9L1"],
@@ -7484,7 +7285,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aegislash: {
 		learnset: {
-			inherit: true,
 			kingsshield: ["9L1"],
 			tackle: ["9L1"],
 			screech: ["9L1"],
@@ -7516,7 +7316,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	spritzee: {
 		learnset: {
-			inherit: true,
 			fairywind: ["9L1"],
 			faketears: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -7543,7 +7342,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aromatisse: {
 		learnset: {
-			inherit: true,
 			fairywind: ["9L1"],
 			faketears: ["9L1"],
 			disarmingvoice: ["9L1"],
@@ -7574,7 +7372,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	swirlix: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			charm: ["9L1"],
 			fairywind: ["9L1"],
@@ -7604,7 +7401,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	slurpuff: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			charm: ["9L1"],
 			fairywind: ["9L1"],
@@ -7637,7 +7433,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* inkay: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			peck: ["9L1"],
 			hypnosis: ["9L1"],
@@ -7671,7 +7466,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	malamar: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			peck: ["9L1"],
 			hypnosis: ["9L1"],
@@ -7712,7 +7506,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	binacle: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			screech: ["9L1"],
 			infestation: ["9L1"],
@@ -7751,7 +7544,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	barbaracle: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			screech: ["9L1"],
 			infestation: ["9L1"],
@@ -7796,7 +7588,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* skrelp: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			watergun: ["9L1"],
 			smokescreen: ["9L1"],
@@ -7828,7 +7619,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	dragalge: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			watergun: ["9L1"],
 			smokescreen: ["9L1"],
@@ -7863,7 +7653,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	clauncher: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			splash: ["9L1"],
 			bubblebeam: ["9L1"],
@@ -7892,7 +7681,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	clawitzer: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			splash: ["9L1"],
 			bubblebeam: ["9L1"],
@@ -7924,7 +7712,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	helioptile: {
 		learnset: {
-			inherit: true,
 			tailwhip: ["9L1"],
 			thundershock: ["9L1"],
 			thunderwave: ["9L1"],
@@ -7956,7 +7743,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	heliolisk: {
 		learnset: {
-			inherit: true,
 			tailwhip: ["9L1"],
 			thundershock: ["9L1"],
 			thunderwave: ["9L1"],
@@ -7997,7 +7783,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	tyrunt: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			roar: ["9L1"],
@@ -8037,7 +7822,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	tyrantrum: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			breakingswipe: ["9L1"],
@@ -8082,7 +7866,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	amaura: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			rockthrow: ["9L1"],
@@ -8121,7 +7904,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aurorus: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			growl: ["9L1"],
 			rockthrow: ["9L1"],
@@ -8165,7 +7947,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* sylveon: {
 		learnset: {
-			inherit: true,
 			takedown: ["9L1"],
 			doubleedge: ["9L1"],
 			swift: ["9L1"],
@@ -8203,7 +7984,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hawlucha: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			wingattack: ["9L1"],
 			detect: ["9L1"],
@@ -8244,7 +8024,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	dedenne: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			tailwhip: ["9L1"],
 			thundershock: ["9L1"],
@@ -8277,7 +8056,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	carbink: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			harden: ["9L1"],
 			rockthrow: ["9L1"],
@@ -8311,7 +8089,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	goomy: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			absorb: ["9L1"],
 			watergun: ["9L1"],
@@ -8337,7 +8114,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	sliggoo: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			absorb: ["9L1"],
 			acidarmor: ["9L1"],
@@ -8399,7 +8175,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	goodra: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			absorb: ["9L1"],
 			acidarmor: ["9L1"],
@@ -8444,7 +8219,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	goodrahisui: {
 		learnset: {
-			inherit: true,
 			breakingswipe: ["9L1"],
 			tackle: ["9L1"],
 			absorb: ["9L1"],
@@ -8493,7 +8267,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	klefki: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			fairywind: ["9L1"],
 			metalclaw: ["9L1"],
@@ -8523,7 +8296,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	phantump: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leechseed: ["9L1"],
 			confuseray: ["9L1"],
@@ -8555,7 +8327,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	trevenant: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			leechseed: ["9L1"],
 			confuseray: ["9L1"],
@@ -8593,7 +8364,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	pumpkaboo: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			trickortreat: ["9L1"],
 			shadowsneak: ["9L1"],
@@ -8628,7 +8398,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gourgeist: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			trickortreat: ["9L1"],
 			moonblast: ["9L1"],
@@ -8670,7 +8439,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* bergmite: {
 		learnset: {
-			inherit: true,
 			harden: ["9L1"],
 			tackle: ["9L1"],
 			curse: ["9L1"],
@@ -8696,7 +8464,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	avalugg: {
 		learnset: {
-			inherit: true,
 			harden: ["9L1"],
 			heavyslam: ["9L1"],
 			tackle: ["9L1"],
@@ -8730,7 +8497,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	avalugghisui: {
 		learnset: {
-			inherit: true,
 			harden: ["9L1"],
 			heavyslam: ["9L1"],
 			tackle: ["9L1"],
@@ -8767,7 +8533,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	noibat: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			absorb: ["9L1"],
 			gust: ["9L1"],
@@ -8807,7 +8572,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	noivern: {
 		learnset: {
-			inherit: true,
 			dragonpulse: ["9L1"],
 			tackle: ["9L1"],
 			absorb: ["9L1"],
@@ -8856,7 +8620,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	xerneas: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			lightscreen: ["9L1"],
 			nightslash: ["9L1"],
@@ -8892,7 +8655,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	yveltal: {
 		learnset: {
-			inherit: true,
 			gust: ["9L1"],
 			doubleteam: ["9L1"],
 			taunt: ["9L1"],
@@ -8926,7 +8688,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	zygarde: {
 		learnset: {
-			inherit: true,
 			bite: ["9L1"],
 			dragonbreath: ["9L1"],
 			bulldoze: ["9L1"],
@@ -8965,7 +8726,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	zygarde10: {
 		learnset: {
-			inherit: true,
 			bite: ["9L1"],
 			dragonbreath: ["9L1"],
 			bulldoze: ["9L1"],
@@ -9004,7 +8764,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* diancie: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			rockthrow: ["9L1"],
 			harden: ["9L1"],
@@ -9042,7 +8801,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hoopa: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			lightscreen: ["9L1"],
 			psybeam: ["9L1"],
@@ -9081,7 +8839,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hoopaunbound: {
 		learnset: {
-			inherit: true,
 			confusion: ["9L1"],
 			lightscreen: ["9L1"],
 			psybeam: ["9L1"],
@@ -9120,7 +8877,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	volcanion: {
 		learnset: {
-			inherit: true,
 			watergun: ["9L1"],
 			firespin: ["9L1"],
 			steameruption: ["9L1"],
@@ -9168,7 +8924,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	}, */
 	drampa: {
 		learnset: {
-			inherit: true,
 			leer: ["9L1"],
 			twister: ["9L1"],
 			protect: ["9L1"],
@@ -9218,7 +8973,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	/* falinks: {
 		learnset: {
-			inherit: true,
 			tackle: ["9L1"],
 			protect: ["9L1"],
 			rocksmash: ["9L1"],
@@ -9246,4 +9000,1911 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L1"],
 		},
 	}, */
+	yamaskgalar: {
+		learnset: {
+			confusion: ["9L1"],
+			protect: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			faketears: ["9L1"],
+			brutalswing: ["9L1"],
+			infestation: ["9L1"],
+			psyshock: ["9L1"],
+			curse: ["9L1"],
+			shadowball: ["9L1"],
+			earthquake: ["9L1"],
+			phantomforce: ["9L1"],
+			partingshot: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			rockslide: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			stealthrock: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			selfdestruct: ["9L1"],
+			safeguard: ["9L1"],
+			earthpower: ["9L1"],
+			willowisp: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			psychic: ["9L1"],
+			earthquake: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			toxicspikes: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			shadowpunch: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+		},
+	},
+	yamask: {
+		learnset: {
+			confusion: ["9L1"],
+			protect: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			faketears: ["9L1"],
+			willowisp: ["9L1"],
+			infestation: ["9L1"],
+			psyshock: ["9L1"],
+			curse: ["9L1"],
+			shadowball: ["9L1"],
+			darkpulse: ["9L1"],
+			phantomforce: ["9L1"],
+			partingshot: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			selfdestruct: ["9L1"],
+			safeguard: ["9L1"],
+			willowisp: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			psychic: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			toxicspikes: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			shadowpunch: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+		},
+	},
+	marshadow: {
+		learnset: {
+			firepunch: ["9L1"],
+			icepunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			shadowsneak: ["9L1"],
+			poweruppunch: ["9L1"],
+			shadowpunch: ["9L1"],
+			machpunch: ["9L1"],
+			brutalswing: ["9L1"],
+			aurasphere: ["9L1"],
+			dualchop: ["9L1"],
+			drainpunch: ["9L1"],
+			phantomforce: ["9L1"],
+			spectralthief: ["9L1"],
+			closecombat: ["9L1"],
+			calmmind: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			rockslide: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			swift: ["9L1"],
+			firepunch: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			gigaimpact: ["9L1"],
+			willowisp: ["9L1"],
+			ironhead: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			stoneedge: ["9L1"],
+			shadowball: ["9L1"],
+			poisonjab: ["9L1"],
+			substitute: ["9L1"],
+			outrage: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			lowsweep: ["9L1"],
+			shadowpunch: ["9L1"],
+			ominouswind: ["9L1"],
+			falseswipe: ["9L1"],
+			drainpunch: ["9L1"],
+			blazekick: ["9L1"],
+			dualchop: ["9L1"],
+			vacuumwave: ["9L1"],
+		},
+	},
+	golisopod: {
+		learnset: {
+			firstimpression: ["9L1"],
+			harden: ["9L1"],
+			rollout: ["9L1"],
+			rocksmash: ["9L1"],
+			mudshot: ["9L1"],
+			aquajet: ["9L1"],
+			irondefense: ["9L1"],
+			metalclaw: ["9L1"],
+			screech: ["9L1"],
+			slash: ["9L1"],
+			drillrun: ["9L1"],
+			leechlife: ["9L1"],
+			ironhead: ["9L1"],
+			pinmissile: ["9L1"],
+			swordsdance: ["9L1"],
+			liquidation: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			rockslide: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			swift: ["9L1"],
+			swordsdance: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			hyperbeam: ["9L1"],
+			mudshot: ["9L1"],
+			agility: ["9L1"],
+			icywind: ["9L1"],
+			sludgebomb: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			shadowclaw: ["9L1"],
+			surf: ["9L1"],
+			liquidation: ["9L1"],
+			poisonjab: ["9L1"],
+			irondefense: ["9L1"],
+			xscissor: ["9L1"],
+			uturn: ["9L1"],
+			substitute: ["9L1"],
+			spikes: ["9L1"],
+			darkpulse: ["9L1"],
+			taunt: ["9L1"],
+			waterfall: ["9L1"],
+			gunkshot: ["9L1"],
+			focusblast: ["9L1"],
+			blizzard: ["9L1"],
+			closecombat: ["9L1"],
+			facade: ["9L1"],
+			falseswipe: ["9L1"],
+			doublehit: ["9L1"],
+			dualchop: ["9L1"],
+			muddywater: ["9L1"],
+			firstimpression: ["9L1"],
+			scald: ["9L1"],
+		},
+	},
+	marowakalola: {
+		learnset: {
+			flamewheel: ["9L1"],
+			shadowbone: ["9L1"],
+			tackle: ["9L1"],
+			growl: ["9L1"],
+			tailwhip: ["9L1"],
+			leer: ["9L1"],
+			falseswipe: ["9L1"],
+			headbutt: ["9L1"],
+			detect: ["9L1"],
+			bulldoze: ["9L1"],
+			brutalswing: ["9L1"],
+			focusenergy: ["9L1"],
+			bonemerang: ["9L1"],
+			swordsdance: ["9L1"],
+			doubleedge: ["9L1"],
+			perishsong: ["9L1"],
+			flareblitz: ["9L1"],
+			headbutt: ["9L1"],
+			brickbreak: ["9L1"],
+			rockslide: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			swift: ["9L1"],
+			dig: ["9L1"],
+			firepunch: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			stealthrock: ["9L1"],
+			fireblast: ["9L1"],
+			hyperbeam: ["9L1"],
+			icywind: ["9L1"],
+			earthpower: ["9L1"],
+			gigaimpact: ["9L1"],
+			doubleedge: ["9L1"],
+			willowisp: ["9L1"],
+			ironhead: ["9L1"],
+			flamethrower: ["9L1"],
+			stoneedge: ["9L1"],
+			thunderbolt: ["9L1"],
+			heatwave: ["9L1"],
+			earthquake: ["9L1"],
+			firespin: ["9L1"],
+			shadowball: ["9L1"],
+			bulldoze: ["9L1"],
+			irondefense: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			outrage: ["9L1"],
+			focusblast: ["9L1"],
+			flareblitz: ["9L1"],
+			blizzard: ["9L1"],
+			thunder: ["9L1"],
+			facade: ["9L1"],
+			flamecharge: ["9L1"],
+			ancientpower: ["9L1"],
+			falseswipe: ["9L1"],
+			scorchingsands: ["9L1"],
+			skullbash: ["9L1"],
+			fissure: ["9L1"],
+		},
+	},
+	wimpod: {
+		learnset: {
+			harden: ["9L1"],
+			rollout: ["9L1"],
+			protect: ["9L1"],
+			swift: ["9L1"],
+			endure: ["9L1"],
+			mudshot: ["9L1"],
+			surf: ["9L1"],
+			substitute: ["9L1"],
+			spikes: ["9L1"],
+			taunt: ["9L1"],
+			waterfall: ["9L1"],
+			facade: ["9L1"],
+			scald: ["9L1"],
+		},
+	},
+	musharna: {
+		learnset: {
+			hypnosis: ["9L1"],
+			psybeam: ["9L1"],
+			amnesia: ["9L1"],
+			moonlight: ["9L1"],
+			charm: ["9L1"],
+			zenheadbutt: ["9L1"],
+			dreameater: ["9L1"],
+			calmmind: ["9L1"],
+			psychic: ["9L1"],
+			moonblast: ["9L1"],
+			futuresight: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			rockslide: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			swift: ["9L1"],
+			reflect: ["9L1"],
+			doubleteam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			hyperbeam: ["9L1"],
+			safeguard: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			shadowball: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			silverwind: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+			chargebeam: ["9L1"],
+			triattack: ["9L1"],
+		},
+	},
+	munna: {
+		learnset: {
+			hypnosis: ["9L1"],
+			psybeam: ["9L1"],
+			amnesia: ["9L1"],
+			moonlight: ["9L1"],
+			charm: ["9L1"],
+			zenheadbutt: ["9L1"],
+			dreameater: ["9L1"],
+			calmmind: ["9L1"],
+			psychic: ["9L1"],
+			moonblast: ["9L1"],
+			futuresight: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			rockslide: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			swift: ["9L1"],
+			reflect: ["9L1"],
+			doubleteam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			safeguard: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			shadowball: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			silverwind: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+			triattack: ["9L1"],
+		},
+	},
+	sirfetchd: {
+		learnset: {
+			irondefense: ["9L1"],
+			leer: ["9L1"],
+			peck: ["9L1"],
+			detect: ["9L1"],
+			rocksmash: ["9L1"],
+			steelwing: ["9L1"],
+			aerialace: ["9L1"],
+			knockoff: ["9L1"],
+			quickattack: ["9L1"],
+			brutalswing: ["9L1"],
+			falseswipe: ["9L1"],
+			focusenergy: ["9L1"],
+			slash: ["9L1"],
+			swordsdance: ["9L1"],
+			featherdance: ["9L1"],
+			brickbreak: ["9L1"],
+			leafblade: ["9L1"],
+			agility: ["9L1"],
+			bravebird: ["9L1"],
+			meteorassault: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			protect: ["9L1"],
+			aerialace: ["9L1"],
+			swift: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			fly: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			doubleedge: ["9L1"],
+			poisonjab: ["9L1"],
+			irondefense: ["9L1"],
+			uturn: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			curse: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			facade: ["9L1"],
+			falseswipe: ["9L1"],
+			dualwingbeat: ["9L1"],
+			firstimpression: ["9L1"],
+			razorwind: ["9L1"],
+			skullbash: ["9L1"],
+			vacuumwave: ["9L1"],
+			solarblade: ["9L1"],
+			skyattack: ["9L1"],
+		},
+	},
+	throh: {
+		learnset: {
+			leer: ["9L1"],
+			circlethrow: ["9L1"],
+			focusenergy: ["9L1"],
+			brutalswing: ["9L1"],
+			rollout: ["9L1"],
+			rockblast: ["9L1"],
+			bulkup: ["9L1"],
+			lowsweep: ["9L1"],
+			brickbreak: ["9L1"],
+			endure: ["9L1"],
+			amnesia: ["9L1"],
+			outrage: ["9L1"],
+			stormthrow: ["9L1"],
+			dynamicpunch: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			rockslide: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			dig: ["9L1"],
+			firepunch: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			zenheadbutt: ["9L1"],
+			stoneedge: ["9L1"],
+			earthquake: ["9L1"],
+			poisonjab: ["9L1"],
+			bulldoze: ["9L1"],
+			irondefense: ["9L1"],
+			substitute: ["9L1"],
+			outrage: ["9L1"],
+			taunt: ["9L1"],
+			gunkshot: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			facade: ["9L1"],
+			lowsweep: ["9L1"],
+			seedbomb: ["9L1"],
+			circlethrow: ["9L1"],
+			stormthrow: ["9L1"],
+			skullbash: ["9L1"],
+		},
+	},
+	farfetchdgalar: {
+		learnset: {
+			leer: ["9L1"],
+			peck: ["9L1"],
+			detect: ["9L1"],
+			rocksmash: ["9L1"],
+			steelwing: ["9L1"],
+			aerialace: ["9L1"],
+			knockoff: ["9L1"],
+			quickattack: ["9L1"],
+			brutalswing: ["9L1"],
+			falseswipe: ["9L1"],
+			focusenergy: ["9L1"],
+			slash: ["9L1"],
+			swordsdance: ["9L1"],
+			featherdance: ["9L1"],
+			brickbreak: ["9L1"],
+			leafblade: ["9L1"],
+			agility: ["9L1"],
+			bravebird: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			protect: ["9L1"],
+			aerialace: ["9L1"],
+			swift: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			fly: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			doubleedge: ["9L1"],
+			poisonjab: ["9L1"],
+			uturn: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			curse: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			facade: ["9L1"],
+			falseswipe: ["9L1"],
+			dualwingbeat: ["9L1"],
+			firstimpression: ["9L1"],
+			razorwind: ["9L1"],
+			vacuumwave: ["9L1"],
+			solarblade: ["9L1"],
+			skyattack: ["9L1"],
+		},
+	},
+	farfetchd: {
+		learnset: {
+			leer: ["9L1"],
+			peck: ["9L1"],
+			gust: ["9L1"],
+			steelwing: ["9L1"],
+			aerialace: ["9L1"],
+			knockoff: ["9L1"],
+			quickattack: ["9L1"],
+			brutalswing: ["9L1"],
+			falseswipe: ["9L1"],
+			focusenergy: ["9L1"],
+			slash: ["9L1"],
+			swordsdance: ["9L1"],
+			featherdance: ["9L1"],
+			airslash: ["9L1"],
+			leafblade: ["9L1"],
+			agility: ["9L1"],
+			bravebird: ["9L1"],
+			protect: ["9L1"],
+			aerialace: ["9L1"],
+			swift: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			fly: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			heatwave: ["9L1"],
+			poisonjab: ["9L1"],
+			uturn: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			curse: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			facade: ["9L1"],
+			trailblaze: ["9L1"],
+			falseswipe: ["9L1"],
+			dualwingbeat: ["9L1"],
+			firstimpression: ["9L1"],
+			razorwind: ["9L1"],
+			solarblade: ["9L1"],
+			skyattack: ["9L1"],
+		},
+	},
+	sawk: {
+		learnset: {
+			leer: ["9L1"],
+			rocksmash: ["9L1"],
+			focusenergy: ["9L1"],
+			detect: ["9L1"],
+			machpunch: ["9L1"],
+			knockoff: ["9L1"],
+			poweruppunch: ["9L1"],
+			lowsweep: ["9L1"],
+			bulkup: ["9L1"],
+			brickbreak: ["9L1"],
+			endure: ["9L1"],
+			outrage: ["9L1"],
+			closecombat: ["9L1"],
+			dynamicpunch: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			rockslide: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			dig: ["9L1"],
+			firepunch: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			knockoff: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			zenheadbutt: ["9L1"],
+			stoneedge: ["9L1"],
+			earthquake: ["9L1"],
+			poisonjab: ["9L1"],
+			bulldoze: ["9L1"],
+			substitute: ["9L1"],
+			outrage: ["9L1"],
+			taunt: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			lowsweep: ["9L1"],
+			drainpunch: ["9L1"],
+			blazekick: ["9L1"],
+			dualchop: ["9L1"],
+		},
+	},
+	clobbopus: {
+		learnset: {
+			leer: ["9L1"],
+			rocksmash: ["9L1"],
+			poweruppunch: ["9L1"],
+			bulletpunch: ["9L1"],
+			detect: ["9L1"],
+			machpunch: ["9L1"],
+			circlethrow: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			knockoff: ["9L1"],
+			doublehit: ["9L1"],
+			taunt: ["9L1"],
+			closecombat: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			icepunch: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			whirlpool: ["9L1"],
+			liquidation: ["9L1"],
+			substitute: ["9L1"],
+			taunt: ["9L1"],
+			waterfall: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			chillingwater: ["9L1"],
+			circlethrow: ["9L1"],
+			drainpunch: ["9L1"],
+			doublehit: ["9L1"],
+			dualchop: ["9L1"],
+			stormthrow: ["9L1"],
+			muddywater: ["9L1"],
+			vacuumwave: ["9L1"],
+		},
+	},
+	mrrime: {
+		learnset: {
+			mist: ["9L1"],
+			smokescreen: ["9L1"],
+			haze: ["9L1"],
+			faketears: ["9L1"],
+			tackle: ["9L1"],
+			hypnosis: ["9L1"],
+			confuseray: ["9L1"],
+			iceshard: ["9L1"],
+			charm: ["9L1"],
+			confusion: ["9L1"],
+			dreameater: ["9L1"],
+			infestation: ["9L1"],
+			protect: ["9L1"],
+			stealthrock: ["9L1"],
+			psybeam: ["9L1"],
+			mimic: ["9L1"],
+			lightscreen: ["9L1"],
+			reflect: ["9L1"],
+			safeguard: ["9L1"],
+			freezedry: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			psychic: ["9L1"],
+			headbutt: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			icebeam: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			energyball: ["9L1"],
+			reflect: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			hyperbeam: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			metronome: ["9L1"],
+			focusblast: ["9L1"],
+			blizzard: ["9L1"],
+			thunder: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			chillingwater: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			magnetbomb: ["9L1"],
+			dreameater: ["9L1"],
+			chargebeam: ["9L1"],
+			drainpunch: ["9L1"],
+			frostbreath: ["9L1"],
+			swagger: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+			tripleaxel: ["9L1"],
+			iciclespear: ["9L1"],
+			sheercold: ["9L1"],
+		},
+	},
+	mimejr: {
+		learnset: {
+			mist: ["9L1"],
+			smokescreen: ["9L1"],
+			haze: ["9L1"],
+			tackle: ["9L1"],
+			hypnosis: ["9L1"],
+			confuseray: ["9L1"],
+			charm: ["9L1"],
+			confusion: ["9L1"],
+			dreameater: ["9L1"],
+			infestation: ["9L1"],
+			protect: ["9L1"],
+			stealthrock: ["9L1"],
+			psybeam: ["9L1"],
+			mimic: ["9L1"],
+			lightscreen: ["9L1"],
+			reflect: ["9L1"],
+			safeguard: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			psychic: ["9L1"],
+			headbutt: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			reflect: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			thunder: ["9L1"],
+			facade: ["9L1"],
+			mimic: ["9L1"],
+			dreameater: ["9L1"],
+			drainpunch: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+		},
+	},
+	mrmime: {
+		learnset: {
+			mist: ["9L1"],
+			smokescreen: ["9L1"],
+			haze: ["9L1"],
+			tackle: ["9L1"],
+			hypnosis: ["9L1"],
+			confuseray: ["9L1"],
+			charm: ["9L1"],
+			confusion: ["9L1"],
+			dreameater: ["9L1"],
+			infestation: ["9L1"],
+			protect: ["9L1"],
+			stealthrock: ["9L1"],
+			psybeam: ["9L1"],
+			mimic: ["9L1"],
+			lightscreen: ["9L1"],
+			reflect: ["9L1"],
+			safeguard: ["9L1"],
+			mysticalfire: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			psychic: ["9L1"],
+			headbutt: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			playrough: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			energyball: ["9L1"],
+			firepunch: ["9L1"],
+			reflect: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			hyperbeam: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			metronome: ["9L1"],
+			focusblast: ["9L1"],
+			thunder: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			magnetbomb: ["9L1"],
+			dreameater: ["9L1"],
+			chargebeam: ["9L1"],
+			drainpunch: ["9L1"],
+			swagger: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+			tripleaxel: ["9L1"],
+		},
+	},
+	mrmimegalar: {
+		learnset: {
+			mist: ["9L1"],
+			smokescreen: ["9L1"],
+			haze: ["9L1"],
+			tackle: ["9L1"],
+			hypnosis: ["9L1"],
+			confuseray: ["9L1"],
+			iceshard: ["9L1"],
+			charm: ["9L1"],
+			confusion: ["9L1"],
+			dreameater: ["9L1"],
+			infestation: ["9L1"],
+			protect: ["9L1"],
+			stealthrock: ["9L1"],
+			psybeam: ["9L1"],
+			mimic: ["9L1"],
+			lightscreen: ["9L1"],
+			reflect: ["9L1"],
+			safeguard: ["9L1"],
+			freezedry: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			psychic: ["9L1"],
+			headbutt: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			icebeam: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			energyball: ["9L1"],
+			reflect: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			hyperbeam: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			metronome: ["9L1"],
+			focusblast: ["9L1"],
+			blizzard: ["9L1"],
+			thunder: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			chillingwater: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			magnetbomb: ["9L1"],
+			dreameater: ["9L1"],
+			chargebeam: ["9L1"],
+			drainpunch: ["9L1"],
+			frostbreath: ["9L1"],
+			swagger: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+			tripleaxel: ["9L1"],
+			iciclespear: ["9L1"],
+			sheercold: ["9L1"],
+		},
+	},
+	grapploct: {
+		learnset: {
+			octolock: ["9L1"],
+			leer: ["9L1"],
+			rocksmash: ["9L1"],
+			poweruppunch: ["9L1"],
+			bulletpunch: ["9L1"],
+			detect: ["9L1"],
+			machpunch: ["9L1"],
+			circlethrow: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			knockoff: ["9L1"],
+			doublehit: ["9L1"],
+			taunt: ["9L1"],
+			closecombat: ["9L1"],
+			topsyturvy: ["9L1"],
+			rocksmash: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			icepunch: ["9L1"],
+			dig: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			gigaimpact: ["9L1"],
+			whirlpool: ["9L1"],
+			surf: ["9L1"],
+			liquidation: ["9L1"],
+			substitute: ["9L1"],
+			taunt: ["9L1"],
+			hydropump: ["9L1"],
+			waterfall: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			closecombat: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			chillingwater: ["9L1"],
+			circlethrow: ["9L1"],
+			drainpunch: ["9L1"],
+			doublehit: ["9L1"],
+			dualchop: ["9L1"],
+			stormthrow: ["9L1"],
+			muddywater: ["9L1"],
+			vacuumwave: ["9L1"],
+		},
+	},
+	chimecho: {
+		learnset: {
+			psybeam: ["9L1"],
+			tackle: ["9L1"],
+			growl: ["9L1"],
+			confusion: ["9L1"],
+			disarmingvoice: ["9L1"],
+			supersonic: ["9L1"],
+			takedown: ["9L1"],
+			screech: ["9L1"],
+			amnesia: ["9L1"],
+			wish: ["9L1"],
+			metalsound: ["9L1"],
+			psychic: ["9L1"],
+			doubleedge: ["9L1"],
+			boomburst: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			swift: ["9L1"],
+			reflect: ["9L1"],
+			endure: ["9L1"],
+			waterpulse: ["9L1"],
+			knockoff: ["9L1"],
+			selfdestruct: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			doubleedge: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			hypervoice: ["9L1"],
+			shadowball: ["9L1"],
+			flashcannon: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			ominouswind: ["9L1"],
+			magnetbomb: ["9L1"],
+			chargebeam: ["9L1"],
+			meteorbeam: ["9L1"],
+		},
+	},
+	zeraora: {
+		learnset: {
+			quickattack: ["9L1"],
+			spark: ["9L1"],
+			fakeout: ["9L1"],
+			snarl: ["9L1"],
+			poweruppunch: ["9L1"],
+			brutalswing: ["9L1"],
+			slash: ["9L1"],
+			voltswitch: ["9L1"],
+			charge: ["9L1"],
+			thunderpunch: ["9L1"],
+			dynamicpunch: ["9L1"],
+			discharge: ["9L1"],
+			wildcharge: ["9L1"],
+			agility: ["9L1"],
+			plasmafists: ["9L1"],
+			closecombat: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			bulkup: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			playrough: ["9L1"],
+			aerialace: ["9L1"],
+			thunderpunch: ["9L1"],
+			swift: ["9L1"],
+			firepunch: ["9L1"],
+			endure: ["9L1"],
+			discharge: ["9L1"],
+			hyperbeam: ["9L1"],
+			agility: ["9L1"],
+			gigaimpact: ["9L1"],
+			voltswitch: ["9L1"],
+			thunderbolt: ["9L1"],
+			substitute: ["9L1"],
+			wildcharge: ["9L1"],
+			irontail: ["9L1"],
+			outrage: ["9L1"],
+			taunt: ["9L1"],
+			electroweb: ["9L1"],
+			focusblast: ["9L1"],
+			workup: ["9L1"],
+			thunder: ["9L1"],
+			closecombat: ["9L1"],
+			cometpunch: ["9L1"],
+			facade: ["9L1"],
+			lowsweep: ["9L1"],
+			payday: ["9L1"],
+			falseswipe: ["9L1"],
+			drainpunch: ["9L1"],
+			blazekick: ["9L1"],
+			fakeout: ["9L1"],
+			razorwind: ["9L1"],
+			vacuumwave: ["9L1"],
+		},
+	},
+	genesect: {
+		learnset: {
+			quickattack: ["9L1"],
+			technoblast: ["9L1"],
+			screech: ["9L1"],
+			metalclaw: ["9L1"],
+			xscissor: ["9L1"],
+			flamecharge: ["9L1"],
+			metalsound: ["9L1"],
+			lunge: ["9L1"],
+			flashcannon: ["9L1"],
+			leechlife: ["9L1"],
+			bugbuzz: ["9L1"],
+			ironhead: ["9L1"],
+			zapcannon: ["9L1"],
+			selfdestruct: ["9L1"],
+			thunderwave: ["9L1"],
+			icebeam: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			swift: ["9L1"],
+			reflect: ["9L1"],
+			endure: ["9L1"],
+			gigadrain: ["9L1"],
+			fly: ["9L1"],
+			hyperbeam: ["9L1"],
+			selfdestruct: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			flamethrower: ["9L1"],
+			psychic: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			xscissor: ["9L1"],
+			uturn: ["9L1"],
+			flashcannon: ["9L1"],
+			substitute: ["9L1"],
+			darkpulse: ["9L1"],
+			gunkshot: ["9L1"],
+			electroweb: ["9L1"],
+			blizzard: ["9L1"],
+			thunder: ["9L1"],
+			facade: ["9L1"],
+			flamecharge: ["9L1"],
+			ancientpower: ["9L1"],
+			magnetbomb: ["9L1"],
+			chargebeam: ["9L1"],
+			blazekick: ["9L1"],
+			skullbash: ["9L1"],
+			triattack: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	cofagrigus: {
+		learnset: {
+			shadowclaw: ["9L1"],
+			confusion: ["9L1"],
+			protect: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			faketears: ["9L1"],
+			willowisp: ["9L1"],
+			infestation: ["9L1"],
+			psyshock: ["9L1"],
+			curse: ["9L1"],
+			shadowball: ["9L1"],
+			darkpulse: ["9L1"],
+			phantomforce: ["9L1"],
+			partingshot: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			endure: ["9L1"],
+			stealthrock: ["9L1"],
+			gigadrain: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			selfdestruct: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			gigaimpact: ["9L1"],
+			willowisp: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			psychic: ["9L1"],
+			shadowball: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			toxicspikes: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			shadowpunch: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+		},
+	},
+	runerigus: {
+		learnset: {
+			shadowclaw: ["9L1"],
+			confusion: ["9L1"],
+			protect: ["9L1"],
+			sandtomb: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			rocktomb: ["9L1"],
+			faketears: ["9L1"],
+			brutalswing: ["9L1"],
+			rockblast: ["9L1"],
+			infestation: ["9L1"],
+			psyshock: ["9L1"],
+			curse: ["9L1"],
+			shadowball: ["9L1"],
+			earthquake: ["9L1"],
+			phantomforce: ["9L1"],
+			partingshot: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			rockslide: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			stealthrock: ["9L1"],
+			gigadrain: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			selfdestruct: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			earthpower: ["9L1"],
+			gigaimpact: ["9L1"],
+			willowisp: ["9L1"],
+			zenheadbutt: ["9L1"],
+			shadowclaw: ["9L1"],
+			psychic: ["9L1"],
+			stoneedge: ["9L1"],
+			earthquake: ["9L1"],
+			shadowball: ["9L1"],
+			dragonpulse: ["9L1"],
+			bulldoze: ["9L1"],
+			irondefense: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			toxicspikes: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			shadowpunch: ["9L1"],
+			ominouswind: ["9L1"],
+			dreameater: ["9L1"],
+			fissure: ["9L1"],
+		},
+	},
+	liepard: {
+		learnset: {
+			snarl: ["9L1"],
+			growl: ["9L1"],
+			quickattack: ["9L1"],
+			mimic: ["9L1"],
+			fakeout: ["9L1"],
+			lick: ["9L1"],
+			bite: ["9L1"],
+			torment: ["9L1"],
+			faketears: ["9L1"],
+			slash: ["9L1"],
+			screech: ["9L1"],
+			nastyplot: ["9L1"],
+			nightslash: ["9L1"],
+			partingshot: ["9L1"],
+			playrough: ["9L1"],
+			thunderwave: ["9L1"],
+			firefang: ["9L1"],
+			icefang: ["9L1"],
+			protect: ["9L1"],
+			playrough: ["9L1"],
+			thunderfang: ["9L1"],
+			crunch: ["9L1"],
+			swift: ["9L1"],
+			swordsdance: ["9L1"],
+			doubleteam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			gigaimpact: ["9L1"],
+			shadowclaw: ["9L1"],
+			hypervoice: ["9L1"],
+			shadowball: ["9L1"],
+			xscissor: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			darkpulse: ["9L1"],
+			taunt: ["9L1"],
+			gunkshot: ["9L1"],
+			facade: ["9L1"],
+			payday: ["9L1"],
+			torment: ["9L1"],
+			psychicfangs: ["9L1"],
+			mimic: ["9L1"],
+			seedbomb: ["9L1"],
+			doublehit: ["9L1"],
+			swagger: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+		},
+	},
+	purrloin: {
+		learnset: {
+			snarl: ["9L1"],
+			growl: ["9L1"],
+			quickattack: ["9L1"],
+			mimic: ["9L1"],
+			fakeout: ["9L1"],
+			lick: ["9L1"],
+			bite: ["9L1"],
+			torment: ["9L1"],
+			faketears: ["9L1"],
+			slash: ["9L1"],
+			screech: ["9L1"],
+			nastyplot: ["9L1"],
+			nightslash: ["9L1"],
+			partingshot: ["9L1"],
+			playrough: ["9L1"],
+			thunderwave: ["9L1"],
+			protect: ["9L1"],
+			playrough: ["9L1"],
+			swift: ["9L1"],
+			doubleteam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			shadowclaw: ["9L1"],
+			hypervoice: ["9L1"],
+			shadowball: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			darkpulse: ["9L1"],
+			taunt: ["9L1"],
+			gunkshot: ["9L1"],
+			facade: ["9L1"],
+			payday: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			seedbomb: ["9L1"],
+			doublehit: ["9L1"],
+			swagger: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+		},
+	},
+	zubat: {
+		learnset: {
+			supersonic: ["9L1"],
+			absorb: ["9L1"],
+			gust: ["9L1"],
+			bite: ["9L1"],
+			wingattack: ["9L1"],
+			quickattack: ["9L1"],
+			whirlwind: ["9L1"],
+			hypnosis: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			poisonfang: ["9L1"],
+			airslash: ["9L1"],
+			leechlife: ["9L1"],
+			protect: ["9L1"],
+			crunch: ["9L1"],
+			swift: ["9L1"],
+			endure: ["9L1"],
+			gigadrain: ["9L1"],
+			fly: ["9L1"],
+			agility: ["9L1"],
+			sludgebomb: ["9L1"],
+			zenheadbutt: ["9L1"],
+			heatwave: ["9L1"],
+			shadowball: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			whirlwind: ["9L1"],
+			taunt: ["9L1"],
+			facade: ["9L1"],
+			ominouswind: ["9L1"],
+			poisonfang: ["9L1"],
+			dualwingbeat: ["9L1"],
+			swagger: ["9L1"],
+			razorwind: ["9L1"],
+		},
+	},
+	crobat: {
+		learnset: {
+			supersonic: ["9L1"],
+			absorb: ["9L1"],
+			screech: ["9L1"],
+			gust: ["9L1"],
+			bite: ["9L1"],
+			wingattack: ["9L1"],
+			quickattack: ["9L1"],
+			whirlwind: ["9L1"],
+			hypnosis: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			poisonfang: ["9L1"],
+			airslash: ["9L1"],
+			leechlife: ["9L1"],
+			bravebird: ["9L1"],
+			toxic: ["9L1"],
+			protect: ["9L1"],
+			aerialace: ["9L1"],
+			crunch: ["9L1"],
+			swift: ["9L1"],
+			doubleteam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			gigadrain: ["9L1"],
+			fly: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			agility: ["9L1"],
+			sludgebomb: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			heatwave: ["9L1"],
+			shadowball: ["9L1"],
+			hurricane: ["9L1"],
+			xscissor: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			darkpulse: ["9L1"],
+			curse: ["9L1"],
+			whirlwind: ["9L1"],
+			taunt: ["9L1"],
+			facade: ["9L1"],
+			acidspray: ["9L1"],
+			ominouswind: ["9L1"],
+			poisonfang: ["9L1"],
+			psychicfangs: ["9L1"],
+			doublehit: ["9L1"],
+			dualwingbeat: ["9L1"],
+			swagger: ["9L1"],
+			razorwind: ["9L1"],
+			skyattack: ["9L1"],
+		},
+	},
+	golbat: {
+		learnset: {
+			supersonic: ["9L1"],
+			absorb: ["9L1"],
+			screech: ["9L1"],
+			gust: ["9L1"],
+			bite: ["9L1"],
+			wingattack: ["9L1"],
+			quickattack: ["9L1"],
+			whirlwind: ["9L1"],
+			hypnosis: ["9L1"],
+			haze: ["9L1"],
+			confuseray: ["9L1"],
+			poisonfang: ["9L1"],
+			airslash: ["9L1"],
+			leechlife: ["9L1"],
+			toxic: ["9L1"],
+			protect: ["9L1"],
+			aerialace: ["9L1"],
+			crunch: ["9L1"],
+			swift: ["9L1"],
+			doubleteam: ["9L1"],
+			endure: ["9L1"],
+			gigadrain: ["9L1"],
+			fly: ["9L1"],
+			hyperbeam: ["9L1"],
+			agility: ["9L1"],
+			sludgebomb: ["9L1"],
+			gigaimpact: ["9L1"],
+			zenheadbutt: ["9L1"],
+			heatwave: ["9L1"],
+			shadowball: ["9L1"],
+			xscissor: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			whirlwind: ["9L1"],
+			taunt: ["9L1"],
+			facade: ["9L1"],
+			ominouswind: ["9L1"],
+			poisonfang: ["9L1"],
+			dualwingbeat: ["9L1"],
+			swagger: ["9L1"],
+			razorwind: ["9L1"],
+			skyattack: ["9L1"],
+		},
+	},
+	chingling: {
+		learnset: {
+			tackle: ["9L1"],
+			growl: ["9L1"],
+			confusion: ["9L1"],
+			disarmingvoice: ["9L1"],
+			supersonic: ["9L1"],
+			takedown: ["9L1"],
+			screech: ["9L1"],
+			amnesia: ["9L1"],
+			wish: ["9L1"],
+			metalsound: ["9L1"],
+			psychic: ["9L1"],
+			psyshock: ["9L1"],
+			calmmind: ["9L1"],
+			thunderwave: ["9L1"],
+			lightscreen: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			reflect: ["9L1"],
+			endure: ["9L1"],
+			waterpulse: ["9L1"],
+			knockoff: ["9L1"],
+			selfdestruct: ["9L1"],
+			icywind: ["9L1"],
+			safeguard: ["9L1"],
+			doubleedge: ["9L1"],
+			zenheadbutt: ["9L1"],
+			futuresight: ["9L1"],
+			psychic: ["9L1"],
+			hypervoice: ["9L1"],
+			shadowball: ["9L1"],
+			substitute: ["9L1"],
+			curse: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			chargebeam: ["9L1"],
+		},
+	},
+	marowak: {
+		learnset: {
+			tackle: ["9L1"],
+			growl: ["9L1"],
+			tailwhip: ["9L1"],
+			leer: ["9L1"],
+			falseswipe: ["9L1"],
+			headbutt: ["9L1"],
+			detect: ["9L1"],
+			bulldoze: ["9L1"],
+			brutalswing: ["9L1"],
+			focusenergy: ["9L1"],
+			bonemerang: ["9L1"],
+			swordsdance: ["9L1"],
+			doubleedge: ["9L1"],
+			perishsong: ["9L1"],
+			headbutt: ["9L1"],
+			brickbreak: ["9L1"],
+			rockslide: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			poweruppunch: ["9L1"],
+			thunderpunch: ["9L1"],
+			swift: ["9L1"],
+			dig: ["9L1"],
+			firepunch: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			stealthrock: ["9L1"],
+			fireblast: ["9L1"],
+			hyperbeam: ["9L1"],
+			icywind: ["9L1"],
+			earthpower: ["9L1"],
+			gigaimpact: ["9L1"],
+			doubleedge: ["9L1"],
+			ironhead: ["9L1"],
+			flamethrower: ["9L1"],
+			stoneedge: ["9L1"],
+			earthquake: ["9L1"],
+			bulldoze: ["9L1"],
+			irondefense: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			curse: ["9L1"],
+			outrage: ["9L1"],
+			focusblast: ["9L1"],
+			blizzard: ["9L1"],
+			facade: ["9L1"],
+			ancientpower: ["9L1"],
+			falseswipe: ["9L1"],
+			scorchingsands: ["9L1"],
+			skullbash: ["9L1"],
+			fissure: ["9L1"],
+		},
+	},
+	cubone: {
+		learnset: {
+			tackle: ["9L1"],
+			growl: ["9L1"],
+			tailwhip: ["9L1"],
+			leer: ["9L1"],
+			falseswipe: ["9L1"],
+			headbutt: ["9L1"],
+			detect: ["9L1"],
+			bulldoze: ["9L1"],
+			brutalswing: ["9L1"],
+			focusenergy: ["9L1"],
+			bonemerang: ["9L1"],
+			swordsdance: ["9L1"],
+			doubleedge: ["9L1"],
+			perishsong: ["9L1"],
+			headbutt: ["9L1"],
+			brickbreak: ["9L1"],
+			rockslide: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			thunderpunch: ["9L1"],
+			swift: ["9L1"],
+			dig: ["9L1"],
+			firepunch: ["9L1"],
+			swordsdance: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			stealthrock: ["9L1"],
+			fireblast: ["9L1"],
+			icywind: ["9L1"],
+			earthpower: ["9L1"],
+			doubleedge: ["9L1"],
+			ironhead: ["9L1"],
+			flamethrower: ["9L1"],
+			earthquake: ["9L1"],
+			bulldoze: ["9L1"],
+			irondefense: ["9L1"],
+			substitute: ["9L1"],
+			irontail: ["9L1"],
+			curse: ["9L1"],
+			blizzard: ["9L1"],
+			facade: ["9L1"],
+			ancientpower: ["9L1"],
+			falseswipe: ["9L1"],
+			scorchingsands: ["9L1"],
+			skullbash: ["9L1"],
+		},
+	},
+	kecleon: {
+		learnset: {
+			tailwhip: ["9L1"],
+			lick: ["9L1"],
+			conversion: ["9L1"],
+			substitute: ["9L1"],
+			shadowsneak: ["9L1"],
+			shedtail: ["9L1"],
+			knockoff: ["9L1"],
+			psybeam: ["9L1"],
+			rockslide: ["9L1"],
+			slash: ["9L1"],
+			stealthrock: ["9L1"],
+			shadowclaw: ["9L1"],
+			screech: ["9L1"],
+			conversion2: ["9L1"],
+			powerwhip: ["9L1"],
+			headbutt: ["9L1"],
+			thunderwave: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			energyball: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			fireblast: ["9L1"],
+			icywind: ["9L1"],
+			futuresight: ["9L1"],
+			flamethrower: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			shadowball: ["9L1"],
+			hurricane: ["9L1"],
+			substitute: ["9L1"],
+			hydropump: ["9L1"],
+			workup: ["9L1"],
+			blizzard: ["9L1"],
+			thunder: ["9L1"],
+			facade: ["9L1"],
+			scald: ["9L1"],
+			facade: ["9L1"],
+			chillingwater: ["9L1"],
+			ominouswind: ["9L1"],
+			ancientpower: ["9L1"],
+			torment: ["9L1"],
+			scorchingsands: ["9L1"],
+			fakeout: ["9L1"],
+			fissure: ["9L1"],
+			trick: ["9L1"],
+			shadowball: ["9L1"],
+			playrough: ["9L1"],
+			helpinghand: ["9L1"],
+			phantomforce: ["9L1"],
+			gigaimpact: ["9L1"],
+			hyperbeam: ["9L1"],
+			terablast: ["9L1"],
+			roar: ["9L1"],
+			uproar: ["9L1"],
+			poltergeist: ["9L1"],
+			painsplit: ["9L1"],
+			doubleedge: ["9L1"],
+			endeavor: ["9L1"],
+		},
+	},
+	thievul: {
+		learnset: {
+			tailwhip: ["9L1"],
+			quickattack: ["9L1"],
+			roar: ["9L1"],
+			snarl: ["9L1"],
+			knockoff: ["9L1"],
+			faketears: ["9L1"],
+			nastyplot: ["9L1"],
+			mimic: ["9L1"],
+			nightslash: ["9L1"],
+			darkpulse: ["9L1"],
+			doubleteam: ["9L1"],
+			partingshot: ["9L1"],
+			roar: ["9L1"],
+			firefang: ["9L1"],
+			icefang: ["9L1"],
+			protect: ["9L1"],
+			playrough: ["9L1"],
+			thunderfang: ["9L1"],
+			crunch: ["9L1"],
+			swift: ["9L1"],
+			dig: ["9L1"],
+			doubleteam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			hyperbeam: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			agility: ["9L1"],
+			icywind: ["9L1"],
+			gigaimpact: ["9L1"],
+			willowisp: ["9L1"],
+			shadowclaw: ["9L1"],
+			psychic: ["9L1"],
+			shadowball: ["9L1"],
+			uturn: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			darkpulse: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			trailblaze: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+			razorwind: ["9L1"],
+		},
+	},
+	nickit: {
+		learnset: {
+			tailwhip: ["9L1"],
+			quickattack: ["9L1"],
+			roar: ["9L1"],
+			snarl: ["9L1"],
+			knockoff: ["9L1"],
+			faketears: ["9L1"],
+			nastyplot: ["9L1"],
+			mimic: ["9L1"],
+			nightslash: ["9L1"],
+			darkpulse: ["9L1"],
+			doubleteam: ["9L1"],
+			partingshot: ["9L1"],
+			roar: ["9L1"],
+			protect: ["9L1"],
+			playrough: ["9L1"],
+			swift: ["9L1"],
+			dig: ["9L1"],
+			doubleteam: ["9L1"],
+			nightslash: ["9L1"],
+			endure: ["9L1"],
+			knockoff: ["9L1"],
+			mudshot: ["9L1"],
+			agility: ["9L1"],
+			icywind: ["9L1"],
+			willowisp: ["9L1"],
+			nastyplot: ["9L1"],
+			substitute: ["9L1"],
+			darkpulse: ["9L1"],
+			taunt: ["9L1"],
+			healblock: ["9L1"],
+			facade: ["9L1"],
+			trailblaze: ["9L1"],
+			torment: ["9L1"],
+			mimic: ["9L1"],
+			fakeout: ["9L1"],
+			firstimpression: ["9L1"],
+			razorwind: ["9L1"],
+		},
+	},
+	melmetal: {
+		learnset: {
+			thunderpunch: ["9L1"],
+			heavyslam: ["9L1"],
+			thundershock: ["9L1"],
+			harden: ["9L1"],
+			tailwhip: ["9L1"],
+			brutalswing: ["9L1"],
+			headbutt: ["9L1"],
+			thunderwave: ["9L1"],
+			acidarmor: ["9L1"],
+			flashcannon: ["9L1"],
+			discharge: ["9L1"],
+			dynamicpunch: ["9L1"],
+			doubleironbash: ["9L1"],
+			hyperbeam: ["9L1"],
+			headbutt: ["9L1"],
+			thunderwave: ["9L1"],
+			brickbreak: ["9L1"],
+			rockslide: ["9L1"],
+			icebeam: ["9L1"],
+			protect: ["9L1"],
+			thunderpunch: ["9L1"],
+			icepunch: ["9L1"],
+			bodyslam: ["9L1"],
+			endure: ["9L1"],
+			rocktomb: ["9L1"],
+			discharge: ["9L1"],
+			hyperbeam: ["9L1"],
+			selfdestruct: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			solarbeam: ["9L1"],
+			thunderbolt: ["9L1"],
+			earthquake: ["9L1"],
+			irondefense: ["9L1"],
+			flashcannon: ["9L1"],
+			substitute: ["9L1"],
+			thunder: ["9L1"],
+			facade: ["9L1"],
+			magnetbomb: ["9L1"],
+			chargebeam: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	meltan: {
+		learnset: {
+			thundershock: ["9L1"],
+			harden: ["9L1"],
+			tailwhip: ["9L1"],
+			brutalswing: ["9L1"],
+			headbutt: ["9L1"],
+			thunderwave: ["9L1"],
+			acidarmor: ["9L1"],
+			flashcannon: ["9L1"],
+			headbutt: ["9L1"],
+			thunderwave: ["9L1"],
+			protect: ["9L1"],
+			endure: ["9L1"],
+			selfdestruct: ["9L1"],
+			gigaimpact: ["9L1"],
+			ironhead: ["9L1"],
+			thunderbolt: ["9L1"],
+			irondefense: ["9L1"],
+			flashcannon: ["9L1"],
+			substitute: ["9L1"],
+			facade: ["9L1"],
+			magnetbomb: ["9L1"],
+			chargebeam: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
 };
