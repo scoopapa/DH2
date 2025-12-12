@@ -956,4 +956,26 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	falinksmega: {
 		tier: "FE ZA",
 	},
+	// dlc
+	absolmegaz: {
+		tier: "FE ZA",
+	},
+	lucariomegaz: {
+		tier: "FE ZA",
+	},
+	garchompmegaz: {
+		tier: "FE ZA",
+	},
+	raichumegax: {
+		tier: "FE ZA",
+	},
+	raichumegay: {
+		tier: "FE ZA",
+	},
+	meowsticfmega: {
+		tier: "FE ZA",
+	},
+	meowsticmmega: {
+		tier: "FE ZA",
+	},
 };
