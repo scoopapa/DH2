@@ -21,7 +21,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		for (const species in this.data.Pokedex) {
-			delete this.data.Pokedex[species].abilities['H'];
+			// delete this.data.Pokedex[species].abilities['H'];
 			if (this.data.Pokedex[species].num > 0 && this.data.Pokedex[species].num <= 386 && this.data.Pokedex[species].baseSpecies == null) {
 				delete this.modData('Learnsets', species).learnset.ancientpower;
 			}

@@ -2,9 +2,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 3,
 	inherit: 'gen3',
 	init() {
-		for (const species in this.data.Pokedex) {
+		/**for (const species in this.data.Pokedex) {
 			delete this.data.Pokedex[species].abilities['H'];
-		}
+		}*/
 		this.modData("Learnsets", "armaldo").learnset.knockoff = ["3L1"];
 		this.modData("Learnsets", "kabutops").learnset.knockoff = ["3L1"];
 		this.modData("Learnsets", "armaldo").learnset.rapidspin = ["3L1"];
