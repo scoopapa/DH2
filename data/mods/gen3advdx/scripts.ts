@@ -3,7 +3,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen3',
 	init() {
 		for (const species in this.data.Pokedex) {
-			if !this.data.Pokedex[species].abilities['H'] continue;
 			console.log(species);
 			delete this.data.Pokedex[species].abilities['H'];
 		}
