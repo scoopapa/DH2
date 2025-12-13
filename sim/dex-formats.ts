@@ -798,35 +798,47 @@ export class DexFormats {
 			if (noWarn) ruleSpec = ruleSpec.slice(1);
 
 			// repeal rule
-			if (ruleSpec.startsWith('!') && !ruleSpec.startsWith('!!')) {
-				const repealDepth = repeals!.get(ruleSpec.slice(1));
-				if (repealDepth === undefined) throw new Error(`Multiple "${ruleSpec}" rules in ${format.name}`);
-				if (repealDepth === depth && !noWarn) {
-					throw new Error(`Rule "${ruleSpec}" did nothing because "${ruleSpec.slice(1)}" is not in effect`);
+			try {
+				if (ruleSpec.startsWith('!') && !ruleSpec.startsWith('!!')) {
+					const repealDepth = repeals!.get(ruleSpec.slice(1));
+					if (repealDepth === undefined) throw new Error(`Multiple "${ruleSpec}" rules in ${format.name}`);
+					if (repealDepth === depth && !noWarn) {
+						const emessage = `Rule "${ruleSpec}" did nothing because "${ruleSpec.slice(1)}" is not in effect`;
+						console.log(`${emessage}`);
+						throw new Error(emessage);
+					}
+					if (repealDepth === -depth) repeals!.delete(ruleSpec.slice(1));
+					continue;
 				}
-				if (repealDepth === -depth) repeals!.delete(ruleSpec.slice(1));
-				continue;
-			}
+			} catch (e: any) {}
 
 			// individual ban/unban
-			if ('+*-'.includes(ruleSpec.charAt(0))) {
-				if (ruleTable.has(ruleSpec)) {
-					throw new Error(`Rule "${ruleSpec}" in "${format.name}" already exists in "${ruleTable.get(ruleSpec) || format.name}"`);
-				}
-				if (skipPokemonBans) {
-					if (ruleSpec === '-pokemontag:allpokemon' || ruleSpec === '+pokemontag:allpokemon') {
-						skipPokemonBans--;
-					} else if (this.isPokemonRule(ruleSpec)) {
-						if (!format.customRules) {
-							throw new Error(`Rule "${ruleSpec}" must go after any "All Pokemon" rule in ${format.name} ("+All Pokemon" should go in ruleset, not unbanlist)`);
-						}
-						continue;
+			try {
+				if ('+*-'.includes(ruleSpec.charAt(0))) {
+					if (ruleTable.has(ruleSpec)) {
+						const emessage = `Rule "${ruleSpec}" in "${format.name}" already exists in "${ruleTable.get(ruleSpec) || format.name}"`;
+						console.log(`${emessage}`);
+						throw new Error(emessage);
 					}
+					if (skipPokemonBans) {
+						if (ruleSpec === '-pokemontag:allpokemon' || ruleSpec === '+pokemontag:allpokemon') {
+							skipPokemonBans--;
+						} else if (this.isPokemonRule(ruleSpec)) {
+							if (!format.customRules) {
+								const emessage = `Rule "${ruleSpec}" must go after any "All Pokemon" rule in ${format.name} ("+All Pokemon" should go in ruleset, not unbanlist)`;
+								console.log(emessage);
+								throw new Error(`${emessage}`);
+							}
+							continue;
+						}
+					}
+					for (const prefix of '+*-') ruleTable.delete(prefix + ruleSpec.slice(1));
+					ruleTable.set(ruleSpec, '');
+					continue;
 				}
-				for (const prefix of '+*-') ruleTable.delete(prefix + ruleSpec.slice(1));
-				ruleTable.set(ruleSpec, '');
-				continue;
+			} catch (e: any) {
 			}
+
 
 			// rule
 			let [formatid, value] = ruleSpec.split('=');

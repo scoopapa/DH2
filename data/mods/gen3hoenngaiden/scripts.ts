@@ -25,6 +25,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 
 		learnsetUpdate(this);
-		
+
 	},
 };
