@@ -36,8 +36,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		// 		this.modData('Learnsets', species).learnset.energyball = ['3M'];
 		// 	}
 		// }
-		learnsetUpdate(this);
-	},
+	// 	learnsetUpdate(this);
+	// },
 	pokemon: {
 		inherit: true,
 		getActionSpeed() {
