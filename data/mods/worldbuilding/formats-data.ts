@@ -38,4 +38,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	mew: {
 		tier: "WLB",
 	},
+	morida: {
+		tier: "WLB",
+	},
+	sunshu: {
+		tier: "WLB",
+	},
+	raikou: {
+		tier: "WLB",
+	},
+	entei: {
+		tier: "WLB",
+	},
+	suicune: {
+		tier: "WLB",
+	},
 };

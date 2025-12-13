@@ -317,14 +317,14 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Dragon Energy", "Fiery Wrath", "Thunderbolt", "Eruption"],
-                "abilities": ["Desolate Land"],
+                "movepool": ["Dragon Energy", "Fiery Wrath", "Thunderbolt", "Eruption", "Aeroblast"],
+                "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Pyro Ball", "Dragon Ascent", "Dragon Hammer", "Earthquake", "Recover"],
-                "abilities": ["Desolate Land"],
+                "abilities": ["Regenerator"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -898,7 +898,7 @@
             }
         ]
     },
-    "silvalos": {
+    "silverlos": {
         "level": 81,
         "sets": [
             {
@@ -920,7 +920,7 @@
             }
         ]
     },
-    "goldthian": {
+    "goldian": {
         "level": 87,
         "sets": [
             {
@@ -931,7 +931,7 @@
             }
         ]
     },
-    "pinkthian": {
+    "pinkian": {
         "level": 87,
         "sets": [
             {
@@ -1007,7 +1007,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Apex Burst", "Draco Meteor", "Healing Wish", "Defog", "Strength Sap"],
+                "movepool": ["Apex Burst", "Draco Meteor", "Healing Wish", "Defog", "Recover"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
             }
@@ -2935,14 +2935,14 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Rage Ray", "Rest", "Refresh", "Infestation"], 
-                "abilities": ["Generalist"],
+                "abilities": ["Arena Trap"],
                 "teraTypes": ["Normal"]
 
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Psyshield Bash", "Fell Stinger", "Rest", "Refresh"], 
-                "abilities": ["Generalist"],
+                "abilities": ["Arena Trap"],
                 "teraTypes": ["Normal"]
 
             }
@@ -3095,7 +3095,7 @@
             }
         ]
     },
-    "glanaktor": {
+    "glaciaktor": {
         "level": 86,
         "sets": [
             {
@@ -3174,7 +3174,7 @@
             }
         ]
     },
-    "palepinas": {
+    "pearlinas": {
         "level": 84,
         "sets": [
             {
@@ -3236,7 +3236,7 @@
             }
         ]
     },
-    "Landgiacrus": {
+    "landgiacrus": {
         "level": 86,
         "sets": [ 
             {

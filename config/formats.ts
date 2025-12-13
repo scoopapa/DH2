@@ -160,7 +160,7 @@ export const Formats: FormatList = [
 			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
 			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
 			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
-			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao',
+			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao', 'Psyrex', 'Phantamp', 'Waroach', 'Wyldemoer',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -187,7 +187,7 @@ export const Formats: FormatList = [
 			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
 			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
 			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
-			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao',
+			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao', 'Psyrex', 'Phantamp', 'Waroach', 'Wyldemoer',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -1562,6 +1562,28 @@ export const Formats: FormatList = [
 		challengeShow: false,
 		ruleset: ['Obtainable', 'Standard NEXT', 'Team Preview'],
 		banlist: ['Uber'],
+	},
+	{
+		name: "[Gen 9] Not My Type",
+		desc: `Not My Type, a tier with user-submitted Fakemon only that's built around three of the eighteen types being removed. These three types are Electric, Ground, Rock.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/not-my-type.3773605/">Gen 9 Not My Type</a>`,
+		],
+		mod: 'notmytype',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Moves Clause', 'Terastal Clause', 'Z-Move Clause'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['NMT'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Not My Type.'];
+				}
+			}
+		},
 	},
 	{
 	  name: "[Gen 9] OU Theorymons",
@@ -5217,7 +5239,8 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monster Hunter Randoms",
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5225,7 +5248,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5233,7 +5256,8 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5241,7 +5265,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5249,7 +5273,8 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		mod: 'monsterhunter',
 		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5257,7 +5282,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5274,12 +5299,12 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5294,9 +5319,10 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5304,12 +5330,12 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5324,8 +5350,9 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Baton Pass Clause'],
-		banlist: ['Shed Tail', 'Baton Pass'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Baton Pass Clause'],
+		banlist: ['Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5333,12 +5360,12 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5357,7 +5384,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer',
 			'Open Team Sheets'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5365,12 +5392,12 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5384,9 +5411,10 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
+			'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
@@ -5394,12 +5422,12 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MEGAS', 'MHOU', 'MHUU', 'MHRU'];
+			let allowedTiers = ['MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5413,21 +5441,21 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
-		banlist: [ 'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Zinogrite',
-			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor"],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUU', 'MHRU'];
+			let allowedTiers = ['MHUU', 'MHRUBL', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5441,16 +5469,17 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
-		banlist: [ 'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Zinogrite',
-			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', "Ice-Armor"],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
+			'Species Clause', 'Terastal Clause', 'Baton Pass Clause'],
+		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
+			'Shagaru Magala + Strength Sap'],
 		onBegin() {
 			this.add('-message', `Welcome to Monster Hunter Showdown!`);
 			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

@@ -491,5 +491,52 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
 			return true;
 		},
-	}
+	},
+	/*
+	Fatalis Orbs
+	*/
+	watmelberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	durinberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	nanabberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	belueberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cornnberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magostberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rebutaberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	nomelberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spelonberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pamtreberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	razzberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
 }

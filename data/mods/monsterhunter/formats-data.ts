@@ -509,14 +509,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	blackveilhazak: {
 		tier: "OU",
 	},
-	silvalos: {
-		tier: "OU",
+	silverlos: {
+		tier: "MHOU",
 	},
-	goldthian: {
-		tier: "OU",
+	goldian: {
+		tier: "MHOU",
 	},
-	pinkthian: {
-		tier: "UU",
+	pinkian: {
+		tier: "MHUU",
 	},
 	goldeus: {
 		tier: "OU",
@@ -668,8 +668,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	crysarios: {
 		tier: "RU",
 	},
-	glanaktor: {
-		tier: "UU",
+	glaciaktor: {
+		tier: "MHUU",
 	},
 	greensioth: {
 		tier: "UU",
@@ -677,8 +677,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	zinogrehowling: {
 		tier: "UU",
 	},
-	palepinas: {
-		tier: "OU",
+	pearlinas: {
+		tier: "MHOU",
 	},
 	redzu: {
 		tier: "RU",
@@ -708,7 +708,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	frostfangbarioth: {
-		tier: "OU",
+		tier: "MHRUBL",
 	},
 	redhelmarzuros: {
 		tier: "OU",

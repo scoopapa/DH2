@@ -259,6 +259,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ampharos').learnset.parabolicchargeglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.sleeptalkglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.restglacemons = ['9L1'];
+		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];
+		this.modData('Learnsets', 'hatterene').learnset.peekaboo = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.healingstones = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.lifedewvaporemons = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.psychicnoisevaporemons = ['9L1'];
+		delete this.modData('Learnsets', 'hatterene').learnset.psychicnoise;
+		delete this.modData('Learnsets', 'hatterene').learnset.lifedew;
+		delete this.modData('Learnsets', 'hatenna').learnset.lifedew;
+		delete this.modData('Learnsets', 'hattrem').learnset.lifedew;
 
 	},
 	pokemon: {
