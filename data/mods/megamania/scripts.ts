@@ -2,10 +2,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	init() {
 		for (const i in this.data.Items) {
-			if (!this.data.Items[i].megaStone) continue;
+			const item = this.data.Items[i];
+			if (!item.megaStone && !item.onDrive && !(item.onPlate && !item.zMove) && !item.onMemory) continue;
 			this.modData('Items', i).onTakeItem = false;
-			const id = this.toID(this.data.Items[i].megaStone);
-			this.modData('FormatsData', id).isNonstandard = null;
+			if (item.isNonstandard === "Past") this.modData('Items', i).isNonstandard = null;
+			/* if (item.megaStone) {
+				this.modData('FormatsData', this.toID(item.megaStone)).isNonstandard = null;
+			} */
 		}
 	},
 	start() {
@@ -39,10 +42,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 
-		for (const side of this.sides) {
-			this.add('teamsize', side.id, side.pokemon.length);
-		}
-
 		this.add('gen', this.gen);
 
 		this.add('tier', format.name);
@@ -51,25 +50,20 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.add('rated', typeof this.rated === 'string' ? this.rated : '');
 		}
 
-		if (format.onBegin) format.onBegin.call(this);
+		format.onBegin?.call(this);
 		for (const rule of this.ruleTable.keys()) {
 			if ('+*-!'.includes(rule.charAt(0))) continue;
 			const subFormat = this.dex.formats.get(rule);
-			if (subFormat.onBegin) subFormat.onBegin.call(this);
+			subFormat.onBegin?.call(this);
 		}
 		for (const pokemon of this.getAllPokemon()) {
 			const item = pokemon.getItem();
-			if ([
-				'adamantcrystal', 'griseouscore', 'lustrousglobe', 'wellspringmask',
-				'cornerstonemask', 'hearthflamemask', 'vilevial',
-			].includes(item.id) && item.forcedForme !== pokemon.species.name) {
-				// @ts-ignore
-				const rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, item.forcedForme!, pokemon);
+			if (item.forcedForme && !item.zMove && item.forcedForme !== pokemon.species.name) {
+				const rawSpecies = (this.actions as any).getMixedSpecies(pokemon.m.originalSpecies, item.forcedForme, pokemon);
 				const species = pokemon.setSpecies(rawSpecies);
 				if (!species) continue;
 				pokemon.baseSpecies = rawSpecies;
-				pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				pokemon.details = pokemon.getUpdatedDetails();
 				pokemon.ability = this.toID(species.abilities['0']);
 				pokemon.baseAbility = pokemon.ability;
 			}
@@ -83,16 +77,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.checkEVBalance();
 		}
 
-		if (format.onTeamPreview) format.onTeamPreview.call(this);
-		for (const rule of this.ruleTable.keys()) {
-			if ('+*-!'.includes(rule.charAt(0))) continue;
-			const subFormat = this.dex.formats.get(rule);
-			if (subFormat.onTeamPreview) subFormat.onTeamPreview.call(this);
+		if (format.customRules) {
+			const plural = format.customRules.length === 1 ? '' : 's';
+			const open = format.customRules.length <= 5 ? ' open' : '';
+			this.add(`raw|<div class="infobox"><details class="readmore"${open}><summary><strong>${format.customRules.length} custom rule${plural}:</strong></summary> ${format.customRules.join(', ')}</details></div>`);
 		}
 
-		this.queue.addChoice({choice: 'start'});
+		this.runPickTeam();
+		this.queue.addChoice({ choice: 'start' });
 		this.midTurn = true;
-		if (!this.requestState) this.go();
+		if (!this.requestState) this.turnLoop();
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -102,6 +96,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		case 'start': {
 			for (const side of this.sides) {
 				if (side.pokemonLeft) side.pokemonLeft = side.pokemon.length;
+				this.add('teamsize', side.id, side.pokemon.length);
 			}
 
 			this.add('start');
@@ -111,22 +106,19 @@ export const Scripts: ModdedBattleScriptsData = {
 				let rawSpecies: Species | null = null;
 				const item = pokemon.getItem();
 				if (item.id === 'rustedsword') {
-					// @ts-ignore
-					rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, 'Zacian-Crowned', pokemon);
+					rawSpecies = (this.actions as any).getMixedSpecies(pokemon.m.originalSpecies, 'Zacian-Crowned', pokemon);
 				} else if (item.id === 'rustedshield') {
-					// @ts-ignore
-					rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, 'Zamazenta-Crowned', pokemon);
+					rawSpecies = (this.actions as any).getMixedSpecies(pokemon.m.originalSpecies, 'Zamazenta-Crowned', pokemon);
 				}
 				if (!rawSpecies) continue;
 				const species = pokemon.setSpecies(rawSpecies);
 				if (!species) continue;
 				pokemon.baseSpecies = rawSpecies;
-				pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				pokemon.details = pokemon.getUpdatedDetails();
 				pokemon.ability = this.toID(species.abilities['0']);
 				pokemon.baseAbility = pokemon.ability;
 
-				const behemothMove: {[k: string]: string} = {
+				const behemothMove: { [k: string]: string } = {
 					'Rusted Sword': 'behemothblade', 'Rusted Shield': 'behemothbash',
 				};
 				const ironHead = pokemon.baseMoves.indexOf('ironhead');
@@ -135,8 +127,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					pokemon.baseMoveSlots[ironHead] = {
 						move: move.name,
 						id: move.id,
-						pp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-						maxpp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
+						pp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						maxpp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
 						target: move.target,
 						disabled: false,
 						disabledSource: '',
@@ -146,11 +138,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
-			if (this.format.onBattleStart) this.format.onBattleStart.call(this);
+			this.format.onBattleStart?.call(this);
 			for (const rule of this.ruleTable.keys()) {
 				if ('+*-!'.includes(rule.charAt(0))) continue;
 				const subFormat = this.dex.formats.get(rule);
-				if (subFormat.onBattleStart) subFormat.onBattleStart.call(this);
+				subFormat.onBattleStart?.call(this);
 			}
 
 			for (const side of this.sides) {
@@ -175,8 +167,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		case 'move':
 			if (!action.pokemon.isActive) return false;
 			if (action.pokemon.fainted) return false;
-			this.actions.runMove(action.move, action.pokemon, action.targetLoc, action.sourceEffect,
-				action.zmove, undefined, action.maxMove, action.originalTarget);
+			this.actions.runMove(action.move, action.pokemon, action.targetLoc, {
+				sourceEffect: action.sourceEffect, zMove: action.zmove,
+				maxMove: action.maxMove, originalTarget: action.originalTarget,
+			});
 			break;
 		case 'megaEvo':
 			this.actions.runMegaEvo(action.pokemon);
@@ -258,16 +252,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.add('-heal', action.target, action.target.getHealth, '[from] move: Revival Blessing');
 			action.pokemon.side.removeSlotCondition(action.pokemon, 'revivalblessing');
 			break;
-		case 'runUnnerve':
-			this.singleEvent('PreStart', action.pokemon.getAbility(), action.pokemon.abilityState, action.pokemon);
-			break;
 		case 'runSwitch':
 			this.actions.runSwitch(action.pokemon);
-			break;
-		case 'runPrimal':
-			if (!action.pokemon.transformed) {
-				this.singleEvent('Primal', action.pokemon.getItem(), action.pokemon.itemState, action.pokemon);
-			}
 			break;
 		case 'shift':
 			if (!action.pokemon.isActive) return false;
@@ -283,7 +269,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.clearActiveMove(true);
 			this.updateSpeed();
 			residualPokemon = this.getAllActive().map(pokemon => [pokemon, pokemon.getUndynamaxedHP()] as const);
-			this.residualEvent('Residual');
+			this.fieldEvent('Residual');
 			this.add('upkeep');
 			break;
 		}
@@ -327,7 +313,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		}
 
-		if (this.gen >= 5) {
+		if (this.gen >= 5 && action.choice !== 'start') {
 			this.eachEvent('Update');
 			for (const [pokemon, originalHP] of residualPokemon) {
 				const maxhp = pokemon.getUndynamaxedHP(pokemon.maxhp);
@@ -400,8 +386,8 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			const item = pokemon.getItem();
 			if (item.megaStone) {
-				if (item.megaStone === pokemon.baseSpecies.name) return null;
-				return item.megaStone;
+				if (item.megaStone.includes(pokemon.baseSpecies.name)) return null;
+				return Array.isArray(item.megaStone) ? item.megaStone[0] : item.megaStone;
 			} else {
 				return null;
 			}
@@ -409,25 +395,146 @@ export const Scripts: ModdedBattleScriptsData = {
 		runMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return false;
 
-			// @ts-ignore
-			const species: Species = this.dex.species.get(pokemon.canMegaEvo, pokemon);
+			const species: Species = (this as any).getMixedSpecies(pokemon.m.originalSpecies, pokemon.canMegaEvo, pokemon);
 
-			// Do we have a proper sprite for it?
-			if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies) {
+			/* Do we have a proper sprite for it? Code for when megas actually exist
+			if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
 				pokemon.formeChange(species, pokemon.getItem(), true);
-			} else {
-				const oSpecies = this.dex.species.get(pokemon.canMegaEvo);
-				// @ts-ignore
-				const oMegaSpecies = this.dex.species.get(pokemon.canMegaEvo);
-				pokemon.formeChange(species, pokemon.getItem(), true);
-				this.battle.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
-				if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
-					this.battle.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-				}
+			} else { */
+			const oSpecies = this.dex.species.get(pokemon.m.originalSpecies);
+			const oMegaSpecies = this.dex.species.get((species as any).originalSpecies);
+			pokemon.formeChange(species, pokemon.getItem(), true);
+			this.battle.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
+			if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+				this.battle.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 			}
+			// }
 
-			pokemon.canMegaEvo = null;
+			pokemon.canMegaEvo = false;
 			return true;
 		},
+		terastallize(pokemon) {
+			if (pokemon.illusion?.species.baseSpecies === 'Ogerpon') {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+			if (pokemon.illusion?.species.baseSpecies === 'Terapagos') {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+
+			let type = pokemon.teraType;
+			if (pokemon.species.baseSpecies !== 'Ogerpon' && pokemon.getItem().name.endsWith('Mask')) {
+				type = this.dex.species.get(pokemon.getItem().forcedForme).requiredTeraType!;
+			}
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, pokemon.getItem(), true);
+			} else {
+				if (pokemon.getItem().name.endsWith('Mask')) {
+					const species: Species = (this as any).getMixedSpecies(pokemon.m.originalSpecies,
+						pokemon.getItem().forcedForme! + '-Tera', pokemon);
+					const oSpecies = this.dex.species.get(pokemon.m.originalSpecies);
+					const originalTeraSpecies = this.dex.species.get((species as any).originalSpecies);
+					pokemon.formeChange(species, pokemon.getItem(), true);
+					this.battle.add('-start', pokemon, originalTeraSpecies.requiredItem, '[silent]');
+					if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+						this.battle.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+					}
+				}
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
+		},
+		getMixedSpecies(originalForme, formeChange, pokemon) {
+			const originalSpecies = this.dex.species.get(originalForme);
+			const formeChangeSpecies = this.dex.species.get(formeChange);
+			if (originalSpecies.baseSpecies === formeChangeSpecies.baseSpecies &&
+				!formeChangeSpecies.isMega && !formeChangeSpecies.isPrimal) {
+				return formeChangeSpecies;
+			}
+			const deltas = (this as any).getFormeChangeDeltas(formeChangeSpecies, pokemon);
+			const species = (this as any).mutateOriginalSpecies(originalSpecies, deltas);
+			return species;
+		},
+		getFormeChangeDeltas(formeChangeSpecies, pokemon) {
+			const baseSpecies = this.dex.species.get(formeChangeSpecies.baseSpecies);
+			const deltas: {
+				ability: string,
+				baseStats: SparseStatsTable,
+				weighthg: number,
+				heightm: number,
+				originalSpecies: string,
+				requiredItem: string | undefined,
+				type?: string,
+				formeType?: string,
+			} = {
+				ability: formeChangeSpecies.abilities['0'],
+				baseStats: {},
+				weighthg: formeChangeSpecies.weighthg - baseSpecies.weighthg,
+				heightm: ((formeChangeSpecies.heightm * 10) - (baseSpecies.heightm * 10)) / 10,
+				originalSpecies: formeChangeSpecies.name,
+				requiredItem: formeChangeSpecies.requiredItem,
+			};
+			let statId: StatID;
+			for (statId in formeChangeSpecies.baseStats) {
+				deltas.baseStats[statId] = formeChangeSpecies.baseStats[statId] - baseSpecies.baseStats[statId];
+			}
+			let formeType: string | null = null;
+			if (['Arceus', 'Silvally'].includes(baseSpecies.name)) {
+				deltas.type = formeChangeSpecies.types[0];
+				formeType = 'Arceus';
+			} else if (formeChangeSpecies.types.length > baseSpecies.types.length) {
+				deltas.type = formeChangeSpecies.types[1];
+			} else if (formeChangeSpecies.types.length < baseSpecies.types.length) {
+				deltas.type = this.battle.ruleTable.has('mixandmegaoldaggronite') ? 'mono' : baseSpecies.types[0];
+			} else if (formeChangeSpecies.types[1] !== baseSpecies.types[1]) {
+				deltas.type = formeChangeSpecies.types[1];
+			}
+			if (formeChangeSpecies.isMega) formeType = 'Mega';
+			if (formeChangeSpecies.isPrimal) formeType = 'Primal';
+			if (formeChangeSpecies.name.endsWith('Crowned')) formeType = 'Crowned';
+			if (formeType) deltas.formeType = formeType;
+			if (!deltas.formeType && formeChangeSpecies.abilities['H'] &&
+				pokemon && pokemon.baseSpecies.abilities['H'] === pokemon.getAbility().name) {
+				deltas.ability = formeChangeSpecies.abilities['H'];
+			}
+			return deltas;
+		},
+		mutateOriginalSpecies(speciesOrForme, deltas) {
+			if (!deltas) throw new TypeError("Must specify deltas!");
+			const species = this.dex.deepClone(this.dex.species.get(speciesOrForme));
+			species.abilities = { '0': deltas.ability };
+			if (deltas.formeType === 'Arceus') {
+				const secondType = species.types[1];
+				species.types = [deltas.type];
+				if (secondType && secondType !== deltas.type) species.types.push(secondType);
+			} else if (species.types[0] === deltas.type) {
+				species.types = [deltas.type];
+			} else if (deltas.type === 'mono') {
+				species.types = [species.types[0]];
+			} else if (deltas.type) {
+				species.types = [species.types[0], deltas.type];
+			}
+			const baseStats = species.baseStats;
+			for (const statName in baseStats) {
+				baseStats[statName] = this.battle.clampIntRange(baseStats[statName] + deltas.baseStats[statName], 1, 255);
+			}
+			species.weighthg = Math.max(1, species.weighthg + deltas.weighthg);
+			species.heightm = Math.max(0.1, ((species.heightm * 10) + (deltas.heightm * 10)) / 10);
+			species.originalSpecies = deltas.originalSpecies;
+			species.requiredItem = deltas.requiredItem;
+			if (deltas.formeType === 'Mega') species.isMega = true;
+			if (deltas.formeType === 'Primal') species.isPrimal = true;
+			return species;
+		},
 	},
-	};
+};

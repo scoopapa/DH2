@@ -1,34 +1,34 @@
-export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	absolutezero: {
-        onStart(source) {
-            this.field.setWeather('absolutezero');
-        },
-        onAnySetWeather(target, source, weather) {
-            const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
-            if (this.field.getWeather().id === 'absolutezero' && !strongWeathers.includes(weather.id)) return false;
-        },
-        onEnd(pokemon) {
-            if (this.field.weatherState.source !== pokemon) return;
-            for (const target of this.getAllActive()) {
-                if (target === pokemon) continue;
-                if (target.hasAbility('absolutezero')) {
-                    this.field.weatherState.source = target;
-                    return;
-                }
-            }
-            this.field.clearWeather();
-        },
-        flags: {},
-        name: "Absolute Zero",
+		onStart(source) {
+			this.field.setWeather('absolutezero');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
+			if (this.field.getWeather().id === 'absolutezero' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('absolutezero')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		flags: {},
+		name: "Absolute Zero",
 		shortDesc: "On switch-in: Sets Primordial Weather, Absolute Zero (Snow + -25% Speed + 1/16 chip, except user).",
 		desc: "On switch-in, the weather becomes Absolute Zero, which includes all the effects of snow, reduces the speed of Pokemon on the field by 25%, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Dust Devil abilities.",
-    },
+	},
 	aggravation: {
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
 				!effect.multihit &&
-				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+				!(effect.hasSheerForce && source.hasAbility('sheerforce'))
 			) {
 				this.effectState.checkedBerserk = false;
 			} else {
@@ -51,7 +51,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!lastAttackedBy) return;
 			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-				this.boost({atk: 1}, target, target);
+				this.boost({ atk: 1 }, target, target);
 			}
 		},
 		flags: {},
@@ -83,12 +83,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
 	},
 	bewitchingtail: {
-		onModifyStats(stats, pokemon, target, move) {
-			if (target && target.status === 'slp') {
-				stats.atk = this.chainModify([stats.atk, 0x1333]);
-				stats.spa = this.chainModify([stats.spa, 0x1333]);
-				stats.spe = this.chainModify([stats.spe, 0x1333]);
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon, target, move) {
+			if (target && target.status === 'slp' || pokemon.ignoringAbility()) {
+				this.debug('Bewitching Tail boost');
+				return this.chainModify(1.2);
 			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon, target, move) {
+			if (target && target.status === 'slp' || pokemon.ignoringAbility()) {
+				this.debug('Bewitching Tail boost');
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpe(this: Battle, spe: number, pokemon: Pokemon) {
+			if (!this.activeTarget || this.activeTarget.status !== 'slp' || pokemon.ignoringAbility()) return;
+			this.debug('Bewitching Tail boost');
+			return this.chainModify(1.5);
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.status === 'slp') {
@@ -103,7 +115,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (!move || !target) return;
 			if (this.dex.getEffectiveness(move.type, target) > 0) {
-				this.boost({atk: 1, spa: 1}, target, target, null, this.dex.abilities.get('blindrage'));
+				this.boost({ atk: 1, spa: 1 }, target, target, null /* , this.dex.abilities.get('blindrage') */);
 				this.add('-ability', target, 'Blind Rage');
 				this.add('-message', target.name + "flew into a blind rage!");
 			}
@@ -132,7 +144,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	centrifuge: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
-				if (!this.boost({spa: 1})) {
+				if (!this.boost({ spa: 1 })) {
 					this.add('-immune', target, '[from] ability: Centrifuge');
 				}
 				return null;
@@ -146,12 +158,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.effectState.target;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Centrifuge",
 		shortDesc: "Ground moves: Drawn to user, immune, SpA +1",
 	},
 	corrosiveclaws: {
-		onAfterMoveSecondary(target, source, move) {
+		onAfterMoveSecondary(target, source, move) { // fix later
 			if (!target || !source || source === target) return;
 			if (!move || move.category === 'Status') return;
 			if (!target.hp) return;
@@ -159,7 +171,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
 
-			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			const damage = move.multihit ? (move.totalDamage || lastAttackedBy.damage) : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
 				if (target.trySetStatus('tox', source)) {
 					this.add('-ability', source, 'Corrosive Claws');
@@ -186,12 +198,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 			if (move.category === 'Physical') {
 				if (target.boosts.def > -6) {
-					this.boost({def: -1}, target, source, null, this.dex.abilities.get('corruptedpoison'));
+					this.boost({ def: -1 }, target, source, null /* , this.dex.abilities.get('corruptedpoison') */);
 					this.add('-ability', source, 'Corrupted Poison');
 				}
 			} else if (move.category === 'Special') {
 				if (target.boosts.spd > -6) {
-					this.boost({spd: -1}, target, source, null, this.dex.abilities.get('corruptedpoison'));
+					this.boost({ spd: -1 }, target, source, null /* , this.dex.abilities.get('corruptedpoison') */);
 					this.add('-ability', source, 'Corrupted Poison');
 				}
 			}
@@ -204,15 +216,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidualOrder: 26,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
-			let activated = false;
-			for (const foe of pokemon.foes()) {
-				if (foe && foe.hp && foe.status === 'par') {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Crystalblight');
-						activated = true;
-					}
-					this.damage(foe.baseMaxhp / 16, foe, pokemon);
-					foe.addVolatile('fatigue');
+			for (const target of pokemon.foes()) {
+				if (target.status === 'par') {
+					this.damage(target.baseMaxhp / 16, target, pokemon);
+					target.addVolatile('fatigue');
 				}
 			}
 		},
@@ -241,7 +248,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Dense Cortex",
 		shortDesc: "Immune to slicing moves.",
 	},
@@ -253,7 +260,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				source.formeChange('arbitrelliancharged', this.effect, true);
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Destruction Star",
 		shortDesc: "After KOing a foe: enters Charged-Forme.",
 	},
@@ -265,7 +272,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				source.formeChange('doomtrelliancharged', this.effect, true);
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Disaster Star",
 		shortDesc: "After KOing a foe: enters Charged-Forme.",
 	},
@@ -284,7 +291,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAnyAfterMove() {
 			this.effectState.resisted = false;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1 },
 		name: "Direspike Scales",
 		shortDesc: "If at full HP: Incoming attacks deal 0.5x damage unless immune",
 	},
@@ -297,7 +304,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Dragon Eater",
 		shortDesc: "Hit by a Dragon move: Immunity, Heals 25% max HP.",
 	},
@@ -345,14 +352,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (move.flags['slicing']) {
-				this.boost({def: 1}, source, source, null, this.dex.abilities.get('dulledblades'));
+				this.boost({ def: 1 }, source, source, null /* , this.dex.abilities.get('dulledblades') */);
 				this.add('-ability', source, 'Dulled Blades');
 			}
 		},
 		onSourceAfterSubDamage(damage, target, source, move) {
 			if (!move || !target) return;
 			if (move.flags['slicing']) {
-				this.boost({def: 1}, source, source, null, this.dex.abilities.get('dulledblades'));
+				this.boost({ def: 1 }, source, source, null /* , this.dex.abilities.get('dulledblades') */);
 				this.add('-ability', source, 'Dulled Blades');
 			}
 		},
@@ -360,29 +367,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 Defense",
 	},
 	dustdevil: {
-        onStart(source) {
-            this.field.setWeather('dustdevil');
-        },
-        onAnySetWeather(target, source, weather) {
-            const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
-            if (this.field.getWeather().id === 'dustdevil' && !strongWeathers.includes(weather.id)) return false;
-        },
-        onEnd(pokemon) {
-            if (this.field.weatherState.source !== pokemon) return;
-            for (const target of this.getAllActive()) {
-                if (target === pokemon) continue;
-                if (target.hasAbility('dustdevil')) {
-                    this.field.weatherState.source = target;
-                    return;
-                }
-            }
-            this.field.clearWeather();
-        },
-        flags: {},
-        name: "Dust Devil",
+		onStart(source) {
+			this.field.setWeather('dustdevil');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
+			if (this.field.getWeather().id === 'dustdevil' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('dustdevil')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		flags: {},
+		name: "Dust Devil",
 		shortDesc: "On switch-in: Sets Primordial Weather, Dust Devil (Sandstorm + Perfect Rock Accuracy + 1/16 chip, except user).",
 		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sandstorm, removes accuracy check for rock moves, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Absolute Zero abilities.",
-    },
+	},
 	empressthrone: {
 		onResidualOrder: 29,
 		onResidual(pokemon) {
@@ -398,7 +405,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			pokemon.maxhp = newMaxHP;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Empress Throne",
 		shortDesc: "If Ahtal-Ka, becomes Ahtal-Neset if at 1/2 max HP or less at end of turn.",
 	},
@@ -446,7 +453,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Foolproof",
 		shortDesc: "Soundproof + Bulletproof",
 	},
@@ -555,7 +562,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Heat Sink",
 		shortDesc: "When hit by Fire moves: Immune and heals 25% Max HP.",
 	},
@@ -582,7 +589,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	icebreaker: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('snow', 'hail', 'absolutezero')) {
+			if (['snow', 'hail', 'absolutezero'].includes(attacker.effectiveWeather())) {
 				this.debug('Ice Breaker boost');
 				return this.chainModify([0x14CD, 0x1000]); // 1.3x modifier
 			}
@@ -594,30 +601,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical' && target.species.id === 'zamtrios') {
-					this.add('-ability', target, 'Ice-Armor');
-					this.add('-message', `Zamtrios is transforming!`);
-					target.formeChange('zamtriosiced', this.effect, true);
-				}
-			},
+				this.add('-ability', target, 'Ice-Armor');
+				this.add('-message', `Zamtrios is transforming!`);
+				target.formeChange('zamtriosiced', this.effect, true);
+			}
+		},
 		onStart(pokemon) {
-				if (this.field.isWeather(['hail', 'snow', 'absolutezero']) && pokemon.species.id === 'zamtrios') {
-					this.add('-ability', pokemon, 'Ice-Armor');
-					this.add('-message', `Zamtrios is transforming!`);
-					pokemon.formeChange('zamtriosiced', this.effect, true);
-				}
-			},
-			onWeatherChange(pokemon, source, sourceEffect) {
+			if (this.field.isWeather(['hail', 'snow', 'absolutezero']) && pokemon.species.id === 'zamtrios') {
+				this.add('-ability', pokemon, 'Ice-Armor');
+				this.add('-message', `Zamtrios is transforming!`);
+				pokemon.formeChange('zamtriosiced', this.effect, true);
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
 			if (this.field.isWeather(['hail', 'snow', 'absolutezero']) && pokemon.species.id === 'zamtrios') {
-					this.add('-ability', pokemon, 'Ice-Armor');
-					this.add('-message', `Zamtrios is transforming!`);
-					pokemon.formeChange('zamtriosiced', this.effect, true);
-				}
+				this.add('-ability', pokemon, 'Ice-Armor');
+				this.add('-message', `Zamtrios is transforming!`);
+				pokemon.formeChange('zamtriosiced', this.effect, true);
+			}
 		},
-		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
-			notransform: 1},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1,
+		},
 		name: "Ice-Armor",
 		shortDesc: "Hit by a PHYS. Attack or Under Snow; Transform into Zamtrios-Iced.",
 	},
@@ -664,7 +672,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Incandescent",
 		shortDesc: "User gains Fire-type STAB and Fire-Type Immunity.",
 	},
@@ -734,7 +742,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Mad Dragon",
 		shortDesc: "User gains Dragon-type STAB & Resistances.",
 	},
@@ -764,7 +772,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		shortDesc: "On switch-in: Immune to Rock-type attacks and Stealth Rock.",
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Mountaineer",
 		rating: 3,
 		num: -2,
@@ -787,8 +795,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-activate', target, 'ability: Mucus Veil');
 				const reaction = this.dex.getActiveMove('soak');
-				reaction.noreact = true;
-				this.actions.useMove(reaction, target, source);
+				// reaction.noreact = true;
+				this.actions.useMove(reaction, target, { target: source });
 			}
 		},
 		flags: {},
@@ -800,8 +808,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidual(pokemon) {
 			const heal = pokemon.maxhp / 16;
 			this.heal(heal, pokemon, pokemon);
+			this.add('-ability', pokemon, 'Oceanic Veil');
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Oceanic Veil",
 		shortDesc: "Heals 1/16 max HP each turn.",
 	},
@@ -833,7 +842,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Oilmucus",
 		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
 	},
@@ -848,7 +857,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({spe: -1}, target, pokemon, null, true);
+					this.boost({ spe: -1 }, target, pokemon, null, true);
 				}
 			}
 		},
@@ -883,7 +892,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
 				const oldAbility = source.setAbility('pathogenic', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Pathogenic', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Pathogenic', this.dex.abilities.get(oldAbility).name, `[of] ${source}`);
 					this.add('-message', `${source.name} has been infected by the pathogen!`);
 				}
 			}
@@ -922,7 +931,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
 				this.add('-activate', target, 'ability: Permafrost');
-				this.boost({def: 1}, target);
+				this.boost({ def: 1 }, target);
 			}
 		},
 		onFoeBeforeMovePriority: 13,
@@ -941,7 +950,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.removeVolatile('permafrost');
 			},
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Permafrost",
 		shortDesc: "Targeted by Water moves: They become Ice | Hit by Ice Moves: 1+ Def.",
 	},
@@ -962,7 +971,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Plow",
 		shortDesc: "Hit by Ground moves: Immunity, Heals 25% HP | Heals from Spikes/Stealth Rock.",
 	},
@@ -1034,27 +1043,28 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1 },
 		name: "Protopyre",
 		shortDesc: "Under Sunny Day/Holding Booster Energyor/Red HP: Highest stat is 1.3x; 1.5x if Speed.",
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special' && target.species.id === 'zamtrios') {
-					this.add('-ability', target, 'Puff-Up');
-					this.add('-message', `Zamtrios is transforming!`);
-					target.formeChange('zamtriospuffed', this.effect, true);
-				}
-			},
+				this.add('-ability', target, 'Puff-Up');
+				this.add('-message', `Zamtrios is transforming!`);
+				target.formeChange('zamtriospuffed', this.effect, true);
+			}
+		},
 		onStart(pokemon) {
-				if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
-					this.add('-ability', pokemon, 'Puff-Up');
-					this.add('-message', `Zamtrios is transforming!`);
-					pokemon.formeChange('zamtriospuffed', this.effect, true);
-				}
-			},
-		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
-			notransform: 1},
+			if (this.field.isWeather(['rain']) && pokemon.species.id === 'zamtrios') {
+				this.add('-ability', pokemon, 'Puff-Up');
+				this.add('-message', `Zamtrios is transforming!`);
+				pokemon.formeChange('zamtriospuffed', this.effect, true);
+			}
+		},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1,
+		},
 		name: "Puff-Up",
 		shortDesc: "Hit by a SPEC. Attack/Under Rain; Transform into Zamtrios-Puffed",
 	},
@@ -1075,8 +1085,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAllyBasePower(basePower, attacker, defender, move) {
 			let rebel = false;
 			for (const pokemon of this.getAllActive()) {
-				for (const stat in pokemon.boosts) {
-					if (pokemon.boosts[stat as BoostName] < 0) {
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
 						rebel = true;
 						break;
 					}
@@ -1094,7 +1105,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
 				if (!(effect as ActiveMove)?.secondaries) {
-					this.add("-fail", target, "unboost", "Attack", "[from] ability: Raging Rebel", "[of] " + target);
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Raging Rebel", `[of] ${target}`);
 				}
 			}
 		},
@@ -1247,20 +1258,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	risenburst: {
 		onStart(pokemon) {
-			if (pokemon.risenBurst) return;
-			pokemon.risenBurst = true;
+			if (this.effectState.risenBurst) return;
+			this.effectState.risenBurst = true;
 			const reaction = this.dex.getActiveMove('risenburst');
-			reaction.noreact = true;
+			// reaction.noreact = true;
 			this.add('-activate', pokemon, 'ability: Risen Burst');
-			this.actions.useMove(reaction, pokemon, pokemon.side.foe.active[pokemon.position]);
+			this.actions.useMove(reaction, pokemon, { target: pokemon.side.foe.active[pokemon.position] });
 		},
 		onDamagingHitOrder: 3,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp && move.type === 'Dark') {
+			if (/* !move.noreact && */ target.hp && source.hp && move.type === 'Dark') {
 				const reaction = this.dex.getActiveMove('risenburst');
-				reaction.noreact = true;
+				// reaction.noreact = true;
 				this.add('-activate', target, 'ability: Risen Burst');
-				this.actions.useMove(reaction, target, source);
+				this.actions.useMove(reaction, target, { target: source });
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
@@ -1353,7 +1364,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Sacred Jewel",
 		shortDesc: "Non-Volatile Status Inflicted: Sp. Def is 1.5x.",
 	},
@@ -1361,8 +1372,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAnyTryMove(target, source, effect) {
 			if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.boost({atk: 1}, source);
-				this.add('cant', this.effectState.target, 'ability: Silver Subsume', effect, '[of] ' + target);
+				this.boost({ atk: 1 }, source);
+				this.add('cant', this.effectState.target, 'ability: Silver Subsume', effect, `[of] ${target}`);
 				return false;
 			}
 		},
@@ -1424,31 +1435,31 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (move.category === 'Special') mod /= 2;
 			return this.chainModify(mod);
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		shortDesc: "Takes 1/2x damage from special moves | 2x damage from Fire moves.",
 		name: "Spongy",
 	},
 	starvingbite: {
-	onModifyMovePriority: 99,
-	onModifyMove(move, source, target) {
-		if (move.flags?.bite) {
-		move.ignoreAbility = true; 
-		move.ignoreImmunity = true; 
-		}
-	},
-	onEffectiveness(typeMod, target, type, move) {
-		if (!move || !move.flags?.bite) return;
-		if (typeMod < 0) return 0;
-	},
-	flags: {},
-	name: "Starving Bite",
-	desc: "This Pokémon's biting attacks ignore target abilities and type immunities, but still respect resistances and weaknesses.",
-	shortDesc: "Biting attacks ignore immunities and abilities.",
+		onModifyMovePriority: 99,
+		onModifyMove(move) {
+			if (move.flags['bite']) {
+				move.ignoreAbility = true;
+				move.ignoreImmunity = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!move.flags['bite']) return;
+			if (typeMod < 0) return 0;
+		},
+		flags: {},
+		name: "Starving Bite",
+		desc: "This Pokémon's biting attacks ignore target abilities and type immunities, but still respect resistances and weaknesses.",
+		shortDesc: "Biting attacks ignore immunities and abilities.",
 	},
 	stealthsilver: {
-		onStart(pokemon, source) {
-			if (pokemon.stealthsilver) return;
-			pokemon.stealthsilver = true;
+		onStart(pokemon) {
+			if (this.effectState.stealthSilver) return;
+			this.effectState.stealthSilver = true;
 			pokemon.side.foe.addSideCondition('gmaxsteelsurge');
 		},
 		flags: {},
@@ -1488,7 +1499,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		onAllySideConditionStart(target, source, sideCondition) {
+		onSideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
@@ -1509,7 +1520,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},
-		onAllySideConditionStart(target, source, sideCondition) {
+		onSideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
@@ -1517,7 +1528,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
-				if (!this.boost({atk: 1}, target, target)) {
+				if (!this.boost({ atk: 1 }, target, target)) {
 					this.add('-immune', target, '[from] ability: Tempest Force');
 				}
 				return null;
@@ -1541,7 +1552,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Terrestrial",
 		shortDesc: "Ground-type attacks deal 0.5x damage to the user.",
 	},
@@ -1565,24 +1576,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				target.addVolatile('confusion');
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Twilight Dust",
 		desc: "If this Pokemon is a Nightcloak Malfestio and induces drowsy in a target, the target also becomes confused.",
 		shortDesc: "Nightcloak: If this Pokemon induces drowsy in a Foe: Foe also becomes confused.",
 	},
 	vampirism: {
 		onSourceDamagingHit(damage, target, source, move) {
-			const sourceAbility = source.getAbility();
+			// const sourceAbility = source.getAbility();
 			const targetAbility = target.getAbility();
-	
+
 			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'vampirism') {
 				return;
 			}
-	
+
 			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
 				const oldAbility = target.setAbility('vampirism', source);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Vampirism', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Vampirism', this.dex.abilities.get(oldAbility).name, `[of] ${source}`);
 				}
 			}
 		},
@@ -1599,7 +1610,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Water Compaction",
 		desc: "This Pokemon is immune to Water-type moves and raises its Def by 2 stages when hit by an Water-type move.",
 		shortDesc: "When hit by a Water move: Immunity, Raises Def. by +2.",
@@ -1643,7 +1654,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-immune', target, '[from] ability: Wylk Encasing');
 			return null;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Wylk Encasing",
 		desc: "If this Pokemon is a Zoh Shia, it changes to it’s Unencased form if it has 1/2 or less of its maximum HP, and changes to Encased Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Encased Form, it cannot become affected by a non-volatile status condition or Yawn.",
 		shortDesc: "Zoh Shia: Starts Encased, becomes Unencased at the end of the turn if at ≤50% Max HP.",
@@ -1654,8 +1665,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (target.hp && !target.volatiles['dragoncharge']) {
 				if (target.status && target.status !== 'slp') {
 					const oldStatus = target.status;
-					target.cureStatus();
 					this.add('-curestatus', target, oldStatus, '[from] ability: Wyversion');
+					target.cureStatus();
 				}
 				target.addVolatile('dragoncharge');
 			}
@@ -1669,7 +1680,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 
 			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
-				const oldStatus = pokemon.status;
+				// const oldStatus = pokemon.status;
 				pokemon.cureStatus();
 				pokemon.addVolatile('dragoncharge');
 			}
@@ -1827,4 +1838,4 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "Under Sandstorm; Def is 1.3x. Cannot be statused, including Rest.",
 	},
-}
+};

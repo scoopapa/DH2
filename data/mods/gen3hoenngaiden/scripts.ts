@@ -9,9 +9,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init() {
 
-		for (const species in this.data.Pokedex) {
+		/**for (const species in this.data.Pokedex) {
 			delete this.data.Pokedex[species].abilities['H'];
-		}
+		}*/
 
 		// list Pokemon by VR rank
 		for (const species in this.dataCache?.Pokedex) {
@@ -25,6 +25,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 
 		learnsetUpdate(this);
-		
+
 	},
 };

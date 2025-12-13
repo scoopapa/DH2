@@ -2,7 +2,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	/*
 	Generation I
 	*/
-	/* BASE + MEGA 
+	/* BASE + MEGA
 	XX: {
 		num: XX,
 		name: "XX",

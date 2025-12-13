@@ -3796,7 +3796,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			},
-		},	
+		},
 	rajang: {
 		learnset: {
 			ancientpower: ["9L1"],
@@ -4445,7 +4445,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			axekick: ["9L1"],
 			bodyslam: ["9L1"],
 			takedown: ["9L1"],
-			bravebird: ["9L1"],					
+			bravebird: ["9L1"],
 			megakick: ["9M"],
 			chipaway: ["9L1"],
 			breakingswipe: ["9L1"],
@@ -13979,5 +13979,5 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			whirlpool: ["9L1"],
 			zenheadbutt: ["9L1"],
 		},
-	}
-}
+	},
+};

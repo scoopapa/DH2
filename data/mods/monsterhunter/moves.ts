@@ -1364,7 +1364,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 10,
 			status: 'frz',
-		},	
+		},
 		target: "normal",
 		shortDesc: "10% chance to freeze. Super effective on Water.",
 		type: "Ice",
@@ -2502,7 +2502,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 20,
 			status: 'frz',
-		},	
+		},
 		desc: "Has a 20% to frostbite the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% to frostbite the target. Rain: can't miss.",
 	},

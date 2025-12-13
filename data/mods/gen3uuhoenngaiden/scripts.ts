@@ -7,9 +7,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {},
 
 	init() {
-		for (const i in this.data.Pokedex) {
-			delete this.data.Pokedex[i].abilities['H'];
-		}
+		/**for (const species in this.data.Pokedex) {
+			delete this.data.Pokedex[species].abilities['H'];
+		}*/
 		learnsetUpdate(this);
 	}
 };
