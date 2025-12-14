@@ -5248,8 +5248,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5266,8 +5265,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5284,8 +5282,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 	},
 	{
@@ -5302,8 +5299,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5334,8 +5330,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5365,8 +5360,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5398,8 +5392,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5429,8 +5422,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5460,8 +5452,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5492,8 +5483,7 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
 			this.add('-message', `Format Wikia can be found here:`);
 			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites, and Kestis for the Icons!`);
-			this.add('-message', `(Monster Hunter Showdown is in no way officially affiliated with the Monster Hunter games or CAPCOM and is purely a fan project.)`);
+			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
