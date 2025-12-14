@@ -6839,12 +6839,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "sliggoo").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "sliggoo").learnset.acidspray = ["9L1"];
 		// Sliggo-Hisui
-		this.modData("Learnsets", "sliggohisui").learnset.facade = ["9L1"];
-		this.modData("Learnsets", "sliggohisui").learnset.chillingwater = ["9L1"];
-		this.modData("Learnsets", "sliggohisui").learnset.muddywater = ["9L1"];
-		this.modData("Learnsets", "sliggohisui").learnset.acidspray = ["9L1"];
-		this.modData("Learnsets", "sliggohisui").learnset.magnetbomb = ["9L1"];
-		this.modData("Learnsets", "sliggohisui").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.facade = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.chillingwater = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.muddywater = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.acidspray = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.magnetbomb = ["9L1"];
+		this.modData("Learnsets", "sliggoohisui").learnset.steelbeam = ["9L1"];
 		// Goodra
 		this.modData("Learnsets", "goodra").learnset.facade = ["9L1"];
 		this.modData("Learnsets", "goodra").learnset.chillingwater = ["9L1"];
