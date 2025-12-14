@@ -2473,9 +2473,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return this.field.isWeather(['hail', 'snow', 'absolutezero']);
 		},
 	},
-	lightofruin: {
-		inherit: true,
-		isNonstandard: null,
+	ruinouslight: {
+		num: 617,
+		accuracy: 90,
+		basePower: 140,
+		category: "Special",
+		name: "Ruinous Light",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Genesis Supernova", target);
+        },
+		
 	},
 	dragonpulse: {
 		inherit: true,

@@ -12115,7 +12115,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			hyperbeam: ["9L1"],
 			icebeam: ["9L1"],
 			lightscreen: ["9L1"],
-			lightofruin: ["9L1"],
+			ruinouslight: ["9L1"],
 			lunarblessing: ["9L1"],
 			magicalleaf: ["9L1"],
 			moonblast: ["9L1"],
