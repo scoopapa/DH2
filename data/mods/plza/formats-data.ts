@@ -978,4 +978,508 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	meowsticmmega: {
 		tier: "FE ZA",
 	},
+	mankey: {
+		tier: "LC ZA",
+	},
+	primeape: {
+		tier: "NFE ZA",
+	},
+	annihilape: {
+		tier: "FE ZA",
+	},
+	meowth: {
+		tier: "LC ZA",
+	},
+	persian: {
+		tier: "FE ZA",
+	},
+	meowthalola: {
+		tier: "LC ZA",
+	},
+	persianalola: {
+		tier: "FE ZA",
+	},
+	meowthgalar: {
+		tier: "LC ZA",
+	},
+	perrserker: {
+		tier: "FE ZA",
+	},
+	porygon: {
+		tier: "LC ZA",
+	},
+	porygon2: {
+		tier: "NFE ZA",
+	},
+	porygonz: {
+		tier: "FE ZA",
+	},
+	capsakid: {
+		tier: "LC ZA",
+	},
+	scovillain: {
+		tier: "FE ZA",
+	},
+	scovillainmega: {
+		tier: "FE ZA",
+	},
+	tinkatink: {
+		tier: "LC ZA",
+	},
+	tinkatuff: {
+		tier: "NFE ZA",
+	},
+	tinkaton: {
+		tier: "FE ZA",
+	},
+	cyclizar: {
+		tier: "FE ZA",
+	},
+	glimmet: {
+		tier: "LC ZA",
+	},
+	glimmora: {
+		tier: "NFE ZA",
+	},
+	glimmoramega: {
+		tier: "FE ZA",
+	},
+	rotom: {
+		tier: "FE ZA",
+	},
+	rotomwash: {
+		tier: "FE ZA",
+	},
+	rotommow: {
+		tier: "FE ZA",
+	},
+	rotomheat: {
+		tier: "FE ZA",
+	},
+	rotomfrost: {
+		tier: "FE ZA",
+	},
+	rotomfan: {
+		tier: "FE ZA",
+	},
+	greavard: {
+		tier: "LC ZA",
+	},
+	houndstone: {
+		tier: "FE ZA",
+	},
+	sandygast: {
+		tier: "LC ZA",
+	},
+	palossand: {
+		tier: "FE ZA",
+	},
+	flamigo: {
+		tier: "FE ZA",
+	},
+	cryogonal: {
+		tier: "FE ZA",
+	},
+	dondozo: {
+		tier: "FE ZA",
+	},
+	tatsugiri: {
+		tier: "FE ZA",
+	},
+	tatsugirimega: {
+		tier: "FE ZA",
+	},
+	frigibax: {
+		tier: "LC ZA",
+	},
+	arctibax: {
+		tier: "NFE ZA",
+	},
+	baxcalibur: {
+		tier: "FE ZA",
+	},
+	baxcaliburmega: {
+		tier: "FE ZA",
+	},
+	gimmighoul: {
+		tier: "LC ZA",
+	},
+	gholdengo: {
+		tier: "FE ZA",
+	},
+	qwilfish: {
+		tier: "FE ZA",
+	},
+	qwilfishhisui: {
+		tier: "LC ZA",
+	},
+	overqwil: {
+		tier: "FE ZA",
+	},
+	treecko: {
+		tier: "LC ZA",
+	},
+	grovyle: {
+		tier: "NFE ZA",
+	},
+	sceptile: {
+		tier: "FE ZA",
+	},
+	sceptilemega: {
+		tier: "FE ZA",
+	},
+	torchic: {
+		tier: "LC ZA",
+	},
+	combusken: {
+		tier: "NFE ZA",
+	},
+	blaziken: {
+		tier: "FE ZA",
+	},
+	blazikenmega: {
+		tier: "Uber ZA",
+	},
+	mudkip: {
+		tier: "LC ZA",
+	},
+	marshtomp: {
+		tier: "NFE ZA",
+	},
+	swampert: {
+		tier: "FE ZA",
+	},
+	swampertmega: {
+		tier: "FE ZA",
+	},
+	feebas: {
+		tier: "LC ZA",
+	},
+	milotic: {
+		tier: "FE ZA",
+	},
+	indeedee: {
+		tier: "LC ZA",
+	},
+	indeedeef: {
+		tier: "FE ZA",
+	},
+	mimikyu: {
+		tier: "FE ZA",
+	},
+	kleavor: {
+		tier: "FE ZA",
+	},
+	morpeko: {
+		tier: "FE ZA",
+	},
+	golett: {
+		tier: "LC ZA",
+	},
+	golurk: {
+		tier: "FE ZA",
+	},
+	golurkmega: {
+		tier: "FE ZA",
+	},
+	rookidee: {
+		tier: "LC ZA",
+	},
+	corvisquire: {
+		tier: "NFE ZA",
+	},
+	corviknight: {
+		tier: "FE ZA",
+	},
+	igglybuff: {
+		tier: "LC ZA",
+	},
+	jigglypuff: {
+		tier: "NFE ZA",
+	},
+	wigglytuff: {
+		tier: "FE ZA",
+	},
+	fidough: {
+		tier: "LC ZA",
+	},
+	dachsbun: {
+		tier: "FE ZA",
+	},
+	starly: {
+		tier: "LC ZA",
+	},
+	staravia: {
+		tier: "NFE ZA",
+	},
+	staraptor: {
+		tier: "FE ZA",
+	},
+	staraptormega: {
+		tier: "FE ZA",
+	},
+	spoink: {
+		tier: "LC ZA",
+	},
+	grumpig: {
+		tier: "FE ZA",
+	},
+	squawkabilly: {
+		tier: "FE ZA",
+	},
+	crabrawler: {
+		tier: "LC ZA",
+	},
+	crabominable: {
+		tier: "FE ZA",
+	},
+	crabominablemega: {
+		tier: "FE ZA",
+	},
+	nacli: {
+		tier: "LC ZA",
+	},
+	naclstack: {
+		tier: "NFE ZA",
+	},
+	garganacl: {
+		tier: "FE ZA",
+	},
+	gulpin: {
+		tier: "LC ZA",
+	},
+	swalot: {
+		tier: "FE ZA",
+	},
+	charcadet: {
+		tier: "LC ZA",
+	},
+	armarouge: {
+		tier: "FE ZA",
+	},
+	ceruledge: {
+		tier: "FE ZA",
+	},
+	maschiff: {
+		tier: "LC ZA",
+	},
+	mabosstiff: {
+		tier: "FE ZA",
+	},
+	toxel: {
+		tier: "LC ZA",
+	},
+	toxtricity: {
+		tier: "FE ZA",
+	},
+	toxtricitylowkey: {
+		tier: "FE ZA",
+	},
+	shroodle: {
+		tier: "LC ZA",
+	},
+	grafaiai: {
+		tier: "FE ZA",
+	},
+	zangoose: {
+		tier: "FE ZA",
+	},
+	seviper: {
+		tier: "FE ZA",
+	},
+	foongus: {
+		tier: "LC ZA",
+	},
+	amoonguss: {
+		tier: "FE ZA",
+	},
+	heatran: {
+		tier: "FE ZA",
+	},
+	heatranmega: {
+		tier: "FE ZA",
+	},
+	cobalion: {
+		tier: "FE ZA",
+	},
+	terrakion: {
+		tier: "FE ZA",
+	},
+	virizion: {
+		tier: "FE ZA",
+	},
+	keldeo: {
+		tier: "FE ZA",
+	},
+	meloetta: {
+		tier: "FE ZA",
+	},
+	darkrai: {
+		tier: "FE ZA",
+	},
+	darkraimega: {
+		tier: "FE ZA",
+	},
+	latias: {
+		tier: "FE ZA",
+	},
+	latiasmega: {
+		tier: "FE ZA",
+	},
+	latios: {
+		tier: "FE ZA",
+	},
+	latiosmega: {
+		tier: "FE ZA",
+	},
+	kyogre: {
+		tier: "Uber ZA",
+	},
+	kyogreprimal: {
+		tier: "Uber ZA",
+	},
+	groudon: {
+		tier: "Uber ZA",
+	},
+	groudonprimal: {
+		tier: "Uber ZA",
+	},
+	rayquazamega: {
+		tier: "Uber ZA",
+	},
+	rayquaza: {
+		tier: "Uber ZA",
+	},
+	magearna: {
+		tier: "Uber ZA",
+	},
+	magearnaoriginal: {
+		tier: "Uber ZA",
+	},
+	magearnamega: {
+		tier: "Uber ZA",
+	},
+	magearnaoriginalmega: {
+		tier: "Uber ZA",
+	},
+	farfetchd: {
+		tier: "FE ZA",
+	},
+	farfetchdgalar: {
+		tier: "LC ZA",
+	},
+	sirfetchd: {
+		tier: "FE ZA",
+	},
+	cubone: {
+		tier: "LC ZA",
+	},
+	marowak: {
+		tier: "FE ZA",
+	},
+	marowakalola: {
+		tier: "FE ZA",
+	},
+	kecleon: {
+		tier: "FE ZA",
+	},
+	chingling: {
+		tier: "LC ZA",
+	},
+	chimecho: {
+		tier: "FE ZA",
+	},
+	chimechomega: {
+		tier: "FE ZA",
+	},
+	purrloin: {
+		tier: "LC ZA",
+	},
+	liepard: {
+		tier: "FE ZA",
+	},
+	munna: {
+		tier: "LC ZA",
+	},
+	musharna: {
+		tier: "FE ZA",
+	},
+	throh: {
+		tier: "FE ZA",
+	},
+	sawk: {
+		tier: "FE ZA",
+	},
+	yamask: {
+		tier: "LC ZA",
+	},
+	cofagrigus: {
+		tier: "FE ZA",
+	},
+	runerigus: {
+		tier: "FE ZA",
+	},
+	wimpod: {
+		tier: "LC ZA",
+	},
+	golisopod: {
+		tier: "FE ZA",
+	},
+	golisopodmega: {
+		tier: "FE ZA",
+	},
+	nickit: {
+		tier: "LC ZA",
+	},
+	thievul: {
+		tier: "FE ZA",
+	},
+	clobbopus: {
+		tier: "LC ZA",
+	},
+	grapploct: {
+		tier: "FE ZA",
+	},
+	zubat: {
+		tier: "LC ZA",
+	},
+	golbat: {
+		tier: "NFE ZA",
+	},
+	crobat: {
+		tier: "FE ZA",
+	},
+	mimejr: {
+		tier: "LC ZA",
+	},
+	mrmime: {
+		tier: "FE ZA",
+	},
+	mrmimegalar: {
+		tier: "LC ZA",
+	},
+	mrrime: {
+		tier: "FE ZA",
+	},
+	genesect: {
+		tier: "FE ZA",
+	},
+	marshadow: {
+		tier: "Uber ZA",
+	},
+	meltan: {
+		tier: "LC ZA",
+	},
+	melmetal: {
+		tier: "Uber ZA",
+	},
+	zeraora: {
+		tier: "FE ZA",
+	},
+	zeraoramega: {
+		tier: "FE ZA",
+	},
+	yamaskgalar: {
+		tier: "LC ZA",
+	},
 };

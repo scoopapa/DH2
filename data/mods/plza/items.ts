@@ -1013,6 +1013,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	leek: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	absolitez: {
 		name: "Absolite Z",
 		spritenum: 576,
@@ -1213,8 +1221,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Tatsugirinite",
 		spritenum: 0,
 		megaStone: ["Tatsugiri-Mega"],
-		megaEvolves: ["Tatsugiri"/*, "Tatsugiri-Droopy", "Tatsugiri-Stretchy"*/],
-		itemUser: ["Tatsugiri"/*, "Tatsugiri-Droopy", "Tatsugiri-Stretchy"*/],
+		megaEvolves: ["Tatsugiri"],
+		itemUser: ["Tatsugiri"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves!.includes(source.baseSpecies.baseSpecies)) return false;
 			return true;
