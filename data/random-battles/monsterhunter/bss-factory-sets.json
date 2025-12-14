@@ -2821,7 +2821,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Moonblast", "Photon Geyser", "Meteor Beam", "Thunderbolt", "Oblivion Wing"], 
+                "movepool": ["Moonblast", "Photon Geyser", "Thunderbolt", "Oblivion Wing"], 
                 "abilities": ["Generalist"],
                 "teraTypes": ["Normal"]
 
