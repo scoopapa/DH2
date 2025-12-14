@@ -5242,13 +5242,10 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
 			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 	},
 	{
@@ -5259,13 +5256,10 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
 			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 	},
 	{
@@ -5276,13 +5270,10 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
 			'Species Clause', 'Terastal Clause', 'Baton Pass Clause', '!Team Preview'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 	},
 	{
@@ -5293,13 +5284,10 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod'],
 		banlist: [],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5324,13 +5312,10 @@ export const Formats: FormatList = [
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5354,13 +5339,10 @@ export const Formats: FormatList = [
 			'Evasion Clause', 'Species Clause', 'Baton Pass Clause'],
 		banlist: ['Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5386,13 +5368,10 @@ export const Formats: FormatList = [
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5416,13 +5395,10 @@ export const Formats: FormatList = [
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Community Discord can be found here:`);
-			this.add('-message', `https://discord.gg/JjjRGVrEvc`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5446,11 +5422,10 @@ export const Formats: FormatList = [
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -5475,11 +5450,10 @@ export const Formats: FormatList = [
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
 			'Shagaru Magala + Strength Sap'],
 		onBegin() {
-			this.add('-message', `Welcome to Monster Hunter Showdown!`);
-			this.add('-message', `Coded by KnivesMK, it reimagines the Monsters from Monster Hunter as Competitive Pokemon!`);
-			this.add('-message', `Format Wikia can be found here:`);
-			this.add('-message', `https://tinyurl.com/MonHunShow`);
-			this.add('-message', `Special thanks to EggEggEgg for most of the Sprites!`);
+			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />
+				Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a>
+				Need help with all of the new moves, abilities, and gameplay changes?<br />
+				Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
