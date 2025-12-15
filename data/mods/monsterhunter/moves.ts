@@ -2488,11 +2488,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Genesis Supernova", target);
         },
-		
 	},
 	dragonpulse: {
 		inherit: true,
