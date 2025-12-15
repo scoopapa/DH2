@@ -52,4 +52,40 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {basePower: 140},
 		contestType: "Tough",
 	},
+	fissionbeam: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Burns on contact with the user before it moves.",
+		name: "Fission Beam",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Beam", source);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('fissionbeam');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Fission Beam');
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('brn', target);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('fissionbeam')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('fissionbeam');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
 };

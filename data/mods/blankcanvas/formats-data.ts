@@ -355,4 +355,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zhuguo: {
 		tier: "BC C",
 	},
+	shinobomi: {
+		tier: "BC C",
+	},
+	prionice: {
+		tier: "BC C",
+	},
+	tiaratron: {
+		tier: "BC C",
+	},
+	lianzhao: {
+		tier: "BC C",
+	},
+	psyrex: {
+		tier: "BC C",
+	},
+	phantamp: {
+		tier: "BC C",
+	},
+	waroach: {
+		tier: "BC C",
+	},
+	wyldemoer: {
+		tier: "BC C",
+	},
 };

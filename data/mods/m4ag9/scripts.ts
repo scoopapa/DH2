@@ -22,12 +22,12 @@ const viabilityList9 = [
 	"tapukoko", "terapagos", "terapagosterastal", "tinglu", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
-	"araquanidmega", "arbolivamega", "armarougemega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremegam", "charizardmegay", "cinderacemega", "clefablemegam", 
-	"conkeldurrmega", "corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemegam",	"eelektrossmegam", "empoleonmega", "falinksmega", "flygonmega", 
-	"froslassmegam", "garbodormega", "grumpigmega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "kleavormega", "krookodilemega", "lanturnmega", 
+	"araquanidmega", "arbolivamega", "armarougemega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremegay", "charizardmegay", "cinderacemega", "clefablemegay", 
+	"conkeldurrmega", "corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemegay",	"eelektrossmegay", "empoleonmega", "falinksmega", "flygonmega", 
+	"froslassmegay", "garbodormega", "grumpigmega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "kleavormega", "krookodilemega", "lanturnmega", 
 	"latiosmega", "lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "mausholdfourmega", "mausholdmega", "meowsticmega", "miloticmega", "mimikyumega", 
 	"mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", "quaquavalmega", "rabscamega", "raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", 
-	"skeledirgemega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemegam", "stoutlandmega", "sylveonmega", "talonflamemega", "typhlosionmega", "tyrantrummega", 
+	"skeledirgemega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemegay", "stoutlandmega", "sylveonmega", "talonflamemega", "typhlosionmega", "tyrantrummega", 
 	"vanilluxemega", "wailordmega",
 ];
 /*

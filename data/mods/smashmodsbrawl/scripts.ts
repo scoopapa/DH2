@@ -185,14 +185,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "dialga").learnset.focusblast = ["9L1"];
 		this.modData('Learnsets', "dialga").learnset.trick = ["9L1"];
     	this.modData('Learnsets', 'gogoat').learnset.natureswrath = ['9M'];
-   	this.modData('Learnsets', 'gogoat').learnset.golemstrike = ['9L1'];
-	   this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
-	   this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
-	   this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
-	   this.modData('Learnsets', 'gyarados').learnset.acrobatics = ['9L1'];
-	   this.modData('Learnsets', 'gyarados').learnset.ragingtorrent = ['9L1'];
-	   this.modData('Learnsets', 'dhelmise').learnset.wavecrash = ['9L1'];
-	   this.modData('Learnsets', 'dhelmise').learnset.waterfall = ['9L1'];
+	   	this.modData('Learnsets', 'gogoat').learnset.golemstrike = ['9L1'];
+		this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
+		this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
+		this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
+		this.modData('Learnsets', 'gyarados').learnset.acrobatics = ['9L1'];
+		this.modData('Learnsets', 'gyarados').learnset.ragingtorrent = ['9L1'];
+		this.modData('Learnsets', 'dhelmise').learnset.wavecrash = ['9L1'];
+		this.modData('Learnsets', 'dhelmise').learnset.waterfall = ['9L1'];
 		this.modData("Learnsets", "garbodor").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "garbodor").learnset.earthquake = ["9L1"];
 		this.modData("Learnsets", "garbodor").learnset.mortalspin = ["9L1"];
@@ -211,8 +211,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
 		delete this.modData('Learnsets', 'skiddo').learnset.milkdrink;
 		delete this.modData('Learnsets', 'skiddo').learnset.grassyglide;
-	   this.modData('Learnsets', 'gogoat').learnset.milkdrinkage = ['9L1'];
-	   this.modData('Learnsets', 'gogoat').learnset.grassyglideage = ['9L1'];
+		delete this.modData('Learnsets', 'skiddo').learnset.hiddenpower;
+		delete this.modData('Learnsets', 'gogoat').learnset.milkdrink;
+		delete this.modData('Learnsets', 'gogoat').learnset.grassyglide;
+		delete this.modData('Learnsets', 'gogoat').learnset.hiddenpower;
+		this.modData('Learnsets', 'gogoat').learnset.milkdrinkage = ['9L1'];
+		this.modData('Learnsets', 'gogoat').learnset.grassyglideage = ['9L1'];
 		this.modData("Learnsets", "clodsire").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "clodsire").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "clodsire").learnset.crunch = ["9L1"];
@@ -255,6 +259,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ampharos').learnset.parabolicchargeglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.sleeptalkglacemons = ['9L1'];
 		this.modData('Learnsets', 'ampharos').learnset.restglacemons = ['9L1'];
+		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];
+		this.modData('Learnsets', 'hatterene').learnset.peekaboo = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.healingstones = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.lifedewvaporemons = ['9L1'];
+		this.modData('Learnsets', 'hatterene').learnset.psychicnoisevaporemons = ['9L1'];
+		delete this.modData('Learnsets', 'hatterene').learnset.psychicnoise;
+		delete this.modData('Learnsets', 'hatterene').learnset.lifedew;
+		delete this.modData('Learnsets', 'hatenna').learnset.lifedew;
+		delete this.modData('Learnsets', 'hattrem').learnset.lifedew;
 
 	},
 	pokemon: {

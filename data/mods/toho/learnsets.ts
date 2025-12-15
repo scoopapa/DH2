@@ -519,6 +519,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			bitterblade: ["9L1"],
+			psychocut: ["9L1"],
 		},
 	},
 	remiliascarlet: {
@@ -2308,6 +2310,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			risingvoltage: ["9L1"],
 		},
 	},
 	momijiinubashiri: {
@@ -6595,7 +6598,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
-			growth: ["9l1"],
+			growth: ["9L1"],
 		},
 	},
 

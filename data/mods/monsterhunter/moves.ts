@@ -234,7 +234,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to paralyze the foe.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -336,8 +336,8 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	apexburst: {
-		accuracy: 85,
-		basePower: 110,
+		accuracy: 100,
+		basePower: 80,
 		category: "Special",
 		name: "Apex Burst",
 		shortDesc: "Cures the user's party of all status conditions.",
@@ -372,7 +372,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Lowers SpA by 1; Raises Spe by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
 		selfBoost: {
 			boosts: {
 				spa: -1,
@@ -469,7 +469,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -490,7 +490,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -662,7 +662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	boulderpunch: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 85,
 		category: "Physical",
 		name: "Boulder Punch",
 		pp: 15,
@@ -1021,7 +1021,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to inflict Stench.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, pulse: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'stench',
@@ -1456,7 +1456,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Risen Burst",
 		pp: 1,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Dark Pulse", target);
@@ -1475,6 +1475,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.flags.contact = 1;
 				}
 		},
+		shortDesc: "Physical+Contact or Special, depending on which is stronger.",
 		type: 'Dark',
 		secondary: null,
 		target: "allAdjacent",
@@ -1735,7 +1736,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Pyrotoxic Gale",
-		shortDesc: "Sea of Fire for 3 turns.",
+		shortDesc: "Sea of Fire for 3-4 turns.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -1784,23 +1785,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-	},
-	lightofruin: {
-		num: 617,
-		accuracy: 90,
-		basePower: 140,
-		category: "Special",
-		name: "Light of Ruin",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		recoil: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/2 recoil.",
 	},
 	/*
 	Edits
@@ -1858,6 +1842,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	razorwind: {
 		inherit: true,
 		viable: true,
+		basePower: 100,
 		onTryMove(attacker, defender, move) {},
 		desc: "High critical hit ratio. 30% chance to inflict bleed.",
 		shortDesc: "High critical hit ratio. 30% chance to inflict bleed.",
@@ -1999,6 +1984,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		basePower: 85,
 	},
+	moonblast: {
+		inherit: true,
+		basePower: 90,
+	},
 	tropkick: {
 		inherit: true,
 		viable: true,
@@ -2024,6 +2013,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 100,
 		basePower: 100,
+	},
+	mudbomb: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 85,
+		secondary: {
+			chance: 30,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		desc: "Has a 30% chance to lower the target's evasion by 1 stage.",
+		shortDesc: "30% chance to lower the target's evasion by 1.",
 	},
 	skyuppercut: {
 		inherit: true,
@@ -2307,7 +2310,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather('sandstorm', 'dustdevil')) {
+			if (this.field.isWeather('sandstorm') || this.field.isWeather('dustdevil')) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
@@ -2471,6 +2474,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return this.field.isWeather(['hail', 'snow', 'absolutezero']);
 		},
 	},
+	ruinouslight: {
+		num: 617,
+		accuracy: 90,
+		basePower: 140,
+		category: "Special",
+		name: "Ruinous Light",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Genesis Supernova", target);
+        },
+		
+	},
 	dragonpulse: {
 		inherit: true,
 		secondary: {
@@ -2504,99 +2527,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 	TORQUES
 	*/
 	blazingtorque: {
-		num: 896,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Blazing Torque",
-		pp: 10,
-		priority: 0,
-		flags: {
-			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
-			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
-		},
-		secondary: {
-			chance: 30,
-			status: 'brn',
-		},
-		target: "normal",
-		type: "Fire",
+		inherit: true,
+		isNonstandard: null,
+		basePower: 100,
 	},
 	combattorque: {
-		num: 899,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Combat Torque",
-		pp: 10,
-		priority: 0,
-		flags: {
-			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
-			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
-		},
-		secondary: {
-			chance: 30,
-			status: 'par',
-		},
-		target: "normal",
-		type: "Fighting",
+		inherit: true,
+		isNonstandard: null,
 	},
 	magicaltorque: {
-		num: 900,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Magical Torque",
-		pp: 10,
-		priority: 0,
-		flags: {
-			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
-			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
-		},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'confusion',
-		},
-		target: "normal",
-		type: "Fairy",
+		inherit: true,
+		isNonstandard: null,
 	},
 	noxioustorque: {
-		num: 898,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Noxious Torque",
-		pp: 10,
-		priority: 0,
-		flags: {
-			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
-			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
-		},
-		secondary: {
-			chance: 30,
-			status: 'psn',
-		},
-		target: "normal",
-		type: "Poison",
+		inherit: true,
+		isNonstandard: null,
 	},
 	wickedtorque: {
-		num: 897,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		shortDesc: "10% chance to make the target drowsy.",
-		name: "Wicked Torque",
-		pp: 10,
-		priority: 0,
-		flags: {
-			protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
-			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
-		},
+		inherit: true,
+		isNonstandard: null,
+		basePower: 100,
+		shortDesc: "30% chance to make the target drowsy.",
 		secondary: {
-			chance: 10,
+			chance: 30,
 			status: 'slp',
 		},
-		target: "normal",
-		type: "Dark",
 	},
 }

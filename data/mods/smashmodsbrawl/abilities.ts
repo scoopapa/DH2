@@ -516,6 +516,54 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		shortDesc: "placeholder until i get the code.",
 	},
+	scrappymr: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		shortDesc: "This Pokemon can hit Ghost types with Normal- and Fighting-type moves.",
+		flags: {},
+		name: "Scrappy-MR",
+		rating: 3,
+		num: 113,
+	},
+	innerfocusmr: {
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		shortDesc: "This Pokemon cannot be made to flinch.",
+		flags: {breakable: 1},
+		name: "Inner Focus-MR",
+		rating: 1,
+		num: 39,
+	},
+	parentalbond: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if ([
+				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
+				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
+			].includes(move.id)) return;
+			if (!move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
+		},
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Parental Bond",
+		rating: 4.5,
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered.",
+		num: 184,
+	},
 	insectarmor: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -648,5 +696,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Archetype",
 		rating: 4,
 		num: -17,
+	},
+	healervaporemons: {
+		name: "Healer (VaporeMons)",
+	   onFaint(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'healer');
+	   },
+	   condition: {
+			onSwap(target) {
+				 if (!target.fainted) {
+					  const source = this.effectState.source;
+					  const damage = this.heal(target.baseMaxhp / 2, target, target);
+					  if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Healer', '[of] ' + this.effectState.source);
+					  target.side.removeSlotCondition(target, 'healer');
+				 }
+			},
+	   },
+		flags: {},
+		rating: 3,
+		shortDesc: "On faint, the next Pokemon sent out heals 50% of its max HP.",
+		num: 131,
 	},
 };

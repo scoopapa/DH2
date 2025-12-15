@@ -71,6 +71,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onSwitchIn(pokemon) {
 			pokemon.static = 0;
 		},
+		onCureStatus(pokemon) {
+        pokemon.static = 0;
+    	},
 		onBeforeMove(pokemon) {
  			if (pokemon.static >= 3) {
 				this.add('cant', pokemon, 'par');
@@ -145,16 +148,18 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses reduced by half for 3 turns!`);
 		},
-		onResidual(pokemon) {
-			this.boost({def: -1, spd: -1}, pokemon);
+		onModifyDef(def, pokemon) {
+			return this.chainModify(0.5);
+		},
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(0.5);
 		},
 		onEnd(pokemon) {
-			this.boost({def: 3, spd: 3}, pokemon);
 			this.add('-end', pokemon, 'Defense Down');
 		},
-		},
+	},
 	stench: {
 		name: 'Stench',
 		duration: 4,

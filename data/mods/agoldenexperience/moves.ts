@@ -1119,22 +1119,22 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			onBasePower(basePower, attacker, defender, move) {
 				if ((move.type === 'Fighting' || move.flags['pulse']) && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
 					this.debug('chakra terrain boost');
-					return this.chainModify([0x14CD, 0x1000]);
+					return this.chainModify([5325, 4096]);
 				}
 			},
-			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && source.isGrounded() && !source.isSemiInvulnerable()) {
-					return true;
-				}
-				return accuracy;
+			onModifyAccuracy(accuracy, target, source, move) {
+				if (typeof accuracy !== 'number') return;
+				if (move.type ==='Fighting') return true;
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Chakra Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
 					this.add('-message', "Fighting-type moves used by grounded Pokémon won't miss.");
-					this.add('-message', "Pulse moves will be boosted by 30%.");
+					this.add('-message', "Fighting-type and Pulse moves will be boosted by 30%.");
 				} else {
 					this.add('-fieldstart', 'move: Chakra Terrain');
+					this.add('-message', "Fighting-type moves used by grounded Pokémon won't miss.");
+					this.add('-message', "Fighting-type and Pulse moves will be boosted by 30%.");
 				}
 			},
 			onFieldResidualOrder: 27,
@@ -2795,17 +2795,19 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	poisonivy: {
 		num: -64,
 		accuracy: 100,
-		basePower: 25,
+		basePower: 50,
 		category: "Special",
 		name: "Poison Ivy",
-		shortDesc: "Hits 2-5 times in one turn.",
-		desc: "Hits 2-5 times in one turn.",
-		pp: 20,
+		shortDesc: "Hits twice. This move does not check accuracy.",
+		desc: "Hits twice. This move does not check accuracy.",
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		multihit: [2, 5],
+		multihit: 2,
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Whip", target);
+			this.add('-anim', source, "Sludge Wave", target);
 			this.add('-anim', source, "Power Whip", target);
 			this.add('-anim', source, "Sludge Wave", target);
 		},
@@ -3324,7 +3326,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	befuddlepowder: {
 		num: -79,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Special",
 		name: "Befuddle Powder",
 		pp: 10,
@@ -3342,7 +3344,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "Flying",
+		type: "Bug",
 		contestType: "Cool",
 		shortDesc: "Double damage on targets that resist.",
 	},
@@ -3562,7 +3564,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				atk: 1,
 			},
 		},
-		weather: 'snow',
+		weather: 'snowscape',
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Snowscape", target);
@@ -3833,6 +3835,52 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
 			},
 		},
+	},
+	scaredyshell: {
+		num: -97,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Scaredy Shell",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		selfSwitch: true,
+		secondary: null,
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", source);
+			this.add('-anim', source, "U-turn", target);
+		},
+		target: "normal",
+		type: "Steel",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
+		shortDesc: "User switches out after damaging the target.",
+		switchOut: "#uturn",
+	},
+	calmingbell: {
+		num: -98,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Calming Bell",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Heal Bell", target);
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+		shortDesc: "100% chance to lower the target's SpA by 1.",
 	},
 
 

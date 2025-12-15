@@ -4,7 +4,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	ninjask: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	toxapex: {
@@ -44,7 +44,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	microwave: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	glaceon: {
@@ -60,7 +60,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	ohmyrod: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	celesteela: {
@@ -68,7 +68,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	bigcrammer: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	archeops: {
@@ -133,7 +133,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	silvallyfairy: {
-		tier: "Untested",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silvallyfighting: {
@@ -201,7 +201,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	zelda: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	cascoon: {
@@ -234,7 +234,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	bondra: {
-		tier: "Untested",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	tangetteeternal: {
@@ -254,7 +254,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	guiltrism: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	swampert: {
@@ -278,7 +278,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	impalpitoad: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	scrubby: {
@@ -307,7 +307,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	conquescape: {
-		tier: "Unviable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	daiyakuza: {
@@ -335,7 +335,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	mario: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	contamicow: {
@@ -456,7 +456,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	cinderace: {
-		tier: "Untested",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	lemonfish: {
@@ -464,12 +464,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	dracolition: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 
 	goddease: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	jableye: {
@@ -509,7 +509,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	applwirm: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	minunandplusled: {
@@ -561,6 +561,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Unviable",
 		doublesTier: "DOU",
 	},
+	solarbeanprimal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
 	
 	hiveweb: {
 		tier: "Unviable",
@@ -579,7 +583,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	carnivineif: {
-		tier: "Unviable",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	grumpig: {
@@ -592,7 +596,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	panderdragoon: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	soruarc: {
@@ -636,7 +640,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	darkpoison: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 
@@ -649,7 +653,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	zoruahisui: {
-		tier: "Viable",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	wishiwashi: {
@@ -706,11 +710,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	abomasnowmega: {
-		tier: "Untested",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	bart: {
-		tier: "Untested",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	kyogre: {

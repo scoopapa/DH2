@@ -191,4 +191,32 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	scarachnid: {
 		tier: "SSB",
 	},
+	nidoqueenrosegold: {
+		tier: "SSB",
+	},
+	toxtricity: {
+		tier: "SSB",
+	},
+	toxtricitylowkey: {
+		tier: "Illegal",
+	},
+	toxtricitygmax: {
+		tier: "SSB",
+		isNonstandard: null,
+	},
+	kingdragourmet: {
+		tier: "SSB",
+	},
+	hatterene: {
+		tier: "SSB",
+	},
+	frogvolver: {
+		tier: "SSB",
+	},
+	combysa: {
+		tier: "SSB",
+	},
+	ogerponcostar: {
+		tier: "SSB",
+	},
 };

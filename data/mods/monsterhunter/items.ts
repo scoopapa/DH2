@@ -491,5 +491,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
 			return true;
 		},
-	}
+	},
 }
