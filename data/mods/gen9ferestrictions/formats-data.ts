@@ -47,7 +47,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
-  // LCs
+	pangonacl: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	tangalge: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	toedzone: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
 	typedew: {
 		tier: "FERELC",
 		doublesTier: "DOU",
@@ -79,6 +90,53 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	piqwilhisui: {
 		tier: "FERELC",
 		doublesTier: "DOU",
+	},
+	pannacli: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	tangelp: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	toedmite: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	geobaxalola: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	gravibaxalola: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	golcaliburalola: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	pawnipek: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	bisheak: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	kingannon: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	croamaka: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	darmacroak: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	darmacroakzen: {
+		tier: "Illegal",
 	},
   // Silverade
 	silveradebug: {

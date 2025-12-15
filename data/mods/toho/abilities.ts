@@ -312,13 +312,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	undefineddefense: {
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === target.hpType) {
+			if (move.type === target.teraType) {
 				return this.chainModify(0.5);
 			}
 		},
 		flags: {},
 		name: "Undefined Defense",
-		shortDesc: "Halves damage taken from moves of the Pokémon's hidden power type.",
+		shortDesc: "Halves damage taken from moves of the Pokémon's Tera type.",
 	},
 	echo: {
 		onTryHit(target, source, move) {
@@ -364,23 +364,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Heals status conditions at the end of the turn while in grassy terrain.",
 	},
 	wickedpower: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dark' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dark' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Wicked Power boost');
-				return this.chainModify(1.5);
-			}
+		// onModifyAtkPriority: 5,
+		// onModifyAtk(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		// onModifySpAPriority: 5,
+		// onModifySpA(atk, attacker, defender, move) {
+		// 	if (move.type === 'Dark') {
+		// 		this.debug('Wicked Power boost');
+		// 		return this.chainModify(1.5);
+		// 	}
+		// },
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('wickedenergy');
 		},
 		flags: {},
 		name: "Wicked Power",
-		shortDesc: "Dark-Type moves are 1.5x stronger while under 33% HP.",
+		shortDesc: "When this Pokémon is hit, its next Dark-Type move has 2x power.",
 	},
 	growbigger: {
 		//effects in scripts/battle, pokemon, etc
@@ -480,30 +484,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Okina Matara' || pokemon.transformed) return;
+			let forme = null;
 			switch (pokemon.effectiveWeather()) {
-				case 'sunnyday':
-				case 'desolateland':
-					pokemon.setType(['Fire', 'Dark']);
-					break;
-				case 'raindance':
-				case 'primordialsea':
-					pokemon.setType(['Water', 'Dark']);
-					break;
-				case 'sandstorm':
-					pokemon.setType(['Rock', 'Dark']);
-					break;
-				case 'hail':
-				case 'snowscape':
-					pokemon.setType(['Ice', 'Dark']);
-					break;
-				default:
-					pokemon.setType(['Normal', 'Dark']);
-					break;
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'okinamatarasummer') forme = 'Okina Matara-Summer';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'okinamataraspring') forme = 'Okina Matara-Spring';
+				break;
+			case 'sandstorm':
+				if (pokemon.species.id !== 'okinamataraautumn') forme = 'Okina Matara-Autumn';
+				break;
+			case 'hail':
+			case 'snow':
+				if (pokemon.species.id !== 'okinamatarawinter') forme = 'Okina Matara-Winter';
+				break;
+			default:
+				if (pokemon.species.id !== 'okinamatara') forme = 'okina Matara';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
 		flags: {failroleplay: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Four Seasons",
-		shortDesc: "Okina Matara's primary typing changes to match the weather.",
+		shortDesc: "Okina Matara's forme changes to match the weather.",
 	},
 	heavystone: {
 		onStart(source) {

@@ -1017,7 +1017,6 @@ export const Learnsets = {
 			defog: ["9L1"],
 			healbell: ["9L1"],
 			whirlwind: ["9L1"],
-			sheercold: ["9L1"],
 			hyperbeam: ["9L1"],
 			gigaimpact: ["9L1"],
 			tailwind: ["9L1"],

@@ -12,7 +12,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	froakie: {tier: "Kalos (LC)"},
 	frogadier: {tier: "Kalos (NFE)"},
-	greninja: {tier: "Kalos Uber"},
+	greninja: {tier: "Kalos OU"},
 
 	bunnelby: {tier: "Kalos (LC)"},
 	diggersby: {tier: "Kalos"},
@@ -186,7 +186,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	honedge: {tier: "Kalos (LC)"},
 	doublade: {tier: "Kalos (NFE)"},
-	aegislash: {tier: "Kalos Uber"},
+	aegislash: {tier: "Kalos OU"},
 
 	venipede: {tier: "Kalos (LC)"},
 	whirlipede: {tier: "Kalos (NFE)"},
@@ -345,7 +345,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	marowak: {tier: "Kalos"},
 
 	kangaskhan: {tier: "Kalos"},
-	kangaskhanmega: {tier: "Kalos Uber"},
+	kangaskhanmega: {tier: "Kalos OU"},
 
 	mawile: {tier: "Kalos"},
 	mawilemega: {tier: "Kalos Uber"},
@@ -439,7 +439,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gigalith: {tier: "Kalos"},
 
 	sableye: {tier: "Kalos"},
-	sableyemega: {tier: "Kalos Uber"},
+	sableyemega: {tier: "Kalos OU"},
 
 	carbink: {tier: "Kalos"},
 
@@ -755,8 +755,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	torchic: {tier: "Kalos (LC)"},
 	combusken: {tier: "Kalos (NFE)"},
-	blaziken: {tier: "Kalos Uber"},
-	blazikenmega: {tier: "Kalos Uber"},
+	blaziken: {tier: "Kalos OU"},
+	blazikenmega: {tier: "Kalos OU"},
 
 	// DLC
 

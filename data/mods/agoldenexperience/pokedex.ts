@@ -45,6 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 90, spd: 80, spe: 75},
+		abilities: {0: "Compound Eyes", H: "Magic Guard"},
 		otherFormes: ["Butterfree-Gmax", "Butterfree-Mega"],
 		formeOrder: ["Butterfree", "Butterfree-Gmax", "Butterfree-Mega"],
 	},
@@ -53,9 +54,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Butterfree-Mega",
 		baseSpecies: "Butterfree",
 		forme: "Mega",
-		types: ["Bug", "Flying"],
+		types: ["Bug", "Fairy"],
 		baseStats: {hp: 60, atk: 40, def: 70, spa: 140, spd: 110, spe: 75},
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Technician"},
 		heightm: 5,
 		weightkg: 50,
 		color: "White",
@@ -117,14 +118,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Adaptability"},
 	},
-	raichu: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 100, def: 55, spa: 90, spd: 80, spe: 110},
-	},
-	raichualola: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 50, spa: 105, spd: 85, spe: 110},
-	},
 	sandshrew: {
 		inherit: true,
 		abilities: {0: "Sand Veil", 1: "Battle Armor", H: "Sand Rush"},
@@ -145,7 +138,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	clefablemega: {
 		inherit: true,
-		abilities: { 0: "Aerilate" },
+		abilities: { 0: "Unaware" },
 	},
 	ninetales: {
 		inherit: true,
@@ -331,7 +324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	doduo: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Early Bird", H: "Striker"},
+		abilities: {0: "Run Away", 1: "Multiheaded", H: "Striker"},
 	},
 	dodrio: {
 		inherit: true,
@@ -364,7 +357,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	kingler: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 150, def: 115, spa: 50, spd: 50, spe: 75},
+		baseStats: {hp: 100, atk: 130, def: 115, spa: 50, spd: 50, spe: 50},
+		abilities: {0: "Hyper Cutter", 1: "Huge Clamp", H: "Sheer Force"},
 	},
 	hypno: {
 		inherit: true,
@@ -391,17 +385,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	exeggcute: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Chlorophyll", 1: "Multiheaded", H: "Harvest"},
 	},
 	exeggutor: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 85, def: 85, spa: 125, spd: 75, spe: 65},
-		abilities: {0: "Chlorophyll", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Chlorophyll", 1: "Multiheaded", H: "Harvest"},
 	},
 	exeggutoralola: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 125, def: 85, spa: 125, spd: 75, spe: 25},
-		abilities: {0: "Frisk", 1: "Strong Will", H: "Harvest"},
+		abilities: {0: "Unconcerned", 1: "Multiheaded", H: "Harvest"},
 	},
 	hitmonlee: {
 		inherit: true,
@@ -605,6 +599,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	feraligatrmega: {
 		inherit: true,
+		baseStats: { hp: 85, atk: 160, def: 125, spa: 79, spd: 93, spe: 88 },
 		abilities: { 0: "Strong Jaw" },
 	},
 	furret: {
@@ -940,15 +935,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 55, def: 75, spa: 55, spd: 110, spe: 65},
 	},
+	lotad: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 20, def: 30, spa: 50, spd: 50, spe: 40},
+	},
+	lombre: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 40, def: 50, spa: 70, spd: 70, spe: 60},
+	},
 	ludicolo: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 80, def: 70, spa: 80, spd: 85, spe: 85}, 
-		abilities: {0: "Swift Swim", 1: "Rain Dish", H: "Mad Dancer"},
+		baseStats: {hp: 80, atk: 60, def: 70, spa: 100, spd: 100, spe: 80}, 
+	},
+	seedot: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 40, def: 50, spa: 30, spd: 40, spe: 30},
+	},
+	nuzleaf: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 80, def: 40, spa: 70, spd: 40, spe: 60},
 	},
 	shiftry: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 110, def: 60, spa: 90, spd: 60, spe: 80},
-		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Cold Wind"},
+		baseStats: {hp: 80, atk: 110, def: 60, spa: 100, spd: 60, spe: 80},
+		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "North Wind"},
 	},
 	swellow: {
 		inherit: true,
@@ -1299,10 +1309,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Shadow Tag", H: "Frisk"},
 	},
-	chimecho: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 70, def: 105, spa: 135, spd: 120, spe: 75},
-	},
 	tropius: {
 		inherit: true,
 		evos: ["Sautropius"],
@@ -1323,7 +1329,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	walrein: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 105, def: 100, spa: 60, spd: 100, spe: 45},
-		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Icebreaker"},
 	},
 	huntail: {
 		inherit: true,
@@ -1563,6 +1568,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	garchompmega: {
 		inherit: true,
+		baseStats: {hp: 108, atk: 170, def: 105, spa: 120, spd: 95, spe: 102},
 		abilities: {0: "Unconcerned"},
 	},
 	lucario: {
@@ -1600,6 +1606,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	abomasnow: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 102, def: 85, spa: 102, spd: 95, spe: 70},
+		abilities: { 0: "Snow Warning", H: "Mountain Walker" },
 	},
 	abomasnowmega: {
 		inherit: true,
@@ -1633,7 +1640,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	yanmega: {
 		inherit: true,
-		baseStats: {hp: 86, atk: 60, def: 86, spa: 129, spd: 56, spe: 98},
 		otherFormes: ["Yanmega-Mega"],
 		formeOrder: ["Yanmega", "Yanmega-Mega"],
 	},
@@ -1665,7 +1671,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	gallademega: {
 		inherit: true,
-		abilities: {0: "Sharpness"},
+		abilities: {0: "Justified"},
 	},
 	probopass: {
 		inherit: true,
@@ -1721,7 +1727,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	dialgaorigin: {
 		inherit: true,
-		abilities: {0: "Regenerator"},
+		abilities: {0: "Levitate"},
 	},
 	palkiaorigin: {
 		inherit: true,
@@ -1756,8 +1762,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	serperior: {
 		inherit: true,
-		otherFormes: ["Serperior-Galar"],
-		formeOrder: ["Serperior", "Serperior-Galar"],
+		otherFormes: ["Serperior-Galar", "Serperior-Mega"],
+		formeOrder: ["Serperior", "Serperior-Galar", "Serperior-Mega"],
 	},
 	serperiorgalar: {
 		num: 497,
@@ -1775,9 +1781,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		evoLevel: 36,
 		eggGroups: ["Field", "Grass"],
 	},
+	serperiormega: {
+		num: 497,
+		name: "Serperior-Mega",
+		baseSpecies: "Serperior",
+		forme: "Mega",
+		types: ["Grass"],
+		genderRatio: { M: 0.875, F: 0.125 },
+		baseStats: { hp: 75, atk: 105, def: 105, spa: 105, spd: 105, spe: 133 },
+		abilities: { 0: "Contrarian" },
+		heightm: 3.5,
+		weightkg: 60,
+		color: "Green",
+		eggGroups: ["Field", "Grass"],
+		requiredItem: "Serperiorite",
+		gen: 9,
+	},
 	pignite: {
 		inherit: true,
 		evos: ["Emboar", "Emboar-Galar"],
+	},
+	emboar: {
+		inherit: true,
+		otherFormes: ["Emboar-Mega", "Emboar-Galar"],
+		formeOrder: ["Emboar", "Emboar-Mega", "Emboar-Galar"],
 	},
 	emboarmega: {
 		inherit: true,
@@ -1805,9 +1832,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	samurott: {
 		inherit: true,
-		types: ["Water", "Fighting"],
-		baseStats: {hp: 75, atk: 110, def: 75, spa: 118, spd: 60, spe: 90},
-		abilities: {0: "Torrent", H: "Supreme Overlord"},
 		otherFormes: ["Samurott-Hisui", "Samurott-Galar"],
 		formeOrder: ["Samurott", "Samurott-Hisui", "Samurott-Galar"],
 	},
@@ -1827,9 +1851,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		evoLevel: 36,
 		eggGroups: ["Field"],
 	},
+	samurottmega: {
+		num: 503,
+		name: "Samurott-Mega",
+		baseSpecies: "Samurott",
+		forme: "Mega",
+		types: ["Water", "Fighting"],
+		genderRatio: { M: 0.875, F: 0.125 },
+		baseStats: { hp: 95, atk: 130, def: 95, spa: 138, spd: 70, spe: 100 },
+		abilities: { 0: "Supreme Overlord" },
+		heightm: 2,
+		weightkg: 94.6,
+		color: "Blue",
+		eggGroups: ["Field"],
+		requiredItem: "Samurottite",
+		gen: 9,
+	},
 	watchog: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 69, spa: 80, spd: 69, spe: 87},
+		baseStats: {hp: 60, atk: 85, def: 69, spa: 60, spd: 69, spe: 97},
+		abilities: {0: "Illuminate", 1: "Tinted Lens", H: "Light Power"},
 	},
 	herdier: {
 		inherit: true,
@@ -1933,7 +1974,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	excadrillmega: {
 		inherit: true,
-		abilities: { 0: "Mold Breaker" },
+		abilities: { 0: "Sand Rush" },
 	},
 	audinomega: {
 		inherit: true,
@@ -1959,28 +2000,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 75, atk: 113, def: 80, spa: 50, spd: 80, spe: 102},
 		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Leaf Dress"},
 	},
-	// ZA mega
-	scolipede: {
-		inherit: true,
-		otherFormes: ["Scolipede-Mega"],
-		formeOrder: ["Scolipede", "Scolipede-Mega"],
-	},
 	scolipedemega: {
-		num: 545,
-		name: "Scolipede-Mega",
-		baseSpecies: "Scolipede",
-		forme: "Mega",
-		types: ["Bug", "Poison"],
-		baseStats: { hp: 60, atk: 140, def: 149, spa: 75, spd: 99, spe: 62 },
-		abilities: { 0: "Speed Boost" },
-		heightm: 3.2,
-		weightkg: 230.5,
-		color: "Red",
-		eggGroups: ["Bug"],
-		requiredItem: "Scolipite",
-		gen: 9,
+		inherit: true,
+		abilities: {0: "Tinted Lens"},
 	},
-	// end of ZA mega
 	whimsicott: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 67, def: 85, spa: 77, spd: 75, spe: 116},
@@ -2125,14 +2148,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     zoroark: {
         inherit: true,
-        baseStats: {hp: 60, atk: 95, def: 60, spa: 120, spd: 60, spe: 115},
         otherFormes: ["Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
         formeOrder: ["Zoroark", "Zoroark-Hisui", "Zoroark-Mega", "Zoroark-Hisui-Mega"],
     },
-	zoroarkhisui: {
-		inherit: true,
-		baseStats: {hp: 55, atk: 90, def: 60, spa: 125, spd: 60, spe: 120},
-	},
     zoroarkmega: {
         num: 571,
         name: "Zoroark-Mega",
@@ -2155,7 +2173,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Mega-Hisui",
         types: ["Normal", "Ghost"],
         genderRatio: {M: 0.875, F: 0.125},
-        baseStats: {hp: 60, atk: 90, def: 100, spa: 130, spd: 100, spe: 130},
+        baseStats: {hp: 55, atk: 95, def: 100, spa: 130, spd: 100, spe: 130},
         abilities: {0: "Bitter Hatred"},
         heightm: 1.6,
         weightkg: 81.1,
@@ -2232,12 +2250,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Steelbreaker"},
 	},
-	beartic: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 130, def: 80, spa: 50, spd: 80, spe: 70},
-		abilities: {0: "Icebreaker", 1: "Slush Rush", H: "Swift Swim"},
-		evos: ["Meltic"],
-	},
 	cryogonal: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Snow Warning"},
@@ -2263,11 +2275,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mienshao: {
 		inherit: true,
 		abilities: {0: "Striker", 1: "Regenerator", H: "Reckless"},
-	},
-	golurk: {
-		inherit: true,
-		abilities: {0: "Iron Fist", 1: "Klutz", H: "Invincible"},
-		evos: ["Golrobot"],
 	},
 	bouffalant: {
 		inherit: true,
@@ -2372,11 +2379,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	delphoxmega: {
 		inherit: true,
-		abilities: { 0: "Magic Guard" },
+		abilities: { 0: "Levitate" },
 	},
 	greninjamega: {
 		inherit: true,
-		abilities: { 0: "Protean" },
+		abilities: { 0: "Skill Link" },
 	},
 	pyroarmega: {
 		inherit: true,
@@ -2394,13 +2401,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	floetteeternal: {
 		inherit: true,
-		types: ["Fairy", "Ghost"],
-		abilities: {0: "Flower Veil", 1: "Curse of Life", H: "Symbiosis"},
+		abilities: {0: "Flower Veil", 1: "Leaf Dress", H: "Symbiosis"},
 	},
 	floettemega: {
 		inherit: true,
-		types: ["Fairy", "Ghost"],
-		abilities: { 0: "Curse of Life" },
+		abilities: { 0: "Ange" },
 	},
 	florges: {
 		inherit: true,
@@ -2419,14 +2424,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 124, def: 78, spa: 48, spd: 71, spe: 79},
 	},
-	meowstic: {
-		inherit: true,
-		baseStats: {hp: 74, atk: 48, def: 76, spa: 93, spd: 81, spe: 109},
-	},
-	meowsticf: {
-		inherit: true,
-		baseStats: {hp: 74, atk: 48, def: 76, spa: 93, spd: 81, spe: 109},
-	},
 	spritzee: {
 		inherit: true,
 		abilities: {0: "Healer", 1: "Poison Heal", H: "Aroma Veil"},
@@ -2442,7 +2439,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	malamarmega: {
 		inherit: true,
-		abilities: { 0: "Prankster" },
+		baseStats: { hp: 86, atk: 102, def: 88, spa: 98, spd: 85, spe: 123 },
+		abilities: { 0: "Contrary" },
 	},
 	barbaraclemega: {
 		inherit: true,
@@ -2593,8 +2591,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	avalugghisui: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 127, def: 154, spa: 34, spd: 36, spe: 68},
-		abilities: {0: "Strong Jaw", 1: "Sheer Force", H: "Sturdy"},
+		abilities: {0: "Mountain Walker", 1: "Sheer Force", H: "Sturdy"},
 	},
 	noibat: {
 		inherit: true,
@@ -2674,11 +2671,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 77, atk: 60, def: 90, spa: 145, spd: 75, spe: 63},
 		abilities: {0: "Levitate", H: "Speed Boost"},
-	},
-	crabominable: {
-		inherit: true,
-		baseStats: {hp: 97, atk: 132, def: 77, spa: 50, spd: 79, spe: 43},
-		abilities: {0: "Hyper Cutter", 1: "Iron Fist", H: "Fur Coat"},
 	},
 	oricorio: {
 		inherit: true,
@@ -2783,25 +2775,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Receiver", 1: "Defiant", H: "Libero"},
 	},
-	golisopod: {
-		inherit: true,
-		otherFormes: ["Golisopod-Mega"],
-		formeOrder: ["Golisopod", "Golisopod-Mega"],
-	},
-	golisopodmega: {
-		num: 768,
-		name: "Golisopod-Mega",
-		baseSpecies: "Golisopod",
-		forme: "Mega",
-		types: ["Bug", "Water"],
-		baseStats: {hp: 75, atk: 155, def: 150, spa: 60, spd: 115, spe: 75},
-		abilities: {0: "Tactical Escape"},
-		heightm: 2,
-		weightkg: 110,
-		color: "Gray",
-		eggGroups: ["Bug", "Water 3"],
-		requiredItem: "Golisopodite",
-	},
 	sandygast: {
 		inherit: true,
 		abilities: {0: "Water Compaction", 1: "Arena Trap", H: "Sand Veil"},
@@ -2809,6 +2782,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	palossand: {
 		inherit: true,
 		abilities: {0: "Water Compaction", 1: "Arena Trap", H: "Sand Veil"},
+	},
+	silvally: {
+		inherit: true,
+		abilities: {0: "Adaptability"},
 	},
 	silvallybug: {
 		inherit: true,
@@ -2909,7 +2886,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	turtonator: {
 		inherit: true,
-		baseStats: {hp: 78, atk: 60, def: 150, spa: 91, spd: 85, spe: 36},
+		baseStats: {hp: 78, atk: 60, def: 135, spa: 91, spd: 85, spe: 36},
 		abilities: {0: "Shell Armor", 1: "Aftermath", H: "Unstable Shell"},
 	},
 	togedemaru: {
@@ -2922,7 +2899,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	drampamega: {
 		inherit: true,
-		abilities: { 0: "Tempestuous" },
+		types: ["Electric", "Dragon"],
+		abilities: { 0: "Galvanize" },
 	},
 	dhelmise: {
 		inherit: true,
@@ -3121,10 +3099,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 40,
 		color: "Purple",
 		eggGroups: ["Human-Like"],
+		battleOnly: "Toxtricity-Low-Key",
 		requiredItem: "Toxtricitite",
 	},
 	centiskorch: {
 		inherit: true,
+		abilities: { 0: "Flash Fire", 1: "Mountain Walker", H: "Flame Body" },
 		otherFormes: ["Centiskorch-Gmax", "Centiskorch-Mega-X", "Centiskorch-Mega-Y"],
 		formeOrder: ["Centiskorch", "Centiskorch-Gmax", "Centiskorch-Mega-X", "Centiskorch-Mega-Y"],
 	},
@@ -3209,9 +3189,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 65, def: 95, spa: 110, spd: 100, spe: 70},
 	},
+	falinks: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Multiheaded", H: "Defiant"},
+	},
 	falinksmega: {
 		inherit: true,
-		abilities: { 0: "Multiheaded" },
+		abilities: { 0: "Simple" },
 	},
 	pincurchin: {
 		inherit: true,
@@ -3430,10 +3414,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 100, def: 115, spa: 35, spd: 55, spe: 85},
 	},
-	scovillain: {
-		inherit: true,
-		baseStats: {hp: 65, atk: 118, def: 65, spa: 118, spd: 65, spe: 85},
-	},
 	rellor: {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Swarm", H: "Shed Skin"},
@@ -3644,6 +3624,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	koraidon: {
 		inherit: true,
 		baseForme: "Final",
+		otherFormes: ["Koraidon-Weakened"],
+		formeOrder: ["Koraidon", "Koraidon-Weakened"],
 	},
 	koraidonweakened: {
 		num: 1007,
@@ -3663,6 +3645,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	miraidon: {
 		inherit: true,
 		baseForme: "Final",
+		otherFormes: ["Miraidon-Weakened"],
+		formeOrder: ["Miraidon", "Miraidon-Weakened"],
 	},
 	miraidonweakened: {
 		num: 1008,
@@ -3699,7 +3683,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	fezandipiti: {
 		inherit: true,
 		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
-		abilities: {0: "Toxic Chain", 1: "Technician", H: "Magic Guard"},
+		abilities: {0: "Toxic Chain", 1: "Technician", H: "Levitate"},
 	},
 	gougingfire: {
 		inherit: true,
@@ -4106,7 +4090,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Terreptile",
 		forme: "Mega",
 		types: ["Ground", "Poison"],
-		baseStats: {hp: 70, atk: 130, def: 80, spa: 100, spd: 80, spe: 150},
+		baseStats: {hp: 70, atk: 135, def: 90, spa: 100, spd: 90, spe: 125},
 		abilities: {0: "Sharpness"},
 		heightm: 1.8,
 		weightkg: 35,	
@@ -4539,17 +4523,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Squawkabilly-White",
 		eggGroups: ["Flying"],
 	},
-	golrobot: {
-		num: -62,
-		name: "Golrobot",
-		types: ["Ground", "Ghost"],
-		baseStats: {hp: 119, atk: 134, def: 90, spa: 45, spd: 80, spe: 75},
-		abilities: {0: "Iron Fist", 1: "Smart Guard", H: "Invincible"},
-		heightm: 3,
-		weightkg: 999.9,
-		prevo: "Golurk",
-		eggGroups: ["Mineral"],
-	},
 	sautropius: {
 		num: -63,
 		name: "Sautropius",
@@ -4561,12 +4534,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Tropius",
 		eggGroups: ["Monster", "Grass"],
 	},
+	beartic: {
+		inherit: true,
+		evos: ["Meltic"],
+	},
 	meltic: {
 		num: -64,
 		name: "Meltic",
 		types: ["Ice", "Water"],
 		baseStats: {hp: 100, atk: 135, def: 80, spa: 85, spd: 80, spe: 75},
-		abilities: {0: "Icebreaker", 1: "Slush Rush", H: "Swift Swim"},
+		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Swift Swim"},
 		heightm: 2.8,
 		weightkg: 200,
 		prevo: "Beartic",
@@ -4889,6 +4866,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	thievul: {
 		inherit: true,
+		abilities: {0: "Racketeering", 1: "Unburden", H: "Stakeout"},
 		evos: ["Arsief"],
 	},
 	arsief: {
@@ -4896,7 +4874,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Arsief",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 75, atk: 58, def: 78, spa: 112, spd: 97, spe: 115},
-		abilities: {0: "Sleight of Hand", 1: "Unburden", H: "Stakeout"},
+		abilities: {0: "Racketeering", 1: "Unburden", H: "Sleight of Hand"},
 		heightm: 1.75,
 		weightkg: 74.4,
 		prevo: "Thievul",

@@ -519,6 +519,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			bitterblade: ["9L1"],
+			psychocut: ["9L1"],
 		},
 	},
 	remiliascarlet: {
@@ -1204,7 +1206,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			futuresight: ["9L1"],
 			hyperspacehole: ["9L1"],
 			extrasensory: ["9L1"],
-			psychicnoise: ["9L1"],
+			teleport: ["9L1"],
 			shikigamirush: ["9L1"],
 			psybeam: ["9L1"],
 			confusion: ["9L1"],
@@ -1588,6 +1590,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			hypervoice: ["9L1"],
 		},
 	},
 	tewiinaba: {
@@ -1829,7 +1832,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			brickbreak: ["9L1"],
 			stormthrow: ["9L1"],
 			poweruppunch: ["9L1"],
-			machpunch: ["9L1"],
+			//machpunch: ["9L1"],
 			bravebird: ["9L1"],
 			aerialace: ["9L1"],
 			acrobatics: ["9L1"],
@@ -1965,6 +1968,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			bodypress: ["9L1"],
 		},
 	},
 	yuukakazami: {
@@ -2306,6 +2310,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			risingvoltage: ["9L1"],
 		},
 	},
 	momijiinubashiri: {
@@ -2369,6 +2374,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			extremespeed: ["9L1"],
 		},
 	},
 	sanaekochiya: {
@@ -3685,6 +3691,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			darkpulse: ["9L1"],
+			foulplay: ["9L1"],
 		},
 	},
 	starsapphire: {
@@ -4917,6 +4925,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			torchsong: ["9L1"],
 		},
 	},
 	junko: {
@@ -5784,6 +5793,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			shoreup: ["9L1"],
 		},
 	},
 	sakikurokuma: {
@@ -5919,6 +5929,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			followme: ["9L1"],
 		},
 	},
 	takaneyamashiro: {
@@ -6120,7 +6131,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			protect: ["9L1"],
 		},
 	},
-	megumuiinzumaru: {
+	megumuiizunamaru: {
 		learnset: {
 			hurricane: ["9L1"],
 			bleakwindstorm: ["9L1"],
@@ -6580,13 +6591,14 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			spikyshield: ["9L1"],
 			defog: ["9L1"],
 			charm: ["9L1"],
-			swordsdance: ["9L1"],
+			workup: ["9L1"],
 			helpinghand: ["9L1"],
 			tearfullook: ["9L1"],
 			substitute: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			growth: ["9l1"],
 		},
 	},
 

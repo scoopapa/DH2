@@ -467,6 +467,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		gender: "M",
 		baseStats: {hp: 88, atk: 98, def: 78, spa: 108, spd: 128, spe: 48},
 		abilities: {0: "Quark Drive"},
+		tags: ["Paradox"],
 		weightkg: 600,
 	},
 };

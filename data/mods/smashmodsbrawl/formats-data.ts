@@ -164,4 +164,59 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	thunderlordzinogre: {
 		tier: "Illegal",
 	},
+	flittle: {
+		tier: "SSB",
+	},
+	chesnaught: {
+		tier: "SSB",
+	},
+	chesnaughtarmored: {
+		tier: "SSB",
+	},
+	ampharos: {
+		tier: "SSB",
+	},
+	ampharosmega: {
+		tier: "SSB",
+	},
+	ogerponankh: {
+		tier: "SSB",
+	},
+	ogerpontealtera: {
+		tier: "Illegal",
+	},
+	intestinorm: {
+		tier: "SSB",
+	},
+	scarachnid: {
+		tier: "SSB",
+	},
+	nidoqueenrosegold: {
+		tier: "SSB",
+	},
+	toxtricity: {
+		tier: "SSB",
+	},
+	toxtricitylowkey: {
+		tier: "Illegal",
+	},
+	toxtricitygmax: {
+		tier: "SSB",
+		isNonstandard: null,
+	},
+	kingdragourmet: {
+		tier: "SSB",
+	},
+	hatterene: {
+		tier: "SSB",
+	},
+	frogvolver: {
+		tier: "SSB",
+	},
+	combysa: {
+		tier: "SSB",
+	},
+	ogerponcostar: {
+		tier: "SSB",
+	},
 };

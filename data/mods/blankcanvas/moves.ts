@@ -23,4 +23,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	synchronoise: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	miracleeye: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

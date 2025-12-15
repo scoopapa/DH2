@@ -592,7 +592,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
-			if (target.getStat('spd', false, true) > target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
+			if (target.getStat('spd', false, true) < target.getStat('def', false, true)) move.overrideDefensiveStat = 'spd';
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -794,7 +794,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fling", target);
-			this.add('-anim', target, "Explosion", target);
+			this.add('-anim', target, "Overheat", target);
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -833,7 +833,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gigaton Hammer", source);
+			this.add('-anim', source, "Gigaton Hammer", target);
 			this.add('-anim', target, "Eruption", target);
 		},
 		sideCondition: 'firepledge',
@@ -1106,7 +1106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) {
+			if (source.getStat('atk', false, true) < source.getStat('spa', false, true)) {
 				this.add('-anim', source, "Sludge Bomb", target);
 			}
 			else {

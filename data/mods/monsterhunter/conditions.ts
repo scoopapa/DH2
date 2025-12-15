@@ -19,31 +19,33 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	},
 	slp: {
-        name: 'slp',
-        effectType: 'Status',
-        onStart(target, source, sourceEffect) {
-            this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
-            if (sourceEffect && sourceEffect.effectType === 'Ability') {
-                this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-            } else if (sourceEffect && sourceEffect.effectType === 'Move') {
-                this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
-            } else {
-                this.add('-status', target, 'slp');
-            }
-            if (target.removeVolatile('nightmare')) {
-                this.add('-end', target, 'Nightmare', '[silent]');
-            }
-        },
-        onSourceModifyDamage(damage, source, target, move) {
-            if (!source.hasAbility('Dozing')) return this.chainModify(1.2);
-        },
-        onModifyMove(move, pokemon) {
-            if (!pokemon.hasAbility('Dozing') && move.multhit) delete move.multihit; 
-        },
-        onDisableMove(pokemon) {
-            if (!pokemon.hasAbility('Dozing') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
-        },
-    },
+		name: 'slp',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name} is Drowsy! Damage taken is 1.2x; can't use same attack twice! Multi-Hits strike once!`);
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.2);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.multihit) delete move.multihit;
+		},
+		onDisableMove(pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') {
+				pokemon.disableMove(pokemon.lastMove.id);
+			}
+		},
+	},
 	par: {
         inherit: true,
 		onStart(target, source, sourceEffect) {
@@ -69,6 +71,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		onSwitchIn(pokemon) {
 			pokemon.static = 0;
 		},
+		onCureStatus(pokemon) {
+        pokemon.static = 0;
+    	},
 		onBeforeMove(pokemon) {
  			if (pokemon.static >= 3) {
 				this.add('cant', pokemon, 'par');
@@ -77,28 +82,38 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
     	}
 	},
-	heatresistance: {
-		name: 'Heat Resistance',
+	warmed: {
+		name: 'Warmed',
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'HeatRes');
-			this.add('-message', `${pokemon.name} gained Heat Resistance! Immune to burn residual!`);
+			this.add('-start', pokemon, 'Warmed');
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'brn') {
-				return false;
-			}
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify([5461, 4096]);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify([5461, 4096]);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Warmed');
 		},
 	},
-	coldresistance: {
-		name: 'Cold Resistance',
+	cooled: {
+		name: 'Cooled',
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'ColdRes');
-			this.add('-message', `${pokemon.name} gained Cold Resistance! Immune to frostbite residual!`);
+			this.add('-start', pokemon, 'Cooled');
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'frz') {
-				return false;
-			}
+		onModifyDefPriority: 5,
+    	onModifyDef(def, pokemon) {
+            return this.chainModify([5325, 4096]);
+    	},
+    	onModifySpDPriority: 5,
+    	onModifySpD(spd, pokemon) {
+            	return this.chainModify([5325, 4096]);
+    	},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Cooled');
 		},
 	},
 	blastblight: {
@@ -133,16 +148,18 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		duration: 4,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Defense Down');
-			this.add('-message', `${pokemon.name} is afflicted with Defense Down! -1 to Defenses for 3 turns!`);
+			this.add('-message', `${pokemon.name} is afflicted with Defense Down! Defenses reduced by half for 3 turns!`);
 		},
-		onResidual(pokemon) {
-			this.boost({def: -1, spd: -1}, pokemon);
+		onModifyDef(def, pokemon) {
+			return this.chainModify(0.5);
+		},
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(0.5);
 		},
 		onEnd(pokemon) {
-			this.boost({def: 3, spd: 3}, pokemon);
 			this.add('-end', pokemon, 'Defense Down');
 		},
-		},
+	},
 	stench: {
 		name: 'Stench',
 		duration: 4,
@@ -236,35 +253,40 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-end', pokemon, 'Snowman');
 		},
 	},
-	/*
 	rusted: {
 		name: 'Rusted',
 		duration: 4,
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'Rusted');
-			this.add('-message', `${pokemon.name} is Rusted! Steel-type resistances nullified!`);
-		},
-		onDamagingHit(damage, source, target, move) {
-			if (this.dex.types.get('Steel').damageTaken[move.type] == 2) {
-  				this.debug('Is rusted!');
-  				return this.chainModify(1);
+        	if (pokemon.hasType('Steel')) {
+            	this.add('-start', pokemon, 'Rusted');
+            	this.add('-message', `${pokemon.name}'s steel defenses have rusted away!`);
+        	} else {
+            	pokemon.removeVolatile('rusted');
+        	}
+    	},
+		onEffectiveness(typeMod, target, type, move) {
+			if (target.hasType('Steel') && target.volatiles['rusted']) {
+				if (typeMod < 0) {
+					return 0;
+				}
+				if (typeMod === 0 && this.dex.getImmunity(type, target)) {
+					return 1;
+				}
 			}
-		},
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Poison'] = true;
-			}
-		},
+    	},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');
-		},
+			this.add('-message', `${pokemon.name}'s steel defenses are restored!`);
+    	},
 	},
-	*/
 	dragonblight: {
 		name: 'Dragonblight',
 		effectType: 'Status',
 		onStart(pokemon) {
+			if (pokemon.hasType('Fairy')) {
+            	this.add('-immune', pokemon, '[from] status: Dragonblight');
+            	return false;
+        	}
 			this.add('-start', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
 		},
@@ -273,15 +295,11 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.damage(pokemon.baseMaxhp / 16);
 		},
 		onModifySTAB(stab, source, target, move) {
-			if (move.forceSTAB || source.hasType(move.type)) {
-				if (stab === 2) {
-					return 1;
-				}
-				return 1;
-			}
-		},
+        	return 1;
+    	},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
+			this.add('-message', `${pokemon.name} overcame Dragonblight!`);
 		},
 	},
 	/* Weather */

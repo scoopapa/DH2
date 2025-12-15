@@ -56,25 +56,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	blissblast: {
-		num: 1001,
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		shortDesc: "50% chance to infatuate the target.",
-		viable: true,
-		name: "Bliss Blast",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 50,
-			volatileStatus: 'attract',
-		},
-		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
-	},
 	blizzard: {
 		num: 59,
 		accuracy: 70,
@@ -179,8 +160,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	confuseray: {
-		inherit: true,
+		num: 109,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
 		viable: true,
+		name: "Confuse Ray",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		status: 'cfs',
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
 	},
 	confusion: {
 		num: 93,
@@ -195,6 +189,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			status: 'cfs',
 		},
+	},
+	darkpulse: {
+		num: 399,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
+		name: "Dark Pulse",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "any",
+		type: "Dark",
+		contestType: "Cool",
 	},
 	drainingkiss: {
 		num: 577,
@@ -265,7 +279,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: [
 			{
 				chance: 50,
-				volatilestatus: 'burn',
+				volatileStatus: 'burn',
 			},
 		],
 		target: "normal",
@@ -284,7 +298,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 20,
-			volatilestatus: 'burn',
+			volatileStatus: 'burn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -303,7 +317,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		recoil: [33, 100],
 		secondary: {
 			chance: 20,
-			volatilestatus: 'burn',
+			volatileStatus: 'burn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -328,6 +342,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
+	freezedry: {
+		num: 573,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Freeze-Dry",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 	heatwave: {
 		num: 257,
 		accuracy: 80,
@@ -343,7 +374,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			volatilestatus: 'burn',
+			volatileStatus: 'burn',
 		},
 		target: "allAdjacentFoes",
 		type: "Fire",
@@ -385,7 +416,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		secondary: {
 			chance: 30,
-			volatilestatus: 'burn',
+			volatileStatus: 'burn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -452,6 +483,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	icefang: {
+		num: 423,
+		accuracy: 95,
+		basePower: 65,
+		category: "Physical",
+		shortDesc: "50% chance to lower the target's Speed by 1.",
+		name: "Ice Fang",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondary: {
+			chance: 50,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	ironhead: {
+		num: 442,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Iron Head",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
 	knockoff: {
 		num: 282,
 		accuracy: 100,
@@ -481,6 +551,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+	},
+	lovebomb: {
+		num: 1001,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "50% chance to infatuate the target.",
+		viable: true,
+		name: "Love Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: {
+			chance: 50,
+			volatileStatus: 'attract',
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
 	},
 	mirrorshot: {
 		num: 429,
@@ -576,7 +665,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 75,
 		category: "Physical",
-		shortDesc: "50% chance to lower the target's Speed.",
+		shortDesc: "50% chance to lower the target's Speed by 1.",
 		name: "Rock Slide",
 		pp: 10,
 		priority: 0,
@@ -649,20 +738,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
+	scald: {
+		num: 503,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "Burns the target.",
+		name: "Scald",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
+		thawsTarget: true,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'burn',
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
 	scorchingsands: {
 		num: 815,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-		shortDesc: "50% chance to burn the target",
+		shortDesc: "Burns the target.",
 		name: "Scorching Sands",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
 		thawsTarget: true,
 		secondary: {
-			chance: 50,
-			volatilestatus: 'burn',
+			chance: 100,
+			volatileStatus: 'burn',
 		},
 		target: "normal",
 		type: "Ground",
@@ -678,7 +786,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
-		volatilestatus: 'burn',
+		volatileStatus: 'burn',
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -688,6 +796,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	skydrop: {
 		inherit: true,
 		basePower: 100,
+		viable: true,
+	},
+	spicyextract: {
+		inherit: true,
 		viable: true,
 	},
 	supersonic: {
@@ -777,7 +889,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHit(target, source, move) {
 				if (move?.accuracy != true) {
-					this.battle.add('-miss', source, target);
+					this.add('-miss', source, target);
 					return null;
 				}
 			},
@@ -803,7 +915,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -833,7 +947,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -849,12 +965,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
-		secondaries: [
-			{
-				chance: 50,
+		secondary: {
+			chance: 50,
+			self: {
 				volatileStatus: 'charge',
 			},
-		],
+		},
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
@@ -871,7 +987,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'charge',
+			self: {
+				volatileStatus: 'charge',
+			},
 		},
 		target: "normal",
 		type: "Electric",
@@ -939,5 +1057,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Water",
 		contestType: "Beautiful",
+	},
+	zenheadbutt: {
+		num: 428,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "20% chance to confuse the target.",
+		name: "Zen Headbutt",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			status: 'cfs',
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	zingzap: {
+		num: 716,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "30% chance to give the user the Charge effect.",
+		name: "Zing Zap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			self: {
+				volatileStatus: 'charge',
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
 	},
 };

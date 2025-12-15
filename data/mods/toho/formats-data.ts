@@ -456,7 +456,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},
-	megumuiinzumaru: {
+	megumuiizunamaru: {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},

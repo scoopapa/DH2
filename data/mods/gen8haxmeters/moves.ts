@@ -49,7 +49,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				//this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Attract', '[silent]');

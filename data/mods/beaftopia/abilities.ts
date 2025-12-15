@@ -51,11 +51,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	nitratedoping: {
 		onFoeAfterBoost(boost, target, source, effect) {
-			if (effect?.name === 'Nitrate Doping' || target.status) return;
+			const pokemon = this.effectState.target;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! > 0) {
-					target.trySetStatus('cfs', target);
+					target.trySetStatus('cfs', pokemon);
 					return;
 				}
 			}

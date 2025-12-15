@@ -422,18 +422,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	grasswhistle: {
 		inherit: true,
@@ -441,6 +444,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
+	},
+	sing: {
+		inherit: true,
+		isNonstandard: null,
+		pp: 25,
+		accuracy: 80,
+		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	// lodestone: {
 	// num: 393,
