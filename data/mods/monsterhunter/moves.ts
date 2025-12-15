@@ -469,7 +469,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -490,7 +490,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Power doubles if the user moves before the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -1021,7 +1021,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to inflict Stench.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, pulse: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'stench',
@@ -1456,7 +1456,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Risen Burst",
 		pp: 1,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
             this.attrLastMove('[still]');
             this.add('-anim', source, "Dark Pulse", target);
@@ -1475,6 +1475,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					move.flags.contact = 1;
 				}
 		},
+		shortDesc: "Physical+Contact or Special, depending on which is stronger.",
 		type: 'Dark',
 		secondary: null,
 		target: "allAdjacent",
