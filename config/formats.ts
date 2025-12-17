@@ -5280,7 +5280,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5305,7 +5305,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5329,7 +5329,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5355,7 +5355,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5379,7 +5379,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5396,14 +5396,15 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
 			'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap',
+			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5421,14 +5422,14 @@ export const Formats: FormatList = [
 			'Species Clause', 'Terastal Clause'],
 		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
-			'Shagaru Magala + Strength Sap'],
+			'Shagaru Magala + Strength Sap', 'Garugite'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHRU'];
+			let allowedTiers = ['RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
