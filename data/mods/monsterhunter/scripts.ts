@@ -2,8 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'],
-		customDoublesTiers: ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'],
+		customTiers: ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'],
+		customDoublesTiers: ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'],
 	},
 	pokemon: {
 		ignoringItem() {

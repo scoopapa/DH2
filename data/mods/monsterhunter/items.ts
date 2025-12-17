@@ -93,9 +93,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Bariothite",
 		gen: 9,
 		shortDesc: "If held by Barioth, allows it to transform into Frostfang. (Mega-Evolution)",
-		megaStone: "Frostfang Barioth",
+		megaStone: "Barioth-Frostfang",
 		megaEvolves: "Barioth",
-		itemUser: ["Barioth", "Frostfang Barioth"],
+		itemUser: ["Barioth", "Barioth-Frostfang"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;

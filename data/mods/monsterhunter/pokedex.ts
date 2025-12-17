@@ -803,12 +803,12 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 92, atk: 118, def: 70, spa: 105, spd: 80, spe: 100},
 		abilities: {0: "Frostnip", H: "Slush Rush"},
 		weightkg: 152.2,
-		otherFormes: ["Frostfang Barioth"],
+		otherFormes: ["Barioth-Frostfang"],
 		tags: ["Flying Wyvern"],
 	},
-	frostfangbarioth: {
+	bariothfrostfang: {
 		num: 41,
-		name: "Frostfang Barioth",
+		name: "Barioth-Frostfang",
 		baseSpecies: "Barioth",
 		forme: "Mega",
 		types: ["Ice", "Flying"],

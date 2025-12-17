@@ -5280,7 +5280,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5305,7 +5305,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5329,7 +5329,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5355,7 +5355,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5379,7 +5379,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MEGAS', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['OU', 'UUBL', 'UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5404,7 +5404,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHUU', 'MHRUBL', 'MHRU'];
+			let allowedTiers = ['UU', 'RUBL', 'RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -5429,7 +5429,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHRU'];
+			let allowedTiers = ['RU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
