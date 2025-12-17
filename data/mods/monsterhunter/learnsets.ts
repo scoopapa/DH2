@@ -13531,7 +13531,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wretchedwater: ["9L1"],
 		},
 	},
-	zinogrehowling: {
+	howlinogre: {
 		learnset: {
 			agility: ["9L1"],
 			ancientpower: ["9L1"],
@@ -13826,7 +13826,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wish: ["9L1"],
 		},
 	},
-	deviljhostarving: {
+	starvinjho: {
 		learnset: {
 			attract: ["9L1"],
 			axekick: ["9L1"],

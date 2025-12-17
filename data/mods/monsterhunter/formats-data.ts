@@ -674,7 +674,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greensioth: {
 		tier: "MHUU",
 	},
-	howlogre: {
+	howlinogre: {
 		tier: "MHUU",
 	},
 	pearlinas: {
@@ -689,7 +689,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shahmadur: {
 		tier: "MHOU",
 	},
-	starvingjho: {
+	starvinjho: {
 		tier: "MHOU",
 	},
 	whiteblos: {

@@ -880,9 +880,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		tags: ["Brute Wyvern"],
 		requiredItem: "Devilite",
 	},
-	starvingjho: {
+	starvinjho: {
 		num: 44,
-		name: "Starvingjho",
+		name: "Starvinjho",
 		types: ["Ghost", "Fighting"],
 		baseStats: {hp: 100, atk: 125, def: 110, spa: 75, spd: 100, spe: 95},
 		abilities: {0: "Starving Bite"},
@@ -1114,9 +1114,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 178.4,
 		tags: ["Fanged Wyvern"],
 	},
-	howlogre: {
+	howlinogre: {
 		num: 58,
-		name: "Howlogre",
+		name: "Howlinogre",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 95, def: 85, spa: 160, spd: 90, spe: 85},
 		abilities: {0: "Howling Thunder"},
