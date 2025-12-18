@@ -45,9 +45,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 312.2,
 		tags: ["Flying Wyvern"],
 	},
-	basariossandstone: {
-		num: 10000,
-		name: "Basarios-Sandstone",
+	sandarios: {
+		num: 1,
+		name: "Sandarios",
 		types: ["Ground"],
 		baseStats: {hp: 100, atk: 105, def: 110, spa: 42, spd: 130, spe: 53},
 		abilities: {0: "Sand Cloak", H: "Earth Eater"},

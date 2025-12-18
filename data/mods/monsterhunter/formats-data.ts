@@ -683,7 +683,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	redzu: {
 		tier: "MHRU",
 	},
-	basariossandstone: {
+	sandarios: {
 		tier: "MHUU",
 	},
 	shahmadur: {
