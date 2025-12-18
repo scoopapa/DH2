@@ -1160,7 +1160,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-ability', target, 'Reactive Core');
 					this.add('-message', `${target.name}'s core glows in the sunlight! (1.33x Offenses)`);
 				}
-			} else if (['hail', 'snow'].includes(weather)) {
+			} else if (['hail', 'snow', 'rain', 'primordialsea'].includes(weather)) {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
@@ -1174,7 +1174,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Reactive Core",
-		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Water/Ice/FRZ/Snow: Defenses 1.3x",
+		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Water/Rain/Ice/FRZ/Snow: Defenses 1.3x",
 	},
 	reactivetouch: {
 		onSourceDamagingHit(damage, target, source, move) {

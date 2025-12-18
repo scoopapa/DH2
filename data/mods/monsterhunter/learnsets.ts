@@ -10598,7 +10598,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			beatup: ["9L1"],
 			bite: ["9L1"],
 			blazeball: ["9L1"],
-			blueflare: ["9L1"],
+			fireblast: ["9L1"],
+			flamethrower: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
 			bubblebeam: ["9L1"],
@@ -13530,7 +13531,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wretchedwater: ["9L1"],
 		},
 	},
-	zinogrehowling: {
+	howlinogre: {
 		learnset: {
 			agility: ["9L1"],
 			ancientpower: ["9L1"],
@@ -13825,7 +13826,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wish: ["9L1"],
 		},
 	},
-	deviljhostarving: {
+	starvinjho: {
 		learnset: {
 			attract: ["9L1"],
 			axekick: ["9L1"],
