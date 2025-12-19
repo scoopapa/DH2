@@ -13723,7 +13723,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zapcannon: ["9L1"],
 		},
 	},
-	basariossandstone: {
+	sandarios: {
 		learnset: {
 			endure: ["9L1"],
 			facade: ["9L1"],

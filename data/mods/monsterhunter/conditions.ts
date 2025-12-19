@@ -302,6 +302,35 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} overcame Dragonblight!`);
 		},
 	},
+	enraged: {
+		name: 'Enraged',
+		duration: 1,
+		onStart(target) {
+			if (target.activeTurns && !this.queue.willMove(target)) {
+				this.effectState.duration++;
+			}
+			this.add('-start', target, 'move: Enraged');
+		},
+		onResidualOrder: 15,
+		onEnd(target) {
+			this.add('-end', target, 'move: Enraged');
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.category === 'Status' && move.id !== 'mefirst') {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onBeforeMovePriority: 5,
+		onBeforeMove(attacker, defender, move) {
+			if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+				this.add('cant', attacker, 'move: Enraged', move);
+				return false;
+			}
+		},
+	},
 	/* Weather */
 	dustdevil: {
         name: 'Dust Devil',

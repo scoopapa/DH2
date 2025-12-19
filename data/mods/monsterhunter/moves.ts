@@ -303,12 +303,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source) {
 			if (target.hasType('Grass')) return null;
+			if (target.hasItem('covertcloak')) {
+				this.add('-immune', target, '[from] item: Covert Cloak');
+				return null;
+			}
 			target.addVolatile('leechseed', source);
 		},
 		onPrepareHit(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Seed Bomb", target);
-        },
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Bomb", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -1510,44 +1514,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		volatileStatus: 'taunt',
-		condition: {
-			duration: 1,
-			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectState.duration++;
-				}
-				this.add('-start', target, 'move: Taunt');
-			},
-			onResidualOrder: 15,
-			onEnd(target) {
-				this.add('-end', target, 'move: Taunt');
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.id);
-					if (move.category === 'Status' && move.id !== 'mefirst') {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
-			onBeforeMovePriority: 5,
-			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
-					this.add('cant', attacker, 'move: Taunt', move);
-					return false;
-				}
-			},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'enraged',
 		},
-		secondary: null,
-		shortDesc: "Does damage equal to the user's level. Applies Taunt for one turn.",
+		shortDesc: "Does damage equal to the user's level. Target is enraged (Taunt) for one turn.",
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Tera Starstorm", target);
-        },
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tera Starstorm", target);
+		},
 	},
 	butterflare: {
 		accuracy: 100,
