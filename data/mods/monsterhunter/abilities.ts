@@ -1124,7 +1124,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-message', `${target.name}'s core surged with fire! (1.33x Offenses)`);
 				}
 			}
-			if (move.type === 'Water' || move.type === 'Ice') {
+			if (move.type === 'Ice') {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
@@ -1160,21 +1160,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-ability', target, 'Reactive Core');
 					this.add('-message', `${target.name}'s core glows in the sunlight! (1.33x Offenses)`);
 				}
-			} else if (['hail', 'snow', 'rain', 'primordialsea'].includes(weather)) {
+			} else if (['hail', 'snow', 'absolutezero'].includes(weather)) {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
 					this.add('-ability', target, 'Reactive Core');
 					this.add('-message', `${target.name}'s core hardened against the snow! (1.33x Defenses)`);
 				}
-			} else {
-				target.removeVolatile('warmed');
-				target.removeVolatile('cooled');
 			}
 		},
 		flags: {},
 		name: "Reactive Core",
-		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Water/Rain/Ice/FRZ/Snow: Defenses 1.3x",
+		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Ice/FRZ/Snow: Defenses 1.3x",
 	},
 	reactivetouch: {
 		onSourceDamagingHit(damage, target, source, move) {
