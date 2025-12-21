@@ -11508,7 +11508,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		rest: ["9L1"],
 		round: ["9L1"],
 		safeguard: ["9L1"],
-		scald: ["9L1"],
 		slam: ["9L1"],
 		sleeptalk: ["9L1"],
 		snore: ["9L1"],
