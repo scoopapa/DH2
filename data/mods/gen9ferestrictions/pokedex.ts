@@ -510,7 +510,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Rock Skin"},
 		weightkg: 60.2,
 		eggGroups: ["Undiscovered"],
-		evos: ["Shelpod"],
+		evos: ["Buttermence"],
 	},
 
   // when the ADE is SILVER !!
