@@ -419,9 +419,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 1 LC",
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
+	runtapumgen2: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
 	clangagang: {
 		tier: "Patratdex Gen 1 OU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
+	},
+	clangaganggen2: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
 	clarnyx: {
 		tier: "Patratdex Gen 1 LC",
@@ -696,6 +704,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
 	formicoal: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shamaconda: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	amphimeter: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	easelisk: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	batactite: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	fearaphim: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shuppetpatratdex: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	banettepatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	blahamut: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shucklepatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	dillolanche: {
 		tier: "Patratdex Gen 2 OU",
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
