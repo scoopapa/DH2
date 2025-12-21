@@ -138,6 +138,42 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	darmacroakzen: {
 		tier: "Illegal",
 	},
+	mudsaria: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	buttermence: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	buttermencemega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	klawquaza: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	klawquazamega: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	mudsariamega: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	mudblu: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	shelpod: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	bagpie: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
   // Silverade
 	silveradebug: {
 		tier: "Silverade",

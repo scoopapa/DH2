@@ -314,4 +314,32 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 6,
 		shortDesc: "If held by a Gardepharos, this item allows it to Mega Evolve in battle.",
 	},
+	altarianite: {
+		name: "Altarianite",
+		spritenum: 615,
+		megaStone: "Mudsaria-Mega",
+		megaEvolves: "Mudsaria",
+		itemUser: ["Mudsaria"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 755,
+		gen: 6,
+		shortDesc: "If held by a Mudsaria, this item allows it to Mega Evolve in battle.",
+	},
+	salamencite: {
+		name: "Salamencite",
+		spritenum: 627,
+		megaStone: "Buttermence-Mega",
+		megaEvolves: "Buttermence",
+		itemUser: ["Buttermence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 769,
+		gen: 6,
+		shortDesc: "If held by a Buttermence, this item allows it to Mega Evolve in battle.",
+	},
 };

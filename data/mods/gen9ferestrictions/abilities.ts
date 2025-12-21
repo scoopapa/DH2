@@ -257,7 +257,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onAfterBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				source.addVolatile('attract', this.effectState.target);
 			}
 		},
@@ -426,7 +426,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (status.id === 'flinch') return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Sync', '[of] ' + target);
 			}
@@ -579,7 +579,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Rocky II', '[of] ' + target);
 			}
@@ -919,7 +919,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Prediction', '[of] ' + target);
 			}
@@ -940,11 +940,196 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 0.5,
 		shortDesc: "Anticipation + Inner Focus",
 	},
+	immunesystem: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		onCheckShow(pokemon) {
+			// This is complicated
+			// For the most part, in-game, it's obvious whether or not Natural Cure activated,
+			// since you can see how many of your opponent's pokemon are statused.
+			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
+			// that could have Natural Cure switch out, but only some of them get cured.
+			if (pokemon.side.active.length === 1) return;
+			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			const cureList = [];
+			let noCureCount = 0;
+			for (const curPoke of pokemon.side.active) {
+				// pokemon not statused
+				if (!curPoke?.status) {
+					// this.add('-message', "" + curPoke + " skipped: not statused or doesn't exist");
+					continue;
+				}
+				if (curPoke.showCure) {
+					// this.add('-message', "" + curPoke + " skipped: Natural Cure already known");
+					continue;
+				}
+				const species = curPoke.species;
+				// pokemon can't get Natural Cure
+				if (!Object.values(species.abilities).includes('Immune System')) {
+					// this.add('-message', "" + curPoke + " skipped: no Natural Cure");
+					continue;
+				}
+				// pokemon's ability is known to be Natural Cure
+				if (!species.abilities['1'] && !species.abilities['H']) {
+					// this.add('-message', "" + curPoke + " skipped: only one ability");
+					continue;
+				}
+				// pokemon isn't switching this turn
+				if (curPoke !== pokemon && !this.queue.willSwitch(curPoke)) {
+					// this.add('-message', "" + curPoke + " skipped: not switching");
+					continue;
+				}
+				if (curPoke.hasAbility('immunesystem')) {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
+					cureList.push(curPoke);
+				} else {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (but isn't)");
+					noCureCount++;
+				}
+			}
+			if (!cureList.length || !noCureCount) {
+				// It's possible to know what pokemon were cured
+				for (const pkmn of cureList) {
+					pkmn.showCure = true;
+				}
+			} else {
+				// It's not possible to know what pokemon were cured
+				// Unlike a -hint, this is real information that battlers need, so we use a -message
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Immune System.)");
+				for (const pkmn of cureList) {
+					pkmn.showCure = false;
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (!pokemon.status) return;
+			// if pokemon.showCure is undefined, it was skipped because its ability
+			// is known
+			if (pokemon.showCure === undefined) pokemon.showCure = true;
+			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Immune System');
+			pokemon.clearStatus();
+			// only reset .showCure if it's false
+			// (once you know a Pokemon has Natural Cure, its cures are always known)
+			if (!pokemon.showCure) pokemon.showCure = undefined;
+		},
+		flags: {},
+		name: "Immune System",
+		rating: 4,
+		shortDesc: "Stamina + Natural Cure",
+	},
+	healingwind: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			pokemon.abilityState.ending = false; // Clear the ending flag
+			if (this.effectState.switchingIn) {
+				this.add('-ability', pokemon, 'Healing Wind');
+				this.add('-message', `The effects of weather disappeared.`);
+				this.effectState.switchingIn = false;
+			}
+			this.eachEvent('WeatherChange', this.effect);
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.ending = true;
+			this.eachEvent('WeatherChange', this.effect);
+		},
+		suppressWeather: true,
+		flags: {},
+		name: "Healing Wind",
+		rating: 4.5,
+		shortDesc: "Regenerator + Air Lock",
+	},
+	malocchio: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Malocchio', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('malocchio - enhancing accuracy');
+			return this.chainModify([5325, 4096]);
+		},
+		flags: {},
+		name: "Malocchio",
+		rating: 3.5,
+		shortDesc: "Compound Eyes + Intimidate",
+	},
+	coolshades: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		flags: {},
+		name: "cool shades",
+		rating: 4,
+		shortDesc: "Tinted Lens + Moxie",
+	},
+	rockskin: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+				this.debug('rock skin');
+				this.add('-activate', pokemon, 'ability: Rock Skin');
+				pokemon.cureStatus();
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		flags: {},
+		name: "Rock Skin",
+		rating: 3,
+		shortDesc: "Shed Skin + Rock Head",
+	},
+	dusthead: {
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		flags: {breakable: 1},
+		name: "Dust Head",
+		rating: 3,
+		shortDesc: "Shield Dust + Rock Head",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.boost({atk: 1}, target, target, null, false, true);
 			}
@@ -961,7 +1146,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	innerfocus: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
@@ -978,7 +1163,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	oblivious: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
 			}
@@ -995,7 +1180,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	owntempo: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
 			}
@@ -1012,7 +1197,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	scrappy: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
 			}
@@ -1029,7 +1214,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	rattled: {
 		inherit: true,
 		onAfterBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Fairy Portal'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
 				this.boost({spe: 1});
 			}
 			if (['Debilitate'].includes(effect.name) && boost.spa) {
