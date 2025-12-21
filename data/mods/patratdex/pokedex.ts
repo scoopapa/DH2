@@ -1426,7 +1426,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		num: 9131,
 		name: "Secusteel",
 		types: ["Steel", "Fighting"],
-		baseStats: {hp: 105, atk: 55, def: 120, spa: 55, spd: 120, spe: 35},
+		baseStats: {hp: 105, atk: 50, def: 120, spa: 50, spd: 120, spe: 35},
 		abilities: {0: "Rivalry", 1: "Stamina", H: "Volt Absorb"},
 		weightkg: 600,
 	},
