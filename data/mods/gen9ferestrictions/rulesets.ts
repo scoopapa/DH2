@@ -29,4 +29,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 	},
+	megarayquazaclause: {
+		effectType: 'Rule',
+		name: 'Mega Rayquaza Clause',
+		desc: "Prevents Rayquaza from mega evolving",
+		onBegin() {
+			this.add('rule', 'Mega Rayquaza Clause: You cannot mega evolve Rayquaza fusions if their Mega is banned');
+			for (const pokemon of this.getAllPokemon()) {
+				if (pokemon.species.id === 'rayquaza' || pokemon.species.id === 'klawquaza') {
+					pokemon.canMegaEvo = null;
+					// ability to terastal was determined before the clause activated, causing incorrect behavior
+					pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+				}
+			}
+		},
+	},
 };
