@@ -3987,7 +3987,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	justhebirdsthesequel: {
+	justthebirdsthesequel: {
 		name: "Just The Birds: The Sequel",
 		type: "Flying",
 		category: "Special",
@@ -4003,9 +4003,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Hurricane", target);
 		},
 		onHit(target) {
-			if (target.getTypes()[0] === 'Flying') return;
-			let newType = target.getTypes();
-			newType[0] = 'Flying';
+			let currentType = target.getTypes();
+			if (currentType[0] === 'Flying') return;
+			let newType = ['Flying'];
+			for (let i = 1; i < currentType.length; i++) {
+				newType.push(currentType[i]);
+			}
 			if (target.setType(newType)) this.add('-start', target, 'typechange', newType.join('/'));
 		},
 		volatileStatus: 'justthebirds',
