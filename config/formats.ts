@@ -5239,7 +5239,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monster Hunter OU (SoloPL III)",
 		teambuilderFormat: 'National Dex',
 		threads: [],
-		mod: 'monsterhuntersolopl',
+		mod: 'monsterhuntersolo',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
 			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
