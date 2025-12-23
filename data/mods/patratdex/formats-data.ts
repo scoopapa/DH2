@@ -40,7 +40,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	posscour: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	borbeak: {
@@ -68,7 +68,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	veslesnatch: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	specsnek: {
@@ -76,7 +76,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	doconda: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	hillhog: {
@@ -84,7 +84,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	augrhog: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	knitnat: {
@@ -96,7 +96,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	scarflutter: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	tykrow: {
@@ -104,7 +104,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	incrownito: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	camydid: {
@@ -116,11 +116,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	timberuse: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	screamocada: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	patratpatratdex: {
@@ -128,7 +128,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	watchogpatratdex: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	popkern: {
@@ -140,7 +140,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	trikern: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	fluffaux: {
@@ -148,7 +148,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	bollevil: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	spoinkpatratdex: {
@@ -176,7 +176,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	symbaery: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	temperpup: {
@@ -188,7 +188,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	endoberus: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	cowercorn: {
@@ -220,7 +220,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	thundursa: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	wizliz: {
@@ -228,7 +228,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	babayushka: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	cubble: {
@@ -236,7 +236,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	alpuma: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	vanillitepatratdex: {
@@ -256,7 +256,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	glasstropod: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	sootula: {
@@ -264,7 +264,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	blastula: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	wynautpatratdex: {
@@ -276,7 +276,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	lemiadim: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	axowattl: {
@@ -284,7 +284,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	mholm: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	gouramini: {
@@ -292,11 +292,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	mecherel: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	monsoonura: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	brawnigator: {
@@ -344,7 +344,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	alecore: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	coastle: {
@@ -352,7 +352,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	terratudo: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	sharay: {
@@ -376,7 +376,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	gargothorn: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	cartsdale: {
@@ -404,7 +404,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	moldilox: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	oxamillo: {
@@ -419,16 +419,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 1 LC",
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
+	runtapumgen2: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
 	clangagang: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
+	},
+	clangaganggen2: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
 	clarnyx: {
 		tier: "Patratdex Gen 1 LC",
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	warnyx: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	banseam: {
@@ -464,7 +472,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	cataver: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	molldron: {
@@ -480,11 +488,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	simivolt: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	scorparent: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	ostrata: {
@@ -508,15 +516,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	ocularroth: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	razoway: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	tundroom: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	arctarius: {
@@ -528,7 +536,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	mutapama: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	graytail: {
@@ -552,7 +560,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	bouldodon: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	dazzalisk: {
@@ -560,7 +568,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 NFE",
 	},
 	diaptile: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	nautilobe: {
@@ -608,7 +616,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	hilarilla: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	skurmishell: {
@@ -616,7 +624,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	lutinsnoot: {
-		tier: "Patratdex Gen 1 OU",
+		tier: "Patratdex Gen 1 UU",
 		doublesTier: "Patratdex Doubles Gen 1 OU",
 	},
 	paddox: {
@@ -696,6 +704,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
 	formicoal: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shamaconda: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	amphimeter: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	easelisk: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	batactite: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	fearaphim: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shuppetpatratdex: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	banettepatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	blahamut: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	shucklepatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	dillolanche: {
 		tier: "Patratdex Gen 2 OU",
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
