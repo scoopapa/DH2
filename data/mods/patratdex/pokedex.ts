@@ -45,7 +45,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 20, atk: 10, def: 230, spa: 10, spd: 230, spe: 5},
 		abilities: {0: "Overcoat", 1: "Sticky Hold", H: "Rough Skin"},
 		weightkg: 18,
-		evos: ["Lemiadim"],
 	},
 	spoink: {
 		inherit: true,
