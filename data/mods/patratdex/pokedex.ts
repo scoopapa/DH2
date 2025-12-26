@@ -1824,7 +1824,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Fearaphim",
 		types: ["Fairy", "Flying"],
 		baseStats: {hp: 55, atk: 50, def: 60, spa: 120, spd: 90, spe: 87},
-		abilities: {0: "Intimdate", 1: "Keen Eye", H: "Frisk"},
+		abilities: {0: "Intimidate", 1: "Keen Eye", H: "Frisk"},
 		weightkg: 10,
 	},
 	blahamut: {
