@@ -1832,7 +1832,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Blahamut",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 63, atk: 108, def: 65, spa: 73, spd: 70, spe: 93},
-		abilities: {0: "Intimdate", 1: "Gluttony", H: "Analytic"},
+		abilities: {0: "Intimidate", 1: "Gluttony", H: "Analytic"},
 		weightkg: 80,
 	},
 	amphimeter: {
@@ -1848,7 +1848,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Dillolanche",
 		types: ["Ice"],
 		baseStats: {hp: 73, atk: 100, def: 120, spa: 60, spd: 70, spe: 81},
-		abilities: {0: "Ice Body", 0: "Slush Rush", H: "Moxie"},
+		abilities: {0: "Ice Body", 1: "Slush Rush", H: "Moxie"},
 		weightkg: 250,
 	},
 };
