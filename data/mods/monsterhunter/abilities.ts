@@ -272,21 +272,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	direspikescales: {
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || target.species.name !== 'Dalamadur') return;
-			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
-			if (move.category === 'Status' || move.id === 'struggle') return;
-			if (!target.runImmunity(move.type)) return; // immunity has priority
 			if (target.hp < target.maxhp) return;
-
+			if (move.category === 'Status' || move.id === 'struggle') return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.effectState.applied) return;
 			this.add('-activate', target, 'ability: Direspike Scales');
-			this.effectState.resisted = true;
+			this.effectState.applied = true;
 			return -1;
 		},
 		onAnyAfterMove() {
-			this.effectState.resisted = false;
+			this.effectState.applied = false;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
 		name: "Direspike Scales",
-		shortDesc: "If at full HP: Incoming attacks deal 0.5x damage unless immune",
+		shortDesc: "Dalamadur: If full HP, all damaging hits are treated as not very effective (0.5×).",
 	},
 	dragoneater: {
 		onTryHit(target, source, move) {
