@@ -593,9 +593,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arbitrelliancharged: {
 		tier: "MHOU",
 	},
-	olturalarval: {
-		tier: "MHUU",
-	},
 	oltura: {
 		tier: "MHOU",
 	},

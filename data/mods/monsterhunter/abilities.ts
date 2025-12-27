@@ -285,7 +285,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
 		name: "Direspike Scales",
-		shortDesc: "Dalamadur: If full HP, all damaging hits are treated as not very effective (0.5×).",
+		shortDesc: "Dalamadur: If full HP, all damaging hits are treated as not very effective (0.5x).",
 	},
 	dragoneater: {
 		onTryHit(target, source, move) {

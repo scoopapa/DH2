@@ -2553,16 +2553,6 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 60.0,
 		tags: ["EX"],
 	},
-	olturalarval: {
-		num: 221,
-		name: "Oltura-Larval",
-		types: ["Bug", "Psychic"],
-		baseStats: {hp: 130, atk: 88, def: 112, spa: 88, spd: 100, spe: 45},
-		abilities: {0: "Arena Trap"},
-		weightkg: 700.0,
-		tags: ["Elder Dragon"],
-		evos: ["Oltura"],
-	},
 	oltura: {
 		num: 221,
 		name: "Oltura",
