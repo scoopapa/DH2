@@ -21,7 +21,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	bramblecage: {
-		num: 9008,
+		num: 9002,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -36,7 +36,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 	},
 	citrusblast: {
-		num: 9002,
+		num: 9003,
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
@@ -61,7 +61,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	coalrush: {
-		num: 9009,
+		num: 9004,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
@@ -81,7 +81,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	herosignal: {
-		num: 9003,
+		num: 9005,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -106,7 +106,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	landsweep: {
-		num: 9004,
+		num: 9006,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -152,7 +152,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	magmamash: {
-		num: 9005,
+		num: 9007,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -177,7 +177,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	naturesbounty: {
-		num: 9006,
+		num: 9008,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -240,11 +240,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 	},
+	
 	oilshot: {
-		num: 9011,
+		num: 9009,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
+		shortDesc: "Blocks healing for 2 turns.",
 		name: "Oil Shot",
 		pp: 10,
 		priority: 0,
@@ -258,7 +260,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	triwavebeam: {
-		num: 9007,
+		num: 9010,
 		accuracy: true,
 		basePower: 20,
 		category: "Special",
@@ -280,7 +282,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 
 	wheatshield: {
-		num: 9010,
+		num: 9011,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
