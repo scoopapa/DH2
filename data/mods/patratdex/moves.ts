@@ -240,6 +240,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 	},
+	oilshot: {
+		num: 9011,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Oil Shot",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'healblock',
+		},
+		target: "normal",
+		type: "Water",
+	},
 
 	triwavebeam: {
 		num: 9007,
