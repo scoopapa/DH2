@@ -265,15 +265,10 @@ export const Conditions: { [k: string]: ConditionData; } = {
         	}
     	},
 		onEffectiveness(typeMod, target, type, move) {
-			if (target.hasType('Steel') && target.volatiles['rusted']) {
-				if (typeMod < 0) {
-					return 0;
-				}
-				if (typeMod === 0 && this.dex.getImmunity(type, target)) {
-					return 1;
-				}
-			}
-    	},
+			if (!target.hasType('Steel') || !target.volatiles['rusted']) return;
+			if (typeMod < 0) return 0;
+			return typeMod;
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Rusted');
 			this.add('-message', `${pokemon.name}'s steel defenses are restored!`);
@@ -396,6 +391,32 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		inherit: true,
 		onImmunity(type) {
 			if (type === 'brn') return false;
+		},
+	},
+	ruststorm: {
+		name: "Ruststorm",
+		effectType: "Weather",
+		duration: 0,
+		onFieldStart(field, source) {
+			this.add('-weather', 'Ruststorm', '[from] ability: Rusted Gale', '[of] ' + source);
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!this.field.pseudoWeather['ruststorm']) return;
+			if (!target || !target.hasType('Steel')) return;
+			if (target.hasAbility('Rusted Gale')) return typeMod;
+			if (typeMod < 0) return 0;
+			return typeMod;
+		},
+        onModifyDefPriority: 10,
+		onModifyDef(def, target, source, effect) {
+			if (!this.field.pseudoWeather['ruststorm']) return def;
+			if (target.hasAbility('Rusted Gale')) return def;
+			if (target.hasType('Steel')) return def;
+			this.debug('Ruststorm Defense drop');
+			return this.chainModify(0.75);
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none', '[from] Ruststorm');
 		},
 	},
 }

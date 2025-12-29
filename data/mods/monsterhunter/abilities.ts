@@ -1286,61 +1286,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Rusted Gale');
-			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
-
-			// Apply Rusted immediately to Steel-type foes (but not to the holder)
-			for (const target of pokemon.foes()) {
-				if (target.hasType('Steel') && !target.volatiles['rusted'] && !target.hasAbility('Rusted Gale')) {
-					target.addVolatile('rusted');
-					this.add('-message', `${target.name} is afflicted by rust!`);
-				}
-			}
-		},
-		onSwitchIn(pokemon) {
-			const holder = this.effectState.target;
-			if (holder && holder.isActive && holder.hasAbility('Rusted Gale')) {
-				// Skip if the switch-in has Rusted Gale itself
-				if (pokemon.hasType('Steel') && !pokemon.volatiles['rusted'] && !pokemon.hasAbility('Rusted Gale')) {
-					pokemon.addVolatile('rusted');
-					this.add('-message', `${pokemon.name} is afflicted by rust!`);
-				}
-			}
-		},
-		onAnyModifyDef(def, target, source, effect) {
-			// Holder immune
-			if (target.hasAbility('Rusted Gale')) return def;
-
-			// Steel-types: keep Rusted volatile but no Defense drop
-			if (target.hasType('Steel')) return def;
-
-			// All other Pokémon: Defense reduced
-			this.debug('Rusted Gale Defense drop');
-			return this.chainModify(0.75);
-		},
-		onSwitchOut(pokemon) {
-			if (pokemon.volatiles['rusted']) {
-				pokemon.removeVolatile('rusted');
-				this.add('-message', `${pokemon.name} shook off the rust as it left the field!`);
-			}
+			this.field.addPseudoWeather('ruststorm', pokemon);
 		},
 		onEnd(pokemon) {
-			for (const mon of this.getAllActive()) {
-				if (mon.volatiles['rusted']) {
-					mon.removeVolatile('rusted');
-					this.add('-message', `${mon.name}'s rust faded as ${pokemon.name} left the field!`);
-				}
-			}
-		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'rusted' && target.hasAbility('Rusted Gale')) {
-				this.add('-immune', target, '[from] ability: Rusted Gale');
-				return null;
+			if (this.field.pseudoWeather['ruststorm']) {
+				this.field.removePseudoWeather('ruststorm');
 			}
 		},
 		flags: {},
 		name: "Rusted Gale",
-		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune to Rusted. All effects end when the holder leaves the field.",
-		shortDesc: "Steel-types become Rusted; others DEF x0.75. Holder immune to Rusted.",
+		shortDesc: "While active: Summons Ruststorm. Steel-Type resistances are removed, Non-Steel has 0.75x Def."
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
