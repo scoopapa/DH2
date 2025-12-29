@@ -1295,7 +1295,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Rusted Gale",
-		shortDesc: "While active: Summons Ruststorm. Steel-Type resistances are removed, Non-Steel has 0.75x Def."
+		shortDesc: "Summons Ruststorm. Steel-Type resistances are removed, Non-Steel has 0.75x Def."
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
