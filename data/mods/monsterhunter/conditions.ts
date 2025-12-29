@@ -356,8 +356,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
             if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
         },
         onFieldEnd() {
-            this.add('-weather', 'none');
-        },
+			this.add('-message', 'The Dust Devil was quelled!');
+		},
     },
 	absolutezero: {
         name: 'Absolute Zero',
@@ -384,8 +384,8 @@ export const Conditions: { [k: string]: ConditionData; } = {
             if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
         },
         onFieldEnd() {
-            this.add('-weather', 'none');
-        },
+			this.add('-message', 'The environment warmed up!');
+		},
     },
 	snow: {
 		inherit: true,
@@ -416,7 +416,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			return this.chainModify(0.75);
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none', '[from] Ruststorm');
+			this.add('-message', 'The Ruststorm dissipated!');
 		},
 	},
 }
