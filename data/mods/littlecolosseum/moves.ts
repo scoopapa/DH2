@@ -46,6 +46,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
 	},
+	triplekick: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+	},
 
   // Unedited moves
 	stealthrock: {
@@ -108,5 +115,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	poweruppunch: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

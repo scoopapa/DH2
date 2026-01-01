@@ -75,6 +75,42 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	kleavortera: {
 		tier: "Tera",
 	},
+	avaluggtera: {
+		tier: "Tera",
+	},
+	goodratera: {
+		tier: "Tera",
+	},
+	hawluchatera: {
+		tier: "Tera",
+	},
+	blazikentera: {
+		tier: "Tera",
+	},
+	dragonitetera: {
+		tier: "Tera",
+	},
+	primarinatera: {
+		tier: "Tera",
+	},
+	farigiraftera: {
+		tier: "Tera",
+	},
+	snorlaxtera: {
+		tier: "Tera",
+	},
+	leavannytera: {
+		tier: "Tera",
+	},
+	ironcrowntera: {
+		tier: "Tera",
+	},
+	palafintera: {
+		tier: "Tera",
+	},
+	palafinherotera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
@@ -5303,7 +5339,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	palafin: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "(DUU)",
 		natDexTier: "Uber",
 	},

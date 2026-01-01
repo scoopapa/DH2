@@ -348,7 +348,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
-											'magicdrive', 'phantomdrive']) { 
+											'magicdrive', 'phantomdrive', 'toxicdrive']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);
@@ -359,5 +359,81 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
+	},
+	hearthflamemask: {
+		name: "Hearthflame Mask",
+		spritenum: 760,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogereena-Hearthflame')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogereena') return false;
+			return true;
+		},
+		forcedForme: "Ogereena-Hearthflame",
+		itemUser: ["Ogereena-Hearthflame"],
+		num: 2408,
+		gen: 9,
+		desc: "Ogereena-Hearthflame: 1.2x power attacks; Terastallize to gain Embody Aspect.",
+	},
+	wellspringmask: {
+		name: "Wellspring Mask",
+		spritenum: 759,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogereena-Wellspring')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogereena') return false;
+			return true;
+		},
+		forcedForme: "Ogereena-Wellspring",
+		itemUser: ["Ogereena-Wellspring"],
+		num: 2407,
+		gen: 9,
+		desc: "Ogereena-Wellspring: 1.2x power attacks; Terastallize to gain Embody Aspect.",
+	},
+	cornerstonemask: {
+		name: "Cornerstone Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogereena-Cornerstone')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogereena') return false;
+			return true;
+		},
+		forcedForme: "Ogereena-Cornerstone",
+		itemUser: ["Ogereena-Cornerstone"],
+		num: 2406,
+		gen: 9,
+		desc: "Ogereena-Cornerstone: 1.2x power attacks; Terastallize to gain Embody Aspect.",
 	},
 };

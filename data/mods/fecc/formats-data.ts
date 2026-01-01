@@ -475,4 +475,217 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
+	
+	lurret: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	bibaminsky: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	wokedog: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	espathrem: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	slowno: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	darkcross: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	hoopass: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	grenospaldeaaqua: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	skarmtops: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	screamvillain: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	roseron: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	xatoking: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	shedlurk: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	whiskiaorigin: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	jigglinks: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	fiskiarygalar: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	snorcannon: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	dirunt: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	kingralts: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	spinningfire: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	heliogre: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	volux: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	crustboar: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	woman: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	womanmega: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	smearccino: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	tapuluna: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	kleface: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	cursosstiff: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	manicunogalar: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	musherene: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	runerigrowth: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	cramoraid: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	sigiblade: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	zapmolcuno: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	servking: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	skuntman: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	zorotcha: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	durantsler: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	abomakiss: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	toxicott: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	lycaneopsmidnight: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	pherjabug: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	regipult: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	froscue: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	froscuenoiceice: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	sharster: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	klefkaton: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	chompgiri: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	blazer: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	yampeko: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	maromisealola: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
+	ironstar: {
+		tier: "FECC",
+		doublesTier: "DOU",
+	},
 };

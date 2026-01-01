@@ -1448,8 +1448,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	shedinja: {
-		tier: "Uber",
-		doublesTier: "Uber",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	hitmonlee: {
 		tier: "TMFE",
@@ -2456,8 +2456,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	volcarona: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	talonflame: {
 		tier: "TMOU",
@@ -2572,20 +2572,20 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	roaringmoon: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	ironvaliant: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	koraidon: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	miraidon: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	walkingwake: {
 		tier: "TMOU",
@@ -2612,6 +2612,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	spidops: {
+		tier: "TMFE",
+		doublesTier: "TMFE",
+	},
+	lokix: {
 		tier: "TMFE",
 		doublesTier: "TMFE",
 	},
@@ -2696,8 +2700,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	espathra: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	tinkaton: {
 		tier: "TMFE",
@@ -2804,24 +2808,24 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	baxcalibur: {
-		tier: "TMOU",
-		doublesTier: "TMOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	zacian: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	zaciancrowned: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	zamazentacrowned: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	eternatus: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	squirtle: {
 		tier: "TMLC",
@@ -2852,8 +2856,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMLC",
 	},
 	melmetal: {
-		tier: "Uber",
-		doublesTier: "DOU",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	froakie: {
 		tier: "TMLC",
@@ -2868,8 +2872,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	greninjabond: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
+		tier: "TMFE",
+		doublesTier: "TMFE",
 	},
 	oshawott: {
 		tier: "TMLC",
@@ -2928,191 +2932,413 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	slowkinggalar: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	slowbrogalar: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	dipplin: {
 		tier: "TMNFE",
 		doublesTier: "TMNFE",
 	},
 	hydrapple: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	sinistcha: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	ogerpon: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ogerpontealtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	ogerponcornerstone: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ogerponcornerstonetera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	ogerponwellspring: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ogerponwellspringtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	ogerponhearthflame: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ogerponhearthflametera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	archaludon: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	urshifu: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifurapidstrike: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	glastrier: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	spectrier: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	calyrex: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	pecharunt: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	munkidori: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	okidogi: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	fezandipiti: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	gougingfire: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ragingbolt: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironcrown: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironboulder: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regidrago: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regieleki: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	terapagos: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	terapagosterastal: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	terapagosstellar: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	mewtwo: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	hooh: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	lugia: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	groudon: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyogre: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	rayquaza: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	dialga: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	palkia: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	giratina: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	giratinaorigin: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	arceus: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	reshiram: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zekrom: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyurem: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyuremwhite: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyuremblack: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	xerneas: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	yveltal: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zygarde10: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	zygarde: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zygardecomplete: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	solgaleo: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	lunala: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	necrozma: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	necrozmaduskmane: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	necrozmadawnwings: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	calyrexshadow: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	calyrexice: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	venusaurgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	charizardgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	blastoisegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	butterfreegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	pikachugmax: {
 		isNonstandard: null,
 		tier: "TMNFE",
+		doublesTier: "TMNFE",
 	},
 	meowthgmax: {
 		isNonstandard: null,
 		tier: "TMLC",
+		doublesTier: "TMLC",
 	},
 	machampgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	gengargmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	kinglergmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	laprasgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	eeveegmax: {
 		isNonstandard: null,
 		tier: "TMLC",
+		doublesTier: "TMLC",
 	},
 	snorlaxgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	garbodorgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	melmetalgmax: {
+		isNonstandard: null,
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	rillaboomgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	cinderacegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	inteleongmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	corviknightgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	orbeetlegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	drednawgmax: {
 		isNonstandard: null,
 		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	coalossalgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	flapplegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	appletungmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	sandacondagmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	toxtricitygmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	toxtricitylowkeygmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	centiskorchgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	hatterenegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	grimmsnarlgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	alcremiegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	copperajahgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	duraludongmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifugmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifurapidstrikegmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 };

@@ -217,4 +217,166 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bazhigangquan: {
 		tier: "BC OU",
 	},
+	leechmonner: {
+		tier: "BC OU",
+	},
+	ironcrest: {
+		tier: "BC OU",
+	},
+	odonata: {
+		tier: "BC OU",
+	},
+	hebicikuga: {
+		tier: "BC OU",
+	},
+	devestial: {
+		tier: "BC OU",
+	},
+	lundicare: {
+		tier: "BC OU",
+	},
+	lyvamp: {
+		tier: "BC C",
+	},
+	treatmint: {
+		tier: "BC C",
+	},
+	turvarpega: {
+		tier: "BC C",
+	},
+	goodjur: {
+		tier: "BC C",
+	},
+	liftaton: {
+		tier: "BC C",
+	},
+	triceracotta: {
+		tier: "BC C",
+	},
+	woolverine: {
+		tier: "BC C",
+	},
+	combustoad: {
+		tier: "BC C",
+	},
+	hearthind: {
+		tier: "BC C",
+	},
+	koiryu: {
+		tier: "BC C",
+	},
+	pestiligy: {
+		tier: "BC C",
+	},
+	saxum: {
+		tier: "BC C",
+	},
+	sascratch: {
+		tier: "BC C",
+	},
+	guttergar: {
+		tier: "BC C",
+	},
+	rakasa: {
+		tier: "BC C",
+	},
+	thermostatic: {
+		tier: "BC C",
+	},
+	formaldehydra: {
+		tier: "BC C",
+	},
+	strumorthio: {
+		tier: "BC C",
+	},
+	ironmike: {
+		tier: "BC C",
+	},
+	whalestro: {
+		tier: "BC C",
+	},
+	urslag: {
+		tier: "BC C",
+	},
+	centaghoul: {
+		tier: "BC C",
+	},
+	noirwark: {
+		tier: "BC C",
+	},
+	metarachne: {
+		tier: "BC C",
+	},
+	monsnooze: {
+		tier: "BC C",
+	},
+	oreamoss: {
+		tier: "BC C",
+	},
+	sucrillon: {
+		tier: "BC C",
+	},
+	taranferno: {
+		tier: "BC C",
+	},
+	armie: {
+		tier: "BC C",
+	},
+	bunnyumi: {
+		tier: "BC C",
+	},
+	parfae: {
+		tier: "BC C",
+	},
+	siltworm: {
+		tier: "BC C",
+	},
+	ptoxidactyl: {
+		tier: "BC C",
+	},
+	staroboros: {
+		tier: "BC C",
+	},
+	kodiacomb: {
+		tier: "BC C",
+	},
+	pyrelli: {
+		tier: "BC C",
+	},
+	boreetle: {
+		tier: "BC C",
+	},
+	hyakutari: {
+		tier: "BC C",
+	},
+	kaovern: {
+		tier: "BC C",
+	},
+	zhuguo: {
+		tier: "BC C",
+	},
+	shinobomi: {
+		tier: "BC C",
+	},
+	prionice: {
+		tier: "BC C",
+	},
+	tiaratron: {
+		tier: "BC C",
+	},
+	lianzhao: {
+		tier: "BC C",
+	},
+	psyrex: {
+		tier: "BC C",
+	},
+	phantamp: {
+		tier: "BC C",
+	},
+	waroach: {
+		tier: "BC C",
+	},
+	wyldemoer: {
+		tier: "BC C",
+	},
 };

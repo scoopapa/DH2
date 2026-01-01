@@ -126,6 +126,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			onResidual(pokemon) {
+				if (!pokemon.lastMoveUsed) {
+					return false;
+				}
 				const spells = ['Shadow Leap', 'FirebaIl', 'Blast Jump', 'Overheal', 'Bat Swarm', 'Pumpkin MIRV', 'Stealth', 'MONOCULUS!', 'Skeleton Horde', 'Ball O\' Lightning', 'Meteor Shower', 'Minify'];
 				if(!spells.includes(pokemon.lastMoveUsed.name) || pokemon.lastMoveUsed.pp != 0) return;
 				pokemon.moveSlots.pop();

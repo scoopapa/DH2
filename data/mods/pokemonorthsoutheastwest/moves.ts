@@ -164,24 +164,47 @@ horseserve: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-
-	eastseawave: {
-		num: 812,
-                       shortDesc: "User switches out after use. Does not power up on Terrain.",
+eastseawave: {
+		num: -34,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Special",
 		name: "East Sea Wave",
-		pp: 20,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
+		flags: {protect: 1, mirror: 1},
+		target: "allAdjacentFoes",
 		type: "Water",
+		shortDesc: "Hits foes. Extends terrain/weather duration by 1 (max 8).",
+		condition: {
+			duration: 1,
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Surf', target);
+		},
+		onAfterMove(source, target, move) {
+		//  onHit(target, source, move) { 
+			const weather = source.side.battle.field.weather;
+			const terrain = source.side.battle.field.terrain;
+
+			// Extend weather duration
+			if (weather && source.side.battle.field.weatherState.duration < 8) {
+				source.side.battle.field.weatherState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the weather! It will last ${this.field.weatherState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the weather!`);
+			}
+
+			// Extend terrain duration
+			if (terrain && source.side.battle.field.terrainState.duration < 8) {
+				source.side.battle.field.terrainState.duration++;
+				this.add(`-message`, `${source.name}'s East Sea Wave extended the terrain! It will last ${this.field.terrainState.duration} turns now.`);
+				//this.add('-message', `${source.name}'s East Sea Wave extended the terrain!`);
+			}
+		},
+		secondary: null,
+		contestType: "Beautiful",
 	},
-
-
 	nighttime: {
 		num: 2421,
                        shortDesc: "For five turns: Dark +50%, Light-50%, Dark is immune to Priority.",
@@ -307,7 +330,7 @@ horseserve: {
 		type: "Sound",
 		contestType: "Tough",
 	},
-	Amplify: {
+	amplify: {
 		num: 2568,
 		accuracy: true,
 					shortDesc: "Boosts the power of the user's next Sound move + Raises SpDef by 1.",
@@ -620,5 +643,692 @@ horseserve: {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+	},
+		mistyterrain: {
+		num: 581,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+			shortDesc: "For five turns, Fairy powers up, Dragon moves are weakned, and grounded Pokémon can't get status conditions.",
+		name: "Misty Terrain",
+		pp: 10,
+		priority: 0,
+		flags: { nonsky: 1, metronome: 1 },
+		terrain: 'mistyterrain',
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Fairy' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('misty terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: { boost: { spd: 1 } },
+		contestType: "Beautiful",
+	},
+	attract: {
+		num: 213,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Attract",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1 },
+		volatileStatus: 'attract',
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(pokemon, source, effect) {
+				if (!(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) {
+					this.debug('incompatible gender');
+					return false;
+				}
+				if (!this.runEvent('Attract', pokemon, source)) {
+					this.debug('Attract event failed');
+					return false;
+				}
+
+				if (effect.name === 'Cute Charm') {
+					this.add('-start', pokemon, 'Attract', '[from] ability: Cute Charm', `[of] ${source}`);
+				} else if (effect.name === 'Destiny Knot') {
+					this.add('-start', pokemon, 'Attract', '[from] item: Destiny Knot', `[of] ${source}`);
+				} else {
+					this.add('-start', pokemon, 'Attract');
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['attract']) {
+					this.debug(`Removing Attract volatile on ${pokemon}`);
+					pokemon.removeVolatile('attract');
+				}
+			},
+			onBeforeMovePriority: 2,
+			onBeforeMove(pokemon, target, move) {
+				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				if (this.randomChance(1, 2)) {
+					this.add('cant', pokemon, 'Attract');
+					return false;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Attract', '[silent]');
+			},
+		},
+		onTryImmunity(target, source) {
+			return (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Cute",
+	},
+	perishsong: {
+		num: 195,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Perish Song",
+		pp: 5,
+		priority: 0,
+		flags: { sound: 1, distance: 1, bypasssub: 1, metronome: 1 },
+		onHitField(target, source, move) {
+			let result = false;
+			let message = false;
+			for (const pokemon of this.getAllActive()) {
+				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
+					this.add('-miss', source, pokemon);
+					result = true;
+				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
+					result = true;
+				} else if (!pokemon.volatiles['perishsong']) {
+					pokemon.addVolatile('perishsong');
+					this.add('-start', pokemon, 'perish3', '[silent]');
+					result = true;
+					message = true;
+				}
+			}
+			if (!result) return false;
+			if (message) this.add('-fieldactivate', 'move: Perish Song');
+		},
+		condition: {
+			duration: 4,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				target.faint();
+			},
+			onResidualOrder: 24,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['perishsong'].duration;
+				this.add('-start', pokemon, `perish${duration}`);
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ghost",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Beautiful",
+	},
+	pollenseason: {
+		num: 2440,
+		shortDesc: "Doubles effect chances and powers up Grass-type moves for 5 turns.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Pollen Season",
+		pp: 5,
+		priority: 0,
+		flags: { metronome: 1 },
+		weather: 'PollenSeason',
+		secondary: null,
+		target: "all",
+		type: "Grass",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	greatsneeze: {
+		num: 3333,
+		shortDesc: "Fails if the user is not Poisoned or if it is not Pollen Season.",
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Great Sneeze",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+                onTry(source) {
+                if (!pokemon.status === 'psn' || !pokemon.status === 'tox') {
+			if (!this.field.isWeather('pollenseason')) {
+				return false;
+			}
+                }
+                },
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+   mucusseed: {
+		num: 723,
+			shortDesc: "Leech Seed, then user switches out. Has +1 Priority in Pollen Season.",
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Mucus Seed",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
+		volatileStatus: 'leechseed',
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isWeather('pollenseason')) {
+				return priority + 1;
+			}
+		},
+	        onTry(source) {
+			return !!this.canSwitch(source.side);
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Leech Seed');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.getAtSlot(pokemon.volatiles['leechseed'].sourceSlot);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Grass');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Clever",
+	},
+			weatherball: {
+		num: 311,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Weather Ball",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'nighttime':
+				move.type = 'Dark';
+				break;
+			case 'shadowsky':
+				move.type = 'Shadow';
+				break;
+			case 'pollenseason':
+				move.type = 'Grass';
+				break;
+			case 'hail':
+			case 'snowscape':
+				move.type = 'Ice';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'nighttime':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
+				move.basePower *= 2;
+				break;
+			case 'pollenseason':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snowscape':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug(`BP: ${move.basePower}`);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: { basePower: 160 },
+		maxMove: { basePower: 130 },
+		contestType: "Beautiful",
+	},
+		beckon: {
+					shortDesc: "The user switches out. Has -6 Priority.",
+		num: 14200,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Beckon",
+		pp: 20,
+		priority: -6,
+		flags: { metronome: 1 },
+		onTry(source) {
+			return !!this.canSwitch(source.side);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Light",
+		zMove: { effect: 'heal' },
+		contestType: "Cool",
+	},
+		blinder: {
+		num: 1892,
+					shortDesc: "Hits both enemies, lowering their accuracy by 1.",
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Blinder",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Cute",
+	},
+		cleanse: {
+					shortDesc: "Cleanses all status conditions from the user.",
+		num: 28527,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Cleanse",
+		pp: 20,
+		priority: 0,
+		flags: { snatch: 1, metronome: 1 },
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
+		secondary: null,
+		target: "self",
+		type: "Light",
+		zMove: { effect: 'heal' },
+		contestType: "Cute",
+	},
+		discrimination: {
+		num: 333333,
+		accuracy: 100,
+		basePower: 80,
+							shortDesc: "Strong against Ghost and Dark.",
+		category: "Physical",
+		name: "Discrimination",
+		pp: 35,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+	},
+	domination: {
+		num: 2824,
+				shortDesc: "Weaker the more damaged the user is.",
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
+		category: "Special",
+		name: "Domination",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Light",
+		contestType: "Beautiful",
+	},
+	eyebeam: {
+		num: 3523,
+				shortDesc: "Ignores Protect.",
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Eye Beam",
+		pp: 35,
+		priority: 0,
+		flags: { contact: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		viable: false,
+		type: "Light",
+		contestType: "Tough",
+	},
+		gleam: {
+					shortDesc: "Lowers the target's attack by 1.",
+		num: 3341,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Gleam",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+	},
+			holyarrow: {
+		num: 12935,
+		// accuracy: true,
+					shortDesc: "Ultra effective against Dark.",
+		basePower: 60,
+		accuracy: 100,
+		category: "Physical",
+		name: "Holy Arrow",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+			onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Light",
+		contestType: "Cool",
+	},
+		holywrath: {
+					shortDesc: "Gets stronger the more the user has healed. Currently does not have its secondary effect.",
+		num: 35253,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Holy Wrath",
+		pp: 35,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+	},
+		lightshine: {
+					shortDesc: "May lower the target's accuracy by 1.",
+		num: 1892,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Light Shine",
+			viable: false,
+		pp: 24,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Cute",
+	},
+	lustersword: {
+		num: 1623,
+				shortDesc: "High critical hit ratio.",
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Luster Sword",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Light",
+		contestType: "Cool",
+	},
+		pillarsmash: {
+					shortDesc: "May lower the target's defence by 1.",
+		num: 8223,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Pillar Smash",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+	},
+		radiantfire: {
+					shortDesc: "May cause burning.",
+		num: 53323,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Radiant Fire",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+		renew: {
+					shortDesc: "Heals 50% of the user's health.",
+		num: 1205,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Renew",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1, heal: 1, metronome: 1 },
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Light",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Clever",
+	},
+		resurrection: {
+					shortDesc: "Revives a fainted party member at 50% health.",
+		num: 8623,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Reserrection",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { heal: 1, nosketch: 1 },
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
+				return false;
+			}
+		},
+		slotCondition: 'revivalblessing',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a fainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// reviving implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
+			shineburst: {
+						shortDesc: "May lower accuracy. Light-types are weak to Dark and Poison.",
+		num: 18922,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Shine Burst",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Cute",
+	},
+		shiningshot: {
+					shortDesc: "Adds 10 to its power every time it is used in a row.",
+		num: 22210,
+		accuracy: 95,
+			viable: false,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.volatiles['shiningshot'] || move.hit === 1) {
+				pokemon.addVolatile('shiningshot');
+			}
+			const bp = this.clampIntRange(move.basePower * pokemon.volatiles['shiningshot'].multiplier, 1, 160);
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
+		category: "Special",
+		name: "Shining Shot",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectState.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
+				}
+				this.effectState.duration = 2;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Light",
+		contestType: "Cool",
+	},
+		sunrays: {
+					shortDesc: "May lower the target's Special Defence by 1.",
+		num: 18922,
+		accuracy: 100,
+			viable: false,
+		basePower: 60,
+		category: "Special",
+		name: "Sunrays",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Cute",
 	},
 };

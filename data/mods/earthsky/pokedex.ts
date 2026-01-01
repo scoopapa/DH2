@@ -5797,6 +5797,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	/* Junkyard */
 	victreebel: null,
+	victreebelmega: null,
 	darmanitangalarzen: null,
 	lycanrocdusk: null,
 	ironbundle: null,

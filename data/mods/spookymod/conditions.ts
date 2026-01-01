@@ -36,7 +36,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Water' && move.category !== 'Status') {
-				this.add('-curestatus', pokemon, 'brn', '[from] move: ' + move);
+				this.add('-curestatus', target, 'brn', '[from] move: ' + move);
 				target.cureStatus();
 			}
 		},
@@ -152,7 +152,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Ghost, From That Game With The Ghost Guy In It \(I Don\'t Remember What It Was Called\)')}| `);
 					break;	
 				case 4:
-					this.add(`raw|<img src="https://static.wikia.nocookie.net/slenderfortress/images/4/46/Zepheniah_Ghost.png/revision/latest?cb=20151009163710" height="400" width="400">`);
+					this.add(`raw|<img src="https://static.wikia.nocookie.net/slenderfortress/images/4/46/Zepheniah_Ghost.png" height="400" width="400">`);
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Zepheniah_Ghost.png')}|BOO`);
 					break;	
 				case 5:
@@ -168,7 +168,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
-	dynamax: {
+	fakedynamax: {
 		inherit: true,
 		duration: 1,
 		onStart(pokemon) {
@@ -178,14 +178,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.actions.useMove('Explosion', pokemon, pokemon);
 			}
 		},
-		onTryAddVolatile: null,
-		onBeforeSwitchOutPriority: null,
-		onBeforeSwitchOut: null,
-		onSourceModifyDamage: null,
-		onDragOutPriority: null,
-		onDragOut: null,
-		onResidualPriority: null,
-		onResidual: null,
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax', '[silent]');
 		}

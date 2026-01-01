@@ -20,7 +20,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Steel: 0,
 			Water: 0,
 			Crystal: 0,
-			Feral: 1,
+			Feral: 0,
 		},
 		HPivs: {atk: 30, def: 30, spd: 30},
 		HPdvs: {atk: 13, def: 13},

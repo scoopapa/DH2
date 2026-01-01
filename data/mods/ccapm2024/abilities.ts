@@ -324,15 +324,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	colorwheel: {
 		onResidual(pokemon) {
-			this.add('-ability', pokemon, 'ability: Prismatic');
+			this.add('-ability', pokemon, 'ability: Color Wheel');
 			const types = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting',
 						   'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 
 						   'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
-			const possibleTypes = types.filter(type => !pokemon.types.includes(type));
-			const newType1 = types[types.indexOf(pokemon.types[0]) + 1];
-			const newType2 = pokemon.types[1] !== '' ? types[types.indexOf(pokemon.types[1]) + 1] : '';
-			const newTypes = [newType1, newType2];
-			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'));
+			const newType1 = types[(types.indexOf(pokemon.types[0]) + 1) % 18];
+			let newTypes = [newType1];
+			if (pokemon.types.length > 1) {
+				const newType2 = types[(types.indexOf(pokemon.types[1]) + 1) % 18];
+				newTypes = [newType1, newType2];
+			}
+			if (pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'));
 		},
 		flags: {},
 		name: "Color Wheel",
@@ -396,7 +398,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let stat: BoostID;
 			for (stat in target.boosts) {
 				if (source.boosts[stat] < 6) {
-					if (statPlus === 'evasion') continue;
+					if (stat === 'evasion') continue;
 					stats.push(stat);
 				}
 			}
@@ -459,7 +461,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	electromagneticmanipulation: {
 		onUpdate(pokemon) {
-			console.log(pokemon.adjacentFoes());
 			if (pokemon.adjacentFoes().length == 0) return;
 			let target = this.sample(pokemon.adjacentFoes());
 			if (!target || target.types[0] === 'Electric') return;
@@ -469,6 +470,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon) {
 				let types = pokemon.types.length === 2 ? ['Electric', pokemon.types[1]] : ['Electric'];
 				pokemon.setType(types.join('/'));
+				this.add('-start', pokemon, 'typechange', types.join('/'));
+			},
+			onUpdate(pokemon) {
+				if (pokemon.adjacentFoes().length == 0) pokemon.removeVolatile('electromagneticmanipulation');
+				let target = this.sample(pokemon.adjacentFoes());
+				if (!target || !target.hasAbility('electromagneticmanipulation')) pokemon.removeVolatile('electromagneticmanipulation');
+			},
+			onEnd(pokemon) {
+				let types = pokemon.baseSpecies.types;
+				console.log(types);
+				pokemon.setType(types);
 				this.add('-start', pokemon, 'typechange', types.join('/'));
 			},
 		},
@@ -481,6 +493,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.lastMoveUsed) return;
 			const moveUsed = pokemon.lastMoveUsed;
 			const moveIndex = pokemon.moves.indexOf(moveUsed.id);
+			if (moveIndex === -1) return;
 			console.log(pokemon.moveSlots[moveIndex]);
 			pokemon.moveSlots[moveIndex].pp -= 5;
 		},
@@ -962,7 +975,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	superrod: {
 		onAfterMove(target, source, move) {
-			if (move.type === 'Flying' && target.side.fishingTokens > 0) {
+			if (move.type === 'Water' && target.side.fishingTokens > 0) {
 				this.heal(target.baseMaxhp / 16 * target.side.fishingTokens);
 			}
 		},

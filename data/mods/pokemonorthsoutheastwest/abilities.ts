@@ -116,4 +116,41 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		num: 8444,
 	},
+		gesundheit: {
+			shortDesc: "On switch in, this Pokémon sets up Pollen Season. Bless you!",
+		onStart(source) {
+			this.field.setWeather('pollenseason');
+		},
+		flags: {},
+		name: "Gesundheit",
+		rating: 4,
+		num: 720,
+	},
+	gildedrush: {
+		onDamagingHitOrder: 1,
+		shortDesc: "Upon fainting, this Pokémon confuses all enemies.",
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && this.checkMoveMakesContact(move, source, target, true)) {
+			source.trySetStatus('confusion', target);
+			}
+		},
+		flags: {},
+		name: "Gilded Rush",
+		rating: 2,
+		num: 1206,
+	},
+		honeygather: {
+		flags: {},
+	   shortDesc: "Allows this Pokémon to use the effects of Honey.",
+		name: "Honey Gather",
+		rating: 0,
+		num: 118,
+	},
+	balancer: {
+ shortDesc: "Currently not functional.",
+		flags: {},
+		name: "Balancer",
+		rating: 2,
+		num: 4219,
+	},
 }

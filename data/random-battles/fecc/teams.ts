@@ -113,6 +113,7 @@ const MOVE_PAIRS = [
 	['protect', 'wish'],
 	['leechseed', 'protect'],
 	['leechseed', 'substitute'],
+	['irondefense', 'bodypress'],
 ];
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
@@ -122,7 +123,7 @@ const PRIORITY_POKEMON = [
 
 /** Pokemon who should never be in the lead slot */
 const NO_LEAD_POKEMON = [
-	'Iron Boulder', 'Slither Wing', 'Zacian', 'Zamazenta',
+	'Wingwambit', 'Kingralts', 'Zacian', 'Zamazenta',
 ];
 const DOUBLES_NO_LEAD_POKEMON = [
 	'Basculegion', 'Houndstone', 'Roaring Moon', 'Zacian', 'Zamazenta',
@@ -718,13 +719,13 @@ export class RandomTeams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// Enforce Facade if Guts is a possible ability
-		if (movePool.includes('facade') && abilities.has('Guts')) {
+		if (movePool.includes('facade') && abilities.has('Still Standing')) {
 			counter = this.addMove('facade', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 				movePool, teraType, role);
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm', 'noretreat', 'seedflare', 'swagger']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1260,32 +1261,69 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
-			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozium Z';
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
-				if (moves.has('shellsmash')) mega += 'b';
+				if (moves.has('shellsmash') || 
+					moves.has('hydropump') ||
+					moves.has('icebeam') ||
+					moves.has('aurasphere') ||
+					moves.has('dragonpulse')) mega += 'b';
 				else mega += 'a';
 			}
 			return this.dex.species.get(mega).requiredItems[0];
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
 		//mon hardcodes
-		if (species.id === 'hooporantunbound') return 'Light Ball';
-		if (species.id === 'zacianoh') return 'Rusted Sword';
-		if (species.id === 'shitto') return 'Black Sludge';
-		if (species.id === 'swalos') return 'Starf Berry';
-		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		if (species.id === 'tipplin') return 'Metronome';
-		if (species.id === 'mimighold') return 'Lum Berry';
-		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || species.id === 'naclinch' || species.id === 'glimmgar') return 'Eviolite';
-		if (species.id === 'exeggumoramora') return 'White Herb';
-		if (species.id === 'rolyklawfy') return 'Focus Sash';
-		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
-		if (species.id === 'gigawrath') return 'Choice Band';
-		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+		switch (species.id) {
+			case 'hooporantunbound':
+				return 'Light Ball';
+			case 'zacianoh':
+				return 'Rusted Sword';
+			case 'zamadactylcrowned':
+				return 'Rusted Shield';
+			case 'shitto':
+				return 'Black Sludge';
+			case 'tipplin':
+				return 'Metronome';
+			case 'mimighold':
+				return 'Lum Berry';
+			case 'exeggumoramora':
+				return 'White Herb';
+			case 'gigawrath':
+				return 'Choice Band';
+			case 'spinningfire':
+				return 'Berserk Gene';
+			case 'tapuluna':
+				return 'Life Orb';
+			case 'yvenne':
+				return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+			case 'swalos':
+			case 'snorcannon':
+				return 'Starf Berry';
+			case 'necromaneduskmane':
+			case 'ferrothorns':
+				return 'Booster Energy';
+			case 'koraisle':
+			case 'mirainun':
+				return 'Destiny Knot';
+			case 'rolyklawfy':
+			case 'blazer':
+			case 'smearccino':
+			case 'shedlurk':
+				return 'Focus Sash';
+			case 'basbal':
+			case 'naclinch':
+			case 'glimmgar':
+			case 'roseron':
+				return 'Eviolite';
+		}
+		
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
+		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
+		if (species.id === 'espathrem' && moves.has('storedpower')) return 'weaknesspolicy';
+		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -1641,6 +1679,17 @@ export class RandomTeams {
 			evs.spd = 0;
 			evs.spe = 0;
 		}
+		if (species.baseSpecies === 'Shedlurk') {
+			evs.hp = 0;
+			evs.atk = 252;
+			evs.def = 0;
+			evs.spa = 0;
+			evs.spd = 0;
+			evs.spe = 252;
+		}
+		if (species.baseSpecies === 'Smearccino' || species.baseSpecies === 'Toxicott') {
+			ivs.atk = 31;
+		}
 
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
@@ -1750,19 +1799,28 @@ export class RandomTeams {
 				}
 				teamDetails.mirainun ++;
 			}
+			//if darkcross, pick beetar immediately
+			else if(teamDetails.darkcross && teamDetails.darkcross == 1) {
+				species = this.dex.species.get('beetar');
+				teamDetails.darkcross ++;
+			}
 			else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('scolislash');
 				teamDetails.beetar ++;
 			}
+			else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
+				species = this.dex.species.get('darkcross');
+				teamDetails.beetar ++;
+			}
 			else if(teamDetails.scolislash && teamDetails.scolislash == 1 && this.randomChance(1, 2)) {
-				species = this.dex.species.get('scolislash');
+				species = this.dex.species.get('beetar');
 				teamDetails.scolislash ++;
 			}
-			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 4)) {
+			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('avalluxe');
 				teamDetails.chiruno ++;
 			}
-			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 4)) {
+			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('chiruno');
 				teamDetails.avalluxe ++;
 			}
@@ -1788,7 +1846,6 @@ export class RandomTeams {
 				}
 				species = this.sample(currentSpeciesPool);
 			}
-
 			if (!species.exists) continue;
 
 			// Limit to one of each species (Species Clause)
@@ -1801,6 +1858,11 @@ export class RandomTeams {
 				continue;
 			}
 			
+			//darkcross cant be last slot if there isnt beetar already there
+			if ((species.baseSpecies === 'Darkcross' && !teamDetails.beetar) && pokemon.length >= (this.maxTeamSize - 1)) {
+				continue;
+			}
+			
 			// pair koraisle and mirainun together
 			if (species.baseSpecies === 'Koraisle' && !teamDetails.mirainun) teamDetails.koraisle = 1;
 			if (species.baseSpecies === 'Mirainun' && !teamDetails.koraisle) teamDetails.mirainun = 1;
@@ -1808,6 +1870,7 @@ export class RandomTeams {
 			// have higher likelihood to pair beetar and scolislash together
 			if (species.baseSpecies === 'Beetar' && !teamDetails.scolislash) teamDetails.beetar = 1;
 			if (species.baseSpecies === 'Scolislash' && !teamDetails.beetar) teamDetails.scolislash = 1;
+			if (species.baseSpecies === 'Darkcross' && !teamDetails.darkcross) teamDetails.darkcross = 1;
 			
 			// have higher likelihood to pair chiruno and avalluxe together
 			if (species.baseSpecies === 'Chiruno' && !teamDetails.avalluxe) teamDetails.beetar = 1;
@@ -1830,7 +1893,7 @@ export class RandomTeams {
 
 				// Limit two of any type
 				for (const typeName of types) {
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && typeCount[typeName] >= 2 * limitFactor) {
+					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && !teamDetails.darkcross && typeCount[typeName] >= 2 * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1840,7 +1903,7 @@ export class RandomTeams {
 				// Limit three weak to any type
 				for (const typeName of this.dex.types.names()) {
 					// it's weak to the type
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && this.dex.getEffectiveness(typeName, species) > 0) {
+					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && !teamDetails.darkcross && this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
 						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
 							skip = true;

@@ -688,7 +688,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Corvizolt",
 		types: ["Electric", "Flying"], 
 		baseStats: {hp: 95, atk: 95, def: 100, spa: 70, spd: 80, spe: 75}, 
-		abilities: {0: "Hourglass"},
+		abilities: {0: "Hourglass", H: "Piezoelectric"},
 		weightkg: 132.5,
 	},
 	taputitan: {
@@ -1224,7 +1224,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Aerodirge", 
 		types: ["Flying", "Fire"],
 		baseStats: {hp: 100, atk: 90, def: 84, spa: 90, spd: 77, spe: 100}, 
-		abilities: {0: "Numbskull", H: "Hotheaded"}, 
+		abilities: {0: "Prehistoric Presence", H: "Hotheaded"}, 
 		weightkg: 192.8,
 		otherFormes: ["Aerodirge-Mega"],
 		formeOrder: ["Aerodirge", "Aerodirge-Mega"]

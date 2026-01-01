@@ -5,52 +5,68 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customTiers: ['VGC', 'VGC NFE'],
 		customDoublesTiers: ['VGC', 'VGC NFE'],
 	},
-	init() {		
+	init() {	
 
-		// test
-		this.modData("Learnsets", "tangela").learnset.stringshot = ['9M'];
-		this.modData("Learnsets", "tangela").learnset.weatherball = ['9M'];
-		this.modData("Learnsets", "tangela").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "volbeat").learnset.paranoia = ['9M'];
-		this.modData("Learnsets", "volbeat").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "illumise").learnset.paranoia = ['9M'];
-		this.modData("Learnsets", "illumise").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "vespiquen").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "vespiquen").learnset.poisonjab = ['9M'];
-		this.modData("Learnsets", "vespiquen").learnset.healorder = ['9M'];
-		this.modData("Learnsets", "accelgor").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "escavalier").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "golisopod").learnset.paranoia = ['9M'];
-		this.modData("Learnsets", "golisopod").learnset.wavecrash = ['9M'];
-		this.modData("Learnsets", "orbeetle").learnset.paranoia = ['9M'];
-		this.modData("Learnsets", "orbeetle").learnset.passiveaggressive = ['9M'];
-		this.modData("Learnsets", "gyarados").learnset.aircannon = ['9M'];
-        this.modData("Learnsets", "milotic").learnset.calmmind = ['9M'];
-		this.modData("Learnsets", "beartic").learnset.iceshard = ['9M'];
-		this.modData("Learnsets", "rotom").learnset.recalibration = ['9M'];
-		this.modData("Learnsets", "reuniclus").learnset.passiveaggressive = ['9M'];
-		this.modData("Learnsets", "farigiraf").learnset.passiveaggressive = ['9M'];
-		this.modData("Learnsets", "golurk").learnset.storedpower = ['9M'];
-		this.modData("Learnsets", "golurk").learnset.recalibration = ['9M'];
-		this.modData("Learnsets", "flygon").learnset.aircannon = ['9M'];
-		this.modData("Learnsets", "flygon").learnset.swarmingstrike = ['9M'];
-		this.modData("Learnsets", "flygon").learnset.paranoia = ['9M'];
-		this.modData("Learnsets", "arbok").learnset.taunt = ['9M'];
-		this.modData("Learnsets", "arbok").learnset.partingshot = ['9M'];
-		this.modData("Learnsets", "arbok").learnset.helpinghand = ['9M'];
-		this.modData("Learnsets", "flamigo").learnset.aircannon = ['9M'];
-		this.modData("Learnsets", "flamigo").learnset.drillpeck = ['9M'];
-		this.modData("Learnsets", "snorlax").learnset.slackoff = ['9M'];
-		this.modData("Learnsets", "snorlax").learnset.mightyblow = ['9M'];
-		this.modData("Learnsets", "delcatty").learnset.passiveaggressive = ['9M'];
-		this.modData("Learnsets", "stoutland").learnset.doubleedge = ['9M'];
-		this.modData("Learnsets", "stoutland").learnset.uturn = ['9M'];
-		this.modData("Learnsets", "tinkatink").learnset.mightyblow = ['9M'];
-		this.modData("Learnsets", "tinkatink").learnset.dazzlinggleam = ['9M'];
-		this.modData("Learnsets", "tinkatink").learnset.batonpass = ['9M'];
-		this.modData("Learnsets", "perrserker").learnset.bulletpunch = ['9M'];
-	//	delete this.modData('Learnsets', "smeargle").learnset.magicpowder;
+		// New
+		const moveLearnsets: {[move: string]: string[]} = {
+		acidicrain: ['cacnea', 'ghastly', 'grimer', 'grimeralola', 'croagunk', 'vullaby'],
+		aircannon: ['gyarados', 'flygon', 'flamigo'],
+		assurance: ['cacnea'],
+		batonpass: ['tinkatink'],
+		brine: ['cacnea'],
+		bulletpunch: ['perrserker'],
+		calmmind: ['milotic'],
+		circlethrow: ['breloom'],
+		dazzlinggleam: ['tinkatink'],
+		doubleedge: ['kangaskhan', 'stoutland'],
+		drillpeck: ['flamigo'],
+		forcefulhug: ['tangrowth', 'beartic', 'reuniclus', 'muk', 'mukalola', 'kangaskhan', 'snorlax'],
+		healorder: ['vespiquen'],
+		helpinghand: ['arbok'],
+		iceshard: ['beartic'],
+		mightyblow: ['snorlax', 'braviary', 'tinkatink'],
+		oilspill: ['cacnea'],
+		paranoia: ['golisopod', 'orbeetle', 'flygon'],
+		partingshot: ['arbok'],
+		passiveaggressive: ['espurr', 'orbeetle', 'reuniclus', 'farigiraf', 'delcatty'],
+		poisonjab: ['vespiquen'],
+		rampage: ['gyarados', 'beartic', 'golurk', 'perrserker'],
+		recalibration: ['rotom', 'golurk'],
+		slackoff: ['snorlax'],
+		storedpower: ['golurk'],
+		stringshot: ['tangela'],
+		strongarm: ['reuniclus', 'golurk', 'snorlax'],
+		swarmingstrike: ['tangela', 'breloom', 'volbeat', 'illumise', 'vespiquen', 'accelgor', 'escavalier', 'flygon'],
+		taunt: ['arbok'],
+		triplekick: ['breloom', 'sneasel'],
+		uturn: ['stoutland'],
+		wailingwraith: ['rotom', 'espurr', 'vullaby'],
+		wavecrash: ['golisopod', 'gyarados'],
+		weatherball: ['tangela'],
+	};
 
+		// Add moves to the Pokémon's learnsets
+    for (const moveid in moveLearnsets) {
+      for (const monid of moveLearnsets[moveid]) {
+        // Ensure the Pokémon has a learnset entry
+        if (!this.dataCache.Learnsets[monid]) {
+          this.dataCache.Learnsets[monid] = {learnset: {}};
+        }
+        if (!this.dataCache.Learnsets[monid].learnset) {
+          this.dataCache.Learnsets[monid].learnset = {};
+        }
+        // Add the move as an X move (9M)
+        this.modData('Learnsets', monid).learnset[moveid] = ['9M'];
+      }
+    }
+
+		for (const mon in this.dataCache.Learnsets) {
+			if (this.dataCache.Learnsets[mon].learnset?.surf) {
+				this.modData('Learnsets', mon).learnset.eastseawave = ['9M'];
+			}
+		}
+		// end
+		
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new

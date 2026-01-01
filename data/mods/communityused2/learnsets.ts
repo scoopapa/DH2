@@ -113,6 +113,12 @@ export const Learnsets = {
 		rest: ["9L1"],
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
+		lunge: ["9L1"],
+		pounce: ["9L1"],
+		eruption: ["9L1"],
+		firespin: ["9L1"],
+		overheat: ["9L1"],
+		mist: ["9L1"],
 	}
 	},
 	furumo: {
@@ -242,7 +248,7 @@ export const Learnsets = {
 	shadowsneak: ["9L1"],
 	sleeptalk: ["9L1"],
 	steelwing: ["9L1"],
-	substitute: ["9L1"],
+	//substitute: ["9L1"],
 	suckerpunch: ["9L1"],
 	superpower: ["9L1"],
 	//swordsdance: ["9L1"],
@@ -288,6 +294,10 @@ export const Learnsets = {
 	wrap: ["9L1"],
 		protect: ["9L1"],
 		substitute: ["9L1"],
+		calmmind: ["9L1"],
+		grudge: ["9L1"],
+		hex: ["9L1"],
+		overheat: ["9L1"],
 	}
 	},
 	ballaboar: {
@@ -377,7 +387,7 @@ export const Learnsets = {
 	bodyslam: ["9L1"],
 	brutalswing: ["9L1"],
 	bulldoze: ["9L1"],
-	ceaselessedge: ["9L1"],
+	//ceaselessedge: ["9L1"],
 	chillingwater: ["9L1"],
 	confide: ["9L1"],
 	confuseray: ["9L1"],
@@ -411,7 +421,7 @@ export const Learnsets = {
 	furycutter: ["9L1"],
 	furyswipes: ["9L1"],
 	gigaimpact: ["9L1"],
-	glaciallance: ["9L1"],
+	//glaciallance: ["9L1"],
 	gravity: ["9L1"],
 	grudge: ["9L1"],
 	gunkshot: ["9L1"],
@@ -478,7 +488,7 @@ export const Learnsets = {
 	spite: ["9L1"],
 	strength: ["9L1"],
 	substitute: ["9L1"],
-	suckerpunch: ["9L1"],
+	//suckerpunch: ["9L1"],
 	superpower: ["9L1"],
 	switcheroo: ["9L1"],
 	swordsdance: ["9L1"],
@@ -546,6 +556,9 @@ export const Learnsets = {
 	wonderroom: ["9L1"],
 		scald: ["9L1"],
 		substitute: ["9L1"],
+		gigadrain: ["9L1"],
+		leechlife: ["9L1"],
+		strengthsap: ["9L1"],
 	}
 	},
 	muerekrot: {
@@ -614,6 +627,7 @@ export const Learnsets = {
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
 		protect: ["9L1"],
+		stoneaxe: ["9L1"],
 	}
 	},
 	hafgvindr: {
@@ -719,6 +733,10 @@ export const Learnsets = {
 	venoshock: ["9L1"],
 	waterpulse: ["9L1"],
 	weatherball: ["9L1"],
+	focusblast: ["9L1"],
+	infestation: ["9L1"],
+	recover: ["9L1"],
+	stickyweb: ["9L1"],
 	}
 	},
 	kuongakrabbi: {
@@ -749,6 +767,8 @@ export const Learnsets = {
 		rest: ["9L1"],
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
+		knockoff: ["9L1"],
+		stealthrock: ["9L1"],
 	}
 	},
 	wyrmdelse: {
@@ -811,6 +831,8 @@ export const Learnsets = {
 	venomdrench: ["9L1"],
 	venoshock: ["9L1"],
 		heatcrash: ["9L1"],
+		dragondance: ["9L1"],
+		mortalspin: ["9L1"],
 	}
 	},
 	drakkrab: {
@@ -1002,6 +1024,12 @@ export const Learnsets = {
 	woodhammer: ["9L1"],
 	zenheadbutt: ["9L1"],
 		sleeptalk: ["9L1"],
+		acrobatics: ["9L1"],
+		aerialace: ["9L1"],
+		drillpeck: ["9L1"],
+		skyattack: ["9L1"],
+		swordsdance: ["9L1"],
+		trick: ["9L1"],
 	}
 	},
 	miauskog: {
@@ -1040,6 +1068,8 @@ export const Learnsets = {
 		moonlight: ["9L1"],
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
+		fireblast: ["9L1"],
+		flamecharge: ["9L1"],
 	}
 	},
 	beartunnd: {
@@ -1159,6 +1189,7 @@ export const Learnsets = {
 			morningsun: ["9L1"],
 			clearsmog: ["9L1"],
 			willowisp: ["9L1"],
+			steameruption: ["9L1"],
 	}
 	},
 	alcespen: {
@@ -1189,6 +1220,8 @@ export const Learnsets = {
 	swordsdance: ["9L1"],
 	synthesis: ["9L1"],
 	woodhammer: ["9L1"],
+	jumpkick: ["9L1"],
+	highjumpkick: ["9L1"],
 	}
 	},
 	neightmare: {
@@ -1240,6 +1273,10 @@ export const Learnsets = {
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
 		protect: ["9L1"],
+		roar: ["9L1"],
+		stealthrock: ["9L1"],
+		strengthsap: ["9L1"],
+		trickroom: ["9L1"],
 	}
 	},
 	pinnsten: {
@@ -1333,6 +1370,7 @@ export const Learnsets = {
 	toxicspikes: ["9L1"],
 	uproar: ["9L1"],
 	uturn: ["9L1"],
+	dragonpulse: ["9L1"],
 	}
 	},
 	alcremienodean: {
@@ -1550,6 +1588,8 @@ export const Learnsets = {
 	torment: ["9L1"],
 	uturn: ["9L1"],
 	wingattack: ["9L1"],
+	burningjealousy: ["9L1"],
+	spite: ["9L1"],
 	}
 	},
 	vepsno: {
@@ -1821,6 +1861,10 @@ export const Learnsets = {
 			whirlpool: ["9L1"],
 			zenheadbutt: ["9L1"],
 			bugbuzz: ["9L1"],
+			nastyplot: ["9L1"],
+			trick: ["9L1"],
+			trickroom: ["9L1"],
+			uturn: ["9L1"],
 }
 	},
 	molusket: {
@@ -2036,6 +2080,7 @@ export const Learnsets = {
 	wavecrash: ["9L1"],
 	willowisp: ["9L1"],
 	woodhammer: ["9L1"],
+	aquajet: ["9L1"],
 	}
 	},
 	freelpen: {
@@ -2071,6 +2116,7 @@ export const Learnsets = {
 		rest: ["9L1"],
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
+		grassyglide: ["9L1"],
 	}
 	},
 	arbjorn: {
@@ -2160,6 +2206,7 @@ export const Learnsets = {
 	throatchop: ["9L1"],
 	trailblaze: ["9L1"],
 	yawn: ["9L1"],
+	synthesis: ["9L1"],
 	}
 	},
 	neifhemming: {
@@ -2221,7 +2268,7 @@ export const Learnsets = {
 	shadowball: ["9L1"],
 	slackoff: ["9L1"],
 	snowscape: ["9L1"],
-	spikes: ["9L1"],
+	//spikes: ["9L1"],
 	substitute: ["9L1"],
 	surf: ["9L1"],
 	thunderbolt: ["9L1"],
@@ -2231,6 +2278,8 @@ export const Learnsets = {
 	watergun: ["9L1"],
 	waterpulse: ["9L1"],
 		sleeptalk: ["9L1"],
+		encore: ["9L1"],
+		nastyplot: ["9L1"],
 	}
 	},
 	lindelidae: {
@@ -2384,6 +2433,10 @@ export const Learnsets = {
 	morningsun: ["9L1"],
 		blastburn: ["9L1"],
 		protect: ["9L1"],
+		pursuit: ["9L1"],
+		scorchingsands: ["9L1"],
+		stompingtantrum: ["9L1"],
+		toxic: ["9L1"],
 	}
 	},
 	bicunnin: {
@@ -2455,6 +2508,7 @@ export const Learnsets = {
 	whirlwind: ["9L1"],
 	workup: ["9L1"],
 	knockoff: ["9L1"],
+	pursuit: ["9L1"],
 	}
 	},
 	bjorniorite: {
@@ -2708,6 +2762,7 @@ export const Learnsets = {
 		rest: ["9L1"],
 		sleeptalk: ["9L1"],
 		substitute: ["9L1"],
+		calmmind: ["9L1"],
 	}},
 	dracolition: {
 	learnset: {
@@ -3155,6 +3210,9 @@ export const Learnsets = {
 	thunderfang: ["9L1"],
 	wideguard: ["9L1"],
 	woodhammer: ["9L1"],
+	gigadrain: ["9L1"],
+	playrough: ["9L1"],
+	rapidspin: ["9L1"],
 	}
 	},
 	bjorgneiss: {

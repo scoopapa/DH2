@@ -1,301 +1,301 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	melmetal: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	ninjask: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	toxapex: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silcoon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	togedemaru: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	bramblin: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	anarlvet: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	gholdengo: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	kingler: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	kinglermega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	feebas: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	microwave: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	glaceon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	lytlegai: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	sylveon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	ohmyrod: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	celesteela: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	bigcrammer: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	archeops: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	runerigus: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	crabominable: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	samurottsinnoh: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	wyrdeer: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	goomba: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	fridgile: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	zaciancrowned: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	
 	melmetal2: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	pidown: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silvally: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallybug: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallydark: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallydragon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silvallyelectric: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyfairy: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silvallyfighting: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyfire: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyflying: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyghost: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallygrass: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyground: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyice: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallypoison: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallypsychic: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallyrock: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	silvallysteel: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallywater: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	vivillonplainshigh: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	moltres: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	kurayami: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	hitmontop: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	zelda: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	cascoon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	sentret: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	drigike: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	phish: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	
 	smelmetal: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	starmie: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	victreebel: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	bondra: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	tangetteeternal: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	donmigo: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	dragoone: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	collachet: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	guiltrism: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	swampert: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	swooliobat: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	electrode: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	electrodemega: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	mariokartwii: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	impalpitoad: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	scrubby: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	palpitoadissocool: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	spewpa: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	
 	moltresmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
@@ -303,132 +303,132 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	conquescape: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
-	daiyafia: {
-		tier: "IF",
+	daiyakuza: {
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	metapod: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	kakuna: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	enamorustherian: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	pokestarfisherman: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	magnegiri: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	mario: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	contamicow: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	whonhef: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	fishfactory: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	cowboybandido: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	basculinbluestriped: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	pokestargiant: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	richardpetty: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	impidimp: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	impidimpmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	lemon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	fishingzombie: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	pokestarmt: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	margaretthatcher: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	fleshvaliant: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	fleshvaliantmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	abomasnow: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	komala: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	inkay: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallylemon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	
 	ronaldreagan: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	limelips: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	lemotic: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	zestii: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	sunflora: {
@@ -436,272 +436,390 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rawringmoon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	boogerponclownerstone: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	keisbergif: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	indeedee: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	applesnewestemoji: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	cinderace: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	lemonfish: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	dracolition: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 
 	goddease: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	jableye: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	kyrum: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	raccoon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	lucariocalm: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	nedontrol: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	princirang: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	ironclown: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	thepearlhand: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	mcfish: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	applwirm: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	minunandplusled: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	silvallystellar: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	silvallysilly: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 
 	traike: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	groudon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	drliberty: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	absol: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	sunfloragrave: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	ironboulder: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	hydralemon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	zapdos: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	solarbean: {
-		tier: "IF",
+		tier: "Unviable",
+		doublesTier: "DOU",
+	},
+	solarbeanprimal: {
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	
 	hiveweb: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	syndicant: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	fishmarketing3: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	lemonganium: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	carnivineif: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	grumpig: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 
 	impromancer: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	panderdragoon: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	soruarc: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	emolga: {
-		tier: "IF",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	skibidragon: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	hitmontopmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	porygonz: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	porygonmegaz: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	furumo: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	megaman: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	fudgesaur: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	fudgesaurmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	darkpoison: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 
 	swampertmega: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	sigmaricelion: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	zoruahisui: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	wishiwashi: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	necrozmaultra2: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	nihilego: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	lickilord: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	citrusjams: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	everhl: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	rayquaza: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	chinchou: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	grimace: {
-		tier: "IF",
+		tier: "Viable",
 		doublesTier: "DOU",
 	},
 	pyroaring: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	houndoom: {
-		tier: "IF",
+		tier: "Unviable",
 		doublesTier: "DOU",
 	},
 	togepi: {
-		tier: "IF",
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 	tylerthecreator: {
-		tier: "IF",
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+
+	abomasnowmega: {
+		tier: "Viable",
+		doublesTier: "DOU",
+	},
+	bart: {
+		tier: "Viable",
+		doublesTier: "DOU",
+	},
+	kyogre: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	upvybones: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	ludicolo: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	tlagh: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	talonflame: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	regibloom: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	oldduke: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	biganvil: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	
+	ironfist: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	victreebelmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	lucariocalmmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	awesomepossum: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	tiredofitowl: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	caracal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	sunbeanprimal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	circall: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	kyogreoriginal: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	lawset: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	daiyakuzaorigin: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	princirangmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	ratstagoonnewyorkian: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	spewpamega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	zapmolcuno: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	nosepass: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	girafarig: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	girafarigmega: {
+		tier: "Untested",
 		doublesTier: "DOU",
 	},
 };

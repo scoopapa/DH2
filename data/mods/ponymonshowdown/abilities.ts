@@ -18,15 +18,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: 204,
 	},
-	dauntlessshield: {
-		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
-		},
-		flags: {},
-		name: "Dauntless Shield",
-		rating: 3.5,
-		num: 235,
-	},
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move && move.type === 'Flying') return priority + 1;
@@ -65,20 +56,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Protean",
 		rating: 4,
 		num: 168,
-	},
-	corrosion: {
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Poison'] = true;
-			}
-		},
-		// Implemented in sim/pokemon.js:Pokemon#setStatus
-		flags: {},
-		name: "Corrosion",
-		rating: 2.5,
-		num: 212,
 	},
 	magicofequestria: {
 		onStart(pokemon) {
@@ -247,10 +224,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -9,
 	},
-	mightofthechangelingqueen: {
+	mightofthequeen: {
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Might of the Changeling Queen boost');
+				this.debug('Might of the Queen boost');
 				return this.chainModify(2);
 			}
 		},
@@ -264,8 +241,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
 		flags: {},
-		name: "Might of the Changeling Queen",
-		desc: "Not very effective attacks deal double damage. 1.3x power on attacks with secondary effects; secondary effects are not nullified.",
+		name: "Might of the Queen",
+		desc: "Double damage on resisted attacks. 1.3x power on attacks with secondary effects; secondary effects are not nullified.",
 		rating: 3.5,
 		num: -10,
 	},
@@ -297,16 +274,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			for (const target of pokemon.foes()) {
-				if (target.status === 'slp' || target.hasAbility('comatose')) {
-					this.damage(target.baseMaxhp / 8, target, pokemon);
-				}
-			}
-		},
 		flags: {},
 		name: "Nightmare Gaze",
 		desc: "Lowers Def and SpDef of opponents by 1 stage. Sleeping foes lose 1/8 of their max hp each turn",
@@ -322,6 +289,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Resilience",
+		desc: "If this Pokemon is statused, its Special attack is 1.5x; ignores burn halving physical damage.",
 		rating: 3.5,
 		num: -13,
 	},

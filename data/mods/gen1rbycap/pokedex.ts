@@ -122,11 +122,23 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 100, def: 100, spa: 50, spd: 50, spe: 75},
 		abilities: {0: "No Ability"},
 		heightm: 1.4, // placeholder
-		weightkg: 39.2, // placeholder
+		weightkg: 87, // placeholder
 		color: "Brown",
-		evoType: "useItem", // placeholder
-		evoItem: "Evolution Item", // placeholder
+		prevo: "Doduo",
+		evoType: "trade",
 		eggGroups: ["Flying"],
+		gen: 1,
+	},
+	glacienant: {
+		num: 2008,
+		name: "Glacienant",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 80, atk: 134, def: 65, spa: 116, spd: 116, spe: 105},
+		abilities: {0: "No Ability"},
+		heightm: 1.2,
+		weightkg: 0.7,
+		color: "Purple",
+		eggGroups: ["Undiscovered"],
 		gen: 1,
 	},
 };

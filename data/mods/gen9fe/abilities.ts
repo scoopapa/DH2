@@ -1295,7 +1295,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp/4);
+				this.heal(pokemon.baseMaxhp/4);
 				pokemon.cureStatus();
 			}
 		},
@@ -2161,6 +2161,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Hourglass",
 		rating: 3,
 	},
+	
+	piezoelectric: {
+		shortDesc: "Volt Absorb + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Piezoelectric');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && !move.ignoreAbility) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Piezoelectric');
+				}
+				return null;
+			}
+		},
+		flags: {},
+		name: "Piezoelectric",
+		rating: 3,
+	},
 	fieldday: {
 		shortDesc: "If Grassy Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe(spe) {
@@ -2325,7 +2346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('screamcormorant', move);
-				delete target.volatiles['prehistorichunter'];
+				target.removeVolatile('prehistorichunter');
 			}
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
@@ -2351,8 +2372,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['prehistorichunter'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
+			pokemon.removeVolatile('prehistorichunter');
+			this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2407,7 +2432,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
+				this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
@@ -2729,18 +2758,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	heatproofdrive: {
-		shortDesc: "Heatproof + Quark Drive",
+		shortDesc: "Heatproof effects. If hit by Fire, x1.3 to highest stat (x1.5 instead if Speed)",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				target.addVolatile('heatproofdrive');
+			}
+		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive Atk weaken');
+				this.debug('Heatproof Atk weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive SpA weaken');
+				this.debug('Heatproof SpA weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -2749,20 +2783,56 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return damage / 2;
 			}
 		},
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
-			}
-		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['quarkdrive'];
-			this.add('-end', pokemon, 'Quark Drive', '[silent]');
+			delete pokemon.volatiles['heatproofdrive'];
+			this.add('-end', pokemon, 'Heatproof Drive', '[silent]');
+		},
+		
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'ability: Heatproof Drive');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Heatproof Drive",
@@ -3136,7 +3206,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sushistorm: {
 		shortDesc: "Sturdy + Storm Drain",
 		onTryHit(pokemon, target, move) {
-			if (target !== source && move.type === 'Water') {
+			if (target !== pokemon && move.type === 'Water') {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Sushi Storm');
 				}
@@ -3412,7 +3482,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Innovate",
 		rating: 4,
 	},
-	numbskull: {
+	/*numbskull: {
 		shortDesc: "Unaware + Rock Head",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -3438,6 +3508,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Numbskull",
+		rating: 3,
+	},*/
+	
+	prehistoricpresence: {
+		shortDesc: "Unaware + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		//Mold Breaker doesn't hit through Pressure but it hits through Unaware
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Prehistoric Presence');
+			pokemon.addVolatile('ability:unaware');
+		},
+		onSourcePrepareHit(source, target, move) {
+			if (target.volatiles['ability:unaware']) {
+				if (move.ignoreAbility) target.removeVolatile('ability:unaware');
+			} else if (!move.ignoreAbility) target.addVolatile('ability:unaware');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:unaware');
+		},
+		flags: {},
+		name: "Prehistoric Presence",
 		rating: 3,
 	},
 	hotheaded: {
@@ -3818,7 +3911,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Unstoppable",
 	},
 	saltedlobster: {
-		shortDesc: "Adaptability + x0.5 damage from STAB; Status immunity",
+		shortDesc: "Adaptability + Purifying Salt",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				return stab === 2 ? 2.25 : 2;
@@ -3838,14 +3931,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (attacker.hasType(move.type)) {
+			if (move.type === 'Ghost') {
 				this.debug('Purifying Salt weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(spa, attacker, defender, move) {
-			if (attacker.hasType(move.type)) {
+			if (move.type === 'Ghost') {
 				this.debug('Purifying Salt weaken');
 				return this.chainModify(0.5);
 			}
@@ -3909,24 +4002,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 
 	sandsword: {
-		shortDesc: "Sharpness + Sand Veil",
+		shortDesc: "x1.25 power to Slicing moves; x1.5 instead in Sand",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
 				this.debug('Sharpness boost');
-				return this.chainModify(1.5);
+				return this.chainModify(this.field.isWeather('sandstorm') ? 1.5 : 1.25);
 			}
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
-		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('sandstorm')) {
-				this.debug('Sand Veil - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
-			}
 		},
 		flags: {breakable: 1},
 		name: "Sand Sword",
@@ -4426,7 +4511,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-end', target, 'Slow Start', '[silent]');
 				}
 				const targetAbilID = target.getAbility().id;
-				if (targetAbilID === 'eczema') {
+				if (['eczema','prehistoricpresence'].includes(targetAbilID)) {
 					target.removeVolatile('ability:unaware');
 				} else if (strongWeathers.includes(targetAbilID)) {
 					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');

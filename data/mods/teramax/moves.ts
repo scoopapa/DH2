@@ -132,7 +132,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	terablast: {
 		inherit: true,
-		desc: "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type. In addition, if the user's Tera Type is Stellar, this move has 100 power, is super effective against Terastallized targets and neutral against other targets, and lowers the user's Attack and Special Attack by 1 stage, unless the target is Dynamax or Gigantamax.",
+		desc: "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type. In addition, if the user's Tera Type is Stellar, this move has 100 power, is super effective against Terastallized targets and neutral against other targets, and lowers the user's Attack and Special Attack by 1 stage, unless the target is Dynamax or Gigantamax. Deals 1.5x damage to the target if it is Dynamax or Gigantamax.",
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
@@ -302,7 +302,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "Traps the foe. Removes 3 PP from the target's last move.",
+		shortDesc: "Traps the foe. Removes 3 PP from the target's last move.",
 		name: "Eerie Spell",
 		pp: 10,
 		priority: 0,
@@ -329,7 +329,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
-		desc: "Targets physical Defense if it would be stronger.",
+		shortDesc: "Targets physical Defense if it would be stronger.",
 		name: "Shell Side Arm",
 		pp: 10,
 		priority: 0,
@@ -364,7 +364,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
-		desc: "100% chance to lower the target's Attack by 1.",
+		shortDesc: "100% chance to lower the target's Attack by 1.",
 		name: "Syrup Bomb",
 		pp: 10,
 		priority: 0,
@@ -397,7 +397,82 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Grass",
 	},
+	ruthlessfist: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Always crits against poisoned foes.",
+		name: "Ruthless Fist",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Trip", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				move.willCrit = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	neurotoxin: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Replaces the foe's PSN with PAR. High crit ratio.",
+		name: "Neurotoxin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic", target);
+			this.add('-anim', source, "Corrosive Gas", target);
+		},
+		onHit(target, source, move) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				target.cureStatus();
+				target.trySetStatus('par', source);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	perniciousplume: {
+		accuracy: 100,
+		basePower: 25,
+		category: "Special",
+		shortDesc: "Hits 2-5 times. Heals 50% of damage dealt to PSN'd foes.",
+		name: "Pernicious Plume",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Feather Dance", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				move.drain = [1, 2];
+			}
+		},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
 	
+	// dynamax stuff
 	grassknot: {
 		inherit: true,
 		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
@@ -500,6 +575,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onTryHit() {},
 	},
+	thundercage: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 100,
+		pp: 10,
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
@@ -527,13 +608,45 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the user gains the Aqua Ring effect, healing it by 1/8 of its maximum HP, rounded down.",
-		shortDesc: "This Pokemon gains the Aqua Ring effect.",
+		desc: "If this move is successful, the user gains the Aqua Ring effect, healing it by 1/8 of its maximum HP, rounded down, and clears hazards, partial trapping, and Leech Seed from its side of the field.",
+		shortDesc: "User gains the Aqua Ring effect, clears hazards/bind/Leech Seed.",
 		name: "G-Max Cannonade",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Blastoise",
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
 		self: {
 			volatileStatus: 'aquaring',
 		},
@@ -583,27 +696,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.alliesAndSelf()) {
-					pokemon.addVolatile('gmaxchistrike');
+					pokemon.addVolatile('focusenergy');
 				}
-			},
-		},
-		condition: {
-			noCopy: true,
-			onStart(target, source, effect) {
-				this.effectState.layers = 1;
-				if (!['costar', 'imposter', 'psychup', 'transform'].includes(effect?.id)) {
-					this.add('-start', target, 'move: G-Max Chi Strike');
-				}
-			},
-			onRestart(target, source, effect) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				if (!['costar', 'imposter', 'psychup', 'transform'].includes(effect?.id)) {
-					this.add('-start', target, 'move: G-Max Chi Strike');
-				}
-			},
-			onModifyCritRatio(critRatio) {
-				return critRatio + this.effectState.layers;
 			},
 		},
 		secondary: null,
@@ -639,7 +733,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxdepletion: {
 		num: 1000,
 		accuracy: true,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute. This Pokemon heals the total PP of the target's moves * 2 in HP.",
@@ -650,16 +744,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {},
 		isMax: "Duraludon",
 		self: {
-			onHit(source) {
+			onHit(source, target, sourceMove) {
 				for (const pokemon of source.foes()) {
+					let movePP = 0;
 					for (const moveSlot of pokemon.moveSlots) {
-						const targetmove = this.dex.moves.get(moveSlot.move);
-						const movePP = targetmove.pp;
-						const damage = this.heal(movePP * 2, source, source);
-						if (damage) {
-							this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
-						}
+						movePP += moveSlot.pp;
 					}
+					const damage = this.heal(movePP * 2, source, source);
+					if (damage) {
+						this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
+					}
+					
 					let move: Move | ActiveMove | null = pokemon.lastMove;
 					if (!move || move.isZ) continue;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -910,6 +1005,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {punch: 1},
+		onBasePower(basePower, pokemon, target) {
+			return 35;
+		},
 		multihit: 3,
 		isMax: "Urshifu-Rapid-Strike",
 		secondary: null,
@@ -1100,16 +1198,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 					// Run through each action in queue to check if the G-Max Snooze user is supposed to Mega Evolve this turn.
 					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
-								this.queue.list.splice(actionIndex, 1);
-								break;
-							}
+					for (const [actionIndex, action] of this.queue.entries()) {
+						if (action.pokemon === source && action.choice === 'runDynamax') {
+							action.pokemon.addVolatile('dynamax');
+							action.pokemon.side.dynamaxUsed = true;
+							break;
 						}
 					}
-					this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
+					const snooze = this.dex.getActiveMove('gmaxsnooze');
+					const falsesurrender = source.moveSlots.filter(m => m.id === 'falsesurrender');
+					this.actions.useMove(snooze, source, pokemon);
+					source.deductPP('gmaxsnooze', 1);
+					
+					//this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
 				}
 			},
 		},
@@ -1640,6 +1741,39 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	geomancy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	oblivionwing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	landswrath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandwaves: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	leechseed: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (!pokemon.volatiles['myceliummight']) return;
+			move.accuracy = true;
+			pokemon.removeVolatile('myceliummight');
+		},
+	},
+
 
 	/*
 	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them

@@ -19,6 +19,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	cacnea: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	cacturne: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	cacmora: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	shroomish: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	breloom: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	matokoda: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -35,6 +55,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	nihilink: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	nihilinknecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -47,6 +71,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	cashatrew: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	spinarak: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -56,6 +84,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	araneidos: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	ledyba: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	ledian: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	ledellar: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -143,6 +183,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	intestinorm: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	vulpix: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -163,6 +207,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	mutinuncle: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	mutinunclenecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
@@ -174,6 +222,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delphoxrift: {
 		tier: "VGC",
 		doublesTier: "VGC",
+	},
+	solastor: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	solastorzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	magikarp: {
 		tier: "VGC NFE",
@@ -203,9 +259,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	upvybones: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	upvybonesnecro: {
 		tier: "VGC",
 		doublesTier: "VGC",
+	},
+	lullux: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	lulluxzen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	vulpixalola: {
 		tier: "VGC NFE",
@@ -236,6 +304,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	keisberg: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	anthroll: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	kolbolt: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	avigutaw: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -291,7 +371,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	golduckxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	wizareetin: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	wizareetingravelord: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	abra: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	kadabra: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	alakazam: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -312,6 +412,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	reuniclus: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	espurr: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	meowstic: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	lachespind: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -368,6 +480,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	arbok: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	orasundra: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -380,6 +496,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	mycecroak: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	tokujira: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -399,6 +519,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	dustformsunny: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformrainy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsnowy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsandy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformacidic: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	stonjourner: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -408,6 +548,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	mountalon: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	qullumen: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	cemmetar: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -424,6 +572,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	sneasler: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	deermetrius: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	wresteddy: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -456,6 +612,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	stoutland: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	rufflet: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	braviary: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	snomxelian: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	frosmothxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	conotox: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	possmortem: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -512,6 +692,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	weavile: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	vullaby: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	mandibuzz: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},

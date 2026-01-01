@@ -1662,7 +1662,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	ragingbolt: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	gougingfire: {
 		tier: "OU",

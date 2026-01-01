@@ -1818,7 +1818,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,  
 		priority: 0,  
 		flags: {protect: 1, mirror: 1},
-		secondary: null,  
+		secondary: {},  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
 		contestType: "Clever", 
@@ -2001,16 +2001,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['devour'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to devour');
+				const sourceSlot = pokemon.volatiles['devour'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Devour');
+					this.add('-end', pokemon, 'devour');
+					pokemon.removeVolatile('devour');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -2068,7 +2071,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
-		shortDesc: "Facade + Psycho Shift.",
+		shortDesc: "2x damage if user has non sleep status + Psycho Shift.",
 		name: "Bite Relay",
 		pp: 10,
 		priority: 0,
@@ -2078,11 +2081,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(2);
 			}
 		},
-		onTryHit(target, source, move) {
-			move.status = source.status;
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			pokemon.cureStatus();
+		onHit(target, source, move) {
+			// Ensure user is statused and not asleep
+			if (source.status && source.status !== 'slp') {
+				// If the target already has a status condition, can't overwrite
+				if (target.status) {
+					this.add('-fail', source, 'move: Bite Relay', '[from] status already present on target');
+					return;
+				}
+	
+				const statusToTransfer = source.status;
+	
+				// Clear status on user
+				source.cureStatus();
+	
+				// Try to apply that status to target
+				const success = target.setStatus(statusToTransfer, source);
+				if (success) {
+					this.add('-message', `${source.name} passed its ${this.dex.conditions.get(statusToTransfer).name} to ${target.name}!`);
+				}
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -2639,10 +2657,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	//
 	lightningblade: {
 		num: -122,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "Skips in E-Terrain. +1 SpD.",
+		shortDesc: "Skips in Psychic Terrain. +1 SpD.",
 		name: "Lightning Blade",
 		pp: 5,
 		priority: 0,
@@ -2653,7 +2671,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 			this.add('-prepare', attacker, 'Charge');
 			this.boost({spd: 1}, attacker, attacker, move);
-			if (this.field.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('psychicterrain')) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, 'Bolt Strike', defender);
 				return;
@@ -3474,16 +3492,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.getAtSlot(pokemon.volatiles['brainage'].sourceSlot);
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to drain');
+				const sourceSlot = pokemon.volatiles['brainage'].sourceSlot;
+				const source = this.getAtSlot(sourceSlot);
+				if (!source || source.fainted || source.hp <= 0) {
+					this.debug('Source fainted - ending Brainage');
+					this.add('-end', pokemon, 'brainage');
+					pokemon.removeVolatile('brainage');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, target, pokemon);
+					this.heal(damage, source, pokemon);
 				}
-			},
+			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');

@@ -16,6 +16,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brambleghastmegatangled: {},
 	farigirafmega: {},
 	farigirafmeganocturnal: {},
+	perrserkermega: {},
+	perrserkermegabusted: {},
+	miniormega: {},
+	miniormegameteor: {},
 	// manual tiering for Hisui mons
 	growlithehisui: {
 		tier: "Heat!",

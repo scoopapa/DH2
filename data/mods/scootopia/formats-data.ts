@@ -78,6 +78,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zeploom: {
 		tier: "Scoo",
 		doublesTier: "Scoo",
+	},	
+	sturgard: {
+		tier: "Scoo",
+		doublesTier: "Scoo",
 	},
 	brawnkey: {
 		tier: "Scoo",
@@ -95,10 +99,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
-	volvolpa: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
+	// volvolpa: {
+		// tier: "Scoo",
+		// doublesTier: "Scoo",
+	// },
 	harzodia: {
 		tier: "Scoo",
 		doublesTier: "Scoo",

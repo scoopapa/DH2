@@ -3543,7 +3543,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ground", "Rock"],
 		gender: "N",
-		baseStats: {hp: 60, atk: 120, def: 60, spa: 120, spd: 60, spe: 60},
+		baseStats: {hp: 60, atk: 60, def: 120, spa: 60, spd: 120, spe: 60},
 		abilities: {0: "Rewind"},
 	//	category: "Passage of Time",
 		heightm: 1.2,
@@ -3561,7 +3561,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Chronosensis",
 		forme: "Alternate",
 		types: ["Ground", "Rock"],
-		baseStats: {hp: 60, atk: 60, def: 120, spa: 60, spd: 120, spe: 60},
+		baseStats: {hp: 60, atk: 120, def: 60, spa: 120, spd: 60, spe: 60},
 		abilities: {0: "Rewind"},
 		heightm: 1.2,
 		weightkg: 60.0,

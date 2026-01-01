@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-  mametchi: {
+ 	mametchi: {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
@@ -152,10 +152,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
 	chobitamatchi: {
-		tier: "Go! Go! Tamagotchi!",
-		doublesTier: "Go! Go! Tamagotchi Doubles",
-	},
-	minotchi: {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
@@ -347,10 +343,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
-	// minotchi: {
-	// 	tier: "Go! Go! Tamagotchi!",
-	// 	doublesTier: "Go! Go! Tamagotchi Doubles",
-	// },
+	minotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
 	pukatchi: {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
@@ -1199,4 +1195,176 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
- }
+	octpasketchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	tapepentchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	bananahairtchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	arukotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	watchlin: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	meowtchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	gumax: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	ratchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	molmotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	sheeptchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	leopatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	elizardotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	heavytchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	potsunentchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	shigemisan: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	chodracotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	irukatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	beavertchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	axolopatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	imoritchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	kawazutchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	uruotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	tachutchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	sharktchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	ankotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	kuraratchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	mendakotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	amefuratchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	gusokutchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	mermarintchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	horhotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	mongatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	eagletchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	batchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	papillotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	hatchitchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	batatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	peacotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	gemtchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	oretatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	ishikorotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	magmatchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	yayacorntchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+}

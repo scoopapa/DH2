@@ -151,7 +151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gallademega: {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
-		baseStats: {hp: 68, atk: 150, def: 100, spa: 65, spd: 127, spe: 108},
+		baseStats: {hp: 68, atk: 150, def: 100, spa: 75, spd: 127, spe: 98},
 		abilities: {0: "Sharpness"},
 	},
 	ampharosmega: {

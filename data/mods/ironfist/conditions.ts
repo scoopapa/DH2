@@ -23,6 +23,7 @@ export function getName(name: string): string {
 }
 
 export const Conditions: {[id: string]: ModdedConditionData} = {
+	//slate 1
 	baseball: {
 		name: 'baseball',
 		effectType: 'Status',
@@ -34,12 +35,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				this.add('-status', target, 'baseball');
 			}
 		},
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-  			return this.chainModify(0.75);
-  		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
+  			return this.chainModify(0.75);
+  		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
   			return this.chainModify(0.75);
   		},
 		onTry(source, target, move) {
@@ -73,7 +74,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) {
 				move.accuracy = true;
 				if (['heatcrash', 'heavyslam'].includes(move.id)) return 120;
-				if (move.basePower < 60) return this.chainModify(2);
+				if (move.basePower <= 60) return this.chainModify(2);
 				if (minimizeMoves.includes(move.id)) return this.chainModify(1.5);
 			}
 		},
@@ -95,6 +96,16 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	//slate 3
 	sunnyday: {
 		inherit: true,
+		//slate 10
+		durationCallback(source, effect) {
+			if (source?.hasItem('heatrock')) {
+				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
+			return 5;
+		},
 		//slate 6
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
@@ -104,10 +115,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
-			if (battle.terrain === 'fishingterrain') {
-				this.add('-message', 'The fishing terrain blocked out the sun!');
-				return;
-			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);
@@ -118,6 +125,16 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	},
 	raindance: {
 		inherit: true,
+		//slate 10
+		durationCallback(source, effect) {
+			if (source?.hasItem('damprock')) {
+				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
+			return 5;
+		},
 		//slate 6
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
@@ -132,15 +149,18 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.eachEvent('Weather');
 		},
 	},
-
+	
 	//slate 6
 	acidrain: {
 		name: 'Acid Rain',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('sourrockorsomethingidfk')) {
+			if (source?.hasItem('sulphurrock')) {
 				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
 			}
 			return 5;
 		},
@@ -158,27 +178,30 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (this.field.isWeather('Acid Rain')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
-			else if((target.hasType('Water') || target.hasType('Steel')) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
+			if (target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
+			else if ((target.hasType('Water') || target.hasType('Steel')) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
-	gayveyard: {
-		name: 'Gayveyard',
+	graveyard: {
+		name: 'Graveyard',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('bonerockorsomethingidfk')) {
 				return 8;
 			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
 			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
 			if (move.type === 'Ghost') {
-				this.debug('Gayveyard ghost boost');
+				this.debug('Graveyard ghost boost');
 				return this.chainModify(1.3);
 			}
 		},
@@ -186,28 +209,72 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.add('-message', "The dead rose from their graves!");
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Gayveyard', '[from] ability: ' + effect.name, '[of] ' + source, '[silent]');
+				this.add('-weather', 'Graveyard', '[from] ability: ' + effect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-weather', 'Gayveyard', '[silent]');
+				this.add('-weather', 'Graveyard', '[silent]');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-message', "Zombies roam the battlefield.");
-			this.add('-weather', 'Gayveyard', '[upkeep]');
-			if (this.field.isWeather('Gayveyard')) this.eachEvent('Weather');
+			this.add('-weather', 'Graveyard', '[upkeep]');
+			if (this.field.isWeather('Graveyard')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if(!target.hasAbility('magicguard') && 
+			if (!target.hasAbility('magicguard') && 
 			   !target.hasAbility('ghoulgobbler') &&
-			   !target.hasAbility('rkssystem')) {
-				this.add('-message', `${target.name} was attacked by the zombies using gender fluid!`);
+			   !target.hasAbility('rkssystem') && 
+			   !target.hasAbility('fashionicon') && 
+			   !target.hasAbility('monstermash') && 
+			   !target.hasAbility('awesomeability') && 
+			   !target.hasType('Dark') &&
+			   !target.hasType('Ghost') &&
+			   !target.hasType('Normal')) {
+				this.add('-message', `${target.name} was attacked by the zombies!`);
 				this.damage(target.baseMaxhp / 16);
 			}
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none', '[silent]');
 			this.add('-message', "The zombies vanished from Ironfistlandia... for now.");
+		},
+	},
+
+	//slate 10
+	sandstorm: {
+		inherit: true,
+		durationCallback(source, effect) {
+			if (source?.hasItem('smoothrock')) {
+				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
+			return 5;
+		},
+	},
+	hail: {
+		inherit: true,
+		durationCallback(source, effect) {
+			if (source?.hasItem('icyrock')) {
+				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
+			return 5;
+		},
+	},
+	snowscape: {
+		inherit: true,
+		durationCallback(source, effect) {
+			if (source?.hasItem('icyrock')) {
+				return 8;
+			}
+			if (source?.hasAbility('timebomb')) {
+				return 10;
+			}
+			return 5;
 		},
 	},
 };

@@ -2802,7 +2802,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if(pokemon.battleOnly || ["Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme) || 
 				(["Deoxys", "Rotom", "Giratina", "Shaymin", "Arceus", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Meloetta", "Genesect", "Vivillon", "Aegislash", 
-				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", 
+				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", "Enamorus",
 				"Squawkabilly", "Maushold", "Revavroom", "Palafin", "Dudunsparce", "Gimmighoul", "Poltchageist", "Sinistcha", "Ogerpon", "Terapagos", "Venomicon"].includes(pokemon.baseSpecies)
 				&& pokemon.baseSpecies !== pokemon.name))
 				continue;
@@ -2902,6 +2902,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(moveLearn.includes("".concat(startGen,"R"))){
 					if(learnsetTest) console.log("This move is learned on forme change");
 					moveMeans.push("9R");
+				}
+				if(moveLearn.includes("".concat(startGen,"S"))){ // hi, it's Lysio, I added this because I needed to fix it for an update, please DM me if it breaks something on your end
+					if(learnsetTest) console.log("This move is learned from an event");
+					moveMeans.push("9S");
 				}
 				// Pulls combined TMs and the three retained Isle Tutors
 				if((moveLearn.includes("6M") || moveLearn.includes("7M") || moveLearn.includes("7T") || moveLearn.includes("8M") || moveLearn.includes("9M")) && !droppedMachines.includes(moveID)){

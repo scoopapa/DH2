@@ -260,13 +260,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.ignoreAbility = true;
 			}
 		},
-		onAfterMove(source, target, move) {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
-				if (!target.hasType('Grass')) {
-					target.addVolatile('leechseed');
+				if (!target.hasType('Grass') && !target.volatiles['leechseed']) {
+					source.addVolatile('myceliummight');
+					this.actions.useMove("Leech Seed", source);
 				}
 			}
 		},
+		condition: {},
 		shortDesc: "Single-target status moves move last, but ignore abilities and inflict Leech Seed.",
 		rating: 3,
 	},
@@ -460,7 +463,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	chillingneigh: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			this.damage(target.baseMaxhp / 8, target, target);
+			this.heal(target.baseMaxhp / 8, target, target);
 		},
 		flags: {},
 		name: "Chilling Neigh",
@@ -480,5 +483,442 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 265,
 		shortDesc: "After hitting an attack, this Pokemons heals 12.5% of its max HP.",
+	},
+	/*asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			this.heal(target.baseMaxhp / 8, target, target);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "As One (Glastrier)",
+		rating: 3.5,
+		num: 266,
+	},
+	asonespectrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "As One (Spectrier)",
+		rating: 3.5,
+		num: 267,
+	},*/
+	poisonpuppeteer: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status === 'psn' || attacker.status === 'tox') {
+				this.debug('Poison Puppeteer weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (attacker.status === 'psn' || attacker.status === 'tox') {
+				this.debug('Poison Puppeteer weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Poison Puppeteer",
+		rating: 3,
+		num: 310,
+		shortDesc: "This Pokemon takes 0.75x damage from poisoned foes.",
+	},
+	stellarshift: {
+		onPreStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos') return;
+			if (pokemon.species.forme !== 'Terastal') {
+				this.add('-activate', pokemon, 'ability: Stellar Shift');
+				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				pokemon.setAbility('stellarshell', pokemon, true);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
+		name: "Stellar Shift",
+		rating: 3,
+		shortDesc: "If this Pokemon is a Terapagos, it transforms into its Terastal Form on entry.",
+	},
+	stellarshell: {
+		onStart(pokemon) {
+			if (pokemon.terastallized) return;
+			pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || target.species.name !== 'Terapagos-Terastal') return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (move.category === 'Status' || move.id === 'struggle') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+			this.add('-activate', target, 'ability: Stellar Shell');
+			this.effectState.resisted = true;
+			return -1;
+		},
+		onAnyAfterMove() {
+			this.effectState.resisted = false;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
+		name: "Stellar Shell",
+		rating: 3.5,
+		shortDesc: "Terapagos: Effects of Tera Shell. Terastallize to become Terapagos-Stellar.",
+	},
+	teraformzero: {
+		onAfterTerastallization(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Terapagos-Stellar') return;
+			if (this.field.weather || this.field.terrain) {
+				this.add('-ability', pokemon, 'Teraform Zero');
+				this.field.clearWeather();
+				this.field.clearTerrain();
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.id === 'teraformzero') {
+				if (source.terastallized) {
+					return 2;
+				}
+				return 1.5;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Teraform Zero",
+		rating: 3,
+		num: 309,
+	},
+	stamina: {
+		onDamagingHit(damage, target, source, effect) {
+			if (target === source) return;
+			this.boost({def: 1});
+		},
+		flags: {},
+		name: "Stamina",
+		rating: 4,
+		num: 192,
+	},
+	electromorphosis: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			target.addVolatile('charge');
+		},
+		flags: {},
+		name: "Electromorphosis",
+		rating: 3,
+		num: 280,
+	},
+	flamebody: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
+	},
+	gooey: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Gooey",
+		rating: 2,
+		num: 183,
+	},
+	gulpmissile: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.isSemiInvulnerable() || target === source) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Gulp Missile",
+		rating: 2.5,
+		num: 241,
+	},
+	innardsout: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (!target.hp) {
+				this.damage(target.getUndynamaxedHP(damage), source, target);
+			}
+		},
+		flags: {},
+		name: "Innards Out",
+		rating: 4,
+		num: 215,
+	},
+	ironbarbs: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Iron Barbs",
+		rating: 2.5,
+		num: 160,
+	},
+	perishbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (!this.checkMoveMakesContact(move, source, target)) return;
+			if (target === source) return;
+			let announced = false;
+			for (const pokemon of [target, source]) {
+				if (pokemon.volatiles['perishsong']) continue;
+				if (!announced) {
+					this.add('-ability', target, 'Perish Body');
+					announced = true;
+				}
+				pokemon.addVolatile('perishsong');
+			}
+		},
+		flags: {},
+		name: "Perish Body",
+		rating: 1,
+		num: 253,
+	},
+	poisonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	roughskin: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Rough Skin",
+		rating: 2.5,
+		num: 24,
+	},
+	sandspit: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			this.field.setWeather('sandstorm');
+		},
+		flags: {},
+		name: "Sand Spit",
+		rating: 1,
+		num: 245,
+	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			this.field.setTerrain('grassyterrain');
+		},
+		flags: {},
+		name: "Seed Sower",
+		rating: 2.5,
+		num: 269,
+	},
+	static: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
+	},
+	tanglinghair: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Tangling Hair');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Tangling Hair",
+		rating: 2,
+		num: 221,
+	},
+	toxicdebris: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const toxicSpikes = side.sideConditions['toxicspikes'];
+			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+				this.add('-activate', target, 'ability: Toxic Debris');
+				side.addSideCondition('toxicspikes', target);
+			}
+		},
+		flags: {},
+		name: "Toxic Debris",
+		rating: 3.5,
+		num: 295,
+	},
+	weakarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+			}
+		},
+		flags: {},
+		name: "Weak Armor",
+		rating: 1,
+		num: 133,
+	},
+	cursedbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (target === source) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
+	effectspore: {
+		onDamagingHit(damage, target, source, move) {
+			if (target === source) return;
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	intimidate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (this.effectState.intim && this.gameType !== 'doubles') return;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+					this.effectState.intim = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.intim;
+		},
+		flags: {},
+		name: "Intimidate",
+		rating: 3.5,
+		num: 22,
+	},
+	embodyaspecthearthflame: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spa: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Hearthflame)",
+		rating: 3.5,
+		num: 303,
+		shortDesc: "On switch-in, this Pokemon's Sp. Attack is raised by 1 stage.",
 	},
 };
