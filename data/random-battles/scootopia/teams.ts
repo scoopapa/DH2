@@ -1630,6 +1630,7 @@ export class RandomTeams {
 
 		const baseFormes: {[k: string]: number} = {};
 		
+		let superTypeCount = 0
 		const itemCount: {[k: string]: number} = {};
 		const typeCount: {[k: string]: number} = {};
 		const typeComboCount: {[k: string]: number} = {};
@@ -1733,14 +1734,17 @@ export class RandomTeams {
 				) {
 					if (pokemon.length + leadsRemaining === this.maxTeamSize) continue;
 					set = this.randomSet(species, teamDetails, false, isDoubles);
+					if (teamDetails.teraBlast && this.getSuperType(set.moves)) continue;
 					pokemon.push(set);
 				} else {
 					set = this.randomSet(species, teamDetails, true, isDoubles);
+					if (teamDetails.teraBlast && this.getSuperType(set.moves)) continue;
 					pokemon.unshift(set);
 					leadsRemaining--;
 				}
 			} else {
 				set = this.randomSet(species, teamDetails, false, isDoubles);
+				if (teamDetails.teraBlast && this.getSuperType(set.moves)) continue;
 				pokemon.push(set);
 			}
 
@@ -1764,10 +1768,8 @@ export class RandomTeams {
 				typeComboCount[typeCombo] = 1;
 			}
 			// Increment item counter
-			if (itemCount[set.item]){
-				itemCount[set.item]++;
-			} else {
-				itemCount[set.item] = 1;
+			if (set.item == "Crystal Orb" || set.item == "Feral Orb"){
+				teamDetails.teraBlast = 1;
 			}
 				
 			// Increment weakness counter

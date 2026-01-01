@@ -48,7 +48,7 @@
                 "abilities": ["Shell Bunker"]
             },
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Psychic", "Flash Cannon", "Recover", "Thunderbolt"],
                 "abilities": ["Shell Bunker"]
             }
@@ -98,12 +98,12 @@
                 "abilities": ["Levitate"]
             },
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Iron Defense", "Body Press", "Iron Head", "Stealth Rock"],
                 "abilities": ["Levitate"]
             },
 			{
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Bulk Up", "Drain Punch", "Iron Head", "Stealth Rock"],
                 "abilities": ["Levitate"]
             }
@@ -133,8 +133,18 @@
                 "abilities": ["Levitate"]
             },
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Crystal Burst", "Shadow Ball", "Moonlight"],
+                "abilities": ["Levitate"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Sheer Cold", "Moonlight", "Hex", "Crystal Cage"],
+                "abilities": ["Levitate"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Moonlight", "Shadow Ball", "Feral Shriek"],
                 "abilities": ["Levitate"]
             }
         ]
@@ -150,6 +160,11 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Hydro Pump", "Moonblast", "Ice Beam", "Flip Turn", "Psychic"],
+                "abilities": ["Beast Boost"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Feral Power", "Scald", "Moonblast", "Calm Mind"],
                 "abilities": ["Beast Boost"]
             }
         ]
