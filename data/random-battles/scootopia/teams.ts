@@ -1221,6 +1221,15 @@ export class RandomTeams {
 		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): string {
+		let superTypeOrb = "";
+		for (const move of moves) {
+			if move.includes('crystal') superTypeOrb = "Crystal Orb";
+			if move.includes('feral') superTypeOrb = "Feral Orb";
+		}
+		if (superTypeOrb){
+			teamDetails.superTypeOrb = superTypeOrb
+			return superTypeOrb
+		}
 		const scarfReqs = (
 			!counter.get('priority') && ability !== 'Speed Boost' && role !== 'Doubles Wallbreaker' &&
 			species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
@@ -1287,7 +1296,7 @@ export class RandomTeams {
 		if (!counter.get('Status')) return 'Assault Vest';
 		return 'Sitrus Berry';
 	}
-
+	
 	getItem(
 		ability: string,
 		types: string[],
@@ -1300,6 +1309,15 @@ export class RandomTeams {
 		role: RandomTeamsTypes.Role,
 	): string {
 		if (types.includes('Normal') && moves.has('fakeout')) return 'Silk Scarf';
+		let superTypeOrb = "";
+		for (const move of moves) {
+			if move.includes('crystal') superTypeOrb = "Crystal Orb";
+			if move.includes('feral') superTypeOrb = "Feral Orb";
+		}
+		if (superTypeOrb){
+			teamDetails.superTypeOrb = superTypeOrb
+			return superTypeOrb
+		}
 		if (
 			species.id !== 'jirachi' && (counter.get('Physical') >= 4) &&
 			['dragontail', 'fakeout', 'firstimpression', 'flamecharge', 'rapidspin'].every(m => !moves.has(m))
@@ -2530,6 +2548,8 @@ export class RandomTeams {
 			const itemData = this.dex.items.get(set.item);
 			if (teamData.has[itemData.id]) continue; // Item Clause
 
+			if (teamData.has['crystalorb'] && set.item === "Feral Orb") continue;
+			if (teamData.has['feralorb'] && set.item === "Crystal Orb") continue;
 			// Okay, the set passes, add it to our team
 			pokemon.push(set);
 
