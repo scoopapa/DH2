@@ -1,0 +1,782 @@
+    "albatrygon": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Sticky Web", "Taunt", "Encore", "Brave Bird", "Memento","Parting Shot"],
+                "abilities": ["Prankster"],
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Tidy Up","Brave Bird", "Drill Peck", "Feral Rush", "Feral Bite", "Sacred Sword"],
+                "abilities": ["Prankster"],
+            }
+        ]
+    },
+	 "aurorowl": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Frost Breath", "Air Cutter", "Focus Blast", "Nasty Plot"],
+                "abilities": ["Technician"],
+            },
+        ]
+    },
+	 "arbrella": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Earthquake", "Wood Hammer", "Swords Dance", "Synthesis", "Stone Edge", "Superpower"],
+                "abilities": ["Tough Claws"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Choice Scarf",
+                "movepool": ["Earthquake", "Wood Hammer", "Stone Edge", "Superpower"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "avastar": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Thunder Wave", "Heavy Slam", "Psychic", "Recover", "Teleport"],
+                "abilities": ["Shell Bunker"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Calm Mind", "Psychic", "Flash Cannon", "Recover", "Thunderbolt"],
+                "abilities": ["Shell Bunker"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "axolacred": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stealth Rock", "Dragon Tail", "Roost", "Core Enforcer", "Scald","Defog","Shed Tail"],
+                "abilities": ["Magic Guard"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Feral Rush", "Core Enforcer", "Flip Turn", "Recover"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "barracoth": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Sheer Cold", "Flip Turn", "Triple Axel", "Slack Off"],
+                "abilities": ["Multiscale", "Filter"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    },
+	 "blunderbusk": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Hydro Pump", "Aura Sphere", "Ice Beam", "Dark Pulse", "Dragon Pulse"],
+                "abilities": ["Mega Launcher"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    }, 
+	"brawnkey": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stealth Rock", "Drain Punch", "Iron Head", "Chilly Reception", "Spikes"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Iron Defense", "Body Press", "Iron Head", "Stealth Rock",],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Bulk Up", "Drain Punch", "Iron Head", "Stealth Rock",],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "carapex": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Tailwind", "Acrobatics", "Earthquake", "Stone Edge"],
+                "abilities": ["Wind Rider"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stealth Rock", "Roost", "Body Press", "Knock Off", "Crystal Bash", "U-Turn"],
+                "abilities": ["Wind Rider"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"celespirit": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Sheer Cold", "Moonlight", "Hex", "Ice Beam", "Moonblast"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Calm Mind", "Crystal Burst", "Shadow Ball", "Moonlight"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"cellsius": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Calm Mind", "Hydro Pump", "Moonblast", "Ice Beam", "Psychic"],
+                "abilities": ["Beast Boost"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Hydro Pump", "Moonblast", "Ice Beam", "Flip Turn", "Psychic"],
+                "abilities": ["Beast Boost"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"cindoe": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Overheat", "Fiery Wrath", "Parting Shot", "Morning Sun"],
+                "abilities": ["Natural Cure"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Nasty Plot", "Fiery Wrath", "Fire Blast", "Morning Sun"],
+                "abilities": ["Natural Cure"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            },
+		    {
+                "role": "Setup Sweeper",
+				"item": "Crystal Orb"
+                "movepool": ["Nasty Plot", "Fiery Wrath", "Fire Blast", "Morning Sun"],
+                "abilities": ["Natural Cure"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"cinnastar": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Sludge Bomb", "Earth Power", "Focus Blast", "Mortal Spin"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Earth Power", "Mortal Spin", "Recover", "Stealth Rock", "Power Gem"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "cobracotta": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Poison Fang", "Leech Seed", "Knock Off", "Synthesis", "Stealth Rock", "Power Whip"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    },
+	 "corundell": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Meteor Beam", "Power Gem", "Overheat", "Earth Power", "Volt Switch","Energy Ball"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    },
+	 "crossont": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Spikes", "Recover", "Knock Off", "Circle Throw"],
+                "abilities": ["Mold Breaker", "Sniper"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+				"item": "Crystal Orb"
+                "movepool": ["Crystal Cutter", "Close Combat", "Bulk Up", "Substitute"],
+                "abilities": ["Sniper"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"cyllindrake": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Body Press", "Rapid Spin", "Morning Sun", "Stealth Rock", "Boomburst"],
+                "abilities": ["Scrappy"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Fast Support",
+                "movepool": ["Stealth Rock", "Rapid Spin", "Steel Beam", "Fire Blast"],
+                "abilities": ["Scrappy"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            },
+			{
+                "role": "Fast Attacker",
+				"item": "Feral Orb"
+                "movepool": ["Feral Shriek", "Flash Cannon", "Earth Power", "Feral Spray","Rapid Spin"],
+                "abilities": ["Punk Rock"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "dojodo": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Bulk Up", "Drain Punch", "Jet Punch", "Knock Off", "Substitute"],
+                "abilities": ["Supreme Overlord"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+				"item": "Crystal Orb"
+                "movepool": ["Bulk Up", "Drain Punch", "Crystal Bash", "Jet Punch", "Crystal Healing"],
+                "abilities": ["Supreme Overlord"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "dolphena": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Coil", "Scale Shot", "Iron Tail", "Liquidation"],
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Steel", "Water"]
+            },
+			 {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Scale Shot", "Liquidation", "Iron Head", "Substitute"],
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Steel", "Water"]
+            },
+			 {
+                "role": "Setup Sweeper",
+                "movepool": ["Coil", "Scale Shot", "Iron Tail", "Liquidation"],
+				"item": "Feral Orb"
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Defog", "Flip Turn", "Moonlight", "Dragon Tail"],
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	 "dracoil": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Defog", "Roost", "U-Turn", "Hurricane", "Fire Blast", "Glare", "Draco Meteor", "Earthquake"],
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Steel", "Water"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Acrobatics", "Substitute", "Earthquake"],
+                "abilities": ["Gluttony"],
+				"item": "Liechi Berry",
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Feral Bite", "Dragon Tail", "Roost", "Glare", "Defog"],
+				"item": "Feral Orb",
+                "abilities": ["Mythical Presence"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    }, 
+	"efflor": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Rapid Spin", "Stealth Rock", "Chilly Reception"],
+                "abilities": ["Seed Sower"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Curse", "Stone Edge", "Body Press", "Synthesis"],
+                "abilities": ["Unaware"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"elemadillo": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Flash Cannon", "Thunderbolt", "Volt Switch", "Energy Ball"],
+                "abilities": ["Motor Drive", "Weak Armor"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Fast Attacker",
+				"item": "Feral Orb",
+                "movepool": ["Feral Power", "Flash Cannon", "Earth Power", "Feral Resilience"],
+                "abilities": ["Motor Drive", "Weak Armor"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"faerenheit": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind","Lava Plume", "Moonblast", "Morning Sun"],
+                "abilities": ["Beast Boost"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Setup",
+				"item": "Crystal Orb"
+                "movepool": ["Calm Mind","Lava Plume", "Crystal Cage", "Morning Sun"],
+                "abilities": ["Beast Boost"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    },
+	 "fenreil": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Double Edge", "Knock Off", "Superpower", "U-Turn"],
+                "abilities": ["Natural Cure"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Fast Attacker",
+				"item": "Feral Orb",
+                "movepool": ["Feral Bite", "Knock Off", "Iron Head", "Feral Shred"],
+                "abilities": ["Natural Cure"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    }, 
+	"flocura": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Stealth Rock", "Thunder Wave", "U-Turn", "Leaf Storm"],
+                "abilities": ["Power Construct"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Nasty Plot", "Giga Drain", "Psychic", "Earth Power"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Steel", "Water"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Leaf Storm", "U-Turn", "Psychic", "Earth Power"],
+                "abilities": ["Levitate"],
+                "teraTypes": ["Steel", "Water"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Leech Seed", "U-Turn", "Thunder Wave", "Psychic", "Giga Drain", "Stealth Rock"],
+                "abilities": ["Power Construct"],
+                "teraTypes": ["Steel", "Water"]
+            },
+        ]
+    },
+	"harzodia": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+				"item": "Light Clay",
+                "movepool": ["Light Screen", "Reflect", "Teleport", "Thunder Wave", "Psychic"],
+                "abilities": ["Prankster"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Meteor Beam", "Psychic", "Shadow Ball", "Calm Mind", "Focus Blast"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"jaegorm": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"jamborai": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"kodokai": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"krachiten": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"lumoth": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"minillow": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"muabboa": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"noxtrice": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"nunopod": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"orchile": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"platypad": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"pythos": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", 
+	"quadringo": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"rantler": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"saphor": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"scalaron": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"torgeist": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"woolora": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+	"zeploom": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Steel", "Water"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
+                "teraTypes": ["Dark", "Steel", "Water"]
+            }
+        ]
+    },
+
+	
