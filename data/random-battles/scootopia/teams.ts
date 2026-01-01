@@ -1221,14 +1221,9 @@ export class RandomTeams {
 		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): string {
-		let superTypeOrb = "";
 		for (const move of moves) {
-			if move.includes('crystal') superTypeOrb = "Crystal Orb";
-			if move.includes('feral') superTypeOrb = "Feral Orb";
-		}
-		if (superTypeOrb){
-			teamDetails.superTypeOrb = superTypeOrb
-			return superTypeOrb
+			if (move.includes('crystal')) return "Crystal Orb";
+			if (move.includes('feral')) return "Feral Orb";
 		}
 		const scarfReqs = (
 			!counter.get('priority') && ability !== 'Speed Boost' && role !== 'Doubles Wallbreaker' &&
@@ -1309,14 +1304,9 @@ export class RandomTeams {
 		role: RandomTeamsTypes.Role,
 	): string {
 		if (types.includes('Normal') && moves.has('fakeout')) return 'Silk Scarf';
-		let superTypeOrb = "";
 		for (const move of moves) {
-			if move.includes('crystal') superTypeOrb = "Crystal Orb";
-			if move.includes('feral') superTypeOrb = "Feral Orb";
-		}
-		if (superTypeOrb){
-			teamDetails.superTypeOrb = superTypeOrb
-			return superTypeOrb
+			if (move.includes('crystal')) return "Crystal Orb";
+			if (move.includes('feral')) return "Feral Orb";
 		}
 		if (
 			species.id !== 'jirachi' && (counter.get('Physical') >= 4) &&
