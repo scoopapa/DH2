@@ -1200,8 +1200,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Own Tempo", 1: "Chlorophyll", H: "Natural Cure"},
 		weightkg: 20,
 		evos: ["Clangagang-Gen2"],
-		otherFormes: ["Runtapum-Gen2"],
-		formeOrder: ["Runtapum", "Runtapum-Gen2"],
 	},
 	clangagang: {
 		num: 9105,
@@ -1224,8 +1222,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 68, atk: 80, def: 120, spa: 75, spd: 90, spe: 47},
 		abilities: {0: "Own Tempo", 1: "Chlorophyll", H: "Natural Cure"},
 		weightkg: 75,
-		otherFormes: ["Clangagang-Gen2"],
-		formeOrder: ["Clangagang", "Clangagang-Gen2"],
 	},
 	clarnyx: {
 		num: 9106,
