@@ -1,15 +1,16 @@
+{
     "albatrygon": {
         "level": 100,
         "sets": [
             {
                 "role": "Fast Support",
                 "movepool": ["Sticky Web", "Taunt", "Encore", "Brave Bird", "Memento","Parting Shot"],
-                "abilities": ["Prankster"],
+                "abilities": ["Prankster"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Tidy Up","Brave Bird", "Drill Peck", "Feral Rush", "Feral Bite", "Sacred Sword"],
-                "abilities": ["Prankster"],
+                "abilities": ["Prankster"]
             }
         ]
     },
@@ -19,8 +20,8 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Frost Breath", "Air Cutter", "Focus Blast", "Nasty Plot"],
-                "abilities": ["Technician"],
-            },
+                "abilities": ["Technician"]
+            }
         ]
     },
 	 "arbrella": {
@@ -29,12 +30,12 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Earthquake", "Wood Hammer", "Swords Dance", "Synthesis", "Stone Edge", "Superpower"],
-                "abilities": ["Tough Claws"],
+                "abilities": ["Tough Claws"]
             },
             {
                 "role": "Choice Scarf",
                 "movepool": ["Earthquake", "Wood Hammer", "Stone Edge", "Superpower"],
-                "abilities": ["Tough Claws"],
+                "abilities": ["Tough Claws"]
             }
         ]
     },
@@ -44,12 +45,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Thunder Wave", "Heavy Slam", "Psychic", "Recover", "Teleport"],
-                "abilities": ["Shell Bunker"],
+                "abilities": ["Shell Bunker"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Calm Mind", "Psychic", "Flash Cannon", "Recover", "Thunderbolt"],
-                "abilities": ["Shell Bunker"],
+                "abilities": ["Shell Bunker"]
             }
         ]
     },
@@ -59,12 +60,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Dragon Tail", "Roost", "Core Enforcer", "Scald","Defog","Shed Tail"],
-                "abilities": ["Magic Guard"],
+                "abilities": ["Magic Guard"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Feral Rush", "Core Enforcer", "Flip Turn", "Recover"],
-                "abilities": ["Magic Guard"],
+                "abilities": ["Magic Guard"]
             }
         ]
     },
@@ -74,8 +75,8 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Sheer Cold", "Flip Turn", "Triple Axel", "Slack Off"],
-                "abilities": ["Multiscale", "Filter"],
-            },
+                "abilities": ["Multiscale", "Filter"]
+            }
         ]
     },
 	 "blunderbusk": {
@@ -84,7 +85,7 @@
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Hydro Pump", "Aura Sphere", "Ice Beam", "Dark Pulse", "Dragon Pulse"],
-                "abilities": ["Mega Launcher"],
+                "abilities": ["Mega Launcher"]
             }
         ]
     }, 
@@ -94,17 +95,17 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Drain Punch", "Iron Head", "Chilly Reception", "Spikes"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Iron Defense", "Body Press", "Iron Head", "Stealth Rock",],
-                "abilities": ["Levitate"],
-            }
+                "movepool": ["Iron Defense", "Body Press", "Iron Head", "Stealth Rock"],
+                "abilities": ["Levitate"]
+            },
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Bulk Up", "Drain Punch", "Iron Head", "Stealth Rock",],
-                "abilities": ["Levitate"],
+                "movepool": ["Bulk Up", "Drain Punch", "Iron Head", "Stealth Rock"],
+                "abilities": ["Levitate"]
             }
         ]
     },
@@ -114,12 +115,12 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Tailwind", "Acrobatics", "Earthquake", "Stone Edge"],
-                "abilities": ["Wind Rider"],
+                "abilities": ["Wind Rider"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Roost", "Body Press", "Knock Off", "Crystal Bash", "U-Turn"],
-                "abilities": ["Wind Rider"],
+                "abilities": ["Wind Rider"]
             }
         ]
     },
@@ -129,12 +130,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Sheer Cold", "Moonlight", "Hex", "Ice Beam", "Moonblast"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Calm Mind", "Crystal Burst", "Shadow Ball", "Moonlight"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             }
         ]
     },
@@ -144,12 +145,12 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Calm Mind", "Hydro Pump", "Moonblast", "Ice Beam", "Psychic"],
-                "abilities": ["Beast Boost"],
+                "abilities": ["Beast Boost"]
             },
             {
                 "role": "Fast Attacker",
                 "movepool": ["Hydro Pump", "Moonblast", "Ice Beam", "Flip Turn", "Psychic"],
-                "abilities": ["Beast Boost"],
+                "abilities": ["Beast Boost"]
             }
         ]
     },
@@ -159,18 +160,18 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Overheat", "Fiery Wrath", "Parting Shot", "Morning Sun"],
-                "abilities": ["Natural Cure"],
+                "abilities": ["Natural Cure"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Fiery Wrath", "Fire Blast", "Morning Sun"],
-                "abilities": ["Natural Cure"],
+                "abilities": ["Natural Cure"]
             },
 		    {
                 "role": "Setup Sweeper",
 
                 "movepool": ["Nasty Plot", "Fiery Wrath", "Crystal Burst", "Morning Sun"],
-                "abilities": ["Natural Cure"],
+                "abilities": ["Natural Cure"]
             }
         ]
     },
@@ -180,12 +181,12 @@
             {
                 "role": "AV Pivot",
                 "movepool": ["Sludge Bomb", "Earth Power", "Focus Blast", "Mortal Spin"],
-                "abilities": ["Regenerator"],
+                "abilities": ["Regenerator"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Earth Power", "Mortal Spin", "Recover", "Stealth Rock", "Power Gem"],
-                "abilities": ["Regenerator"],
+                "abilities": ["Regenerator"]
             }
         ]
     },
@@ -195,8 +196,8 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Poison Fang", "Leech Seed", "Knock Off", "Synthesis", "Stealth Rock", "Power Whip"],
-                "abilities": ["Heatproof"],
-            },
+                "abilities": ["Heatproof"]
+            }
         ]
     },
 	 "corundell": {
@@ -205,8 +206,8 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Meteor Beam", "Power Gem", "Overheat", "Earth Power", "Volt Switch","Energy Ball"],
-                "abilities": ["Lightning Rod"],
-            },
+                "abilities": ["Lightning Rod"]
+            }
         ]
     },
 	 "crossont": {
@@ -215,13 +216,13 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Spikes", "Recover", "Knock Off", "Circle Throw"],
-                "abilities": ["Mold Breaker", "Sniper"],
+                "abilities": ["Mold Breaker", "Sniper"]
             },
             {
                 "role": "Bulky Attacker",
 
                 "movepool": ["Crystal Cutter", "Close Combat", "Bulk Up", "Substitute"],
-                "abilities": ["Sniper"],
+                "abilities": ["Sniper"]
             }
         ]
     },
@@ -231,18 +232,18 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Body Press", "Rapid Spin", "Morning Sun", "Stealth Rock", "Boomburst"],
-                "abilities": ["Scrappy"],
+                "abilities": ["Scrappy"]
             },
             {
                 "role": "Fast Support",
                 "movepool": ["Stealth Rock", "Rapid Spin", "Steel Beam", "Fire Blast"],
-                "abilities": ["Scrappy"],
+                "abilities": ["Scrappy"]
             },
 			{
                 "role": "Fast Attacker",
 
                 "movepool": ["Feral Shriek", "Flash Cannon", "Earth Power", "Feral Spray","Rapid Spin"],
-                "abilities": ["Punk Rock"],
+                "abilities": ["Punk Rock"]
             }
         ]
     },
@@ -252,13 +253,13 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Bulk Up", "Drain Punch", "Jet Punch", "Knock Off", "Substitute"],
-                "abilities": ["Supreme Overlord"],
+                "abilities": ["Supreme Overlord"]
             },
             {
                 "role": "Setup Sweeper",
 
                 "movepool": ["Bulk Up", "Drain Punch", "Crystal Bash", "Jet Punch", "Crystal Healing"],
-                "abilities": ["Supreme Overlord"],
+                "abilities": ["Supreme Overlord"]
             }
         ]
     },
@@ -268,23 +269,23 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Coil", "Scale Shot", "Iron Tail", "Liquidation"],
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             },
 			 {
                 "role": "Setup Sweeper",
                 "movepool": ["Dragon Dance", "Scale Shot", "Liquidation", "Iron Head", "Substitute"],
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             },
 			 {
                 "role": "Setup Sweeper",
                 "movepool": ["Coil", "Scale Shot", "Iron Tail", "Liquidation"],
 
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Defog", "Flip Turn", "Moonlight", "Dragon Tail"],
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             }
         ]
     },
@@ -294,23 +295,22 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Defog", "Roost", "U-Turn", "Hurricane", "Fire Blast", "Glare", "Draco Meteor", "Earthquake"],
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             },
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Dragon Dance", "Acrobatics", "Substitute", "Earthquake"],
-                "abilities": ["Gluttony"],
+                "abilities": ["Gluttony"]
             },
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Dragon Dance", "Dragon Rush", "Coil", "Earthquake", "Dual Wingbeat"],
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Feral Bite", "Dragon Tail", "Roost", "Glare", "Defog"],
-
-                "abilities": ["Mythical Presence"],
+                "abilities": ["Mythical Presence"]
             }
         ]
     }, 
@@ -320,12 +320,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Giga Drain", "Leech Seed", "Rapid Spin", "Stealth Rock", "Chilly Reception"],
-                "abilities": ["Seed Sower"],
+                "abilities": ["Seed Sower"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Curse", "Stone Edge", "Body Press", "Synthesis"],
-                "abilities": ["Unaware"],
+                "abilities": ["Unaware"]
             }
         ]
     },
@@ -335,8 +335,8 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Gyro Ball", "Stealth Rock", "Body Press", "Volt Switch", "Discharge"],
-                "abilities": ["Filter"],
-            },
+                "abilities": ["Filter"]
+            }
         ]
     },
 	"elemadillo": {
@@ -345,13 +345,13 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Flash Cannon", "Thunderbolt", "Volt Switch", "Energy Ball"],
-                "abilities": ["Motor Drive", "Weak Armor"],
+                "abilities": ["Motor Drive", "Weak Armor"]
             },
             {
                 "role": "Fast Attacker",
 
                 "movepool": ["Feral Power", "Flash Cannon", "Earth Power", "Feral Resilience"],
-                "abilities": ["Motor Drive", "Weak Armor"],
+                "abilities": ["Motor Drive", "Weak Armor"]
             }
         ]
     },
@@ -361,19 +361,19 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Blaze Kick", "Will-o-Wisp", "Morning Sun", "U-Turn", "Close Combat"],
-                "abilities": ["Intimidate"],
+                "abilities": ["Intimidate"]
             },
 			{
                 "role": "Bulky Support",
 
                 "movepool": ["Blaze Kick", "Crystal Bash", "Will-o-Wisp", "Morning Sun", "U-Turn"],
-                "abilities": ["Intimidate"],
+                "abilities": ["Intimidate"]
             },
 			 {
                 "role": "Fast Attacker",
                 "movepool": ["Flare Blitz", "Wild Charge", "U-Turn", "Close Combat"],
-                "abilities": ["Intimidate"],
-            },
+                "abilities": ["Intimidate"]
+            }
         ]
     },
 	"faerenheit": {
@@ -382,14 +382,14 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind","Lava Plume", "Moonblast", "Morning Sun"],
-                "abilities": ["Beast Boost"],
+                "abilities": ["Beast Boost"]
             },
             {
                 "role": "Bulky Setup",
 
                 "movepool": ["Calm Mind","Lava Plume", "Crystal Cage", "Morning Sun"],
-                "abilities": ["Beast Boost"],
-            },
+                "abilities": ["Beast Boost"]
+            }
         ]
     },
 	 "fenreil": {
@@ -398,14 +398,14 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Double Edge", "Knock Off", "Superpower", "U-Turn"],
-                "abilities": ["Natural Cure"],
+                "abilities": ["Natural Cure"]
             },
             {
                 "role": "Fast Attacker",
 
                 "movepool": ["Feral Bite", "Knock Off", "Iron Head", "Feral Shred"],
-                "abilities": ["Natural Cure"],
-            },
+                "abilities": ["Natural Cure"]
+            }
         ]
     }, 
 	"flocura": {
@@ -414,29 +414,29 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Stealth Rock", "Thunder Wave", "U-Turn", "Leaf Storm"],
-                "abilities": ["Power Construct"],
+                "abilities": ["Power Construct"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Giga Drain", "Psychic", "Earth Power"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             },
             {
                 "role": "Setup Sweeper",
 
                 "movepool": ["Nasty Plot", "Giga Drain", "Feral Power", "Earth Power"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             },
 			{
                 "role": "Fast Attacker",
                 "movepool": ["Leaf Storm", "U-Turn", "Psychic", "Earth Power"],
-                "abilities": ["Levitate"],
+                "abilities": ["Levitate"]
             },
 			{
                 "role": "Bulky Support",
                 "movepool": ["Leech Seed", "U-Turn", "Thunder Wave", "Psychic", "Giga Drain", "Stealth Rock"],
-                "abilities": ["Power Construct"],
-            },
+                "abilities": ["Power Construct"]
+            }
         ]
     },
 	"harzodia": {
@@ -445,12 +445,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Light Screen", "Reflect", "Teleport", "Thunder Wave", "Psychic"],
-                "abilities": ["Prankster"],
+                "abilities": ["Prankster"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Meteor Beam", "Psychic", "Shadow Ball", "Calm Mind", "Focus Blast"],
-                "abilities": ["Unburden"],
+                "abilities": ["Unburden"]
             }
         ]
     },
@@ -460,8 +460,8 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["First Impression", "U-Turn", "Photon Ray", "Knock Off", "Superpower", "Earthquake"],
-                "abilities": ["Schooling"],
-            },
+                "abilities": ["Schooling"]
+            }
         ]
     },
 	"jamborai": {
@@ -469,25 +469,25 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Mortal Spin", "Recover", "Pyschic", "Scald", "Teleport],
-                "abilities": ["Water Absorb"],
+                "movepool": ["Mortal Spin", "Recover", "Pyschic", "Scald", "Teleport"],
+                "abilities": ["Water Absorb"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool":  ["Calm Mind", "Recover", "Pyschic", "Scald", "Sludge Bomb", "Stored Power"],
-                "abilities": ["Water Absorb"],
-            }
+                "abilities": ["Water Absorb"]
+            },
 			{
                 "role": "Bulky Support",
 
-                "movepool": ["Mortal Spin", "Recover", "Crystal Cage", "Crystal Healing", "Teleport],
-                "abilities": ["Gooey"],
+                "movepool": ["Mortal Spin", "Recover", "Crystal Cage", "Crystal Healing", "Teleport"],
+                "abilities": ["Gooey"]
             },
             {
                 "role": "Bulky Setup",
 
                 "movepool":  ["Crystal Fortification", "Recover", "Stored Power", "Crystal Beam"],
-                "abilities": ["Gooey"],
+                "abilities": ["Gooey"]
             }
         ]
     },
@@ -498,13 +498,13 @@
                 "role": "Bulky Support",
 
                 "movepool": ["Crystal Cage", "Hex", "Will-o-Wisp", "Moonlight"],
-                "abilities": ["Aroma Veil"],
+                "abilities": ["Aroma Veil"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Wish", "Hex", "Will-o-Wisp", "Moonlight"],
-                "abilities": ["Aroma Veil"],
-            },
+                "abilities": ["Aroma Veil"]
+            }
         ]
     },
 	"krachiten": {
@@ -513,14 +513,14 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["First Impression", "U-Turn", "Liquidation", "Rapid Spin"],
-                "abilities": ["Torrent"],
+                "abilities": ["Torrent"]
             },
             {
                 "role": "Fast Attacker",
 
                 "movepool": ["Crystal Cutter", "U-Turn", "Aqua Cutter", "Superpower", "Rapid Spin"],
-                "abilities": ["Sniper"],
-            },
+                "abilities": ["Sniper"]
+            }
         ]
     },
 	"lumoth": {
@@ -529,8 +529,8 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Quiver Dance", "Hex", "Sleep Powder", "Bug Buzz"],
-                "abilities": ["Levitate"],
-            },
+                "abilities": ["Levitate"]
+            }
         ]
     },
 	"minillow": {
@@ -539,8 +539,8 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Agility", "Hydro Pump", "Moonblast", "Substitute"],
-                "abilities": ["Adaptability"],
-            },
+                "abilities": ["Adaptability"]
+            }
         ]
     },
 	"muabboa": {
@@ -549,14 +549,14 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Earthquake", "U-Turn", "Close Combat", "Knock Off"],
-                "abilities": ["Inner Focus"],
+                "abilities": ["Inner Focus"]
             },
              {
                 "role": "Setup Sweeper",
 
                 "movepool": ["Swords Dance", "Earthquake", "Feral Rush", "Close Combat"],
-                "abilities": ["Inner Focus"],
-            },
+                "abilities": ["Inner Focus"]
+            }
         ]
     },
 	"noxtrice": {
@@ -565,18 +565,18 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Poison Jab", "Flare Blitz", "Roost", "U-Turn"],
-                "abilities": ["Poison Touch"],
+                "abilities": ["Poison Touch"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Gunk Shot", "Flare Blitz", "Earthquake", "Dragon Dance"],
-                "abilities": ["Poison Touch"],
+                "abilities": ["Poison Touch"]
             },
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Gunk Shot", "Feral Rush", "Earthquake", "Dragon Dance"],
-                "abilities": ["Flash Fire"],
-            },
+                "abilities": ["Flash Fire"]
+            }
         ]
     },
 	"nunopod": {
@@ -585,14 +585,14 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Earthquake", "Body Press", "Triple Axel", "Flip Turn", "Stealth Rock", "Rapid Spin", "Recover"],
-                "abilities": ["Opportunist"],
+                "abilities": ["Opportunist"]
             },
             {
                 "role": "Bulky Support",
 
                 "movepool": ["Crystal Bash", "Body Press", "Earthquake", "Flip Turn", "Stealth Rock", "Rapid Spin", "Recover"],
-                "abilities": ["Opportunist"],
-            },
+                "abilities": ["Opportunist"]
+            }
         ]
     },
 	"orchile": {
@@ -601,12 +601,12 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Moonblast", "Earth Power", "Will-o-Wisp", "Strength Sap", "Spikes"],
-                "abilities": ["Flower Veil"],
+                "abilities": ["Flower Veil"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Moonblast", "Earth Power", "Calm Mind", "Strength Sap"],
-                "abilities": ["Flower Veil"],
+                "abilities": ["Flower Veil"]
             }
         ]
     },
@@ -616,13 +616,13 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Revival Blessing", "Wave Crash", "Flip Turn", "Synthesis"],
-                "abilities": ["Flower Veil"],
+                "abilities": ["Flower Veil"]
             },
             {
                 "role": "Bulky Setup",
 
                 "movepool": ["Feral Resilience", "Feral Breath", "Giga Drain", "Synthesis"],
-                "abilities": ["Triage"],
+                "abilities": ["Triage"]
             }
         ]
     },
@@ -632,8 +632,8 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Coil", "Knock Off", "Iron Tail", "Sucker Punch", "Superpower", "Facade"],
-                "abilities": ["Guts"],
-            },
+                "abilities": ["Guts"]
+            }
         ]
     },
 	"quadringo": {
@@ -642,24 +642,24 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Defog", "Roost", "Dragon Tail", "Earthquake", "Moonblast"],
-                "abilities": ["Pastel Veil"],
+                "abilities": ["Pastel Veil"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Moonblast", "Mystical Fire", "Roost"],
-                "abilities": ["Pastel Veil"],
+                "abilities": ["Pastel Veil"]
             },
 			 {
                 "role": "Fast Attacker",
                 "movepool": ["Moonblast", "Draco Meteor", "Mystical Fire", "Earthquake"],
-                "abilities": ["Pastel Veil"],
+                "abilities": ["Pastel Veil"]
             },
 			{
                 "role": "Fast Attacker",
 
                 "movepool": ["Feral Rush", "Earthquake", "Feral Shred", "Roost"],
-                "abilities": ["Pastel Veil"],
-            },
+                "abilities": ["Pastel Veil"]
+            }
         ]
     },
 	"rantler": {
@@ -668,18 +668,18 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Double Edge", "Ice Spinner", "Superpower", "Earthquake"],
-                "abilities": ["Slush Rush"],
+                "abilities": ["Slush Rush"]
             },
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Swords Dance", "Double Edge", "Ice Spinner", "Superpower", "Earthquake", "Quick Attack"],
-                "abilities": ["Slush Rush"],
+                "abilities": ["Slush Rush"]
             },
 			{
                 "role": "Fast Attacker",
                 "movepool": ["Double Edge", "Ice Spinner", "Superpower", "Quick Attack", "Fake Out"],
-                "abilities": ["Tough Claws"],
-            },
+                "abilities": ["Tough Claws"]
+            }
         ]
     },
 	"roscenti": {
@@ -688,20 +688,20 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["First Impression", "U-Turn", "Superpower", "Rock Blast", "Bullet Seed"],
-                "abilities": ["Skill Link"],
+                "abilities": ["Skill Link"]
             },
              {
                 "role": "Fast Attacker",
 
                 "movepool": ["First Impression", "U-Turn", "Feral Rush", "Drill Run", "Iron Tail"],
-                "abilities": ["Sheer Force"],
+                "abilities": ["Sheer Force"]
             },
 			{
                 "role": "Fast Attacker",
 
                 "movepool": ["First Impression", "U-Turn", "Crystal Tail", "Superpower", "Rock Slide"],
-                "abilities": ["Sheer Force"],
-            },
+                "abilities": ["Sheer Force"]
+            }
         ]
     },
 	"salamalix": {
@@ -710,13 +710,13 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Spikes", "Stone Edge", "Close Combat", "Iron Head"],
-                "abilities": ["Intimidate"],
+                "abilities": ["Intimidate"]
             },
            {
                 "role": "Bulky Setup",
                 "movepool": ["Swords Dance", "Iron Head", "Close Combat", "Accelerock"],
-                "abilities": ["Intimidate"],
-            },
+                "abilities": ["Intimidate"]
+            }
         ]
     },
 	"salaos": {
@@ -725,14 +725,14 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Toxic", "Recover", "Fiery Wrath", "Scald", "Flamethrower", "Toxic Spikes"],
-                "abilities": ["Good as Gold"],
+                "abilities": ["Good as Gold"]
             },
             {
                 "role": "Bulky Support",
 
                 "movepool": ["Toxic", "Recover", "Crystal Cage", "Flamethrower", "Toxic Spikes"],
-                "abilities": ["Good as Gold"],
-            },
+                "abilities": ["Good as Gold"]
+            }
         ]
     },
 	"saphor": {
@@ -741,31 +741,31 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Earthquake", "Body Slam", "Slack Off", "Roar", "Heal Bell"],
-                "abilities": ["Thick Fat"],
+                "abilities": ["Thick Fat"]
             },
              {
                 "role": "Bulky Support",
 
                 "movepool": ["Stealth Rock", "Crystal Tail", "Crystal Shard", "Slack Off", "Roar", "Crystal Healing"],
-                "abilities": ["Thick Fat"],
+                "abilities": ["Thick Fat"]
             },
              {
                 "role": "Bulky Setup",
 
                 "movepool": ["Bulk Up", "Crystal Cutter", "Slack Off", "Body Press"],
-                "abilities": ["Thick Fat"],
+                "abilities": ["Thick Fat"]
             },
 			{
                 "role": "Bulky Setup",
 
                 "movepool": ["Calm Mind", "Crystal Cage", "Slack Off", "Focus Blast"],
-                "abilities": ["Thick Fat"],
+                "abilities": ["Thick Fat"]
             },
 			 {
                 "role": "Fast Attacker",
                 "movepool": ["Headlong Rush", "Double Edge", "Heavy Slam", "Superpower", "Stone Edge"],
-                "abilities": ["Thick Fat"],
-            },
+                "abilities": ["Thick Fat"]
+            }
         ]
     },
 	"scalaron": {
@@ -774,14 +774,14 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Flamethrower", "Hurricane", "Roost", "U-Turn", "Defog", "Toxic", "Will-o-Wisp"],
-                "abilities": ["Filter"],
+                "abilities": ["Filter"]
             },
            {
                 "role": "Bulky Support",
 
                 "movepool": ["Flamethrower", "Crystal Cage", "Roost", "U-Turn", "Defog", "Will-o-Wisp", "Crystal Shard"],
-                "abilities": ["Filter"],
-            },
+                "abilities": ["Filter"]
+            }
         ]
     },
 	"soleron": {
@@ -790,20 +790,20 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Thunderbolt", "Hurricane", "Heat Wave", "U-Turn", "Air Slash", "Volt Switch", "Roost"],
-                "abilities": ["Battle Bond"],
+                "abilities": ["Battle Bond"]
             },
 			 {
                 "role": "Fast Attacker",
                 "movepool": ["Thunderbolt", "Feral Power", "Feral Spray", "Volt Switch", "Roost"],
 
-                "abilities": ["Battle Bond"],
+                "abilities": ["Battle Bond"]
             },
 			 {
                 "role": "Fast Attacker",
                 "movepool": ["Thunderbolt", "Crystal Burst", "Heat Wave", "Volt Switch", "Hurricane"],
 
-                "abilities": ["Battle Bond"],
-            },
+                "abilities": ["Battle Bond"]
+            }
         ]
     },
 	"torgeist": {
@@ -812,20 +812,20 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Toxic Thread", "Hex", "Hurricane", "Heat Wave", "Pain Split", "Taunt"],
-                "abilities": ["Merciless"],
+                "abilities": ["Merciless"]
             },
              {
                 "role": "Fast Attacker",
 
                 "movepool": ["Toxic Thread", "Hex", "Feral Power", "Pain Split", "Taunt", "Nasty Plot"],
-                "abilities": ["Merciless"],
+                "abilities": ["Merciless"]
             },
 			 {
                 "role": "Setup Sweeper",
 
                 "movepool": ["Will-o-Wisp", "Hex", "Feral Power", "Nasty Plot"],
-                "abilities": ["Cursed Body"],
-            },
+                "abilities": ["Cursed Body"]
+            }
         ]
     },
 	"woolora": {
@@ -834,13 +834,13 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Cotton Guard", "Stored Power", "Draining Kiss"],
-                "abilities": ["Fluffy", "Pastel Veil"],
+                "abilities": ["Fluffy", "Pastel Veil"]
             },
             {
                 "role": "Bulky Setup",
                 "movepool": ["Calm Mind", "Moonlight", "Stored Power", "Moonblast"],
-                "abilities": ["Fluffy"],
-            },
+                "abilities": ["Fluffy"]
+            }
         ]
     },
 	"zeploom": {
@@ -849,9 +849,9 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Energy Siphon", "Synthesis", "Stealth Rock", "U-Turn", "Defog", "Toxic", "Earth Power"],
-                "abilities": ["Wind Rider"],
-            },
+                "abilities": ["Wind Rider"]
+			}
         ]
-    },
-
+    }
+}
 	
