@@ -185,7 +185,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Nature's Bounty",
 		pp: 5,
 		priority: 0,
-		flags: {nonsky: 1},
+		flags: {nonsky: 1,protect: 1, mirror: 1},
 		terrain: 'grassyterrain',
 		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
