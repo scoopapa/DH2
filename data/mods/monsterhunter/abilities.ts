@@ -272,21 +272,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	direspikescales: {
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || target.species.name !== 'Dalamadur') return;
-			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
-			if (move.category === 'Status' || move.id === 'struggle') return;
-			if (!target.runImmunity(move.type)) return; // immunity has priority
 			if (target.hp < target.maxhp) return;
-
+			if (move.category === 'Status' || move.id === 'struggle') return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.effectState.applied) return;
 			this.add('-activate', target, 'ability: Direspike Scales');
-			this.effectState.resisted = true;
+			this.effectState.applied = true;
 			return -1;
 		},
 		onAnyAfterMove() {
-			this.effectState.resisted = false;
+			this.effectState.applied = false;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
 		name: "Direspike Scales",
-		shortDesc: "If at full HP: Incoming attacks deal 0.5x damage unless immune",
+		shortDesc: "Dalamadur: If full HP, all damaging hits are treated as not very effective (0.5x).",
 	},
 	dragoneater: {
 		onTryHit(target, source, move) {
@@ -1112,7 +1111,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Raging Rebel",
-		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. | BRN Immune.",
+		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
 	},
 	reactivecore: {
 		onDamagingHit(damage, target, source, move) {
@@ -1124,7 +1123,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-message', `${target.name}'s core surged with fire! (1.33x Offenses)`);
 				}
 			}
-			if (move.type === 'Water' || move.type === 'Ice') {
+			if (move.type === 'Ice') {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
@@ -1160,21 +1159,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-ability', target, 'Reactive Core');
 					this.add('-message', `${target.name}'s core glows in the sunlight! (1.33x Offenses)`);
 				}
-			} else if (['hail', 'snow'].includes(weather)) {
+			} else if (['hail', 'snow', 'absolutezero'].includes(weather)) {
 				if (!target.volatiles['cooled']) {
 					target.removeVolatile('warmed');
 					target.addVolatile('cooled');
 					this.add('-ability', target, 'Reactive Core');
 					this.add('-message', `${target.name}'s core hardened against the snow! (1.33x Defenses)`);
 				}
-			} else {
-				target.removeVolatile('warmed');
-				target.removeVolatile('cooled');
 			}
 		},
 		flags: {},
 		name: "Reactive Core",
-		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Water/Ice/FRZ/Snow: Defenses 1.3x",
+		shortDesc: "Fire/BRN/Sun: Offenses 1.3x | Ice/FRZ/Snow: Defenses 1.3x",
 	},
 	reactivetouch: {
 		onSourceDamagingHit(damage, target, source, move) {
@@ -1290,61 +1286,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Rusted Gale');
-			this.add('-message', `${pokemon.name}'s gale spreads rust across the battlefield!`);
-
-			// Apply Rusted immediately to Steel-type foes (but not to the holder)
-			for (const target of pokemon.foes()) {
-				if (target.hasType('Steel') && !target.volatiles['rusted'] && !target.hasAbility('Rusted Gale')) {
-					target.addVolatile('rusted');
-					this.add('-message', `${target.name} is afflicted by rust!`);
-				}
-			}
-		},
-		onSwitchIn(pokemon) {
-			const holder = this.effectState.target;
-			if (holder && holder.isActive && holder.hasAbility('Rusted Gale')) {
-				// Skip if the switch-in has Rusted Gale itself
-				if (pokemon.hasType('Steel') && !pokemon.volatiles['rusted'] && !pokemon.hasAbility('Rusted Gale')) {
-					pokemon.addVolatile('rusted');
-					this.add('-message', `${pokemon.name} is afflicted by rust!`);
-				}
-			}
-		},
-		onAnyModifyDef(def, target, source, effect) {
-			// Holder immune
-			if (target.hasAbility('Rusted Gale')) return def;
-
-			// Steel-types: keep Rusted volatile but no Defense drop
-			if (target.hasType('Steel')) return def;
-
-			// All other Pokémon: Defense reduced
-			this.debug('Rusted Gale Defense drop');
-			return this.chainModify(0.75);
-		},
-		onSwitchOut(pokemon) {
-			if (pokemon.volatiles['rusted']) {
-				pokemon.removeVolatile('rusted');
-				this.add('-message', `${pokemon.name} shook off the rust as it left the field!`);
-			}
+			this.field.addPseudoWeather('ruststorm', pokemon);
 		},
 		onEnd(pokemon) {
-			for (const mon of this.getAllActive()) {
-				if (mon.volatiles['rusted']) {
-					mon.removeVolatile('rusted');
-					this.add('-message', `${mon.name}'s rust faded as ${pokemon.name} left the field!`);
-				}
-			}
-		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'rusted' && target.hasAbility('Rusted Gale')) {
-				this.add('-immune', target, '[from] ability: Rusted Gale');
-				return null;
+			if (this.field.pseudoWeather['ruststorm']) {
+				this.field.removePseudoWeather('ruststorm');
 			}
 		},
 		flags: {},
 		name: "Rusted Gale",
-		desc: "Steel-types without this Ability gain the Rusted volatile immediately when it activates or when they switch in. Other Pokémon have their Defense reduced to 0.75x. The holder is immune to Rusted. All effects end when the holder leaves the field.",
-		shortDesc: "Steel-types become Rusted; others DEF x0.75. Holder immune to Rusted.",
+		shortDesc: "Summons Ruststorm. Steel-Type resistances are removed, Non-Steel has 0.75x Def."
 	},
 	sacredjewel: {
 		onModifyDefPriority: 6,
@@ -1826,5 +1777,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 8,
 		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "Under Sandstorm; Def is 1.3x. Cannot be statused, including Rest.",
+	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero', 'ruststorm'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				// Can't suppress a Tatsugiri inside of Dondozo already
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				if (strongWeathers.includes(target.getAbility().id)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+			}
+		},
 	},
 }

@@ -848,6 +848,9 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 	hawlucha: {
 		tier: "FE ZA",
 	},
+	hawluchamega: {
+		tier: "FE ZA",
+	},
 	dedenne: {
 		tier: "FE ZA",
 	},

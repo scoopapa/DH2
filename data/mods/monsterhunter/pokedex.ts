@@ -45,9 +45,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 312.2,
 		tags: ["Flying Wyvern"],
 	},
-	basariossandstone: {
-		num: 10000,
-		name: "Basarios-Sandstone",
+	sandarios: {
+		num: 1,
+		name: "Sandarios",
 		types: ["Ground"],
 		baseStats: {hp: 100, atk: 105, def: 110, spa: 42, spd: 130, spe: 53},
 		abilities: {0: "Sand Cloak", H: "Earth Eater"},
@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Rock Head", H: "Reckless"},
 		weightkg: 170.2,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Massacre Diablos"],
+		otherFormes: ["Diablos-Massacre"],
 	},
 	blackblos: {
 		num: 3,
@@ -83,9 +83,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 170.2,
 		tags: ["Flying Wyvern"],
 	},
-	massacrediablos: {
+	diablosmassacre: {
 		num: 3,
-		name: "Massacre Diablos",
+		name: "Diablos-Massacre",
 		baseSpecies: "Diablos",
 		forme: "Mega",
 		types: ["Dark", "Ground"],
@@ -219,7 +219,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Poison Touch", H: "Gale Wings"},
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Dreadking Rathalos"],
+		otherFormes: ["Rathalos-Dreadking"],
 	},
 	silverlos: {
 		num: 11,
@@ -241,9 +241,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
 	},
- 	dreadkingrathalos: {
+ 	rathalosdreadking: {
 		num: 11,
-		name: "Dreadking Rathalos",
+		name: "Rathalos-Dreadking",
 		baseSpecies: "Rathalos",
 		forme: "Mega",
 		types: ["Fire", "Flying"],
@@ -263,7 +263,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Poison Point", H: "Queenly Majesty"},
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Dreadqueen Rathian"],
+		otherFormes: ["Rathian-Dreadqueen"],
 	},
 	goldian: {
 		num: 12,
@@ -285,9 +285,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 110.5,
 		tags: ["Flying Wyvern"],
 	},
- 	dreadqueenrathian: {
+ 	rathiandreadqueen: {
 		num: 12,
-		name: "Dreadqueen Rathian",
+		name: "Rathian-Dreadqueen",
 		baseSpecies: "Rathian",
 		forme: "Mega",
 		types: ["Flying", "Poison"],
@@ -315,11 +315,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Anger Point", 1: "Moxie", H: "Merciless"},
 		weightkg: 45.0,
 		tags: ["Bird Wyvern"],
-		otherFormes: ["Deadeye Garuga"],
+		otherFormes: ["Yian Garuga-Deadeye"],
 	},
-	deadeyegaruga: {
+	yiangarugadeadeye: {
 		num: 14,
-		name: "Deadeye Garuga",
+		name: "Yian Garuga-Deadeye",
 		baseSpecies: "Yian Garuga",
 		forme: "Mega",
 		types: ["Poison", "Fighting"],
@@ -356,12 +356,12 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Regenerator"},
 		weightkg: 270.0,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Crimson-Fatalis", "White-Fatalis"],
-		formeOrder: ["Crimson-Fatalis", "White-Fatalis"],
+		otherFormes: ["Fatalis-Crimson", "Fatalis-White"],
+		formeOrder: ["Fatalis-Crimson", "Fatalis-White"],
 	},
-	crimsonfatalis: {
+	fataliscrimson: {
 		num: 16,
-		name: "Crimson-Fatalis",
+		name: "Fatalis-Crimson",
 		baseSpecies: "Fatalis",
 		forme: "Primal",
 		types: ["Dragon", "Fire"],
@@ -371,9 +371,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		tags: ["Elder Dragon"],
 		requiredItem: "Crimson Gem",
 	},
-	whitefatalis: {
+	fataliswhite: {
 		num: 16,
-		name: "White-Fatalis",
+		name: "Fatalis-White",
 		baseSpecies: "Fatalis",
 		forme: "Primal",
 		types: ["Dragon", "Electric"], 
@@ -391,11 +391,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Grim Neigh", H: "Stalwart"},
 		weightkg: 90.0,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Emperor Kirin"],
+		otherFormes: ["Kirin-Emperor"],
 	},
-	emperorkirin: {
+	kirinemperor: {
 		num: 17,
-		name: "Emperor Kirin",
+		name: "Kirin-Emperor",
 		baseSpecies: "Kirin",
 		forme: "Mega",
 		types: ["Ghost", "Electric"],
@@ -491,11 +491,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Shell Armor", H: "Unaware"},
 		weightkg: 160.0,
 		tags: ["Carapaceon"],
-		otherFormes: ["Stonefist Daimyo"],
+		otherFormes: ["Daimyo Hermitaur-Stonefist"],
 	},
-	stonefistdaimyo: {
+	daimyohermitaurstonefist: {
 		num: 23,
-		name: "Stonefist Daimyo",
+		name: "Daimyo Hermitaur-Stonefist",
 		baseSpecies: "Daimyo Hermitaur",
 		forme: "Mega",
 		types: ["Water", "Fighting"],
@@ -567,11 +567,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Anger Point", H: "Defiant"},
 		weightkg: 90.0,
 		tags: ["Fanged Beast"],
-		otherFormes: ["Furious Rajang"],
+		otherFormes: ["Rajang-Furious"],
 	},
- 	furiousrajang: {
+ 	rajangfurious: {
 		num: 28,
-		name: "Furious Rajang",
+		name: "Rajang-Furious",
 		baseSpecies: "Rajang",
 		forme: "Mega",
 		types: ["Electric", "Fighting"],
@@ -616,11 +616,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Punk Rock", H: "Gluttony"},
 		weightkg: 130.5,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Grimclaw Tigrex"],
+		otherFormes: ["Tigrex-Grimclaw"],
 	},
-	grimclawtigrex: {
+	tigrexgrimclaw: {
 		num: 31,
-		name: "Grimclaw Tigrex",
+		name: "Tigrex-Grimclaw",
 		baseSpecies: "Tigrex",
 		forme: "Mega",
 		types: ["Normal", "Fighting"],
@@ -666,11 +666,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Neutralizing Gas", H: "Poison Puppeteer"},
 		weightkg: 110.0,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Risen Chameleos"],
+		otherFormes: ["Chameleos-Risen"],
 	},
-	risenchameleos: {
+	chameleosrisen: {
 		num: 34,
-		name: "Risen Chameleos",
+		name: "Chameleos-Risen",
 		baseSpecies: "Chameleos",
 		forme: "Mega",
 		types: ["Dragon", "Poison"],
@@ -688,11 +688,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Bulletproof", H: "Magic Bounce"},
 		weightkg: 200.4,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Risen Kushala"],
+		otherFormes: ["Kushala Daora-Risen"],
 	},
-	risenkushala: {
+	kushaladaorarisen: {
 		num: 35,
-		name: "Risen Kushala",
+		name: "Kushala Daora-Risen",
 		baseSpecies: "Kushala Daora",
 		forme: "Mega",
 		types: ["Flying", "Steel"],
@@ -730,11 +730,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Drought", H: "Reckless"},
 		weightkg: 113.0,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Risen Teostra"],
+		otherFormes: ["Teostra-Risen"],
 	},
-	risenteostra: {
+	teostrarisen: {
 		num: 37,
-		name: "Risen Teostra",
+		name: "Teostra-Risen",
 		baseSpecies: "Teostra",
 		forme: "Mega",
 		types: ["Dragon", "Fire"],
@@ -782,11 +782,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Hustle", 1: "Tough Claws", H: "Honey Gather"},
 		weightkg: 95.0,
 		tags: ["Fanged Beast"],
-		otherFormes: ["Redhelm Arzuros"],
+		otherFormes: ["Arzuros-Redhelm"],
 	},
- 	redhelmarzuros: {
+ 	arzurosredhelm: {
 		num: 40,
-		name: "Redhelm Arzuros",
+		name: "Arzuros-Redhelm",
 		baseSpecies: "Arzuros",
 		forme: "Mega",
 		types: ["Normal"],
@@ -803,12 +803,12 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 92, atk: 118, def: 70, spa: 105, spd: 80, spe: 100},
 		abilities: {0: "Frostnip", H: "Slush Rush"},
 		weightkg: 152.2,
-		otherFormes: ["Frostfang Barioth"],
+		otherFormes: ["Barioth-Frostfang"],
 		tags: ["Flying Wyvern"],
 	},
-	frostfangbarioth: {
+	bariothfrostfang: {
 		num: 41,
-		name: "Frostfang Barioth",
+		name: "Barioth-Frostfang",
 		baseSpecies: "Barioth",
 		forme: "Mega",
 		types: ["Ice", "Flying"],
@@ -844,11 +844,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Iron Fist", H: "Poison Touch"},
 		weightkg: 105.0,
 		tags: ["Brute Wyvern"],
-		otherFormes: ["Raging Brachydios"],
+		otherFormes: ["Brachydios-Raging"],
 	},
- 	ragingbrachydios: {
+ 	brachydiosraging: {
 		num: 43,
-		name: "Raging Brachydios",
+		name: "Brachydios-Raging",
 		baseSpecies: "Brachydios",
 		forme: "Mega",
 		types: ["Fighting", "Poison"],
@@ -866,11 +866,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Dragon's Maw", H: "Cud Chew"},
 		weightkg: 120.0,
 		tags: ["Brute Wyvern"],
-		otherFormes: ["Savage Deviljho"],
+		otherFormes: ["Deviljho-Savage"],
 	},
-	savagedeviljho: {
+	deviljhosavage: {
 		num: 44,
-		name: "Savage Deviljho",
+		name: "Deviljho-Savage",
 		baseSpecies: "Deviljho",
 		forme: "Mega",
 		types: ["Dark", "Fighting"],
@@ -880,9 +880,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		tags: ["Brute Wyvern"],
 		requiredItem: "Devilite",
 	},
-	deviljhostarving: {
+	starvinjho: {
 		num: 44,
-		name: "Deviljho-Starving",
+		name: "Starvinjho",
 		types: ["Ghost", "Fighting"],
 		baseStats: {hp: 100, atk: 125, def: 110, spa: 75, spd: 100, spe: 95},
 		abilities: {0: "Starving Bite"},
@@ -972,7 +972,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Surge Surfer", 1: "Swift Swim", H: "Electromorphosis"},
 		weightkg: 70.0,
 		tags: ["Leviathan"],
-		otherFormes: ["Abyssal Lagiacrus"],
+		otherFormes: ["Lagiacrus-Abyssal"],
 	},
 	ivogiacrus: {
 		num: 51,
@@ -992,9 +992,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 90.0,
 		tags: ["Leviathan"],
 	},
- 	abyssallagiacrus: {
+ 	lagiacrusabyssal: {
 		num: 51,
-		name: "Abyssal Lagiacrus",
+		name: "Lagiacrus-Abyssal",
 		baseSpecies: "Lagiacrus",
 		forme: "Mega",
 		types: ["Water", "Dark"],
@@ -1012,11 +1012,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Fur Coat", H: "Slush Rush"},
 		weightkg: 53.4,
 		tags: ["Fanged Beast"],
-		otherFormes: ["Snowbaron Lagombi"],
+		otherFormes: ["Lagombi-Snowbaron"],
 	},
- 	snowbaronlagombi: {
+ 	lagombisnowbaron: {
 		num: 52,
-		name: "Snowbaron Lagombi",
+		name: "Lagombi-Snowbaron",
 		baseSpecies: "Lagombi",
 		forme: "Mega",
 		types: ["Normal", "Ice"],
@@ -1072,11 +1072,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "No Guard", 1: "Relentless", H: "Sturdy"},
 		weightkg: 80.0,
 		tags: ["Brute Wyvern"],
-		otherFormes: ["Crystalbeard Uragaan"],
+		otherFormes: ["Uragaan-Crystalbeard"],
 	},
-	crystalbearduragaan: {
+	uragaancrystalbeard: {
 		num: 56,
-		name: "Crystalbeard Uragaan",
+		name: "Uragaan-Crystalbeard",
 		baseSpecies: "Uragaan",
 		forme: "Mega",
 		types: ["Ground", "Fairy"],
@@ -1103,7 +1103,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Speed Boost", H: "Insect Armor"},
 		weightkg: 178.4,
 		tags: ["Fanged Wyvern"],
-		otherFormes: ["Thunderlord Zinogre"],
+		otherFormes: ["Zinogre-Thunderlord"],
 	},
 	stygiogre: {
 		num: 58,
@@ -1114,18 +1114,18 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 178.4,
 		tags: ["Fanged Wyvern"],
 	},
-	zinogrehowling: {
+	howlinogre: {
 		num: 58,
-		name: "Zinogre-Howling",
+		name: "Howlinogre",
 		types: ["Electric"],
 		baseStats: {hp: 90, atk: 95, def: 85, spa: 160, spd: 90, spe: 85},
 		abilities: {0: "Howling Thunder"},
 		weightkg: 178.4,
 		tags: ["Fanged Wyvern"],
 	},
- 	thunderlordzinogre: {
+ 	zinogrethunderlord: {
 		num: 58,
-		name: "Thunderlord Zinogre",
+		name: "Zinogre-Thunderlord",
 		baseSpecies: "Zinogre",
 		forme: "Mega",
 		types: ["Electric"],
@@ -1210,11 +1210,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Lightning Rod", H: "Surge Surfer"},
 		weightkg: 45.5,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Boltreaver Astalos"],
+		otherFormes: ["Astalos-Boltreaver"],
 	},
- 	boltreaverastalos: {
+ 	astalosboltreaver: {
 		num: 64,
-		name: "Boltreaver Astalos",
+		name: "Astalos-Boltreaver",
 		baseSpecies: "Astalos",
 		forme: "Mega",
 		types: ["Bug", "Electric"],
@@ -1258,11 +1258,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Dauntless Shield", H: "Snow Warning"},
 		weightkg: 220.0,
 		tags: ["Fanged Beast"],
-		otherFormes: ["Elderfrost Gammoth"],
+		otherFormes: ["Gammoth-Elderfrost"],
 	},
-	elderfrostgammoth: {
+	gammothelderfrost: {
 		num: 66,
-		name: "Elderfrost Gammoth",
+		name: "Gammoth-Elderfrost",
 		baseSpecies: "Gammoth",
 		forme: "Mega",
 		types: ["Ground", "Ice"],
@@ -1281,11 +1281,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Dulled Blades", H: "Beast Boost"},
 		weightkg: 80.0,
 		tags: ["Brute Wyvern"],
-		otherFormes: ["Hellblade Glavenus"],
+		otherFormes: ["Glavenus-Hellblade"],
 	},
-	hellbladeglavenus: {
+	glavenushellblade: {
 		num: 67,
-		name: "Hellblade Glavenus",
+		name: "Glavenus-Hellblade",
 		baseSpecies: "Glavenus",
 		forme: "Mega",
 		types: ["Fire", "Steel"],
@@ -1350,12 +1350,12 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseStats: {hp: 108, atk: 70, def: 100, spa: 105, spd: 120, spe: 68},
 		abilities: {0: "Wonder Skin", H: "Trace"},
 		weightkg: 50.0,
-		otherFormes: ["Nightcloak Malfestio"],
+		otherFormes: ["Malfestio-Nightcloak"],
 		tags: ["Bird Wyvern"],
 	},
-	nightcloakmalfestio: {
+	malfestionightcloak: {
 		num: 71,
-		name: "Nightcloak Malfestio",
+		name: "Malfestio-Nightcloak",
 		baseSpecies: "Malfestio",
 		forme: "Mega",
 		types: ["Ghost", "Flying"],
@@ -1374,11 +1374,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Liquid Voice", H: "Marvel Scale"},
 		weightkg: 70.3,
 		tags: ["Leviathan"],
-		otherFormes: ["Soulseer Mizutsune"],
+		otherFormes: ["Mizutsune-Soulseer"],
 	},
- 	soulseermizutsune: {
+ 	mizutsunesoulseer: {
 		num: 72,
-		name: "Soulseer Mizutsune",
+		name: "Mizutsune-Soulseer",
 		baseSpecies: "Mizutsune",
 		forme: "Mega",
 		types: ["Water", "Fairy"],
@@ -1546,11 +1546,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 230.3,
 		tags: ["Elder Dragon"],
 		prevo: "Gore Magala",
-		otherFormes: ["Risen Shagaru"],
+		otherFormes: ["Shagaru Magala-Risen"],
 	},
-	risenshagaru: {
+	shagarumagalarisen: {
 		num: 83,
-		name: "Risen Shagaru",
+		name: "Shagaru Magala-Risen",
 		baseSpecies: "Shagaru Magala",
 		forme: "Mega",
 		types: ["Dragon", "Fairy"],
@@ -1652,11 +1652,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Skill Link", H: "Reckless"},
 		weightkg: 220.5,
 		tags: ["Flying Wyvern"],
-		otherFormes: ["Seething Bazelgeuse"],
+		otherFormes: ["Bazelgeuse-Seething"],
 	},
- 	seethingbazelgeuse: {
+ 	bazelgeuseseething: {
 		num: 90,
-		name: "Seething Bazelgeuse",
+		name: "Bazelgeuse-Seething",
 		baseSpecies: "Bazelgeuse",
 		forme: "Mega",
 		types: ["Fire", "Dark"],
@@ -1819,11 +1819,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Intimidate", H: "Defiant"},
 		weightkg: 212.2,
 		tags: ["Fanged Wyvern"],
-		otherFormes: ["Scorned Magnamalo"],
+		otherFormes: ["Magnamalo-Scorned"],
 	},
- 	scornedmagnamalo: {
+ 	magnamaloscorned: {
 		num: 104,
-		name: "Scorned Magnamalo",
+		name: "Magnamalo-Scorned",
 		baseSpecies: "Magnamalo",
 		forme: "Mega",
 		types: ["Ghost", "Dark"],
@@ -2028,11 +2028,11 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Electric Surge", H: "Plus"},
 		weightkg: 154.3,
 		tags: ["Elder Dragon"],
-		otherFormes: ["Allmother Narwa"],
+		otherFormes: ["Narwa-Allmother"],
 	},
- 	allmothernarwa: {
+ 	narwaallmother: {
 		num: 119,
-		name: "Allmother Narwa",
+		name: "Narwa-Allmother",
 		baseSpecies: "Narwa",
 		forme: "Mega",
 		types: ["Electric", "Flying"],

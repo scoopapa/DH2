@@ -539,17 +539,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greencuga: {
 		tier: "MHUU",
 	},
-	allmothernarwa: {
-		tier: "MEGAS",
+	narwaallmother: {
+		tier: "MHOU",
 	},
-	nightcloakmalfestio: {
-		tier: "MEGAS",
+	malfestionightcloak: {
+		tier: "MHRU",
 	},
-	boltreaverastalos: {
-		tier: "MEGAS",
+	astalosboltreaver: {
+		tier: "MHUU",
 	},
-	massacrediablos: {
-		tier: "MEGAS",
+	diablosmassacre: {
+		tier: "MHOU",
 	},
 	primozeno: {
 		tier: "MHOU",
@@ -674,7 +674,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greensioth: {
 		tier: "MHUU",
 	},
-	zinogrehowling: {
+	howlinogre: {
 		tier: "MHUU",
 	},
 	pearlinas: {
@@ -683,103 +683,103 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	redzu: {
 		tier: "MHRU",
 	},
-	basariossandstone: {
+	sandarios: {
 		tier: "MHUU",
 	},
 	shahmadur: {
 		tier: "MHOU",
 	},
-	deviljhostarving: {
+	starvinjho: {
 		tier: "MHOU",
 	},
 	whiteblos: {
 		tier: "MHOU",
 	},
-	hellbladeglavenus: {
-		tier: "MEGAS",
+	glavenushellblade: {
+		tier: "MHOU",
 	},
-	crystalbearduragaan: {
-		tier: "MEGAS",
+	uragaancrystalbeard: {
+		tier: "MHUU",
 	},
-	stonefistdaimyo: {
-		tier: "MEGAS",
+	daimyohermitaurstonefist: {
+		tier: "MHOU",
 	},
-	emperorkirin: {
-		tier: "MEGAS",
+	kirinemperor: {
+		tier: "MHOU",
 	},
-	frostfangbarioth: {
+	bariothfrostfang: {
 		tier: "MHRUBL",
 	},
-	redhelmarzuros: {
-		tier: "MEGAS",
+	arzurosredhelm: {
+		tier: "MHRU",
 	},
 	harudomeruguz: {
-		tier: "MEGAS",
+		tier: "MHOU",
 	},
-	scornedmagnamalo: {
-		tier: "MEGAS",
+	magnamaloscorned: {
+		tier: "MHOU",
 	},
-	seethingbazelgeuse: {
-		tier: "MEGAS",
+	bazelgeuseseething: {
+		tier: "MHUU",
 	},
-	snowbaronlagombi: {
-		tier: "MEGAS",
+	lagombisnowbaron: {
+		tier: "MHOU",
 	},
-	soulseermizutsune: {
-		tier: "MEGAS",
+	mizutsunesoulseer: {
+		tier: "MHOU",
 	},
-	furiousrajang: {
-		tier: "MEGAS",
+	rajangfurious: {
+		tier: "MHOU",
 	},
-	dreadqueenrathian: {
-		tier: "MEGAS",
+	rathiandreadqueen: {
+		tier: "MHOU",
 	},
-	dreadkingrathalos: {
-		tier: "MEGAS",
+	rathalosdreadking: {
+		tier: "MHUU",
 	},
-	thunderlordzinogre: {
-		tier: "MEGAS",
+	zinogrethunderlord: {
+		tier: "MHUU",
 	},
-	ragingbrachydios: {
-		tier: "MEGAS",
+	brachydiosraging: {
+		tier: "MHUU",
 	},
-	abyssallagiacrus: {
-		tier: "MEGAS",
+	lagiacrusabyssal: {
+		tier: "MHUU",
 	},
-	crimsonfatalis: {
-		tier: "MEGAS",
+	fataliscrimson: {
+		tier: "MHOU",
 	},
-	whitefatalis: {
-		tier: "MEGAS",
+	fataliswhite: {
+		tier: "MHOU",
 	},
-	savagedeviljho: {
-		tier: "MEGAS",
+	deviljhosavage: {
+		tier: "MHUU",
 	},
 	plesiothz: {
-		tier: "MEGAS",
+		tier: "MHRU",
 	},
-	risenchameleos: {
-		tier: "MEGAS",
+	chameleosrisen: {
+		tier: "MHOU",
 	},
-	risenteostra: {
-		tier: "MEGAS",
+	teostrarisen: {
+		tier: "MHOU",
 	},
-	risenkushala: {
-		tier: "MEGAS",
+	kushaladaorarisen: {
+		tier: "MHOU",
 	},
-	risenshagaru: {
-		tier: "MEGAS",
+	shagarumagalarisen: {
+		tier: "MHOU",
 	},
 	inagamiz: {
-		tier: "MEGAS",
+		tier: "MHOU",
 	},
-	deadeyegaruga: {
-		tier: "MEGAS",
+	yiangarugadeadeye: {
+		tier: "MHOU",
 	},
-	elderfrostgammoth: {
-		tier: "MEGAS",
+	gammothelderfrost: {
+		tier: "MHOU",
 	},
-	grimclawtigrex: {
-		tier: "MEGAS",
+	tigrexgrimclaw: {
+		tier: "MHUU",
 	}
 };
