@@ -2561,7 +2561,6 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Generalist"},
 		weightkg: 50.0,
 		tags: ["Elder Dragon"],
-		prevo: "Oltura-Larval",
 	},
 	/*
 	Lynians + Canyne
