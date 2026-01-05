@@ -395,10 +395,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	ruststorm: {
 		name: "Ruststorm",
-		effectType: "Weather",
 		duration: 0,
 		onFieldStart(field, source) {
-			this.add('-weather', 'Ruststorm', '[from] ability: Rusted Gale', '[of] ' + source);
+			this.add('-fieldstart', 'Ruststorm', '[from] ability: Rusted Gale', '[of] ' + source);
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!this.field.pseudoWeather['ruststorm']) return;
