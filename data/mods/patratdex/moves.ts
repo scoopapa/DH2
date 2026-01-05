@@ -185,7 +185,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Nature's Bounty",
 		pp: 5,
 		priority: 0,
-		flags: {nonsky: 1},
+		flags: {nonsky: 1,protect: 1, mirror: 1},
 		terrain: 'grassyterrain',
 		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
@@ -239,24 +239,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-	},
-	
-	oilshot: {
-		num: 9009,
-		accuracy: 100,
-		basePower: 70,
-		category: "Special",
-		shortDesc: "Blocks healing for 2 turns.",
-		name: "Oil Shot",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 100,
-			volatileStatus: 'healblock',
-		},
-		target: "normal",
-		type: "Water",
 	},
 
 	triwavebeam: {
