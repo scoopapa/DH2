@@ -740,7 +740,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	convectionnova: {
 		accuracy: 100,
-		basePower: 135,
+		basePower: 130,
 		category: "Special",
 		name: "Convection Nova",
 		pp: 5,
@@ -1812,6 +1812,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'bleeding',
 		},
 	},
+	collisioncourse: {
+		inherit: true,
+		basePower: 85,
+	},
+	electrodrift: {
+		inherit: true,
+		basePower: 85,
+	},
 	rest: {
 		inherit: true,
 		cantusetwice: 1,
@@ -2062,7 +2070,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	zenheadbutt: {
 		inherit: true,
 		accuracy: 100,
-
 	},
 	steamroller: {
 		inherit: true,
