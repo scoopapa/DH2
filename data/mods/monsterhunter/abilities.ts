@@ -132,44 +132,40 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
 			}
 		},
-		onTerrainStart() {
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.ability === 'biosynthesis') {
-					const terrain = this.field.terrain;
-					if (!terrain) continue;
-					this.add('-activate', pokemon, 'ability: Biosynthesis');
-					pokemon.heal(pokemon.maxhp / 3);
-					let boost = null;
-					let newType = null;
-					switch (terrain) {
-						case 'grassyterrain':
-							boost = 'def';
-							newType = 'Grass';
-							break;
-						case 'electricterrain':
-							boost = 'spd';
-							newType = 'Electric';
-							break;
-						case 'psychicterrain':
-							boost = 'spd';
-							newType = 'Psychic';
-							break;
-						case 'mistyterrain':
-							boost = 'spd';
-							newType = 'Fairy';
-							break;
-					}
-					if (boost) this.boost({[boost]: 1}, pokemon);
-					if (newType) {
-						const oldTypes = pokemon.getTypes(true);
-						pokemon.setType([oldTypes[0], newType]);
-						this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
-					}
-				}
+		onTerrainChange(pokemon) {
+			const terrain = this.field.terrain;
+			if (!terrain) return;
+			this.add('-activate', pokemon, 'ability: Biosynthesis');
+			pokemon.heal(pokemon.maxhp / 3);
+			let boost = null;
+			let newType = null;
+			switch (terrain) {
+				case 'grassyterrain':
+					boost = 'def';
+					newType = 'Grass';
+					break;
+				case 'electricterrain':
+					boost = 'spd';
+					newType = 'Electric';
+					break;
+				case 'psychicterrain':
+					boost = 'spd';
+					newType = 'Psychic';
+					break;
+				case 'mistyterrain':
+					boost = 'spd';
+					newType = 'Fairy';
+					break;
+			}
+			if (boost) this.boost({[boost]: 1}, pokemon);
+			if (newType) {
+				const oldTypes = pokemon.getTypes(true);
+				pokemon.setType([oldTypes[0], newType]);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
 			}
 		},
 		name: "Biosynthesis",
-		shortDesc: "On switch-in or when terrain appears: Heals 33%, Seed boost, gains secondary type.",
+		shortDesc: "On switch-in or terrain change: Heals 33%, Seed boost, gains secondary type.",
 	},
 	blackflame: {
 		onSwitchOut(pokemon) {
