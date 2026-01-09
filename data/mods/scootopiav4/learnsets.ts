@@ -186,7 +186,7 @@ export const Learnsets = {
 			sunnyday: ["9L1"],
 			raindance: ["9L1"],
 		}
-	}
+	},
 	centipeat: {
 		learnset: {
 			substitute: ["9L1"],
@@ -224,7 +224,7 @@ export const Learnsets = {
 			wildcharge: ["9L1"],
 			recover: ["9L1"],
 		}
-	}
+	},
 	duratreme: {
 		learnset: {
 			substitute: ["9L1"],
