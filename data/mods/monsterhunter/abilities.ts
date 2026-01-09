@@ -100,13 +100,23 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Targeting drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
 	},
 	biosynthesis: {
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
+			this.biosynthesisActivate(pokemon);
+		},
+		onTerrainStart() {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.ability === 'biosynthesis') {
+					this.biosynthesisActivate(pokemon);
+				}
+			}
+		},
+		biosynthesisActivate(pokemon) {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
 			pokemon.heal(pokemon.maxhp / 3);
-			let boost: BoostID | null = null;
-			let newType: string | null = null;
+			let boost = null;
+			let newType = null;
 			switch (terrain) {
 				case 'grassyterrain':
 					boost = 'def';
@@ -125,9 +135,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					newType = 'Fairy';
 					break;
 			}
-			if (boost) {
-				this.boost({[boost]: 1}, pokemon);
-			}
+			if (boost) this.boost({[boost]: 1}, pokemon);
 			if (newType && !pokemon.hasType(newType)) {
 				const oldTypes = pokemon.getTypes();
 				pokemon.setType([oldTypes[0], newType]);
@@ -135,7 +143,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Biosynthesis",
-		shortDesc: "On Switch, if terrain is active: Heals 33% HP + Terrain Seed boost + Gains Secondary type.",
+		shortDesc: "On switch-in or when terrain appears: Heals 33%, Seed boost, gains secondary type.",
 	},
 	blackflame: {
 		onSwitchOut(pokemon) {
