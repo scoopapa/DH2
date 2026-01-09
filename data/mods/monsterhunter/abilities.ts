@@ -101,16 +101,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
-			this.biosynthesisActivate(pokemon);
-		},
-		onTerrainStart() {
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.ability === 'biosynthesis') {
-					this.biosynthesisActivate(pokemon);
-				}
-			}
-		},
-		biosynthesisActivate(pokemon) {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
@@ -140,6 +130,42 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				const oldTypes = pokemon.getTypes();
 				pokemon.setType([oldTypes[0], newType]);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
+			}
+		},
+		onTerrainStart() {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.ability === 'biosynthesis') {
+					const terrain = this.field.terrain;
+					if (!terrain) continue;
+					this.add('-activate', pokemon, 'ability: Biosynthesis');
+					pokemon.heal(pokemon.maxhp / 3);
+					let boost = null;
+					let newType = null;
+					switch (terrain) {
+						case 'grassyterrain':
+							boost = 'def';
+							newType = 'Grass';
+							break;
+						case 'electricterrain':
+							boost = 'spd';
+							newType = 'Electric';
+							break;
+						case 'psychicterrain':
+							boost = 'spd';
+							newType = 'Psychic';
+							break;
+						case 'mistyterrain':
+							boost = 'spd';
+							newType = 'Fairy';
+							break;
+					}
+					if (boost) this.boost({[boost]: 1}, pokemon);
+					if (newType && !pokemon.hasType(newType)) {
+						const oldTypes = pokemon.getTypes();
+						pokemon.setType([oldTypes[0], newType]);
+						this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
+					}
+				}
 			}
 		},
 		name: "Biosynthesis",
