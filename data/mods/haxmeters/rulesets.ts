@@ -22,7 +22,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = effectValue;
 				side.crit = critValue;
 				side.status = statusValue;
-				side.flinchChance = 0;
+				//side.flinchChance = 0;
 
 				side.pmiss = missValue;
 				side.peffect = effectValue;
@@ -36,16 +36,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			const sideTwo = this.sides[1];
 			this.add(`c:|${Math.floor(Date.now() / 1000)}||\/raw <div class="infobox"><details class="readmore code"><summary> <div class="summary-content-wrapper"><table class="summary-table"><thead><tr><th colspan="2">${sideOne.name}</th><td>|</td><th colspan="2">${sideTwo.name}</th></tr></thead><tbody><br><tr><td>Miss:</td><td>${roundNum(sideOne.miss, 2)}</td><td>|</td><td>Miss:</td><td>${roundNum(sideTwo.miss, 2)}</td></tr><<td>Effect:</td><td>${roundNum(sideOne.effect, 2)}</td><td>|</td><td>Effect:</td><td>${roundNum(sideTwo.effect, 2)}</td></tr><tr><td>Critical Hit:</td><td>${roundNum(sideOne.crit, 2)}</td><td>|</td><td>Critical Hit:</td><td>${roundNum(sideTwo.crit, 2)}</td></tr><<td>Status:</td><td>${roundNum(sideOne.status, 2)}</td><td>|</td><td>Status:</td><td>${roundNum(sideTwo.status, 2)}</td></tr></tbody></table></div></summary>`);
 		},
+		onBeforeTurn(pokemon) {
+			pokemon.flinchChance = 0;
+		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
-			if (pokemon.side.flinchChance > 0) pokemon.statuses.push('Flinch');
+			if (pokemon.flinchChance > 0) pokemon.statuses.push('Flinch');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
 			if (pokemon.volatiles['attract']) pokemon.statuses.push('Infatuation');
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
-			if (pokemon !== target) target.side.flinchChance = 0;
+			//if (pokemon !== target) target.side.flinchChance = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
 			let clauses = 0;
@@ -62,8 +65,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						clauses ++;
 						break;
 					case 'Flinch':
-						toAdd = pokemon.side.flinchChance;
-						pokemon.side.flinchChance = 0;
+						toAdd = pokemon.flinchChance;
+						pokemon.flinchChance = 0;
 						clauses ++;		
 						break;				
 					case 'Confusion':
