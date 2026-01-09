@@ -168,7 +168,6 @@ export const Learnsets = {
 			energyball: ["9L1"],
 			roost: ["9L1"],
 			leechseed: ["9L1"],
-			megadrain: ["9L1"],
 			pound: ["9L1"],
 			leer: ["9L1"],
 			absorb: ["9L1"],
