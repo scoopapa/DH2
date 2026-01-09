@@ -126,8 +126,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					break;
 			}
 			if (boost) this.boost({[boost]: 1}, pokemon);
-			if (newType && !pokemon.hasType(newType)) {
-				const oldTypes = pokemon.getTypes();
+			if (newType) {
+				const oldTypes = pokemon.getTypes(true);
 				pokemon.setType([oldTypes[0], newType]);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
 			}
@@ -160,8 +160,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 							break;
 					}
 					if (boost) this.boost({[boost]: 1}, pokemon);
-					if (newType && !pokemon.hasType(newType)) {
-						const oldTypes = pokemon.getTypes();
+					if (newType) {
+						const oldTypes = pokemon.getTypes(true);
 						pokemon.setType([oldTypes[0], newType]);
 						this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
 					}
