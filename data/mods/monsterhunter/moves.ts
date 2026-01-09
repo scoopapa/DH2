@@ -537,6 +537,75 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Pyro Ball", target);
         },
 	},
+	biorelease: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Biorelease",
+		desc: "If the user has a secondary type, this move changes to match it and becomes 120 BP. Hits all Pokémon on the field.",
+		shortDesc: "Changes type and power (120 BP) based on user's secondary type. Hits all Pokémon.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "all",
+		type: "Dragon",
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			const secondary = types[1];
+			if (!secondary) return;
+			switch (secondary) {
+				case 'Electric':
+					move.type = 'Electric';
+					break;
+				case 'Psychic':
+					move.type = 'Psychic';
+					break;
+				case 'Grass':
+					move.type = 'Grass';
+					break;
+				case 'Fairy':
+					move.type = 'Fairy';
+					break;
+			}
+		},
+		onBasePower(basePower, pokemon) {
+			const types = pokemon.getTypes();
+			const secondary = types[1];
+			if (!secondary) return;
+			switch (secondary) {
+				case 'Electric':
+					return this.chainModify(120 / 80);
+				case 'Psychic':
+					return this.chainModify(120 / 80);
+				case 'Grass':
+					return this.chainModify(120 / 80);
+				case 'Fairy':
+					return this.chainModify(120 / 80);
+			}
+		},
+		onPrepareHit(target, source, move) {
+			const types = source.getTypes();
+			const secondary = types[1];
+			this.attrLastMove('[still]');
+			switch (secondary) {
+				case 'Electric':
+					this.add('-anim', source, "Thunder Cage", target);
+					break;
+				case 'Psychic':
+					this.add('-anim', source, "Psystrike", target);
+					break;
+				case 'Grass':
+					this.add('-anim', source, "Bloom Doom", target);
+					break;
+				case 'Fairy':
+					this.add('-anim', source, "Light of Ruin", target);
+					break;
+				default:
+					this.add('-anim', source, "Eternabeam", target);
+					break;
+			}
+		},
+	},
 	crimsondawn: {
 		accuracy: 100,
 		basePower: 130,

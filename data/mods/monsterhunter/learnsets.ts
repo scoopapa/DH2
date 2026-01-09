@@ -8012,6 +8012,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			nastyplot: ["9L1"],
 			dracophage: ["9L1"],
 			mentalload: ["9L1"],
+			biorelease: ["9L1"],
 			dragonrush: ["9L1"],
 			earthquake: ["9L1"],
 			fireblast: ["9L1"],
