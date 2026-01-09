@@ -436,14 +436,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Solid Rock", 1: "Unaware", H: "Seed Sower"},
 		weightkg: 113,
 	},
-	pictagon: {
-		num: 1055,
-		name: "Pictagon",
-		types: ["Dragon", "Ghost"],
-		baseStats: {hp: 105, atk: 105, def: 60, spa: 80, spd: 85, spe: 95},
-		abilities: {0: "Clear Body", 1: "Infiltrator", H: "No Guard"},
-		weightkg: 113,
-	},
 	jaegorm: {
 		num: 1033,
 		name: "Jaegorm",
