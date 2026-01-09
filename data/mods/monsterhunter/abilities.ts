@@ -113,7 +113,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					newType = 'Grass';
 					break;
 				case 'electricterrain':
-					boost = 'spd';
+					boost = 'def';
 					newType = 'Electric';
 					break;
 				case 'psychicterrain':
@@ -145,7 +145,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					newType = 'Grass';
 					break;
 				case 'electricterrain':
-					boost = 'spd';
+					boost = 'def';
 					newType = 'Electric';
 					break;
 				case 'psychicterrain':
