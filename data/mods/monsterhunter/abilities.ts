@@ -107,7 +107,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			pokemon.heal(pokemon.maxhp / 3);
 			let boost: BoostID | null = null;
 			let newType: string | null = null;
-
 			switch (terrain) {
 				case 'grassyterrain':
 					boost = 'def';
@@ -134,10 +133,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.setType([oldTypes[0], newType]);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
 			}
-			this.field.clearTerrain();
 		},
 		name: "Biosynthesis",
-		shortDesc: "On activation: Ends terrain + Heals 33% HP + Terrain Seed boost + Gains Secondary type.",
+		shortDesc: "On Switch, if terrain is active: Heals 33% HP + Terrain Seed boost + Gains Secondary type.",
 	},
 	blackflame: {
 		onSwitchOut(pokemon) {
@@ -149,10 +147,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'brn' || attacker.status === 'dragonblight') && move.category === 'Physical') {
+				if (attacker.status === 'brn') {
+					return this.chainModify(2);
+				}
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (source.status === 'dragonblight') {
+				return 1.5;
+			}
+		},
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
 				if (pokemon.status === 'brn') {
-					this.debug('Black Flame negates burn Attack drop');
 					atk = this.modify(atk, 2);
 				}
 				return this.chainModify(1.3);
@@ -164,7 +173,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% HP on Switch | If BRN/DRGB: Offenses are 1.3x, ignores status drawbacks.",
+		shortDesc: "Heals 33% HP on Switch | If BRN/DRGB: Offenses 1.3x, ignores all drawbacks.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
