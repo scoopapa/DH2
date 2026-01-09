@@ -1,174 +1,174 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arbrellanorth: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	noxtrice: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	alliglacier: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	wingnut: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	lumoth: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	sturgard: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	minillow: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	eleqwil: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	cinnastar: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	centipeat: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	smeltoise: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	coraking: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	harzodia: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	soleron: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	embuck: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	cindoe: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	sumolug: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	marshasaur: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	duratreme: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	celespirit: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	kasappa: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	silvuna: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	velocipasta: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	stonehusk: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	caliguar: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	himalao: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	kodokai: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	muabboa: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	jamborai: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	rantler: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	echologos: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	woolora: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	elemadillo: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	dracoil: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	cyllindrake: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	zephyrmine: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	boreasel: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	xiphoil: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	skawamud: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	zygola: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	noxon: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	corundell: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 	quadringo: {
 		tier: "scoo",
-		scooblesTier: "scoo",
+		doublesTier: "scoo",
 	},
 };

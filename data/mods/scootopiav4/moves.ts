@@ -59,7 +59,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		selfSwitch: 'shedtail',
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Flying",
 		zMove: {effect: 'clearnegativeboost'},
 	},
 	windcurse: {
@@ -80,7 +80,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Flying",
 		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
 	},
