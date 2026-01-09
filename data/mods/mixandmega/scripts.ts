@@ -6,7 +6,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!item.megaStone && !item.onDrive && !(item.onPlate && !item.zMove) && !item.onMemory) continue;
 			this.modData('Items', i).onTakeItem = false;
 			if (item.isNonstandard === "Past" || item.isNonstandard === "Future") this.modData('Items', i).isNonstandard = null;
-			if (item.megaStone && item.isNonstandard !== "Custom") {
+			if (item.megaStone) {
 				for (const megaEvo of Object.values(item.megaStone)) {
 					this.modData('FormatsData', this.toID(megaEvo)).isNonstandard = null;
 				}

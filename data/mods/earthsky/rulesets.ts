@@ -92,7 +92,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		effectType: 'ValidatorRule',
 		name: 'Restricted Rules',
 		desc: "Limits teams to two members who are Legendaries/Mythicals/Ultra Beasts/Paradoxes and enforces Item Clause.",
-		ruleset: ['Item Clause'],
+		ruleset: ['Item Clause = 1'],
 		onValidateTeam(team){
 			let restrictedCount = 0;
 			for (const set of team) {
