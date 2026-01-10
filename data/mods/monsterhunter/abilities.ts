@@ -316,14 +316,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Don’t overwrite existing burn effects
 				if (!move.secondaries) move.secondaries = [];
 				move.secondaries.push({
-					chance: 50,
+					chance: 30,
 					status: 'brn',
 					ability: 'crimsondemon',
 				});
 			}
 		},
 		name: "Crimson Demon",
-		shortDesc: "KO Opponent: 1+ Attack | Dragon Moves: 50% BRN Chance",
+		shortDesc: "KO Opponent: 1+ Attack | Dragon Moves: 30% BRN Chance.",
 	},
 	crystalblight: {
 		onResidualOrder: 26,
@@ -517,14 +517,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				// Don’t overwrite existing secondaries
 				if (!move.secondaries) move.secondaries = [];
 				move.secondaries.push({
-					chance: 50,
+					chance: 30,
 					status: 'par',
 					ability: 'emperorsroar',
 				});
 			}
 		},
 		name: "Emperor's Roar",
-		shortDesc: "KOs give +1 SpA. Dragon moves have a 50% chance to paralyze.",
+		shortDesc: "KOs give +1 SpA | Dragon moves have a 30% PAR chance.",
 	},
 	empressthrone: {
 		onResidualOrder: 29,
