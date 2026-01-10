@@ -49,7 +49,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rock Head", H: "Rough Skin"},
 		weightkg: 116,
 	},
-	// minillo{
+	// minillow {
 		// num: 1007,
 		// name: "Minillow",
 		// types: ["Water", "Fairy"],
