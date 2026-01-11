@@ -346,6 +346,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "At the end of each turn, opposing Pokémon that are paralyzed take 1/16 of their max HP as damage and become Fatigued.",
 		shortDesc: "Foes w/ PAR: Gain Fatigue & lose 1/16 HP each turn",
 	},
+	cryofruin: {
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.volatiles['enraged']) {
+				pokemon.tryTrap();
+				this.add('cant', pokemon, '[from] ability: Cry of Ruin', 'The Pokémon is too enraged to flee!');
+			}
+		},
+		name: "Cry of Ruin",
+		shortDesc: "Enraged foes are trapped and cannot switch.",
+	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;

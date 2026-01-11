@@ -3654,6 +3654,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			steelwing: ["9L1"],
 			agility: ["9L1"],
+			aurasphere: ["9L1"],
 			cosmicpower: ["9L1"],
 			dragondance: ["9L1"],
 			swordsdance: ["9L1"],

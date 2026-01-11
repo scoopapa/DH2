@@ -1592,7 +1592,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			volatileStatus: 'enraged',
 		},
-		shortDesc: "Does damage equal to the user's level. Target is enraged (Taunt) for one turn.",
+		shortDesc: "Damage = User's LVL. Target is enraged (Taunt) for two turns.",
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",

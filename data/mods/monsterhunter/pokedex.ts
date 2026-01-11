@@ -2553,9 +2553,9 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	olturalarval: {
 		num: 221,
 		name: "Oltura-Larval",
-		types: ["Bug", "Psychic"],
-		baseStats: {hp: 130, atk: 88, def: 112, spa: 88, spd: 100, spe: 45},
-		abilities: {0: "Arena Trap"},
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 130, atk: 100, def: 112, spa: 60, spd: 88, spe: 45},
+		abilities: {0: "Cry of Ruin"},
 		weightkg: 700.0,
 		tags: ["Elder Dragon"],
 		evos: ["Oltura"],
