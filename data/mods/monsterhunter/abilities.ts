@@ -1587,10 +1587,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	tempestenergy: {
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
+			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
@@ -1604,7 +1604,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
+			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
@@ -1616,16 +1616,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	tempestforce: {
 		inherit: true,
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
+			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
+			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},

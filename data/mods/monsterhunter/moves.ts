@@ -543,7 +543,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Biorelease",
 		desc: "If the user has a secondary type, this move changes to match it and becomes 120 BP. Hits all Pokémon on the field.",
-		shortDesc: "Changes type and power (120 BP) based on user's secondary type. Hits all Pokémon.",
+		shortDesc: "Changes type (and power) based on user's secondary type. Hits all Pokémon.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -573,14 +573,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const secondary = types[1];
 			if (!secondary) return;
 			switch (secondary) {
-				case 'Electric':
-					return this.chainModify(120 / 80);
-				case 'Psychic':
-					return this.chainModify(120 / 80);
-				case 'Grass':
-					return this.chainModify(120 / 80);
 				case 'Fairy':
-					return this.chainModify(120 / 80);
+					return this.chainModify(100 / 90);
 			}
 		},
 		onPrepareHit(target, source, move) {
