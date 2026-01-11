@@ -15,7 +15,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "scoo",
 		doublesTier: "scoo",
 	},
-	lumoth: {
+	corsegeist: {
 		tier: "scoo",
 		doublesTier: "scoo",
 	},
@@ -52,6 +52,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "scoo",
 	},
 	soleron: {
+		tier: "scoo",
+		doublesTier: "scoo",
+	},
+	halbeetle: {
 		tier: "scoo",
 		doublesTier: "scoo",
 	},
