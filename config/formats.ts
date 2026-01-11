@@ -4330,8 +4330,8 @@ export const Formats: FormatList = [
 		"Embuck", "Cindoe", "Minillow", "Eleqwil", "Duratreme", "Velocipasta", "Cinnastar", "Sumolug", "Coraking",
 		"Harzodia", "Cyllindrake", "Soleron", "Soleron-Awakened", "Zephyrmine", "Boreasel", "Elemadillo",
 		"Skawamud", "Silvuna", "Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Himalao", "Zygola", 
-		"Stone Husk", "Corundell", "Quadringo", "Kodokai", "Marshasaur", "Caliguar", "Wingnut", "Lumoth",
-		"Centipeat", "Smeltoise", "MuabBoa", "Echologos"],
+		"Stone Husk", "Corundell", "Quadringo", "Kodokai", "Marshasaur", "Caliguar", "Wingnut", "Corsegeist",
+		"Centipeat", "Smeltoise", "MuabBoa", "Echologos", "Halbeetle"],
 	},
 	// {
         // name: "[Gen 9] Scootopia Random Battle",
