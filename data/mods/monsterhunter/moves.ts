@@ -544,7 +544,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Biorelease",
 		desc: "If the user has a secondary type, this move changes to match it and becomes 120 BP. Hits all Pokémon on the field.",
 		shortDesc: "Changes type (and power) based on user's secondary type. Hits all Pokémon.",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "allAdjacent",

@@ -8002,7 +8002,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	safijiiva: {
 		learnset: {
-			biocharge: ["9L1"],
 			dracophage: ["9L1"],
 			mentalload: ["9L1"],
 			biorelease: ["9L1"],
