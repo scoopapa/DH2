@@ -49,7 +49,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rock Head", 1: "Rain Dish", H: "Rough Skin"},
 		weightkg: 116,
 	},
-	minillow {
+	minillow: {
 		num: 1007,
 		name: "Minillow",
 		types: ["Water", "Fairy"],
@@ -57,7 +57,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swift Swim", 1: "Dazzling", H: "Adaptability"},
 		weightkg: 22,
 	},
-		barbolt: {
+	barbolt: {
 		num: 1081,
 		name: "Barbolt",
 		types: ["Water", "Electric"],
