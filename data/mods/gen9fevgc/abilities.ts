@@ -6095,23 +6095,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Automaton of Ruin SpA drop');
 			return this.chainModify(0.75);
 		},
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "unboost", "[from] ability: Automaton of Ruin", "[of] " + target);
-			}
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
 		},
 		flags: {breakable: 1},
 		name: "Automaton of Ruin",
-		shortDesc: "Vessel of Ruin + Clear Body",
+		shortDesc: "Vessel of Ruin + Light Metal",
 	},
 	poultryofruin: {
 		onStart(pokemon) {
