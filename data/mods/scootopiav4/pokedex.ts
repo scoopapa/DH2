@@ -255,7 +255,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 70, atk: 125, def: 115, spa: 60, spd: 105, spe: 45},
 		abilities: {0: "Sturdy", H: "Shell Bunker"},
-		weightkg: W: 189,
+		weightkg: 189,
 	},
 	corsegeist: {
 		num: 1080,
@@ -263,7 +263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 67, atk: 82, def: 88, spa: 98, spd: 98, spe: 92},
 		abilities: {0: "Berserk", H: "Tough Claws"},
-		weightkg: W: 15,
+		weightkg: 15,
 	},
 	// woolora: {
 		// num: 1032,
