@@ -4658,6 +4658,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (this.gameType !== 'doubles') return;
+			if (!pokemon.volatiles['jellyfilleddrive'] && this.field.isTerrain('electricterrain')) return;
+			if (!pokemon.volatiles['jellyfilleddrive'] && pokemon.hasItem('boosterenergy')) return;
 			const ally = pokemon.allies()[0];
 			if (!ally || pokemon.baseSpecies.baseSpecies !== 'Iron Onigiri' || ally.baseSpecies.baseSpecies !== 'Great Dozo') {
 				// Handle any edge cases
