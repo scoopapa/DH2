@@ -4329,7 +4329,7 @@ export const Formats: FormatList = [
 		unbanlist: ["Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", "Sumolug", "Coraking",
 		"Harzodia", "Soleron", "Soleron-Awakened", "Zephyrmine", "Boreasel", "Skawamud", "Silvuna", "Noxon", 
 		"Xiphoil", "Dracoil", "Celespirit", "Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise",
-		"Halbeetle", "Orchile", "Barbolt", "Celespirit", "Nunopod", "Dojodo", "Zeploom", "Kasappa"],
+		"Halbeetle", "Orchile", "Barbolt", "Nunopod", "Dojodo", "Zeploom", "Kasappa"],
 	},
 	// {
         // name: "[Gen 9] Scootopia Random Battle",
