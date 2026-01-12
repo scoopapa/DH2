@@ -4944,7 +4944,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			calmmind: ["9L1"],
 			acidspray: ["9L1"],
 			dracophage: ["9L1"],
-			dragondance: ["9L1"],
 			alluringvoice: ["9L1"],
 			ancientpower: ["9L1"],
 			aquaring: ["9L1"],
