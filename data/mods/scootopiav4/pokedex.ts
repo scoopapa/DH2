@@ -249,6 +249,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		// abilities: {0: "Intimidate", 1: "Slush Rush", H: "Tough Claws"},
 		// weightkg: 67,
 	// },
+	orchile: {
+		num: 1007,
+		name: "Orchile",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 65, atk: 60, def: 75, spa: 110, spd: 121, spe: 64},
+		abilities: {0: "Chlorophyll", 1: "Aroma Veil", H: "Flower Veil"},
+		weightkg: 45,
+	},
 	echologos: {
 		num: 1072,
 		name: "Echologos",
