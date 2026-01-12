@@ -2747,6 +2747,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bodypress: ["9M"],
 			coil: ["9L1"],
 			flamecharge: ["9L1"],
+			burningbulwark: ["9L1"],
 			mudbomb: ["9L1"],
 			bodyslam: ["9M"],
 			bulldoze: ["9M"],
