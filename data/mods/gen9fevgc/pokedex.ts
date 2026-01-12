@@ -1047,7 +1047,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Meta-Lu",
 		types: ["Ground", "Steel"],
 		gender: "N",
-		baseStats: {hp: 134, atk: 122, def: 127, spa: 75, spd: 85, spe: 57},
+		baseStats: {hp: 117, atk: 122, def: 127, spa: 75, spd: 85, spe: 57},
 		abilities: {0: "Automaton of Ruin"},
 		weightkg: 624.9,
 		tags: ["Sub-Legendary"],
