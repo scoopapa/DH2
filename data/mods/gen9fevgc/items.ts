@@ -333,6 +333,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	boosterenergy: {
 		inherit: true,
+		onSwitchIn(pokemon) {
+			if (!this.field.isTerrain('electricterrain')) {
+				for (const quark of ['jellyfilleddrive']) { 
+					if (pokemon.hasAbility(quark)) {
+						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
+							this.effectState.started = true;
+							pokemon.addVolatile(quark);
+						}
+						return;
+					}
+				}
+			}
+		},
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
 			if (!this.field.isWeather('sunnyday')) {

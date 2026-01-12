@@ -99,6 +99,112 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Bewitching Tail",
 		shortDesc: "Targeting drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
 	},
+	biosynthesis: {
+		onSwitchIn(pokemon) {
+			const terrain = this.field.terrain;
+			if (!terrain) return;
+			this.add('-activate', pokemon, 'ability: Biosynthesis');
+			pokemon.heal(pokemon.maxhp / 3);
+			let boost = null;
+			let newType = null;
+			switch (terrain) {
+				case 'grassyterrain':
+					boost = 'def';
+					newType = 'Grass';
+					break;
+				case 'electricterrain':
+					boost = 'def';
+					newType = 'Electric';
+					break;
+				case 'psychicterrain':
+					boost = 'spd';
+					newType = 'Psychic';
+					break;
+				case 'mistyterrain':
+					boost = 'spd';
+					newType = 'Fairy';
+					break;
+			}
+			if (boost) this.boost({[boost]: 1}, pokemon);
+			if (newType) {
+				const oldTypes = pokemon.getTypes(true);
+				pokemon.setType([oldTypes[0], newType]);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
+			}
+		},
+		onTerrainChange(pokemon) {
+			const terrain = this.field.terrain;
+			if (!terrain) return;
+			this.add('-activate', pokemon, 'ability: Biosynthesis');
+			pokemon.heal(pokemon.maxhp / 3);
+			let boost = null;
+			let newType = null;
+			switch (terrain) {
+				case 'grassyterrain':
+					boost = 'def';
+					newType = 'Grass';
+					break;
+				case 'electricterrain':
+					boost = 'def';
+					newType = 'Electric';
+					break;
+				case 'psychicterrain':
+					boost = 'spd';
+					newType = 'Psychic';
+					break;
+				case 'mistyterrain':
+					boost = 'spd';
+					newType = 'Fairy';
+					break;
+			}
+			if (boost) this.boost({[boost]: 1}, pokemon);
+			if (newType) {
+				const oldTypes = pokemon.getTypes(true);
+				pokemon.setType([oldTypes[0], newType]);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Biosynthesis');
+			}
+		},
+		name: "Biosynthesis",
+		shortDesc: "On switch-in or terrain change: Heals 33%, Seed boost, gains secondary type.",
+	},
+	blackflame: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.maxhp / 3);
+		},
+		onDamage(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.id === 'brn' || effect.id === 'dragonblight') {
+				return false;
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'brn' || attacker.status === 'dragonblight') && move.category === 'Physical') {
+				if (attacker.status === 'brn') {
+					return this.chainModify(2);
+				}
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (source.status === 'dragonblight') {
+				return 1.5;
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
+				if (pokemon.status === 'brn') {
+					atk = this.modify(atk, 2);
+				}
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpA(spa, pokemon) {
+			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Black Flame",
+		shortDesc: "Heals 33% HP on Switch | If BRN/DRGB: Offenses 1.3x, ignores all drawbacks.",
+	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
 			if (!move || !target) return;
@@ -200,6 +306,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage, unless the foe is holding a Covert Cloak.",
 		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
 	},
+	crimsondemon: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (!source || source.fainted || source === target) return;
+			this.boost({atk: 1}, source);
+		},
+		onModifyMove(move, attacker, defender) {
+			if (move.type === 'Dragon') {
+				// Don’t overwrite existing burn effects
+				if (!move.secondaries) move.secondaries = [];
+				move.secondaries.push({
+					chance: 30,
+					status: 'brn',
+					ability: 'crimsondemon',
+				});
+			}
+		},
+		name: "Crimson Demon",
+		shortDesc: "KO Opponent: 1+ Attack | Dragon Moves: 30% BRN Chance.",
+	},
 	crystalblight: {
 		onResidualOrder: 26,
 		onResidual(pokemon) {
@@ -220,6 +345,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Crystalblight",
 		desc: "At the end of each turn, opposing Pokémon that are paralyzed take 1/16 of their max HP as damage and become Fatigued.",
 		shortDesc: "Foes w/ PAR: Gain Fatigue & lose 1/16 HP each turn",
+	},
+	cryofruin: {
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.volatiles['enraged']) {
+				pokemon.tryTrap();
+				this.add('cant', pokemon, '[from] ability: Cry of Ruin', 'The Pokémon is too enraged to flee!');
+			}
+		},
+		name: "Cry of Ruin",
+		shortDesc: "Enraged foes are trapped and cannot switch.",
 	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
@@ -382,6 +517,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "On switch-in: Sets Primordial Weather, Dust Devil (Sandstorm + Perfect Rock Accuracy + 1/16 chip, except user).",
 		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sandstorm, removes accuracy check for rock moves, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Absolute Zero abilities.",
     },
+	emperorsroar: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (!source || source.fainted || source === target) return;
+			this.boost({spa: 1}, source);
+		},
+		onModifyMove(move, attacker, defender) {
+			if (move.type === 'Dragon') {
+				// Don’t overwrite existing secondaries
+				if (!move.secondaries) move.secondaries = [];
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+					ability: 'emperorsroar',
+				});
+			}
+		},
+		name: "Emperor's Roar",
+		shortDesc: "KOs give +1 SpA | Dragon moves have a 30% PAR chance.",
+	},
 	empressthrone: {
 		onResidualOrder: 29,
 		onResidual(pokemon) {
@@ -483,6 +637,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 		},
+		onModifyMove(move, attacker) {
+			if (move.type === 'Ice' && !attacker.hasType('Ice')) {
+				move.stab = 1.5;
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Ice') {
+				return typeMod - 1;
+			}
+		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.fallen && move.type === 'Ice') {
@@ -491,9 +655,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
-		flags: {},
 		name: "Frozen Calamity",
-		shortDesc: "For each fainted foe: Ice-type power +5%.",
+    	shortDesc: "STAB on Ice; resists Ice; +5% Ice power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,
@@ -1424,10 +1587,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	tempestenergy: {
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
+			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
@@ -1441,7 +1604,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
+			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
@@ -1453,16 +1616,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	tempestforce: {
 		inherit: true,
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
+			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
+			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},

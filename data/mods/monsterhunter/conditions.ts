@@ -299,7 +299,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	enraged: {
 		name: 'Enraged',
-		duration: 1,
+		duration: 2,
 		onStart(target) {
 			if (target.activeTurns && !this.queue.willMove(target)) {
 				this.effectState.duration++;
