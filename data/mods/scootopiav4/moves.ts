@@ -68,6 +68,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Wind Curse",
+		shortDesc: "User: Switch. Lowers foe's Speed by 1 stage.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, wind: 1, metronome: 1},
@@ -105,21 +106,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	spore: {
 		inherit: true,
 		pp: 10,
-		desc: "Puts the opponent to sleep for 1 turn",
+		desc: "Puts the opponent to sleep for 1 turn. Halved Speed while asleep",
 		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
-		desc: "Puts the opponent to sleep for 1 turn",
+		desc: "Puts the opponent to sleep for 1 turn. Halved Speed while asleep",
 		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
-		desc: "Puts the opponent to sleep for 1 turn",
+		desc: "Puts the opponent to sleep for 1 turn. Halved Speed while asleep",
 		viable: true,
 	},
 	grasswhistle: {
@@ -127,7 +128,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isNonstandard: null,
 		pp: 25,
 		accuracy: 80,
-		desc: "Puts the opponent to sleep for 1 turn",
+		desc: "Puts the opponent to sleep for 1 turn. Halved Speed while asleep",
 		viable: true,
 	},
 	

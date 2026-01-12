@@ -129,14 +129,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		// abilities: {0: "Flash Fire", H: "Intimidate"},
 		// weightkg: 113,
 	// },
-	// cindoe: {
-		// num: 1016,
-		// name: "Cindoe",
-		// types: ["Fire", "Dark"],
-		// baseStats: {hp: 80, atk: 75, def: 55, spa: 110, spd: 100, spe: 105},
-		// abilities: {0: "Flash Fire", H: "Natural Cure"},
-		// weightkg: 67,
-	// },
+	cindoe: {
+		num: 1009,
+		name: "Cindoe",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 80, atk: 74, def: 55, spa: 110, spd: 100, spe: 106},
+		abilities: {0: "Flash Fire", H: "Regenerator"},
+		weightkg: 67,
+	},
 	sumolug: {
 		num: 1063,
 		name: "Sumolug",
