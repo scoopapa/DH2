@@ -27,6 +27,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "scoo",
 		doublesTier: "scoo",
 	},
+	barbolt: {
+		tier: "scoo",
+		doublesTier: "scoo",
+	},
 	eleqwil: {
 		tier: "scoo",
 		doublesTier: "scoo",
