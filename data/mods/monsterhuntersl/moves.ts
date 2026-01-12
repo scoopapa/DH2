@@ -537,6 +537,69 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Pyro Ball", target);
         },
 	},
+	biorelease: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Biorelease",
+		desc: "If the user has a secondary type, this move changes to match it and becomes 120 BP. Hits all Pokémon on the field.",
+		shortDesc: "Changes type (and power) based on user's secondary type. Hits all Pokémon.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "allAdjacent",
+		type: "Dragon",
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			const secondary = types[1];
+			if (!secondary) return;
+			switch (secondary) {
+				case 'Electric':
+					move.type = 'Electric';
+					break;
+				case 'Psychic':
+					move.type = 'Psychic';
+					break;
+				case 'Grass':
+					move.type = 'Grass';
+					break;
+				case 'Fairy':
+					move.type = 'Fairy';
+					break;
+			}
+		},
+		onBasePower(basePower, pokemon) {
+			const types = pokemon.getTypes();
+			const secondary = types[1];
+			if (!secondary) return;
+			switch (secondary) {
+				case 'Fairy':
+					return this.chainModify(100 / 90);
+			}
+		},
+		onPrepareHit(target, source, move) {
+			const types = source.getTypes();
+			const secondary = types[1];
+			this.attrLastMove('[still]');
+			switch (secondary) {
+				case 'Electric':
+					this.add('-anim', source, "Thunder Cage", target);
+					break;
+				case 'Psychic':
+					this.add('-anim', source, "Psystrike", target);
+					break;
+				case 'Grass':
+					this.add('-anim', source, "Bloom Doom", target);
+					break;
+				case 'Fairy':
+					this.add('-anim', source, "Light of Ruin", target);
+					break;
+				default:
+					this.add('-anim', source, "Eternabeam", target);
+					break;
+			}
+		},
+	},
 	crimsondawn: {
 		accuracy: 100,
 		basePower: 130,
@@ -740,7 +803,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	convectionnova: {
 		accuracy: 100,
-		basePower: 135,
+		basePower: 130,
 		category: "Special",
 		name: "Convection Nova",
 		pp: 5,
@@ -1306,22 +1369,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Seraphic Shift",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, bypasssub: 1},
+		flags: {protect: 1, mirror: 1},
 		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Disufiroa' && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
-				const meloettaForme = pokemon.species.id === 'disufiroasol' ? '' : '-Sol';
-				pokemon.formeChange('Disufiroa' + meloettaForme, this.effect, false, '[msg]');
-			}
+			if (!move.willChangeForme) return;
+
+			// Toggle between the two forms
+			const newForm =
+				pokemon.species.id === 'disufiroasol'
+					? 'Disufiroa'        // revert to base
+					: 'Disufiroa-Sol';   // shift to Sol
+
+			pokemon.formeChange(newForm, this.effect, false, '[msg]');
 		},
 		onPrepareHit(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Sheer Cold", target);
-        },
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sheer Cold", target);
+		},
 		shortDesc: "Changes Disufiroa's form.",
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -1518,7 +1586,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			volatileStatus: 'enraged',
 		},
-		shortDesc: "Does damage equal to the user's level. Target is enraged (Taunt) for one turn.",
+		shortDesc: "Damage = User's LVL. Target is enraged (Taunt) for two turns.",
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
@@ -1812,6 +1880,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'bleeding',
 		},
 	},
+	collisioncourse: {
+		inherit: true,
+		basePower: 85,
+	},
+	electrodrift: {
+		inherit: true,
+		basePower: 85,
+	},
 	rest: {
 		inherit: true,
 		cantusetwice: 1,
@@ -2062,7 +2138,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	zenheadbutt: {
 		inherit: true,
 		accuracy: 100,
-
 	},
 	steamroller: {
 		inherit: true,
