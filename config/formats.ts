@@ -4325,12 +4325,14 @@ export const Formats: FormatList = [
 		mod: "scootopiav4",
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule', 'Super Type Clause'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil', 'Crystal Heart', 'Wild Heart'],
-		unbanlist: ["Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", 
-		"Sumolug", "Coraking", "Crolegion", "Soleron", "Soleron-Awakened", "Zephyrmine", 
-		"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", "Celespirit", 
-		"Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise", "Halbeetle", "Echologos",
-		"Orchile", "Barbolt", "Celespirit", "Nunopod", "Dojodo", "Zeploom", "Kasappa",
-		"Jamborai", "Cyllindrake"],
+		unbanlist: [
+			"Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", 
+			"Sumolug", "Coraking", "Soleron", "Soleron-Awakened", "Zephyrmine", "Jamborai", 
+			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", 
+			"Celespirit", "Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise", 
+			"Halbeetle", "Echologos", "Orchile", "Barbolt", "Celespirit", "Dojodo", 
+			"Zeploom", "Kasappa", "Cyllindrake"
+		],
 	},
 	// {
         // name: "[Gen 9] Scootopia Random Battle",
