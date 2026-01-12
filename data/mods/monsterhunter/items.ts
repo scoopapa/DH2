@@ -47,6 +47,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			pokemon.trySetStatus('frz', pokemon);
 		},
 	},
+	safetygoggles: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'dustdevil' || type === 'absolutezero' || type === 'powder') return false;
+		},
+	},
 	/*
 	Mega Stones
 	*/
