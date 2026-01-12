@@ -1,5 +1,6 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	soulheart: {
+		shortDesc: "Recovers 10% HP for each fallen Pokemon since last switch-in.",
 		onStart(pokemon) {
 			let fallen = 0;
 			if (pokemon.side.totalFainted) fallen += Math.min(pokemon.side.totalFainted, 5);

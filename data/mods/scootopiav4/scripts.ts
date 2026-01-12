@@ -16,5 +16,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		// Kodokai
 		this.modData("Learnsets", "kodokai").learnset.teleport = ["9L1"];
+		// Dracoil
+		this.modData("Learnsets", "dracoil").learnset.scaleshot = ["9L1"];
+		this.modData("Learnsets", "dracoil").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "dracoil").learnset.icespinner = ["9L1"];
+		this.modData("Learnsets", "dracoil").learnset.temperflare = ["9L1"];
+		this.modData("Learnsets", "dracoil").learnset.poisonfang = ["9L1"];
+		this.modData("Learnsets", "dracoil").learnset.wrap = ["9L1"];
 	}
 };
