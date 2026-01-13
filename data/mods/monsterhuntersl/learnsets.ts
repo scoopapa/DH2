@@ -8794,6 +8794,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			suckerpunch: ["9L1"],
 			submission: ["9L1"],
 			attract: ["9L1"],
+			swordsdance: ["9L1"],
 			barbbarrage: ["9L1"],
 			beatup: ["9L1"],
 			frenzyslam: ["9L1"],
