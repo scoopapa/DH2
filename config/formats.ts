@@ -4328,7 +4328,7 @@ export const Formats: FormatList = [
 		unbanlist: [
 			"Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", "Duratreme",
 			"Sumolug", "Coraking", "Soleron", "Soleron-Awakened", "Zephyrmine", "Jamborai", 
-			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", "Marshasaur",
+			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil",
 			"Celespirit", "Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise", 
 			"Halbeetle", "Echologos", "Barbolt", "Dojodo", "Zeploom", "Kasappa", 
 			"Cyllindrake", "Arbrella-North"
