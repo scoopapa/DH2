@@ -1,28 +1,28 @@
 export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	absolutezero: {
-        onStart(source) {
-            this.field.setWeather('absolutezero');
-        },
-        onAnySetWeather(target, source, weather) {
-            const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
-            if (this.field.getWeather().id === 'absolutezero' && !strongWeathers.includes(weather.id)) return false;
-        },
-        onEnd(pokemon) {
-            if (this.field.weatherState.source !== pokemon) return;
-            for (const target of this.getAllActive()) {
-                if (target === pokemon) continue;
-                if (target.hasAbility('absolutezero')) {
-                    this.field.weatherState.source = target;
-                    return;
-                }
-            }
-            this.field.clearWeather();
-        },
-        flags: {},
-        name: "Absolute Zero",
+		onStart(source) {
+			this.field.setWeather('absolutezero');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
+			if (this.field.getWeather().id === 'absolutezero' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('absolutezero')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		flags: {},
+		name: "Absolute Zero",
 		shortDesc: "On switch-in: Sets Primordial Weather, Absolute Zero (Snow + -25% Speed + 1/16 chip, except user).",
 		desc: "On switch-in, the weather becomes Absolute Zero, which includes all the effects of snow, reduces the speed of Pokemon on the field by 25%, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Dust Devil abilities.",
-    },
+	},
 	aggravation: {
 		onDamage(damage, target, source, effect) {
 			if (
@@ -104,7 +104,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
-			pokemon.heal(pokemon.maxhp / 3);
 			let boost = null;
 			let newType = null;
 			switch (terrain) {
@@ -136,7 +135,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
-			pokemon.heal(pokemon.maxhp / 3);
 			let boost = null;
 			let newType = null;
 			switch (terrain) {
@@ -165,7 +163,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Biosynthesis",
-		shortDesc: "On switch-in or terrain change: Heals 33%, Seed boost, gains secondary type.",
+		shortDesc: "On switch-in or terrain change: Seed boost + gains secondary type.",
 	},
 	blackflame: {
 		onSwitchOut(pokemon) {
@@ -494,29 +492,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 Defense",
 	},
 	dustdevil: {
-        onStart(source) {
-            this.field.setWeather('dustdevil');
-        },
-        onAnySetWeather(target, source, weather) {
-            const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
-            if (this.field.getWeather().id === 'dustdevil' && !strongWeathers.includes(weather.id)) return false;
-        },
-        onEnd(pokemon) {
-            if (this.field.weatherState.source !== pokemon) return;
-            for (const target of this.getAllActive()) {
-                if (target === pokemon) continue;
-                if (target.hasAbility('dustdevil')) {
-                    this.field.weatherState.source = target;
-                    return;
-                }
-            }
-            this.field.clearWeather();
-        },
-        flags: {},
-        name: "Dust Devil",
+		onStart(source) {
+			this.field.setWeather('dustdevil');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
+			if (this.field.getWeather().id === 'dustdevil' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('dustdevil')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		flags: {},
+		name: "Dust Devil",
 		shortDesc: "On switch-in: Sets Primordial Weather, Dust Devil (Sandstorm + Perfect Rock Accuracy + 1/16 chip, except user).",
 		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sandstorm, removes accuracy check for rock moves, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Absolute Zero abilities.",
-    },
+	},
 	emperorsroar: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (!source || source.fainted || source === target) return;
@@ -656,7 +654,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Frozen Calamity",
-    	shortDesc: "STAB on Ice; resists Ice; +5% Ice power per fainted foe.",
+		shortDesc: "STAB on Ice; resists Ice; +5% Ice power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,
