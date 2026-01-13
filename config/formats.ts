@@ -4326,11 +4326,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule', 'Super Type Clause'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil', 'Crystal Heart', 'Wild Heart'],
 		unbanlist: [
-			"Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", 
+			"Noxtrice", "Sturgard", "Embuck", "Cindoe", "Minillow", "Cinnastar", "Duratreme",
 			"Sumolug", "Coraking", "Soleron", "Soleron-Awakened", "Zephyrmine", "Jamborai", 
-			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", 
+			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", "Marshasaur",
 			"Celespirit", "Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise", 
-			"Halbeetle", "Echologos", "Barbolt", "Dojodo", "Zeploom", "Kasappa",  "Cyllindrake"
+			"Halbeetle", "Echologos", "Barbolt", "Dojodo", "Zeploom", "Kasappa", 
+			"Cyllindrake", "Arbrella-North"
 		],
 	},
 	// {
