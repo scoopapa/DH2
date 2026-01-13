@@ -30,7 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wingnut",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 75, atk: 110, def: 110, spa: 65, spd: 65, spe: 80},
-		abilities: {0: "Bulletproof", H: "Reckless"},
+		abilities: {0: "Bulletproof", 1: "Chlorophyll", H: "Reckless"},
 		weightkg: 29,
 	},
 	// lumoth: {
@@ -174,7 +174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kasappa",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 60, atk: 75, def: 65, spa: 115, spd: 75, spe: 105},
-		abilities: {0: "Ice Body", 1: "Infiltrator", H: "Prankster"},
+		abilities: {0: "Slush Rush", 1: "Infiltrator", H: "Prankster"},
 		weightkg: 51,
 	},
 	silvuna: {

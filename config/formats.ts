@@ -4330,8 +4330,7 @@ export const Formats: FormatList = [
 			"Sumolug", "Coraking", "Soleron", "Soleron-Awakened", "Zephyrmine", "Jamborai", 
 			"Boreasel", "Skawamud", "Silvuna", "Noxon", "Xiphoil", "Dracoil", 
 			"Celespirit", "Zygola", "Quadringo", "Wingnut", "Corsegeist", "Smeltoise", 
-			"Halbeetle", "Echologos", "Orchile", "Barbolt", "Celespirit", "Dojodo", 
-			"Zeploom", "Kasappa", "Cyllindrake"
+			"Halbeetle", "Echologos", "Barbolt", "Dojodo", "Zeploom", "Kasappa",  "Cyllindrake"
 		],
 	},
 	// {
