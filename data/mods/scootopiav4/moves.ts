@@ -1,4 +1,5 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
+	// Custom Moves
 	iconoblast: {
 		num: 851,
 		accuracy: 100,
@@ -29,7 +30,35 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
-	// Custom Moves
+	legacyshade: {
+		num: 881,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Legacy Shade",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		// TODO show prepare message before the "POKEMON used MOVE!" message
+		// This happens even before sleep shows its "POKEMON is fast asleep." message
+		onModifyType(move, pokemon, target) {
+			let wMove = this.dex.dataCache.scootopia.getIconoblastMove(pokemon)
+			if (!wMove) return;
+			wMove = this.dex.moves.get(wMove);
+			if (wMove.type) move.type = wMove.type;
+		},
+		onModifyMove(move, pokemon, target){
+			let wMove = this.dex.dataCache.scootopia.getIconoblastMove(pokemon)
+			if (!wMove) return;
+			wMove = this.dex.moves.get(wMove);
+			if (wMove.weather) move.weather = wMove.weather;
+			if (wMove.terrain) move.terrain = wMove.terrain;
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "all",
+		type: "Ghost",
+	},
 	windblessing: {
 		num: 880,
 		accuracy: true,
