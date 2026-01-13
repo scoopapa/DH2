@@ -14,7 +14,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Noxtrice",
 		types: ["Poison", "Fire"],
 		baseStats: {hp: 65, atk: 118, def: 75, spa: 68, spd: 80, spe: 114},
-		abilities: {0: "Inner Focus", H: "Poison Touch"},
+		abilities: {0: "Inner Focus", 1: "Sand Rush", H: "Poison Touch"},
 		weightkg: 78,
 	},
 	alliglacier: {
@@ -46,7 +46,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sturgard",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 80, atk: 110, def: 129, spa: 51, spd: 72, spe: 48},
-		abilities: {0: "Rock Head", 1: "Rain Dish", H: "Rough Skin"},
+		abilities: {0: "Rock Head", 1: "Rain Dish", H: "Battle Armor"},
 		weightkg: 116,
 	},
 	minillow: {
@@ -157,7 +157,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1065,
 		name: "Duratreme",
 		types: ["Water","Normal"],
-		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
+		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 73},
 		abilities: {0: "Immunity", 1: "Poison Point", H: "Rattled"},
 		weightkg: 125,
 	},
