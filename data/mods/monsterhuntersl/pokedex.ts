@@ -1090,7 +1090,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 57,
 		name: "Volvidon",
 		types: ["Normal", "Ground"],
-		baseStats: {hp: 60, atk: 72, def: 120, spa: 82, spd: 106, spe: 86},
+		baseStats: {hp: 60, atk: 82, def: 120, spa: 72, spd: 106, spe: 86},
 		abilities: {0: "Pungency", H: "Neutralizing Gas"},
 		weightkg: 58.0,
 		tags: ["Fanged Beast"],
