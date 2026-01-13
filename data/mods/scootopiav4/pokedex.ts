@@ -102,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Coraking",
 		types: ["Rock", "Water"],
 		baseStats: {hp: 105, atk: 130, def: 120, spa: 45, spd: 45, spe: 40},
-		abilities: {0: "Lightning Rod", 1: "Battle Armor", H: "Pressure"},
+		abilities: {0: "Lightning Rod", 1: "Battle Armor", H: "Sand Force"},
 		weightkg: 457,
 	},
 	// harzodia: {
@@ -156,9 +156,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	duratreme: {
 		num: 1065,
 		name: "Duratreme",
-		types: ["Water"],
+		types: ["Water","Normal"],
 		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
-		abilities: {0: "Immunity", 1: "Unburden", H: "Poison Heal"},
+		abilities: {0: "Immunity", 1: "Poison Point", H: "Rattled"},
 		weightkg: 125,
 	},
 	// celespirit: {
