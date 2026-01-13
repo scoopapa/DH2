@@ -16,6 +16,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		// Kodokai
 		this.modData("Learnsets", "kodokai").learnset.teleport = ["9L1"];
+		// Sturgard
+		this.modData("Learnsets", "sturgard").learnset.dragontail = ["9L1"];
 		// Dracoil
 		this.modData("Learnsets", "dracoil").learnset.scaleshot = ["9L1"];
 		this.modData("Learnsets", "dracoil").learnset.supercellslam = ["9L1"];

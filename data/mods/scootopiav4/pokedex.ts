@@ -30,7 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wingnut",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 75, atk: 110, def: 110, spa: 65, spd: 65, spe: 80},
-		abilities: {0: "Bulletproof", H: "Reckless"},
+		abilities: {0: "Bulletproof", 1: "Chlorophyll", H: "Reckless"},
 		weightkg: 29,
 	},
 	// lumoth: {
@@ -150,7 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Marshasaur",
 		types: ["Grass"],
 		baseStats: {hp: 100, atk: 110, def: 100, spa: 63, spd: 80, spe: 67},
-		abilities: {0: "Battle Armor", H: "Thick Fat"},
+		abilities: {0: "Battle Armor", 1: "Grass Pelt", H: "Thick Fat"},
 		weightkg: 206,
 	},
 	duratreme: {
@@ -158,7 +158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Duratreme",
 		types: ["Water"],
 		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
-		abilities: {0: "Oblivious", 1: "Own Tempo", H: "Poison Heal"},
+		abilities: {0: "Immunity", 1: "Unburden", H: "Poison Heal"},
 		weightkg: 125,
 	},
 	// celespirit: {
@@ -174,7 +174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kasappa",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 60, atk: 75, def: 65, spa: 115, spd: 75, spe: 105},
-		abilities: {0: "Ice Body", 1: "Infiltrator", H: "Prankster"},
+		abilities: {0: "Slush Rush", 1: "Infiltrator", H: "Prankster"},
 		weightkg: 51,
 	},
 	silvuna: {
@@ -277,7 +277,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1080,
 		name: "Corsegeist",
 		types: ["Ghost", "Fairy"],
-		baseStats: {hp: 67, atk: 82, def: 88, spa: 98, spd: 98, spe: 92},
+		baseStats: {hp: 67, atk: 87, def: 88, spa: 98, spd: 98, spe: 92},
 		abilities: {0: "Berserk", H: "Tough Claws"},
 		weightkg: 15,
 	},
