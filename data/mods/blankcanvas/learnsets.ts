@@ -3066,6 +3066,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			ingrain: ["9L1"],
 			petalblizzard: ["9L1"],
 			razorleaf: ["9L1"],
+			teleport: ["9L1"],
+			synthesis: ["9L1"],
 		},
 	},
 	turvarpega: {
@@ -3146,6 +3148,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			stealthrock: ["9L1"],
 		},
 	},
 	triceracotta: {
@@ -3219,6 +3222,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			drainpunch: ["9L1"],
 			highhorsepower: ["9L1"],
 			partingshot: ["9L1"],
+			knockoff: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -3410,6 +3414,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			ironhead: ["9L1"],
 			flashcannon: ["9L1"],
 			overheat: ["9L1"],
+			spiritshackle: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -3470,6 +3475,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			shadowclaw: ["9L1"],
 			crushclaw: ["9L1"],
 			crushgrip: ["9L1"],
+			flipturn: ["9L1"],
 		},
 	},
 	guttergar: {
@@ -3504,6 +3510,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			slackoff: ["9L1"],
 		},
 	},
 	rakasa: {
@@ -3547,6 +3554,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sunnyday: ["9L1"],
 			tickle: ["9L1"],
 			thief: ["9L1"],
+			spikes: ["9L1"],
 		},
 	},
 	thermostatic: {
@@ -3629,6 +3637,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dragonrage: ["9L1"],
 			gastroacid: ["9L1"],
 			triattack: ["9L1"],
+			mortalspin: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -3669,6 +3678,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			willowisp: ["9L1"],
 		},
 	},
 	ironmike: {
@@ -3697,6 +3707,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			spiritbreak: ["9L1"],
 			swift: ["9L1"],
+			calmmind: ["9L1"],
 		},
 	},
 	whalestro: {
@@ -3833,10 +3844,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			disable: ["9L1"],
 			memento: ["9L1"],
 			dazzlinggleam: ["9L1"],
-			bodypress: ["9L1"],
 			recover: ["9L1"],
 			irondefense: ["9L1"],
 			psychicnoise: ["9L1"],
+			calmmind: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4014,6 +4025,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			darkpulse: ["9L1"],
+			focusblast: ["9L1"],
 		},
 	},
 	taranferno: {
@@ -4183,7 +4196,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			headlongrush: ["9L1"],
 			shoreup: ["9L1"],
 			uturn: ["9L1"],
-			stickyweb: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4411,6 +4423,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sandstorm: ["9L1"],
 			smackdown: ["9L1"],
 			snowscape: ["9L1"],
+			wish: ["9L1"],
 		},
 	},
 	kaovern: {
@@ -4742,6 +4755,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			grassknot: ["9L1"],
 			toxicthread: ["9L1"],
 			gigadrain: ["9L1"],
+			darkpulse: ["9L1"],
 		},
 	},
 };
