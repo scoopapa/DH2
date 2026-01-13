@@ -6,7 +6,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Iconoblast",
-		shortDesc: "Sets World Effect from user's moveset.",
+		shortDesc: "Sets weather or terrain from user's moveset.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, mustpressure: 1},
@@ -38,6 +38,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Legacy Shade",
 		pp: 10,
 		priority: 0,
+		shortDesc: "User switches out. Sets weather or terrain from user's moveset.",
 		flags: {},
 		// TODO show prepare message before the "POKEMON used MOVE!" message
 		// This happens even before sleep shows its "POKEMON is fast asleep." message
