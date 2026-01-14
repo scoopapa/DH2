@@ -361,7 +361,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (const secondary of secondaries) {
 					if (!secondary.chance) continue; //blank secondary
 					if (!secondary.self) {
-						if (!target) continue; //target behind sub
+						if (!target) continue; //attack hits substitute and not target
 						if (!target.hp) { //target fainted
 							//target.side.flinchChance = 0;
 							continue; 
