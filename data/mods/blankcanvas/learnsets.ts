@@ -3404,8 +3404,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			rockslide: ["9L1"],
 			powergem: ["9L1"],
-			highhorsepower: ["9L1"],
-			earthpower: ["9L1"],
+			shadowclaw: ["9L1"],
+			shadowball: ["9L1"],
 			shellsmash: ["9L1"],
 			diamondstorm: ["9L1"],
 			meteorbeam: ["9L1"],
@@ -3423,6 +3423,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			shadowclaw: ["9L1"],
+			shadowball: ["9L1"],
 		},
 	},
 	sascratch: {
