@@ -56,12 +56,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			let suffix = "";
 			for (const status of pokemon.statuses) {
 				let toAdd = 0;
-				let nonVolatileStatus = false;
+				//let nonVolatileStatus = false;
 				switch(status) {
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
-						nonVolatileStatus = true;
+						//nonVolatileStatus = true;
 						clauses ++;
 						break;
 					case 'Flinch':
@@ -83,7 +83,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						break;
 					case 'Paralysis':
 						toAdd = 25;
-						nonVolatileStatus = true;
+						//nonVolatileStatus = true;
 						clauses ++;
 						break;						
 				}
@@ -94,8 +94,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				} else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
 				if (toAdd > 0) {
 					if (clauses === 1) {
-						if (nonVolatileStatus) this.add('-message', `\n(${status}: ${suffix})`);
-						else this.add('-message', `(${status}: ${suffix})`);
+						//if (nonVolatileStatus) this.add('-message', `\n(${status}: ${suffix})`);
+						//else this.add('-message', `(${status}: ${suffix})`);
+						this.add('-message', `(${status}: ${suffix})`);
 					}
 					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);
 				}
