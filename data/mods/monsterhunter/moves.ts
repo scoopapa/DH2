@@ -1362,39 +1362,6 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Poison Fang", target);
         },
 	},
-	seraphicshift: {
-		accuracy: 100,
-		basePower: 95,
-		category: "Special",
-		name: "Seraphic Shift",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onHit(target, pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Disufiroa' && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!move.willChangeForme) return;
-
-			// Toggle between the two forms
-			const newForm =
-				pokemon.species.id === 'disufiroasol'
-					? 'Disufiroa'        // revert to base
-					: 'Disufiroa-Sol';   // shift to Sol
-
-			pokemon.formeChange(newForm, this.effect, false, '[msg]');
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sheer Cold", target);
-		},
-		shortDesc: "Changes Disufiroa's form.",
-		target: "allAdjacentFoes",
-		type: "Ice",
-		contestType: "Beautiful",
-	},
 	nethercurrent: {
 		accuracy: 100,
 		basePower: 80,

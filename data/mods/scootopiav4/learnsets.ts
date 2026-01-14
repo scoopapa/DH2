@@ -450,6 +450,7 @@ export const Learnsets = {
 			ironhead: ["9L1"],
 			psychicfangs: ["9L1"],
 			lifedew: ["9L1"],
+			bite: ["9L1"],
 			waterpulse: ["9L1"],
 			outrage: ["9L1"],
 			dragonclaw: ["9L1"],

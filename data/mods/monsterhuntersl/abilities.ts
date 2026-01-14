@@ -104,7 +104,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
-			pokemon.heal(pokemon.maxhp / 3);
 			let boost = null;
 			let newType = null;
 			switch (terrain) {
@@ -136,7 +135,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const terrain = this.field.terrain;
 			if (!terrain) return;
 			this.add('-activate', pokemon, 'ability: Biosynthesis');
-			pokemon.heal(pokemon.maxhp / 3);
 			let boost = null;
 			let newType = null;
 			switch (terrain) {
@@ -165,7 +163,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Biosynthesis",
-		shortDesc: "On switch-in or terrain change: Heals 33%, Seed boost, gains secondary type.",
+		shortDesc: "On switch-in or terrain change: Seed boost + gains secondary type.",
 	},
 	blackflame: {
 		onSwitchOut(pokemon) {
