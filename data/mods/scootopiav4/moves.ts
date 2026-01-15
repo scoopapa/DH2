@@ -38,7 +38,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Legacy Shade",
 		pp: 10,
 		priority: 0,
-		shortDesc: "User switches out. Sets weather or terrain from user's moveset.",
+		shortDesc: "User: Switch. Sets weather or terrain from moveset.",
 		flags: {},
 		// TODO show prepare message before the "POKEMON used MOVE!" message
 		// This happens even before sleep shows its "POKEMON is fast asleep." message
@@ -162,7 +162,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		viable: true,
 	},
 	
-	
+	jetpunch: {
+		inherit: true,
+		viable: true,
+	},
 	karatechop: {
 		inherit: true,
 		isNonstandard: null,

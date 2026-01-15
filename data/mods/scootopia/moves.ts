@@ -970,6 +970,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 	},
 	
+	jetpunch: {
+		inherit: true,
+		viable: true,
+	},
 	karatechop: {
 		inherit: true,
 		isNonstandard: null,

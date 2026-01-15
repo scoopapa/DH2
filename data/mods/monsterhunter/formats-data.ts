@@ -476,9 +476,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	disufiroa: {
 		tier: "MHUU",
 	},
-	disufiroasol: {
-		tier: "MHUU",
-	},
 	reydau: {
 		tier: "MHOU",
 	},

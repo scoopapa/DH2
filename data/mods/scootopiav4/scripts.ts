@@ -25,5 +25,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dracoil").learnset.temperflare = ["9L1"];
 		this.modData("Learnsets", "dracoil").learnset.poisonfang = ["9L1"];
 		this.modData("Learnsets", "dracoil").learnset.wrap = ["9L1"];
+		// Celespirit
+		this.modData("Learnsets", "celespirit").learnset.recover = ["9L1"];
+		
 	}
 };
