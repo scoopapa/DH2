@@ -30,8 +30,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.pstatus = statusValue;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
-					pokemon.sleepFromRest = false;
-					pokemon.nonRestSleepTurns = 0;
 				}
 			}
 			const sideOne = this.sides[0];
@@ -43,21 +41,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
-			if (pokemon.status === 'slp') {
-				if (!pokemon.sleepFromRest) pokemon.statuses.push('NonRestSleep');
-			} 
-			else {
-				pokemon.sleepFromRest = false;
-				pokemon.nonRestSleepTurns = 0;
-			}
-			/*
-			if (pokemon.nonRestSleep) {
-				if (pokemon.status === 'slp') pokemon.statuses.push('NonRestSleep');
-				else {
-					pokemon.nonRestSleep = false;
-					pokemon.nonRestSleepTurns = 0;
-				}
-			}*/
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
 			if (pokemon.flinchChance > 0) pokemon.statuses.push('Flinch');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
