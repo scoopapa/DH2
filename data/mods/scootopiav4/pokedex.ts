@@ -54,7 +54,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Minillow",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 70, atk: 64, def: 85, spa: 90, spd: 95, spe: 86},
-		abilities: {0: "Swift Swim", 1: "Dazzling", H: "Adaptability"},
+		abilities: {0: "Magic Guard", 1: "Dazzling", H: "Adaptability"},
 		weightkg: 22,
 	},
 	barbolt: {
@@ -142,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sumolug",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 120, atk: 100, def: 80, spa: 75, spd: 70, spe: 55},
-		abilities: {0: "Water Veil", H: "Gooey"},
+		abilities: {0: "Water Veil", 1: "Sticky Hold", H: "Gooey"},
 		weightkg: 132,
 	},
 	marshasaur: {
@@ -157,8 +157,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1065,
 		name: "Duratreme",
 		types: ["Water","Normal"],
-		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 73},
-		abilities: {0: "Immunity", 1: "Poison Point", H: "Rattled"},
+		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
+		abilities: {0: "Immunity", 1: "Swift Swim", H: "Rattled"},
 		weightkg: 125,
 	},
 	// celespirit: {

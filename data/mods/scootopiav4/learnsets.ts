@@ -442,6 +442,7 @@ export const Learnsets = {
 			endure: ["9L1"],
 			facade: ["9L1"],
 			fakeout: ["9L1"],
+			flipturn: ["9L1"],
 			gigaimpact: ["9L1"],
 			helpinghand: ["9L1"],
 			hyperbeam: ["9L1"],
@@ -820,7 +821,9 @@ export const Learnsets = {
 	},
 	noxon: {
 		learnset: {
+			aurorabeam: ["9L1"],
 			ancientpower: ["9L1"],
+			blizzard: ["9L1"],
 			brutalswing: ["9L1"],
 			darkestlariat: ["9L1"],
 			darkpulse: ["9L1"],
@@ -832,6 +835,7 @@ export const Learnsets = {
 			grassyterrain: ["9L1"],
 			helpinghand: ["9L1"],
 			hyperbeam: ["9L1"],
+			icebeam: ["9L1"],
 			knockoff: ["9L1"],
 			legacyshade: ["9L1"],
 			mistyterrain: ["9L1"],
