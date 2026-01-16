@@ -635,9 +635,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 		},
-		onModifyMove(move, attacker) {
-			if (move.type === 'Ice' && !attacker.hasType('Ice')) {
-				move.stab = 1.5;
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Frozen Calamity boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Frozen Calamity boost');
+				return this.chainModify(1.5);
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
