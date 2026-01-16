@@ -20,8 +20,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Absolute Zero",
-		shortDesc: "On switch-in: Sets Primordial Weather, Absolute Zero (Snow + -25% Speed + 1/16 chip, except user).",
-		desc: "On switch-in, the weather becomes Absolute Zero, which includes all the effects of snow, reduces the speed of Pokemon on the field by 25%, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Dust Devil abilities.",
+		shortDesc: "On switch-in: Sets Primordial Weather, Absolute Zero (Snow + -25% Speed + 1/16 chip, except holder).",
+		desc: "On switch-in, the weather becomes Absolute Zero, which includes all the effects of snow, reduces the speed of Pokemon on the field by 25%, and deals 1/16th chip to all Pokemon on the field, sans holder. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Dust Devil abilities.",
 	},
 	aggravation: {
 		onDamage(damage, target, source, effect) {
@@ -252,7 +252,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Centrifuge",
-		shortDesc: "Ground moves: Drawn to user, immune, SpA +1",
+		shortDesc: "Holder draws Ground moves to itself to raise it's Sp. Atk by 1; Ground Immunity",
 	},
 	corrosiveclaws: {
 		onAfterMoveSecondary(target, source, move) {
@@ -512,8 +512,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Dust Devil",
-		shortDesc: "On switch-in: Sets Primordial Weather, Dust Devil (Sandstorm + Perfect Rock Accuracy + 1/16 chip, except user).",
-		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sandstorm, removes accuracy check for rock moves, and deals 1/16th chip to all Pokemon on the field, sans user. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Absolute Zero abilities.",
+		shortDesc: "On switch-in: Sets Primordial Weather, Dust Devil (Sandstorm + Perfect Rock Accuracy + 1/16 chip, except holder).",
+		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sandstorm, removes accuracy check for rock moves, and deals 1/16th chip to all Pokemon on the field, sans holder. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Primordial Sea, Delta Stream, Desolate Land, or Absolute Zero abilities.",
 	},
 	emperorsroar: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -663,7 +663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Frozen Calamity",
-		shortDesc: "STAB on Ice; resists Ice; +5% Ice power per fainted foe.",
+		shortDesc: "Holder has 1.5 Ice Power; Resists Ice; +5% Ice power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,
@@ -835,7 +835,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Incandescent",
-		shortDesc: "User gains Fire-type STAB and Fire-Type Immunity.",
+		shortDesc: "Fire Moves: 1.5x Power; Holder Immune to Fire Moves",
 	},
 	insectarmor: {
 		onModifyAtkPriority: 5,
@@ -860,7 +860,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Insect Armor",
-		shortDesc: "User gains Bug-type STAB & Resistances",
+		shortDesc: "Bug Moves: 1.5x Power; Holder gains Bug-Type resistances.",
 	},
 	itembag: {
 		onResidualOrder: 26,
@@ -879,7 +879,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-activate', pokemon, 'ability: Itembag');
 		},
 		name: "Itembag",
-		shortDesc: "End of turn: If no item, user gains a random item.",
+		shortDesc: "End of turn: If no item, holder gains a random item.",
 	},
 	maddragon: {
 		onModifyAtkPriority: 5,
@@ -905,7 +905,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Mad Dragon",
-		shortDesc: "User gains Dragon-type STAB & Resistances.",
+		shortDesc: "Dragon Moves: 1.5x Power; Holder gains Dragon-Type resistances.",
 	},
 	megiddosgift: {
 		onBeforeMovePriority: 0.5,
@@ -962,7 +962,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Mucus Veil",
-		shortDesc: "When hit by contact moves: User retaliates with Soak.",
+		shortDesc: "When hit by contact moves: Holder retaliates with Soak.",
 	},
 	oceanicveil: {
 		onResidualOrder: 10,
@@ -1408,8 +1408,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Riptide",
-		desc: "If any foe is trapped by a non-damaging move, that foe loses 1/8 of its max HP each turn; the user heals by the same amount.",
-		shortDesc: "When a foe is trapped (non-damaging): Foe loses 1/8 max HP; user heals that much.",
+		desc: "If any foe is trapped by a non-damaging move, that foe loses 1/8 of its max HP each turn; the holder heals by the same amount.",
+		shortDesc: "When a foe is trapped (non-damaging): Foe loses 1/8 max HP; holder heals that much.",
 	},
 	risenburst: {
 		onStart(pokemon) {
@@ -1449,8 +1449,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Risen Burst",
-		desc: "On Mega Evolution, the user immediately uses Risen Burst (60 BP, Typeless). The user resists Dark-type moves and gains STAB on them. When hit by a Dark-type attack, the user retaliates with Risen Burst.",
-		shortDesc: "On Mega-Evo/Hit by Dark Attack: Uses Risen Burst (60 BP, Typeless). | Grants Dark Res & STAB.",
+		desc: "On Mega Evolution, the holder immediately uses Risen Burst (60 BP, Typeless). The holder resists Dark-type moves and gains STAB on them. When hit by a Dark-type attack, the holder retaliates with Risen Burst.",
+		shortDesc: "On Mega-Evo/Hit by Dark Attack: Uses Risen Burst (60 BP, Typeless). | Dark Moves are 1.5, Resists Dark.",
 	},
 	rustedgale: {
 		onStart(pokemon) {
@@ -1664,7 +1664,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Terrestrial",
-		shortDesc: "Ground-type attacks deal 0.5x damage to the user.",
+		shortDesc: "Ground-type attacks deal 0.5x damage to the holder.",
 	},
 	thunderstorm: {
 		onModifyMovePriority: 1,
