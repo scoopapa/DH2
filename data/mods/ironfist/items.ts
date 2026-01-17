@@ -1081,7 +1081,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Daiyakuza"],
 		onTryBoostPriority: 1,
 		onTryBoost(boost, target, source, effect) {
-			if (item.itemUser !== source.baseSpecies.baseSpecies || (source && target === source)) return;
+			if (source.baseSpecies.baseSpecies !== "Daiyakuza" || (source && target === source)) return;
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
