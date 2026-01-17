@@ -376,6 +376,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 47,
 		name: "Iku Nagae",
 		types: ["Dragon", "Electric"],
+		gender: "F",
 		baseStats: {hp: 75, atk: 100, def: 70, spa: 110, spd: 90, spe: 95},
 		abilities: {0: "Swift Swim", 1: "Levitate", H: "Multiscale"},
 	},
