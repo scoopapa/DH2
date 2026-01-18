@@ -786,7 +786,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9097,
 		name: "Whalestro",
 		types: ["Steel", "Water"],
-		baseStats: {hp: 90, atk: 40, def: 100, spa: 90, spd: 70, spe: 40},
+		baseStats: {hp: 90, atk: 40, def: 100, spa: 100, spd: 90, spe: 40},
 		abilities: {0: "Punk Rock"},
 		weightkg: 999,
 	},
