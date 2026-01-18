@@ -1794,7 +1794,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 63, atk: 108, def: 65, spa: 73, spd: 70, spe: 93},
 		abilities: {0: "Intimidate", 1: "Gluttony", H: "Analytic"},
 		weightkg: 80,
-
+	},
 	amphimeter: {
 		num: 9178,
 		name: "Amphimeter",
