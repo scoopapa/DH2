@@ -3761,16 +3761,30 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	},
 	{
-		name: "[Gen 9] Hax Meters",
+		name: "[Gen 9] Hax Meters OU",
 		mod: 'haxmeters',
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', 'Hax Meter Rule'],
+		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', '!Evasion Items Clause', 'Hax Meter Rule'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 8] Hax Meters",
+		name: "[Gen 9] Hax Meters Doubles OU",
+		mod: 'haxmeters',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
+		banlist: ['DUber', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 8] Hax Meters OU",
 		mod: 'gen8haxmeters',
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 8] Hax Meters Doubles OU",
+		mod: 'gen8haxmeters',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
+		banlist: ['DUber', 'Power Construct', 'Shadow Tag', 'Swagger'],
 	},
    /* {
 		name: "[Gen 3] Hoennification",
