@@ -11,12 +11,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				for (const pokemon of side.pokemon) {
 					if (!pokemon.baseSpecies.mons) continue;
 					
-					let prob = [0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
-					let num1 = this.sample(prob);
-					let mon1 = pokemon.baseSpecies.mons[num1];
+
+					let mon1 = this.sample(pokemon.baseSpecies.mons);
 					prob = prob.filter(num => num !== num1);
-					let num2 = this.sample(prob);
-					let mon2 = pokemon.baseSpecies.mons[num2];
+					let mon2 = this.sample(pokemon.baseSpecies.mons);
 					
 					let poke1 = this.dex.deepClone(mon1[0]);
 					poke1.moves = mon1[1];

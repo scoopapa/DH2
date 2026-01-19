@@ -1779,6 +1779,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Insomnia", 1: "Inner Focus", H: "Unburden"},
 		weightkg: 15,
 	},
+	fearaphim: {
+		num: 9176,
+		name: "Fearaphim",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 55, atk: 50, def: 60, spa: 120, spd: 90, spe: 87},
+		abilities: {0: "Intimidate", 1: "Keen Eye", H: "Frisk"},
+		weightkg: 10,
+	},
+	blahamut: {
+		num: 9177,
+		name: "Blahamut",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 63, atk: 108, def: 65, spa: 73, spd: 70, spe: 93},
+		abilities: {0: "Intimidate", 1: "Gluttony", H: "Analytic"},
+		weightkg: 80,
+	},
 	amphimeter: {
 		num: 9178,
 		name: "Amphimeter",

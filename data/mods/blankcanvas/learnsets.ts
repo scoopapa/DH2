@@ -3404,8 +3404,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			rockslide: ["9L1"],
 			powergem: ["9L1"],
-			shadowclaw: ["9L1"],
-			shadowball: ["9L1"],
 			shellsmash: ["9L1"],
 			diamondstorm: ["9L1"],
 			meteorbeam: ["9L1"],
