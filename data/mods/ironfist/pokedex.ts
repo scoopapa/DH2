@@ -3,7 +3,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		name: "Melmetal",
 		num: -1,
-		types: ["Steel"],
+		types: ["Steel", "Flying"],
 		baseStats: {hp: 135, atk: 143, def: 143, spa: 80, spd: 65, spe: 34},
 		abilities: {0: "What the Sigma", H: "Iron Fist"},
 	},
