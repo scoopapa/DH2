@@ -361,9 +361,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (const secondary of secondaries) {
 					if (!secondary.chance) continue; //blank secondary
 					if (!secondary.self) {
-						if (!target) continue; //target behind sub
+						if (!target) continue; //attack hits substitute and not target
 						if (!target.hp) { //target fainted
-							target.side.flinchChance = 0;
+							//target.side.flinchChance = 0;
 							continue; 
 						}
 					}
@@ -379,7 +379,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					else {
 						if (secondary.volatileStatus === 'flinch') {
-							target.side.flinchChance += (1 - target.side.flinchChance / 100) * secondary.chance;
+							target.flinchChance += (1 - target.flinchChance / 100) * secondary.chance;
 						}
 						else {
 							source.side.addEffect(secondary.chance);

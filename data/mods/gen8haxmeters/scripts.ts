@@ -362,15 +362,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (const secondary of secondaries) {
 					if (!secondary.chance) continue; //blank secondary
 					if (!secondary.self) {
-						if (!target) continue; //target behind sub
+						if (!target) continue; //attack hits substitute and not target
 						if (!target.hp) { //target fainted
-							target.side.flinchChance = 0;
+							//target.side.flinchChance = 0;
 							continue; 
 						}
 					}
 					if (secondary.status) {
 						if (target.status) continue; //target already statused
 						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
+						if (target.hasAbility('purifyingsalt')) continue;
 					}
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
 					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
@@ -379,7 +380,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					else {
 						if (secondary.volatileStatus === 'flinch') {
-							target.side.flinchChance += (1 - target.side.flinchChance / 100) * secondary.chance;
+							target.flinchChance += (1 - target.flinchChance / 100) * secondary.chance;
 						}
 						else {
 							source.side.addEffect(secondary.chance);
