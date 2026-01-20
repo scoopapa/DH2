@@ -2,7 +2,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	bulbasaur: {
 		num: 1,
 		name: "Bulbasaur",
-		types: ["Grass", "Poison"],
+		types: ["Grass", "Fire"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45},
 		abilities: {0: "Overgrow", H: "Chlorophyll"},
