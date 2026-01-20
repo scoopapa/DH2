@@ -34,6 +34,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	mythic: {
+		name: "Mythic",
+		shortDesc: "Lowers opposing Pokemon Special Attack by 1 stage when switching in.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Mythic', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
 	battlebond: {
 		shortDesc: "Change to a stronger forme after getting a KO.",
 		onSourceAfterFaint(length, target, source, effect) {
