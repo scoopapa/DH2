@@ -539,11 +539,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	biorelease: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
 		name: "Biorelease",
-		desc: "If the user has a secondary type, this move changes to match it and becomes 120 BP. Hits all Pokémon on the field.",
-		shortDesc: "Changes type (and power) based on user's secondary type. Hits all Pokémon.",
+		desc: "If the user has a secondary type, this move changes to match it and gains a secondary effect. Hits all Pokémon on the field.",
+		shortDesc: "Changes type by secondary type; gains matching secondary effect (Secret Power).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -568,15 +568,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					break;
 			}
 		},
-		onBasePower(basePower, pokemon) {
-			const types = pokemon.getTypes();
-			const secondary = types[1];
-			if (!secondary) return;
-			switch (secondary) {
-				case 'Fairy':
-					return this.chainModify(100 / 90);
-			}
-		},
 		onPrepareHit(target, source, move) {
 			const types = source.getTypes();
 			const secondary = types[1];
@@ -594,8 +585,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 				case 'Fairy':
 					this.add('-anim', source, "Light of Ruin", target);
 					break;
-				default:
-					this.add('-anim', source, "Eternabeam", target);
+			}
+		},
+		onHit(target, source, move) {
+			const types = source.getTypes();
+			const secondary = types[1];
+
+			switch (secondary) {
+				case 'Electric':
+					if (this.randomChance(3, 10)) {
+						target.trySetStatus('par', source);
+					}
+					break;
+
+				case 'Psychic':
+					if (this.randomChance(3, 10)) {
+						this.boost({spe: -1}, target, source);
+					}
+					break;
+
+				case 'Grass':
+					if (this.randomChance(3, 10)) {
+						target.trySetStatus('slp', source);
+					}
+					break;
+
+				case 'Fairy':
+					if (this.randomChance(3, 10)) {
+						this.boost({spa: -1}, target, source);
+					}
 					break;
 			}
 		},
@@ -1166,7 +1184,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	cruelclaw: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 85,
 		category: "Physical",
 		name: "Cruel Claw",
 		pp: 10,
@@ -1179,7 +1197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					def: -1,
 				},
 			}, {
-				chance: 30,
+				chance: 50,
 				volatileStatus: 'bleeding',
 			},
 		],
