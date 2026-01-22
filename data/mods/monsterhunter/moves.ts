@@ -1817,6 +1817,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	blotout: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Blot Out",
+		shortDesc: "Target becomes weaker to Fire; user switches out.",
+		pp: 16,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		onHit(target, source) {
+			// Apply Tar Shot's Fire weakness without Speed drop
+			if (!target.volatiles['tarshot']) {
+				target.addVolatile('tarshot');
+				// Remove the Speed drop Tar Shot normally applies
+				if (target.boosts.spe < 0) {
+					this.boost({spe: -target.boosts.spe}, target); // undo any drop
+				}
+			}
+		},
+
+	},
 	/*
 	Edits
 	*/

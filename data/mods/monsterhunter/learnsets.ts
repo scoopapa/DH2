@@ -9850,7 +9850,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			nastyplot: ["9L1"],
 			sludgewave: ["9L1"],
 			mudbomb: ["9L1"],
-			partingshot: ["9L1"],
+			blotout: ["9L1"],
 			taunt: ["9L1"],
 			acidspray: ["9L1"],
 			beatup: ["9L1"],
