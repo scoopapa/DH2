@@ -1403,7 +1403,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Najarala",
 		types: ["Psychic", "Normal"],
 		baseStats: {hp: 97, atk: 73, def: 99, spa: 111, spd: 106, spe: 75},
-		abilities: {0: "Soundproof"},
+		abilities: {0: "Soundproof", 1: "Rattled"},
 		weightkg: 100.0,
 		tags: ["Snake Wyvern"],
 	},

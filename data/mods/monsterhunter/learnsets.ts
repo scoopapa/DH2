@@ -12894,7 +12894,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			rototiller: ["9L1"],
 			sandtomb: ["9L1"],
 			sandstorm: ["9L1"],
-			shoreup: ["9L1"],
+			slackoff: ["9L1"],
 			snore: ["9L1"],
 			spikecannon: ["9L1"],
 			stealthrock: ["9L1"],
