@@ -663,7 +663,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Frozen Calamity",
-		shortDesc: "STAB on Ice; resists Ice; +5% Ice power per fainted foe.",
+		shortDesc: "This Pokemon resists Ice, 1.5x offenses when using Ice-type attacks, +5% Ice Power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,

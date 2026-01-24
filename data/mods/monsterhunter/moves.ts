@@ -1201,7 +1201,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				volatileStatus: 'bleeding',
 			},
 		],
-		shortDesc: "50% chance to lower Defense, 30% to bleed.",
+		shortDesc: "50% chance to lower Defense, 50% to bleed.",
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
