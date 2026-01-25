@@ -197,7 +197,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3×, ignores burn drop.",
+		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3x, ignores burn drop.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {

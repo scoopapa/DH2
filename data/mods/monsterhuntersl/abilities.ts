@@ -175,11 +175,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
-		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'brn' || attacker.status === 'dragonblight') && move.category === 'Physical') {
-				if (attacker.status === 'brn') {
-					return this.chainModify(2);
-				}
+		onModifyAtk(atk, pokemon, defender, move) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon, defender, move) {
+			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpA(spa, pokemon, defender, move) {
+			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySTAB(stab, source, target, move) {
@@ -187,21 +196,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return 1.5;
 			}
 		},
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
-				if (pokemon.status === 'brn') {
-					atk = this.modify(atk, 2);
-				}
-				return this.chainModify(1.3);
-			}
-		},
-		onModifySpA(spa, pokemon) {
-			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
-				return this.chainModify(1.3);
-			}
-		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% HP on Switch | If BRN/DRGB: Offenses 1.3x, ignores all drawbacks.",
+		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3x, ignores burn drop.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
