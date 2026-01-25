@@ -1205,37 +1205,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Pyre Drive",
-		shortDesc: "Under Sun/Holding Booster Energy/Red HP: Highest stat 1.3x (1.5x if Speed).",
+		shortDesc: "Under Sun/Red HP/Booster Energy: Highest stat 1.3x (1.5x if Speed).",
 	},
 	chlorosynthesis: {
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onWeatherChange(pokemon) {
-			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('chlorosynthesis');
-			} else if (
-				!pokemon.volatiles['chlorosynthesis']?.fromBooster &&
-				!this.field.isTerrain('grassyterrain')
-			) {
-				pokemon.removeVolatile('chlorosynthesis');
-			}
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) {
 				pokemon.addVolatile('chlorosynthesis');
-			} else if (
-				!pokemon.volatiles['chlorosynthesis']?.fromBooster &&
-				!this.field.isWeather('sunnyday')
-			) {
+			} else if (!pokemon.volatiles['chlorosynthesis']?.fromBooster && pokemon.hp > pokemon.maxhp / 3) {
 				pokemon.removeVolatile('chlorosynthesis');
 			}
 		},
 		onUpdate(pokemon) {
-			const sun = this.field.isWeather('sunnyday');
-			const grass = this.field.isTerrain('grassyterrain');
-
-			if (sun || grass) {
+			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isTerrain('grassyterrain')) {
 				pokemon.addVolatile('chlorosynthesis');
 			} else if (!pokemon.volatiles['chlorosynthesis']?.fromBooster) {
 				pokemon.removeVolatile('chlorosynthesis');
@@ -1254,7 +1238,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				} else {
 					this.add('-activate', pokemon, 'ability: Chlorosynthesis');
 				}
-
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
@@ -1286,11 +1269,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {
-			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1
-		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Chlorosynthesis",
-		shortDesc: "Under Sun/Grassy Terrain/Holding Booster Energy: Highest stat 1.3x (1.5x if Speed).",
+		shortDesc: "Under Grassy Terrain/Red HP/Booster Energy: Highest stat 1.3x (1.5x if Speed).",
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
