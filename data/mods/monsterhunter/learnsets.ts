@@ -3134,6 +3134,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			howl: ["9L1"],
 			astonish: ["9L1"],
 			stuffcheeks: ["9L1"],
+			shadowclaw: ["9L1"],
+			dragonclaw: ["9L1"],
 			bulkup: ["9L1"],
 			attract: ["9M"],
 			arcticshriek: ["9L1"],
