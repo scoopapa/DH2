@@ -1763,6 +1763,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Blaze", H: "Heatproof"},
 		weightkg: 230.5,
 	},
+	shamaconda: {
+		num: 9173,
+		name: "Shamaconda",
+		types: ["Water", "Dark"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 85, atk: 80, def: 87, spa: 83, spd: 90, spe: 105},
+		abilities: {0: "Torrent", H: "Emergency Exit"},
+		weightkg: 45,
+	},
 	easelisk: {
 		num: 9174,
 		name: "Easelisk",
