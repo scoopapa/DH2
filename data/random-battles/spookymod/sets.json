@@ -233,7 +233,7 @@
                 "movepool": ["Lash Out", "Shadow Sneak", "Astonish", "Parting Shot"],
                 "abilities": ["Jumpscare"],
                 "teraTypes": ["Ghost"]
-            },
+            }
         ]
     },
 	"kilotic": {
@@ -284,7 +284,7 @@
                 "movepool": ["Feint Attack", "Substitute", "Curse", "Protect"],
                 "abilities": ["Magician"],
                 "teraTypes": ["Ghost"]
-            },
+            }
         ]
     },
 	"nursola": {
