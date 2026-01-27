@@ -116,7 +116,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "dwoomod",
 	},
 		ditto: {
-		tier: "woomod",
-		doublesTier: "dwoomod",
+		tier: "woober",
+		doublesTier: "dwoober",
 	},
 };
