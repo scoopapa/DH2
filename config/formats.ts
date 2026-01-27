@@ -4703,7 +4703,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'woomod',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
-		banlist: ['Eviolite', 'Light Ball'],
+		banlist: ['Eviolite', 'Light Ball','Baton Pass','Ditto'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
