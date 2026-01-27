@@ -743,4 +743,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 2 OU",
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
+	batactite: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
 };
