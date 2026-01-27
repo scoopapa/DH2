@@ -1509,7 +1509,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Sirizon",
 		types: ["Fire", "Fairy"],
 		gender: "N",
-		baseStats: {hp: 81, atk: 100, def: 82, spa: 120, spd: 117, spe: 81},
+		baseStats: {hp: 81, atk: 100, def: 81, spa: 120, spd: 117, spe: 81},
 		abilities: {0: "Vital Spirit", H: "Healer"},
 		weightkg: 86,
 	},
