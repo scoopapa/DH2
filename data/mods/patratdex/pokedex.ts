@@ -1763,6 +1763,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Blaze", H: "Heatproof"},
 		weightkg: 230.5,
 	},
+	shamaconda: {
+		num: 9173,
+		name: "Shamaconda",
+		types: ["Water", "Dark"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 85, atk: 80, def: 87, spa: 83, spd: 90, spe: 105},
+		abilities: {0: "Torrent", H: "Emergency Exit"},
+		weightkg: 45,
+	},
 	easelisk: {
 		num: 9174,
 		name: "Easelisk",
@@ -1778,6 +1787,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 65, atk: 66, def: 45, spa: 100, spd: 88, spe: 105},
 		abilities: {0: "Insomnia", 1: "Inner Focus", H: "Unburden"},
 		weightkg: 15,
+	},
+	fearaphim: {
+		num: 9176,
+		name: "Fearaphim",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 55, atk: 50, def: 60, spa: 120, spd: 90, spe: 87},
+		abilities: {0: "Intimidate", 1: "Keen Eye", H: "Frisk"},
+		weightkg: 10,
+	},
+	blahamut: {
+		num: 9177,
+		name: "Blahamut",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 63, atk: 108, def: 65, spa: 73, spd: 70, spe: 93},
+		abilities: {0: "Intimidate", 1: "Gluttony", H: "Analytic"},
+		weightkg: 80,
 	},
 	amphimeter: {
 		num: 9178,
