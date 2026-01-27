@@ -1820,4 +1820,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Ice Body", 1: "Slush Rush", H: "Moxie"},
 		weightkg: 250,
 	},
+	olgobi: {
+		num: 9180,
+		name: "Olgobi",
+		types: ["Ground", "Poison"],
+		baseStats: {hp: 92, atk: 60, def: 113, spa: 120, spd: 58, spe: 57},
+		abilities: {0: "Sand Spit", H: "Perish Body"},
+		weightkg: 200,
+	},
+	oratorta: {
+		num: 9181,
+		name: "Oratorta",
+		types: ["Psychic"],
+		baseStats: {hp: 73, atk: 70, def: 120, spa: 90, spd: 82, spe: 33},
+		abilities: {0: "Forewarn", H: "Clear Body"},
+		weightkg: 400,
+	},
 };
