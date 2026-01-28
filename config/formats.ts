@@ -78,6 +78,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 1] Azure Version",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-azure-version-slate-3-submissions-open.3774689/">[Gen 1] Azure Version</a>`,
+		],
+
+		mod: 'gen1azure',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 4] Back to Sinnoh",
 		desc: `Recreation of Gen 4 OU, with a lot of new Fakemons, moves, and abilities! No vanilla Gen 4 Pokemon allowed!`,
 		threads: [],
@@ -4423,7 +4433,7 @@ export const Formats: FormatList = [
         threads: [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
               ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Spokymod'],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', '!Team Preview','Spokymod'],
         banlist: [],
 		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
@@ -4703,7 +4713,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'woomod',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
-		banlist: ['Eviolite', 'Light Ball'],
+		banlist: ['Eviolite', 'Light Ball','Baton Pass','Ditto'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
