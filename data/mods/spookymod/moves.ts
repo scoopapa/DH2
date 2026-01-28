@@ -200,6 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		viable: true,
 		desc: "Fails if not turn 1 out. 100% chance to flinch.",
 		shortDesc: "Fails if not turn 1 out. 100% chance to flinch.",
+		priority: 3,
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
 				this.hint("Astonish only works on your first turn out.");
@@ -378,6 +379,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		forceSwitch: true,
+		priority: -6,
 		secondary: null,
 	},
 	

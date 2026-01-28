@@ -241,6 +241,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 
+	oilshot: {
+		num: 9009,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "Blocks healing for 2 turns.",
+		name: "Oil Shot",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'healblock',
+		},
+		target: "normal",
+		type: "Water",
+	},
+
 	triwavebeam: {
 		num: 9010,
 		accuracy: true,

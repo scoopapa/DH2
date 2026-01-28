@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Fighting", "Ground"],
 		gender: "F",
 		baseStats: {hp: 112, atk: 123, def: 94, spa: 29, spd: 77, spe: 115},
-		abilities: {0: "Blind Rage", H: "Reckless"},
+		abilities: {0: "Blind Rage", 1: "Rivalry", H: "Reckless"},
 		weightkg: 170.2,
 		tags: ["Flying Wyvern"],
 	},

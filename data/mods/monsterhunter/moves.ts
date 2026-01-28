@@ -1935,18 +1935,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	dualchop: {
     	inherit: true,
-    	shortDesc: "Hits twice. Removes Reflect, Light Screen, and Aurora Veil on hit.",
+    	shortDesc: "Hits 2x. Removes Reflect, Light Screen, and Aurora Veil on hit.",
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
 			pokemon.side.removeSideCondition('lightscreen');
 			pokemon.side.removeSideCondition('auroraveil');
 		},
+		accuracy: 100,
 	},
 	irontail: {
 		inherit: true,
 		viable: true,
 		accuracy: 90,
+	},
+	dualwingbeat: {
+		inherit: true,
+		accuracy: 100,
 	},
 	chipaway: {
 		inherit: true,
