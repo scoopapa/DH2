@@ -12618,6 +12618,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			brutalswing: ["9L1"],
 			bulldoze: ["9L1"],
 			defog: ["9L1"],
+			rapidspin: ["9L1"],
 			dig: ["9L1"],
 			earthpower: ["9L1"],
 			endure: ["9L1"],
