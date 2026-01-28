@@ -203,10 +203,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	onderguard: {
 		onDamagingHit(damage, target, source, effect) {
-			this.boost({def: -1, spd: -1});
+			if (this.randomChance(1, 2)) this.boost({def: 1, spd: -1});
+			else this.boost({def: -1, spd: 1});
 		},
 		name: "Onder Guard",
-		shortDesc: "When his Pokemon is hit, its Def and SpD are lowered by 1 stage.",
+		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
 	},
 	perishbody: {
 		onDamagingHit(damage, target, source, move) {

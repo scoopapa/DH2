@@ -1593,6 +1593,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["9M"],
 			nastyplot: ["9M"],
 			partingshot: ["9M"],
+			pursuit: ["9M"],
 		},
 	},
 	nursola: {
@@ -1606,7 +1607,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			brine: ["9L1"],
 			bulldoze: ["9L1"],
 			burningjealousy: ["9L1"],
-			calmmind: ["9L1"],
 			confuseray: ["9L1"],
 			curse: ["9L1"],
 			destinybond: ["9L1"],
@@ -2617,6 +2617,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			phantomforce: ["9M", "9L99", "9L99", "9S2", "9S9", "9L99"],
 			protect: ["9M", "9M", "9M"],
 			psychic: ["9M", "9L99", "9M", "9L99", "9S2", "9S9", "9M", "9L99"],
+			pursuit: ["9M", "9M", "9M"],
 			raindance: ["9M", "9M", "9M"],
 			razorwind: ["9L1", "9L1"],
 			rest: ["9M", "9M", "9M"],
