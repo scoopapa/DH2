@@ -5941,8 +5941,15 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
 			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
               ],
-		ruleset: ['Standard'],
-		teambuilderFormat: 'National Dex',
+		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
+		banlist: ['Acupressure', 'King\'s Rock', 'Razor Fang', 'Bright Powder', 'Lax Incense'],
+		restricted: ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise',
+					 'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
+					 'Treecko', 'Grovyle', 'Sceptile', 'Torchic', 'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert',
+					 'Turtwig', 'Grotle', 'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon',
+					 'Snivy', 'Servine', 'Serperior', 'Tepig', 'Pignite', 'Emboar', 'Oshawott', 'Dewott', 'Samurott'],
+		unbanlist: ['Baton Pass'],
+		teambuilderFormat: '[Gen 4] OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['33v'];
