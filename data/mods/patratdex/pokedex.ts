@@ -1836,4 +1836,23 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Forewarn", H: "Clear Body"},
 		weightkg: 400,
 	},
+	runtapumgen2: {
+		num: 9182,
+		name: "Runtapum-Gen2",
+		types: ["Grass", "Normal"],
+		gender: "N",
+		baseStats: {hp: 50, atk: 50, def: 90, spa: 55, spd: 50, spe: 40},
+		abilities: {0: "Own Tempo", 1: "Chlorophyll", H: "Natural Cure"},
+		weightkg: 20,
+		evos: ["Clangagang-Gen2"],
+	},
+	clangaganggen2: {
+		num: 9183,
+		name: "Clangagang-Gen2",
+		types: ["Grass", "Normal"],
+		gender: "N",
+		baseStats: {hp: 68, atk: 80, def: 120, spa: 75, spd: 90, spe: 47},
+		abilities: {0: "Own Tempo", 1: "Chlorophyll", H: "Natural Cure"},
+		weightkg: 75,
+	},
 };
