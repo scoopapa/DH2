@@ -3,7 +3,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		effectType: 'ValidatorRule',
 		name: 'Standard',
 		ruleset: ['Obtainable', 'Desync Clause Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
-		banlist: ['Dig', 'Fly'],
+		banlist: ['Fly'],
 	},
 	'350cupmod': {
 		effectType: 'Rule',

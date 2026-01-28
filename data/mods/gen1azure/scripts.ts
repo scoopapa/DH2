@@ -56,6 +56,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tentacruel').learnset.conversion = ['1L1'];
 		this.modData('Learnsets', 'flareon').learnset.growth = ['1L1'];
 		this.modData('Learnsets', 'flareon').learnset.dig = ['1L1'];
+		this.modData('Learnsets', 'farfetchd').learnset.razorleaf = ['1L1'];
+		this.modData('Learnsets', 'farfetchd').learnset.mirrormove = ['1L1'];
 	},
 	// BattlePokemon scripts.
 	pokemon: {
