@@ -321,8 +321,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 		desc: "User must have used Moonlight last turn. Ignores abilities.",
 		shortDesc: "Must use Moonlight first. Ignores abilities.",
-		onTry(source, target) {
-			return source.lastMove === 'Moonlight';
+		onTry(source) {
+			if (source.lastMove !== 'Moonlight') {
+				this.add('-fail', source, 'move: Moongeist Beam');
+				this.hint("Only Pokemon who have used Moonlight last turn can use this move.");
+				return null;
+			}
 		},
 	},
 	shadowball: {
