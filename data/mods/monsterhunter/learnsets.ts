@@ -13161,6 +13161,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			acrobatics: ["9L1"],
 			coil: ["9L1"],
 			naturalgift: ["9L1"],
+			tripledive: ["9L1"],
 			aurorabeam: ["9L1"],
 			auroraveil: ["9L1"],
 			avalanche: ["9L1"],
