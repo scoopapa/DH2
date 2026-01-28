@@ -175,13 +175,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
-		onModifyAtk(atk, pokemon, defender, move) {
-			if (pokemon.status === 'brn') {
-				return this.chainModify(2);
-			}
-		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon, defender, move) {
+			if (pokemon.status === 'brn') {
+				atk = this.chainModify(2);
+			}
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
 				return this.chainModify(1.3);
 			}
@@ -197,7 +195,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3x, ignores burn drop.",
+		shortDesc: "Heals 33% on switch. If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -1131,37 +1129,37 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Plow",
 		shortDesc: "Hit by Ground moves: Immunity, Heals 25% HP | Heals from Spikes/Stealth Rock.",
 	},
-	pyredrive: {
+	protopyre: {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('pyredrive');
-			} else if (!pokemon.volatiles['pyredrive']?.fromBooster) {
-				pokemon.removeVolatile('pyredrive');
+				pokemon.addVolatile('protopyre');
+			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
+				pokemon.removeVolatile('protopyre');
 			}
 		},
 		onUpdate(pokemon) {
 			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('pyredrive');
-			} else if (!pokemon.volatiles['pyredrive']?.fromBooster) {
-				pokemon.removeVolatile('pyredrive');
+				pokemon.addVolatile('protopyre');
+			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
+				pokemon.removeVolatile('protopyre');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['pyredrive'];
-			this.add('-end', pokemon, 'Pyre Drive', '[silent]');
+			delete pokemon.volatiles['protopyre'];
+			this.add('-end', pokemon, 'Protopyre', '[silent]');
 		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Pyre Drive', '[fromitem]');
+					this.add('-activate', pokemon, 'ability: Protopyre', '[fromitem]');
 				} else {
-					this.add('-activate', pokemon, 'ability: Pyre Drive');
+					this.add('-activate', pokemon, 'ability: Protopyre');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
@@ -1169,30 +1167,30 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
 				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Pyre Drive atk boost');
+				this.debug('Protopyre atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, pokemon) {
 				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Pyre Drive def boost');
+				this.debug('Protopyre def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(spa, pokemon) {
 				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Pyre Drive spa boost');
+				this.debug('Protopyre spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(spd, pokemon) {
 				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Pyre Drive spd boost');
+				this.debug('Protopyre spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				this.debug('Pyre Drive spe boost');
+				this.debug('Protopyre spe boost');
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
@@ -1200,74 +1198,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Pyre Drive",
-		shortDesc: "Under Sun/Red HP/Booster Energy: Highest stat 1.3x (1.5x if Speed).",
-	},
-	chlorosynthesis: {
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) {
-				pokemon.addVolatile('chlorosynthesis');
-			} else if (!pokemon.volatiles['chlorosynthesis']?.fromBooster && pokemon.hp > pokemon.maxhp / 3) {
-				pokemon.removeVolatile('chlorosynthesis');
-			}
-		},
-		onUpdate(pokemon) {
-			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isTerrain('grassyterrain')) {
-				pokemon.addVolatile('chlorosynthesis');
-			} else if (!pokemon.volatiles['chlorosynthesis']?.fromBooster) {
-				pokemon.removeVolatile('chlorosynthesis');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['chlorosynthesis'];
-			this.add('-end', pokemon, 'Chlorosynthesis', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Chlorosynthesis', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Chlorosynthesis');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
-			},
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Chlorosynthesis",
-		shortDesc: "Under Grassy Terrain/Red HP/Booster Energy: Highest stat 1.3x (1.5x if Speed).",
+		name: "Protopyre",
+		shortDesc: "Under Sunny Day/Holding Booster Energyor/Red HP: Highest stat is 1.3x; 1.5x if Speed.",
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
