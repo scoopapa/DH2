@@ -508,18 +508,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	confuseray: {
 		inherit: true,
-		priority: 1,
-		desc: "Fails if target attacks. May cause target to disobey.",
-		shortDesc: "Fails if target attacks. May cause target to disobey.",
+		desc: "Fails if target moves first. May cause target to disobey.",
+		shortDesc: "Fails if target moves first. May cause target to disobey.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
-		onTry(source, target) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				return false;
-			}
-		},
 		volatileStatus: 'confuseray',
+		onTryHit(target) {
+			if (!this.queue.willMove(target) && target.activeTurns) return false;
+		},
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
@@ -746,9 +741,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			if (target.basemaxHp === target.hp) return false;
 			const toHeal = target.baseMaxhp - target.hp;
-			console.log(target.baseMaxhp);
-			console.log(target.hp);
-			console.log(toHeal);
 			return !!(this.heal(toHeal, source, target));
 		},
 		secondary: null,
