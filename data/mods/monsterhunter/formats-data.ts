@@ -228,7 +228,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUUBL",
 	},
 	lagiacrus: {
-		tier: "MHUUBL",
+		tier: "MHOU",
 	},
 	ivogiacrus: {
 		tier: "MHUU",
