@@ -414,7 +414,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUUBL",
 	},
 	velkhana: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	velocidrome: {
 		tier: "MHRU",
