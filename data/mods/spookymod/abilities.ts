@@ -203,11 +203,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	onderguard: {
 		onDamagingHit(damage, target, source, effect) {
-			if (this.randomChance(1, 2)) this.boost({def: 1, spd: -1});
-			else this.boost({def: -1, spd: 1});
+			this.boost({def: -1, spd: -1});
 		},
 		name: "Onder Guard",
-		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
+		shortDesc: "When his Pokemon is hit, its Def and SpD are lowered by 1 stage.",
 	},
 	perishbody: {
 		onDamagingHit(damage, target, source, move) {
@@ -217,7 +216,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Perish Body",
-		shortDesc: "When this Pokemon is damaged by an attack, the attacker gains Perish Song.",
+		shortDesc: "When this Pokemon is damaged by an attack, the attacker gains the Perish Song effect.",
 	},
 	pinfiltrator: {
 		onModifyMove(move) {
