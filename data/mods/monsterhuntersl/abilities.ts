@@ -175,13 +175,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
-		onModifyAtk(atk, pokemon, defender, move) {
-			if (pokemon.status === 'brn') {
-				return this.chainModify(2);
-			}
-		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon, defender, move) {
+			if (pokemon.status === 'brn') {
+				atk = this.chainModify(2);
+			}
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
 				return this.chainModify(1.3);
 			}
@@ -197,7 +195,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3x, ignores burn drop.",
+		shortDesc: "Heals 33% on switch. If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {

@@ -175,13 +175,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return false;
 			}
 		},
-		onModifyAtk(atk, pokemon, defender, move) {
-			if (pokemon.status === 'brn') {
-				return this.chainModify(2);
-			}
-		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon, defender, move) {
+			if (pokemon.status === 'brn') {
+				atk = this.chainModify(2);
+			}
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
 				return this.chainModify(1.3);
 			}
@@ -197,7 +195,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% on switch. If BRN/DRGB: Offenses 1.3x, ignores burn drop.",
+		shortDesc: "Heals 33% on switch. If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -1572,6 +1570,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Risen Burst",
 		desc: "On Mega Evolution, this Pokemon immediately uses Risen Burst (60 BP, Typeless). This Pokemon resists Dark-type moves and gains STAB on them. When hit by a Dark-type attack, this Pokemon retaliates with Risen Burst.",
 		shortDesc: "On Mega-Evo/Hit by Dark Attack: Uses Risen Burst (60 BP, Typeless). | Dark Moves are 1.5x + Dark Resistance.",
+	},
+	rivalry: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, pokemon, target) {
+			if (target.hasType(pokemon.getTypes())) {
+				return this.chainModify(1.33);
+			}
+		},
+		name: "Rivalry",
+		shortDesc: "This Pokemon's moves deal 1.33x damage to targets that share a type with it.",
 	},
 	rustedgale: {
 		onStart(pokemon) {
