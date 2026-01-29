@@ -2783,7 +2783,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
               ],
 		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
-		banlist: ['King\'s Rock', 'Razor Fang', 'Bright Powder', 'Lax Incense'],
+		banlist: ['King\'s Rock', 'Razor Fang'],
 		restricted: ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise',
 					 'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
 					 'Treecko', 'Grovyle', 'Sceptile', 'Torchic', 'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert',
