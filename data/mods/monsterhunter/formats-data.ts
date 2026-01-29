@@ -117,7 +117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	fatalis: {
-		tier: "MHUU",
+		tier: "MHOU",
 	},
 	gaismagorm: {
 		tier: "MHOU",
@@ -471,7 +471,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	palamute: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	disufiroa: {
 		tier: "MHUU",
@@ -738,7 +738,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUUBL",
 	},
 	brachydiosraging: {
-		tier: "MHUU",
+		tier: "MHOU",
 	},
 	lagiacrusabyssal: {
 		tier: "MHUU",
