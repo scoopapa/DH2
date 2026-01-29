@@ -2773,6 +2773,36 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 5] 33 Valuemons",
+		mod: 'gen5valuemons',
+		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points.`,
+		threads: [
+            `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
+			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
+			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
+              ],
+		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
+		banlist: ['King\'s Rock', 'Razor Fang', 'Bright Powder', 'Lax Incense'],
+		restricted: ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise',
+					 'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
+					 'Treecko', 'Grovyle', 'Sceptile', 'Torchic', 'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert',
+					 'Turtwig', 'Grotle', 'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon',
+					 'Snivy', 'Servine', 'Serperior', 'Tepig', 'Pignite', 'Emboar', 'Oshawott', 'Dewott', 'Samurott'],
+		unbanlist: ['Baton Pass'],
+		teambuilderFormat: '[Gen 5] Ubers',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['33v'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in 33 Valuemons.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
@@ -5930,36 +5960,6 @@ export const Formats: FormatList = [
 		section: "Unofficial Pet Mod Formats",
 		column: 3,
 		// name: "unofficialpetmodformats",
-	},
-	{
-		name: "[Gen 5] 33 Valuemons",
-		mod: 'gen5valuemons',
-		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points.`,
-		threads: [
-            `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
-			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
-			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
-              ],
-		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
-		banlist: ['Acupressure', 'King\'s Rock', 'Razor Fang', 'Bright Powder', 'Lax Incense'],
-		restricted: ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise',
-					 'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
-					 'Treecko', 'Grovyle', 'Sceptile', 'Torchic', 'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert',
-					 'Turtwig', 'Grotle', 'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon',
-					 'Snivy', 'Servine', 'Serperior', 'Tepig', 'Pignite', 'Emboar', 'Oshawott', 'Dewott', 'Samurott'],
-		unbanlist: ['Baton Pass'],
-		teambuilderFormat: '[Gen 4] OU',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['33v'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in 33 Valuemons.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 8] Dynamax Meter",
