@@ -1823,7 +1823,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Status",
 		name: "Blot Out",
 		shortDesc: "Target becomes weaker to Fire; user switches out.",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		selfSwitch: true,
