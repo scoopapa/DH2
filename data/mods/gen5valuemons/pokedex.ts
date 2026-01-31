@@ -3515,7 +3515,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 17.5,
 		color: "Brown",
 		evos: ["Linoone"],
-		eggGroups: ["Field"],\
+		eggGroups: ["Field"],
 	},
 	linoone: {
 		num: 264,
