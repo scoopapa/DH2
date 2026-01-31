@@ -4,7 +4,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		name: 'One Legendary Clause',
 		desc: "You can only have one Legendary Pok\u00E9mon on your team.",
 		onValidateTeam(team) {
-			const restrictedSpecies = [];
+			const restrictedSpecies = [/* legends here */];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
@@ -20,7 +20,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		name: 'One Pseudo Clause',
 		desc: "You can only have one Pseudo-Legendary Pok\u00E9mon on your team.",
 		onValidateTeam(team) {
-			const restrictedSpecies = [];
+			const restrictedSpecies = [/* pseudos here */];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
