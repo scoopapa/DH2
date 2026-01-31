@@ -6,4 +6,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
 		customTiers: ['33v'],
-	},
+	}
