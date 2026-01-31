@@ -1519,7 +1519,7 @@ export const FormatsData: import'../../../sim/dex-species'.SpeciesFormatsDataTab
 		tier: "33v",
 	},
 	arceus: {
-		tier: "AG",
+		tier: "33v",
 	},
 	arceusbug: {
 	},

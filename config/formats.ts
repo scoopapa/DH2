@@ -2787,7 +2787,7 @@ export const Formats: FormatList = [
 		unbanlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['33v','Uber','OU','UUBL','UU','RUBL','RU','NUBL','NU','PUBL','PU','ZU','NFE','LC']; //testing only
+			let allowedTiers = ['33v'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
