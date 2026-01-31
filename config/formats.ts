@@ -2784,16 +2784,10 @@ export const Formats: FormatList = [
               ],
 		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
 		banlist: ['King\'s Rock', 'Razor Fang'],
-		restricted: ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise',
-					 'Chikorita', 'Bayleef', 'Meganium', 'Cyndaquil', 'Quilava', 'Typhlosion', 'Totodile', 'Croconaw', 'Feraligatr',
-					 'Treecko', 'Grovyle', 'Sceptile', 'Torchic', 'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert',
-					 'Turtwig', 'Grotle', 'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon',
-					 'Snivy', 'Servine', 'Serperior', 'Tepig', 'Pignite', 'Emboar', 'Oshawott', 'Dewott', 'Samurott'],
 		unbanlist: ['Baton Pass'],
-		teambuilderFormat: '[Gen 5] Ubers',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['33v'];
+			let allowedTiers = ['33v','Uber','OU','UUBL','UU','RUBL','RU','NUBL','NU','PUBL','PU','ZU','NFE','LC']; //testing only
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
