@@ -4,7 +4,8 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		name: 'One Legendary Clause',
 		desc: "You can only have one Legendary Pok\u00E9mon on your team.",
 		onValidateTeam(team) {
-			const restrictedSpecies = ['Giratina-*', 'Arceus-*', 'Darkrai', 'Dialga', 'Groudon', 'Kyogre', 'Mewtwo', 'Palkia', 'Rayquaza', 'Deoxys-*', 'Ho-oh', 'Latias', 'Latios', 'Lugia', 'Celebi', 'Heatran', 'Jirachi', 'Manaphy', 'Mew', 'Shaymin-*', 'Zapdos', 'Azelf', 'Cresselia', 'Raikou', 'Suicune', 'Uxie', 'Entei', 'Mesprit', 'Moltres', 'Regirock', 'Registeel', 'Articuno', 'Regice', 'Regigigas'];
+			const restrictedSpecies = ['Giratina-Altered', 'Giratina-Origin', 'Darkrai', 'Dialga', 'Groudon', 'Kyogre', 'Mewtwo', 'Palkia', 'Rayquaza', 'Ho-oh', 'Latias', 'Latios', 'Lugia', 'Celebi', 'Heatran', 'Jirachi', 'Manaphy', 'Mew', 'Shaymin', 'Shaymin-Sky', 'Zapdos', 'Azelf', 'Cresselia', 'Raikou', 'Suicune', 'Uxie', 'Entei', 'Mesprit', 'Moltres', 'Regirock', 'Registeel', 'Articuno', 'Regice', 'Regigigas',
+				'Deoxys', 'Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed', 'Arceus', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 'Arceus-Fire', 'Arceus-Flying', 'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 'Arceus-Rock', 'Arceus-Steel', 'Arceus-Water'];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
