@@ -4,7 +4,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		name: 'One Legendary Clause',
 		desc: "You can only have one Legendary Pok\u00E9mon on your team.",
 		onValidateTeam(team) {
-			const restrictedSpecies = [/* legends here */];
+			const restrictedSpecies = ['Giratina-*', 'Arceus-*', 'Darkrai', 'Dialga', 'Groudon', 'Kyogre', 'Mewtwo', 'Palkia', 'Rayquaza', 'Deoxys-*', 'Ho-oh', 'Latias', 'Latios', 'Lugia', 'Celebi', 'Heatran', 'Jirachi', 'Manaphy', 'Mew', 'Shaymin-*', 'Zapdos', 'Azelf', 'Cresselia', 'Raikou', 'Suicune', 'Uxie', 'Entei', 'Mesprit', 'Moltres', 'Regirock', 'Registeel', 'Articuno', 'Regice', 'Regigigas'];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
@@ -20,7 +20,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		name: 'One Pseudo Clause',
 		desc: "You can only have one Pseudo-Legendary Pok\u00E9mon on your team.",
 		onValidateTeam(team) {
-			const restrictedSpecies = [/* pseudos here */];
+			const restrictedSpecies = ['Garchomp', 'Salamence', 'Dragonite', 'Tyranitar', 'Metagross'];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
