@@ -747,4 +747,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 2 OU",
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
+	runtapumgen2: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	clangaganggen2: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
 };
