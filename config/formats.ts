@@ -2782,7 +2782,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
 			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
               ],
-		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview'],
+		ruleset: ['Standard','Baton Pass Stat Clause', 'Limit One Restricted', '!Obtainable', '!Team Preview','One Starter Clause','One Pseudo Clause','One Legendary Clause','Data Mod'],
 		banlist: ['King\'s Rock', 'Razor Fang'],
 		unbanlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
