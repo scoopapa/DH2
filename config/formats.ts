@@ -2775,7 +2775,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 5] 33 Valuemons",
 		mod: 'gen5valuemons',
-		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points.`,
+		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points. [Point-based Validation not coded]`,
 		threads: [
             `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
