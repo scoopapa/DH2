@@ -61,7 +61,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (['highjumpkick', 'jumpkick', 'axe kick', 'doublekick', 'thunderouskick', 'lowkick', 'megakick', 'triplekick', 'tropkick', 'skyuppercut', 'stomp', 'stompingtantrum', 'bounce', 'fly', 'skyattack', 'blastjump'].includes(move.id)) {
+			if (['highjumpkick', 'jumpkick', 'axekick', 'doublekick', 'thunderouskick', 'lowkick', 'megakick', 'triplekick', 'tropkick', 'skyuppercut', 'stomp', 'stompingtantrum', 'bounce', 'fly', 'skyattack', 'blastjump'].includes(move.id)) {
 				this.debug('Jump boost');
 				return this.chainModify(1.5);
 			}
