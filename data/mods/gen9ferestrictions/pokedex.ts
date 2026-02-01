@@ -306,7 +306,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 19,
 		name: "Mocune",
 		types: ["Fighting", "Water"],
-		baseStats: {hp: 90, atk: 130, def: 100, spa: 70, spd: 80, spe: 55},
+		baseStats: {hp: 85, atk: 95, def: 95, spa: 80, spd: 87, spe: 110},
 		abilities: {0: "Laser Gun", 1: "Resilience"},
 		weightkg: 114,
 		eggGroups: ["Undiscovered"],
