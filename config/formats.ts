@@ -2783,7 +2783,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
 			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
               ],
-		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause','!Obtainable Moves',/* ,'33 Valuemons' */],
+		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause',/* ,'33 Valuemons' */],
 		banlist: ['King\'s Rock', 'Razor Fang'],
 		unbanlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
