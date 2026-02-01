@@ -301,6 +301,37 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Salamencite",
 	},
+	mocune: {
+ // fusion: ['Pawmot', 'Suicune'],
+		num: 19,
+		name: "Mocune",
+		types: ["Fighting", "Water"],
+		baseStats: {hp: 90, atk: 130, def: 100, spa: 70, spd: 80, spe: 55},
+		abilities: {0: "Laser Gun", 1: "Resilience"},
+		weightkg: 114,
+		eggGroups: ["Undiscovered"],
+	},
+	gholdtusk: {
+ // fusion: ['Gholdengo', 'Great Tusk'],
+		num: 20,
+		name: "Ghold Tusk",
+		types: ["Ghost", "Fighting"],
+		baseStats: {hp: 101, atk: 96, def: 113, spa: 93, spd: 73, spe: 85},
+		abilities: {0: "Amazing as Amber"},
+		weightkg: 253.5,
+		eggGroups: ["Undiscovered"],
+		tags: ["Paradox"],
+	},
+	sandraconhisui: {
+ // fusion: ['Goodra-Hisui', 'Sandaconda'],
+		num: 21,
+		name: "Sandracon-Hisui",
+		types: ["Steel", "Ground"],
+		baseStats: {hp: 80, atk: 104, def: 120, spa: 90, spd: 110, spe: 66},
+		abilities: {0: "Survivalist", 1: "Desert Shell"},
+		weightkg: 199.8,
+		eggGroups: ["Undiscovered"],
+	},
 
   // LCs
 	typedew: {
@@ -511,6 +542,17 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.2,
 		eggGroups: ["Undiscovered"],
 		evos: ["Buttermence"],
+	},
+	siligoobra: {
+ // fusion: ['Goomy', 'Silicobra'],
+		num: 3020,
+		name: "Siligoobra",
+		types: ["Dragon", "Ground"],
+		baseStats: {hp: 48, atk: 53, def: 55, spa: 45, spd: 62, spe: 43},
+		abilities: {0: "Survivalist", 1: "Desert Shell"},
+		weightkg: 5.2,
+		eggGroups: ["Undiscovered"],
+		evos: ["Sandracon-Hisui"],
 	},
 
   // when the ADE is SILVER !!
