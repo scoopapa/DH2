@@ -1125,6 +1125,217 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		shortDesc: "Shield Dust + Rock Head",
 	},
+	amazingasamber: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('amazingasamber');
+			} else if (!pokemon.volatiles['amazingasamber']?.fromBooster && this.field.weather !== 'sunnyday') {
+				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isWeather respects supression)
+				pokemon.removeVolatile('amazingasamber');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['amazingasamber'];
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Amazing as Amber', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Amazing as Amber');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
+			},
+			onTryHit(target, source, move) {
+				if (move.category === 'Status' && target !== source) {
+					this.add('-immune', target, '[from] ability: Amazing as Amber');
+					return null;
+				}
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosynthesis');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Amazing as Amber",
+		rating: 3,
+		shortDesc: "Effects of Protosynthesis. Immune to status moves while Protosynthesis is active.",
+	},
+	lasergun: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Laser Gun');
+				}
+				return null;
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Laser Gun', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Laser Gun', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Laser Gun', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Laser Gun",
+		rating: 3.5,
+		shortDesc: "Volt Absorb + Inner Focus",
+	},
+	resilience: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Resilience');
+			this.add('-message', `${pokemon} is exerting pressure!`);
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		onCheckShow(pokemon) {
+			if (pokemon.side.active.length === 1) return;
+			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			const cureList = [];
+			let noCureCount = 0;
+			for (const curPoke of pokemon.side.active) {
+				if (!curPoke?.status) {
+					continue;
+				}
+				if (curPoke.showCure) {
+					continue;
+				}
+				const species = curPoke.species;
+				if (!Object.values(species.abilities).includes('Resilience')) {
+					continue;
+				}
+				if (!species.abilities['1'] && !species.abilities['H']) {
+					continue;
+				}
+				if (curPoke !== pokemon && !this.queue.willSwitch(curPoke)) {
+					continue;
+				}
+				if (curPoke.hasAbility('resilience')) {
+					cureList.push(curPoke);
+				} else {
+					noCureCount++;
+				}
+			}
+			if (!cureList.length || !noCureCount) {
+				for (const pkmn of cureList) {
+					pkmn.showCure = true;
+				}
+			} else {
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Resilience.)");
+				for (const pkmn of cureList) {
+					pkmn.showCure = false;
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (!pokemon.status) return;
+			if (pokemon.showCure === undefined) pokemon.showCure = true;
+			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Resilience');
+			pokemon.clearStatus();
+			if (!pokemon.showCure) pokemon.showCure = undefined;
+		},
+		flags: {},
+		name: "Resilience",
+		rating: 2.5,
+		shortDesc: "Natural Cure + Pressure",
+	},
+	survivalist: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					target.cureStatus();
+					this.add('-immune', target, '[from] ability: Survivalist');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+				target.cureStatus();
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+				this.debug('shed skin');
+				this.add('-activate', pokemon, 'ability: Survivalist');
+				pokemon.cureStatus();
+			} 
+			if (pokemon.hp && this.randomChance(33, 100)) {
+				this.debug('attack boost');
+				this.add('-activate', pokemon, 'ability: Survivalist');
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Survivalist",
+		rating: 3,
+		shortDesc: "Hit by Grass move or 1/3 chance at end of turn: +1 Atk, cures status; Grass immunity.",
+	},
+	desertshell: {
+		onDamagingHit(damage, target, source, move) {
+			this.field.setWeather('sandstorm');
+		},
+		onCriticalHit: false,
+		flags: {breakable: 1},
+		name: "Desert Shell",
+		rating: 1,
+		shortDesc: "Shell Armor + Sand Spit",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
