@@ -3866,7 +3866,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			blizzard: ["9M"],
 			arcticshriek: ["9L1"],
 			block: ["9M"],
-			hyperdill: ["9M"],
+			hyperdrill: ["9M"],
 			spikecannon: ["9M"],
 			quickattack: ["9M"],
 			charm: ["9M"],
