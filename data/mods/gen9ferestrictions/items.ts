@@ -342,4 +342,18 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 6,
 		shortDesc: "If held by a Buttermence, this item allows it to Mega Evolve in battle.",
 	},
+	boosterenergy: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if ((pokemon.hasAbility('protosynthesis') || pokemon.hasAbility('amazingasamber')) &&
+				 !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+	},
 };
