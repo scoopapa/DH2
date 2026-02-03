@@ -4096,6 +4096,31 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Monoletter",
+		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10707107">Solomods Post</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">NatDex Alt Metagames Post</a>`,
+			'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
+			'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
+		],
+				ruleset: ['Standard NatDex', 'Terastal Clause' /* , Same Letter Rule */],
+				banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+				unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = [''];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monoletter.'];
+				}
+			}
+		},
+
+	},
+	{
 		name: "[Gen 9] Monopet",
 		desc: [
 			`<b>Monopet</b>: A Gen 9 Solomod where you can only use teams consisting of the same kind of pet.`,
