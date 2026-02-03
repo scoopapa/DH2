@@ -162,7 +162,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (move.flags['defrost']) {
 				this.field.removePseudoWeather('frostaura');
 			}
-		}
+		},
 		onEnd() {
 			this.add('-fieldend', 'none');
 		},
