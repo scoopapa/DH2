@@ -365,84 +365,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	/*congestion: { //rn it only works with one move at a time; will have to correct that
-		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
-		shortDesc: "Status moves don't effect until the user switches out.",
-		onBeforeMove(source, target, move) {
-			if (
-				move && move.category === 'Status' && source.hasAbility('congestion') &&
-				source.side.addSlotCondition(source, 'congestion')
-			) {
-				Object.assign(source.side.slotConditions[source.position]['congestion'], {
-					source: source,
-					target: null,
-					move: move,
-					position: target.position,
-					side: target.side,
-					moveData: this.dex.moves.get(move),
-				});
-				this.add('-ability', source, 'Congestion');
-				this.add('-message', `${source.name} will cast ${move.name} when it goes!`);
-				source.deductPP(move.id, 1);
-				return null;
-			}
-		},
-		condition: {
-			onResidualOrder: 3,
-			onSwitchOut(target) {
-				this.effectState.target = this.effectState.side.active[this.effectState.position];
-				const data = this.effectState;
-				const move = this.dex.moves.get(data.move);
-				this.add('-ability', this.effectState.source, 'Congestion');
-				if (!data.target) {
-					this.hint(`${move.name} did not hit because there was no target.`);
-					return;
-				}
-
-				this.add('-message', `${this.effectState.source.name}'s ${move.name} took effect!`);
-				data.target.removeVolatile('Endure');
-
-				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-					data.moveData.infiltrates = true;
-				}
-				if (data.source.hasAbility('normalize') && this.gen >= 6) {
-					data.moveData.type = 'Normal';
-				}
-				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
-					data.moveData.stab = 2;
-				}
-				data.moveData.isFutureMove = true;
-				delete data.moveData.flags['contact'];
-				delete data.moveData.flags['protect'];
-
-				if (move.category === 'Status') {
-					this.actions.useMove(move, target, data.target);
-				}
-			},
-		},
+	congestion: {
 		name: "Congestion",
+		shortDesc: "All status moves are delayed until all Congestion users are gone.",
 		rating: 3,
 		num: -27,
-	},*/
-	congestion: {
-			name: "Congestion",
-			shortDesc: "All status moves are delayed until all Congestion users are gone.",
-			rating: 3,
-			num: -27,
-		
-			onUpdate(pokemon) {
-				// Loop over all active Pokémon
-				for (const p of this.getAllActive()) {
-					const slot = p.position;
-					const side = p.side;
-		
-					// Apply the congestionstatus slot condition if not present
-					if (!side.slotConditions[slot]?.congestionstatus) {
-						side.addSlotCondition(p, 'congestionstatus');
-					}
+	
+		onUpdate(pokemon) {
+			// Loop over all active Pokémon
+			for (const p of this.getAllActive()) {
+				const slot = p.position;
+				const side = p.side;
+	
+				// Apply the congestionstatus slot condition if not present
+				if (!side.slotConditions[slot]?.congestionstatus) {
+					side.addSlotCondition(p, 'congestionstatus');
 				}
-			},
+			}
 		},
+	},
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
@@ -643,49 +584,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	frostaura: {
 		shortDesc: "Turns all Water-type Pokémon into Ice-type Pokémon, and Water-type moves into Ice-type moves until a thawing move is used.",
 		desc: "While this Pokémon is on the field, all Water-type Pokémon become Ice-type Pokémon, and all Water-type moves become Ice-type moves. This effect ends when a thawing move is used.",
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (!target.hasType('Water')) continue;
-				if (!activated) {
-					this.add('-ability', pokemon, 'Frost Aura', 'boost');
-					activated = true;
-				}
-				else {
-					target.addVolatile('frostaura');
-				}
-			}
+		onStart(source) {
+			this.add('-ability', source, 'Frost Aura');
+			this.field.addPseudoWeather('frostaura');
 		},
-		condition: {
-			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Frost', '[from] ability: Frost Aura', '[of] ' + source);
-			},
-			onModifyTypePriority: -1,
-			onModifyType(move, pokemon) {
-				const noModifyType = [
-					'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
-				];
-				if (move.type === 'Water' && !noModifyType.includes(move.id) &&
-					!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-					move.type = 'Ice';
-					move.typeChangerBoosted = this.effect;
-				}
-			},
-			onUpdate(pokemon) {
-				for (const target of this.getAllActive()) {
-					if (!target || target === pokemon) continue;
-					if (target.hasType('Water') && target.isAdjacent(this.effectState.target)) {
-						target.setType(target.getTypes(true).map(type => type === "Water" ? "Ice" : type));
-						this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Frost Aura', '[of] ' + pokemon);
-					}
-				}
-			},
-			onAfterMoveSecondary(target, source, move) {
-				if (move.flags['defrost']) {
-					target.removeVolatile('frostaura');
-				}
-			}
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd(pokemon) {
+			this.field.removePseudoWeather('frostaura');
 		},
 		name: "Frost Aura",
 		rating: 4,

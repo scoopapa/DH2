@@ -131,4 +131,40 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-fieldend', 'none');
 		},
 	},
+	frostaura: { 
+		name: "Frost Aura",
+		effectType: 'PseudoWeather',
+		duration: 0,
+		onFieldStart(field, source, effect) {
+			this.add('-pseudoweather', 'Frost Aura', '[of] ' + source);
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Water' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target || target === pokemon) continue;
+				if (target.hasType('Water') && target.isAdjacent(this.effectState.target)) {
+					target.setType(target.getTypes(true).map(type => type === "Water" ? "Ice" : type));
+					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Frost Aura', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (move.flags['defrost']) {
+				this.field.removePseudoWeather('frostaura');
+			}
+		}
+		onEnd() {
+			this.add('-fieldend', 'none');
+		},
+	},
 };
