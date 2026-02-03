@@ -208,4 +208,25 @@ describe("Custom Rules", function () {
 		];
 		assert.legalTeam(team, 'gen7customgame@@@Standard');
 	});
+
+	it('should enforce Same Letter Rule', function () {
+		let team = [
+			{species: 'pikachu', ability: 'static', moves: ['thunderbolt'], evs: {hp: 1}},
+			{species: 'pidgey', ability: 'keeneye', moves: ['tackle'], evs: {hp: 1}},
+		];
+		assert.legalTeam(team, 'gen8customgame@@@sameletterrule');
+
+		team = [
+			{species: 'pikachu', ability: 'static', moves: ['thunderbolt'], evs: {hp: 1}},
+			{species: 'bulbasaur', ability: 'overgrow', moves: ['tackle'], evs: {hp: 1}},
+		];
+		assert.false.legalTeam(team, 'gen8customgame@@@sameletterrule');
+
+		// Nicknames should not affect the rule
+		team = [
+			{species: 'charizard', name: 'A Blazing Lizard', ability: 'blaze', moves: ['flamethrower'], evs: {hp: 1}},
+			{species: 'charmander', name: 'Tiny Fire', ability: 'blaze', moves: ['ember'], evs: {hp: 1}},
+		];
+		assert.legalTeam(team, 'gen8customgame@@@sameletterrule');
+	});
 });
