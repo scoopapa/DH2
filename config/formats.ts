@@ -3820,6 +3820,18 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
 		banlist: ['DUber', 'Power Construct', 'Shadow Tag', 'Swagger'],
 	},
+	{
+		name: "[Gen 9] Luckless Play OU",
+		mod: 'lucklessplay',
+		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', '!Evasion Items Clause', 'Hax Meter Rule'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
+		name: "[Gen 8] Luckless Play OU",
+		mod: 'gen8lucklessplay',
+		ruleset: ['Standard', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+	},
    /* {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
