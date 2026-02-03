@@ -496,18 +496,30 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -28,
 	},
 	twinheart: {
-		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
+		shortDesc: "Farigiraf-Mega: Applies Power Trick before using a Physical/Special move, and is Normal/Dark before a Physical move, Normal/Psychic before a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Farigiraf' || attacker.transformed) return;
 			if (move.category === 'Status') return;
-			const targetForme = (move.category === 'Special' ? 'Farigiraf-Mega' : 'Farigiraf-Mega-Nocturnal');
-			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
-			const newatk = attacker.storedStats.spa;
-			const newspa = attacker.storedStats.atk;
-			attacker.storedStats.atk = newatk;
-			attacker.storedStats.spa = newspa;
+			const maxOffense = Math.max(attacker.storedStats.atk, attacker.storedStats.spa);
+			const minOffense = Math.max(attacker.storedStats.atk, attacker.storedStats.spa);
+			if (move.category === 'Physical') {
+				attacker.storedStats.atk = maxOffense;
+				attacker.storedStats.spa = minOffense;
+			}
+			if (move.category === 'Special') {
+				attacker.storedStats.atk = minOffense;
+				attacker.storedStats.spa = maxOffense;				
+			}
+			this.add('-ability', attacker, 'Double Spirit');
+			const secondaryType = move.category === 'Physical' ? 'Dark' : 'Psychic'
+			const types = ["Normal", secondaryType]
+			const oldTypes = attacker.getTypes();
+			if (oldTypes.join() === types.join() || !attacker.setType(types)) return;
+			if (!attacker.setType('Normal')) return;
+			this.add('-start', attacker, 'typechange', 'Normal', '[from] ability: Twin Heart');
+			if (!attacker.addType(secondaryType)) return;
+			this.add('-start', attacker, 'typeadd', secondaryType, '[from] ability: Twin Heart');
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Twin Heart",
