@@ -5675,17 +5675,6 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
 		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['OU','UUBL','UU','RUBL','RU','NUBL','NU','PUBL','PU','ZUBL','ZU','NFE','LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				let tier = template.natDexTier || template.tier;
-				if (!allowedTiers.includes(tier)) {
-					return [set.species + ' is not legal in Monoletter.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] National Dex",
