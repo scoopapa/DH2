@@ -6482,7 +6482,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Rotom-Heat",
 		baseSpecies: "Rotom",
 		forme: "Heat",
-		types: ["Electric", "Ghost"],
+		types: ["Electric", "Fire"],
 		gender: "N",
 		baseStats: {hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86},
 		abilities: {0: "Levitate"},
