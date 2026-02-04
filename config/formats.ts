@@ -1853,6 +1853,40 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 3] Shadow Colosseum",
+		mod: 'gen3shadowcolosseum',
+		gameType: 'doubles',
+		desc: [
+			`<b>[Gen 3] Shadow Colosseum</b>: A Gen 3 Orre Colosseum (Gen 3 VGC) metagame that adds Shadow Pokemon and moves to the game.`,
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3774822/">Shadow Colosseum on the Smogon Forums</a>`,
+		],
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Stadium Sleep Clause', 'Freeze Clause Mod', 'Max Team Size = 6', 'VGC Timer',
+			'Nickname Clause', 'Endless Battle Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Exact HP Mod', 'Item Clause', 'Open Team Sheets',
+			'Shadow Mechanic', 'Data Preview',
+		],
+		banlist: ['Soul Dew', 'Deoxys-Defense', 'Deoxys-Attack', 'Deoxys-Speed', 'Restricted Legendary', 'Mythical'],
+		unbanlist: ['Latios', 'Latias', 'Wobbuffet', 'Wynaut'],
+		bestOfDefault: true,
+		onBegin() {
+			this.add('rule', 'Self-KO Clause: If your last Pok\u00e9mon faints to a self-KO move or effect, you will lose the battle');
+		},
+	},
+	{
+		name: "[Gen 3] Shadow Colosseum Custom Game",
+		mod: 'gen3shadowcolosseum',
+		gameType: 'doubles',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		ruleset: [
+			'HP Percentage Mod', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999',
+			'Default Level = 100', 'Shadow Mechanic', 'Data Preview', 'Exact HP Mod', 'Open Team Sheets', 'Team Preview',
+		],
+	},
+	{
 		name: "[Gen 9] Six by Six",
 		desc: [
 			`<b>Six by Six</b>: A Gen 9 micrometa featuring only 6 Pokemon, each with 6 forms.`,
@@ -2771,6 +2805,30 @@ export const Formats: FormatList = [
 	{
 		section: "Solomods",
 		column: 2,
+	},
+	{
+		name: "[Gen 5] 33 Valuemons",
+		mod: 'gen5valuemons',
+		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points. This tier is not quite finished, but we're working on it!`,
+		threads: [
+            `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
+			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
+			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
+              ],
+		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause','Obtainable','!Obtainable Moves'/* ,'33 Valuemons' */],
+		banlist: ['King\'s Rock', 'Razor Fang'],
+		unbanlist: ['Baton Pass'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['33v'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in 33 Valuemons.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] A Golden Experience",
@@ -3796,6 +3854,18 @@ export const Formats: FormatList = [
 		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
 		banlist: ['DUber', 'Power Construct', 'Shadow Tag', 'Swagger'],
 	},
+	{
+		name: "[Gen 9] Luckless Play OU",
+		mod: 'lucklessplay',
+		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', '!Evasion Items Clause', 'Hax Meter Rule'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
+		name: "[Gen 8] Luckless Play OU",
+		mod: 'gen8lucklessplay',
+		ruleset: ['Standard', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+	},
    /* {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
@@ -4433,7 +4503,7 @@ export const Formats: FormatList = [
         threads: [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
               ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', '!Team Preview','Spokymod'],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause','Spokymod'],
         banlist: [],
 		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
@@ -4461,7 +4531,7 @@ export const Formats: FormatList = [
         threads: [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
               ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Spokymod'],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', '!Team Preview', 'Spokymod'],
         banlist: [],
 		team: 'random',
         mod: 'spookymod',
@@ -5418,7 +5488,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
 			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5442,7 +5512,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
 			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'Light Clay'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5467,7 +5537,7 @@ export const Formats: FormatList = [
 			'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap',
-			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem',  'Light Clay'],
+			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5492,7 +5562,7 @@ export const Formats: FormatList = [
 			'Species Clause', 'Terastal Clause'],
 		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
-			'Shagaru Magala + Strength Sap', 'Garugite',  'Light Clay'],
+			'Shagaru Magala + Strength Sap', 'Garugite',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5625,6 +5695,20 @@ export const Formats: FormatList = [
 		debug: true,
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+	{
+		name: "[Gen 9] Monoletter",
+		mod: "gen9",
+		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
+			'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
+			'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
+		],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
+		teambuilderFormat: "National Dex",
 	},
 	{
 		name: "[Gen 9] National Dex",
@@ -5790,6 +5874,21 @@ export const Formats: FormatList = [
 		mod: 'gen3',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
 		banlist: ['Uber', 'Smeargle + Ingrain', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Swagger'],
+	},
+	{
+		name: "[Gen 3] Orre Colosseum",
+		mod: 'gen3colosseum',
+		gameType: 'doubles',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Stadium Sleep Clause', 'Freeze Clause Mod', 'Max Team Size = 6', 'VGC Timer',
+			'Nickname Clause', 'Endless Battle Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Exact HP Mod', 'Item Clause', 'Open Team Sheets',
+		],
+		banlist: ['Soul Dew', 'Deoxys-Defense', 'Deoxys-Attack', 'Deoxys-Speed', 'Restricted Legendary', 'Mythical'],
+		unbanlist: ['Latios', 'Latias', 'Wobbuffet', 'Wynaut'],
+		bestOfDefault: true,
+		onBegin() {
+			this.add('rule', 'Self-KO Clause: If your last Pok\u00e9mon faints to a self-KO move or effect, you will lose the battle');
+		},
 	},
 	{
 		name: "[Gen 2] OU",

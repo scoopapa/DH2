@@ -5599,7 +5599,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			earthquake: ["9L1"],
 			eruption: ["9L1"],
 			explosion: ["9L1"],
-			facade: ["9L1"],
 			fierywrath: ["9L1"],
 			fireblast: ["9L1"],
 			firelash: ["9L1"],
