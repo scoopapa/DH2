@@ -1404,6 +1404,34 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
 	},
 	reactivecore: {
+		onStart(pokemon) {
+		// Weather-based activation
+		const weather = this.field.weather;
+			if (['sunnyday', 'desolateland'].includes(weather)) {
+				pokemon.removeVolatile('cooled');
+				pokemon.addVolatile('warmed');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core glows in the sunlight! (1.33x Offenses)`);
+			} else if (['hail', 'snow', 'absolutezero'].includes(weather)) {
+				pokemon.removeVolatile('warmed');
+				pokemon.addVolatile('cooled');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core hardened against the snow! (1.33x Defenses)`);
+			}
+			// Status-based activation
+			if (pokemon.status === 'brn') {
+				pokemon.removeVolatile('cooled');
+				pokemon.addVolatile('warmed');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core ignited on entry! (1.33x Offenses)`);
+			}
+			if (pokemon.status === 'frz') {
+				pokemon.removeVolatile('warmed');
+				pokemon.addVolatile('cooled');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core froze solid on entry! (1.33x Defenses)`);
+			}
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Fire') {
 				if (!target.volatiles['warmed']) {
