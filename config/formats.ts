@@ -4107,32 +4107,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monoletter",
-		mod: "gen9",
-		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
-			'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
-			'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
-		],
-				ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
-				banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-				unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['OU','UUBL','UU','RUBL','RU','NUBL','NU','PUBL','PU','ZUBL','ZU','NFE','LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				let tier = template.natDexTier || template.tier;
-				if (!allowedTiers.includes(tier)) {
-					return [set.species + ' is not legal in Monoletter.'];
-				}
-			}
-		},
-
-	},
-	{
 		name: "[Gen 9] Monopet",
 		desc: [
 			`<b>Monopet</b>: A Gen 9 Solomod where you can only use teams consisting of the same kind of pet.`,
@@ -5480,7 +5454,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
 			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5504,7 +5478,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
 			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'Light Clay'],
+			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5529,7 +5503,7 @@ export const Formats: FormatList = [
 			'Species Clause', 'Terastal Clause'],
 		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap',
-			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem',  'Light Clay'],
+			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5554,7 +5528,7 @@ export const Formats: FormatList = [
 			'Species Clause', 'Terastal Clause'],
 		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
 			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
-			'Shagaru Magala + Strength Sap', 'Garugite',  'Light Clay'],
+			'Shagaru Magala + Strength Sap', 'Garugite',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
 		onBegin() {
 			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
 		},
@@ -5687,6 +5661,20 @@ export const Formats: FormatList = [
 		debug: true,
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+	{
+		name: "[Gen 9] Monoletter",
+		mod: "gen9",
+		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
+			'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
+			'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
+		],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
+		teambuilderFormat: "National Dex",
 	},
 	{
 		name: "[Gen 9] National Dex",
