@@ -679,7 +679,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Frozen Calamity",
-		shortDesc: "This Pokemon resists Ice, 1.5x offenses when using Ice-type attacks, +5% Ice Power per fainted foe.",
+		shortDesc: "This Pokemon resists Ice, 1.5x Offenses when using Ice-type attacks, +5% Ice Power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,
@@ -875,6 +875,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
+		flags: {breakable: 1},
 		name: "Insect Armor",
 		shortDesc: "This Pokemon has Bug-Type resistances; 1.5x offenses when using Bug-type attacks.",
 	},
@@ -2086,6 +2087,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm'|| type === 'dustdevil') return false;
 		},
+	},
+	supremeoverlord: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
 	},
 	slushrush: {
 		inherit: true,
