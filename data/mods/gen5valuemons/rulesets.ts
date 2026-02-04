@@ -52,5 +52,23 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				return [`You can only use up to one Starter Pok\u00E9mon.`];
 			}
 		},
-	}
+	},
+	restrictedshiniesclause: {
+		effectType: 'Rule',
+		name: 'Restricted Shinies Clause',
+		desc: "A Pokémon is Shiny if and only if it is using its Hidden Ability.",
+		onValidateTeam(team) {
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				const ability = this.dex.abilities.get(set.ability);
+				const isUsingHiddenAbility = ability.name === species.abilities['H'];
+				
+				if (isUsingHiddenAbility) {
+					set.shiny = true;
+				} else {
+					set.shiny = false;
+				}
+			}
+		},
+	},
 }
