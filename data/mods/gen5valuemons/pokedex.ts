@@ -7049,16 +7049,4 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		requiredItems: ["Splash Plate", "Waterium Z"],
 		changesFrom: "Arceus",
 	},
-	joe: {
-		num: 494,
-		name: "Joe",
-		types: ["Fairy", "Steel"],
-		gender: "N",
-		baseStats: {hp: 255, atk: 255, def: 255, spa: 255, spd: 255, spe: 255},
-		abilities: {0: "Huge Power"},
-		heightm: 1.0,
-		weightkg: 0.1,
-		color: "White",
-		eggGroups: ["Undiscovered"],
-	}
 };
