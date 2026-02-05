@@ -6,7 +6,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		onBegin() {
 			this.add('rule', 'Shadow Mechanic: Turns any Pokemon with a Shadow move into a Shadow Pokemon');
 		},
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			console.log(pokemon.baseSpecies); // sanity check
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
