@@ -12,10 +12,18 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
 				'shadowchill', 'shadowfire', 'shadowblast',
 			];
-			if (pokemon.hasMove(shadowMoves)) {
-				this.add('-anim', pokemon, "Hex", pokemon);
-				this.add('-message', `${pokemon.name} has sealed its heart!`);
-				pokemon.addVolatile('shadow');
+			let shadowCount = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				const move = this.dex.moves.get(moveid);
+				console.log(move);
+				if (move.type === 'Shadow' || pokemon.hasMove(shadowMoves)) {
+					shadowCount++;
+					pokemon.addVolatile('shadow');
+				}
+				if (shadowCount > 0) {
+					pokemon.addVolatile('shadow');
+				}
 			}
 		},
 		onBasePowerPriority: 1,
