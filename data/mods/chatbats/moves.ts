@@ -1674,8 +1674,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					return;
 				}
 				if (!this.getOverflowedTurnCount()) return;
-				target.removeVolatile('Protect');
-				target.removeVolatile('Endure');
+				//target.removeVolatile('Protect');
+				//target.removeVolatile('Endure');
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 					data.moveData.infiltrates = true;
 				}
