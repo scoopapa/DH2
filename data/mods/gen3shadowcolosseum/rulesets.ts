@@ -1,6 +1,6 @@
 export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	shadowmechanic: {
-		effectType: 'ValidatorRule',
+		effectType: 'Rule',
 		name: 'Shadow Mechanic',
 		desc: "Turns any Pokemon with a Shadow move into a Shadow Pokemon.",
 		onBegin() {
