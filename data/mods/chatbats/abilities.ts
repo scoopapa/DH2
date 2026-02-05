@@ -1,4 +1,4 @@
-export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	thickfat: {
 		// prevents burning
 		inherit: true,
@@ -15,159 +15,156 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 			return false;
 		},
-		shortDesc: "Fire-/Ice-type moves against this Pokemon deal 1/2 damage. Burn immune.",
+		shortDesc: "-50% damage from Fire and Ice. Burn immune.",
 	},
 	callillumise: {
-		onDamagePriority: -30, 
+		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && effect) {
-				// Keep the Pokémon at 1 HP instead of fainting immediately
-				const finalHp = target.hp - 1;
-				this.damage(target.hp - 1, target, source || target, effect);
-
-				this.add('-activate', target, 'ability: Call Illumise');
-				this.add('-message', `Volbeat calls upon Illumise for aid!`);
-				// Define new moves
-				const newMoves = ['bugbuzz', 'icebeam', 'thunderbolt', 'calmmind'];
-
-				// Update move slots
-				target.moveSlots = newMoves.map(move => {
-					const moveData = this.dex.moves.get(move);
-					return {
-						move: moveData.name,
-						id: moveData.id,
-						pp: moveData.pp,
-						maxpp: moveData.pp,
-						target: moveData.target,
-						disabled: false,
-						used: false,
-					};
-				});
-				// this forces the UI to update move slots visually
-				target.baseMoveSlots = target.moveSlots.slice();
-				// removes status/boosts
-				target.cureStatus();
-				target.clearBoosts();
-				// forces the UI to update part II
-				this.add('-clearboost', target, '[from] ability: Call Illumise', '[silent]');
-				for (const volatile in target.volatiles) {
-					this.add('-end', target, volatile);
-				}
-				target.clearVolatile(true);
-				// form change + heal
-				target.formeChange('Illumise', target, true);
-				this.heal(this.modify(target.maxhp, 1));
-				// sets new ability
-				target.setAbility('Tinted Lens');
-				this.add('-activate', target, 'ability: Tinted Lens');
-				target.baseAbility = target.ability;
-				// prevents damage from reapplying after form change
-				return damage - damage;
+			if (damage >= target.hp) {
+				this.add('-ability', target, 'Call Illumise');
+				this.effectState.callillumise = true;
+				return target.hp - 1;
 			}
 		},
-		flags: {},
+		onUpdate(pokemon) {
+			if (!this.effectState.callillumise) return;
+
+			this.add('-message', `Volbeat calls upon Illumise for aid!`);
+			// Define new moves
+			const newMoves = ['bugbuzz', 'icebeam', 'thunderbolt', 'quiverdance'];
+			// Update move slots
+			pokemon.moveSlots = newMoves.map(move => {
+				const moveData = this.dex.moves.get(move);
+				return {
+					move: moveData.name,
+					id: moveData.id,
+					pp: moveData.pp,
+					maxpp: moveData.pp,
+					target: moveData.target,
+					disabled: false,
+					used: false,
+				};
+			});
+			// this forces the UI to update move slots visually
+			(pokemon as any).baseMoveSlots = pokemon.moveSlots.slice();
+			// removes status/boosts
+			pokemon.cureStatus();
+			pokemon.clearBoosts();
+			// forces the UI to update part II
+			this.add('-clearboost', pokemon, '[from] ability: Call Illumise', '[silent]');
+			for (const volatile in pokemon.volatiles) {
+				this.add('-end', pokemon, volatile);
+			}
+			pokemon.clearVolatile(true);
+			// form change + heal
+			pokemon.formeChange('Illumise', null, true);
+			this.heal(pokemon.maxhp);
+			// sets new ability
+			pokemon.setAbility('Tinted Lens', null, null, true);
+			pokemon.baseAbility = pokemon.ability;
+			this.add('-ability', pokemon, 'Tinted Lens');
+		},
+		flags: {
+			breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1,
+		},
 		name: "Call Illumise",
 		rating: 5,
 		num: -100,
-		shortDesc: "When Illumise gets low on HP, it calls Volbeat for aid.",
+		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid.",
 	},
 	callvolbeat: {
-		onTryHit(target, source, move) {
-			target.clearBoosts();
-		},
-		onDamagePriority: -30, 
+		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && effect) {
-		
-				// Keep the Pokémon at 1 HP instead of fainting immediately
-				const finalHp = target.hp - 1;
-				this.damage(target.hp - 1, target, source || target, effect);
-
-				this.add('-activate', target, 'ability: Call Volbeat');
-				this.add('-message', `Illumise calls upon Volbeat for aid!`);
-				// Define new moves
-				const newMoves = ['dragondance', 'lunge', 'dragonhammer', 'earthquake'];
-
-				// Update move slots
-				target.moveSlots = newMoves.map(move => {
-					const moveData = this.dex.moves.get(move);
-					return {
-						move: moveData.name,
-						id: moveData.id,
-						pp: moveData.pp,
-						maxpp: moveData.pp,
-						target: moveData.target,
-						disabled: false,
-						used: false,
-					};
-				});
-				// this forces the UI to update move slots visually
-				target.baseMoveSlots = target.moveSlots.slice();
-				// removes status/boosts
-				target.clearStatus();
-				target.clearBoosts();
-				// forces the UI to update part II
-				this.add('-clearboost', target, '[from] ability: Call Volbeat', `[silent]`);
-				for (const volatile in target.volatiles) {
-					this.add('-end', target, volatile);
-				}
-				target.clearVolatile(false);
-				// form change + heal
-				target.formeChange('Volbeat', target, true);
-				this.heal(this.modify(target.maxhp, 1));
-				// sets new ability
-				target.setAbility('Swarm');
-				target.baseAbility = target.ability;
-				this.add('-activate', target, 'ability: Swarm');
-				// prevents damage from reapplying after form change
-				return damage - damage;
+			if (damage >= target.hp) {
+				this.add('-ability', target, 'Call Volbeat');
+				this.effectState.callvolbeat = true;
+				return target.hp - 1;
 			}
 		},
-		flags: {},
+		onUpdate(pokemon) {
+			if (!this.effectState.callvolbeat) return;
+
+			this.add('-message', `Illumise calls upon Volbeat for aid!`);
+			// Define new moves
+			const newMoves = ['victorydance', 'lunge', 'mightycleave', 'earthquake'];
+			// Update move slots
+			pokemon.moveSlots = newMoves.map(move => {
+				const moveData = this.dex.moves.get(move);
+				return {
+					move: moveData.name,
+					id: moveData.id,
+					pp: moveData.pp,
+					maxpp: moveData.pp,
+					target: moveData.target,
+					disabled: false,
+					used: false,
+				};
+			});
+			// this forces the UI to update move slots visually
+			(pokemon as any).baseMoveSlots = pokemon.moveSlots.slice();
+			// removes status/boosts
+			pokemon.cureStatus();
+			pokemon.clearBoosts();
+			// forces the UI to update part II
+			this.add('-clearboost', pokemon, '[from] ability: Call Volbeat', '[silent]');
+			for (const volatile in pokemon.volatiles) {
+				this.add('-end', pokemon, volatile);
+			}
+			pokemon.clearVolatile(true);
+			// form change + heal
+			pokemon.formeChange('Volbeat', null, true);
+			this.heal(pokemon.maxhp);
+			// sets new ability
+			pokemon.setAbility('Dancer', null, null, true);
+			pokemon.baseAbility = pokemon.ability;
+			this.add('-ability', pokemon, 'Dancer');
+		},
+		flags: {
+			breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1,
+		},
 		name: "Call Volbeat",
 		rating: 5,
 		num: -101,
-		shortDesc: "When Volbeat gets low on HP, it calls Illumise for aid.",
+		shortDesc: "When Illumise gets low on HP, it calls Volbeat for aid.",
 	},
 	shortfuse: {
-		onDamagePriority: -30, 
+		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && effect) {
+			if (damage >= target.hp) {
 				this.add('-ability', target, 'Short Fuse');
-		
-				// Keep the Pokémon at 1 HP instead of fainting immediately
-				const finalHp = target.hp - 1;
-				this.damage(target.hp - 1, target, source, effect);
-		
-				// Force the Pokémon to use Explosion
-				const explosion = this.dex.getActiveMove('explosion');
-				this.actions.useMove(explosion, target);
-					
-				// Ensure the Pokémon properly faints afterward
-				target.faint();
+				this.effectState.shortfuse = true;
+				return target.hp - 1;
 			}
 		},
-		flags: {breakable: 1},
+		onUpdate(pokemon) {
+			if (this.effectState.shortfuse) {
+				delete this.effectState.shortfuse;
+				this.actions.useMove('explosion', pokemon);
+			}
+			this.checkFainted();
+		},
+		flags: {
+			breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,
+		},
 		name: "Short Fuse",
 		rating: 5,
 		num: -102,
-		shortDesc: "When this Pokemon would be KOed, it instead uses Explosion.",
+		shortDesc: "If KO'd, use Explosion instead.",
 	},
 	hydroelectricdam: {
-		//Copied from the code for Sand Spit
+		// Copied from the code for Sand Spit
 		onDamagingHit(damage, target, source, move) {
 			this.field.setWeather('raindance');
-			this.add('-message', `Archaludon releases a deluge!`);
 		},
 		flags: {},
 		name: "Hydroelectric Dam",
 		rating: 5,
 		num: -103,
-		shortDesc: "When this Pokemon is hit by an attack, the effect of Rain Dance begins.",
+		shortDesc: "Starts Rain Dance when hit by an attack.",
 	},
 	frozenarmor: {
 		onTryHit(target, source, move) {
-			if(move.category != 'Status') {
+			if (move.category !== 'Status') {
 				this.add('-ability', target, 'Frozen Armor');
 				// reduces base power of incoming moves by 20 (math.max prevents base power from reducing below 0)
 				move.basePower = Math.max(move.basePower - 20, 0);
@@ -178,43 +175,46 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			// checks if Glastrier is below 50% HP, if so transforms into Caly-Ice and sets ability to As One
 			if (pokemon.species.id !== 'glastrier' || !pokemon.hp) return;
 			if (pokemon.hp < pokemon.maxhp / 2) {
-				if (pokemon.species !== 'Calyrex-Ice' && pokemon.ability === 'frozenarmor') {
-					pokemon.formeChange('Calyrex-Ice', pokemon, true);
+				if (pokemon.species.id !== 'calyrexice' && pokemon.ability === 'frozenarmor') {
+					pokemon.formeChange('Calyrex-Ice', null, true);
 					this.add('-message', `Glastrier's Frozen Armor has shattered!`);
-					//pokemon.setAbility('As One (Glastrier)');
+					// pokemon.setAbility('As One (Glastrier)');
 					pokemon.baseAbility = pokemon.ability;
-					//this.add('-ability', pokemon, 'As One');
+					// this.add('-ability', pokemon, 'As One');
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Frozen Armor",
 		rating: 5,
 		num: -105,
-		shortDesc: "Incoming attacks have their BP reduced by 20. This Pokemon transforms into Calyrex-Ice below 50% HP.",
+		shortDesc: "-20 BP on attacks targeting Glastrier, at 50% HP become Calyrex-Ice.",
 	},
 	flipflop: {
 		onDamagingHitOrder: 1,
 		onTryHit(target, source, move) {
 			if (move.flags['contact']) {
-				let invertedBoosts: SparseBoostsTable = {};
+				let flipFlopBoosts = false;
+				const invertedBoosts: SparseBoostsTable = {};
 				for (const stat in source.boosts) {
-					if (source.boosts[stat] > 0) {
+					if (source.boosts[stat as BoostID] > 0) {
 						// checks for boosts on source of move, inverts boosts and adds them to invertedBoosts table
-						this.add('-message', `Boost detected`);
-						invertedBoosts[stat] = -2 * source.boosts[stat]; 
+						invertedBoosts[stat as BoostID] = -2 * source.boosts[stat as BoostID];
+						if (!flipFlopBoosts) {
+							this.add('-ability', target, 'Flip Flop');
+							flipFlopBoosts = true;
+						}
 					}
 				}
 				// applies boosts
-				this.boost(invertedBoosts, source);
-				this.add('-ability', target, 'Flip Flop');
+				this.boost(invertedBoosts, source, target);
 			}
 		},
 		flags: {},
 		name: "Flip Flop",
 		rating: 5,
 		num: -104,
-		shortDesc: "When hit by a contact move, the attacker’s stat changes are inverted.",
+		shortDesc: "When hit by contact move, invert attacker’s stat boosts.",
 	},
 
 	grasspelt: {
@@ -257,6 +257,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return this.chainModify(2);
 			}
 		},
+		// this ability is supposed to just add Aqua Ring (the volatile) to the Pokemon on switch in
+		flags: { cantsuppress: 1 },
 		name: "Aqua Veil",
 		rating: 5,
 		num: -106,
@@ -287,14 +289,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Still Water",
 		rating: 5,
 		num: -107,
 		shortDesc: "Unaware + Water Absorb",
 	},
 	kingofthehill: {
-		//sharpness + mountaineer + prevents hazard immunity
+		// sharpness + mountaineer + prevents hazard immunity
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
 				return false;
@@ -318,7 +320,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'King of the Hill');
 			for (const side of pokemon.side.foeSidesWithConditions()) {
-					side.addSideCondition('kingofthehill');
+				side.addSideCondition('kingofthehill');
 			}
 		},
 		onEnd(pokemon) {
@@ -329,11 +331,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		condition: {},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "King of the Hill",
 		rating: 5,
 		num: -108,
-		shortDesc: "Mountaineer + Sharpness. Prevents opposing Pokemon from ignoring hazard damage.",
+		shortDesc: "Mountaineer + Sharpness. Opponent cannot ignore hazard damage.",
 	},
 	// stockpile on hit
 	omnivore: {
@@ -347,7 +349,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Omnivore",
 		rating: 5,
 		num: -109,
-		shortDesc: "This Pokemon gains a Stockpile charge upon being hit by a damaging attack.",
+		shortDesc: "Gain Stockpile charge when hit by attack.",
 	},
 	// disguise clone
 	pseudowoodo: {
@@ -390,23 +392,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		flags: {
-			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,
 			breakable: 1, notransform: 1,
 		},
 		name: "Pseudowoodo",
 		rating: 5,
 		num: -110,
-		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead and becomes Rock type.",
+		shortDesc: "Disguise. Becomes Rock type when it breaks.",
 	},
 	magicguard: {
 		onDamage(damage, target, source, effect) {
 			// prevents magic guard from blocking hazard damage while King of the Hill is active
 			if (target.side.getSideCondition('kingofthehill')) {
-            const hazards = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'];
-            if (effect && hazards.includes(effect.id)) {
-                return;
-           	}
-        	}
+				const hazards = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'];
+				if (effect && hazards.includes(effect.id)) {
+					return;
+				}
+			}
 			if (effect.effectType !== 'Move') {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
@@ -506,17 +508,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		rating: 4.5,
-		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
+		shortDesc: "Gen 8 Protean.",
 	},
 	berserk: {
 		onUpdate(pokemon) {
-			if (!pokemon.berserk) {
-				pokemon.berserk = false;
-			}
-			if (pokemon.species.id !== 'infernape' || !pokemon.hp) return;
-			if (pokemon.hp < pokemon.maxhp / 2 && pokemon.berserk === false) {
+			if (pokemon.species.id !== 'infernape' || !pokemon.hp || pokemon.m.triggeredBerserk) return;
+			if (pokemon.hp < pokemon.maxhp / 2) {
 				this.boost({ spa: 1 }, pokemon, pokemon);
-				pokemon.berserk = true;
+				pokemon.m.triggeredBerserk = true;
 			}
 		},
 		flags: {},
@@ -537,7 +536,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		// ends move lock properly
 		onAfterMove(pokemon) {
-			if (pokemon.volatiles['bloodsoakedcrescent'] && pokemon.volatiles['bloodsoakedcrescent'].duration === 1) {
+			if (pokemon.volatiles['bloodsoakedcrescent']?.duration === 1) {
 				pokemon.removeVolatile('bloodsoakedcrescent');
 				this.add('-end', pokemon, 'Blood-Soaked Rage');
 			}
@@ -594,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (pokemon.getVolatile('mustrecharge')) {
-				pokemon.removeVolatile('mustrecharge')
+				pokemon.removeVolatile('mustrecharge');
 				this.add('-end', pokemon, 'mustrecharge');
 			}
 		},
@@ -606,51 +605,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	biogenesis: {
 		onSwitchInPriority: -1,
-		onBeforeSwitchIn(pokemon) {	
-			if (pokemon.didRandomMoves === "yes") return;
+		onBeforeSwitchIn(pokemon) {
+			if (pokemon.m.didRandomMoves) return;
 			const moves = this.dex.moves.all();
-			let randomMove1 = '';
-			if (moves.length) {
-				randomMove1 = this.sample(moves).id;
+			const newMoves = [];
+			while (newMoves.length < 8) {
+				const newMove = this.sample(moves);
+				if (newMove.basePower === 1) continue;
+				if (newMove.isMax === true) continue;
+				if (newMove.isNonstandard === "Gigantamax") continue;
+				if (newMoves.map(x => x.id).includes(newMove.id)) continue;
+				newMoves.push(newMove);
 			}
-			if (!randomMove1) return false;
-			let randomMove2 = '';
-			if (moves.length) {
-				randomMove2 = this.sample(moves).id;
-			}
-			if (!randomMove2) return false;
-			let randomMove3 = '';
-			if (moves.length) {
-				randomMove3 = this.sample(moves).id;
-			}
-			if (!randomMove3) return false;
-			let randomMove4 = '';
-			if (moves.length) {
-				randomMove4 = this.sample(moves).id;
-			}
-			if (!randomMove4) return false;
-			let randomMove5 = '';
-			if (moves.length) {
-				randomMove5 = this.sample(moves).id;
-			}
-			if (!randomMove5) return false;
-			let randomMove6 = '';
-			if (moves.length) {
-				randomMove6 = this.sample(moves).id;
-			}
-			if (!randomMove6) return false;
-			let randomMove7 = '';
-			if (moves.length) {
-				randomMove7 = this.sample(moves).id;
-			}
-			if (!randomMove7) return false;
-			let randomMove8 = '';
-			if (moves.length) {
-				randomMove8 = this.sample(moves).id;
-			}
-			if (!randomMove8) return false;
-			// Define new moves
-			const newMoves = [randomMove1, randomMove2, randomMove3, randomMove4, randomMove5, randomMove6, randomMove7, randomMove8];
 			// Update move slots
 			pokemon.moveSlots = newMoves.map(move => {
 				const moveData = this.dex.moves.get(move);
@@ -665,26 +631,31 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				};
 			});
 			// this forces the UI to update move slots visually
-			pokemon.baseMoveSlots = pokemon.moveSlots.slice();
-			pokemon.didRandomMoves = "yes";
+			(pokemon as any).baseMoveSlots = pokemon.moveSlots.slice();
+			pokemon.m.didRandomMoves = true;
 		},
 		onSwitchIn(pokemon) {
-			this.add('-ability', pokemon, 'Biogenesis');
-			this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
 			if (!pokemon) return; // Chat command
+			if (!pokemon.m.hasTypeChanged) {
+				this.add('-ability', pokemon, 'Biogenesis');
+				this.add('-anim', pokemon, 'Growth', pokemon);
+				this.add('-message', `Mew evolves into a new form with its Biogenesis!`);
+			}
 			const attackingMoves = pokemon.baseMoveSlots
-  				.map(slot => this.dex.moves.get(slot.id))
-  				.filter(move => move.category === 'Physical' || move.category === 'Special');
+				.map(slot => this.dex.moves.get(slot.id))
+				.filter(move => move.category !== "Status");
 
 			// pick types of first 2 attacking moves (failsafe if there are none)
-			const types = attackingMoves.length
-  				? [...new Set(attackingMoves.slice(0, 2).map(move => move.type))]
-  				: pokemon.types;
+			const types = attackingMoves.length ?
+				[...new Set(attackingMoves.slice(0, 2).map(move => move.type))] :
+				pokemon.types;
 			pokemon.setType(types);
+			pokemon.baseTypes = pokemon.types;
+			pokemon.m.hasTypeChanged = true;
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
-			breakable: 1, notransform: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,
+			breakable: 1, notransform: 1, cantsuppress: 1 },
 		name: "Biogenesis",
 		rating: 5,
 		num: -112,
@@ -710,5 +681,313 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Orichalcum Pulse",
 		rating: 4.5,
 		num: 288,
-	}
+	},
+	hailmary: {
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Hail Mary');
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
+				this.debug('hail mary spe boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
+				this.debug('hail mary atk boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
+				if (move.category === 'Physical' && typeof accuracy === 'number') {
+					return this.chainModify([3277, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Hail Mary",
+		rating: 5,
+		num: -113,
+		shortDesc: "In Snowscape: 2x Speed, 1.5x Attack, 0.8x accuracy.",
+	},
+	brainfreeze: {
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && (target.status === 'frostbite' || this.field.isWeather('snowscape'))) return 5;
+		},
+		flags: {},
+		name: "Brain Freeze",
+		rating: 5,
+		num: -114,
+		shortDesc: "If Snowscape or target is Frostbitten, attacks auto Crit.",
+	},
+	neutralizinggas: {
+		inherit: true,
+		onStart(pokemon) {
+			// this makes Neutralizing Gas properly show as activated in the client when Typhlosion Mega evolves
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+		},
+	},
+	terawheel: {
+		onStart(pokemon) {
+			pokemon.canTerastallize = null;
+		},
+		// copied from SSB High Performance Computing
+		onResidualOrder: 6,
+		onResidual(source) {
+			const type = this.sample(this.dex.types.names().filter(i => i !== source.getTypes()[0]));
+			if (source.setType(type)) {
+				this.add('-start', source, 'typechange', type, '[from] ability: Tera Wheel');
+			}
+		},
+		flags: {},
+		name: "Tera Wheel",
+		rating: 5,
+		num: -115,
+		shortDesc: "End of turn: this Pokemon switches to a random type (including Stellar).",
+	},
+	download: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (pokemon.species.name === 'Genesect-Burn' && pokemon.terastallized) {
+				pokemon.setAbility('Drought', null, null, true);
+				pokemon.baseAbility = pokemon.ability;
+				this.add('-ability', pokemon, 'Drought');
+			}
+			if (pokemon.species.name === 'Genesect-Chill' && pokemon.terastallized) {
+				pokemon.setAbility('Snow Warning', null, null, true);
+				pokemon.baseAbility = pokemon.ability;
+				this.add('-ability', pokemon, 'Snow Warning');
+			}
+			if (pokemon.species.name === 'Genesect-Douse' && pokemon.terastallized) {
+				pokemon.setAbility('Drizzle', null, null, true);
+				pokemon.baseAbility = pokemon.ability;
+				this.add('-ability', pokemon, 'Drizzle');
+			}
+			if (pokemon.species.name === 'Genesect-Shock' && pokemon.terastallized) {
+				pokemon.setAbility('Electric Surge', null, null, true);
+				pokemon.baseAbility = pokemon.ability;
+				this.add('-ability', pokemon, 'Electric Surge');
+			}
+		},
+		shortDesc: "Download + Gets weather setting move when Tera.",
+	},
+	battlerage: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({ atk: 1 });
+		},
+		flags: {},
+		name: "Battle Rage",
+		rating: 5,
+		num: -116,
+		shortDesc: "+1 Atk when hit by an attack.",
+	},
+	terrainshift: {
+		onStart(source) {
+			if (source.hp >= source.maxhp) {
+				source.setType("Electric");
+				this.field.setTerrain('electricterrain');
+				this.add('-start', source, 'typechange', 'Electric', '[silent]');
+			} else if (source.hp >= (2 * source.maxhp) / 3) {
+				source.setType("Fairy");
+				this.field.setTerrain('mistyterrain');
+				this.add('-start', source, 'typechange', 'Fairy', '[silent]');
+			} else if (source.hp >= source.maxhp / 3) {
+				source.setType("Grass");
+				this.field.setTerrain('grassyterrain');
+				this.add('-start', source, 'typechange', 'Grass', '[silent]');
+			} else {
+				source.setType("Psychic");
+				this.field.setTerrain('psychicterrain');
+				this.add('-start', source, 'typechange', 'Psychic', '[silent]');
+			}
+		},
+		flags: {},
+		name: "Terrain Shift",
+		rating: 5,
+		num: -117,
+		shortDesc: "Sets terrain depending on HP value.",
+	},
+	dragonsjaw: {
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasType('Dragon') && defender.hasType('Steel')) {
+				return this.chainModify(1.5);
+			} else if (defender.hasType('Dragon')) {
+				return this.chainModify(2.25);
+			} else if (defender.hasType('Steel')) {
+				return;
+			} else return this.chainModify(1.5);
+		},
+		onTryHit(target, source, move) {
+			if (target.hasType('Fairy')) {
+				return null;
+			}
+		},
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 2;
+		},
+		flags: {},
+		name: "Dragon's Jaw",
+		rating: 5,
+		num: -118,
+		shortDesc: "Serene Grace + Bite attacks are Dragon type.",
+	},
+	corrosivesoul: {
+		onStart(source) {
+			this.field.setTerrain('corrosivesoul');
+		},
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Corrosive Soul', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Corrosive Soul');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				const move = this.dex.getActiveMove('smog');
+				move.accuracy = 100;
+				const target = pokemon.foes()[0];
+				if (target && !target.fainted) {
+					this.actions.useMove(move, pokemon, { target });
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Corrosive Soul');
+			},
+		},
+		flags: {},
+		name: "Corrosive Soul",
+		rating: 5,
+		num: -119,
+		shortDesc: "Sets Corrosive Terrian: active Pokemon hit each other with Smog.",
+	},
+	oceanicblessing: {
+		onSwitchInPriority: -2,
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Kyogre' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'kyogreprimal') {
+					pokemon.formeChange('Kyogre-Primal', this.effect, false);
+				}
+			} else {
+				if (pokemon.species.id === 'kyogreprimal') {
+					pokemon.formeChange('kyogre', this.effect, false);
+				}
+			}
+		},
+		onAllyModifyAtkPriority: 3,
+		onAllyModifyAtk(atk, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Kyogre') return;
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyModifySpDPriority: 4,
+		onAllyModifySpD(spd, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Kyogre') return;
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1 },
+		name: "Oceanic Blessing",
+		rating: 5,
+		num: -120,
+		shortDesc: "Flower Gift but Kyogre",
+	},
+	autospin: {
+		onResidual(pokemon, s, effect) {
+			const move = this.dex.getActiveMove('metronome');
+			const target = pokemon.foes()[0];
+			if (target && !target.fainted && (pokemon.hp >= pokemon.maxhp / 2)) {
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+			} else if (target && !target.fainted && (pokemon.hp <= pokemon.maxhp / 10)) {
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+			} else if (target && !target.fainted) {
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+				this.actions.useMove(move, pokemon, { target, sourceEffect: effect });
+			}
+		},
+		flags: {},
+		name: "Auto Spin",
+		rating: 5,
+		num: -121,
+		shortDesc: "Use Metronome at end of turn.",
+	},
+	corrosion: {
+		inherit: true,
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		shortDesc: "This Pokemon can poison a Pokemon regardless of its typing and hit them with Poison moves.",
+	},
+	jellobody: {
+		onTryHit(pokemon, target, move) {
+			if (move.selfSwitch) {
+				this.add('-immune', pokemon, '[from] ability: Jello Body');
+				this.heal(target.baseMaxhp / 2);
+				return null;
+			}
+		},
+		onModifyMove(move, source, target) {
+			move.drain = [1, 2];
+		},
+		flags: { breakable: 1 },
+		name: "Jello Body",
+		rating: 5,
+		num: -122,
+		shortDesc: "Immune to pivot moves, heals 50% HP when hit by one. All moves drain 50%.",
+	},
+	nibblenibble: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+				move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !move.flags['bite']) return;
+			move.multihit = 2;
+			move.multihitType = 'parentalbond';
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		flags: {},
+		name: "Nibble Nibble",
+		rating: 5,
+		num: -123,
+		shortDesc: "Parental Bond but for Bite moves.",
+	},
 };
