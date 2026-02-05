@@ -22,8 +22,6 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				}
 				if (shadowCount > 0) {
 					pokemon.addVolatile('shadow');
-					this.add('-anim', pokemon, "Hex", pokemon);
-					this.add('-message', `${pokemon.name} has sealed its heart!`);
 				}
 			}
 		},
