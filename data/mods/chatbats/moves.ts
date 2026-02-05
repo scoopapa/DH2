@@ -194,7 +194,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		self: {
 			onHit(source) {
-				this.field.setWeather('snowscape');
+				this.field.setWeather('snow');
 			},
 		},
 		secondary: null,
@@ -407,7 +407,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			} else {
 				this.add('-message', `${source.name} follows up with a Thunder Kick!`);
 				// uses Thunder Kick
-				this.actions.useMove('thunderkick', source, { target });
+				this.actions.useMove('thunderkick', source, target);
 			}
 		},
 		desc: "50% chance to reduce Defense by 1, 50% chance to inflict an additional 50 BP Electric type damage.",
@@ -1286,7 +1286,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	technoblast: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			if (this.field.isWeather('snowscape')) {
+			if (this.field.isWeather('snow')) {
 				return move.basePower * 1.3;
 			} else return move.basePower;
 		},
