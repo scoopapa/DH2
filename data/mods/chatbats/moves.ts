@@ -1683,7 +1683,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					data.moveData.type = 'Normal';
 				}
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				this.actions.trySpreadMoveHit(target, data.source, hitMove, true);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove, true);
 				this.hint(`${move.name} hits.`);
 				if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
 					this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
