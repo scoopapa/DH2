@@ -121,7 +121,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	wretchedwater: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Wretched Water",
 		shortDesc: "30% chance to paralyze the target.",
@@ -455,7 +455,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	boltbreath: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Bolt Breath damage boost');
@@ -480,7 +480,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	cyclonerend: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Cyclone Rend damage boost');
@@ -543,7 +543,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Biorelease",
 		desc: "If the user has a secondary type, this move changes to match it and gains a secondary effect. Hits all Pokémon on the field.",
-		shortDesc: "Changes type by secondary type; gains matching secondary effect (Secret Power).",
+		shortDesc: "Changes type and secondary effect depending on user's secondary type. (Secret Power).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1256,18 +1256,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	thousandblades: {
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		name: "Thousand Blades",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		secondary: {
 			chance: 20,
 			volatileStatus: 'bleeding',
 		},
-		shortDesc: "High crit ratio. 20% chance to bleed.",
+		shortDesc: "20% chance to bleed.",
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
@@ -1957,6 +1956,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		basePower: 90,
+	},
+	spectralthief: {
+		inherit: true,
+		viable: true,
+		basePower: 70,
+	},
+	electroshot: {
+		inherit: true,
+		basePower: 110,
+	},
+	astralbarrage: {
+		inherit: true,
+		basePower: 110,
+	},
+	glaciallance: {
+		inherit: true,
+		basePower: 110,
 	},
 	bitterblade: {
 		inherit: true,

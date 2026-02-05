@@ -679,7 +679,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Frozen Calamity",
-		shortDesc: "This Pokemon resists Ice, 1.5x offenses when using Ice-type attacks, +5% Ice Power per fainted foe.",
+		shortDesc: "This Pokemon resists Ice, 1.5x Offenses when using Ice-type attacks, +5% Ice Power per fainted foe.",
 	},
 	generalist: {
 		onBasePowerPriority: 23,
@@ -875,6 +875,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
+		flags: {breakable: 1},
 		name: "Insect Armor",
 		shortDesc: "This Pokemon has Bug-Type resistances; 1.5x offenses when using Bug-type attacks.",
 	},
@@ -1403,6 +1404,34 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
 	},
 	reactivecore: {
+		onStart(pokemon) {
+		// Weather-based activation
+		const weather = this.field.weather;
+			if (['sunnyday', 'desolateland'].includes(weather)) {
+				pokemon.removeVolatile('cooled');
+				pokemon.addVolatile('warmed');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core glows in the sunlight! (1.33x Offenses)`);
+			} else if (['hail', 'snow', 'absolutezero'].includes(weather)) {
+				pokemon.removeVolatile('warmed');
+				pokemon.addVolatile('cooled');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core hardened against the snow! (1.33x Defenses)`);
+			}
+			// Status-based activation
+			if (pokemon.status === 'brn') {
+				pokemon.removeVolatile('cooled');
+				pokemon.addVolatile('warmed');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core ignited on entry! (1.33x Offenses)`);
+			}
+			if (pokemon.status === 'frz') {
+				pokemon.removeVolatile('warmed');
+				pokemon.addVolatile('cooled');
+				this.add('-ability', pokemon, 'Reactive Core');
+				this.add('-message', `${pokemon.name}'s core froze solid on entry! (1.33x Defenses)`);
+			}
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Fire') {
 				if (!target.volatiles['warmed']) {
@@ -1675,6 +1704,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Solar Wrath",
 		shortDesc: "Under Sun: Atk is 1.5x, loses 1/8 max HP per turn.",
+	},
+	sinistergrudge: {
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Sinister Grudge');
+				const fallen = Math.min(pokemon.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
+				this.debug(`Sinister Grudge boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		name: "Sinister Grudge",
+		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
 	},
 	spongy: {
 		onSourceModifyDamage(damage, source, target, move) {
