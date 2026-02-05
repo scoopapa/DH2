@@ -1,19 +1,21 @@
 export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	shadowmechanic: {
-		effectType: 'ValidatorRule',
+		effectType: 'Rule',
 		name: 'Shadow Mechanic',
 		desc: "Turns any Pokemon with a Shadow move into a Shadow Pokemon.",
 		onBegin() {
 			this.add('rule', 'Shadow Mechanic: Turns any Pokemon with a Shadow move into a Shadow Pokemon');
 		},
 		onStart(pokemon) {
-			const moves = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				const moveid = moveSlot.id;
-				const move = this.dex.moves.get(moveid);
-				if (move.type === 'Shadow') {
-					pokemon.addVolatile('shadow');
-				}
+			const shadowMoves = [
+				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
+				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
+				'shadowchill', 'shadowfire', 'shadowblast',
+			];
+			if (pokemon.hasMove(shadowMoves)) {
+				this.add('-anim', pokemon, "Hex", pokemon);
+				this.add('-message', `${pokemon.name} has sealed its heart!`);
+				pokemon.addVolatile('shadow');
 			}
 		},
 		onBasePowerPriority: 1,
@@ -26,11 +28,5 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				}
 			}
 		},
-		/* onSourceModifyDamage(damage, source, target, move) {
-			let mod = 1;
-			if (move.type === 'Shadow' && !target.volatiles['shadow']) mod *= 2;
-			if (move.type === 'Shadow' && target.volatiles['shadow']) mod /= 2;
-			return this.chainModify(mod);
-		}, */
 	},
 };
