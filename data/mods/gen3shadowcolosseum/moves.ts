@@ -208,15 +208,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		volatileStatus: 'shadowpanic',
 		onPrepareHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			this.add('-anim', pokemon, "Hex", pokemon);
 		},
 		onHit(pokemon) {
-			this.add('-anim', pokemon, "Hex", pokemon);
 			pokemon.addVolatile('stall');
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
 			pokemon.addVolatile('disable');
 		},
-		heal: [1, 3],
 		condition: {
 			duration: 1,
 			onStart(target) {
@@ -530,7 +530,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			status: 'brn',
 		},
 		target: "normal",
-		type: "Ghost",
+		type: "Shadow",
 	},
 	// Old Moves
 	perishsong: {
