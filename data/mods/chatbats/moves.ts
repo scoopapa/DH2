@@ -1683,7 +1683,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					data.moveData.type = 'Normal';
 				}
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				const arrowTarget = this.getMoveTargets(hitMove, target);
+				const arrowTarget = (data.source).getMoveTargets(hitMove, target);
 				this.actions.tryMoveHit(arrowTarget, data.source, hitMove, true);
 				this.hint(`${move.name} hits.`);
 				if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
