@@ -736,7 +736,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 							used: false,
 						};
 					}
-					this.actions.useMove('surgingstrikes', source, { target });
+					this.actions.useMove('surgingstrikes', source, target);
 					this.effectState.surgingStrikesAlreadyUsed = 1;
 				}
 			}
@@ -791,7 +791,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 							used: false,
 						};
 					}
-					this.actions.useMove('wickedblow', source, { target });
+					this.actions.useMove('wickedblow', source, target);
 					this.effectState.wickedBlowAlreadyUsed = 1;
 				}
 			}
@@ -1364,7 +1364,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			} else if (this.field.isTerrain('psychicterrain')) {
 				move = 'wackywhack';
 			}
-			this.actions.useMove(move, pokemon, { target });
+			this.actions.useMove(move, pokemon, target);
 			return null;
 		},
 		callsMove: true,
