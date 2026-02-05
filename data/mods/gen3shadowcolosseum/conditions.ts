@@ -2,7 +2,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	shadow: {
 		name: 'Shadow',
 		noCopy: true,
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			this.add('-activate', pokemon, 'shadow');
 		},
 		onEnd(pokemon) {
