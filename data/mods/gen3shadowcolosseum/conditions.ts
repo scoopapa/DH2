@@ -5,7 +5,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'shadow');
 			this.add('-anim', pokemon, "Hex", pokemon);
-			this.add('-message', `${pokemon.name} has sealed its heart!`);
+			this.add('-message', `${pokemon.name} has had its heart sealed!`);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'shadow');
