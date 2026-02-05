@@ -6,16 +6,16 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		onBegin() {
 			this.add('rule', 'Shadow Mechanic: Turns any Pokemon with a Shadow move into a Shadow Pokemon');
 		},
-		onSwitchIn(pokemon) {
-			let shadowCount = 0;
-			for (const move of pokemon.moveSlots) {
-				if (move.type === 'Shadow') {
-					shadowCount++;
-					pokemon.addVolatile('shadow');
-				}
-				if (shadowCount > 0) {
-					pokemon.addVolatile('shadow');
-				}
+		onStart(pokemon) {
+			const shadowMoves = [
+				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
+				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
+				'shadowchill', 'shadowfire', 'shadowblast',
+			];
+			if (pokemon.hasMove(shadowMoves)) {
+				this.add('-anim', pokemon, "Hex", pokemon);
+				this.add('-message', `${pokemon.name} has sealed its heart!`);
+				pokemon.addVolatile('shadow');
 			}
 		},
 		onBasePowerPriority: 1,
@@ -28,11 +28,5 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				}
 			}
 		},
-		/* onSourceModifyDamage(damage, source, target, move) {
-			let mod = 1;
-			if (move.type === 'Shadow' && !target.volatiles['shadow']) mod *= 2;
-			if (move.type === 'Shadow' && target.volatiles['shadow']) mod /= 2;
-			return this.chainModify(mod);
-		}, */
 	},
 };
