@@ -1828,7 +1828,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		forme: "Mega",
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 105, atk: 145, def: 90, spa: 100, spd: 110, spe: 100},
-		abilities: {0: "Supreme Overlord"},
+		abilities: {0: "Sinister Grudge"},
 		weightkg: 212.2,
 		tags: ["Fanged Wyvern"],
 		requiredItem: "Magnamalite",

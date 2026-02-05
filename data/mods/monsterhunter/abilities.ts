@@ -1705,6 +1705,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Solar Wrath",
 		shortDesc: "Under Sun: Atk is 1.5x, loses 1/8 max HP per turn.",
 	},
+	sinistergrudge: {
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Sinister Grudge');
+				const fallen = Math.min(pokemon.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
+				this.debug(`Sinister Grudge boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		name: "Sinister Grudge",
+		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
+	},
 	spongy: {
 		onSourceModifyDamage(damage, source, target, move) {
 			let mod = 1;
@@ -2115,17 +2138,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm'|| type === 'dustdevil') return false;
 		},
-	},
-	supremeoverlord: {
-		inherit: true,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.fallen) {
-				const powMod = [4096, 4300, 4505, 4710, 4915, 5120];
-				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
-				return this.chainModify([powMod[this.effectState.fallen], 4096]);
-			}
-		},
-		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
 	},
 	slushrush: {
 		inherit: true,
