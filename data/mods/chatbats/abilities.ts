@@ -868,7 +868,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.accuracy = 100;
 				const target = pokemon.foes()[0];
 				if (target && !target.fainted) {
-					this.actions.useMove(move, pokemon, { target });
+					this.actions.useMove(move, pokemon, target);
 				}
 			},
 			onFieldResidualOrder: 27,
