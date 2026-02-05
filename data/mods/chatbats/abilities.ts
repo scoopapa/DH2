@@ -687,21 +687,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.add('-activate', pokemon, 'ability: Hail Mary');
 		},
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snowscape'])) {
+			if (this.field.isWeather(['hail', 'snow'])) {
 				this.debug('hail mary spe boost');
 				return this.chainModify(2);
 			}
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (this.field.isWeather(['hail', 'snowscape'])) {
+			if (this.field.isWeather(['hail', 'snow'])) {
 				this.debug('hail mary atk boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy, target, source, move) {
-			if (this.field.isWeather(['hail', 'snowscape'])) {
+			if (this.field.isWeather(['hail', 'snow'])) {
 				if (move.category === 'Physical' && typeof accuracy === 'number') {
 					return this.chainModify([3277, 4096]);
 				}
@@ -715,7 +715,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	brainfreeze: {
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && (target.status === 'frostbite' || this.field.isWeather('snowscape'))) return 5;
+			if (target && (target.status === 'frostbite' || this.field.isWeather('snow'))) return 5;
 		},
 		flags: {},
 		name: "Brain Freeze",
