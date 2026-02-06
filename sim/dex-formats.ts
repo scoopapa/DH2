@@ -452,7 +452,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	}
 }
 
-/** merges format lists from config/formats and config/custom-formats */
+/** merges format lists from config/formats and config/official-formats */
 function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
 	// interface for the builder.
 	interface FormatSection {
@@ -528,9 +528,9 @@ export class DexFormats {
 		// Load formats
 		let customFormats;
 		try {
-			customFormats = require(`${__dirname}/../config/custom-formats`).Formats;
+			customFormats = require(`${__dirname}/../config/smogon-formats`).Formats;
 			if (!Array.isArray(customFormats)) {
-				throw new TypeError(`Exported property 'Formats' from "./config/custom-formats.ts" must be an array`);
+				throw new TypeError(`Exported property 'Formats' from "./config/smogon-formats.ts" must be an array`);
 			}
 		} catch (e: any) {
 			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
