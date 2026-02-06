@@ -1690,7 +1690,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				this.activeMove = null;
 				this.checkWin();
-				const somethign = this.getAtSlot(slotIndex);
+				const somethign = this.getAtSlot(this.effectState.targetSlot);
 				this.debug(`Slot ${this.effectState.targetSlot} conditions: ${JSON.stringify(somethign.side.slotConditions[this.effectState.targetSlot])}`);
 				if (this.getOverflowedTurnCount() >= this.effectState.endingTurn) {
 					const targetSlot = this.getAtSlot(this.effectState.targetSlot);
