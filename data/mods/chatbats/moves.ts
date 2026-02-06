@@ -1691,7 +1691,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.activeMove = null;
 				this.checkWin();
 				if (this.getOverflowedTurnCount() >= this.effectState.endingTurn) {
-					target.side.removeSlotCondition(this.getAtSlot(this.effectState.targetSlot), 'sinisterarrows');
+					target.side.removeSlotCondition(this.effectState.targetSlot, 'sinisterarrows');
 				}
 			},
 		},
