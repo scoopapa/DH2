@@ -1,16 +1,12 @@
 // Note: This is the list of formats
-// The rules that formats use are stored in data/rulesets.ts
+// Refactor: Import from mod folders (@iforgetwhyimhere, 02.--.26)
+// DO NOT DELETE THE IMPORTS.
+
+// Imports all formats from their folder, to be used as aliases.
+import { format as alternatiumEX } from '../data/mods/alternatiumex/format';
+import { format as gen5Valuemons } from '../data/mods/gen5valuemons/format';
 /*
-If you want to add custom formats, create a file in this folder named: "custom-formats.ts"
 
-Paste the following code into the file and add your desired formats and their sections between the brackets:
---------------------------------------------------------------------------------
-// Note: This is the list of formats
-// The rules that formats use are stored in data/rulesets.ts
-
-export const Formats: FormatList = [
-];
---------------------------------------------------------------------------------
 
 If you specify a section that already exists, your format will be added to the bottom of that section.
 New sections will be added to the bottom of the specified column.
@@ -26,57 +22,7 @@ export const Formats: FormatList = [
 		column: 1,
 		// name: "gen9petmods",
 	},
-	{
-		name: "[Gen 9] Alternatium EX",
-		desc: `<b>Alternatium EX</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/alternatium-ex-slate-1-starter-pack.3701560/">Alternatium EX on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'alternatiumex',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Min Source Gen = 3', 'Terastal Clause'],
-		banlist: ['All Pokemon', 'Baton Pass'],
-		unbanlist: [
-				'Decidueye-Hermit', 'Decidueye-Autumn', 'Typhlosion-Explosive', 'Typhlosion-Warlock', 'Samurott-Foamy', 'Samurott-Rogue',
-				'Oricorio', 'Oricorio-Cheerleader','Oricorio-Pa\u2019u', 'Horrorcorio',
-				'Pikachu-Kanto', 'Pikachu-Hoenn', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-Tactic', 'Pikachu-Alola', 'Pikachu-World',
-				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem',
-				'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier','Calyrex-Midnight',
-				'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio',
-				'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
-				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon',
-				'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball','Electrode-Ringo',
-				'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales',
-				"Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique", "Toxtricity-Rock-Star", "Toxtricity-Low-Key",
-				"Articuno-Mistral", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres",
-				"Marowak", "Alolawak", "Marowak-Alola-Totem", "Enamorus", "Violentine",
-				"Dialga", "Archronos", "Palkia", "Palkia-Origin",
-				"Basculin-Hot-Headed","Basculectric", "Basculin-Skyship", "Basculegion", "Basculagoon",
-				"Magearna", "Magearna-Prototype", "Zarude", "Zarude-Hero",
-				"Qwilfish", "Aquattack", "Zoroark-Jorogumo", "Zoroark-Hoarfrost", "Goodra-Tsunade", "Goodra-Symbiotic",
-				"Maushold-Raider", "Maushold-Extended", "Oinkologne", "Oinkologne-F", "Dudunsparce", "Dududunsparce",
-				"Greninja", "Greninja-Ronin", "Imperil", "Hoopa-Ifrit",
-				"Kyurem", "Kyurem-Black", "Kyurem-White", "Xerneas-Dormant", "Xerneas-Justice",
-				"Arcanine-Water Balloon", "Arcanine-Noble", "Avalugg-Prism", "Avalugg-Plated",
-				"Squawkabilly", "Squawkabiluck", "Squawkalone", "Squawkabilly-Yellow",
-				"Wishiwashi-Lonesome", "Winardin", "Palafin", "Hercuphin",
-				'Gumshoos', 'Gumshoos-Totem', 'Togedemaru', 'Totemaru',
-				'Tauros', 'Bravatoro', 'Tauros-Steam', 'Tauros-Azul',
-				'Raichu', 'Raichu-Soft', 'Rapidash', 'Rapidash-Galar', 'Golem-Berserker', 'Golem-Alola',
-				'Cherrim', 'Cherrine', 'Minior', 'Minior-Meteor', 'Eevee', 'Eevee-Starter',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (speciesTable[template.id]) {
-					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.id + "."];
-				}
-				speciesTable[template.id] = true;
-			}
-		},
-	},
+	alternatiumEX,
 	{
 		name: "[Gen 1] Azure Version",
 		threads: [
@@ -2806,30 +2752,7 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
-	{
-		name: "[Gen 5] 33 Valuemons",
-		mod: 'gen5valuemons',
-		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points. This tier is not quite finished, but we're working on it!`,
-		threads: [
-            `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
-			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
-			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
-              ],
-		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause','Obtainable','!Obtainable Moves'/* ,'33 Valuemons' */],
-		banlist: ['King\'s Rock', 'Razor Fang'],
-		unbanlist: ['Baton Pass'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['33v'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in 33 Valuemons.'];
-				}
-			}
-		},
-	},
+	gen5Valuemons,
 	{
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
