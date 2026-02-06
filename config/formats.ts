@@ -3,235 +3,234 @@
 // DO NOT DELETE THE IMPORTS.
 
 // Imports all formats from their folder, to be used as aliases.
-import { format as alternatiumex              } from '../data/mods/alternatiumex/format';
-import { format as gen5valuemons             } from '../data/mods/gen5valuemons/format';
-import { format as abilitypos                } from '../data/mods/abilitypos/format';
-import { format as agoldenexperience         } from '../data/mods/agoldenexperience/format';
-import { format as alternatium               } from '../data/mods/alternatium/format';
-import { format as animemons                 } from '../data/mods/animemons/format';
-import { format as backtosinnoh              } from '../data/mods/backtosinnoh/format';
-import { format as badnboosted               } from '../data/mods/badnboosted/format';
-import { format as balls                     } from '../data/mods/balls/format';
-import { format as banhammersc3              } from '../data/mods/banhammersc3/format';
-import { format as beaftopia                 } from '../data/mods/beaftopia/format';
-import { format as bearticphone              } from '../data/mods/bearticphone/format';
-import { format as blackmarket               } from '../data/mods/blackmarket/format';
-import { format as blankcanvas               } from '../data/mods/blankcanvas/format';
-import { format as bookofenigmas             } from '../data/mods/bookofenigmas/format';
-import { format as breedingvariants          } from '../data/mods/breedingvariants/format';
-import { format as breedingvariantsnatdex    } from '../data/mods/breedingvariantsnatdex/format';
-import { format as bustamove                 } from '../data/mods/bustamove/format';
-import { format as ccapm2022                 } from '../data/mods/ccapm2022/format';
-import { format as ccapm2024                 } from '../data/mods/ccapm2024/format';
-import { format as chatbats                  } from '../data/mods/chatbats/format';
-import { format as clubmonsrequiem           } from '../data/mods/clubmonsrequiem/format';
-import { format as communityused2            } from '../data/mods/communityused2/format';
-import { format as conquestdex               } from '../data/mods/conquestdex/format';
-import { format as csm2                      } from '../data/mods/csm2/format';
-import { format as denseaf                   } from '../data/mods/denseaf/format';
-import { format as dlcmons                   } from '../data/mods/dlcmons/format';
-import { format as dollhouse                 } from '../data/mods/dollhouse/format';
-import { format as dondozo                   } from '../data/mods/dondozo/format';
-import { format as donotuse                  } from '../data/mods/donotuse/format';
-import { format as donotusetmptm             } from '../data/mods/donotusetmptm/format';
-import { format as donotuseuu                } from '../data/mods/donotuseuu/format';
-import { format as donotusevgc               } from '../data/mods/donotusevgc/format';
-import { format as doubletrouble             } from '../data/mods/doubletrouble/format';
-import { format as duomod                    } from '../data/mods/duomod/format';
-import { format as earthsky                  } from '../data/mods/earthsky/format';
-import { format as ebbandflow                } from '../data/mods/ebbandflow/format';
-import { format as eliminationwar            } from '../data/mods/eliminationwar/format';
-import { format as emamod                    } from '../data/mods/emamod/format';
-import { format as eramons                   } from '../data/mods/eramons/format';
-import { format as eternalpokemon            } from '../data/mods/eternalpokemon/format';
-import { format as evolutionproject          } from '../data/mods/evolutionproject/format';
-import { format as extremereboot             } from '../data/mods/extremereboot/format';
-import { format as fakemonfrontier           } from '../data/mods/fakemonfrontier/format';
-import { format as fecc                      } from '../data/mods/fecc/format';
-import { format as forgottenmons             } from '../data/mods/forgottenmons/format';
-import { format as furfrou                   } from '../data/mods/furfrou/format';
-import { format as g9blindsided              } from '../data/mods/g9blindsided/format';
-import { format as g9duomod                  } from '../data/mods/g9duomod/format';
-import { format as gen1                      } from '../data/mods/gen1/format';
-import { format as gen1azure                 } from '../data/mods/gen1azure/format';
-import { format as gen1backtothepast         } from '../data/mods/gen1backtothepast/format';
-import { format as gen1burgundy              } from '../data/mods/gen1burgundy/format';
-import { format as gen1expansionpack         } from '../data/mods/gen1expansionpack/format';
-import { format as gen1futureproofing        } from '../data/mods/gen1futureproofing/format';
-import { format as gen1johtomons             } from '../data/mods/gen1johtomons/format';
-import { format as gen1jumpstarted           } from '../data/mods/gen1jumpstarted/format';
-import { format as gen1metronome             } from '../data/mods/gen1metronome/format';
-import { format as gen1moonside              } from '../data/mods/gen1moonside/format';
-import { format as gen1rbycap                } from '../data/mods/gen1rbycap/format';
-import { format as gen1recolored             } from '../data/mods/gen1recolored/format';
-import { format as gen1stadium               } from '../data/mods/gen1stadium/format';
-import { format as gen1tradebacksexpanded    } from '../data/mods/gen1tradebacksexpanded/format';
-import { format as gen1violetversion         } from '../data/mods/gen1violetversion/format';
-import { format as gen2                      } from '../data/mods/gen2/format';
-import { format as gen2crystallegacy         } from '../data/mods/gen2crystallegacy/format';
-import { format as gen2crystalseviiislands   } from '../data/mods/gen2crystalseviiislands/format';
-import { format as gen2doubles               } from '../data/mods/gen2doubles/format';
-import { format as gen2expansionpack         } from '../data/mods/gen2expansionpack/format';
-import { format as gen2stadium2              } from '../data/mods/gen2stadium2/format';
-import { format as gen2teracrystal           } from '../data/mods/gen2teracrystal/format';
-import { format as gen3                      } from '../data/mods/gen3/format';
-import { format as gen3advdx                 } from '../data/mods/gen3advdx/format';
-import { format as gen3advplus               } from '../data/mods/gen3advplus/format';
-import { format as gen3advttp                } from '../data/mods/gen3advttp/format';
-import { format as gen3colosseum             } from '../data/mods/gen3colosseum/format';
-import { format as gen3hoennechoes           } from '../data/mods/gen3hoennechoes/format';
-import { format as gen3hoenngaiden           } from '../data/mods/gen3hoenngaiden/format';
-import { format as gen3ourstb                } from '../data/mods/gen3ourstb/format';
-import { format as gen3shadowcolosseum       } from '../data/mods/gen3shadowcolosseum/format';
-import { format as gen3tradebacks            } from '../data/mods/gen3tradebacks/format';
-import { format as gen3uuhoenngaiden         } from '../data/mods/gen3uuhoenngaiden/format';
-import { format as gen4                      } from '../data/mods/gen4/format';
-import { format as gen4pt                    } from '../data/mods/gen4pt/format';
-import { format as gen5                      } from '../data/mods/gen5/format';
-import { format as gen5bw1                   } from '../data/mods/gen5bw1/format';
-import { format as gen5unovayb               } from '../data/mods/gen5unovayb/format';
-import { format as gen6                      } from '../data/mods/gen6/format';
-import { format as gen6megasrevisited        } from '../data/mods/gen6megasrevisited/format';
-import { format as gen6mixandmegasrevisited  } from '../data/mods/gen6mixandmegasrevisited/format';
-import { format as gen6xy                    } from '../data/mods/gen6xy/format';
-import { format as gen7                      } from '../data/mods/gen7/format';
-import { format as gen7letsgo                } from '../data/mods/gen7letsgo/format';
-import { format as gen7sm                    } from '../data/mods/gen7sm/format';
-import { format as gen8                      } from '../data/mods/gen8/format';
-import { format as gen8bdsp                  } from '../data/mods/gen8bdsp/format';
-import { format as gen8dlc1                  } from '../data/mods/gen8dlc1/format';
-import { format as gen8feuu                  } from '../data/mods/gen8feuu/format';
-import { format as gen8haxmeters             } from '../data/mods/gen8haxmeters/format';
-import { format as gen8lucklessplay          } from '../data/mods/gen8lucklessplay/format';
-import { format as gen8maxmeter              } from '../data/mods/gen8maxmeter/format';
-import { format as gen9                      } from '../data/mods/gen9/format';
-import { format as gen9crossoverchaos        } from '../data/mods/gen9crossoverchaos/format';
-import { format as gen9crossoverchaosc       } from '../data/mods/gen9crossoverchaosc/format';
-import { format as gen9dlc1                  } from '../data/mods/gen9dlc1/format';
-import { format as gen9evolutionproject      } from '../data/mods/gen9evolutionproject/format';
-import { format as gen9fe                    } from '../data/mods/gen9fe/format';
-import { format as gen9ferestrictions        } from '../data/mods/gen9ferestrictions/format';
-import { format as gen9fevgc                 } from '../data/mods/gen9fevgc/format';
-import { format as gen9multiverse            } from '../data/mods/gen9multiverse/format';
-import { format as gen9predlc                } from '../data/mods/gen9predlc/format';
-import { format as gen9ssb                   } from '../data/mods/gen9ssb/format';
-import { format as gen9strong                } from '../data/mods/gen9strong/format';
-import { format as gen9ubermons              } from '../data/mods/gen9ubermons/format';
-import { format as gen9vaporemons            } from '../data/mods/gen9vaporemons/format';
-import { format as gen9vgc20xx               } from '../data/mods/gen9vgc20xx/format';
-import { format as gennext                   } from '../data/mods/gennext/format';
-import { format as genxbrunica               } from '../data/mods/genxbrunica/format';
-import { format as genxdesvega               } from '../data/mods/genxdesvega/format';
-import { format as genxloria                 } from '../data/mods/genxloria/format';
-import { format as glacemons                 } from '../data/mods/glacemons/format';
-import { format as glacemonsuber             } from '../data/mods/glacemonsuber/format';
-import { format as haxmeters                 } from '../data/mods/haxmeters/format';
-import { format as hiddengems                } from '../data/mods/hiddengems/format';
-import { format as hideandseaking            } from '../data/mods/hideandseaking/format';
+import { format as alternatiumex               } from '../data/mods/alternatiumex/format';
+import { format as gen5valuemons               } from '../data/mods/gen5valuemons/format';
+import { format as abilitypos                  } from '../data/mods/abilitypos/format';
+import { format as agoldenexperience           } from '../data/mods/agoldenexperience/format';
+import { format as alternatium                 } from '../data/mods/alternatium/format';
+import { format as animemons                   } from '../data/mods/animemons/format';
+import { format as backtosinnoh                } from '../data/mods/backtosinnoh/format';
+import { format as badnboosted                 } from '../data/mods/badnboosted/format';
+import { format as balls                       } from '../data/mods/balls/format';
+import { format as banhammersc3                } from '../data/mods/banhammersc3/format';
+import { format as beaftopia                   } from '../data/mods/beaftopia/format';
+import { format as bearticphone                } from '../data/mods/bearticphone/format';
+import { format as blackmarket                 } from '../data/mods/blackmarket/format';
+import { format as blankcanvas                 } from '../data/mods/blankcanvas/format';
+import { format as bookofenigmas               } from '../data/mods/bookofenigmas/format';
+import { format as breedingvariants            } from '../data/mods/breedingvariants/format';
+import { format as breedingvariantsnatdex      } from '../data/mods/breedingvariantsnatdex/format';
+import { format as bustamove                   } from '../data/mods/bustamove/format';
+import { format as ccapm2022                   } from '../data/mods/ccapm2022/format';
+import { format as ccapm2024                   } from '../data/mods/ccapm2024/format';
+import { format as chatbats                    } from '../data/mods/chatbats/format';
+import { format as clubmonsrequiem             } from '../data/mods/clubmonsrequiem/format';
+import { format as communityused2              } from '../data/mods/communityused2/format';
+import { format as conquestdex                 } from '../data/mods/conquestdex/format';
+import { format as csm2                        } from '../data/mods/csm2/format';
+import { format as denseaf                     } from '../data/mods/denseaf/format';
+import { format as dlcmons                     } from '../data/mods/dlcmons/format';
+import { format as dollhouse                   } from '../data/mods/dollhouse/format';
+import { format as dondozo                     } from '../data/mods/dondozo/format';
+import { format as donotuse                    } from '../data/mods/donotuse/format';
+import { format as donotusetmptm               } from '../data/mods/donotusetmptm/format';
+import { format as donotuseuu                  } from '../data/mods/donotuseuu/format';
+import { format as donotusevgc                 } from '../data/mods/donotusevgc/format';
+import { format as doubletrouble               } from '../data/mods/doubletrouble/format';
+import { format as duomod                      } from '../data/mods/duomod/format';
+import { format as earthsky                    } from '../data/mods/earthsky/format';
+import { format as ebbandflow                  } from '../data/mods/ebbandflow/format';
+import { format as eliminationwar              } from '../data/mods/eliminationwar/format';
+import { format as emamod                      } from '../data/mods/emamod/format';
+import { format as eramons                     } from '../data/mods/eramons/format';
+import { format as eternalpokemon              } from '../data/mods/eternalpokemon/format';
+import { format as evolutionproject            } from '../data/mods/evolutionproject/format';
+import { format as extremereboot               } from '../data/mods/extremereboot/format';
+import { format as fakemonfrontier             } from '../data/mods/fakemonfrontier/format';
+import { format as fecc                        } from '../data/mods/fecc/format';
+import { format as forgottenmons               } from '../data/mods/forgottenmons/format';
+import { format as furfrou                     } from '../data/mods/furfrou/format';
+import { format as g9blindsided                } from '../data/mods/g9blindsided/format';
+import { format as g9duomod                    } from '../data/mods/g9duomod/format';
+import { format as gen1                        } from '../data/mods/gen1/format';
+import { format as gen1azure                   } from '../data/mods/gen1azure/format';
+import { format as gen1backtothepast           } from '../data/mods/gen1backtothepast/format';
+import { format as gen1burgundy                } from '../data/mods/gen1burgundy/format';
+import { format as gen1expansionpack           } from '../data/mods/gen1expansionpack/format';
+import { format as gen1futureproofing          } from '../data/mods/gen1futureproofing/format';
+import { format as gen1johtomons               } from '../data/mods/gen1johtomons/format';
+import { format as gen1jumpstarted             } from '../data/mods/gen1jumpstarted/format';
+import { format as gen1metronome               } from '../data/mods/gen1metronome/format';
+import { format as gen1moonside                } from '../data/mods/gen1moonside/format';
+import { format as gen1rbycap                  } from '../data/mods/gen1rbycap/format';
+import { format as gen1recolored               } from '../data/mods/gen1recolored/format';
+import { format as gen1stadium                 } from '../data/mods/gen1stadium/format';
+import { format as gen1tradebacksexpanded      } from '../data/mods/gen1tradebacksexpanded/format';
+import { format as gen1violetversion           } from '../data/mods/gen1violetversion/format';
+import { format as gen2                        } from '../data/mods/gen2/format';
+import { format as gen2crystallegacy           } from '../data/mods/gen2crystallegacy/format';
+import { format as gen2crystalseviiislands     } from '../data/mods/gen2crystalseviiislands/format';
+import { format as gen2doubles                 } from '../data/mods/gen2doubles/format';
+import { format as gen2expansionpack           } from '../data/mods/gen2expansionpack/format';
+import { format as gen2stadium2                } from '../data/mods/gen2stadium2/format';
+import { format as gen2teracrystal             } from '../data/mods/gen2teracrystal/format';
+import { format as gen3                        } from '../data/mods/gen3/format';
+import { format as gen3advdx                   } from '../data/mods/gen3advdx/format';
+import { format as gen3advplus                 } from '../data/mods/gen3advplus/format';
+import { format as gen3advttp                  } from '../data/mods/gen3advttp/format';
+import { format as gen3colosseum               } from '../data/mods/gen3colosseum/format';
+import { format as gen3hoennechoes             } from '../data/mods/gen3hoennechoes/format';
+import { format as gen3hoenngaiden             } from '../data/mods/gen3hoenngaiden/format';
+import { format as gen3ourstb                  } from '../data/mods/gen3ourstb/format';
+import { format as gen3shadowcolosseum         } from '../data/mods/gen3shadowcolosseum/format';
+import { format as gen3tradebacks              } from '../data/mods/gen3tradebacks/format';
+import { format as gen3uuhoenngaiden           } from '../data/mods/gen3uuhoenngaiden/format';
+import { format as gen4                        } from '../data/mods/gen4/format';
+import { format as gen4pt                      } from '../data/mods/gen4pt/format';
+import { format as gen5                        } from '../data/mods/gen5/format';
+import { format as gen5bw1                     } from '../data/mods/gen5bw1/format';
+import { format as gen5unovayb                 } from '../data/mods/gen5unovayb/format';
+import { format as gen6                        } from '../data/mods/gen6/format';
+import { format as gen6megasrevisited          } from '../data/mods/gen6megasrevisited/format';
+import { format as gen6mixandmegasrevisited    } from '../data/mods/gen6mixandmegasrevisited/format';
+import { format as gen6xy                      } from '../data/mods/gen6xy/format';
+import { format as gen7                        } from '../data/mods/gen7/format';
+import { format as gen7letsgo                  } from '../data/mods/gen7letsgo/format';
+import { format as gen7sm                      } from '../data/mods/gen7sm/format';
+import { format as gen8                        } from '../data/mods/gen8/format';
+import { format as gen8bdsp                    } from '../data/mods/gen8bdsp/format';
+import { format as gen8dlc1                    } from '../data/mods/gen8dlc1/format';
+import { format as gen8feuu                    } from '../data/mods/gen8feuu/format';
+import { format as gen8haxmeters               } from '../data/mods/gen8haxmeters/format';
+import { format as gen8lucklessplay            } from '../data/mods/gen8lucklessplay/format';
+import { format as gen8maxmeter                } from '../data/mods/gen8maxmeter/format';
+import { format as gen9                        } from '../data/mods/gen9/format';
+import { format as gen9crossoverchaos          } from '../data/mods/gen9crossoverchaos/format';
+import { format as gen9crossoverchaosc         } from '../data/mods/gen9crossoverchaosc/format';
+import { format as gen9dlc1                    } from '../data/mods/gen9dlc1/format';
+import { format as gen9evolutionproject        } from '../data/mods/gen9evolutionproject/format';
+import { format as gen9fe                      } from '../data/mods/gen9fe/format';
+import { format as gen9ferestrictions          } from '../data/mods/gen9ferestrictions/format';
+import { format as gen9fevgc                   } from '../data/mods/gen9fevgc/format';
+import { format as gen9multiverse              } from '../data/mods/gen9multiverse/format';
+import { format as gen9predlc                  } from '../data/mods/gen9predlc/format';
+import { format as gen9ssb                     } from '../data/mods/gen9ssb/format';
+import { format as gen9strong                  } from '../data/mods/gen9strong/format';
+import { format as gen9ubermons                } from '../data/mods/gen9ubermons/format';
+import { format as gen9vaporemons              } from '../data/mods/gen9vaporemons/format';
+import { format as gen9vgc20xx                 } from '../data/mods/gen9vgc20xx/format';
+import { format as gennext                     } from '../data/mods/gennext/format';
+import { format as genxbrunica                 } from '../data/mods/genxbrunica/format';
+import { format as genxdesvega                 } from '../data/mods/genxdesvega/format';
+import { format as genxloria                   } from '../data/mods/genxloria/format';
+import { format as glacemons                   } from '../data/mods/glacemons/format';
+import { format as glacemonsuber               } from '../data/mods/glacemonsuber/format';
+import { format as haxmeters                   } from '../data/mods/haxmeters/format';
+import { format as hiddengems                  } from '../data/mods/hiddengems/format';
+import { format as hideandseaking              } from '../data/mods/hideandseaking/format';
 import { format as hideandseakingslate5clauses } from '../data/mods/hideandseakingslate5clauses/format';
-import { format as iforgor                   } from '../data/mods/iforgor/format';
-import { format as imando                    } from '../data/mods/imando/format';
-import { format as ironfist                  } from '../data/mods/ironfist/format';
-import { format as ironmons                  } from '../data/mods/ironmons/format';
-import { format as jollymod                  } from '../data/mods/jollymod/format';
-import { format as joltemons                 } from '../data/mods/joltemons/format';
-import { format as kaensdex                  } from '../data/mods/kaensdex/format';
-import { format as kitchen                   } from '../data/mods/kitchen/format';
-import { format as legendshoopa              } from '../data/mods/legendshoopa/format';
-import { format as letsgo                    } from '../data/mods/letsgo/format';
-import { format as littlecolosseum           } from '../data/mods/littlecolosseum/format';
-import { format as littleestcup              } from '../data/mods/littleestcup/format';
-import { format as littlestcup               } from '../data/mods/littlestcup/format';
-import { format as lucklessplay              } from '../data/mods/lucklessplay/format';
-import { format as lukemod                   } from '../data/mods/lukemod/format';
-import { format as m4ag9                     } from '../data/mods/m4ag9/format';
-import { format as m4akalos                  } from '../data/mods/m4akalos/format';
-import { format as m4apaldea                 } from '../data/mods/m4apaldea/format';
-import { format as m4asandbox                } from '../data/mods/m4asandbox/format';
-import { format as m4av6                     } from '../data/mods/m4av6/format';
-import { format as maadowr                   } from '../data/mods/maadowr/format';
-import { format as maadowrlostzone           } from '../data/mods/maadowrlostzone/format';
-import { format as masquerade                } from '../data/mods/masquerade/format';
-import { format as megamania                 } from '../data/mods/megamania/format';
-import { format as metamons                  } from '../data/mods/metamons/format';
-import { format as mixandmega                } from '../data/mods/mixandmega/format';
-import { format as mixandmegaballs           } from '../data/mods/mixandmegaballs/format';
-import { format as mixandmegasforall         } from '../data/mods/mixandmegasforall/format';
-import { format as mmm2                      } from '../data/mods/mmm2/format';
-import { format as mmm3                      } from '../data/mods/mmm3/format';
-import { format as moderngen1                } from '../data/mods/moderngen1/format';
-import { format as moderngen2                } from '../data/mods/moderngen2/format';
-import { format as moderngen2birds           } from '../data/mods/moderngen2birds/format';
-import { format as moderngen3                } from '../data/mods/moderngen3/format';
-import { format as moderngen4                } from '../data/mods/moderngen4/format';
-import { format as monsterhunter             } from '../data/mods/monsterhunter/format';
-import { format as monsterhuntersl           } from '../data/mods/monsterhuntersl/format';
-import { format as morebalancedhackmons      } from '../data/mods/morebalancedhackmons/format';
-import { format as naturalselection          } from '../data/mods/naturalselection/format';
-import { format as notmytype                 } from '../data/mods/notmytype/format';
-import { format as outheorymons              } from '../data/mods/outheorymons/format';
-import { format as paleomons                 } from '../data/mods/paleomons/format';
-import { format as patratdex                 } from '../data/mods/patratdex/format';
-import { format as placeholder               } from '../data/mods/placeholder/format';
-import { format as plza                      } from '../data/mods/plza/format';
-import { format as pokebilities              } from '../data/mods/pokebilities/format';
-import { format as pokebilitiesbanhammers    } from '../data/mods/pokebilitiesbanhammers/format';
-import { format as pokemonorthsoutheastwest  } from '../data/mods/pokemonorthsoutheastwest/format';
-import { format as pokemorty                 } from '../data/mods/pokemorty/format';
-import { format as poketypos                 } from '../data/mods/poketypos/format';
-import { format as ponymonshowdown           } from '../data/mods/ponymonshowdown/format';
-import { format as publicdomain              } from '../data/mods/publicdomain/format';
-import { format as randomtandem              } from '../data/mods/randomtandem/format';
-import { format as regeneration              } from '../data/mods/regeneration/format';
-import { format as regionalevolutions        } from '../data/mods/regionalevolutions/format';
-import { format as restrictions              } from '../data/mods/restrictions/format';
-import { format as returntoorretercera       } from '../data/mods/returntoorretercera/format';
-import { format as rockbottom                } from '../data/mods/rockbottom/format';
-import { format as roulettemons              } from '../data/mods/roulettemons/format';
-import { format as roulettemons2             } from '../data/mods/roulettemons2/format';
-import { format as scootopia                 } from '../data/mods/scootopia/format';
-import { format as scootopiav4               } from '../data/mods/scootopiav4/format';
-import { format as secretsanta               } from '../data/mods/secretsanta/format';
-import { format as setinstone                } from '../data/mods/setinstone/format';
-import { format as sharedpower               } from '../data/mods/sharedpower/format';
-import { format as sharedpowerironfist       } from '../data/mods/sharedpowerironfist/format';
-import { format as shinymons                 } from '../data/mods/shinymons/format';
-import { format as signaturemons             } from '../data/mods/signaturemons/format';
-import { format as signaturerestrictions     } from '../data/mods/signaturerestrictions/format';
-import { format as sixbysix                  } from '../data/mods/sixbysix/format';
-import { format as smashmodsbrawl            } from '../data/mods/smashmodsbrawl/format';
-import { format as smashmodsmelee            } from '../data/mods/smashmodsmelee/format';
-import { format as smashstereotypes          } from '../data/mods/smashstereotypes/format';
-import { format as solopet                   } from '../data/mods/solopet/format';
-import { format as spookymod                 } from '../data/mods/spookymod/format';
-import { format as stadium                   } from '../data/mods/stadium/format';
-import { format as stadiumyb                 } from '../data/mods/stadiumyb/format';
-import { format as stereotypes               } from '../data/mods/stereotypes/format';
-import { format as supersmashoms             } from '../data/mods/supersmashoms/format';
-import { format as supertypesou              } from '../data/mods/supertypesou/format';
-import { format as sylvemonstest             } from '../data/mods/sylvemonstest/format';
-import { format as tamagotchi                } from '../data/mods/tamagotchi/format';
-import { format as teraforming               } from '../data/mods/teraforming/format';
-import { format as teramax                   } from '../data/mods/teramax/format';
-import { format as the331typechartg9         } from '../data/mods/the331typechartg9/format';
-import { format as thebore                   } from '../data/mods/thebore/format';
-import { format as tiersovereign             } from '../data/mods/tiersovereign/format';
-import { format as toho                      } from '../data/mods/toho/format';
-import { format as tpdp                      } from '../data/mods/tpdp/format';
-import { format as tradingpost               } from '../data/mods/tradingpost/format';
-import { format as trainersupport            } from '../data/mods/trainersupport/format';
-import { format as triplethreat              } from '../data/mods/triplethreat/format';
-import { format as twostepmonsv3             } from '../data/mods/twostepmonsv3/format';
-import { format as upsidedown                } from '../data/mods/upsidedown/format';
-import { format as weatherwar                } from '../data/mods/weatherwar/format';
-import { format as weedmons                  } from '../data/mods/weedmons/format';
-import { format as whitetusk                 } from '../data/mods/whitetusk/format';
-import { format as woomod                    } from '../data/mods/woomod/format';
-import { format as worldbuilding             } from '../data/mods/worldbuilding/format';
+import { format as iforgor                     } from '../data/mods/iforgor/format';
+import { format as imando                      } from '../data/mods/imando/format';
+import { format as ironfist                    } from '../data/mods/ironfist/format';
+import { format as ironmons                    } from '../data/mods/ironmons/format';
+import { format as jollymod                    } from '../data/mods/jollymod/format';
+import { format as joltemons                   } from '../data/mods/joltemons/format';
+import { format as kaensdex                    } from '../data/mods/kaensdex/format';
+import { format as kitchen                     } from '../data/mods/kitchen/format';
+import { format as legendshoopa                } from '../data/mods/legendshoopa/format';
+import { format as letsgo                      } from '../data/mods/letsgo/format';
+import { format as littlecolosseum             } from '../data/mods/littlecolosseum/format';
+import { format as littleestcup                } from '../data/mods/littleestcup/format';
+import { format as littlestcup                 } from '../data/mods/littlestcup/format';
+import { format as lucklessplay                } from '../data/mods/lucklessplay/format';
+import { format as lukemod                     } from '../data/mods/lukemod/format';
+import { format as m4ag9                       } from '../data/mods/m4ag9/format';
+import { format as m4akalos                    } from '../data/mods/m4akalos/format';
+import { format as m4apaldea                   } from '../data/mods/m4apaldea/format';
+import { format as m4asandbox                  } from '../data/mods/m4asandbox/format';
+import { format as m4av6                       } from '../data/mods/m4av6/format';
+import { format as maadowr                     } from '../data/mods/maadowr/format';
+import { format as maadowrlostzone             } from '../data/mods/maadowrlostzone/format';
+import { format as masquerade                  } from '../data/mods/masquerade/format';
+import { format as megamania                   } from '../data/mods/megamania/format';
+import { format as metamons                    } from '../data/mods/metamons/format';
+import { format as mixandmega                  } from '../data/mods/mixandmega/format';
+import { format as mixandmegaballs             } from '../data/mods/mixandmegaballs/format';
+import { format as mixandmegasforall           } from '../data/mods/mixandmegasforall/format';
+import { format as mmm2                        } from '../data/mods/mmm2/format';
+import { format as mmm3                        } from '../data/mods/mmm3/format';
+import { format as moderngen1                  } from '../data/mods/moderngen1/format';
+import { format as moderngen2                  } from '../data/mods/moderngen2/format';
+import { format as moderngen2birds             } from '../data/mods/moderngen2birds/format';
+import { format as moderngen3                  } from '../data/mods/moderngen3/format';
+import { format as moderngen4                  } from '../data/mods/moderngen4/format';
+import { format as monsterhunter               } from '../data/mods/monsterhunter/format';
+import { format as monsterhuntersl             } from '../data/mods/monsterhuntersl/format';
+import { format as morebalancedhackmons        } from '../data/mods/morebalancedhackmons/format';
+import { format as naturalselection            } from '../data/mods/naturalselection/format';
+import { format as notmytype                   } from '../data/mods/notmytype/format';
+import { format as outheorymons                } from '../data/mods/outheorymons/format';
+import { format as paleomons                   } from '../data/mods/paleomons/format';
+import { format as patratdex                   } from '../data/mods/patratdex/format';
+import { format as placeholder                 } from '../data/mods/placeholder/format';
+import { format as plza                        } from '../data/mods/plza/format';
+import { format as pokebilities                } from '../data/mods/pokebilities/format';
+import { format as pokebilitiesbanhammers      } from '../data/mods/pokebilitiesbanhammers/format';
+import { format as pokemonorthsoutheastwest    } from '../data/mods/pokemonorthsoutheastwest/format';
+import { format as pokemorty                   } from '../data/mods/pokemorty/format';
+import { format as poketypos                   } from '../data/mods/poketypos/format';
+import { format as ponymonshowdown             } from '../data/mods/ponymonshowdown/format';
+import { format as publicdomain                } from '../data/mods/publicdomain/format';
+import { format as randomtandem                } from '../data/mods/randomtandem/format';
+import { format as regeneration                } from '../data/mods/regeneration/format';
+import { format as regionalevolutions          } from '../data/mods/regionalevolutions/format';
+import { format as restrictions                } from '../data/mods/restrictions/format';
+import { format as returntoorretercera         } from '../data/mods/returntoorretercera/format';
+import { format as rockbottom                  } from '../data/mods/rockbottom/format';
+import { format as roulettemons                } from '../data/mods/roulettemons/format';
+import { format as roulettemons2               } from '../data/mods/roulettemons2/format';
+import { format as scootopia                   } from '../data/mods/scootopia/format';
+import { format as scootopiav4                 } from '../data/mods/scootopiav4/format';
+import { format as secretsanta                 } from '../data/mods/secretsanta/format';
+import { format as setinstone                  } from '../data/mods/setinstone/format';
+import { format as sharedpower                 } from '../data/mods/sharedpower/format';
+import { format as sharedpowerironfist         } from '../data/mods/sharedpowerironfist/format';
+import { format as shinymons                   } from '../data/mods/shinymons/format';
+import { format as signaturemons               } from '../data/mods/signaturemons/format';
+import { format as signaturerestrictions       } from '../data/mods/signaturerestrictions/format';
+import { format as sixbysix                    } from '../data/mods/sixbysix/format';
+import { format as smashmodsbrawl              } from '../data/mods/smashmodsbrawl/format';
+import { format as smashmodsmelee              } from '../data/mods/smashmodsmelee/format';
+import { format as smashstereotypes            } from '../data/mods/smashstereotypes/format';
+import { format as solopet                     } from '../data/mods/solopet/format';
+import { format as spookymod                   } from '../data/mods/spookymod/format';
+import { format as stadium                     } from '../data/mods/stadium/format';
+import { format as stadiumyb                   } from '../data/mods/stadiumyb/format';
+import { format as stereotypes                 } from '../data/mods/stereotypes/format';
+import { format as supersmashoms               } from '../data/mods/supersmashoms/format';
+import { format as supertypesou                } from '../data/mods/supertypesou/format';
+import { format as sylvemonstest               } from '../data/mods/sylvemonstest/format';
+import { format as tamagotchi                  } from '../data/mods/tamagotchi/format';
+import { format as teraforming                 } from '../data/mods/teraforming/format';
+import { format as teramax                     } from '../data/mods/teramax/format';
+import { format as the331typechartg9           } from '../data/mods/the331typechartg9/format';
+import { format as thebore                     } from '../data/mods/thebore/format';
+import { format as tiersovereign               } from '../data/mods/tiersovereign/format';
+import { format as toho                        } from '../data/mods/toho/format';
+import { format as tpdp                        } from '../data/mods/tpdp/format';
+import { format as tradingpost                 } from '../data/mods/tradingpost/format';
+import { format as trainersupport              } from '../data/mods/trainersupport/format';
+import { format as triplethreat                } from '../data/mods/triplethreat/format';
+import { format as twostepmonsv3               } from '../data/mods/twostepmonsv3/format';
+import { format as upsidedown                  } from '../data/mods/upsidedown/format';
+import { format as weatherwar                  } from '../data/mods/weatherwar/format';
+import { format as weedmons                    } from '../data/mods/weedmons/format';
+import { format as whitetusk                   } from '../data/mods/whitetusk/format';
+import { format as woomod                      } from '../data/mods/woomod/format';
+import { format as worldbuilding               } from '../data/mods/worldbuilding/format';
 // import can't hurt you anymore
 
 /*
-
 If you specify a section that already exists, your format will be added to the bottom of that section.
 New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
@@ -246,114 +245,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	alternatiumex,
-	{
-		name: "[Gen 1] Azure Version",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-azure-version-slate-3-submissions-open.3774689/">[Gen 1] Azure Version</a>`,
-		],
-
-		mod: 'gen1azure',
-		ruleset: ['Standard'],
-		banlist: ['Uber'],
-	},
-	{
-		name: "[Gen 4] Back to Sinnoh",
-		desc: `Recreation of Gen 4 OU, with a lot of new Fakemons, moves, and abilities! No vanilla Gen 4 Pokemon allowed!`,
-		threads: [],
-		mod: 'backtosinnoh',
-		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Arena Trap', 'Sand Veil', 'Quick Claw', 'Soul Dew', 'Baton Pass'],
-	},
-	{
-		name: "[Gen 1] Back to the Past",
-		   desc: `<b>[Gen 1] Back to the Past</b>: Adapting future gen moves and Pokemon into RBY`,
-		   threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-back-to-the-past-slate-1-moves.3757618/">Back to the Past on Smogon Forums</a>`,
-		   ],
-		  mod: 'gen1backtothepast',
-		  ruleset: ['Standard', 'Data Mod'],
-			banlist: ['Uber'],
-			unbanlist: ['Seismitoad', 'Masquerain', 'Cursola', 'Skitter Smack', 'Burn Up', 'Drain Punch', 'Sappy Seed', "Focus Punch", 'Mud Shot',
-						],
-		},
-	{
-		name: "[Gen 9] Banhammers Cycle 3",
-		desc: `<b>Banhammers</b>: A metagame where players are allowed to ban Pokemon, Moves, Items, and Abilities through earning points in room tournaments.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/banhammers-cycle-2-week-2-second-roomtour-6-17.3711488/">Banhammers on Smogon Forums</a>`,
-         `&bullet; <a href="https://docs.google.com/spreadsheets/d/1prtFrCj_mdOpFtKPpsCH6S3CsO12tEgTIWaQJOEnUcY/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'banhammersc3',
-		ruleset: ['Standard', 'Sleep Moves Clause', 'Data Mod', '!Sleep Clause Mod'],
-		banlist: [
-			'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
-			'Last Respects', 'Shed Tail', 'Barraskewda', 'Cinderace', 'Clodsire', 'Dragapult', 'Enamorus-Base', 'Gholdengo', 'Gliscor', 'Hatterene',
-			'Iron Treads', 'Kingambit', 'Ogerpon-Wellspring', 'Pelipper', 'Rillaboom', 'Walking Wake', 'Zamazenta', 'Earth Power', 'Flip Turn',
-			'Freeze-Dry', 'Ice Beam', 'Knock Off', 'Spikes', 'Taunt', 'Thunder Wave', 'Toxic', 'Volt Switch', 'Booster Energy', 'Light Clay',
-			'Protosynthesis', 'Clefable', 'Corviknight', 'Darkrai', 'Dragonite', 'Maushold', 'Primarina', 'Samurott-Hisui', 'Slowking-Galar',
-			'Weavile', 'Focus Blast', 'Glare', 'Sticky Web', 'Unaware', 'Quark Drive', 'Blissey', 'Ceruledge', 'Chansey', 'Garchomp', 'Garganacl',
-			'Glimmora', 'Hydreigon', 'Ogerpon-Cornerstone', 'Ting-Lu', 'Close Combat', 'Dragon Dance', 'Meteor Beam', 'Roost', 'Scale Shot', 'Stealth Rock',
-			'Tera Blast', 'Heavy-Duty-Boots', 'Chlorophyll', 'Swift Swim', 'Regenerator', 'Draco Meteor', 'Intimidate', 'Levitate',
-			'Focus Sash', 'Leftovers', 'Life Orb', 'Belly Drum', 'Calm Mind', 'Nasty Plot', 'Azumarill', 'Blaziken', 'Deoxys-Defense', 'Greninja',
-			'Heatran', 'Kleavor', 'Kommo-o', 'Meowscarada', 'Moltres-Galar', 'Ninetales-Alola', 'Pecharunt', 'Politoed', 'Sinistcha', 'Skarmory',
-			'Ursaluna', 'Zapdos-Base',
-		],
-    },
-	{
-		name: "[Gen 9] Beartic Phone",
-	   desc: '<b>[Gen 9] Beartic Phone</b>: A group of 5 people unknowingly work together to create a fakemon, very similar to the online game "Gartic Phone".',
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/beartic-phone.3727739/">Beartic Phone</a>',
-			'https://docs.google.com/spreadsheets/d/1-Hfz-p0nomMLVFa4-4nGbLKaoWSl0xFTZA5Aiapw-Ko/edit#gid=1161734506">Spreadsheet</a>',
-		],
-		mod: 'bearticphone',
-	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'bear') {
-					return [set.species + ' is not usable in Beartic Phone.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Blank Canvas Meta A",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
-		],
-		mod: 'blankcanvas',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: [
-			'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Actaniathan', 'Flarenheit', 'Groundead', 'Deadward', 'Obaki', 'Sylravage', 'Twinkaton', 'Fausteil', 'Geoporka',
-			'Porcupyre', 'Plasmage', 'Seaode', 'Bellolysk', 'Tryonite', 'Scarachnid', 'Serpvoltidae', 'Maldractice', 'Geigeramp',
-			'Bufferfly', 'Dastard', 'Sheepquake', 'Cottentration', 'Sorrowcean', 'Psyllapse', 'Haarstorm', 'Borealis', 'Bazhigangquan',
-			'Leechmonner', 'Iron Crest', 'Odonata', 'Hebicikuga', 'Devestial', 'Lundicare', 'Razor Fang', 'Light Clay', 'Lyvamp',
-			'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
-			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
-			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
-			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
-			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao', 'Psyrex', 'Phantamp', 'Waroach', 'Wyldemoer',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['BC UU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Blank Canvas Meta A.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Blank Canvas Meta B",
