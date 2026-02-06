@@ -16,7 +16,9 @@ import { format as banhammersc3                } from '../data/mods/banhammersc3
 import { format as beaftopia                   } from '../data/mods/beaftopia/format';
 import { format as bearticphone                } from '../data/mods/bearticphone/format';
 import { format as blackmarket                 } from '../data/mods/blackmarket/format';
-import { format as blankcanvas                 } from '../data/mods/blankcanvas/format';
+import { format as blankcanvasa                } from '../data/mods/blankcanvas/format';
+import { format as blankcanvasb                } from '../data/mods/blankcanvas/format2';
+import { format as blankcanvasc                } from '../data/mods/blankcanvas/format3';
 import { format as bookofenigmas               } from '../data/mods/bookofenigmas/format';
 import { format as breedingvariants            } from '../data/mods/breedingvariants/format';
 import { format as breedingvariantsnatdex      } from '../data/mods/breedingvariantsnatdex/format';
@@ -245,62 +247,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-		name: "[Gen 9] Blank Canvas Meta B",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
-		],
-		mod: 'blankcanvas',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: [
-			'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang', 
-			'Lyvamp', 'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
-			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
-			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
-			'Armie', 'Bunnyumi', 'Parfae', 'Siltworm', 'Ptoxidactyl', 'Staroboros' , 'Kodiacomb', 'Pyrelli', 'Boreetle', 'Hyakutari',
-			'Kaovern', 'Zhuguo', 'Shinobomi', 'Prionice', 'Tiaratron', 'Lianzhao', 'Psyrex', 'Phantamp', 'Waroach', 'Wyldemoer',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['BC OU', 'BC UU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Blank Canvas Meta B.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Blank Canvas Meta C",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
-		],
-		mod: 'blankcanvas',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Razor Fang',
-			'Actaniathan', 'Flarenheit', 'Groundead', 'Deadward', 'Obaki', 'Sylravage', 'Twinkaton', 'Fausteil', 'Geoporka',
-			'Porcupyre', 'Plasmage', 'Seaode', 'Bellolysk', 'Tryonite', 'Scarachnid', 'Serpvoltidae', 'Maldractice', 'Geigeramp',
-			'Bufferfly', 'Dastard', 'Sheepquake', 'Cottentration', 'Sorrowcean', 'Psyllapse', 'Haarstorm', 'Borealis', 'Bazhigangquan',
-			'Leechmonner', 'Iron Crest', 'Odonata', 'Hebicikuga', 'Devestial', 'Lundicare', 'Arachnode', 'Arsenstorm', 'Badjur', 'Blobbiam',
-			'Brasspecter', 'Bugswarm', 'Bulionage', 'Capricorrie', 'Copperhead', 'Craggon', 'Crystuit', 'Drakkannon', 'Eolikopter', 'Faeruin',
-			'Fettogre', 'Florustitia', 'Freightmare', 'Frostengu', 'Goblantern', 'Hippaint', 'Jackoswarm', 'Jokerpent', 'Kadraoke', 'Karmalice',
-			'Lavalisk', 'Llanfairwyrm', 'Martorse', 'Massassin', 'Mohawtter', 'Mon Mothra', 'Parasike', 'Pinaturbo', 'Piss', 'Primordialith',
-			'Reversadusa', 'Sculptera', 'Searytch', 'Sleet Shell', 'Snabterra', 'Socknbuskn', 'Thaumaton', 'Versalyre', 'Vipult', 'Wizhazard',
-			'Yamateraph'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['BC C'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Blank Canvas Meta C.'];
-				}
-			}
-		},
 	},
 	{
         name: "[Gen 9] Gen 9 Blindsided",
