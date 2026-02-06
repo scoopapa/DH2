@@ -403,7 +403,14 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			if (!this.field.pseudoWeather['ruststorm']) return;
 			if (!target || !target.hasType('Steel')) return;
 			if (target.hasAbility('Rusted Gale')) return typeMod;
-			if (typeMod < 0) return 0;
+			// Only remove Steel's resistances IF Steel is the one providing them
+			if (typeMod < 0) {
+				const steelMod = this.dex.getEffectiveness(type, 'Steel');
+				if (steelMod < 0) {
+					return 0;
+				}
+			}
+			// Otherwise, do not modify the effectiveness
 			return typeMod;
 		},
         onModifyDefPriority: 10,

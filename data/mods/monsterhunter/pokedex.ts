@@ -1827,7 +1827,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Magnamalo",
 		forme: "Mega",
 		types: ["Ghost", "Dark"],
-		baseStats: {hp: 105, atk: 145, def: 90, spa: 100, spd: 110, spe: 100},
+		baseStats: {hp: 105, atk: 140, def: 100, spa: 105, spd: 110, spe: 90},
 		abilities: {0: "Sinister Grudge"},
 		weightkg: 212.2,
 		tags: ["Fanged Wyvern"],
