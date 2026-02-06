@@ -33,7 +33,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			for (const moveid of shadowMoves) {
 				const move = this.dex.moves.get(moveid);
 				for (const pokemon of this.p1.pokemon.concat(this.p2.pokemon)) {
-					for (const {learnset} of this.dex.species.getFullLearnset(species.id)) {
+					for (const {learnset} of this.dex.species.getFullLearnset(pokemon.species.id)) {
 						if (moveid in learnset && pokemon?.pokeball === 'shadow') {
 							pokemon.baseMoveSlots.push({
 								move: move.name,
