@@ -1659,6 +1659,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-anim', source, 'Spite', target);
 		},
 		condition: {
+			duration: 4,
 			onStart(target) {
 				this.effectState.targetSlot = target.getSlot();
 				this.effectState.endingTurn = (this.turn - 1) + 3;
@@ -1690,11 +1691,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				this.activeMove = null;
 				this.checkWin();
-				if (this.getOverflowedTurnCount() >= this.effectState.endingTurn) {
-					const targetSlot = this.getAtSlot(this.effectState.targetSlot);
-					const targetSide = targetSlot.side;
-					targetSide.removeSideCondition('sinisterarrows');
-				}
 			},
 		},
 		secondary: null,
