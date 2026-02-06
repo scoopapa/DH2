@@ -1,10 +1,82 @@
 export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
+	nicknameclause: {
+		effectType: 'ValidatorRule',
+		name: 'Nickname Clause',
+		desc: "Prevents teams from having more than one Pok&eacute;mon with the same nickname",
+		onValidateTeam(team, format) {
+			const nameTable = new Set<string>();
+			for (const set of team) {
+				var name = set.name;
+				if (name) {
+					if (name === this.dex.species.get(set.species).baseSpecies || name === 'shadow') continue;
+					if (nameTable.has(name)) {
+						return [`Your Pokémon must have different nicknames.`, `(You have more than one ${name})`];
+					}
+					nameTable.add(name);
+				}
+			}
+			// Illegality of impersonation of other species is
+			// hardcoded in team-validator.js, so we are done.
+		},
+	},
 	shadowmechanic: {
 		effectType: 'Rule',
 		name: 'Shadow Mechanic',
 		desc: "Turns any Pokemon with a Shadow move into a Shadow Pokemon.",
 		onBegin() {
 			this.add('rule', 'Shadow Mechanic: Turns any Pokemon with a Shadow move into a Shadow Pokemon');
+		},
+		onValidateSet(set) {
+			var shadowCount = 0;
+			const shadowMoves = [
+				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
+				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
+				'shadowchill', 'shadowfire', 'shadowblast',
+			];
+			if (set.name === 'shadow') {
+				set.pokeball = 'shadow';
+				set.name = set.species;
+				for (const moveid of shadowMoves) {
+					for (const {learnset} of this.dex.species.getFullLearnset(this.toID(set.species))) {
+						if (moveid in learnset) {
+							shadowCount++;
+							break;
+						}
+					}
+				}
+				if (shadowCount === 1) {
+					if (set.moves.length === 4) return [`${set.name || set.species} has one Shadow move, meaning it can only run 3 normal moves.`];
+				}
+				else if (shadowCount === 2) {
+					if (set.moves.length >= 3) return [`${set.name || set.species} has two Shadow moves, meaning it can only run 2 normal moves.`];
+				}
+			}
+		},
+		onModifySpecies(species, target, source, effect) {
+			const shadowMoves = [
+				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
+				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
+				'shadowchill', 'shadowfire', 'shadowblast',
+			];
+			for (const moveid of shadowMoves) {
+				const move = this.dex.moves.get(moveid);
+				for (const {learnset} of this.dex.species.getFullLearnset(species.id)) {
+					if (moveid in learnset && target?.pokeball === 'shadow') {
+						target.baseMoveSlots.push({
+							move: move.name,
+							id: move.id,
+							pp: move.pp * 8 / 5,
+							maxpp: move.pp * 8 / 5,
+							target: move.target,
+							disabled: false,
+							disabledSource: '',
+							used: false,
+						});
+						target.moveSlots = target.baseMoveSlots.slice();
+						break;
+					}
+				}
+			}
 		},
 		onSwitchIn(pokemon) {
 			const shadowMoves = [
