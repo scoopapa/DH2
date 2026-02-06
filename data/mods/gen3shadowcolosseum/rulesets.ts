@@ -25,6 +25,32 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		desc: "Turns any Pokemon with a Shadow move into a Shadow Pokemon.",
 		onBegin() {
 			this.add('rule', 'Shadow Mechanic: Turns any Pokemon with a Shadow move into a Shadow Pokemon');
+			const shadowMoves = [
+				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
+				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
+				'shadowchill', 'shadowfire', 'shadowblast',
+			];
+			for (const moveid of shadowMoves) {
+				const move = this.dex.moves.get(moveid);
+				for (const pokemon of this.p1.pokemon.concat(this.p2.pokemon)) {
+					for (const {learnset} of this.dex.species.getFullLearnset(species.id)) {
+						if (moveid in learnset && pokemon?.pokeball === 'shadow') {
+							pokemon.baseMoveSlots.push({
+								move: move.name,
+								id: move.id,
+								pp: move.pp * 8 / 5,
+								maxpp: move.pp * 8 / 5,
+								target: move.target,
+								disabled: false,
+								disabledSource: '',
+								used: false,
+							});
+							pokemon.moveSlots = pokemon.baseMoveSlots.slice();
+							break;
+						}
+					}
+				}
+			}
 		},
 		onValidateSet(set) {
 			var shadowCount = 0;
@@ -46,13 +72,16 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				}
 				if (shadowCount === 1) {
 					if (set.moves.length === 4) return [`${set.name || set.species} has one Shadow move, meaning it can only run 3 normal moves.`];
-				}
-				else if (shadowCount === 2) {
+				} else if (shadowCount === 2) {
 					if (set.moves.length >= 3) return [`${set.name || set.species} has two Shadow moves, meaning it can only run 2 normal moves.`];
+				} else if (shadowCount === 3) {
+					if (set.moves.length >= 2) return [`${set.name || set.species} has three Shadow moves, meaning it can only run 1 normal move.`];
+				} else if (shadowCount === 4) {
+					if (set.moves.length >= 1) return [`${set.name || set.species} has four Shadow moves, meaning it can't run any normal moves.`];
 				}
 			}
 		},
-		onModifySpecies(species, target, source, effect) {
+		/* onModifySpecies(species, target, source, effect) {
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
@@ -77,7 +106,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 					}
 				}
 			}
-		},
+		}, */
 		onSwitchIn(pokemon) {
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
