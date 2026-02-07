@@ -22,4 +22,4 @@ export const format: FormatData = {
 			}
 			return {...species};
 		},
-	},
+	};
