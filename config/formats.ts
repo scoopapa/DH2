@@ -292,46 +292,6 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-		name: "[Gen 9] Hide and Seaking",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/hide-and-seaking.3743214/">Hide and Seaking</a>`,
-		],
-		teambuilderFormat: "National Dex",
-		mod: 'littleestcup',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'big dog Clause', 'Moniker Clause'],
-		banlist: [
-			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Houndoominite',
-		],
-	},
-	{
-		name: "[Gen 9] Hidden Gems",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3737861/">Hidden Gems</a>`,
-		],
-		mod: 'hiddengems',
-		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	},
-	{
-		name: "[Gen 3] Hoenn Echoes",
-		mod: 'gen3hoennechoes',
-		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Wobbuffet + Leftovers', 'Wynaut + Leftovers', 'Baton Pass'],
-		desc: `A mod based on Generation 3 Ubers which aims to breathe some life into the tier by reducing RNG elements, increasing Pokemon diversity, and balancing the tier around the Pokemon that are already strong.`,
-	},
-	{
-		name: "[Gen 3] Hoenn Gaiden OU",
-		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
-		],
-		mod: 'gen3hoenngaiden',
-		ruleset: ['HG Standard', 'Data Mod', 'Freeze Clause Mod'],
-		banlist: ['Uber'],
-		unbanlist: ['Sand Veil'],
-	},
-	{
 		name: "[Gen 9] Iron Fist",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
