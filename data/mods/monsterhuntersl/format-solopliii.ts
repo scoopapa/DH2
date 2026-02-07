@@ -1,4 +1,4 @@
-import { FormatData } from '../../../../sim/dex-formats';
+import { FormatData } from '../../../sim/dex-formats';
 
 export const format: FormatData = {
 		name: "[Gen 9] Monster Hunter OU - SoloPL III",
