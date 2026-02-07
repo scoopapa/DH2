@@ -117,6 +117,8 @@ import { format as gen9crossoverchaosc         } from '../data/mods/gen9crossove
 import { format as gen9dlc1                    } from '../data/mods/gen9dlc1/format';
 import { format as gen9evolutionproject        } from '../data/mods/gen9evolutionproject/format';
 import { format as gen9fe                      } from '../data/mods/gen9fe/format';
+import { format as gen9ferandoms               } from "../data/mods/gen9fe/format-randoms"
+import { format as gen9feuu                    } from "../data/mods/gen9fe/format-uu";
 import { format as gen9ferestrictions          } from '../data/mods/gen9ferestrictions/format';
 import { format as gen9fevgc                   } from '../data/mods/gen9fevgc/format';
 import { format as gen9multiverse              } from '../data/mods/gen9multiverse/format';
@@ -171,8 +173,21 @@ import { format as moderngen2                  } from '../data/mods/moderngen2/f
 import { format as moderngen2birds             } from '../data/mods/moderngen2birds/format';
 import { format as moderngen3                  } from '../data/mods/moderngen3/format';
 import { format as moderngen4                  } from '../data/mods/moderngen4/format';
-import { format as monsterhunter               } from '../data/mods/monsterhunter/format';
+// Monster Hunter
+import { format as monsterhunterag             } from '../data/mods/monsterhunter/formats/format-ag';
+import { format as monsterhunter               } from '../data/mods/monsterhunter/formats/format-ou';
+import { format as monsterhunteruu             } from '../data/mods/monsterhunter/formats/format-uu';
+import { format as monsterhunterru             } from '../data/mods/monsterhunter/formats/format-ru';
+import { format as monsterhunterdubs           } from '../data/mods/monsterhunter/formats/format-doubles';
+import { format as monsterhunterffa            } from '../data/mods/monsterhunter/formats/format-freeforall';
+import { format as monsterhunterffarands       } from '../data/mods/monsterhunter/formats/format-ffarands';
+import { format as monsterhunterdubsrands      } from '../data/mods/monsterhunter/formats/format-randoms-dubs';
+import { format as monsterhuntervgc            } from '../data/mods/monsterhunter/formats/format-vgc';
+import { format as monsterhunterrandoms        } from '../data/mods/monsterhunter/formats/format-randoms';
+import { format as monsterhunterousolopliii    } from '../data/mods/monsterhunter/formats/format-solopliii';
+// Enough Monster Hunter
 import { format as monsterhuntersl             } from '../data/mods/monsterhuntersl/format';
+// Fuck
 import { format as morebalancedhackmons        } from '../data/mods/morebalancedhackmons/format';
 import { format as naturalselection            } from '../data/mods/naturalselection/format';
 import { format as notmytype                   } from '../data/mods/notmytype/format';
@@ -274,189 +289,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-		name: "[Gen 9] Elimination War",
-		mod: 'eliminationwar',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['Legal'/*, 'Eliminated'*/];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Elimination War'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Eternal Pokémon",
-		mod: 'eternalpokemon',
-		desc: 'A Pet Mod that aims to give Eternal Floette-like formes to other NFE Pokémon.',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Data Mod', 'Terastal Clause', 'Picked Team Size = 6'], // temporarily asks for team order until Magikarp-Eternal situation is solved
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pok%C3%A9mon.3755140/">Eternal Pokémon on Smogon Forums</a>`,
-		],
-		banlist: ['Aegislash', 'Aerodactylite', 'Gardevoirite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Power Construct', 'Salamencite', 'Zygarde', 'Arena Trap', 'Baton Pass', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['FE', '1x NFE', '2x NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier == 'Banned') return [set.species + ' is banned in Eteral Pokémon'];
-				if (template.tier == 'WIP') return [set.species + ' has some coding challenges, so it\'s not allowed yet!'];
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Eternal Pokémon.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Eramons",
-		desc: [
-			`<b>Eramons</b>: A Gen 9 Pet Mod based on broad strokes of real-life historical time periods.`,
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3727769/">Gen 9 Eramons</a>`,
-		],
-
-		mod: 'eramons',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		onValidateTeam(team, format, teamHas) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let era : string[] = [];
-			let allowedTiers = ['ECiv', 'Med', 'PrDay', 'FFut'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				let tier = template.tier;
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Eramons.'];
-				}
-				if (!(era.includes(tier))) {
-					era.push(tier)
-				}
-			}
-			if (era.length > 1) return ['Each Pokemon needs to be from the same era.'];
-		},
-	},
-	{
-		name: "[Gen 9] Fakemon Frontier OU",
-		desc: `<b>[Gen 9] Fakemon Frontier OU</b>: A meta where the only legal Pokemon are community-made Fakemon that follow two of four predetermined "rules."`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3722349/">Fakemon Frontier on Smogon Forums</a>`,
-		],
-		mod: 'fakemonfrontier',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: [
-			'Karate Chop', 'Double Slap', 'Comet Punch', 'Razor Wind', 'Jump Kick', 'Rolling Kick', 'Sonic Boom', 'Submission',
-			'Dragon Rage', 'Meditate', 'Rage', 'Barrier', 'Bide', 'Mirror Move', 'Egg Bomb', 'Bone Club', 'Clamp', 'Skull Bash',
-			'Spike Cannon', 'Constrict', 'Kinesis', 'Barrage', 'Lovely Kiss', 'Bubble', 'Dizzy Punch', 'Flash', 'Psywave', 'Bonemerang',
-			'Hyper Fang', 'Sharpen', 'Triple Kick', 'Spider Web', 'Mind Reader', 'Nightmare', 'Feint Attack', 'Octazooka', 'Foresight',
-			'Return', 'Frustration', 'Magnitude', 'Pursuit', 'Vital Throw', 'Hidden Power', 'Hail', 'Smelling Salts', 'Nature Power',
-			'Assist', 'Magic Coat', 'Revenge', 'Refresh', 'Grudge', 'Snatch', 'Secret Power', 'Camouflage', 'Mud Sport', 'Ice Ball',
-			'Needle Arm', 'Aromatherapy', 'Odor Sleuth', 'Silver Wind', 'Grass Whistle', 'Signal Beam', 'Sky Uppercut', 'Water Sport',
-			'Miracle Eye', 'WakeUp Slap', 'Natural Gift', 'Embargo', 'Psycho Shift', 'Trump Card', 'Heal Block', 'Wring Out', 'Lucky Chant',
-			'Me First', 'Punishment', 'Mud Bomb', 'Mirror Shot', 'Rock Climb', 'Rock Wrecker', 'Magnet Bomb', 'Captivate', 'Dark Void',
-			'Ominous Wind', 'Autotomize', 'Telekinesis', 'Storm Throw', 'Flame Burst', 'Synchronoise', 'Chip Away', 'Sky Drop', 'Bestow',
-			'Dual Chop', 'Heart Stamp', 'Leaf Tornado', 'Steamroller', 'Rototiller', 'Ion Deluge', 'Crafty Shield', 'Flower Shield', 'Electrify',
-			'Venom Drench', 'Powder', 'PowerUp Punch', 'Light of Ruin', 'Sparkling Aria', 'Floral Healing', 'Laser Focus', 'Gear Up', 'Aura Wheel',
-			'Last Respects', 'Shed Tail', 'Baton Pass'
-		],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['FFOU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'FFOU') {
-					return [set.species + ' is not legal in [Gen 9] Fakemon Frontier OU.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Fusion Evolution Random Battle",
-		mod: 'gen9fe',
-		team: 'random',
-		desc: `gen9fe`,
-		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'OU Terastal Clause'],
-	},
-	{
-		name: "[Gen 9] Fusion Evolution",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Fusion Evolution</a>`,
-		],
-		mod: 'gen9fe',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'OU Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Metagrossite', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Gengarite', 'Ampharosite', 'Salamencite', 'Baton Pass', 'Light Clay', 'Absolite', 'Medichamite'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['FEOU', 'FEUUBL', 'FEUU', 'FENFE', "FELC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Fusion Evolution.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Fusion Evolution UU",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/fusion-evolution-uu-gen-9-slate-0-drop-slate-discussion-phase.3737223/#post-9994453/">Gen 9 Fusion Evolution UU</a>`,
-		],
-		mod: 'gen9fe',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		//While the first users of the mega stone will be made illegal with them if the respective megas are banned and not the stones,
-		//banning other megas accessed through said stone will not ban the use of said mega stone on the base forms
-		banlist: ['Altarianite', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Mawilite', 'Alakazite', 'Baton Pass', 'Light Clay',
-			'Aero Wake', 'Amigotrio-Alola', 'Amphamence', 'Anoraidon', 'Arbolosion-Hisui', 'Baxgeist-Large', 'Bellikiss', 'Bouffa-Lu', 'Brambleswine',
-			'Celedos', 'Cresserace', 'Crygargonal', 'Deciperior-Hisui', 'Deliraidon', 'Deoxyslash-Speed', 'Drampiclus', 'Druddizor',
-			'Floatzera', 'Florgerouge', 'Gargamise', 'Garpyuku', 'Great Kleav', 'Icekrai', 'Iron Dirge', 'Iron Legion', 'Iron Matcha', 'Medichamite',
-			'Iron Meta', 'Iron Mimic', 'Iron Tornado', 'Lelecuno-Galar', 'Meowscorio-Sensu', 'Necrotrik-Dawn-Wings', 'Necrotrik-Ultra', 'Primeleo',
-			'Relishadow', 'Revarantis', 'Roaring Sal', 'Rotoghold', 'Samuraiai-Hisui', 'Scream Cormorant', 'Sol Valiant', 'Stargrowth', 'Tapu Titan', 'Tinkovish', 'Toedieleki',
-			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox', 'Slither King',
-			'Muktaria-Alola-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega', 'Scizorite', 'Tentazor-Mega', 'Zoroshark-Hisui-Mega'
-		],
-			//Just slapping "FEOU" in the banlist exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
-			//Hence why bans were done manually
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['FEUU', 'FENFE', "FELC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Fusion Evolution UU.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Fusion Evolution Restrictions",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3770550/">Fusion Evolution Restrictions</a>`,
-		],
-		mod: 'gen9ferestrictions',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Mega Rayquaza Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Revival Blessing', 'Shed Tail', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Altarianite'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['FERE', 'FERENFE', 'FERELC', 'Silverade'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Fusion Evolution Restricted.'];
-				}
-			}
-		},
 	},
 	{
 	name: "[Gen 9] Generation X: Brunica [Uber]",
@@ -4962,234 +4794,7 @@ export const Formats: FormatList = [
 		section: "Monster Hunter Solomod",
 		column: 3,
 		// name: "monsterhuntersolomod",
-	},
-	{
-		name: "[Gen 9] Monster Hunter Randoms",
-		mod: 'monsterhunter',
-		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', '!Team Preview'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-	},
-	{
-		name: "[Gen 9] Monster Hunter Randoms Doubles (WIP)",
-		gameType: 'doubles',
-		mod: 'monsterhunter',
-		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', '!Team Preview'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-	},
-	{
-		name: "[Gen 9] Monster Hunter Randoms FFA (WIP)",
-		gameType: 'freeforall',
-		mod: 'monsterhunter',
-		team: 'random',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause', '!Team Preview'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-	},
-	{
-		name: "[Gen 9] Monster Hunter AG",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod'],
-		banlist: [],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter AG.'];
-				}
-			}
-		},
-	 },
-	 {
-		name: "[Gen 9] Monster Hunter Doubles",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Shagaru Magala + Strength Sap'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter Doubles.'];
-				}
-			}
-		},
-	 },
-	 {
-		name: "[Gen 9] Monster Hunter Free-For-Alls",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		gameType: 'freeforall',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause'],
-		banlist: ['Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter FFA.'];
-				}
-			}
-		},
-	 },
-	 {
-		name: "[Gen 9] Monster Hunter VGC",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		gameType: 'doubles',
-		bestOfDefault: true,
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer',
-			'Open Team Sheets'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Shagaru Magala + Strength Sap'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHAG', 'MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter VGC.'];
-				}
-			}
-		},
-	 },
-	 {
-		name: "[Gen 9] Monster Hunter OU - SoloPL III",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhuntersl',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'King\'s Rock', 'Razor Fang'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter OU.'];
-				}
-			}
-		},
-	},
-	 {
-		name: "[Gen 9] Monster Hunter OU",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 
-			'Evasion Clause', 'Species Clause', 'Terastal Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Shagaru Magala + Strength Sap', 'Light Clay', 'King\'s Rock', 'Razor Fang'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHUUBL', 'MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter OU.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Monster Hunter UU",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', "Ice-Armor", 'Shagaru Magala + Strength Sap',
-			'Garugite', 'Magnamalite', 'Mizutsunite', 'Crimson Gem', 'White Gem',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHUU', 'MHRUBL', 'MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter UU.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Monster Hunter RU",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'monsterhunter',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Status Mod', 'OHKO Clause', 'Evasion Clause', 
-			'Species Clause', 'Terastal Clause'],
-		banlist: [ 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',  'Shed Tail', 'Baton Pass', 'Lagombite', 'Bariothite', "Ice-Armor",
-			'Shagaru Magala + Strength Sap', 'Garugite',  'Light Clay', 'King\'s Rock', 'Razor Fang'],
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Welcome to Monster Hunter Showdown! Coded by KnivesMK<br />Want to learn more and discuss the format?<br />Then check out the <a href="https://discord.gg/JjjRGVrEvc" target="_blank">MHS Discord!</a><br />Need help with all of the new moves, abilities, and gameplay changes?<br />Then make sure to check out the <a href="https://tinyurl.com/MonHunShow" target="_blank">MHS Wikia</a> or use /dt!<br /></b></div>`);
-		},
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MHRU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter RU.'];
-				}
-			}
-		},
-	},
+	},	
 
 	///////////////////////////////////////////////////////////////
 	/////////////// Official Non-Smogon Formats //////////////////
