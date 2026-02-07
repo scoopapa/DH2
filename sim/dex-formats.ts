@@ -526,11 +526,11 @@ export class DexFormats {
 		const formatsList = [];
 
 		// Load formats
-		let customFormats;
+		let officialFormats;
 		try {
-			customFormats = require(`${__dirname}/../config/smogon-formats`).Formats;
-			if (!Array.isArray(customFormats)) {
-				throw new TypeError(`Exported property 'Formats' from "./config/smogon-formats.ts" must be an array`);
+			officialFormats = require(`${__dirname}/../config/official-formats`).Formats;
+			if (!Array.isArray(officialFormats)) {
+				throw new TypeError(`Exported property 'Formats' from "./config/official-formats.ts" must be an array`);
 			}
 		} catch (e: any) {
 			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
@@ -541,7 +541,7 @@ export class DexFormats {
 		if (!Array.isArray(Formats)) {
 			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
-		if (customFormats) Formats = mergeFormatLists(Formats as any, customFormats);
+		if (officialFormats) Formats = mergeFormatLists(Formats as any, officialFormats);
 
 		let section = '';
 		let column = 1;
