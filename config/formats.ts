@@ -25,6 +25,7 @@ import { format as breedingvariantsnatdex      } from '../data/mods/breedingvari
 import { format as bustamove                   } from '../data/mods/bustamove/format';
 import { format as ccapm2022                   } from '../data/mods/ccapm2022/format';
 import { format as ccapm2024                   } from '../data/mods/ccapm2024/format';
+import { format as ccapm2024rands              } from '../data/mods/ccapm2024/format-randoms';
 import { format as chatbats                    } from '../data/mods/chatbats/format';
 import { format as clubmonsrequiem             } from '../data/mods/clubmonsrequiem/format';
 import { format as communityused2              } from '../data/mods/communityused2/format';
@@ -32,6 +33,7 @@ import { format as conquestdex                 } from '../data/mods/conquestdex/
 import { format as csm2                        } from '../data/mods/csm2/format';
 import { format as denseaf                     } from '../data/mods/denseaf/format';
 import { format as dlcmons                     } from '../data/mods/dlcmons/format';
+import { format as dlcmonsvgc                  } from '../data/mods/dlcmons/format-vgc';
 import { format as dollhouse                   } from '../data/mods/dollhouse/format';
 import { format as dondozo                     } from '../data/mods/dondozo/format';
 import { format as donotuse                    } from '../data/mods/donotuse/format';
@@ -273,199 +275,7 @@ export const Formats: FormatList = [
 		column: 1,
 		// name: "gen9petmods",
 	},
-	{
-		name: "[Gen 1] Burgundy Version",
-		desc: `<b>[Gen 1] Burgundy Version</b>: An expansion of the Gen 1 OU metagame that changes some mechanics and adds new Pokemon and moves, both original and from later gens.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-burgundy-version-slate-3-new-moves-voting.3711525/">Burgundy Version on Smogon Forums</a>`,
-		],
-		mod: 'gen1burgundy',
-		ruleset: ['Standard With Dig and Fly', 'Data Mod', 'Allow Tradeback'],
-		banlist: ['Uber'],
-		unbanlist: ['Anorith', 'Armaldo', 'Meditite', 'Medicham', 'Fletchling', 'Fletchinder', 'Talonflame', 'Sneasel-Hisui', 'Sneasler', 'Snover', 'Abomasnow',
-					  ],
-    },
-	{
-		name: "[Gen 9] Book of Enigmas",
-		desc: [
-			"<b>Book of Enigmas</b>: A Pet Mod that aims to create new Paradox Pokemon based on Ho-oh and Lugia - the sky and the sea, respectively.",
-		],
-		threads: [
-			`&bullet: <a href="https://www.smogon.com/forums/threads/book-of-enigmas-slate-0-the-beginning-custom-abilities-names.3711490/">Thread on Smogon.`,
-		],
-		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-			'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
-			'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite',
-			'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite',
-			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite',
-			'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
-			'Beedrill-Mega', 'Pidgeot-Mega', //?????
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let allowedTiers = ['BoE OU', "BoE NFE", "BoE LC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Book of Enigmas OU.'];
-				}
-			}
-		},
-		mod: 'bookofenigmas',
-	},
-	{
-		name: "[Gen 9] Breeding Variants V4",
-		desc: `A NatDex format that adds alternate forms for Pokemon based around inheriting elements from a possible breeding partner.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/breeding-variants-v4.3760184/">Breeding Variants V4</a>`,
-		],
-		mod: 'breedingvariantsnatdex',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
-		banlist: [
-			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-	},
-	{
-		name: "[Gen 9] CCAPM 2024",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
-		],
-		mod: 'ccapm2024',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Terastal Clause'],
-		banlist: [],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CCAPM2024'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in CCAPM 2024.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] CCAPM 2024 Random Battle",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
-		],
-		mod: 'ccapm2024',
-		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Cancel Mod', 'Data Mod'],
-	},
-	{
-		name: "[Gen 9] Clean Slate Micro 2",
-		desc: `Clean Slate.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/clean-slate-micro-2.3696166/">Clean Slate Micro 2</a>`,
-		],
-		mod: 'csm2',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		// onSwitchIn(pokemon) {
-			// this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
-		// },
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'CSM2') {
-					return [set.species + ' is not useable in Clean Slate Micro 2.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Crossover Chaos [Ver. C]",
-		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos-ver-c.3757316/">Gen 9 Crossover Chaos (Ver. C)</a>`,
-		],
-		mod: 'gen9crossoverchaosc',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Moves Clause', 'Terastal Clause', 'Mega Data Mod'],
-		banlist: ["Buginium Z", "Darkinium Z", "Dragonium Z", "Electrium Z", "Fairium Z", "Fightinium Z", "Firium Z", "Flyinium Z", "Ghostium Z", 
-			"Grassium Z", "Groundium Z", "Icium Z", "Normalium Z", "Poisonium Z", "Psychium Z", "Rockium Z", "Steelium Z", "Waterium Z"],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CC OU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Crossover Chaos Version C.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 6] DLCmons V3",
-		desc: ["<b>DLCmons</b>: This Pet Mods aims at creating DLCs for Pokemon games, like how the Expansion Pass worked for Galar. This will include adding existing Pokemon that are not in the chosen regional Pokedex, adding new ones, creating regional formes, items, moves... This will be a pretty diverse project!",
-		      ],
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/dlcmons-v3-returns.3754885/">DLCmons v3 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-		      ],
-		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'AG', 'Uber',
-			'Arena Trap', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'King\'s Rock', 'Razor Fang', 'Quick Claw',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos OU' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos (LC)' && template.tier !== 'Kalos Uber') {
-					return [set.species + ' is not a part of the Kalos Pokédex.'];
-				}
-				else if (template.tier === 'Kalos Uber') {
-					return [set.species + ' is banned from DLCmons.'];
-				}
-			}
-		},
-		mod: 'dlcmons',
-	},
-	{
-		name: "[Gen 6] DLCmons V3 VGC",
-		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
-		],
-		mod: 'dlcmons',
-		gameType: 'doubles',
-		ruleset: ['Adjust Level = 50', 'VGC Timer', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'Mewtwo', 'Mew',
-			'Lugia', 'Ho-Oh', 'Celebi',
-			'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Deoxys',
-			'Dialga', 'Palkia', 'Giratina', 'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
-			'Victini', 'Reshiram', 'Zekrom', 'Kyurem', 'Keldeo', 'Meloetta', 'Genesect',
-			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa', 'Volcanion',
-			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow', 'Zeraora',
-			'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
-			'Koraidon', 'Miraidon',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Kalos OU' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)' && template.tier !== 'Kalos (LC)') {
-					return [set.species + ' is not a part of the Kalos Pokédex.'];
-				}
-			}
-		},
-	},
+	,
 	{
 		name: "[Gen 9] Dollhouse",
 		desc: [
