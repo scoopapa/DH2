@@ -275,52 +275,6 @@ export const Formats: FormatList = [
 		column: 1,
 		// name: "gen9petmods",
 	},
-	,
-	{
-		name: "[Gen 9] Dollhouse",
-		desc: [
-			"<b>Dollhouse</b>: An OU-based mod where, instead of bans, Pokemon are removed from the metagame by being turned into held items.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/dollhouse.3731495/">Thread on the Smogon Forums</a>`,
-		],
-		mod: 'dollhouse',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	},
-	{
-		name: "[Gen 9] Do Not Use: The Pet Mod: The Musical",
-		desc: [
-			"<b>Do Not Use: The Pet Mod: The Musical</b>: A National Dex Pet Mod where only Pokemon with 280 BST or less, with some exception, are allowed. New Pokemon are added and edited into the existing DNU metagame."
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3749356/">Do Not Use: The Pet Mod: The Musical</a>`,
-		],
-		mod: 'donotusetmptm',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause', 'Data Mod'],
-		teambuilderFormat: 'National Dex',
-		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody', 'Cute Charm'],
-		unbanlist: ['Assist'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['DoNU', 'DoNU UUBL', 'DoNU UU', 'DoNU RUBL', 'DoNU RU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Gen 9] Do Not Use: The Pet Mod: The Musical.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Ebb and Flow",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/.3748857/">Ebb and Flow</a>`,
-		],
-		mod: 'ebbandflow',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
-	},
 	{
 		name: "[Gen 9] Elimination War",
 		mod: 'eliminationwar',
