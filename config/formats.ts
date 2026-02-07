@@ -129,9 +129,10 @@ import { format as gen9ubermons                } from '../data/mods/gen9ubermons
 import { format as gen9vaporemons              } from '../data/mods/gen9vaporemons/format';
 import { format as gen9vgc20xx                 } from '../data/mods/gen9vgc20xx/format';
 import { format as gennext                     } from '../data/mods/gennext/format';
-import { format as genxbrunica                 } from '../data/mods/genxbrunica/format-ou';
+import { format as genxbrunica                 } from '../data/mods/genxdesvega/format-ou';
 import { format as genxbrunicauber             } from '../data/mods/genxbrunica/format-uber';
-import { format as genxdesvega                 } from '../data/mods/genxdesvega/format';
+import { format as genxdesvega                 } from '../data/mods/genxdesvega/format-ou';
+import { format as genxdesvegauber             } from '../data/mods/genxdesvega/format-uber';
 import { format as genxloria                   } from '../data/mods/genxloria/format';
 import { format as glacemons                   } from '../data/mods/glacemons/format';
 import { format as glacemonsuber               } from '../data/mods/glacemonsuber/format';
@@ -289,130 +290,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-	name: "[Gen 9] Generation X: Brunica [Uber]",
-		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Brunica, the mod's second region in Generation 9 after Desvega and fourth overall."],
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
-			`<a href="https://www.smogon.com/forums/threads/3722319/post-10114743">Announcement of Generation X's fourth iteration</a>`,
-		],
-		mod: 'genxbrunica',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: [],
-		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Shadow Tag'], //Uber unbans
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Brunica Uber', 'Brunica OU', 'Brunica NFE', "Brunica LC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
-				}
-			}
-		},/*
-		onChangeSet(set) {
-			if (set.species.startsWith('Lutakon')) {
-				const item = this.toID(set.item);
-				if (item === 'awakeningseed') {
-					set.species = 'Lutakon-Awakened';
-					set.ability = 'Guardian of Nature';
-					let synthesis = set.moves.indexOf('Synthesis');
-					if (synthesis < 0) {
-						synthesis = set.moves.indexOf('synthesis');
-					}
-					if (synthesis >= 0) {
-						let gaiaRecoveryIndex = set.moves.indexOf('gaiarecovery');
-						if (gaiaRecoveryIndex < 0) {
-							gaiaRecoveryIndex = set.moves.indexOf('Gaia Recovery');
-						}
-						if (gaiaRecoveryIndex >= 0) {
-							delete set.moves[synthesis];
-						}
-						else {
-							set.moves[synthesis] = 'gaiarecovery';
-						}
-					}
-				} else {
-					set.species = 'Lutakon';
-				}
-			}
-		},*/
-	},
-	{
-	name: "[Gen 9] Generation X: Desvega [OU]",
-		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with both brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Desvega, the mod's first region in Generation 9 and third region overall, as the successor to Loria from Generation 8."],
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
-		],
-		mod: 'genxdesvega',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Ursaluna-Bloodmoon', 'Naganadel', 'Arcognition', 'Janutcher', 'Virulope'], //Ubers
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Desvega OU', 'Desvega NFE', "Desvega LC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier === 'Brunica Uber') {
-					return [set.species + ' is banned in Generation X\'s OU format for Desvega.'];
-				}
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Desvega formats.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] GlaceMons",
-		desc: [
-			"<b>GlaceMons</b>: The fourth mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for Gen 9 NatDex OU (and new items, abilities and moves are added) without changing base stats.",
-		],
-		threads: [
-			`&bullet; <a href="">Spreadsheet for the mod</a>`,
-		],
-		mod: 'glacemons',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['AG', 'Uber', 'Power Construct', 'Berserk Gene', 'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			// 'Blastoise + Parallel Mega Orb', 'Salamence + Parallel Mega Orb', 'Gengar + Parallel Mega Orb', 'Alakazam + Parallel Mega Orb', 'Blaziken + Parallel Mega Orb', 'Lucario + Parallel Mega Orb', 'Gallade + Parallel Mega Orb',
-			'Special Tera Orb',
-			// stupid dungeon's looplet
-			'Dungeon\s Looplet + Zygarde-10%',
-			'Dungeon\s Looplet + Diglett', 'Dungeon\s Looplet + Dugtrio', 'Dungeon\s Looplet + Trapinch',
-			'Dungeon\s Looplet + Sandshrew', 'Dungeon\s Looplet + Sandslash', 'Dungeon\s Looplet + Diglett-Alola', 'Dungeon\s Looplet + Dugtrio-Alola', 'Dungeon\s Looplet + Geodude', 'Dungeon\s Looplet + Graveler', 'Dungeon\s Looplet + Golem', 'Dungeon\s Looplet + Phanpy', 'Dungeon\s Looplet + Donphan', 'Dungeon\s Looplet + Gligar', 'Dungeon\s Looplet + Gliscor', 'Dungeon\s Looplet + Larvitar', 'Dungeon\s Looplet + Cacnea', 'Dungeon\s Looplet + Cacturne', 'Dungeon\s Looplet + Gible', 'Dungeon\s Looplet + Gabite', 'Dungeon\s Looplet + Helioptile', 'Dungeon\s Looplet + Heliolisk', 'Dungeon\s Looplet + Sandygast','Dungeon\s Looplet + Palossand', 'Dungeon\s Looplet + Silicobra', 'Dungeon\s Looplet + Sandaconda', 'Dungeon\s Looplet + Wiglett', 'Dungeon\s Looplet + Wugtrio', 'Dungeon\s Looplet + Orthworm',
-			'Dungeon\s Looplet + Sandshrew-Alola', 'Dungeon\s Looplet + Sandslash-Alola', 'Dungeon\s Looplet + Vulpix-Alola', 'Dungeon\s Looplet + Ninetales-Alola', 'Dungeon\s Looplet + Swinub', 'Dungeon\s Looplet + Piloswine', 'Dungeon\s Looplet + Froslass', 'Dungeon\s Looplet + Vanillite', 'Dungeon\s Looplet + Vanillish', 'Dungeon\s Looplet + Cetoddle',
-			'Dungeon\s Looplet + Wobbuffet', 'Dungeon\s Looplet + Wynaut', 'Dungeon\s Looplet + Gothita', 'Dungeon\s Looplet + Gothorita', 'Dungeon\s Looplet + Gothitelle',
-			// will free later on
-			'Parallel Mega Orb',
-		],
-		unbanlist: ['Light of Ruin'],
-		teambuilderFormat: 'National Dex',
-	},
-	{
-		name: "[Gen 9] GlaceMons Uber",
-		desc: [
-			"<b>GlaceMons</b>: The fourth mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for Gen 9 NatDex OU (and new items, abilities and moves are added) without changing base stats.",
-		],
-		threads: [
-			`&bullet; <a href="">Spreadsheet for the mod</a>`,
-		],
-		mod: 'glacemonsuber',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', // 'Gengar + Parallel Mega Orb',
-			'Dungeon\s Looplet + Sandshrew', 'Dungeon\s Looplet + Sandslash', 'Dungeon\s Looplet + Diglett-Alola', 'Dungeon\s Looplet + Dugtrio-Alola', 'Dungeon\s Looplet + Geodude', 'Dungeon\s Looplet + Graveler', 'Dungeon\s Looplet + Golem', 'Dungeon\s Looplet + Phanpy', 'Dungeon\s Looplet + Donphan', 'Dungeon\s Looplet + Gligar', 'Dungeon\s Looplet + Gliscor', 'Dungeon\s Looplet + Larvitar', 'Dungeon\s Looplet + Cacnea', 'Dungeon\s Looplet + Cacturne', 'Dungeon\s Looplet + Gible', 'Dungeon\s Looplet + Gabite', 'Dungeon\s Looplet + Helioptile', 'Dungeon\s Looplet + Heliolisk', 'Dungeon\s Looplet + Sandygast','Dungeon\s Looplet + Palossand', 'Dungeon\s Looplet + Silicobra', 'Dungeon\s Looplet + Sandaconda', 'Dungeon\s Looplet + Wiglett', 'Dungeon\s Looplet + Wugtrio', 'Dungeon\s Looplet + Orthworm',
-			'Dungeon\s Looplet + Sandshrew-Alola', 'Dungeon\s Looplet + Sandslash-Alola', 'Dungeon\s Looplet + Vulpix-Alola', 'Dungeon\s Looplet + Ninetales-Alola', 'Dungeon\s Looplet + Swinub', 'Dungeon\s Looplet + Piloswine', 'Dungeon\s Looplet + Froslass', 'Dungeon\s Looplet + Vanillite', 'Dungeon\s Looplet + Vanillish', 'Dungeon\s Looplet + Cetoddle',
-		],
-		unbanlist: ['Light of Ruin'],
-		teambuilderFormat: 'National Dex Uber',
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {
-			if (source?.forme && source.forme.startsWith('Mega') && source.hasItem('parallelmegaorb')) {
-				let newAbility = source.set.ability
-				const oldAbility = source.setAbility(newAbility);
-			}
-			return {...species};
-		},
 	},
 	{
 		name: "[Gen 9] Hide and Seaking",

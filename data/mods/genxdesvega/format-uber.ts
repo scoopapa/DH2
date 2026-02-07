@@ -1,0 +1,24 @@
+import { FormatData } from '../../../sim/dex-formats';
+
+export const format: FormatData = {
+		name: "[Gen 9] Generation X: Desvega [Uber]",
+		desc: '<b>Generation X</b>: A pet mod that aims to develop new regions with brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Desvega, the mod\'s first region in Generation 9 and third region overall, as the successor to Loria from Generation 8.',
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
+		],
+		mod: 'genxdesvega',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: [],
+		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Shadow Tag'], //Uber unbans
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Desvega Uber', 'Desvega OU', 'Desvega NFE', "Desvega LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not available in Generation X\'s Desvega formats.'];
+				}
+			}
+		},
+	};
