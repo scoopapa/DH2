@@ -221,17 +221,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		name: 'Snowman',
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Snowman');
-			this.add('-message', `${pokemon.name} is a Snowman! Unable to move.`);
+			this.add('-message', `${pokemon.name} is a Snowman! Sometimes it can't move!`);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost']) return;
-			if (this.randomChance(1, 5)) {
-				pokemon.cureStatus();
-				return;
+			if (this.randomChance(1, 10)) {
+				this.add('cant', pokemon, 'snowman');
+				return false;
 			}
-			this.add('cant', pokemon, 'snowman');
-			return false;
 		},
 		onModifyMove(move, pokemon) {
 			if (move.flags['defrost']) {
