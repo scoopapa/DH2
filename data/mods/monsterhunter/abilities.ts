@@ -1603,12 +1603,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	rivalry: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, pokemon, target) {
-			if (target.hasType(pokemon.getTypes())) {
-				return this.chainModify(1.33);
+			const userTypes = pokemon.getTypes();
+			for (const type of userTypes) {
+				if (target.hasType(type)) {
+					return this.chainModify(1.33);
+				}
 			}
 		},
 		name: "Rivalry",
-		shortDesc: "This Pokemon's moves deal 1.33x damage to targets that share a type with it.",
+		shortDesc: "This Pokémon's moves deal 1.33x damage to targets that share a type with it.",
 	},
 	rustedgale: {
 		onStart(pokemon) {
