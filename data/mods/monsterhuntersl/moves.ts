@@ -121,7 +121,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	wretchedwater: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Wretched Water",
 		shortDesc: "30% chance to paralyze the target.",
@@ -455,7 +455,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	boltbreath: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Bolt Breath damage boost');
@@ -480,7 +480,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	cyclonerend: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Cyclone Rend damage boost');
@@ -1238,18 +1238,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	thousandblades: {
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		name: "Thousand Blades",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		secondary: {
 			chance: 20,
 			volatileStatus: 'bleeding',
 		},
-		shortDesc: "High crit ratio. 20% chance to bleed.",
+		shortDesc: "20% chance to bleed.",
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
@@ -1799,6 +1798,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	blotout: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Blot Out",
+		shortDesc: "Target becomes weaker to Fire; user switches out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		onHit(target, source) {
+			// Apply Tar Shot's Fire weakness without Speed drop
+			if (!target.volatiles['tarshot']) {
+				target.addVolatile('tarshot');
+				// Remove the Speed drop Tar Shot normally applies
+				if (target.boosts.spe < 0) {
+					this.boost({spe: -target.boosts.spe}, target); // undo any drop
+				}
+			}
+		},
+
+	},
 	/*
 	Edits
 	*/
@@ -1892,6 +1916,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	dualchop: {
     	inherit: true,
+		accuracy: 100,
     	shortDesc: "Hits twice. Removes Reflect, Light Screen, and Aurora Veil on hit.",
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
@@ -1904,6 +1929,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		accuracy: 90,
+	},
+	dualwingbeat: {
+		inherit: true,
+		accuracy: 100,
+	},
+	spectralthief: {
+		inherit: true,
+		viable: true,
+		basePower: 70,
+	},
+	electroshot: {
+		inherit: true,
+		basePower: 110,
+	},
+	astralbarrage: {
+		inherit: true,
+		basePower: 110,
+	},
+	glaciallance: {
+		inherit: true,
+		basePower: 110,
 	},
 	chipaway: {
 		inherit: true,
