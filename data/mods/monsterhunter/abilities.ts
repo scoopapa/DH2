@@ -1611,7 +1611,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Rivalry",
-		shortDesc: "This Pokémon's moves deal 1.33x damage to targets that share a type with it.",
+		shortDesc: "This Pokemon's moves deal 1.33x damage to targets that share a type with it.",
 	},
 	rustedgale: {
 		onStart(pokemon) {
