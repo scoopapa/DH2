@@ -1968,7 +1968,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	astralbarrage: {
 		inherit: true,
-		basePower: 110,
+		basePower: 100,
 	},
 	glaciallance: {
 		inherit: true,
