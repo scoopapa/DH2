@@ -170,8 +170,8 @@ import { format as metamons                    } from '../data/mods/metamons/for
 import { format as mixandmega                  } from '../data/mods/mixandmega/format';
 import { format as mixandmegaballs             } from '../data/mods/mixandmegaballs/format';
 import { format as mixandmegasforall           } from '../data/mods/mixandmegasforall/format';
-import { format as mmm2                        } from '../data/mods/mmm2/format';
-import { format as mmm3                        } from '../data/mods/mmm3/format';
+import { format as MicrometaMafia2             } from '../data/mods/mmm2/format';
+import { format as MicrometaMafia3             } from '../data/mods/mmm3/format';
 import { format as moderngen1                  } from '../data/mods/moderngen1/format';
 import { format as moderngen2                  } from '../data/mods/moderngen2/format';
 import { format as moderngen2birds             } from '../data/mods/moderngen2birds/format';
@@ -302,52 +302,6 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-        name: "[Gen 9] Micrometa Mafia 2",
-        desc: [
-            "micrometa mafia 2",
-        ],
-        threads: [
-            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Micrometa Mafia 2 on Smogon Forums</a>`,
-              ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
-        banlist: [],
-		teambuilderFormat: "National Dex",
-        onValidateTeam(team, format) {
-            /**@type {{[k: string]: true}} */
-            let speciesTable = {};
-            for (const set of team) {
-                let template = this.dex.species.get(set.species);
-                if (template.tier !== 'MMM2') {
-                    return [set.species + ' is not usable in Micrometa Mafia 2.'];
-                }
-            }
-        },
-        mod: 'mmm2',
-    },
-	{
-        name: "[Gen 9] Micrometa Mafia 3",
-        desc: [
-            "micrometa mafia 3",
-        ],
-        threads: [
-            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Micrometa Mafia 3 on Smogon Forums</a>`,
-              ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
-        banlist: ['Baton Pass', 'Assist', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag'],
-		teambuilderFormat: "National Dex",
-        onValidateTeam(team, format) {
-            /**@type {{[k: string]: true}} */
-            let speciesTable = {};
-            for (const set of team) {
-                let template = this.dex.species.get(set.species);
-                if (template.tier !== 'MMM3') {
-                    return [set.species + ' is not usable in Micrometa Mafia 3.'];
-                }
-            }
-        },
-        mod: 'mmm3',
-    },
-	{
 	name: "[Gen 9] Monoletter",
 	mod: "gen9",
 	desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
@@ -360,81 +314,6 @@ export const Formats: FormatList = [
 	banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
 	teambuilderFormat: "National Dex",
-	},
-	{
-		name: "[Gen 9] More Balanced Hackmons v4",
-		desc: `Balanced Hackmons with National Dex elements mixed in.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3711482/">More Balanced Hackmons v4</a>`,
-		],
-		mod: 'morebalancedhackmons',
-		// debug: true,
-		ruleset: ['-Nonexistent', 'Standard NatDex', 'Forme Clause', 'Sleep Moves Clause', 'Ability Clause = 2', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'CFZ Clause', 'Terastal Clause', '!Obtainable'],
-		banlist: [
-			'Eternatus-Eternamax', 'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Arena Trap',
-			'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Magnet Pull', 'Moody', 'Parental Bond',
-			'Stakeout', 'Wonder Guard', 'Gengarite', 'Belly Drum', 'Chatter', 'Double Iron Bash', 'Electrify',
-			'Last Respects', 'Octolock', 'Revival Blessing', 'Shed Tail', 'Shell Smash', 'Comatose + Sleep Talk', 'Imprison + Transform',
-		],
-		restricted: ['Arceus'],
-		onValidateTeam(team, format) {
-			// baseSpecies:count
-			const restrictedPokemonCount = new Map<string, number>();
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (!this.ruleTable.isRestrictedSpecies(species)) continue;
-				restrictedPokemonCount.set(species.baseSpecies, (restrictedPokemonCount.get(species.baseSpecies) || 0) + 1);
-			}
-			for (const [baseSpecies, count] of restrictedPokemonCount) {
-				if (count > 1) {
-					return [
-						`You are limited to one ${baseSpecies} forme.`,
-						`(You have ${count} ${baseSpecies} forme${count === 1 ? '' : 's'}.)`,
-					];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Multiverse",
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/multiverse-gen-9-slate-4-voting.3723507/">Multiverse</a>',
-			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1Bu2Mm9L7vURggEI9mkkFM7mo-eLtLj2K95f4Rchaolg/edit?usp=sharing">Spreadsheet</a>',
-		],
-		mod: 'gen9multiverse',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Moody', 'Baton Pass'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['MV'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Multiverse.'];
-				}
-			}
-		},
-	},
-	{
-	  name: "[Gen 9] Natural Selection",
-     desc: '<b>Natural Selection</b>: A micrometa where Pokemon actively evolve, fill new niches, and go extinct based on usage stats.',
-	  threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/natural-selection.3732415/">Natural Selection on Smogon Forums</a>`,
-		],
-     mod: 'naturalselection',
-	  ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
-	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['NS'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'NS') {
-					return [set.species + ' is not legal in [Gen 9] Natural Selection.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 6] NEXT OU",
