@@ -232,6 +232,47 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			]
 		],
 	},
+	keldeoresolute: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'Zarude',
+					item: ['choiceband', 'choicescarf'],
+					ability: 'darkaura',
+					teraType: ['Electric', 'Fighting'],
+				},
+				['powerwhip', 'knockoff', 'closecombat', 'uturn']
+			],
+			[
+				{
+					species: 'Manaphy',
+					item: 'leftovers',
+					ability: 'Unaware',
+					teraType: ['Steel', 'Grass'],
+				},
+				['scald', 'energyball'], ['heartswap', 'knockoff', 'uturn']
+			],
+			[
+				{
+					species: 'Volcanion',
+					item: 'assaultvest',
+					ability: 'Water Absorb',
+					teraType: ['Ground', 'Fire'],
+				},
+				['steameruption', 'bitterblade'], ['earthquake', 'sludgebomb', 'flamecharge']
+			],
+			[
+				{
+					species: 'Shaymin-Sky',
+					item: 'widelens',
+					ability: 'Serene Grace',
+					teraType: 'Fire',
+				},
+				['seedflare', 'fusionflare', 'substitute', 'leechseed']
+			]
+		],
+	},
 	tsareena: {
 		inherit: true,
 		mons: [
@@ -392,7 +433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: ['Soundproof', 'Bulletproof'],
 					teraType: ['Normal', 'Steel'],
 				},
-				['clangoroussoul', 'clangingscales', 'drainpunch', 'boomburst', 'flashcannon']
+				['clangoroussoul', 'clangingscales'], ['drainpunch', 'boomburst', 'flashcannon']
 			]
 		],
 	},
