@@ -83,22 +83,30 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
 	},
 	bewitchingtail: {
-		onModifyStats(stats, pokemon, target, move) {
-			if (target && target.status === 'slp') {
-				stats.atk = this.chainModify([stats.atk, 0x1333]);
-				stats.spa = this.chainModify([stats.spa, 0x1333]);
-				stats.spe = this.chainModify([stats.spe, 0x1333]);
-			}
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (source.status === 'slp') {
-				return this.chainModify(0.833);
-			}
-		},
-		flags: {},
-		name: "Bewitching Tail",
-		shortDesc: "Targeting drowsy foes: Atk/SpA/Spe 1.2x | From drowsy foes: Damage 0.83x",
-	},
+    onModifyAtk(atk, pokemon, target, move) {
+        if (target && target.status === 'slp') {
+            return this.chainModify(0x1333); // 1.2x
+        }
+    },
+    onModifySpA(spa, pokemon, target, move) {
+        if (target && target.status === 'slp') {
+            return this.chainModify(0x1333); // 1.2x
+        }
+    },
+    onModifySpe(spe, pokemon, target, move) {
+        if (target && target.status === 'slp') {
+            return this.chainModify(0x1800); // 1.5x
+        }
+    },
+    onSourceModifyDamage(damage, source, target, move) {
+        if (source.status === 'slp') {
+            return this.chainModify(0.8);
+        }
+    },
+    flags: {},
+    name: "Bewitching Tail",
+    shortDesc: "Targeting drowsy foes: Offenses 1.2x, Spe 1.5x | From drowsy foes: 0.8x Damage.",
+},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
 			const terrain = this.field.terrain;
