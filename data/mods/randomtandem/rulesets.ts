@@ -73,6 +73,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					newPoke2.random = true;
 				}
 			}
+			this.ruleTable.pickedTeamSize = 6;
 		},
 	},
 };
