@@ -6832,7 +6832,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mistball: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
-			secretsword: ["9L1"],
 			shadowball: ["9L1"],
 			snarl: ["9L1"],
 			substitute: ["9L1"],
