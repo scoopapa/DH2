@@ -361,7 +361,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	/** List of rule names. */
 	readonly ruleset: string[];
 	/**
-	 * Base list of rule names as specified in "./config/formats.ts".
+	 * Base list of rule names as specified in "./config/petmods-formats.ts".
 	 * Used in a custom format to correctly display the altered ruleset.
 	 */
 	readonly baseRuleset: string[];
@@ -452,7 +452,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	}
 }
 
-/** merges format lists from config/formats and config/official-formats */
+/** merges format lists from config/petmod-formats and config/official-formats */
 function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
 	// interface for the builder.
 	interface FormatSection {
@@ -537,9 +537,9 @@ export class DexFormats {
 				throw e;
 			}
 		}
-		let Formats: AnyObject[] = require(`${__dirname}/../config/formats`).Formats;
+		let Formats: AnyObject[] = require(`${__dirname}/../config/petmods-formats`).Formats;
 		if (!Array.isArray(Formats)) {
-			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
+			throw new TypeError(`Exported property 'Formats' from "./config/petmods-formats.ts" must be an array`);
 		}
 		if (officialFormats) Formats = mergeFormatLists(Formats as any, officialFormats);
 
