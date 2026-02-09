@@ -9844,6 +9844,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bind: ["9L1"],
 			brutalswing: ["9L1"],
 			burningbulwark: ["9L1"],
+			blotout: ["9L1"],
 			burnup: ["9L1"],
 			clearsmog: ["9L1"],
 			darkpulse: ["9L1"],
