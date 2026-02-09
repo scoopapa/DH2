@@ -5,6 +5,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: ".",
 		onValidateTeam(team) {
 			if (team.length > 3) return "You must bring at most 3 Pokemon.";
+			let randomCount = 0;
+			for (const set of team) {
+				let species = this.dex.species.get(set.species);
+				if (typeof species.battleOnly === 'string') species = this.dex.species.get(species.battleOnly);
+				if (species.tier == 'Random') randomCount ++;
+			}
+			if (randomCount < 2){
+				return[`You must have at least 2 Random Pokemon.`];
+			}
 		},
 		onBegin() {
 			for (const side of this.sides) {
