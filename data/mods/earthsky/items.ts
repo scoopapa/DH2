@@ -697,6 +697,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Prevents holder from being struck by critical hits.",
 		desc: "Prevents the holder from being struck by a critical hit. Evolves Charcadet into Ceruledge when traded.",
 	},
+	metalalloy: {
+		inherit: true,
+		fling: {
+			basePower: 100,
+		},
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg * 2);
+		},
+		rating: 1,
+		shortDesc: "Holder's weight is doubled.",
+		desc: "Holder's weight is doubled. Evolves Onix into Steelix and Duraludon into Archaludon when traded.",
+	},
 	metalpowder: {
 		name: "Metal Powder",
 		fling: {
@@ -767,6 +779,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		rating: 2,
 		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
+	},
+	peatblock: {
+		name: "Peat Block",
+		spritenum: 312,
+		fling: {
+			basePower: 20,
+		},
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ground' || (move.twoType && move.twoType === 'Ground')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		num: 314,
+		gen: 8,
+		desc: "Holder and allies' Ground-type moves have 1.1x power. Evolves Ursaring into Ursaluna when used within 20 minutes of midnight.",
+		shortDesc: "Holder and allies' Ground-type moves have 1.1x power.",
+		rating: 2,
 	},
 	prismscale: {
 		inherit: true,
@@ -920,7 +950,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 0,
 			flags: {powder: 1},
-			volatileStatus: 'powder',
+			sideCondition: 'powder',
 		},
 		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
 		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
@@ -1733,7 +1763,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix, Scyther into Scizor, and Plecuum into Vorplec when traded.",
+		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Scyther into Scizor and Plecuum into Vorplec when traded.",
 		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 	},
 	mindplate: {
