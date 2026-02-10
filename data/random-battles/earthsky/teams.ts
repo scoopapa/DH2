@@ -95,6 +95,10 @@ const NO_STAB = [
 const HAZARDS = [
 	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
 ];
+// Field-condition-setting moves
+const FIELD_MOVES = [
+	'electricterrain', 'grassyterrain', 'gravity', 'midnight', 'mistyterrain', 'psychicterrain', 'raindance', 'sandstorm', 'snowscape', 'sunnyday', 'trickroom'
+];
 // Protect and its variants
 const PROTECT_MOVES = [
 	'bunkerdown', 'kingsshield', 'obstruct', 'protect', 'silktrap', 'spikyshield',
@@ -138,7 +142,7 @@ const SUPPORT_ITEM_ORDER = [
 ];
 /** Priority of defense item substitutions due to Item Clause */
 const DEFENSE_ITEM_ORDER = [
-	'Heavy-Duty Boots', 'Rocky Helmet', 'Type-Absorb Berry', 'Assault Vest', 'Covert Cloak', 'Stat-Raise Item'
+	'Heavy-Duty Boots', 'Rocky Helmet', 'Type-Absorb Berry', 'Covert Cloak', 'Assault Vest', 'Stat-Raise Item'
 ];
 /** Priority of healing item substitutions due to Item Clause */
 const HEAL_ITEM_ORDER = [
@@ -184,6 +188,12 @@ const TYPE_ABSORB_BERRIES: {[k: string]: string} = {
 	Dark: 'Colbur Berry',
 	Steel: 'Babiri Berry',
 	Fairy: 'Roseli Berry',
+};
+const STAT-RAISE-ITEMS: {[k: string]: string} = {
+	Attack: 'Muscle Band',
+	Defense: 'Dragon Scale',
+	Special Attack: 'Wise Glasses',
+	Special Defense: 'Prism Scale',
 };
 
 function sereneGraceBenefits(move: Move) {
@@ -463,6 +473,7 @@ export class RandomTeams {
 			if (SPEED_SETUP.includes(moveid)) counter.add('speedsetup');
 			if (SETUP.includes(moveid)) counter.add('setup');
 			if (HAZARDS.includes(moveid)) counter.add('hazards');
+			if (FIELD_MOVES.includes(moveid)) counter.add('field');
 		}
 
 		counter.set('Physical', Math.floor(categories['Physical']));

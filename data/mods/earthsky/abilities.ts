@@ -1393,7 +1393,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.hasAuraBreak = true;
 		},
 		onAnySetTerrain(target, source, terrain) {
-			this.add('-ability', pokemon, 'ability: Climate Break');
+			this.add('-ability', this.effectState.target, 'ability: Climate Break');
 			return false;
 		},
 		suppressTerrain: true,
@@ -2208,11 +2208,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				newType = pokemon.species.types[0];
 				break;
 			}
-			const types = pokemon.getTypes();
+			let types = pokemon.getTypes();
+			if (types[1] && newType === types[1]) types = [types[0]];
+			if (types.length === 1 && pokemon.species.types[1] && newType !== pokemon.species.types[1]) types.push(pokemon.species.types[1]); //Edge case: Pokemon had previously merged two matching types through Ability acquisition, Forest's Curse, or Magic Powder; restore original second typing.
 			if (types[0] === newType || !pokemon.setType(types[1] ? [newType, types[1]] : newType)) return;
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Mimicry');
 		},
-		desc: "This Pokemon's primary type changes to match the active Terrain when this Pokemon acquires this Ability, or whenever a Terrain begins. Electric type during Electric Terrain, Grass type during Grassy Terrain, Fairy type during Misty Terrain, and Psychic type during Psychic Terrain. If this Ability is acquired without an active Terrain, or a Terrain ends or is suppressed, this Pokemon's types become the original types for its species.",
+		onEnd(pokemon) {
+			pokemon.setType(pokemon.species.types, true);
+			this.add('-end', pokemon, 'typechange', pokemon.getTypes().join('/'), '[silent]');
+		},
+		desc: "This Pokemon's primary type changes to match the active Terrain when this Pokemon acquires this Ability or whenever a Terrain begins: Electric type during Electric Terrain, Grass type during Grassy Terrain, Fairy type during Misty Terrain, and Psychic type during Psychic Terrain. If this Pokemon's secondary type matches the terrain, it will become single-typed. If a Terrain ends or is suppressed or this Ability is acquired without an active Terrain, this Pokemon's primary type become the original type for its species, and a converted-into-single-type Pokemon will restore its original secondary type over any type-changing effects.",
 		shortDesc: "This Pokemon's first type changes to match the Terrain. Type reverts when Terrain ends.",
 		rating: 1,
 	},
@@ -2347,10 +2353,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		//The rest of the immunity is implemented in the moves/abilities themselves.
 		desc: `This Pokemon cannot be confused or have its stats lowered by Intimidate or Disturbance. Its moves and attributes also cannot be copied or stolen:
 		-Copycat, Mimic, Mirror Move, Sketch, and Dancer will fail to copy a move it used; Snatch will fail to steal such a move, and Me First will fail to use it.
-		-Trace and Role Play will fail to copy its Ability. Trace will consider this an executed attempt and not wait to copy another Ability.
+		-Trace and Role Play will fail to copy Own Tempo. Trace will consider this an executed attempt and not wait to copy another Ability.
 		-Reflect Type will fail to copy its type(s).
 		-Psych Up, Co-Star, Opportunist, and a Mirror Herb will fail to copy its stat changes, and Spectral Thief will fail to steal them. A Mirror Herb will still be consumed.
-		-Transform, Imposter, and Glyphic Spell Copy will fail to transform into it.`,
+		-Transform, Imposter, and Glyphic Spell Copy will fail to transform into it.
+		Moves that swap, alter, or override attributes, such as Skill Swap, Guard Split, and Simple Beam, will still function.`,
 		shortDesc: "This Pokemon cannot be confused. Attempts to copy or steal its moves and attributes fail.",
         flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1},
 		activate: "  [POKEMON]'s mannerisms couldn't be acquired!",
@@ -3045,7 +3052,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onHit(target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-activate', target, 'ability: Tangling');
-				source.addVolatile('singletrap', target, Dex.abilities.get('tangling'), 'trapper');
+				source.addVolatile('stuck', target, Dex.abilities.get('tangling'), 'trapper');
 			}
 		},
 		name: "Tangling",
@@ -3609,12 +3616,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		inherit: true,
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
+			const pokemon = this.effectState.target;
+			if (!target.isAdjacent(pokemon)) return;
 			if(target.hasAbility('owntempo')){
 				this.add('-activate', target, '[from] ability: Own Tempo');
 				this.hint('Own Tempo blocks effects that steal or copy its attributes');
 				return;
 			}
-			const pokemon = this.effectState.target;
 			const positiveBoosts: Partial<BoostsTable> = {};
 			let i: BoostID;
 			for (i in boost) {
@@ -3625,7 +3633,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (Object.keys(positiveBoosts).length < 1) return;
 			this.boost(positiveBoosts, pokemon);
 		},
-		desc: "When an opposing Pokemon has a stat stage raised, this Pokemon copies the effect, unless the opponent has the Own Tempo Ability or was already copying the boost through Opportunist or a held Mirror Herb.",
+		desc: "When an adjacent opposing Pokemon has a stat stage raised, this Pokemon copies the effect, unless the opponent has the Own Tempo Ability or was already copying the boost through Opportunist or a held Mirror Herb.",
+		shortDesc: "Copies adjacent opposing Pokemon stat boosts unless they were also copied."
 	},
 	poisonpoint: {
 		onHit(target, source, move) {

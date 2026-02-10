@@ -62,6 +62,25 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					}
 				}
 			}
+			if (species.baseSpecies === "Vivillon" && set.moves) { //Same for Vivillon
+				let forme = species.forme ? species.forme : "Meadow";
+				const patternTutor = {
+					"Heat Wave": ["River", "Sandstorm", "Sun"],
+					"Leaf Storm": ["Jungle", "Monsoon", "Savannah"],
+					"Razor Wind": ["Elegant", "High Plains", "Modern"],
+					"Surf": ["Archipelago", "Marine", "Ocean"],
+					"Strange Smoke": ["Continental", "Garden", "Meadow"],
+					"Blizzard": ["Icy Snow", "Polar", "Tundra"],
+					"Conversion": ["Fancy"],
+					"Conversion 2": ["Poke Ball"],
+				};
+				for (const move of set.moves) {
+					const moveName = (move === "strangesmoke" ? "Strange Smoke" : move); //Customs get stored differently for some stupid reason
+					if (Object.keys(patternTutor).includes(moveName) && !patternTutor[moveName].includes(forme)) {
+						problems.push(`Vivillon can't know ${moveName} in its ${forme} Pattern.`);
+					}
+				}
+			}
 			return problems;
 		},
 	},
@@ -143,19 +162,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			const problems: string[] = [];
 			for (const set of team) {
 				if (set.moves) {
+					//Get initial data
 					const pokemon = this.dex.species.get(set.species || set.name);
 					const prevo = (pokemon.prevo) ? this.dex.species.get(pokemon.prevo) : undefined;
-					let isHidden = false;
 					let pokeLearnset = this.dex.species.getLearnsetData(pokemon.id);
-					if(!pokeLearnset.learnset){
+					if (!pokeLearnset.learnset) { //Learnset inherited from another forme
 						pokeLearnset = this.dex.species.getLearnsetData(this.dex.species.get(pokemon.baseSpecies).id);
 					}
+					
+					let isHidden = false;
 					for (const move of set.moves) {
 						const moveID = this.dex.toID(move);
 						const pokeLearnsMove = pokeLearnset.learnset[moveID];
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
 						if(pokeLearnsMove == "9D"){
-							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of.
+							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of below.
 								problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 							} else {
 								isHidden = true;
@@ -179,12 +200,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 									}
 								}
 							}
-							if(prevo){
-								let prevoLearns = this.dex.species.getLearnsetData(prevo.id).learnset[moveID];
+							if (prevo) {
+								let prevoLearnset = this.dex.species.getLearnsetData(prevo.id);
+								if (!prevoLearnset.learnset) { //Like above, prevo's learnset was inherited from a base forme
+									prevoLearnset = this.dex.species.getLearnsetData(this.dex.toID(this.dex.species.get(pokemon.baseSpecies).prevo));
+								}
+								let prevoLearns = prevoLearnset.learnset[moveID];
 								//console.log("Prevo is " + prevo.name + " and its accessibility to " + moveID + " is " + prevoLearns);
 								if(prevoLearns) isNatural = true;
-								if(prevoLearns == "9D"){//This move is prevo's Hidden Move
-									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
+								if (prevoLearns == "9D") {//This move is prevo's Hidden Move
+									if (pokemon.exclusiveHidden) { //and the Pokemon can't learn it
 										problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
@@ -193,10 +218,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 											isHidden = true;
 										}
 									}
-								} else if (this.dex.species.getLearnsetData(prevo.id).learnset[moveID] === undefined){ //The prevo can't learn it either, therefore...
+								} else if (prevoLearnset.learnset[moveID] === undefined) { //The prevo can't learn it either, therefore...
 									const first = (prevo.prevo) ? this.dex.species.get(prevo.prevo) : undefined; //there must be a first stage
 									if(first){
-										let firstLearns = this.dex.species.getLearnsetData(first.id).learnset[moveID];
+										let firstLearnset = this.dex.species.getLearnsetData(first.id);
+										if (!firstLearnset.learnset) { //There aren't any three-stages all without their own learnset, but let's be thorough anyway
+											firstLearnset = this.dex.species.getLearnsetData(this.dex.toID(this.dex.species.get(prevo.baseSpecies).prevo));
+										}
+										let firstLearns = firstLearnset.learnset[moveID];
 										//console.log("First stage is " + first.name + " and its accessibility to " + moveID + " is " + firstLearns);
 										if(firstLearns) isNatural = true;
 										if(firstLearns == "9D") {//This move is first stage's Hidden Move
@@ -214,8 +243,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								}
 							}
 							//if(!isNatural) console.log("This move is learned through Sketch");
-							if(!isNatural && pokeLearnset.learnset['sketch'] == "9D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
-								if(isHidden){
+							if (!isNatural && pokeLearnset.learnset['sketch'] == "9D") { //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
+								if (isHidden) {
 									problems.push(`${pokemon} can't Sketch ${this.dex.moves.get(moveID)} because Sketch is its Hidden Move and it already knows a Sketched move.`);
 								} else {
 									isHidden = true;
@@ -223,7 +252,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							}
 						}
 					}
-					if(isHidden){ //Pokemon knows a Hidden Move, therefore we must ensure no one else in its family knows one
+					if (isHidden) { //Pokemon knows a Hidden Move, therefore we must ensure no one else in its family knows one
 						//We start by constructing a family tree
 						const family: Species[] = [];
 						let base = pokemon; //Get the base Pokemon in the family
@@ -272,12 +301,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 									}
 								}
 							}
-						} if (base.otherFormes){
-							for(let forme of base.otherFormes){
+						} if (base.otherFormes) {
+							for (let forme of base.otherFormes) {
 								//console.log("Adding " + forme);
 								family.push(forme);
 								const formeMon = this.dex.species.get(forme);
-								if(formeMon.evos){
+								if (formeMon.evos) {
 									for(let formeEvo of formeMon.evos){
 										if(!family.includes(formeEvo)){
 											//console.log("Adding " + formeEvo);
