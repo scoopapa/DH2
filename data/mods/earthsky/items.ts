@@ -99,14 +99,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onEat(pokemon) {
-			const moveSlot = pokemon.moveSlots.find(move => move.pp === 0) ||
-				pokemon.moveSlots.find(move => move.pp < move.maxpp);
-			if (!moveSlot) return;
-			moveSlot.pp += move.maxpp;
+			const restoreSlots = pokemon.moveSlots.filter(move => move.pp < move.maxpp);
+			if (!restoreSlots.length) return;
+			for (moveSlot of restoreSlots) {
+				moveSlot.pp += 5;
+			}
 			this.add('-activate', pokemon, 'item: Hopo Berry', moveSlot.move, '[consumed]');
 		},
-		desc: "Restores all PP to the first of the holder's moves to reach 0 PP. Single use.",
-		num: 1020,
+		desc: "Restores 5 PP to all of the holder's moves when consumed; consumes when one move reaches 0 PP. Single use.",
+		shortDesc: "Move reaches 0 PP: +5 PP to all moves. Single use.",
+		num: 1021,
 	},
 	koknuberry: {
 		name: "Koknu Berry",
@@ -136,8 +138,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		desc: "Evolves Minior into Prominoid if it is at least level 50. If held by a Rayquaza, this item allows it to Mega Evolve in battle, if it also knows the move Dragon Ascent.",
-		shortDesc: "Evolves Minior. Must be held for Rayquaza to Mega Evolve in battle.",
+		desc: "If held by a Rayquaza, this item allows it to Mega Evolve in battle, if it also knows the move Dragon Ascent. Evolves Minior into Prominoid if it is at least level 50 and changes Deoxys' form.",
+		shortDesc: "Must be held for Rayquaza to Mega Evolve in battle.",
 		num: 1013,
 	},
 	waterplaque: {
@@ -166,6 +168,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Fire/Grass Pledge: Add side condition. Water Pledge x1.5 base power.",
 		num: 1018,
 		rating: -1,
+	},
+	fullmemory: {
+		name: "Full Memory",
+		onMemory(move, source, target) {
+			const bestType = this.getBestEffectiveness(source, target);
+			if (bestType && source.getTypes().join() !== bestType) {
+				source.setType(bestType);
+				this.add('-start', source, 'typechange', bestType);
+			}
+			return bestType;
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Silvally"],
+		num: 1022,
+		desc: "When held by a Silvally and the Silvally uses Multi-Attack, Silvally will change to the type with the best effectiveness against the target, and Multi-Attack will also become that type.",
+		shortDesc: "Using Multi-Attack changes user's and move's type to most effective one."
 	},
 	butterfreenite: {
 		name: "Butterfreenite",
@@ -1972,6 +1995,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bindingband: {
 		inherit: true,
 		desc: "Holder's binding moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+	},
+	fancyapple: {
+		name: "Fancy Apple",
+		num: 1093,
+		gen: 8,
+		shortDesc: "Holder's use of Apple Bomb lowers Sp. Attack.",
+		desc: "When used by the holder, the move Apple Bomb lowers Special Attack.",
+		rating: -1,
 	},
 	gripclaw: {
 		inherit: true,

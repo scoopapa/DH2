@@ -421,7 +421,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -530,
 		name: "Lithoshroom",
 		types: ["Rock"],
-		baseStats: {hp: 71, atk: 22, def: 33, spa: 54, spd: 45, spe: 26},
+		baseStats: {hp: 71, atk: 22, def: 53, spa: 34, spd: 45, spe: 26},
 		abilities: {0: "Effect Spore", 1: "Simple", H: "Dry Skin"},
 		heightm: 0.2,
 		weightkg: 1.6,
@@ -1207,9 +1207,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 	},
-	daedestus: {
+	daemaesthus: {
 		num: -573,
-		name: "Daedestus",
+		name: "Daemaesthus",
 		types: ["Steel", "Fire"],
 		gender: "N",
 		baseStats: {hp: 90, atk: 110, def: 130, spa: 110, spd: 90, spe: 70},
@@ -1488,7 +1488,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.0,
 		weightkg: 10.0,
 		color: "Blue",
-		eggGroups: ["Water 1", "Field"],
+		eggGroups: ["Water 1", "Flying"],
 	},
 	tynamoschool: {
 		num: 602,
@@ -2266,6 +2266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Tireless"},
+		eggGroups: ["Water 1", "Flying"],
 		otherFormes: ["Delibird-Egelas"],
 		formeOrder: ["Delibird", "Delibird-Egelas"],
 	},
@@ -3101,6 +3102,32 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Torrent", H: "Protean"},
 	},
+	litleo: {
+		inherit: true,
+		baseStats: {hp: 62, atk: 59, def: 54, spa: 73, spd: 49, spe: 72},
+	},
+	pyroar: {
+		inherit: true,
+		genderRatio: "M",
+		baseStats: {hp: 86, atk: 88, def: 72, spa: 99, spd: 66, spe: 106},
+		otherFormes: ["Pyroar-F"],
+		formeOrder: ["Pyroar", "Pyroar-F"],
+	},
+	pyroarf: {
+		num: 668,
+		name: "Pyroar-F",
+		forme: "F",
+		types: ["Fire", "Normal"],
+		genderRatio: "F",
+		baseStats: {hp: 86, atk: 78, def: 72, spa: 109, spd: 66, spe: 106},
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Moxie"},
+		heightm: 1.5,
+		weightkg: 81.5,
+		color: "Brown",
+		prevo: "Litleo",
+		evoLevel: 35,
+		eggGroups: ["Field"],
+	},
 	florges: {
 		inherit: true,
 		baseStats: {hp: 74, atk: 65, def: 68, spa: 112, spd: 154, spe: 72},
@@ -3237,6 +3264,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Magician", H: "Pickpocket"},
 		exclusiveMoves: ["Hyperspace Hole"],
+		exclusiveHidden: true,
 	},
 	hoopaunbound: {
 		inherit: true,
@@ -3920,6 +3948,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	wiglett: {
 		inherit: true,
 		abilities: {0: "Limber", 1: "Rattled", H: "Sand Veil"},
+		baseStats: {hp: 10, atk: 55, def: 25, spa: 35, spd: 45, spe: 95},
 	},
 	wugtrio: {
 		inherit: true,
@@ -5691,6 +5720,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	pancham: {
 		inherit: true,
 		isNonstandard: null,
@@ -5961,7 +5994,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	garbodorgmax: null,
 	greninjabond: null,
 	greninjaash: null,
-	floetteeternal: null,
 	gumshoostotem: null,
 	vikavolttotem: null,
 	ribombeetotem: null,
