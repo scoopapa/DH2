@@ -1959,6 +1959,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swarm", H: "Anger Point"},
 		isNonstandard: null,
 	},
+	rattataalola: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Hustle", H: "Gourmand"},
+		isNonstandard: null,
+	},
+	raticatealola: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Hustle", H: "Gourmand"},
+		isNonstandard: null,
+	},
 	raichualola: {
 		inherit: true,
 		abilities: {0: "Surge Surfer", H: "Static"},
@@ -2782,6 +2792,36 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	stoutland: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Snow Plow", H: "Scrappy"},
+		isNonstandard: null,
+	},
+	pansage: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Overgrow"},
+		isNonstandard: null,
+	},
+	simisage: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Overgrow"},
+		isNonstandard: null,
+	},
+	pansear: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Blaze"},
+		isNonstandard: null,
+	},
+	simisear: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Blaze"},
+		isNonstandard: null,
+	},
+	panpour: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Torrent"},
+		isNonstandard: null,
+	},
+	simipour: {
+		inherit: true,
+		abilities: {0: "Gourmand", H: "Torrent"},
 		isNonstandard: null,
 	},
 	munna: {
@@ -3843,9 +3883,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Cloud Nine"},
 	},
+	lechonk: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Gluttony", H: "Gourmand"},
+	},
 	oinkologne: {
 		inherit: true,
-		abilities: {0: "Aroma Veil", 1: "Gluttony", H: "Thick Fat"},
+		abilities: {0: "Aroma Veil", 1: "Gluttony", H: "Gourmand"},
+	},
+	oinkolognef: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Gluttony", H: "Gourmand"},
 	},
 	tarountula: {
 		inherit: true,
@@ -5058,14 +5106,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	rattataalola: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	raticatealola: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	spearow: {
 		inherit: true,
 		isNonstandard: null,
@@ -5584,30 +5624,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	pansage: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	simisage: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	pansear: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	simisear: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	panpour: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	simipour: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	woobat: {
 		inherit: true,
 		isNonstandard: null,
@@ -5946,7 +5962,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	/* Junkyard */
 	victreebel: null,
-	victreebelmega: null,
 	darmanitangalarzen: null,
 	lycanrocdusk: null,
 	ironbundle: null,
@@ -6089,6 +6104,21 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		//number: -27,
 		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
+	cupra: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Keen Eye", H: "Overcoat"},
+		//number: -30,
+	},
+	argalis: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Keen Eye", H: "Overcoat"},
+		//number: -31,
+	},
+	aurumoth: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Keen Eye", H: "Heavy Metal"},
+		//number: -32,
+	},
 	brattler: {
 		inherit: true,
 		//number: -33,
@@ -6134,18 +6164,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Filter", 1: "Rough Skin", H: "Water Veil"},
 	},
-	/*chuggon: {
+	chuggon: {
 		inherit: true,
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
 	},
 	draggalong: {
 		inherit: true,
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
-	},*/
+	},
 	chuggalong: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 73, def: 107, spa: 110, spd: 100, spe: 108},
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},
+	shox: {
+		inherit: true,
+		abilities: {0: "Electromorphosis", 1: "Sticky Hold", H: "Induction"},
 	},
 	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
@@ -6190,18 +6224,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	mollux: {
 		inherit: true,
 		number: -29,
-	},
-	cupra: {
-		inherit: true,
-		number: -30,
-	},
-	argalis: {
-		inherit: true,
-		number: -31,
-	},
-	aurumoth: {
-		inherit: true,
-		number: -32,
 	},
 	brattler: {
 		inherit: true,

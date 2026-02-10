@@ -4641,7 +4641,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 1,
 		flags: {reflectable: 1, mirror: 1, metronome: 1, mustpressure: 1, powder: 1, snatch: 1},
 		secondary: null,
-		target: "normal",
+		target: "foeSide",
 		type: "Bug",
 		contestType: "Clever",
 		sideCondition: 'powder',
@@ -4662,7 +4662,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		target: "foeSide",
 		desc: "If any opponent uses a Fire-type move this turn, it is prevented from executing, and the user loses 1/4 of its maximum HP, rounded half up, which cannot be blocked by a Substitute. This effect does not happen if the opponent is immune to powder effects or if Primordial Sea fizzles out the Fire-type move.",
 		shortDesc: "If enemy uses Fire move this turn, fails + loses 1/4 max HP.",
 	},
@@ -5636,7 +5635,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	spectralthief: {
 		inherit: true,
-		basePower: 70,
+		basePower: 80,
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		//Spectral Thief getting blocked by Own Tempo implemented in scripts.ts because that's where stat-stealing is implemented
@@ -5922,6 +5921,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	swallow: {
 		inherit: true,
+		onTry(source, target, move) {
+			return !!source.volatiles['stockpile'];
+		},
 		onHit(pokemon) {
 			const healAmount = [0.5, 1, 1];
 			const healedBy = this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
@@ -6983,6 +6985,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else if (item.fling.volatileStatus) {
 					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
 				}
+				if (item.fling.sideCondition) {
+					move.sideCondition = item.fling.sideCondition;
+				}
 				if (item.fling.boosts) {
 					move.secondaries.push({boosts: item.fling.boosts});
 					move.secondaries.push({chance: 100});
@@ -6990,6 +6995,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			source.addVolatile('fling');
 		},
+		desc: "The power of this move is based on the user's held item. The held item is lost and it activates for the target if applicable. Certain items have special effects such as stat boosts or status conditions, and may count as projectile or powder moves. If there is no target or the target avoids this move by protecting itself, the user's held item is still lost. The user can regain a thrown item with Recycle or the Pickup Ability. Fails if the user has no held item, if the held item cannot be thrown, if the user is under the effect of Magic Room, or if the user has the Klutz Ability.",
 	},
 	geomancy: {
 		inherit: true,

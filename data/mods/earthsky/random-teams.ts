@@ -52,11 +52,11 @@ type MoveEnforcementChecker = (
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
-	'healorder', 'healpulse', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'rejuvenate', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis',
+	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'rejuvenate', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis',
 ];
 // Moves that drop stats:
 const CONTRARY_MOVES = [
-	'armorcannon', 'closecombat', 'dracometeor', 'leafstorm', 'overheat', 'spinout', 'superpower', 'vcreate',
+	'armorcannon', 'closecombat', 'leafstorm', 'overheat', 'spinout', 'superpower', 'vcreate',
 ];
 // Moves that boost Attack:
 const PHYSICAL_SETUP = [
@@ -94,10 +94,6 @@ const NO_STAB = [
 // Hazard-setting moves
 const HAZARDS = [
 	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
-];
-// Field-condition-setting moves
-const FIELD_MOVES = [
-	'electricterrain', 'grassyterrain', 'gravity', 'midnight', 'mistyterrain', 'psychicterrain', 'raindance', 'sandstorm', 'snowscape', 'sunnyday', 'trickroom'
 ];
 // Protect and its variants
 const PROTECT_MOVES = [
@@ -142,11 +138,11 @@ const SUPPORT_ITEM_ORDER = [
 ];
 /** Priority of defense item substitutions due to Item Clause */
 const DEFENSE_ITEM_ORDER = [
-	'Heavy-Duty Boots', 'Rocky Helmet', 'Type-Absorb Berry', 'Covert Cloak', 'Assault Vest', 'Stat-Raise Item'
+	'Heavy-Duty Boots', 'Rocky Helmet', 'Type-Absorb Berry', 'Assault Vest', 'Covert Cloak', 'Stat-Raise Item'
 ];
 /** Priority of healing item substitutions due to Item Clause */
 const HEAL_ITEM_ORDER = [
-	'Leftovers', 'Sitrus Berry', 'Shell Bell', 'Pinch Berry', 'Big Root', 'Hopo Berry'
+	'Leftovers', 'Sitrus Berry', 'Shell Bell', 'Enigma Berry', 'Pinch Berry', 'Hopo Berry'
 ];
 
 const TYPE_BOOST_ITEMS: {[k: string]: string} = {
@@ -188,12 +184,6 @@ const TYPE_ABSORB_BERRIES: {[k: string]: string} = {
 	Dark: 'Colbur Berry',
 	Steel: 'Babiri Berry',
 	Fairy: 'Roseli Berry',
-};
-const STAT_RAISE_ITEMS: {[k: string]: string} = {
-	Attack: 'Muscle Band',
-	Defense: 'Dragon Scale',
-	SpecialAttack: 'Wise Glasses',
-	SpecialDefense: 'Prism Scale',
 };
 
 function sereneGraceBenefits(move: Move) {
@@ -450,7 +440,9 @@ export class RandomTeams {
 				if (move.flags['bullet']) counter.add('megalauncher');
 				if (move.flags['punch']) counter.ironFist++;
 				if (move.flags['sound']) counter.add('sound');
-				if (move.priority > 0) counter.add('priority');
+				if (move.priority > 0) {
+					counter.add('priority');
+				}
 			}
 			// Moves with secondary effects:
 			if (move.secondary || move.hasSheerForce) {
@@ -471,7 +463,6 @@ export class RandomTeams {
 			if (SPEED_SETUP.includes(moveid)) counter.add('speedsetup');
 			if (SETUP.includes(moveid)) counter.add('setup');
 			if (HAZARDS.includes(moveid)) counter.add('hazards');
-			if (FIELD_MOVES.includes(moveid)) counter.add('field');
 		}
 
 		counter.set('Physical', Math.floor(categories['Physical']));
@@ -1189,19 +1180,18 @@ export class RandomTeams {
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
 		if (species.id === 'zebstrika') return (moves.has('volttackle')) ? 'Sap Sipper' : 'Lightning Rod';
-		if (species.id === 'scrafty' && moves.has('rest')) return 'Shed Skin';
+		if (species.id === 'sandaconda' || (species.id === 'scrafty' && moves.has('rest'))) return 'Shed Skin';
 		if (species.id === 'cetitan' && (role === 'Wallbreaker' || isDoubles)) return 'Sheer Force';
 		if (species.id === 'dipplin') return 'Sticky Hold';
 		if (species.id === 'breloom') return 'Technician';
 		if (species.id === 'shiftry' && moves.has('tailwind')) return 'Wind Rider';
-		if (species.id === 'talonflame') return 'Gale Wings';
 
 		// singles
 		if (!isDoubles) {
 			if (species.id === 'hypno') return 'Insomnia';
 			if (species.id === 'staraptor') return 'Reckless';
 			if (species.id === 'arcaninehisui') return 'Rock Head';
-			if (['suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
+			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Berserk';
 			if (abilities.has('Harvest') && (moves.has('protect') || moves.has('substitute'))) return 'Harvest';
@@ -1218,6 +1208,7 @@ export class RandomTeams {
 			if (species.id === 'altaria') return 'Cloud Nine';
 			if (species.id === 'meowsticf') return 'Competitive';
 			if (species.id === 'armarouge' && !moves.has('meteorbeam')) return 'Flash Fire';
+			if (species.id === 'talonflame') return 'Gale Wings';
 			if (
 				['oinkologne', 'oinkolognef', 'snorlax', 'swalot'].includes(species.id) && role !== 'Doubles Wallbreaker'
 			) return 'Gluttony';
@@ -1236,14 +1227,16 @@ export class RandomTeams {
 			if (['drifblim', 'hitmonlee', 'sceptile'].includes(species.id)) return 'Unburden';
 			if (abilities.has('Intimidate')) return 'Intimidate';
 
+			if (this.randomChance(1, 2) && species.id === 'kingambit') return 'Defiant';
+
 			// just doubles and multi
 			if (this.format.gameType !== 'freeforall') {
 				if (
 					species.id === 'clefairy' ||
 					(species.baseSpecies === 'Maushold' && role === 'Doubles Support')
 				) return 'Friend Guard';
-				if (abilities.has('Healer')) return 'Healer';
-				if (abilities.has('Hospitality')) return 'Hospitality';
+				if (species.id === 'blissey') return 'Healer';
+				if (species.id === 'sinistcha') return 'Hospitality';
 				if (species.id === 'duraludon') return 'Stalwart';
 				if (species.id === 'barraskewda') return 'Against Current';
 				if (species.id === 'oranguru' || abilities.has('Pressure') && abilities.has('Telepathy')) return 'Telepathy';
@@ -1324,7 +1317,6 @@ export class RandomTeams {
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
-		if (species.id === 'silvally') return 'Full Memory'; //Just Normal
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'marowak' || species.id === 'marowakalola') return 'Thick Club';
 		if (species.id === 'kendono' || species.id === 'sirfetchd') return 'Leek';
@@ -1339,6 +1331,7 @@ export class RandomTeams {
 			(species.id === 'magnezone' && moves.has('bodypress') && !isDoubles)
 		) return 'Choice Scarf';
 		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
+		if (species.id === 'luvdisc' && moves.has('substitute')) return 'Heavy-Duty Boots';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
 			['Cheek Pouch', 'Harvest', 'Ripen'].some(m => ability === m) ||
@@ -1368,7 +1361,6 @@ export class RandomTeams {
 		if (moves.has('populationbomb')) return 'Wide Lens';
 		if ((species.id === 'ambipom' && role !== 'Wallbreaker')) return 'Loaded Dice';
 		if (ability === 'Unburden') {
-			if (types.includes('Flying')) return 'Flying Gem';
 			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
 		}
 		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
@@ -1571,8 +1563,8 @@ export class RandomTeams {
 			for (const nextItem of ATTACK_ITEM_ORDER) {
 				if (itemList.includes(nextItem)) continue;
 				switch (nextItem) {
-					case 'Gem':
-					case 'Type-Raise Item':
+					case ('Gem'):
+					case ('Type-Raise Item'):
 						// Gather types with moves that can be boosted in the order of: user's types, preferredTypes in the set, other attacking moves
 						let pickedTypes = [];
 						console.log("Type Gem flag");
@@ -1589,20 +1581,20 @@ export class RandomTeams {
 							if (attackTypes.includes(type)) pickedTypes.push(type);
 						}
 						//preferredTypes
-						if (!pickedTypes.length && set.preferredTypes) {
+						if (!pickedTypes && set.preferredTypes) {
 							for (const type of set.preferredTypes) {
 								if(attackTypes.includes(type)) pickedTypes.push(type);
 							}
 						}
 						//other attacking moves only if neither of the above (very rare)
-						if(!pickedTypes.length) pickedType = attackTypes;
+						if(!Object.keys(pickedTypes).length) pickedType = attackTypes;
 						//Search for an available item for any of these types
 						for(const type of pickedTypes){
 							item = (item === 'Gem' ? (type + ' Gem') : TYPE_BOOST_ITEMS[type]);
 							if (!itemList.includes(item)) break;
 						}
 						break;
-					case 'Stat-Raise Item':
+					case('Stat-Raise Item'):
 						item = (species.baseStats.atk >= species.baseStats.spa ? 'Muscle Band' : 'Wise Glasses');
 						if (itemList.includes(item)) continue;
 						break;
@@ -1699,6 +1691,9 @@ export class RandomTeams {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
 			forme = species.battleOnly;
 		}
+		if (species.cosmeticFormes) {
+			forme = this.sample([species.name].concat(species.cosmeticFormes));
+		}
 		const sets = (this as any)[`random${isDoubles ? 'Doubles' : ''}Sets`][species.id]["sets"];
 		const possibleSets = [];
 
@@ -1710,6 +1705,8 @@ export class RandomTeams {
 		let set = this.sampleIfArray(possibleSets);
 		const role = set.role;
 		const movePool: string[] = [];
+		console.log(forme);
+		console.log(set);
 		for (const movename of set.movepool) {
 			movePool.push(this.dex.moves.get(movename).id);
 		}
@@ -1726,14 +1723,6 @@ export class RandomTeams {
 		// Get moves
 		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, role);
 		const counter = this.queryMoves(moves, species, abilities);
-		if (species.cosmeticFormes) {
-			if (set.requiredForme) {
-				forme = this.sample(set.requiredForme);
-			}
-			forme = this.sample([species.name].concat(species.cosmeticFormes));
-		}
-		console.log(forme);
-		console.log(set);
 
 		// Get ability
 		ability = this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, role);
