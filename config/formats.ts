@@ -304,80 +304,6 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-	name: "[Gen 9] Monoletter",
-	mod: "gen9",
-	desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
-	threads: [
-		`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
-		'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
-		'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
-	],
-	ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
-	banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
-	teambuilderFormat: "National Dex",
-	},
-	{
-		name: "[Gen 9] Public Domain",
-		desc: `<b>[Gen 9] Public Domain</b>:, a fakemon meta where .`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/public-domain-slate-4-title-screen.3768377/">Pet Mod - Public Domain</a>`,
-		],
-		mod: 'publicdomain',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod', 'Z-Move Clause'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['PD'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Public Domain.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Random Tandem",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
-		],
-		mod: 'randomtandem',
-		ruleset: ['Standard', 'Data Mod', '!Species Clause', 'Random Tandem Rule'],
-	},
-	{
-		name: "[Gen 1] RBY CAP",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
-		],
-		mod: 'gen1rbycap',
-		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Camouflage'],
-	},
-	{
-		name: "[Gen 9] Roulettemons 2",
-		desc: `<b>[Gen 9] Roulettemons 2</b>: A meta where the only legal Pokemon are randomly-generated Fakemon.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3717145/">Roulettemons 2 on Smogon Forums</a>`,
-		],
-		mod: 'roulettemons2',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['R2'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2') {
-					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
-				}
-			}
-		},
-	},
-	{
 		name: "[Gen 9] Roulettemons 2 Ubers",
 		desc: `<b>[Gen 9] Roulettemons 2 Ubers</b>: A broken meta where the only legal Pokemon are randomly-generated Fakemon.`,
 		threads: [
@@ -4524,5 +4450,19 @@ export const Formats: FormatList = [
 		team: 'random',
 		mod: 'gen3ourstb',
 		ruleset: ['Standard', 'Freeze Clause Mod'],
+	},
+	{
+		name: "[Gen 9] Monoletter",
+		mod: "gen9",
+		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
+		threads: [
+		`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
+		'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
+		'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
+		],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
+		teambuilderFormat: "National Dex",
 	},
 ];
