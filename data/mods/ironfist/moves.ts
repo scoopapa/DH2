@@ -1495,6 +1495,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Sinister Arrow Raid", target);
 		},
+		self: {
+			onHit(source) {
+				source.addVolatile('laserfocus');
+			},
+		},
 		secondary: null,
 		target: "normal",
 	},
@@ -2019,13 +2024,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
-					if (!target.hasType('Silly') && target.addType('Silly')) this.add('-start', target, 'typeadd', 'Silly', '[from] move: Mewing');
+					if (!source.hasType('Silly') && source.addType('Silly')) this.add('-start', source, 'typeadd', 'Silly', '[from] move: Mewing');
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					if (!target.hasType('Silly') && target.addType('Silly')) this.add('-start', target, 'typeadd', 'Silly', '[from] move: Mewing');
+					if (!source.hasType('Silly') && source.addType('Silly')) this.add('-start', source, 'typeadd', 'Silly', '[from] move: Mewing');
 				}
 			},
 		},
