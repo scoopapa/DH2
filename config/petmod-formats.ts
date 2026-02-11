@@ -5,41 +5,41 @@
 // Imports all formats from their folder, to be used as aliases.
 import { format as AlternatiumEX               } from '../data/mods/alternatiumex/format';
 import { format as Gen533Valuemons             } from '../data/mods/gen5valuemons/format';
-import { format as abilitypos                  } from '../data/mods/abilitypos/format';
-import { format as agoldenexperience           } from '../data/mods/agoldenexperience/format';
-import { format as alternatium                 } from '../data/mods/alternatium/format';
-import { format as animemons                   } from '../data/mods/animemons/format';
+import { format as Abilitypos                  } from '../data/mods/abilitypos/format';
+import { format as AGoldenExperience           } from '../data/mods/agoldenexperience/format';
+import { format as Alternatium                 } from '../data/mods/alternatium/format';
+import { format as Animemons                   } from '../data/mods/animemons/format';
 import { format as BackToSinnogh               } from '../data/mods/backtosinnoh/format';
 import { format as BadNBoosted                 } from '../data/mods/badnboosted/format';
-import { format as balls                       } from '../data/mods/balls/format';
+import { format as Balls                       } from '../data/mods/balls/format';
 import { format as BanHammersC3                } from '../data/mods/banhammersc3/format';
-import { format as beaftopia                   } from '../data/mods/beaftopia/format';
+import { format as Beaftopia                   } from '../data/mods/beaftopia/format';
 import { format as BearticPhone                } from '../data/mods/bearticphone/format';
-import { format as blackmarket                 } from '../data/mods/blackmarket/format';
+import { format as BlackMarket                 } from '../data/mods/blackmarket/format';
 import { format as BlankCanvasA                } from '../data/mods/blankcanvas/format-meta-a';
 import { format as BlankCanvasB                } from '../data/mods/blankcanvas/format-meta-b';
 import { format as BlankCanvasC                } from '../data/mods/blankcanvas/format-meta-c';
 import { format as BookOfEnigmas               } from '../data/mods/bookofenigmas/format';
-import { format as breedingvariants            } from '../data/mods/breedingvariants/format';
-import { format as breedingvariantsnatdex      } from '../data/mods/breedingvariantsnatdex/format';
-import { format as bustamove                   } from '../data/mods/bustamove/format';
+import { format as BreedingVariants            } from '../data/mods/breedingvariants/format';
+import { format as BreedingVariantsNatDex      } from '../data/mods/breedingvariantsnatdex/format';
+import { format as BustAMove                   } from '../data/mods/bustamove/format';
 import { format as ccapm2022                   } from '../data/mods/ccapm2022/format';
 import { format as ccapm2024                   } from '../data/mods/ccapm2024/format';
 import { format as ccapm2024rands              } from '../data/mods/ccapm2024/format-randoms';
-import { format as chatbats                    } from '../data/mods/chatbats/format';
-import { format as clubmonsrequiem             } from '../data/mods/clubmonsrequiem/format';
-import { format as communityused2              } from '../data/mods/communityused2/format';
-import { format as conquestdex                 } from '../data/mods/conquestdex/format';
+import { format as ChatBats                    } from '../data/mods/chatbats/format';
+import { format as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/format';
+import { format as CommunityUsed2              } from '../data/mods/communityused2/format';
+import { format as Conquestdex                 } from '../data/mods/conquestdex/format';
 import { format as CleanSlateMicro2            } from '../data/mods/csm2/format';
-import { format as denseaf                     } from '../data/mods/denseaf/format';
+import { format as DenseAF                     } from '../data/mods/denseaf/format';
 import { format as DLCmons                     } from '../data/mods/dlcmons/format';
 import { format as DLCmonsVGC                  } from '../data/mods/dlcmons/format-vgc';
 import { format as Dollhouse                   } from '../data/mods/dollhouse/format';
-import { format as dondozo                     } from '../data/mods/dondozo/format';
-import { format as donotuse                    } from '../data/mods/donotuse/format';
+import { format as Dondozo                     } from '../data/mods/dondozo/format';
+import { format as DoNotUse                    } from '../data/mods/donotuse/format';
 import { format as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/format';
-import { format as donotuseuu                  } from '../data/mods/donotuseuu/format';
-import { format as donotusevgc                 } from '../data/mods/donotusevgc/format';
+import { format as DoNotUseUU                  } from '../data/mods/donotuseuu/format';
+import { format as DoNotUseVGC                 } from '../data/mods/donotusevgc/format';
 import { format as doubletrouble               } from '../data/mods/doubletrouble/format';
 import { format as duomod                      } from '../data/mods/duomod/format';
 import { format as earthsky                    } from '../data/mods/earthsky/format';
@@ -128,7 +128,7 @@ import { format as gen9strong                  } from '../data/mods/gen9strong/f
 import { format as gen9ubermons                } from '../data/mods/gen9ubermons/format';
 import { format as gen9vaporemons              } from '../data/mods/gen9vaporemons/format';
 import { format as gen9vgc20xx                 } from '../data/mods/gen9vgc20xx/format';
-import { format as gennext                     } from '../data/mods/gennext/format';
+import { format as Gen6NextOU                  } from '../data/mods/gennext/format';
 import { format as genXBrunicaOU               } from '../data/mods/genxdesvega/format-ou';
 import { format as genXBrunicaUber             } from '../data/mods/genxbrunica/format-uber';
 import { format as genXDesvegaOU               } from '../data/mods/genxdesvega/format-ou';
@@ -203,7 +203,7 @@ import { format as pokebilities                } from '../data/mods/pokebilities
 import { format as pokebilitiesbanhammers      } from '../data/mods/pokebilitiesbanhammers/format';
 import { format as pokemonorthsoutheastwest    } from '../data/mods/pokemonorthsoutheastwest/format';
 import { format as pokemorty                   } from '../data/mods/pokemorty/format';
-import { format as poketypos                   } from '../data/mods/poketypos/format';
+import { format as PokeTypos                   } from '../data/mods/poketypos/format';
 import { format as ponymonshowdown             } from '../data/mods/ponymonshowdown/format';
 import { format as publicdomain                } from '../data/mods/publicdomain/format';
 import { format as randomtandem                } from '../data/mods/randomtandem/format';
@@ -292,6 +292,7 @@ export const Formats: FormatList = [
 	},
 
 	sixbysix,
+	// chatbats
 
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -314,93 +315,6 @@ export const Formats: FormatList = [
 	banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
 	teambuilderFormat: "National Dex",
-	},
-	{
-		name: "[Gen 6] NEXT OU",
-		mod: 'gennext',
-		searchShow: false,
-		challengeShow: false,
-		ruleset: ['Obtainable', 'Standard NEXT', 'Team Preview'],
-		banlist: ['Uber'],
-	},
-	{
-		name: "[Gen 9] Not My Type",
-		desc: `Not My Type, a tier with user-submitted Fakemon only that's built around three of the eighteen types being removed. These three types are Electric, Ground, Rock.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/not-my-type.3773605/">Gen 9 Not My Type</a>`,
-		],
-		mod: 'notmytype',
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Moves Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: [],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['NMT'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Not My Type.'];
-				}
-			}
-		},
-	},
-	{
-	  name: "[Gen 9] OU Theorymons",
-     desc: '<b>[Gen 9] OU Theorymons</b>: Fixing niche and unseen Pokemon in the SV OU Metagame with small buffs.',
-	  threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/sv-ou-theorymon.3723892/">OU Theorymon on Smogon Forums</a>`,
-		],
-     mod: 'outheorymons',
-	  ruleset: ['Standard', 'Data Mod'],
-	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	},
-	{
-		name: "[Gen 9] Paleomons",
-	   desc: '<b>[Gen 9] Paleomons</b>: In this mod, we will be creating an SV OU-based micrometa of Pokémon based on real critters from the Paleozoic, Mesozoic, and Cenozoic eras.',
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-1-winners.3727753/">Paleomons</a>',
-		//	'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
-		],
-		mod: 'paleomons',
-		teambuilderFormat: "National Dex",
-	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '!! Min Source Gen = 8'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Paleomons') {
-					return [set.species + ' is not usable in Paleomons.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Poketypos",
-		desc: `<b>[Gen 9] Poketypos</b>: A NatDex metagame that alters the names of Pokemon and change said Pokemon to fit their new name.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/pok%C3%A9typos-slate-2-single-stage-pokemon.3711498/">Poketypos on Smogon Forums</a>`,
-		],
-		mod: 'poketypos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Terastal Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let allowedTiers = ['Poketypos', 'Poketypos NFE', 'Poketypos LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Poketypos' && template.tier !== 'Poketypos NFE' && template.tier !== 'Poketypos LC') {
-					return [set.species + ' is not legal in the Poketypos format.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Public Domain",
