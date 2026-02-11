@@ -537,9 +537,9 @@ export class DexFormats {
 				throw e;
 			}
 		}
-		let Formats: AnyObject[] = require(`${__dirname}/../config/petmods-formats`).Formats;
+		let Formats: AnyObject[] = require(`${__dirname}/../config/formats`).Formats;
 		if (!Array.isArray(Formats)) {
-			throw new TypeError(`Exported property 'Formats' from "./config/petmods-formats.ts" must be an array`);
+			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
 		if (officialFormats) Formats = mergeFormatLists(Formats as any, officialFormats);
 
