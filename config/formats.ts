@@ -3769,11 +3769,10 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Hax Meters Doubles OU",
+		name: "[Gen 9] Hax Meters Random Battle",
 		mod: 'haxmeters',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
-		banlist: ['DUber', 'Shadow Tag'],
+		team: 'random',
+		ruleset: ['Standard', '!Team Preview', '!Evasion Items Clause', 'Hax Meter Rule'],
 	},
 	{
 		name: "[Gen 8] Hax Meters OU",
@@ -3782,11 +3781,10 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
 	},
 	{
-		name: "[Gen 8] Hax Meters Doubles OU",
+		name: "[Gen 8] Hax Meters Random Battle",
 		mod: 'gen8haxmeters',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
-		banlist: ['DUber', 'Power Construct', 'Shadow Tag', 'Swagger'],
+		team: 'random',
+		ruleset: ['Standard', '!Team Preview', '!Evasion Items Clause', 'Hax Meter Rule'],          
 	},
 	{
 		name: "[Gen 9] Luckless Play OU",
@@ -3795,10 +3793,24 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 9] Luckless Play Doubles OU",
+		mod: 'lucklessplay',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
+		banlist: ['DUber', 'Shadow Tag'],
+	},
+	{
 		name: "[Gen 8] Luckless Play OU",
 		mod: 'gen8lucklessplay',
 		ruleset: ['Standard', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 8] Luckless Play Doubles OU",
+		mod: 'gen8lucklessplay',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
+		banlist: ['DUber', 'Power Construct', 'Shadow Tag', 'Swagger'],
 	},
    /* {
 		name: "[Gen 3] Hoennification",
