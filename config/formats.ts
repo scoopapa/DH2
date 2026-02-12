@@ -58,7 +58,7 @@ import { format as BlindsidedA                 } from '../data/mods/g9blindsided
 import { format as BlindsidedB                 } from '../data/mods/g9blindsided/format-group-b';
 import { format as BlindsidedC                 } from '../data/mods/g9blindsided/format-group-c';
 import { format as BlindsidedDraft             } from '../data/mods/g9blindsided/format-draft';
-import { format as g9duomod                    } from '../data/mods/g9duomod/format';
+import { format as gen9duomod                  } from '../data/mods/g9duomod/format';
 import { format as gen1                        } from '../data/mods/gen1/format';
 import { format as gen1Azure                   } from '../data/mods/gen1azure/format';
 import { format as gen1BacktothePast           } from '../data/mods/gen1backtothepast/format';
@@ -89,7 +89,7 @@ import { format as gen3colosseum               } from '../data/mods/gen3colosseu
 import { format as gen3HoennEchoes             } from '../data/mods/gen3hoennechoes/format';
 import { format as gen3HoennGaiden             } from '../data/mods/gen3hoenngaiden/format';
 import { format as gen3ourstb                  } from '../data/mods/gen3ourstb/format';
-import { format as gen3shadowcolosseum         } from '../data/mods/gen3shadowcolosseum/format';
+import { format as gen3ShadowColosseum         } from '../data/mods/gen3shadowcolosseum/format';
 import { format as gen3tradebacks              } from '../data/mods/gen3tradebacks/format';
 import { format as gen3uuhoenngaiden           } from '../data/mods/gen3uuhoenngaiden/format';
 import { format as gen4                        } from '../data/mods/gen4/format';
@@ -207,13 +207,14 @@ import { format as PokeTypos                   } from '../data/mods/poketypos/fo
 import { format as ponymonshowdown             } from '../data/mods/ponymonshowdown/format';
 import { format as publicdomain                } from '../data/mods/publicdomain/format';
 import { format as randomtandem                } from '../data/mods/randomtandem/format';
-import { format as regeneration                } from '../data/mods/regeneration/format';
+import { format as ReGeneration                } from '../data/mods/regeneration/format';
 import { format as regionalevolutions          } from '../data/mods/regionalevolutions/format';
 import { format as restrictions                } from '../data/mods/restrictions/format';
-import { format as returntoorretercera         } from '../data/mods/returntoorretercera/format';
+import { format as ReturnToOrreTercera         } from '../data/mods/returntoorretercera/format';
 import { format as rockbottom                  } from '../data/mods/rockbottom/format';
 import { format as roulettemons                } from '../data/mods/roulettemons/format';
-import { format as roulettemons2               } from '../data/mods/roulettemons2/format';
+import { format as Roulettemons2               } from '../data/mods/roulettemons2/format';
+import { format as Roulettemons2Ubers          } from '../data/mods/roulettemons2/format-ubers';
 import { format as scootopia                   } from '../data/mods/scootopia/format';
 import { format as scootopiav4                 } from '../data/mods/scootopiav4/format';
 import { format as secretsanta                 } from '../data/mods/secretsanta/format';
@@ -302,168 +303,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-		name: "[Gen 9] Roulettemons 2 Ubers",
-		desc: `<b>[Gen 9] Roulettemons 2 Ubers</b>: A broken meta where the only legal Pokemon are randomly-generated Fakemon.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3717145/">Roulettemons 2 on Smogon Forums</a>`,
-		],
-		mod: 'roulettemons2',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['R2', 'R2Ubers'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2' && template.tier !== 'R2Ubers') {
-					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] ReGeneration",
-	   desc: [
-			"In this Pet Mod, we will redesign the competitive functions of the Kantonian Pokemon after a Paldean counterpart.",
-		],
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/regeneration-slate-4-seadra-dodrio-wigglytuff.3718196/">ReGeneration</a>',
-			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
-		],
-		mod: 'regeneration',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		   'Aerodactylite', 'Alakazite', 'Beedrillite', 'Blastoisinite', 'Charizardite X', 'Charizardite Y', 'Gengarite',
-         'Gyaradosite', 'Kangaskhanite', 'Mewtwonite X', 'Mewtwonite Y', 'Pidgeotite', 'Pinsirite', 'Slowbronite', 'Venusaurite'
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'ReGeneration' && template.tier !== 'ReGeneration NFE' && template.tier !== 'ReGeneration LC') {
-					return [set.species + ' is not usable in ReGeneration.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Regional Evolutions",
-		desc: 'A NatDex micrometa, with only new regional forms and regional evolutions!',
-		threads: [],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['RegEvo', 'RegEvo NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in RegEvo.'];
-				}
-			}
-		},
-		mod: 'regionalevolutions',
-	},
-	{
-		name: "[Gen 9] Return to Orre: Tercera",
-	   desc: [
-			"This is a micrometa that only uses Pokemon obtainable in Colosseum and XD.",
-		],
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/return-to-orre-tercera-open-for-submissions.3722389/">RTO: Tercera</a>',
-		],
-		mod: 'returntoorretercera',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', 'Adjust Level = 50', 'VGC Timer'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		   'Aerodactylite', 'Alakazite', 'Beedrillite', 'Blastoisinite', 'Charizardite X', 'Charizardite Y', 'Gengarite',
-         'Gyaradosite', 'Kangaskhanite', 'Mewtwonite X', 'Mewtwonite Y', 'Pidgeotite', 'Pinsirite', 'Slowbronite', 'Venusaurite',
-			'Lugia', 'Ho-Oh', 'All Items'
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'TERCERA' && template.tier !== 'TERCERA NFE') {
-					return [set.species + ' is not usable in Return to Orre: Tercera.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Set in Stone",
-		desc: [
-			"<b>Set in Stone</b>: A micrometa where Pokemon are customized based on a combination of two player's set ideas.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/set-in-stone-phase-2-slate-2.3722451/post-9648171"> Set in Stone on Smogon Forums</a>`,
-		      ],
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: [],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if ( template.tier !== 'SS') {
-					return [set.species + ' is not usable in Set in Stone.'];
-				}
-			}
-		},
-		mod: 'setinstone',
-	},
-	{
-		name: "[Gen 9] Secret Santa",
-	   desc: '<b>[Gen 9] Secret Santa</b>: One person sets restrictions for another to follow in the creation of a fakemon".',
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/secret-santa-the-pet-mod.3727745/">Secret Santa</a>',
-			'https://docs.google.com/spreadsheets/d/1IPFlVP4osQhGtjNRheycCX0AnZiUVipumGwqKdhOS2s/edit#gid=1272593335">Spreadsheet</a>',
-		],
-		mod: 'secretsanta',
-	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '+Past'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'santa') {
-					return [set.species + ' is not usable in Secret Santa.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 3] Shadow Colosseum",
-		mod: 'gen3shadowcolosseum',
-		gameType: 'doubles',
-		desc: [
-			`<b>[Gen 3] Shadow Colosseum</b>: A Gen 3 Orre Colosseum (Gen 3 VGC) metagame that adds Shadow Pokemon and moves to the game.`,
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3774822/">Shadow Colosseum on the Smogon Forums</a>`,
-		],
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Species Clause', 'Stadium Sleep Clause', 'Freeze Clause Mod', 'Max Team Size = 6', 'VGC Timer',
-			'Nickname Clause', 'Endless Battle Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Exact HP Mod', 'Item Clause', 'Open Team Sheets',
-			'Shadow Mechanic', 'Data Preview',
-		],
-		banlist: ['Soul Dew', 'Deoxys-Defense', 'Deoxys-Attack', 'Deoxys-Speed', 'Restricted Legendary', 'Mythical'],
-		unbanlist: ['Latios', 'Latias', 'Wobbuffet', 'Wynaut'],
-		bestOfDefault: true,
-		onBegin() {
-			this.add('rule', 'Self-KO Clause: If your last Pok\u00e9mon faints to a self-KO move or effect, you will lose the battle');
-		},
 	},
 	{
 		name: "[Gen 3] Shadow Colosseum Custom Game",
