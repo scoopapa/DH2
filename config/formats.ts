@@ -225,8 +225,8 @@ import { format as shinymons                   } from '../data/mods/shinymons/fo
 import { format as signaturemons               } from '../data/mods/signaturemons/format';
 import { format as signaturerestrictions       } from '../data/mods/signaturerestrictions/format';
 import { format as sixbysix                    } from '../data/mods/sixbysix/format';
-import { format as smashmodsbrawl              } from '../data/mods/smashmodsbrawl/format';
-import { format as smashmodsmelee              } from '../data/mods/smashmodsmelee/format';
+import { format as SmashModsBrawl              } from '../data/mods/smashmodsbrawl/format';
+import { format as SmashModsMelee              } from '../data/mods/smashmodsmelee/format';
 import { format as smashstereotypes            } from '../data/mods/smashstereotypes/format';
 import { format as solopet                     } from '../data/mods/solopet/format';
 import { format as spookymod                   } from '../data/mods/spookymod/format';
@@ -303,69 +303,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-		name: "[Gen 3] Shadow Colosseum Custom Game",
-		mod: 'gen3shadowcolosseum',
-		gameType: 'doubles',
-		searchShow: false,
-		debug: true,
-		battle: {trunc: Math.trunc},
-		ruleset: [
-			'HP Percentage Mod', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999',
-			'Default Level = 100', 'Shadow Mechanic', 'Data Preview', 'Exact HP Mod', 'Open Team Sheets', 'Team Preview',
-		],
-	},
-	{
-		name: "[Gen 9] Six by Six",
-		desc: [
-			`<b>Six by Six</b>: A Gen 9 micrometa featuring only 6 Pokemon, each with 6 forms.`,
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/six-by-six-slate-0-winners.3769141/">Six by Six on the Smogon Forums</a>`,
-		],
-		mod: 'sixbysix',
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Data Mod'],
-		banlist: ['King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['King', 'Queen', 'Bishop', 'Knight', 'Rook', 'Pawn'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Six by Six.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Super Smash Mods Brawl",
-		desc: [
-			"<b>Super Smash Mods Brawl</b>: The third in the Super Smash Mods series, creating a micrometa using Pokemon from other Pet Mods and Solomods.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3768342/">Super Smash Mods Brawl on Smogon Forums</a>`,
-		],
-		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'Sleep Moves Clause', 'Terastal Clause', /*'Z-Move Clause',*/ 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z',
-			'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Houndoominite',
-			'Zinogrite', 
-			/*'Wishing Stone',*/ 'Epic Beam', // temp bans
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if ( template.tier !== 'SSB') {
-					return [set.species + ' is not usable in Super Smash Mods Brawl.'];
-				}
-			}
-		},
-		mod: 'smashmodsbrawl',
 	},
 	{
 		name: "[Gen 9] Super Smash OMs",
