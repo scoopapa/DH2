@@ -532,6 +532,149 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Shadow",
 	},
+	shadowguard: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects allies from Shadow moves this turn.",
+		name: "Shadow Guard",
+		pp: 10,
+		priority: 3,
+		flags: { snatch: 1 },
+		sideCondition: 'shadowguard',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Wide Guard", target);
+		},
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Shadow Guard');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				if (['self', 'all'].includes(move.target) || move.type !== 'Shadow') {
+					return;
+				}
+				if (move.isZ || move.isMax) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				this.add('-activate', target, 'move: Shadow Guard');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Shadow",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
+	shadowarmor: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Follow Me + Endure. +1 Spe if hit by Shadow move. Can't use consecutively.",
+		name: "Shadow Armor",
+		pp: 5,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, cantusetwice: 1, failmimic: 1},
+		volatileStatus: 'shadowarmor',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			this.add('-anim', pokemon, "Hex", pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		onTry(source) {
+			return this.activePerHalf > 1;
+		},
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-singleturn', target, 'move: Shadow Armor', '[zeffect]');
+				} else {
+					this.add('-singleturn', target, 'move: Shadow Armor');
+				}
+			},
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
+					if (move.smartTarget) move.smartTarget = false;
+					this.debug("Shadow Armor redirected target of move");
+					return this.effectState.target;
+				}
+			},
+			onDamagePriority: -10,
+			onDamage(damage, target, source, effect) {
+				if (effect?.effectType === 'Move' && damage >= target.hp) {
+					this.add('-activate', target, 'move: Shadow Armor');
+					return target.hp - 1;
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (['Shadow'].includes(move.type)) {
+					this.boost({spe: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	shadowsiphon: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals by 33% of its max HP +25% for every active Shadow Pokemon. Deals 25% damage to Shadow Pokemon. User: +1 Def.",
+		name: "Shadow Siphon",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+		  this.add('-anim', source, "Shore Up", target);
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.baseMaxhp / 3, source, pokemon);
+				this.boost({def: 1}, source);
+			},
+		},
+		onHitField(target, source) {
+			if (target.volatiles['shadow']) {
+				this.heal(source.baseMaxhp / 4, source, target);
+				this.damage(target.baseMaxhp / 4, target, source);
+			}
+			if (source.volatiles['shadow']) {
+				this.heal(source.baseMaxhp / 4, source, target);
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Shadow",
+	},
 	// Old Moves
 	perishsong: {
 		inherit: true,
