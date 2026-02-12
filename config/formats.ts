@@ -3772,7 +3772,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Hax Meters Random Battle",
 		mod: 'haxmeters',
 		team: 'random',
-		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', '!Evasion Items Clause', 'Hax Meter Rule'],
+		ruleset: ['Standard', '!Team Preview', '!Evasion Items Clause', 'Hax Meter Rule'],
 	},
 	{
 		name: "[Gen 8] Hax Meters OU",
@@ -3784,7 +3784,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Hax Meters Random Battle",
 		mod: 'gen8haxmeters',
 		team: 'random',
-		ruleset: ['Standard', '!Evasion Items Clause', 'Dynamax Clause', 'Hax Meter Rule'],          
+		ruleset: ['Standard', '!Team Preview', '!Evasion Items Clause', 'Hax Meter Rule'],          
 	},
 	{
 		name: "[Gen 9] Luckless Play OU",
