@@ -76,7 +76,7 @@ import { format as gen1tradebacksexpanded      } from '../data/mods/gen1tradebac
 import { format as gen1violetversion           } from '../data/mods/gen1violetversion/format';
 import { format as gen2                        } from '../data/mods/gen2/format';
 import { format as gen2crystallegacy           } from '../data/mods/gen2crystallegacy/format';
-import { format as gen2crystalseviiislands     } from '../data/mods/gen2crystalseviiislands/format';
+import { format as gen2CrystalSeviiIslands     } from '../data/mods/gen2crystalseviiislands/format';
 import { format as gen2doubles                 } from '../data/mods/gen2doubles/format';
 import { format as gen2expansionpack           } from '../data/mods/gen2expansionpack/format';
 import { format as gen2stadium2                } from '../data/mods/gen2stadium2/format';
@@ -294,7 +294,8 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	{
 		section: "Monster Hunter",
-		column: 2,
+		column: 1,
+		// name: "monsterhuntersolomod",
 	},
 
 	///////////////////////////////////////////////////////////////
@@ -304,49 +305,6 @@ export const Formats: FormatList = [
 		section: "Gen 8 Pet Mods",
 		column: 2,
 		// name: "gen8petmods",
-	},
-	{
-		name: "[Gen 8] Bust A Move",
-		desc: [
-			"<b>Bust A Move</b>: A Pet Mod where previously competitively useless moves are given much needed makeovers.",
-		  ],
-		threads: [
-		  `&bullet; <a href="https://www.smogon.com/forums/threads/bust-a-move-slate-5-sing-synchronoise-and-sparkling-aria.3681338/">Bust A Move on Smogon Forums</a>`,
-		  `&bullet; <a href="https://docs.google.com/spreadsheets/d/149hYZMn1N92ofxiBdJEQ78g1EaQdBmex2wHCK3Fyais/edit?usp=sharing">Spreadsheet</a>`,
-		  ],
-		mod: 'bustamove',
-		ruleset: ['Standard NatDex'],
-		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
-			'Dialga', 'Dracovish', 'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Magearna', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
-			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
-		],
-		teambuilderFormat: "OU",
-	},
-	{
-		name: "[Gen 8] CCaPM 2022",
-		desc: `<b>ccapm</b>: ccapm `,
-		mod: "ccapm2022",
-		ruleset: ['Standard', 'Data Mod', 'Godly Gift Mod'],
-		banlist: ['AG', 'Uber',
-				  'Blissey', 'Chansey', 'Dragapult', 'Hawlucha', 'Marowak-Alola', 'Melmetal', 'Nidoking', 'Nidoqueen', 'Pikachu', 'Toxapex',
-				  'Focus Band', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
-				  'Huge Power', 'Moody', 'Arena Trap', 'Pure Power', 'Shadow Tag',
-				  'Baton Pass'],
-		restricted: ['Unicorn', 'Platypus', 'Power Plant', 'Druddigod', 'Snek', 'Ghost Car', 'Trapjaw Fireant', 'Duck', 'groundpoison', 'groundpoison-Crystallized', 'Metal Snek', 'Roc With Ram Horns', 'ghostnormal', 'Cartesian Plane Dragon', 'better than cinderace as soccer', 'Statue'],
-	},
-	{
-		name: "[Gen 2] Crystal: Sevii Islands",
-		desc: ["<b>Crystal: Sevii Islands</b>- A Gen 2 pet mod that aims to create new Pokemon, items, and moves for the GSC OU Metagame."],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/crystal-sevii-islands.3695569/">Crystal: Sevii Islands on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1QL_789vTzxG8An43itUxPonK9ee7ezxH6GCR9dD_JyQ/edit?usp=sharing">Crystal: Sevii Islands spreadsheet</a>`,
-		      ],
-		mod: 'gen2crystalseviiislands',
-		ruleset: ['Standard', 'Data Mod', 'Crystal: Sevii Islands Mod'],
-		banlist: ['Uber'],
 	},
 	{
 		name: "[Gen 8] Extreme Reboot",
