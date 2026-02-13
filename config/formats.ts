@@ -86,7 +86,8 @@ import { format as gen2expansionpack           } from '../data/mods/gen2expansio
 import { format as gen2stadium2                } from '../data/mods/gen2stadium2/format';
 import { format as gen2teracrystal             } from '../data/mods/gen2teracrystal/format';
 import { format as gen3                        } from '../data/mods/gen3/format';
-import { format as gen3advdx                   } from '../data/mods/gen3advdx/format';
+import { format as gen3advdeluxe               } from '../data/mods/gen3advdx/format';
+import { format as gen3advdeluxedoubles        } from '../data/mods/gen3advplus/format-doubles';
 import { format as gen3advplus                 } from '../data/mods/gen3advplus/format';
 import { format as gen3advttp                  } from '../data/mods/gen3advttp/format';
 import { format as gen3colosseum               } from '../data/mods/gen3colosseum/format';
@@ -337,26 +338,6 @@ export const Formats: FormatList = [
 	{
 		section: "Solomods",
 		column: 2,
-	},
-    /* {
-		name: "[Gen 3] ADV+",
-		mod: 'gen3advplus',
-		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Starf Berry', 'Speed Boost + Blaziken'],
-	}, */
-	{
-		name: "[Gen 3] ADV DX OU",
-		mod: 'gen3advdx',
-		ruleset: ['Standard', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Sand Attack', 'Flash', 'Mud-Slap', 'Kinesis', 'Smokescreen'],
-	},
-	{
-		name: "[Gen 3] ADV DX Doubles",
-		mod: 'gen3advdx',
-		gameType: 'doubles',
-		ruleset: ['Standard', 'Freeze Clause Mod', 'Data Mod', '!Switch Priority Clause Mod'],
-		banlist: ['Uber', 'Quick Claw', 'Soul Dew', 'Explosion', 'Self-Destruct', 'Swagger', 'Sand Attack', 'Flash', 'Mud-Slap', 'Kinesis', 'Smokescreen'],
-		unbanlist: ['Wobbuffet', 'Wynaut'],
 	},
 	{
 		name: "[Gen 3] ADV Tradebacks",
