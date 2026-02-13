@@ -1,7 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
 export const format: FormatData = {
-		name: "[Gen 8] Megas for All: Kalos",
+		name: "[Gen 8] M4A Kalos VGC",
 		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Current season is focused on the Kalos dex!",
 		      ],
 		threads: [
@@ -9,13 +9,11 @@ export const format: FormatData = {
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Mega Data Mod'],
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
 		banlist: [
-			'AG', 'Uber',
-			'Aegislash', 'Hoopa-Unbound', 'Greninja',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa-Unbound', 'Volcanion',
+			// legalizes Hoopa-Confined, and only Hoopa-Confined, because it has a Mega specific to this season! (confirmed by Blue)
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
