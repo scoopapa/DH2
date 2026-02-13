@@ -33,6 +33,7 @@ import { format as ccapm2024rands              } from '../data/mods/ccapm2024/fo
 import { format as ChatBats                    } from '../data/mods/chatbats/format';
 import { format as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/format';
 import { format as CommunityUsed2              } from '../data/mods/communityused2/format';
+import { format as CommunityUsed2Randoms       } from '../data/mods/communityused2/format-randoms';
 import { format as Conquestdex                 } from '../data/mods/conquestdex/format';
 import { format as CleanSlateMicro2            } from '../data/mods/csm2/format';
 import { format as DenseAF                     } from '../data/mods/denseaf/format';
@@ -89,7 +90,7 @@ import { format as gen3                        } from '../data/mods/gen3/format'
 import { format as gen3advdeluxe               } from '../data/mods/gen3advdx/format';
 import { format as gen3advdeluxedoubles        } from '../data/mods/gen3advplus/format-doubles';
 import { format as gen3advplus                 } from '../data/mods/gen3advplus/format';
-import { format as gen3advttp                  } from '../data/mods/gen3advttp/format';
+import { format as gen3advToThePast            } from '../data/mods/gen3advttp/format';
 import { format as gen3colosseum               } from '../data/mods/gen3colosseum/format';
 import { format as gen3HoennEchoes             } from '../data/mods/gen3hoennechoes/format';
 import { format as gen3HoennGaiden             } from '../data/mods/gen3hoenngaiden/format';
@@ -101,7 +102,7 @@ import { format as gen4                        } from '../data/mods/gen4/format'
 import { format as gen4pt                      } from '../data/mods/gen4pt/format';
 import { format as gen5                        } from '../data/mods/gen5/format';
 import { format as gen5bw1                     } from '../data/mods/gen5bw1/format';
-import { format as gen5unovayb                 } from '../data/mods/gen5unovayb/format';
+import { format as gen5BestWishesYoshiblaze    } from '../data/mods/gen5unovayb/format';
 import { format as gen6                        } from '../data/mods/gen6/format';
 import { format as gen6megasrevisited          } from '../data/mods/gen6megasrevisited/format';
 import { format as gen6mixandmegasrevisited    } from '../data/mods/gen6mixandmegasrevisited/format';
@@ -303,6 +304,18 @@ export const Formats: FormatList = [
 	FusionEvoCorruptCouncil,
 
 	///////////////////////////////////////////////////////////////
+	///////////////////// Spotlight Mods //////////////////////////
+	///////////////////////////////////////////////////////////////
+	{
+		section: "Spotlights",
+		column: 1,
+		// name: "spotlightmods",
+	},
+
+	gen9Vaporemons,
+	JoltemonsOU,
+
+	///////////////////////////////////////////////////////////////
 	///////////////// Monster Hunter Solomod //////////////////////
 	///////////////////////////////////////////////////////////////
 	{
@@ -338,295 +351,6 @@ export const Formats: FormatList = [
 	{
 		section: "Solomods",
 		column: 2,
-	},
-	{
-		name: "[Gen 3] ADV Tradebacks",
-		mod: 'gen3tradebacks',
-		ruleset: ['Standard', /*'Baton Pass Mod',*/ 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
-	},
-	{
-		name: "[Gen 3] ADV To The Past",
-		mod: 'gen3advttp',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
-		banlist: ['Uber', 'Smeargle + Ingrain', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Swagger', 'Metal Powder'],
-		desc: `<b>ADV TTP</b> is a rebalancing of ADV OU with Move buffs, Stat buffs, and different abilities. The aim of this metagame is to create an ADV OU metagame that is even more diverse and fun than it is already. It is limited to Pokemon found in Kanto-Hoenn. Moreover, all Gen 3 mechanics are unchanged.`,
-	},
-		{
-		name: "[Gen 9] Animemons",
-		teambuilderFormat: 'National Dex',
-		desc: `A micrometa full of anime characters.`,
-		mod: 'animemons',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z',
-			'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['AOU', 'AWIP'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not in this format.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Balls",
-		mod: 'mixandmegaballs',
-		desc: `A hilarious metagame filled with nothing but balls.`,
-		ruleset: ['Standard', 'Data Mod'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Balls', 'Guns'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' doesnt exist.'];
-				}
-			}
-		},
-	},
-	/* {
-		name: "[Gen 9] Bare Bones",
-		desc: 'bare bones micrometa',
-		mod: 'barebones',
-		ruleset: [
-		'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Data Mod', 'Camomons Mod',
-		],
-		banlist: ['All Items', 'All Abilities'],
-		unbanlist: [
-		'Pinch Berry', 'Tsersi Berry', 'Leftovers', 'Silk Scarf', 'Charcoal', 'Mystic Water', 'Miracle Seed', 'Magnet', 'Never-Melt Ice', 'Black Belt', 'Poison Barb',
-		'Soft Sand', 'Sharp Beak', 'Twisted Spoon', 'Silver Powder', 'Hard Stone', 'Spell Tag', 'Dragon Fang', 'Black Glasses', 'Metal Coat', 'Fairy Feather', 'Muscle Band',
-		'Wise Glasses', 'Exchanger', 'Focus Sash',
-
-		'Desperation', 'Last Stand', 'Appraisal', 'Rejuvenate', 'Recycler', 'Somewhat Reckless', 'Tinted Tactics', 'Intimidate', 'Sceptic',
-		],
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['bbones'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not in Bare Bones.'];
-				}
-			}
-		}
-  }, */ 
-    {
-		name: "[Gen 9] Beaftopia",
-		desc: `<b>[Gen 9] Beaftopia</b>: A meta where the only legal Pokemon are made by Beaf Cultist, the greatest Pet Modder.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10762760">Post in Solomods Megathread</a>`,
-		],
-		mod: 'beaftopia',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod', 'Status Mod'],
-		banlist: ['King\'s Rock', 'Razor Fang'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['OU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'BT OU') {
-					return [set.species + ' is not legal in [Gen 9] Beaftopia.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 5] Best Wishes from YB",
-		desc: [
-			"<b>Best Wishes from YB</b>: A Gen 5 Solomod where are only Unovan Pokemon are allowed, with them getting many changes.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10590904">Post in Solomods Megathread</a>`,
-		],
-		mod: 'gen5unovayb',
-		ruleset: ['Standard', 'Sleep Moves Clause', 'Swagger Clause', 'Data Mod'],
-		banlist: ['Uber', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Assist', 'Hidden Power', 'Baton Pass'],
-	},
-	{
-		name: "[Gen 9] ChatBats",
-		desc: `A Random Battles Solomod made by the Pet Mods chatroom on Showdown.`,
-		mod: 'chatbats',
-		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
-		onSwitchIn(pokemon) {
-      	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-		// Dachsbun causes Koraidon to generate on enemy team. Implemented here.
-		onBegin() {
-			this.add(`raw|<div class='broadcast-green'><b>Need help with all of the new moves, abilities, and adjustments?<br />Then make sure to use the <a href="https://www.smogon.com/forums/threads/chatbats.3760234/" target="_blank">ChatBats thread</a> or use /dt!</b></div>`);
-			this.add('-message', `Welcome to ChatBats!`);
-			this.add('-message', `ChatBats is a Random Battles format created by the Pet Mods room here on Showdown!`);
-			this.add('-message', `If you want to help create new sets, we will host events periodically in the Pet Mods room!`);
-			this.add('-message', `Anyone who is there can help create a new set for a random mon, changing moves, abilities, stats, and even custom formes.`);
-			this.add('-message', `yes working`);
-			for (const side of this.sides) {
-				for (const pokemon of side.pokemon) {
-					if (pokemon.species.id === 'dachsbun') {
-						// Get the opposing side
-						const foeSide = side.foe;
-						// Filter out Dachsbun from opponent's team
-						const foeTeamNoDog = foeSide.pokemon.filter(p => p.species.id !== 'dachsbun');
-						// Pick a random foe
-						const randomFoe = this.sample(foeTeamNoDog);
-						const rawSpecies = this.dex.species.get('koraidon');
-						randomFoe.setSpecies(rawSpecies, pokemon);
-						randomFoe.baseSpecies = rawSpecies;
-						randomFoe.details = randomFoe.getUpdatedDetails();
-						randomFoe.setAbility('Orichalcum Pulse', null, true);
-						randomFoe.baseAbility = randomFoe.ability;
-						if (this.randomChance(1, 2)) {
-							const randomFoeItem = (this.randomChance(1, 2) ? 'choicescarf' : 'choiceband');
-							randomFoe.item = randomFoeItem;
-							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
-							// Define new moves
-							const newMoves = ['closecombat', 'flareblitz', 'outrage', 'uturn'];
-
-							// Update move slots
-							randomFoe.moveSlots = newMoves.map(move => {
-								const moveData = this.dex.moves.get(move);
-								return {
-									move: moveData.name,
-									id: moveData.id,
-									pp: moveData.pp,
-									maxpp: moveData.pp,
-									target: moveData.target,
-									disabled: false,
-									used: false,
-								};
-							});
-						}
-						else {
-							const randomFoeItem = 'loadeddice';
-							randomFoe.item = randomFoeItem;
-							randomFoe.itemState = { id: randomFoeItem, target: randomFoe };
-							// Define new moves
-							const newMoves = ['collisioncourse', 'flareblitz', 'scaleshot', 'swordsdance'];
-
-							// Update move slots
-							randomFoe.moveSlots = newMoves.map(move => {
-								const moveData = this.dex.moves.get(move);
-								return {
-									move: moveData.name,
-									id: moveData.id,
-									pp: moveData.pp,
-									maxpp: moveData.pp,
-									target: moveData.target,
-									disabled: false,
-									used: false,
-								};
-							});
-						}
-						// this forces the UI to update move slots visually
-						randomFoe.baseMoveSlots = randomFoe.moveSlots.slice();
-						randomFoe.teraType = 'fire'
-					}
-				}
-			}
-		}
-	},
-	{
-        name: "[Gen 9] Climate Change",
-        desc: [
-            "weather war",
-        ],
-        threads: [
-            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
-              ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-        banlist: ['Sunny Day', 'Rain Dance', 'Sandstorm', 'Hail', 'Snowscape', 'Chilly Reception', 'Charizardite X'],
-		teambuilderFormat: "National Dex",
-        onValidateTeam(team, format) {
-            /**@type {{[k: string]: true}} */
-            let speciesTable = {};
-            for (const set of team) {
-                let template = this.dex.species.get(set.species);
-                if (template.tier !== 'CC') {
-                    return [set.species + ' is not usable in Climate Change.'];
-                }
-            }
-        },
-        mod: 'weatherwar',
-    },
-	{
-		name: "[Gen 9] Clubmons: Requiem",
-		mod: 'clubmonsrequiem',
-		desc: `A micrometagame focused on accessibility and teambuilder diversity.`,
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10124271">Clubmons on Smogon Forums</a>`,
-		],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Shed Tail', 'Last Respects', 'Hidden Power', 'Absolite', 'Sablenite'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CM', 'CM (NFE)'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Clubmons.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] CommunityUsed 2: Regional Dex",
-		mod: 'communityused2',
-		desc: `A micrometa that combines secret santa with Generation X.`,
-		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'Z-Move Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
-		teambuilderFormat: 'National Dex',
-		banlist: ['Baton Pass'],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10093481">CU2 on Smogon Forums</a>`,
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['CU2 OU', 'CU2 NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in CommunityUsed 2.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] CU2 Random Battle",
-		desc: `A micrometa that combines secret santa with Generation X.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10093481">CU2 on Smogon Forums</a>`,
-		],
-		mod: 'communityused2',
-		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Cancel Mod'],
-	},
-	{
-		name: "[Gen 9] Conquest Dex",
-		mod: 'conquestdex',
-		desc: `A metagame based on the pokemon side game pokemon conquest`,
-		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'Z-Move Clause', 'Mega Stone Clause'],
-		banlist: ['Arceus', 'Dialga', 'Rayquaza', 'Zekrom', 'Reshiram', 'Mewtwo', 'Groudon'],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9883990">Conquest Dex on Smogon Forums</a>`,
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Conq'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Conquest Dex.'];
-        }
-      }
-    },
 	},
 	{
 		name: "[Gen 2] Crystal Legacy",
