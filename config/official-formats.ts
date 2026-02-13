@@ -287,6 +287,20 @@ export const Formats: FormatList = [
 			this.add('-message', `https://discord.gg/vYdSwRreNd`);
 		},
 	},
+	{
+		name: "[Gen 9] Monoletter",
+		mod: "gen9",
+		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
+		threads: [
+		`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
+		'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
+		'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
+		],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay'],
+		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
+		teambuilderFormat: "National Dex",
+	},
 		{
 		name: "[Gen 3] Orre Colosseum",
 		mod: 'gen3colosseum',

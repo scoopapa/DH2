@@ -5,7 +5,7 @@
 // Imports all formats from their folder, to be used as aliases.
 import { format as AlternatiumEX               } from '../data/mods/alternatiumex/format';
 import { format as Gen533Valuemons             } from '../data/mods/gen5valuemons/format';
-import { format as Abilitypos                  } from '../data/mods/abilitypos/format';
+import { format as AbilityPos                  } from '../data/mods/abilitypos/format';
 import { format as AGoldenExperience           } from '../data/mods/agoldenexperience/format';
 import { format as Alternatium                 } from '../data/mods/alternatium/format';
 import { format as Animemons                   } from '../data/mods/animemons/format';
@@ -51,7 +51,7 @@ import { format as EternalPokemon              } from '../data/mods/eternalpokem
 import { format as evolutionproject            } from '../data/mods/evolutionproject/format';
 import { format as extremereboot               } from '../data/mods/extremereboot/format';
 import { format as fakemonfrontier             } from '../data/mods/fakemonfrontier/format';
-import { format as fecc                        } from '../data/mods/fecc/format';
+import { format as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format';
 import { format as forgottenmons               } from '../data/mods/forgottenmons/format';
 import { format as furfrou                     } from '../data/mods/furfrou/format';
 import { format as BlindsidedA                 } from '../data/mods/g9blindsided/format-group-a';
@@ -197,7 +197,7 @@ import { format as notmytype                   } from '../data/mods/notmytype/fo
 import { format as outheorymons                } from '../data/mods/outheorymons/format';
 import { format as paleomons                   } from '../data/mods/paleomons/format';
 import { format as patratdex                   } from '../data/mods/patratdex/format';
-import { format as placeholder                 } from '../data/mods/placeholder/format';
+// import { format as placeholder                 } from '../data/mods/placeholder/format'; // Placeholder import
 import { format as plza                        } from '../data/mods/plza/format';
 import { format as pokebilities                } from '../data/mods/pokebilities/format';
 import { format as pokebilitiesbanhammers      } from '../data/mods/pokebilitiesbanhammers/format';
@@ -256,27 +256,6 @@ import { format as Woomod                      } from '../data/mods/woomod/forma
 import { format as Worldbuilding               } from '../data/mods/worldbuilding/format';
 // import can't hurt you anymore
 
-// Example tier 
-/*
-	{
-		name: "",
-		mod: '',
-		desc: ``,
-		ruleset: ['Standard', 'Data Mod'],
-		// teambuilderFormat: 'National Dex', (uncomment if your mod is natdex)
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = [''];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in the format.'];
-				}
-			}
-		},
-	},
-*/
-// This goes in mods/yourmod/format.ts
 
 /*
 If you specify a section that already exists, your format will be added to the bottom of that section.
@@ -290,6 +269,9 @@ The column value will be ignored for repeat sections.
 
 export const Formats: FormatList = [
 
+	///////////////////////////////////////////////////////////////
+	////////////////// Pet Mods of the Month //////////////////////
+	///////////////////////////////////////////////////////////////
 	{
 		section: "PMotM",
 		column: 1,
@@ -297,88 +279,31 @@ export const Formats: FormatList = [
 	},
 
 	///////////////////////////////////////////////////////////////
-	///////////////////// Gen 9 Pet Mods //////////////////////////
+	////////////////////// Popular Pet Mods ///////////////////////
 	///////////////////////////////////////////////////////////////
 	{
-		section: "Gen 9 Pet Mods",
+		section: "Popular Right Now",
 		column: 1,
-		// name: "gen9petmods",
+		// name: "popularpetmods",
 	},
+
+	FusionEvoCorruptCouncil,
+
+	///////////////////////////////////////////////////////////////
+	///////////////// Monster Hunter Solomod //////////////////////
+	///////////////////////////////////////////////////////////////
+	{
+		section: "Monster Hunter",
+		column: 2,
+	},
+
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////
 	{
 		section: "Gen 8 Pet Mods",
-		column: 1,
+		column: 2,
 		// name: "gen8petmods",
-	},
-	{
-		name: "[Gen 8] Abilitypos",
-		desc: `<b>Abilitypos</b>: In this Pet Mod, your goal is to take an ability and change a few letters in its name to make it brand new. `,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/abilitypos-slate-3-keen-eye-clear-body-and-inner-focus.3703365/">Abilitypos on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1B2LTJv_UnAG_vDGlmyyA00qL6KcY2aFkZ6NCixbdpmU/edit#gid=1595974891">Spreadsheet</a>`,
-		],
-		ruleset: ['Standard NatDex'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Sceptile', 'Charizard', 'Inteleon', 'Lanturn', 'Larvesta', 'Aggron', 'Sableye', 'Carbink', 'Entei', 'Hatterene', 'Raticate-Alola', 'Lapras'],
-		mod: "abilitypos",
-	},
-	{
-		name: "[Gen 8] Alternatium",
-		desc: `<b>Alternatium</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/alternatium-slate-7-slow-twins-slate-also-vote-in-poll.3683767/">Alternatium on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'alternatium',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause'],
-		banlist: ['All Pokemon', 'Slowbronite', 'Red Orb', 'Blue Orb'],
-		unbanlist: [
-					'Silvally', 'Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost',
-					'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water', 'Pikachu', 'Pikachu-Rock-Star',
-					'Pikachu-Belle', 'Pikachu-Idol', 'Pikachu-PhD', 'Pikachu-Libre', 'Pikachu-Partner', 'Pikachu-Starter', 'Darmanitan', 'Darmanitan-Zen', 'Darmanitan-Galar', 'Darmanitan-Galar-Zen',
-					'Aegishield', 'Aegislash', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Rotom', 'Rotom-Heat', 'Rotom-Wash', 'Rotom-Frost', 'Rotom-Fan', 'Rotom-Mow', 'Dugtrio',
-					'Dugtrio-Alola', 'Muk', 'Muk-Oilslick', 'Slowbro', 'Slowbro-Galar', 'Slowking', 'Slowking-Galar', 'Tornadus', 'Cummulus', 'Thundurus', 'Thundurus-Therian', 'Landorus', 'Landorus-Bengal',
-					'Vivillon-Fancy', 'Vivillon-Spirit', 'Vivillon-Combat', 'Genesect', 'Genesect-Douse', 'Genesect-Molten', 'Genesect-Freezer', 'Genesect-Type-Delta', 'Groudon', 'Groudon-Primal', 'Kyogre',
-					'Kyogre-Primal', 'Deoxys-Wood', 'Deoxys-Gem', 'Deoxys-Tank', 'Deoxys-Speed', 'Sandslash-Lustrous', 'Sandslash-Alola', 'Ninetales-Steamwork', 'Ninetales-Alola', 'Giratina', 'Giratina-Shadow',
-					'Eternatus', 'Manustorm', 'Exeggutor', 'Exeggutor-Lighthouse', 'Weezing', 'Weezing-King', 'Raticate', 'Raticate-Alola', 'Linoone', 'Linoone-Punk', 'Castform', 'Castform-Firestorm',
-					'Castform-Thunderstorm', 'Castform-Snowy', 'Wormadam', 'Wormadam-Sandy', 'Fibormadam', 'Farfetch\u2019d', 'Farfetch\u2019d-Galar', 'Corsola', 'Corsoul', 'Shaymin', 'Shaymin-Sky', 'Keldeo',
-					'Swordeo', 'Meloetta', 'Meloetta-Fighter', 'Lycanday', 'Lycanroc-Spectre', 'Lycanroc-Dusk', 'Gourgeist', 'Gourgeist-Fae', 'Gourgeist-Pulpy', 'Supergeist', 'Cramorant', 'Cramorant-Swimmer',
-					'Cramorant-Gorging', 'Eiscue', 'Eiscue-Noice', 'Mimikyu', 'Mimikyu-Sparkstone', 'Morpeko-Marsh', 'Morvilant', 'Zygarde-Wyrm', 'Zygarde-Canid', 'Zygarde-Goliath',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (speciesTable[template.id]) {
-					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.id + "."];
-				}
-				speciesTable[template.id] = true;
-			}
-		},
-	},
-	{
-		name: "[Gen 8] Black Market",
-		mod: "blackmarket",
-		desc: [
-			`<b>Black Market</b>: A Pet Mod where users build Fakemon over the span of a tournament.`
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/tournament-black-market-starting-phase.3704607/">Black Market on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10BkMc61hCnfEc6XpjozDrQ20zMVAt5rArlvjsCENR7I/edit#gid=0">Spreadsheet</a>`,
-		],
-		ruleset: ['Standard NatDex'],
-		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Kyurem'],
-		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga',
-			'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White',
-			'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
-			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'
-		],
 	},
 	{
 		name: "[Gen 8] Bust A Move",
@@ -3982,19 +3907,5 @@ export const Formats: FormatList = [
 		team: 'random',
 		mod: 'gen3ourstb',
 		ruleset: ['Standard', 'Freeze Clause Mod'],
-	},
-	{
-		name: "[Gen 9] Monoletter",
-		mod: "gen9",
-		desc: `A National Dex OU mod where you can only use teams consisting of the same starting letter.`,
-		threads: [
-		`&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/#post-10852356">Smogon Thread</a>`,
-		'&bullet; <a href="https://www.smogon.com/forums/threads/monoletter.3777036/post-10852399">Sample Teams</a>',
-		'&bullet; <a href="https://discord.gg/YqZ67cjbk9">Discord</a>'
-		],
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Letter Rule'],
-		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		unbanlist: ['Yveltal','Walking Wake','Ursaluna-Bloodmoon','Ogerpon-Hearthflame','Urshifu-Single-Strike','Naganadel'],
-		teambuilderFormat: "National Dex",
 	},
 ];
