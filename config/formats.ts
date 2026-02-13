@@ -178,16 +178,16 @@ import { format as moderngen2birds             } from '../data/mods/moderngen2bi
 import { format as moderngen3                  } from '../data/mods/moderngen3/format';
 import { format as moderngen4                  } from '../data/mods/moderngen4/format';
 // Monster Hunter
-import { format as monsterhunterag             } from '../data/mods/monsterhunter/formats/format-ag';
-import { format as monsterhunter               } from '../data/mods/monsterhunter/formats/format-ou';
-import { format as monsterhunteruu             } from '../data/mods/monsterhunter/formats/format-uu';
-import { format as monsterhunterru             } from '../data/mods/monsterhunter/formats/format-ru';
-import { format as monsterhunterdubs           } from '../data/mods/monsterhunter/formats/format-doubles';
-import { format as monsterhunterffa            } from '../data/mods/monsterhunter/formats/format-freeforall';
-import { format as monsterhunterffarands       } from '../data/mods/monsterhunter/formats/format-ffarands';
-import { format as monsterhunterdubsrands      } from '../data/mods/monsterhunter/formats/format-randoms-dubs';
-import { format as monsterhuntervgc            } from '../data/mods/monsterhunter/formats/format-vgc';
-import { format as monsterhunterrandoms        } from '../data/mods/monsterhunter/formats/format-randoms';
+import { format as MonsterHunterAG             } from '../data/mods/monsterhunter/formats/format-ag';
+import { format as MonsterHunterOU             } from '../data/mods/monsterhunter/formats/format-ou';
+import { format as MonsterHunterUU             } from '../data/mods/monsterhunter/formats/format-uu';
+import { format as MonsterHunterRU             } from '../data/mods/monsterhunter/formats/format-ru';
+import { format as MonsterHunterDoubles        } from '../data/mods/monsterhunter/formats/format-doubles';
+import { format as MonsterHunterFFA            } from '../data/mods/monsterhunter/formats/format-freeforall';
+import { format as MonsterHunterFFARands       } from '../data/mods/monsterhunter/formats/format-ffarands';
+import { format as MonsterHunterDoublesRands   } from '../data/mods/monsterhunter/formats/format-randoms-dubs';
+import { format as MonsterHunterVGC            } from '../data/mods/monsterhunter/formats/format-vgc';
+import { format as MonsterHunterRandoms        } from '../data/mods/monsterhunter/formats/format-randoms';
 // Enough Monster Hunter
 import { format as monsterhunterousolopliii    } from '../data/mods/monsterhuntersl/format-solopliii';
 // Fuck
@@ -197,7 +197,7 @@ import { format as notmytype                   } from '../data/mods/notmytype/fo
 import { format as outheorymons                } from '../data/mods/outheorymons/format';
 import { format as paleomons                   } from '../data/mods/paleomons/format';
 import { format as patratdex                   } from '../data/mods/patratdex/format';
-// import { format as placeholder                 } from '../data/mods/placeholder/format'; // Placeholder import
+// import { format as placeholder              } from '../data/mods/placeholder/format'; // Placeholder import
 import { format as plza                        } from '../data/mods/plza/format';
 import { format as pokebilities                } from '../data/mods/pokebilities/format';
 import { format as pokebilitiesbanhammers      } from '../data/mods/pokebilitiesbanhammers/format';
