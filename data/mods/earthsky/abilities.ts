@@ -119,7 +119,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gourmand: {
 		onTryHeal(damage, target, source, effect) {
 			if (!effect) return;
-			if ((effect as Item).isBerry || effect.name === 'Berry Juice') return this.chainModify(2);
+			if ((effect as Item).isBerry) return this.chainModify(2);
 		},
 		onChangeBoost(boost, target, source, effect) {
 			if (effect && (effect as Item).isBerry) {
@@ -138,7 +138,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onTryEatItemPriority: -1,
 		onTryEatItem(item, pokemon) {
-			this.add('-activate', pokemon, 'ability: Ripen');
+			this.add('-activate', pokemon, 'ability: Gourmand');
 		},
 		onEatItem(item, pokemon) {
 			const weakenBerries = [
@@ -151,6 +151,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Gourmand",
 		rating: 2,
 		num: 1027,
+		desc: "When this Pokemon eats Berries (including Berry Juice) with numerical attributes, those numbers are doubled. This affects Berries that restore HP or PP, raise stat stages, reduce damage, or damage attackers.",
+		shortDesc: "When this Pokemon eats certain Berries, the effects are doubled.",
 	},
 	heatsink: {
 		onTryHit(target, source, move) {
@@ -986,9 +988,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					}
 				}
 				if(pokemon.abilityState.unownType === 'Exclamation'){//!!!!!: Blows up if it gets hit
-					const kaboom = this.dex.getMove('explosion');
+					const kaboom = this.dex.getActiveMove('explosion');
 					kaboom.willCrit = true;
-					kaboom.ignoreImmunity = {'Normal': true,};
+					kaboom.ignoreImmunity = {};
+					kaboom.ignoreImmunity['Normal'] = true;
 					this.actions.useMove(kaboom, pokemon);
 				}
 			}
@@ -1024,7 +1027,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onResidual(pokemon){
 			if(pokemon.species.baseSpecies === 'Unown' && pokemon.abilityState.unownType === 'Exclamation'){ //!!!!!: Blows up at the end of the turn
-				const kaboom = this.dex.moves.get('explosion');
+				const kaboom = this.dex.getActiveMove('explosion');
 				kaboom.willCrit = true;
 				kaboom.ignoreImmunity = {};
 				kaboom.ignoreImmunity['Normal'] = true;
@@ -2680,8 +2683,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		inherit: true,
 		onTryHeal(damage, target, source, effect) {
 			if (!effect) return;
-			if ((effect as Item).isBerry || effect.name === 'Berry Juice') return this.chainModify(2);
+			if ((effect as Item).isBerry) return this.chainModify(2);
 		},
+		desc: "When this Pokemon eats Berries (including Berry Juice) with numerical attributes, those numbers are doubled. This affects Berries that restore HP or PP, raise stat stages, reduce damage, or damage attackers.",
+		shortDesc: "When this Pokemon eats certain Berries, the effects are doubled.",
 	},
 	rivalry: {
 		inherit: true,

@@ -2520,7 +2520,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		): boolean {
 			// Edit for Earth & Sky - can't be done in mod's files
 			let sourceType: string = "";
-			if(['earthsky','gen9eshorizons'].includes(this.currentMod)){
+			if(this.currentMod === 'earthsky'){
 				if(typeof source !== 'string'){
 					if(source.twoType){
 						return this.getImmunity(source.type, target) && this.getImmunity(source.twoType, target);
@@ -2548,7 +2548,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		): number {
 			// Edit for Earth & Sky - can't be done in mod's files
 			let sourceType: string = "";
-			if(['earthsky','gen9eshorizons'].includes(this.currentMod)){
+			if(this.currentMod === 'earthsky'){
 				if(typeof source !== 'string'){
 					if(source.twoType){
 						return this.getEffectiveness(source.type, target) + this.getEffectiveness(source.twoType, target);

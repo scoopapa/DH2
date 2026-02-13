@@ -3119,7 +3119,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	gigatonhammer: {
 		inherit: true,
-		flags: {metronome: 1, protect: 1, mirror: 1, bludg: 1},
+		flags: {metronome: 1, protect: 1, mirror: 1, bludg: 1, cantusetwice: 1},
 		basePower: 140,
 		contestType: "Tough",
 	},
@@ -4644,7 +4644,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "foeSide",
 		type: "Bug",
 		contestType: "Clever",
-		sideCondition: 'powder',
+		sideCondition: 'blackpowder',
 		condition: {
 			duration: 1,
 			onSideStart(side) {
@@ -6128,7 +6128,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (itemname.endsWith('Tera Shard')) {
 				if (itemname === "Stellar Tera Shard") {
 					if (pokemon.species.baseSpecies === "Terapagos" && pokemon.species.forme === "Stellar") {
-						console.log(this.getBestEffectiveness(pokemon, target));
 						move.type = this.getBestEffectiveness(pokemon, target);
 					}
 				} else {
@@ -7759,6 +7758,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	moongeistbeam: null,
 	supercellslam: null,
+	powder: null,
 	psyblade: null,
 	psychicfangs: null,
 	psyshieldbash: null,

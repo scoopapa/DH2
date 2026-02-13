@@ -641,7 +641,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
+					this.damage(source.baseMaxhp / ((target.hasAbility('ripen') || target.hasAbility('gourmand')) ? 2 : 4), source, target);
 				}
 			}
 		},
@@ -889,7 +889,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
+					this.damage(source.baseMaxhp / ((target.hasAbility('ripen') || target.hasAbility('gourmand')) ? 2 : 4), source, target);
 				}
 			}
 		},
@@ -950,10 +950,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 0,
 			flags: {powder: 1},
-			sideCondition: 'powder',
+			sideCondition: 'blackpowder',
 		},
-		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
-		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
+		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Black Powder to the target's side, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
+		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Black Powder when Flung.",
 	},
 	snowball: {
 		inherit: true,
@@ -1389,7 +1389,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1862,
 		gen: 9,
 		rating: -1,
-		shortDesc: "If held by a Terapagos, Tera Shift will transform it into its Stellar Form.",
+		shortDesc: "If held by Terapagos, Tera Shift transforms into Stellar, Tera Blast is best effectiveness.",
 	},
 	/* Items edited as part of other elements */
 	blueorb: {
@@ -2858,6 +2858,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	berryjuice: {
 		inherit: true,
+		isBerry: true,
 		consumable: true,
 		rating: 1,
 	},

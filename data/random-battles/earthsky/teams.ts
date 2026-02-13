@@ -2,7 +2,7 @@ import {Dex, toID} from '../../../sim/dex';
 import {Utils} from '../../../lib';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {RuleTable} from '../../../sim/dex-formats';
-import {Tags} from './tags';
+import {Tags} from '../../tags';
 
 export interface TeamData {
 	typeCount: {[k: string]: number};
@@ -253,7 +253,7 @@ export class RandomTeams {
 			Grass: (movePool, moves, abilities, types, counter, species) => (
 				!counter.get('Grass') && (
 					movePool.includes('leafstorm') || species.baseStats.atk >= 100 ||
-					types.includes('Electric') || abilities.has('Seed Sower')
+					types.includes('Electric') || abilities.includes('Seed Sower')
 				)
 			),
 			Ground: (movePool, moves, abilities, types, counter) => !counter.get('Ground'),
@@ -267,9 +267,9 @@ export class RandomTeams {
 			},
 			Psychic: (movePool, moves, abilities, types, counter, species, teamDetails, isLead, isDoubles) => {
 				if (counter.get('Psychic')) return false;
-				if (movePool.includes('calmmind') || abilities.has('Strong Jaw')) return true;
+				if (movePool.includes('calmmind') || abilities.includes('Strong Jaw')) return true;
 				if (isDoubles && movePool.includes('psychicfangs')) return true;
-				return abilities.has('Psychic Surge') || ['Electric', 'Fighting', 'Fire', 'Grass', 'Poison'].some(m => types.includes(m));
+				return abilities.includes('Psychic Surge') || ['Electric', 'Fighting', 'Fire', 'Grass', 'Poison'].some(m => types.includes(m));
 			},
 			Rock: (movePool, moves, abilities, types, counter, species) => !counter.get('Rock') && species.baseStats.atk >= 80,
 			Steel: (movePool, moves, abilities, types, counter, species, teamDetails, isLead, isDoubles) => (
@@ -422,7 +422,7 @@ export class RandomTeams {
 			const move = this.dex.moves.get(moveid);
 
 			const moveType = this.getMoveType(move, species, abilities);
-			if (move.damage || move.damageCallback|| moveid === 'equalizer') {
+			if (move.damage || move.damageCallback || moveid === 'equalizer') {
 				// Moves that do a set amount of damage:
 				counter.add('damage');
 				counter.damagingMoves.add(move);
@@ -492,7 +492,28 @@ export class RandomTeams {
 		isDoubles: boolean,
 		role: RandomTeamsTypes.Role,
 	): void {
+		// Start by culling more than one Hidden Power
+		let hasHiddenPower = false;
+		for (const move of moves) {
+			if (move.startsWith('hiddenpower')) hasHiddenPower = true;
+		}
+		if (hasHiddenPower) {
+			let movePoolHasHiddenPower = true;
+			while (movePoolHasHiddenPower) {
+				movePoolHasHiddenPower = false;
+				for (const moveid of movePool) {
+					if (moveid.startsWith('hiddenpower')) {
+						this.fastPop(movePool, movePool.indexOf(moveid));
+						movePoolHasHiddenPower = true;
+						break;
+					}
+				}
+			}
+		}
+		
+		//Now if there's enough space, don't cull
 		if (moves.size + movePool.length <= this.maxMoveCount) return;
+		
 		// If we have two unfilled moves and only one unpaired move, cull the unpaired move.
 		if (moves.size === this.maxMoveCount - 2) {
 			const unpairedMoves = [...movePool];
@@ -549,6 +570,22 @@ export class RandomTeams {
 			if (movePool.includes('spikes')) this.fastPop(movePool, movePool.indexOf('spikes'));
 			if (moves.size + movePool.length <= this.maxMoveCount) return;
 		}
+		if (teamDetails.rain) {
+			if (movePool.includes('raindance')) this.fastPop(movePool, movePool.indexOf('raindance'));
+			if (moves.size + movePool.length <= this.maxMoveCount) return;
+		}
+		if (teamDetails.sun) {
+			if (movePool.includes('sunnyday')) this.fastPop(movePool, movePool.indexOf('sunnyday'));
+			if (moves.size + movePool.length <= this.maxMoveCount) return;
+		}
+		if (teamDetails.sand) {
+			if (movePool.includes('sandstorm')) this.fastPop(movePool, movePool.indexOf('sandstorm'));
+			if (moves.size + movePool.length <= this.maxMoveCount) return;
+		}
+		if (teamDetails.snow) {
+			if (movePool.includes('snowscape')) this.fastPop(movePool, movePool.indexOf('snowscape'));
+			if (moves.size + movePool.length <= this.maxMoveCount) return;
+		}
 
 		if (isDoubles) {
 			const doublesIncompatiblePairs = [
@@ -582,6 +619,7 @@ export class RandomTeams {
 		const incompatiblePairs = [
 			// These moves don't mesh well with other aspects of the set
 			[statusMoves, ['healingwish', 'switcheroo', 'trick']],
+			[FIELD_MOVES, FIELD_MOVES],
 			[SETUP, PIVOT_MOVES],
 			[SETUP, HAZARDS],
 			[SETUP, ['defog', 'nuzzle', 'toxic', 'waterspout', 'yawn', 'haze']],
@@ -644,7 +682,7 @@ export class RandomTeams {
 
 		if (!types.includes('Dark')) this.incompatibleMoves(moves, movePool, 'knockoff', 'suckerpunch');
 
-		if (!abilities.has('Prankster')) this.incompatibleMoves(moves, movePool, 'thunderwave', 'yawn');
+		if (!abilities.includes('Prankster')) this.incompatibleMoves(moves, movePool, 'thunderwave', 'yawn');
 
 		// This space reserved for assorted hardcodes that otherwise make little sense out of context
 		if (species.baseSpecies === 'Dudunsparce') this.incompatibleMoves(moves, movePool, 'earthpower', 'shadowball');
@@ -718,10 +756,10 @@ export class RandomTeams {
 
 		const moveType = move.type;
 		if (moveType === 'Normal') {
-			if (abilities.has('Aerilate')) return 'Flying';
-			if (abilities.has('Galvanize')) return 'Electric';
-			if (abilities.has('Pixilate')) return 'Fairy';
-			if (abilities.has('Refrigerate')) return 'Ice';
+			if (abilities.includes('Aerilate')) return 'Flying';
+			if (abilities.includes('Galvanize')) return 'Electric';
+			if (abilities.includes('Pixilate')) return 'Fairy';
+			if (abilities.includes('Refrigerate')) return 'Ice';
 		}
 		return moveType;
 	}
@@ -764,8 +802,8 @@ export class RandomTeams {
 
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
-		// Enforce Facade if Guts is a possible ability
-		if (movePool.includes('facade') && abilities.has('Guts')) {
+		// Enforce Facade if Guts is a possible Ability
+		if (movePool.includes('facade') && abilities.includes('Guts')) {
 			counter = this.addMove('facade', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 				movePool, role);
 		}
@@ -831,12 +869,12 @@ export class RandomTeams {
 					movePool, role);
 			}
 			// Enforce Tailwind on Prankster and Gale Wings users
-			if (movePool.includes('tailwind') && (abilities.has('Prankster') || abilities.has('Gale Wings'))) {
+			if (movePool.includes('tailwind') && (abilities.includes('Prankster') || abilities.includes('Gale Wings'))) {
 				counter = this.addMove('tailwind', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, role);
 			}
 			// Enforce Thunder Wave on Prankster users as well
-			if (movePool.includes('thunderwave') && abilities.has('Prankster')) {
+			if (movePool.includes('thunderwave') && abilities.includes('Prankster')) {
 				counter = this.addMove('thunderwave', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, role);
 			}
@@ -914,6 +952,42 @@ export class RandomTeams {
 
 		// Enforce setup
 		if (role.includes('Setup')) {
+			if (movePool.includes('focusenergy') && abilities.includes('Sniper')) {
+				counter = this.addMove('focusenergy', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (!teamDetails.rain && movePool.includes('raindance') && abilities.filter(ability => ['Swift Swim', 'Rain Dish', 'Dry Skin', 'Hydration'].includes(ability)).length > 0) {
+				counter = this.addMove('raindance', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (!teamDetails.sun && movePool.includes('sunnyday') && abilities.filter(ability => ['Chlorophyll', 'Leaf Guard', 'Solar Power', 'Harvest', 'Flower Gift'].includes(ability)).length > 0) {
+				counter = this.addMove('sunnyday', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (!teamDetails.sand && movePool.includes('sandstorm') && abilities.filter(ability => ['Sand Rush', 'Sand Force', 'Sand Veil'].includes(ability)).length > 0) {
+				counter = this.addMove('sandstorm', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (!teamDetails.snow && movePool.includes('snowscape') && abilities.filter(ability => ['Snow Plow', 'Ice Body', 'Snow Cloak', 'Ice Breaker'].includes(ability)).length > 0) {
+				counter = this.addMove('snowscape', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (movePool.includes('electricterrain') && abilities.filter(ability => ['Surge Surfer', 'Quark Drive', 'Mimicry'].includes(ability)).length > 0) {
+				counter = this.addMove('electricterrain', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (movePool.includes('grassyterrain') && abilities.filter(ability => ['Grass Pelt', 'Mimicry'].includes(ability)).length > 0) {
+				counter = this.addMove('grassyterrain', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (movePool.includes('mistyterrain') && abilities.filter(ability => ['Misty Shroud', 'Mimicry'].includes(ability)).length > 0) {
+				counter = this.addMove('mistyterrain', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
+			if (movePool.includes('midnight') && abilities.filter(ability => ['Night Walker', 'Insomnia'].includes(ability)).length > 0) {
+				counter = this.addMove('midnight', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, role);
+			}
 			// First, try to add a non-Speed setup move
 			const nonSpeedSetupMoves = movePool.filter(moveid => SETUP.includes(moveid) && !SPEED_SETUP.includes(moveid));
 			if (nonSpeedSetupMoves.length) {
@@ -1047,14 +1121,14 @@ export class RandomTeams {
 		case 'Compound Eyes': case 'No Guard':
 			return !counter.get('inaccurate');
 		case 'Cursed Body':
-			return abilities.has('Infiltrator');
+			return abilities.includes('Infiltrator');
 		case 'Defiant':
-			return (!counter.get('Physical') || (abilities.has('Prankster') && (moves.has('thunderwave') || moves.has('taunt'))));
+			return (!counter.get('Physical') || (abilities.includes('Prankster') && (moves.has('thunderwave') || moves.has('taunt'))));
 		case 'Flame Body':
 			return (species.id === 'magcargo' && moves.has('shellsmash'));
 		case 'Flash Fire':
 			return (
-				['Drought', 'Flame Body', 'Intimidate', 'Rock Head', 'Weak Armor'].some(m => abilities.has(m)) &&
+				['Drought', 'Flame Body', 'Intimidate', 'Rock Head', 'Weak Armor'].some(m => abilities.includes(m)) &&
 				this.dex.getEffectiveness('Fire', species) < 0
 			);
 		case 'Guts':
@@ -1065,13 +1139,13 @@ export class RandomTeams {
 		case 'Immunity': case 'Overcoat':
 			return types.includes('Grass');
 		case 'Infiltrator':
-			return (isDoubles && abilities.has('Clear Body'));
+			return (isDoubles && abilities.includes('Clear Body'));
 		case 'Insomnia':
 			return role === 'Wallbreaker' || !moves.has('midnight');
 		case 'Intimidate':
-			if (abilities.has('Hustle')) return true;
-			if (abilities.has('Sheer Force') && !!counter.get('sheerforce')) return true;
-			return (abilities.has('Stakeout'));
+			if (abilities.includes('Hustle')) return true;
+			if (abilities.includes('Sheer Force') && !!counter.get('sheerforce')) return true;
+			return (abilities.includes('Stakeout'));
 		case 'Iron Fist':
 			return !counter.ironFist || moves.has('dynamicpunch');
 		case 'Justified':
@@ -1079,7 +1153,7 @@ export class RandomTeams {
 		case 'Lightning Rod':
 			return species.id === 'rhyperior';
 		case 'Mold Breaker':
-			return (['Pickpocket', 'Sharpness', 'Sheer Force', 'Unburden'].some(m => abilities.has(m)));
+			return (['Pickpocket', 'Sharpness', 'Sheer Force', 'Unburden'].some(m => abilities.includes(m)));
 		case 'Moxie':
 			return (!counter.get('Physical') || moves.has('stealthrock'));
 		case 'Natural Cure':
@@ -1108,7 +1182,7 @@ export class RandomTeams {
 			return role === 'Bulky Support';
 		case 'Sheer Force':
 			const braviaryCase = (species.id === 'braviaryhisui' && (role === 'Wallbreaker' || role === 'Bulky Protect'));
-			const abilitiesCase = (abilities.has('Guts') || abilities.has('Sharpness'));
+			const abilitiesCase = (abilities.includes('Guts') || abilities.includes('Sharpness'));
 			const movesCase = (moves.has('bellydrum') || moves.has('flamecharge'));
 			return (!counter.get('sheerforce') || braviaryCase || abilitiesCase || movesCase);
 		case 'Snow Plow':
@@ -1124,23 +1198,23 @@ export class RandomTeams {
 		case 'Swarm':
 			return (!counter.get('Bug') || !!counter.get('recovery'));
 		case 'Swift Swim':
-			return (abilities.has('Intimidate') || (!moves.has('raindance') && !teamDetails.rain));
+			return (abilities.includes('Intimidate') || (!moves.has('raindance') && !teamDetails.rain));
 		case 'Synchronize':
 			return (species.id !== 'umbreon' && species.id !== 'rabsca');
 		case 'Technician':
-			return (!counter.get('technician') || abilities.has('Cacophony') || abilities.has('Fur Coat'));
+			return (!counter.get('technician') || abilities.includes('Cacophony') || abilities.includes('Fur Coat'));
 		case 'Tinted Lens':
 			const yanmegaCase = (species.id === 'yanmega' && moves.has('protect'));
 			return (yanmegaCase || species.id === 'illumise');
 		case 'Unaware':
 			return (species.id === 'clefable' && role !== 'Bulky Support');
 		case 'Unburden':
-			return (abilities.has('Prankster') || !counter.get('setup') || species.id === 'sceptile');
+			return (abilities.includes('Prankster') || !counter.get('setup') || species.id === 'sceptile');
 		case 'Vital Spirit':
 			// Magmar and Electabuzz want their contact status abilities in Doubles
 			return (species.nfe && isDoubles);
 		case 'Volt Absorb':
-			if (abilities.has('Iron Fist') && counter.ironFist >= 2) return true;
+			if (abilities.includes('Iron Fist') && counter.ironFist >= 2) return true;
 			return (this.dex.getEffectiveness('Electric', species) < -1);
 		case 'Water Absorb':
 			return (['lanturn', 'politoed', 'quagsire'].includes(species.id) || moves.has('raindance'));
@@ -1155,7 +1229,7 @@ export class RandomTeams {
 	getAbility(
 		types: string[],
 		moves: Set<string>,
-		abilities: Set<string>,
+		abilities: string[],
 		counter: MoveCounter,
 		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
@@ -1163,53 +1237,7 @@ export class RandomTeams {
 		isDoubles: boolean,
 		role: RandomTeamsTypes.Role,
 	): string {
-		if (species.battleOnly && !species.requiredAbility) {
-			abilities = new Set(Object.values(this.dex.species.get(species.battleOnly as string).abilities));
-		}
-		const abilityData = Array.from(abilities).map(a => this.dex.abilities.get(a));
-		Utils.sortBy(abilityData, abil => -abil.rating);
-
-		if (abilityData.length <= 1) return abilityData[0].name;
-
-		// Hard-code abilities here
-		if (species.id === 'florges') return 'Flower Veil';
-		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Big Pecks';
-		if (species.id === 'scovillain') return 'Chlorophyll';
-		if (species.id === 'empoleon') return 'Competitive';
-		if (species.id === 'swampert' && !counter.get('Water')) return 'Damp';
-		if (species.id === 'dodrio') return 'Early Bird';
-		if (species.id === 'chandelure') return 'Flash Fire';
-		if (species.id === 'golemalola' && (moves.has('doubleedge') || moves.has('rapidspin'))) return 'Galvanize';
-		if (abilities.has('Guts') && (moves.has('facade') || moves.has('sleeptalk') || species.id === 'gurdurr')) return 'Guts';
-		if (species.id === 'copperajah' && moves.has('heavyslam')) return 'Heavy Metal';
-		if (species.id === 'jumpluff') return 'Infiltrator';
-		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Keen Eye';
-		if (species.id === 'reuniclus') return moves.has('psybubble') ? 'Regenerator' : 'Magic Guard';
-		if (species.id === 'smeargle' && !counter.get('technician')) return 'Own Tempo';
-		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
-		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
-		if (species.id === 'zebstrika') return (moves.has('volttackle')) ? 'Sap Sipper' : 'Lightning Rod';
-		if (species.id === 'scrafty' && moves.has('rest')) return 'Shed Skin';
-		if (species.id === 'cetitan' && (role === 'Wallbreaker' || isDoubles)) return 'Sheer Force';
-		if (species.id === 'dipplin') return 'Sticky Hold';
-		if (species.id === 'breloom') return 'Technician';
-		if (species.id === 'shiftry' && moves.has('tailwind')) return 'Wind Rider';
-		if (species.id === 'talonflame') return 'Gale Wings';
-
-		// singles
-		if (!isDoubles) {
-			if (species.id === 'hypno') return 'Insomnia';
-			if (species.id === 'staraptor') return 'Reckless';
-			if (species.id === 'arcaninehisui') return 'Rock Head';
-			if (['suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
-			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
-			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Berserk';
-			if (abilities.has('Harvest') && (moves.has('protect') || moves.has('substitute'))) return 'Harvest';
-			if (abilities.has('Serene Grace') && moves.has('headbutt')) return 'Serene Grace';
-			if (abilities.has('Own Tempo') && moves.has('petaldance')) return 'Own Tempo';
-			if (abilities.has('Snow Plow') && moves.has('snowscape')) return 'Snow Plow';
-			if (abilities.has('Soundproof') && (moves.has('substitute') || counter.get('setup'))) return 'Soundproof';
-		}
+		if (abilities.length <= 1) return abilities[0];
 
 		// doubles, multi, and ffa
 		if (isDoubles) {
@@ -1218,11 +1246,12 @@ export class RandomTeams {
 			if (species.id === 'altaria') return 'Cloud Nine';
 			if (species.id === 'meowsticf') return 'Competitive';
 			if (species.id === 'armarouge' && !moves.has('meteorbeam')) return 'Flash Fire';
+			if (species.id === 'cetitan') return 'Sheer Force';
 			if (
 				['oinkologne', 'oinkolognef', 'snorlax', 'swalot'].includes(species.id) && role !== 'Doubles Wallbreaker'
 			) return 'Gluttony';
 			if (species.id === 'conkeldurr' && role === 'Doubles Wallbreaker') return 'Guts';
-			if (species.id !== 'arboliva' && abilities.has('Harvest')) return 'Harvest';
+			if (species.id !== 'arboliva' && abilities.includes('Harvest')) return 'Harvest';
 			if (species.id === 'dragonite' || species.id === 'lucario') return 'Inner Focus';
 			if (species.id === 'ariados') return 'Insomnia';
 			if (species.id === 'primarina') return 'Liquid Voice';
@@ -1234,7 +1263,7 @@ export class RandomTeams {
 			if (species.id === 'magnezone') return 'Sturdy';
 			if (species.id === 'clefable' && role === 'Doubles Support') return 'Unaware';
 			if (['drifblim', 'hitmonlee', 'sceptile'].includes(species.id)) return 'Unburden';
-			if (abilities.has('Intimidate')) return 'Intimidate';
+			if (abilities.includes('Intimidate')) return 'Intimidate';
 
 			// just doubles and multi
 			if (this.format.gameType !== 'freeforall') {
@@ -1242,14 +1271,16 @@ export class RandomTeams {
 					species.id === 'clefairy' ||
 					(species.baseSpecies === 'Maushold' && role === 'Doubles Support')
 				) return 'Friend Guard';
-				if (abilities.has('Healer')) return 'Healer';
-				if (abilities.has('Hospitality')) return 'Hospitality';
-				if (species.id === 'duraludon') return 'Stalwart';
-				if (species.id === 'barraskewda') return 'Against Current';
-				if (species.id === 'oranguru' || abilities.has('Pressure') && abilities.has('Telepathy')) return 'Telepathy';
+				if (abilities.includes('Healer')) return 'Healer';
+				if (abilities.includes('Hospitality')) return 'Hospitality';
+				if (abilities.includes('Against Current')) return 'Against Current';
+				if (abilities.includes('Stalwart')) return 'Stalwart';
+				if (species.id === 'oranguru' || abilities.includes('Pressure') && abilities.includes('Telepathy')) return 'Telepathy';
 			}
 		}
 
+		const abilityData = Array.from(abilities).map(a => this.dex.abilities.get(a));
+		Utils.sortBy(abilityData, abil => -abil.rating);
 		let abilityAllowed: Ability[] = [];
 		// Obtain a list of abilities that are allowed (not culled)
 		for (const ability of abilityData) {
@@ -1318,9 +1349,6 @@ export class RandomTeams {
 			}
 		}
 		if (species.requiredItems) {
-			if (species.baseSpecies === 'Arceus') {
-				return species.requiredItems[0];
-			}
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
@@ -1341,7 +1369,7 @@ export class RandomTeams {
 		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
-			['Cheek Pouch', 'Harvest', 'Ripen'].some(m => ability === m) ||
+			['Cheek Pouch', 'Harvest', 'Ripen', 'Gourmand'].some(m => ability === m) ||
 			moves.has('bellydrum') || moves.has('filletaway')
 		) {
 			return 'Sitrus Berry';
@@ -1361,20 +1389,19 @@ export class RandomTeams {
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
 			return types.includes('Fire') ? 'Toxic Orb' : 'Flame Orb';
 		}
+		if (ability === 'Sniper' && role === 'Setup Sweeper') return this.randomChance(1,2) ? 'Scope Lens' : 'Razor Claw';
 		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
 		if (species.id === 'twintura') return 'Protective Pads';
 		if (species.nfe) return 'Eviolite';
 		if (moves.has('courtchange')) return 'Heavy-Duty Boots';
 		if (moves.has('populationbomb')) return 'Wide Lens';
-		if ((species.id === 'ambipom' && role !== 'Wallbreaker')) return 'Loaded Dice';
-		if (ability === 'Unburden') {
-			if (types.includes('Flying')) return 'Flying Gem';
-			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
-		}
-		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
-		if (moves.has('meteorbeam')) return 'Power Herb';
-		if (['flareblitz', 'headsmash', 'wavecrash', 'woodhammer', 'volttackle'].some(m => moves.has(m)) && ability !== 'Rock Head') return 'Protector';
+		if (moves.has('midnight')) return 'Cursed Jewel';
+		if (species.id === 'ambipom' && role !== 'Wallbreaker') return 'Loaded Dice';
+		if (species.id === 'genesect' && moves.has('technoblast')) return 'Douse Drive';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return 'Flying Gem';
+		if (ability === 'Unburden') return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
+		if (moves.has('shellsmash') && ability !== 'Weak Armor' && ability !== 'White Smoke') return 'White Herb';
+		if (moves.has('meteorbeam')) return 'Power Herb';
 		if (moves.has('auroraveil') || (moves.has('lightscreen') && moves.has('reflect'))) return 'Light Clay';
 		//if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
 		if (
@@ -1413,7 +1440,7 @@ export class RandomTeams {
 		if (
 			moves.has('aquajet') && moves.has('protect') && (moves.has('liquidation') || (moves.has('wavecrash') || moves.has('crabhammer')))
 		) return 'Mystic Water';
-		if (moves.has('dragondance') || mvoes.has('sharpen')) return 'Clear Amulet';
+		if (moves.has('dragondance') || moves.has('sharpen')) return 'Clear Amulet';
 		if (moves.has('waterspout')) return 'Choice Scarf';
 		if (counter.get('speedsetup') && role === 'Doubles Bulky Setup') return 'Weakness Policy';
 		if (species.id === 'toxapex') return 'Binding Band';
@@ -1507,7 +1534,7 @@ export class RandomTeams {
 		if (counter.get('speedsetup') && role === 'Bulky Setup') return 'Weakness Policy';
 		if (
 			!counter.get('Status') &&
-			(moves.has('rapidspin') || !['Fast Attacker', 'Wallbreaker',].includes(role))
+			(moves.has('rapidspin') || !['Fast Attacker', 'Wallbreaker'].includes(role))
 		) {
 			return 'Assault Vest';
 		}
@@ -1531,7 +1558,9 @@ export class RandomTeams {
 				(species.baseStats.hp + species.baseStats.def) >= 180 && this.randomChance(1, 2)
 			)
 		) return 'Rocky Helmet';
-		if (moves.has('outrage')) return 'Lum Berry';
+		if (ability !== 'Rock Head' && ['bravebird', 'doubleedge', 'flareblitz', 'headsmash', 'wavecrash', 'woodhammer', 'volttackle'].some(m => moves.has(m))) return 'Protector';
+		if (ability !== 'Own Tempo' && ['petaldance', 'outrage', 'thrash'].some(m => moves.has(m))) return 'Lum Berry';
+		if (moves.has('revivalblessing')) return 'Hopo Berry';
 		if (moves.has('protect')) return 'Leftovers';
 		if (
 			role === 'Fast Support' && isLead &&
@@ -1542,8 +1571,12 @@ export class RandomTeams {
 			!['Fast Attacker', 'Wallbreaker',].includes(role) && ability !== 'Levitate' &&
 			this.dex.getEffectiveness('Ground', species) >= 2
 		) return 'Air Balloon';
+		if (ability.endsWith('Surge') || ['electricterrain', 'grassyterrain', 'psychicterrain', 'mistyterrain'].some(m => moves.has(m))) return 'Terrain Extender';
+		if (ability === 'Drizzle' || moves.has('raindance')) return 'Damp Rock';
+		if (ability === 'Drought' || moves.has('raindance')) return 'Heat Rock';
+		if (ability === 'Sand Stream' || moves.has('raindance')) return 'Smooth Rock';
+		if (ability === 'Snow Warning' || moves.has('raindance')) return 'Icy Rock';
 		if (['Bulky Attacker', 'Bulky Support', 'Bulky Setup'].some(m => role === (m))) return 'Leftovers';
-		if (species.id === 'pawmot' && moves.has('nuzzle')) return 'Hopo Berry';
 		if (
 			['Fast Bulky Setup', 'Fast Attacker', 'Setup Sweeper', 'Wallbreaker'].some(m => role === m) &&
 			types.includes('Dark') && moves.has('suckerpunch') && !PRIORITY_POKEMON.includes(species.id) &&
@@ -1566,8 +1599,9 @@ export class RandomTeams {
 		moves: Set<string>,
 		itemList: string[],
 		species: Species,
+		role: RandomTeamsTypes.Role,
 	): string {
-		if (item.startsWith('Choice') || ATTACK_ITEM_ORDER.includes(item)) {
+		if (item.startsWith('Choice') || ['Protector', 'Booster Energy'].includes(item) || (item === 'Heavy-Duty Boots' && role.indexOf('Bulky') === -1) || ATTACK_ITEM_ORDER.includes(item)) {
 			for (const nextItem of ATTACK_ITEM_ORDER) {
 				if (itemList.includes(nextItem)) continue;
 				switch (nextItem) {
@@ -1575,14 +1609,11 @@ export class RandomTeams {
 					case 'Type-Raise Item':
 						// Gather types with moves that can be boosted in the order of: user's types, preferredTypes in the set, other attacking moves
 						let pickedTypes = [];
-						console.log("Type Gem flag");
-						console.log([...moves]);
 						let attackTypes = [];
 						for (const m of [...moves]) {
 							const move = this.dex.moves.get(m);
 							if (move.category !== 'Status') attackTypes.push(move.type);
 						}
-						console.log(attackTypes);
 						attackTypes = attackTypes.filter((m) => m !== null);
 						//User's types
 						for (const type of types) {
@@ -1598,12 +1629,18 @@ export class RandomTeams {
 						if(!pickedTypes.length) pickedType = attackTypes;
 						//Search for an available item for any of these types
 						for(const type of pickedTypes){
-							item = (item === 'Gem' ? (type + ' Gem') : TYPE_BOOST_ITEMS[type]);
+							item = (nextItem === 'Gem' ? (type + ' Gem') : TYPE_BOOST_ITEMS[type]);
 							if (!itemList.includes(item)) break;
 						}
 						break;
 					case 'Stat-Raise Item':
-						item = (species.baseStats.atk >= species.baseStats.spa ? 'Muscle Band' : 'Wise Glasses');
+						const atkLean = (counter['Physical'] - counter['Special']);
+						if (atkLean === 0) {
+							item = this.randomChance(1,2) ? 'Muscle Band' : 'Wise Glasses';
+							if (itemList.includes(item)) item = (item === 'Muscle Band') ? 'Wise Glasses' : 'Muscle Band'; //Pick the other one
+						} else {
+							item = atkLean > 0 ? 'Muscle Band' : 'Wise Glasses';
+						}
 						if (itemList.includes(item)) continue;
 						break;
 					default:
@@ -1612,28 +1649,20 @@ export class RandomTeams {
 				break;
 			}
 		}
-		if (SUPPORT_ITEM_ORDER.includes(item)) {
-			for (const nextItem of SUPPORT_ITEM_ORDER) {
-				if (itemList.includes(nextItem)) continue;
-				item = nextItem;
-				break;
-			}
-		}
-		if (item === 'Eviolite' || DEFENSE_ITEM_ORDER.includes(item)) {
+		else if (item === 'Eviolite' || DEFENSE_ITEM_ORDER.includes(item)) {
 			for (const nextItem of DEFENSE_ITEM_ORDER) {
 				if (itemList.includes(nextItem)) continue;
 				switch (nextItem) {
 					case ('Type-Absorb Berry'):
 						//Get all weaknesses
-						console.log("Type Berry flag");
-						let pickedTypes = this.dex.types.all().filter(type => this.dex.getEffectiveness(type, types) > 0 && this.dex.getImmunity(type, types));
-						const doubledTypes = pickedTypes.filter(type => this.dex.getEffectiveness(type, types) === 2);
+						let pickedTypes = this.dex.types.all().filter(type => this.dex.getEffectiveness(type.name, types) > 0 && this.dex.getImmunity(type.name, types));
+						const doubledTypes = pickedTypes.filter(type => this.dex.getEffectiveness(type.name, types) === 2);
 						if (doubledTypes.length) { //Prioritize double-weaknesses
 							pickedTypes = [...doubledTypes, ...pickedTypes];
 						}
 						//Search for an available item for any of these types
 						for(const type of pickedTypes){
-							item = TYPE_ABSORB_BERRIES[type];
+							item = TYPE_ABSORB_BERRIES[type.name];
 							if (!itemList.includes(item)) break;
 						}
 						break;
@@ -1647,9 +1676,17 @@ export class RandomTeams {
 				break;
 			}
 		}
-		if (item === 'Black Sludge' || HEAL_ITEM_ORDER.includes(item)) {
+		else if (['Clear Amulet', 'Air Balloon'].includes(item) || SUPPORT_ITEM_ORDER.includes(item)) {
+			for (const nextItem of SUPPORT_ITEM_ORDER) {
+				if (itemList.includes(nextItem)) continue;
+				item = nextItem;
+				break;
+			}
+		}
+		else if (item === 'Black Sludge' || HEAL_ITEM_ORDER.includes(item)) {
 			for (const nextItem of HEAL_ITEM_ORDER) {
 				if (itemList.includes(nextItem)) continue;
+				if (['Harvest', 'Gluttony', 'Gourmand', 'Ripen'].includes(ability) && !nextItem.endsWith('Berry')) continue; //Ensure Berry-based Abilities keep a Berry
 				if (nextItem === 'Pinch Berry') {
 					//TODO: Assign a nature based on stats; should probably do that for everyone? But it's needed for pinch berries to be useful
 					item = `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
@@ -1705,14 +1742,17 @@ export class RandomTeams {
 		const ruleTable = this.dex.formats.getRuleTable(this.format);
 
 		for (const set of sets) {
+			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
+			const abilities = set.abilities!;
+			if (
+				isLead && (abilities.includes('Protosynthesis') || abilities.includes('Quark Drive')) &&
+				set.role === 'Fast Bulky Setup'
+			) continue;
 			possibleSets.push(set);
 		}
 		let set = this.sampleIfArray(possibleSets);
 		const role = set.role;
-		const movePool: string[] = [];
-		for (const movename of set.movepool) {
-			movePool.push(this.dex.moves.get(movename).id);
-		}
+		const movePool: string[] = Array.from(set.movepool);
 
 		let ability = '';
 		let item = undefined;
@@ -1721,19 +1761,19 @@ export class RandomTeams {
 		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 
 		const types = species.types;
-		const abilities = new Set(Object.values(species.abilities));
+		const abilities = set.abilities;
 
 		// Get moves
 		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, role);
 		const counter = this.queryMoves(moves, species, abilities);
 		if (species.cosmeticFormes) {
-			if (set.requiredForme) {
-				forme = this.sample(set.requiredForme);
+			if (set.requiredFormes) {
+				const chosenForme = this.sample(set.requiredFormes);
+				if (chosenForme !== species.baseForme) forme += "-" + chosenForme;
+			} else {
+				forme = this.sample([species.name].concat(species.cosmeticFormes));
 			}
-			forme = this.sample([species.name].concat(species.cosmeticFormes));
 		}
-		console.log(forme);
-		console.log(set);
 
 		// Get ability
 		ability = this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, role);
@@ -1753,7 +1793,7 @@ export class RandomTeams {
 		}
 		// Go down item ladder if needed for Item Clause
 		if (itemList.includes(item)){
-			item = this.resolveRepeatItem(item, ability, types, moves, itemList, species);
+			item = this.resolveRepeatItem(item, ability, types, moves, itemList, species, role);
 		}
 
 		// Get level
@@ -1781,7 +1821,7 @@ export class RandomTeams {
 		}
 
 		// Prepare optimal HP
-		const srImmunity = types.includes('Rock') || ability === 'Magic Guard' || item === 'Heavy-Duty Boots';
+		const srImmunity = types.includes('Rock') || ability === 'Magic Guard' || ability === 'Limber' || item === 'Heavy-Duty Boots';
 		let srWeakness = srImmunity ? 0 : this.dex.getEffectiveness('Rock', species);
 		// Crash damage move users want an odd HP to survive two misses
 		if (['highjumpkick', 'jumpkick', 'particleslam'].some(m => moves.has(m))) srWeakness = 2;
@@ -1822,14 +1862,18 @@ export class RandomTeams {
 			ivs.spe = (hasHiddenPower && level < 100) ? ivs.spe - 30 : 0;
 		}
 
-		// Ensure Nihilego's Beast Boost gives it Special Attack boosts instead of Special Defense
-		if (forme === 'Nihilego') {
+		// Fix sets for Beast Boost
+		if (forme === 'Nihilego') { //Nihilego gets Special Attack boosts instead of Special Defense
 			while (evs.spd > 1) {
 				const spa = Math.floor(Math.floor(2 * species.baseStats.spa + ivs.spa + Math.floor(evs.spa / 4)) * level / 100 + 5);
 				const spd = Math.floor(Math.floor(2 * species.baseStats.spd + ivs.spd + Math.floor(evs.spd / 4)) * level / 100 + 5);
 				if (spa >= spd) break;
 				evs.spd -= 4;
 			}
+		} else if (forme === 'Stakataka' && role === 'Wallbreaker') { //Offensive Stakataka gets Attack boosts instead of Defense
+			evs.atk = 255;
+			evs.def = 0;
+			ivs.def = 15;
 		}
 		
 		return {
@@ -1838,7 +1882,7 @@ export class RandomTeams {
 			gender: species.gender,
 			shiny: this.randomChance(1, 1024),
 			level,
-			moves,
+			moves: Array.from(moves),
 			ability,
 			evs,
 			ivs,
@@ -1879,7 +1923,7 @@ export class RandomTeams {
 		return [pokemonPool, baseSpeciesPool];
 	}
 
-	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./random-sets.json');
+	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./sets.json');
 	//randomDoublesSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./random-doubles-sets.json');
 
 	randomTeam() {
@@ -1896,8 +1940,7 @@ export class RandomTeams {
 		const type = this.forceMonotype || this.sample(typePool);
 
 		// PotD stuff
-		const usePotD = global.Config && Config.potd && ruleTable.has('potd');
-		const potd = usePotD ? this.dex.species.get(Config.potd) : null;
+		const potd = null;//this.dex.species.get('terapagosterastal');
 
 		const baseFormes: {[k: string]: number} = {};
 		let hasMega = false;
@@ -1914,87 +1957,92 @@ export class RandomTeams {
 
 		let leadsRemaining = this.format.gameType === 'doubles' ? 2 : 1;
 		while (baseSpeciesPool.length && pokemon.length < this.maxTeamSize) {
-			const baseSpecies = this.sampleNoReplace(baseSpeciesPool);
-			const currentSpeciesPool: Species[] = [];
-			// Check if the base species has a mega forme available
-			let canMega = false;
-			for (const poke of pokemonPool) {
-				const species = this.dex.species.get(poke);
-				if (!hasMega && species.baseSpecies === baseSpecies && species.isMega) canMega = true;
+			// First do forced spawns
+			if (pokemon.length === 1 || this.maxTeamSize === 1) { // Highlight Earth & Sky species by forcing one onto every team
+				const species = this.sample(['graecust','helmuana','claymander','spectrat','pealated','utilitron','utilitronboat','utilitroncopter','faerunee','sosphodel','twintura','silvurah','burryrm','scarabouch','ballooffalo','beedive','litholich','runogre','thylone','hektillion','terrazor','freezelk','moorfrost','lemurod','dragobellos','vorplec','lioxin','scrunge','kravokalypse','stegrove','macedon','paraiagon','pyramyth','keelmora','kendono','antarctross','pikeral','pikeralbluestriped','prominoid','deceuceus','fervintill','selervis','helyrion','daemaesthus','apherove','poleboar','pallatinel','jurotera','hatar','zuros','oceides','norphaval',
+				'charvenant','suctlot','amplitune','squawkapo','squawkapoblue','squawkapoyellow','squawkapowhite','ralie','pharoslass','wandruss','mistyplumage','orbiterunit','khatrophys',
+				'eelektrossegelas','noctowlegelas','taurosegelas','miltankegelas','delibirdegelas','rapidashegelas','heatmoregelas','durantegelas','puruglysartori','revavroomschedar','revavroomsegin','revavroomnavi','revavroomruchbah','revavroomcaph','octilleryhassrim','indeedeehassrim','indeedeefhassrim',
+				'butterfreemega','slowkingmega','torkoalmega','miloticmega','electiviremega','magmortarmega','garbodormega','beheeyemmega','sandacondamega','alcremiemega','froslassmega','druddigonmega','raliemega','pharoslassmega']);
 			}
-			for (const poke of pokemonPool) {
-				const species = this.dex.species.get(poke);
-				if (species.baseSpecies === baseSpecies) {
-					// Prevent multiple megas
-					if (hasMega && species.isMega) continue;
-					// Prevent base forme, if a mega is available
-					if (canMega && !species.isMega) continue;
-					currentSpeciesPool.push(species);
+			else if (potd?.exists && pokemon.length === 2) const species = potd; // The Pokemon of the Day
+			else {
+				const baseSpecies = this.sampleNoReplace(baseSpeciesPool);
+				const currentSpeciesPool: Species[] = [];
+				// Check if the base species has a mega forme available
+				let canMega = false;
+				for (const poke of pokemonPool) {
+					const species = this.dex.species.get(poke);
+					if (!hasMega && species.baseSpecies === baseSpecies && species.isMega) canMega = true;
 				}
-			}
-			let species = this.sample(currentSpeciesPool);
-			if (!species.exists) continue;
-
-			// Limit to one of each species (Species Clause)
-			if (baseFormes[species.baseSpecies]) continue;
-
-			// Limit one Mega per team
-			if (hasMega && species.isMega) continue;
-
-			// Illusion shouldn't be on the last slot
-			if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
-
-			const types = species.types;
-			const typeCombo = types.slice().sort().join();
-			const weakToFreezeDry = (
-				this.dex.getEffectiveness('Ice', species) > 0 ||
-				(this.dex.getEffectiveness('Ice', species) > -2 && types.includes('Water'))
-			);
-			// Dynamically scale limits for different team sizes. The default and minimum value is 1.
-			const limitFactor = Math.round(this.maxTeamSize / 6) || 1;
-
-			if (!isMonotype && !this.forceMonotype) {
-				let skip = false;
-
-				// Limit two of any type
-				for (const typeName of types) {
-					if (typeCount[typeName] >= 2 * limitFactor) {
-						skip = true;
-						break;
+				for (const poke of pokemonPool) {
+					const species = this.dex.species.get(poke);
+					if (species.baseSpecies === baseSpecies) {
+						// Prevent multiple megas
+						if (hasMega && species.isMega) continue;
+						// Prevent base forme, if a mega is available
+						if (canMega && !species.isMega) continue;
+						currentSpeciesPool.push(species);
 					}
 				}
-				if (skip) continue;
+				let species = this.sample(currentSpeciesPool);
+				if (!species.exists) continue;
 
-				// Limit three weak to any type
-				for (const typeName of this.dex.types.names()) {
-					// it's weak to the type
-					if (this.dex.getEffectiveness(typeName, species) > 0) {
-						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
-						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
+				// Limit to one of each species (Species Clause)
+				if (baseFormes[species.baseSpecies]) continue;
+
+				// Limit one Mega per team
+				if (hasMega && species.isMega) continue;
+
+				// Illusion shouldn't be on the last slot
+				if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
+
+				const types = species.types;
+				const typeCombo = types.slice().sort().join();
+				const weakToFreezeDry = (
+					this.dex.getEffectiveness('Ice', species) > 0 ||
+					(this.dex.getEffectiveness('Ice', species) > -2 && types.includes('Water'))
+				);
+
+				if (!isMonotype && !this.forceMonotype) {
+					let skip = false;
+
+					// Limit two of any type
+					for (const typeName of types) {
+						if (typeCount[typeName] >= 2) {
 							skip = true;
 							break;
 						}
 					}
-				}
-				if (skip) continue;
+					if (skip) continue;
 
-				// Limit four weak to Freeze-Dry
-				if (weakToFreezeDry) {
-					if (!typeWeaknesses['Freeze-Dry']) typeWeaknesses['Freeze-Dry'] = 0;
-					if (typeWeaknesses['Freeze-Dry'] >= 4 * limitFactor) continue;
+					// Limit three weak to any type
+					for (const typeName of this.dex.types.names()) {
+						// it's weak to the type
+						if (this.dex.getEffectiveness(typeName, species) > 0) {
+							if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
+							if (typeWeaknesses[typeName] >= 3) {
+								skip = true;
+								break;
+							}
+						}
+					}
+					if (skip) continue;
+
+					// Limit four weak to Freeze-Dry
+					if (weakToFreezeDry) {
+						if (!typeWeaknesses['Freeze-Dry']) typeWeaknesses['Freeze-Dry'] = 0;
+						if (typeWeaknesses['Freeze-Dry'] >= 4) continue;
+					}
+
+					// Limit one level 100 Pokemon
+					if (!this.adjustLevel && (this.getLevel(species, isDoubles) === 100) && numMaxLevelPokemon >= 1) {
+						continue;
+					}
 				}
 
-				// Limit one level 100 Pokemon
-				if (!this.adjustLevel && (this.getLevel(species, isDoubles) === 100) && numMaxLevelPokemon >= limitFactor) {
-					continue;
-				}
+				// Limit three of any type combination in Monotype
+				if (!this.forceMonotype && isMonotype && (typeComboCount[typeCombo] >= 3)) continue;
 			}
-
-			// Limit three of any type combination in Monotype
-			if (!this.forceMonotype && isMonotype && (typeComboCount[typeCombo] >= 3 * limitFactor)) continue;
-
-			// The Pokemon of the Day
-			if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 
 			let set: RandomTeamsTypes.RandomSet;
 
@@ -2045,7 +2093,6 @@ export class RandomTeams {
 			if (weakToFreezeDry) typeWeaknesses['Freeze-Dry']++;
 
 			// Increment level 100 counter
-			console.log(set);
 			if (set.level === 100) numMaxLevelPokemon++;
 
 
@@ -2058,7 +2105,7 @@ export class RandomTeams {
 			if (set.ability === 'Drought' || set.ability === 'Orichalcum Pulse' || set.moves.includes('sunnyday')) {
 				teamDetails.sun = 1;
 			}
-			if (set.ability === 'Sand Stream' || set.moves.includes('sandstorm')) teamDetails.sand = 1;
+			if (set.ability === 'Sand Stream' || set.ability === 'Sand Spit' || set.moves.includes('sandstorm')) teamDetails.sand = 1;
 			if (set.ability === 'Snow Warning' || set.moves.includes('snowscape')) {
 				teamDetails.snow = 1;
 			}
@@ -2076,10 +2123,10 @@ export class RandomTeams {
 				teamDetails.screens = 1;
 			}
 		}
-		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) { // large teams sometimes cannot be built
+		if (pokemon.length < this.maxTeamSize) { // large teams sometimes cannot be built
 			throw new Error(`Could not build a random team for ${this.format} (seed=${seed})`);
 		}
-
+		
 		return pokemon;
 	}
 
