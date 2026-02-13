@@ -1964,7 +1964,9 @@ export class RandomTeams {
 				'eelektrossegelas','noctowlegelas','taurosegelas','miltankegelas','delibirdegelas','rapidashegelas','heatmoregelas','durantegelas','puruglysartori','revavroomschedar','revavroomsegin','revavroomnavi','revavroomruchbah','revavroomcaph','octilleryhassrim','indeedeehassrim','indeedeefhassrim',
 				'butterfreemega','slowkingmega','torkoalmega','miloticmega','electiviremega','magmortarmega','garbodormega','beheeyemmega','sandacondamega','alcremiemega','froslassmega','druddigonmega','raliemega','pharoslassmega']);
 			}
-			else if (potd?.exists && pokemon.length === 2) const species = potd; // The Pokemon of the Day
+			else if (potd?.exists && pokemon.length === 2) { // The Pokemon of the Day
+				const species = potd;
+			}
 			else {
 				const baseSpecies = this.sampleNoReplace(baseSpeciesPool);
 				const currentSpeciesPool: Species[] = [];
