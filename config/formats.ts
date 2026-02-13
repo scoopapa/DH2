@@ -227,17 +227,17 @@ import { format as signaturerestrictions       } from '../data/mods/signatureres
 import { format as sixbysix                    } from '../data/mods/sixbysix/format';
 import { format as SmashModsBrawl              } from '../data/mods/smashmodsbrawl/format';
 import { format as SmashModsMelee              } from '../data/mods/smashmodsmelee/format';
-import { format as smashstereotypes            } from '../data/mods/smashstereotypes/format';
+import { format as SmashStereotypes            } from '../data/mods/smashstereotypes/format';
 import { format as solopet                     } from '../data/mods/solopet/format';
 import { format as spookymod                   } from '../data/mods/spookymod/format';
 import { format as stadium                     } from '../data/mods/stadium/format';
 import { format as stadiumyb                   } from '../data/mods/stadiumyb/format';
 import { format as stereotypes                 } from '../data/mods/stereotypes/format';
-import { format as supersmashoms               } from '../data/mods/supersmashoms/format';
+import { format as SuperSmashOMs               } from '../data/mods/supersmashoms/format';
 import { format as supertypesou                } from '../data/mods/supertypesou/format';
 import { format as sylvemonstest               } from '../data/mods/sylvemonstest/format';
 import { format as tamagotchi                  } from '../data/mods/tamagotchi/format';
-import { format as teraforming                 } from '../data/mods/teraforming/format';
+import { format as Teraforming                 } from '../data/mods/teraforming/format';
 import { format as teramax                     } from '../data/mods/teramax/format';
 import { format as the331typechartg9           } from '../data/mods/the331typechartg9/format';
 import { format as thebore                     } from '../data/mods/thebore/format';
@@ -303,105 +303,6 @@ export const Formats: FormatList = [
 		section: "Gen 9 Pet Mods",
 		column: 1,
 		// name: "gen9petmods",
-	},
-	{
-		name: "[Gen 9] Super Smash OMs",
-		desc: [
-			"<b>Super Smash OMs</b>: A project that aims to create a micrometa containing Pokemon from different Gen 9 OMs.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
-		      ],
-		ruleset: ['Standard', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod',
-			'Move Legality', 'Revelationmons Mod Modded', '!Obtainable Abilities'],
-		banlist: ['Baton Pass', 'Last Respects', 'Shed Tail'],
-		onValidateTeam(team, format) {
-			// @type {{[k: string]: true}} 
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				let allowedTiers = ['Flipped', 'Tier Shift', 'Convergence', 'Mix and Mega', 'STABmons', 'Inheritance', 'Re-Evolution', 'Pokebilities', 'Sketchmons', 'Cross Evolution', 'Almost Any Ability', '350 Cup', 'Frantic Fusions', 'Bonus Type', 'Revelationmons', 'Nature Swap','Formemons'];
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not usable in Super Smash OMs.'];
-				}
-			}
-		},
-		onValidateSet(set) {
-			const STABList = ["Arboliva", "Porygon2", "Terrakion"]; 
-			const SketchList = ["Garchomp", "Registeel"];
-			const ConvList = ["Greninja", "Ogerpon", "Zarude"];
-			const STABbanlist = ["Acupressure", "Astral Barrage", "Belly Drum", "Ceaseless Edge", "Clangorous Soul", "Dire Claw", "Dragon Energy", "Electro Shot", 
-				"Extreme Speed", "Fillet Away", "Final Gambit", "Flower Trick", "Gigaton Hammer", "No Retreat", "Rage Fist", "Revival Blessing", "Shell Smash", "Shift Gear", 
-				"Triple Arrows", "V-Create", "Victory Dance", "Water Shuriken", "Wicked Blow", "Wicked Torque"];
-			const Convbanlist = ["Boomburst", "Extreme Speed", "Population Bomb", "Rage Fist", "Shell Smash", "Spore", "Quiver Dance"];
-			for (const move of set.moves) {
-				let species = this.dex.species.get(set.species);
-				if (STABList.includes(species.name) && STABbanlist.includes(move)) {
-					return [`${set.name || set.species} has restricted move ${move}.`];
-				}
-				if (ConvList.includes(species.name) && Convbanlist.includes(move)) {
-					return [`${set.name || set.species} has restricted move ${move}.`];
-				}
-			}
-		},
-		mod: 'supersmashoms',
-	},
-	{
-		name: "[Gen 9] Super Smash Stereotypes",
-		desc: [
-			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/super-smash-stereotypes-fire-grass-water.3690227/">Super Smash Mods Melee on Smogon Forums</a>`,
-		      ],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Gardevoirite', 'Chillytite', 'Bisharpite', 'Baton Pass'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if ( template.tier !== 'SSS') {
-					return [set.species + ' is not usable in Super Smash Stereotypes.'];
-				}
-			}
-		},
-		mod: 'smashstereotypes',
-	},
-	{
-		name: "[Gen 9] TeraForming",
-		threads: [
-      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1uWX0cN1m6h4fMIhmfFLPwwjiV1y0DIG-YdX8F4Q4qeg/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'teraforming',
-		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Stellar Orb'],
-	},
-	{
-		name: "[Gen 9] TeraMax",
-		mod: 'teramax',
-		ruleset: ['Standard', 'Data Mod'],
-		banlist: [
-			'Arena Trap', 'Power Construct', 'Moody', 'Shadow Tag', 'Stellar Shift', 'Stellar Shell', 'King\'s Rock', 'Baton Pass',
-			'Last Respects', 'Shed Tail', 'Wishing Stone > 1', 'Light Clay',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['TMOU', 'TMFE', 'TMNFE', "TMLC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in TeraMax.'];
-				}
-			}
-		},
-		onSwitchOut(pokemon) {
-			const isTeraStellar = pokemon.terastallized === 'Stellar';
-			if (isTeraStellar) {
-			   pokemon.stellarBoostedTypes = [];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Tier Sovereign",
