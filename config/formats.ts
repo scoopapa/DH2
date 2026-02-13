@@ -294,7 +294,7 @@ export const Formats: FormatList = [
 	////////////////////// Popular Pet Mods ///////////////////////
 	///////////////////////////////////////////////////////////////
 	{
-		section: "Popular Right Now",
+		section: "Popular",
 		column: 1,
 		// name: "popularpetmods",
 	},
