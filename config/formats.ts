@@ -49,7 +49,7 @@ import { format as emamod                      } from '../data/mods/emamod/forma
 import { format as Eramons                     } from '../data/mods/eramons/format';
 import { format as EternalPokemon              } from '../data/mods/eternalpokemon/format';
 import { format as evolutionproject            } from '../data/mods/evolutionproject/format';
-import { format as extremereboot               } from '../data/mods/extremereboot/format';
+import { format as ExtremeReboot               } from '../data/mods/extremereboot/format';
 import { format as fakemonfrontier             } from '../data/mods/fakemonfrontier/format';
 import { format as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format';
 import { format as forgottenmons               } from '../data/mods/forgottenmons/format';
@@ -224,7 +224,7 @@ import { format as SharedPowerIronFist         } from '../data/mods/sharedpoweri
 import { format as shinymons                   } from '../data/mods/shinymons/format';
 import { format as signaturemons               } from '../data/mods/signaturemons/format';
 import { format as signaturerestrictions       } from '../data/mods/signaturerestrictions/format';
-import { format as sixbysix                    } from '../data/mods/sixbysix/format';
+import { format as SixBySix                    } from '../data/mods/sixbysix/format';
 import { format as SmashModsBrawl              } from '../data/mods/smashmodsbrawl/format';
 import { format as SmashModsMelee              } from '../data/mods/smashmodsmelee/format';
 import { format as SmashStereotypes            } from '../data/mods/smashstereotypes/format';
@@ -278,6 +278,8 @@ export const Formats: FormatList = [
 		// name: "Pet Mod of the Month"
 	},
 
+	SixBySix,
+
 	///////////////////////////////////////////////////////////////
 	////////////////////// Popular Pet Mods ///////////////////////
 	///////////////////////////////////////////////////////////////
@@ -298,6 +300,18 @@ export const Formats: FormatList = [
 		// name: "monsterhuntersolomod",
 	},
 
+	MonsterHunterOU,
+	MonsterHunterUU,
+	MonsterHunterRU,
+	MonsterHunterAG,
+	MonsterHunterDoubles,
+	MonsterHunterFFA,
+	MonsterHunterRandoms,
+	MonsterHunterDoublesRands,
+	MonsterHunterFFARands,
+	MonsterHunterVGC,
+	monsterhunterousolopliii,
+
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -305,42 +319,6 @@ export const Formats: FormatList = [
 		section: "Gen 8 Pet Mods",
 		column: 2,
 		// name: "gen8petmods",
-	},
-	{
-		name: "[Gen 8] Extreme Reboot",
-		desc: `A metagame where the types, statuses, moves, abilities, and pokemon are rebooted.`,
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3695749/">Extreme Reboot</a>`,
-		],
-
-		mod: 'extremereboot',
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod',],
-		banlist: ['All Pokemon', 'All Items'],
-		unbanlist: [
-			'Extreme Ribbit', 'Baobloss', 'Tenquarrel', 'Tradituki', 'Hibarrage', 'Pumking', 'Carboneichus', 'Calmengo', 'Paciphal', 'Hullacane', 'Cylindrake',
-			'Efflor', 'Rantler', 'Zeploom', 'Terraphi', 'Stratophi', 'Pelaphi', 'Sunmola', 'Phantahawk', 'Memilifyy', 'Plantadiomicrisa', 'Terrahephas', 'Parvualias',
-			'Rancicoon', 'Meditoid', 'Yukinooh', 'Misausmia', 'Pavronin', 'Kraklone', 'Crustair', 'Yulisse', 'Totodem', 'Persebloom', 'Persebloom-Frost', 'Hawkmorph',
-			'Gallurise', 'Hensomnia', 'Protectonic', 'Crowbotic', 'Sponjourner', 'Emajanaja', 'Zenphin', 'Technophin', 'Beavair', 'Gyozumo', 'Gyozumo-Summer',
-			'Onlaxy', 'Infinistar', 'Guareye', 'Curuprowl', 'Fertiri', 'Ruinne', 'Tantton', 'Crimsoil', 'Stakstok', 'Lychy', 'Onigashiba', 'Lunsura', 'Galactagon',
-			'Axolacred', 'Dimetrogem', 'Anhaflara', 'Stormanos', 'Alchemeel', 'Alchemeel-Offense', 'Rasteal', 'Nailberg', 'Hoolican', 'Anchorage', 'Nosferanguis',
-			'Pontiac', 'Sclam', 'Cicaguren', /*'Bozunami', 'Cryptice',*/ 'Mekangiras', 'Mononokero', 'Surfright', 'Potsworth', 'Cloudim', 'Salamoon', 'Salamoon-Allegro',
-			'Gokaeru', 'Himekuji', 'Guroteserp', 'Galaxea', 'Galaxea-Complete', 'Pegathemum', 'Pegathemum-Complete', 'Cyrome-Book', 'Cyrome-Scribe', 'Cyrome-Author',
-			'Darkira', 'Darkira-Ancient', 'Lakera', 'Lakera-Ancient', 'Mew 3.0', 'Solamateru', 'Jirachi-Extreme',
-			'Blood Vial', 'Calming Salt', 'Cursed Orb', 'Emblematic Scarf', 'Enigmatic Shield', 'Fell Scythe', 'Gospel Notes', 'Life Gem', 'Maid Dress', 'Metalmorph',
-			'Pokemon Standard', 'Power Stone', 'Seasons Gem', 'Tricky Hourglass', 'Platinum Orb', 'Iridescent Orb', 'Frosted Seed',
-		],
-		onModifySpeciesPriority: 2,
-		onModifySpecies(species, target, source, effect) {
-			if (!target) return; // Chat command
-			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
-			if (species.id !== 'extremeribbit') return;
-			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.moves.get(move.id).type))];
-			return {...species, types: types};
-		},
-		onSwitchIn(pokemon) {
-			if (pokemon.species.id === 'extremeribbit') return;
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-		},
 	},
 	{
 		name: "[Gen 8] Fusion Evolution UU",
@@ -1586,21 +1564,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
-		name: "[Gen 9] Fusion Evolution Corrupt Council",
-		mod: 'fecc',
-		team: 'random',
-		desc: `fecc`,
-		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Intro Mod'],
-	},
-	/*
-	{
-		name: "[Gen 9] Fusion Evolution Corrupt Council 2",
-		mod: 'fecc',
-		desc: `fecc`,
-		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Z-Move Clause'],
-	},
-	*/
 	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
