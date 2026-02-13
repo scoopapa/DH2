@@ -125,8 +125,8 @@ import { format as gen9multiverse              } from '../data/mods/gen9multiver
 import { format as gen9predlc                  } from '../data/mods/gen9predlc/format';
 import { format as gen9ssb                     } from '../data/mods/gen9ssb/format';
 import { format as gen9strong                  } from '../data/mods/gen9strong/format';
-import { format as gen9ubermons                } from '../data/mods/gen9ubermons/format';
-import { format as gen9vaporemons              } from '../data/mods/gen9vaporemons/format';
+import { format as gen9UberMons                } from '../data/mods/gen9ubermons/format';
+import { format as gen9Vaporemons              } from '../data/mods/gen9vaporemons/format';
 import { format as gen9vgc20xx                 } from '../data/mods/gen9vgc20xx/format';
 import { format as Gen6NextOU                  } from '../data/mods/gennext/format';
 import { format as genXBrunicaOU               } from '../data/mods/genxdesvega/format-ou';
@@ -241,19 +241,19 @@ import { format as Teraforming                 } from '../data/mods/teraforming/
 import { format as teramax                     } from '../data/mods/teramax/format';
 import { format as the331typechartg9           } from '../data/mods/the331typechartg9/format';
 import { format as thebore                     } from '../data/mods/thebore/format';
-import { format as tiersovereign               } from '../data/mods/tiersovereign/format';
+import { format as TierSovereign               } from '../data/mods/tiersovereign/format';
 import { format as toho                        } from '../data/mods/toho/format';
 import { format as tpdp                        } from '../data/mods/tpdp/format';
-import { format as tradingpost                 } from '../data/mods/tradingpost/format';
-import { format as trainersupport              } from '../data/mods/trainersupport/format';
-import { format as triplethreat                } from '../data/mods/triplethreat/format';
-import { format as twostepmonsv3               } from '../data/mods/twostepmonsv3/format';
+import { format as TradingPost                 } from '../data/mods/tradingpost/format';
+import { format as TrainerSupport              } from '../data/mods/trainersupport/format';
+import { format as TripleThreat                } from '../data/mods/triplethreat/format';
+import { format as TwoStepMonsv3               } from '../data/mods/twostepmonsv3/format';
 import { format as upsidedown                  } from '../data/mods/upsidedown/format';
 import { format as weatherwar                  } from '../data/mods/weatherwar/format';
 import { format as weedmons                    } from '../data/mods/weedmons/format';
 import { format as whitetusk                   } from '../data/mods/whitetusk/format';
 import { format as Woomod                      } from '../data/mods/woomod/format';
-import { format as worldbuilding               } from '../data/mods/worldbuilding/format';
+import { format as Worldbuilding               } from '../data/mods/worldbuilding/format';
 // import can't hurt you anymore
 
 // Example tier 
@@ -304,151 +304,6 @@ export const Formats: FormatList = [
 		column: 1,
 		// name: "gen9petmods",
 	},
-	{
-		name: "[Gen 9] Tier Sovereign",
-		desc: [
-			"<b>Tier Sovereign</b>: A micrometa where Lindwallow rules.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/tier-sovereign-gen-9-natdex-slate-3-submissions-closed.3768338/">Tier Sovereign on Smogon Forums</a>`,
-		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod','Tier Sovereign Mod','Terastal Clause'],
-		banlist: [],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let allowedTiers = ['Tier Sovereign', 'TSOU']
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not usable in Tier Sovereign.'];
-				}
-			}
-		},
-		mod: 'tiersovereign',
-	},
-	{
-		name: "[Gen 9] Trading Post",
-		mod: 'tradingpost',
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	},
-	{
-		name: "[Gen 9] Trainer Support",
-		mod: 'trainersupport',
-		ruleset: ['Standard', 'Trainer Support Rule', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-	},
-	{
-		name: "[Gen 9] Triple Threat",
-		desc: [
-			"<b>Triple Threat</b>: A micrometa where Pokemon are allowed to have up to three types.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/triple-threat-slate-2-dragon-fairy-steel.3722322">Triple Threat on Smogon Forums</a>`,
-		      ],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: [],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if ( template.tier !== 'TT') {
-					return [set.species + ' is not usable in Triple Threat.'];
-				}
-			}
-		},
-		mod: 'triplethreat',
-	},
-	{
-		name: "[Gen 9] Two-Step Mons v3",
-		mod: 'twostepmonsv3',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		teambuilderFormat: "National Dex",
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if ( template.tier !== 'TSMv3') {
-					return [set.species + ' is not usable in Two-Step Mons v3.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Ubermons",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-gen-9-natdex-slate-1-come-as-you-are-ogerpon-hearthflame-urshifu-landorus.3748813/">Ubermons Thread</a>`,
-		],
-
-		mod: 'gen9ubermons',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
-		teambuilderFormat: "National Dex",
-	},
-	{
-		name: "[Gen 9] VaporeMons",
-		desc: [
-			"<b>VaporeMons</b>: The third mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/vaporemons-slate-1-discussion-phase.3722917/">Thread on the Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1_5AwZ24dPu3-5m5yOyIO4OTPmW9OwIWXXzZ5IJZkj4c/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'gen9vaporemons',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard', /*'Damp Rock'*/],
-	},
-	{
-		name: "[Gen 9] Worldbuilding",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3748841/">Worldbuilding</a>`,
-		],
-		mod: 'worldbuilding',
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['WLB'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Worldbuilding.'];
-				}
-			}
-		},
-	},
-	// Start
-	{
-		name: "[Gen 9] VGC 20xx",
-		desc: ["Custom VGC format by sugarbear",
-		      ],
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/vgc-20xx-slate-11-regional-starters.3748800/">VGC 20xx on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1QCYYfW_sW13N7ZjympTL3k0QraBAa42qWl8sJRJw63s/edit?gid=0#gid=0">Spreadsheet New Stuff</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1C-SvNhnPrRbzfZ-zPIWEi-ylVJzwhlmCCK9xK_ErGOE/edit?gid=0#gid=0">Spreadsheet Returning Stuff and Changes</a>`,
-		      ],
-	//	searchShow: false,
-		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Data Mod', 'Force Open Team Sheets', 'Best of = 3'],
-		mod: 'gen9vgc20xx',
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['VGC', 'VGC NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in VGC 20xx.'];
-				}
-			}
-		},
-	},
-	// End
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////

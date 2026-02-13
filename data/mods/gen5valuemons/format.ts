@@ -3,7 +3,7 @@ import { FormatData } from '../../../sim/dex-formats';
 export const format: FormatData = {
 	name: "[Gen 5] 33 Valuemons",
 	mod: 'gen5valuemons',
-	desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points. This tier is not quite finished, but we're working on it!`,
+	desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points.`,
 	threads: [
 		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-13#post-10648141">Solomod Post</a>`,
 		`&bullet; <a href="https://docs.google.com/spreadsheets/d/1Pw6VnFgz032f9yV_FcO3UT03Nrad6f5mZw2h5IMqIxU/edit?gid=299132049#gid=299132049">Reference Sheet</a>`,
@@ -14,7 +14,7 @@ export const format: FormatData = {
 		'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Sleep Clause Mod',
 		'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause',
 		'Evasion Moves Clause', 'Baton Pass Stat Clause', 'Gems Clause', 'One Starter Clause',
-		'One Pseudo Clause', 'One Legendary Clause', 'Obtainable', '!Obtainable Moves',
+		'One Pseudo Clause', 'One Legendary Clause', 'Obtainable', '!Obtainable Moves', // movepool changes are not coded
 	],
 	banlist: ['King\'s Rock', 'Razor Fang'],
 	unbanlist: ['Baton Pass'],
