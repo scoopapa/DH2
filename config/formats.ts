@@ -6543,4 +6543,24 @@ export const Formats: FormatList = [
 		},
 	},
 	*/
+//placeholder
+	
+	{
+		name: "BanditeAbilities",
+		mod: 'banditeabilities',
+		desc: `adds 30 new abilities to be used on any mon`,
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Data Mod'],
+		teambuilderFormat: 'National Dex', //uncomment if your mod is natdex
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['OU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in the format.'];
+				}
+			}
+		},
+	},
+	
 ];
