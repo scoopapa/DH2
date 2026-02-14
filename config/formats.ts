@@ -1,8 +1,6 @@
-// Note: This is the list of formats
-// Refactor: Import from mod folders (@iforgetwhyimhere, 02.--.26)
-// DO NOT DELETE THE IMPORTS.
+// This is the list of formats
 
-// Imports all formats from their folder, to be used as aliases.
+// Imports
 import { format as AlternatiumEX               } from '../data/mods/alternatiumex/format';
 import { format as Gen533Valuemons             } from '../data/mods/gen5valuemons/format';
 import { format as AbilityPos                  } from '../data/mods/abilitypos/format';
