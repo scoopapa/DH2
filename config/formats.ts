@@ -3939,6 +3939,30 @@ export const Formats: FormatList = [
 			'Tamantula','Spideth','Abomigo','Chillma','Wintber','Evergrowl','Stontler','Balatone','Coayena','Pherosmoke','Octovase','Cthulhurn','Shahood',
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
+	{
+		name: "[Gen 9] Lovelymod",
+		desc: `Double battle where you bring four Pok&eacute;mon to Team Preview and choose only two.`,
+		mod: 'lovelymod',
+		gameType: 'doubles',
+		ruleset: [
+			'Picked Team Size = 2', 'Max Team Size = 6',
+			'Standard Doubles', 'Accuracy Moves Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Evasion Items Clause', 'Data Mod', 'Mega Data Mod'
+		],
+		banlist: [
+			'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger',
+		],
+		teambuilderFormat: "National Dex",
+        onValidateTeam(team, format) {
+            /**@type {{[k: string]: true}} */
+            let speciesTable = {};
+            for (const set of team) {
+                let template = this.dex.species.get(set.species);
+                if (template.tier !== 'LM') {
+                    return [set.species + ' is not usable in Lovelymod.'];
+                }
+            }
+        },
+	},
 // start: Ma'adowr
 {
 		name: "[Gen 9] Ma'adowr Singles",
