@@ -26,7 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			for (const allyActive of pokemon.allies()) {
 				if (this.randomChance(3, 10)) {
-					allyActive.addVolatile('attract', pokemon);
+					allyActive.addVolatile('attract', allyActive);
 				}
 			}
 		},
@@ -50,7 +50,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			pokemon.addVolatile('attract', pokemon);
 			for (const allyActive of pokemon.allies()) {
-				allyActive.addVolatile('attract', pokemon);
+				allyActive.addVolatile('attract', allyActive);
 			}
 		},
 		flags: {},
@@ -61,7 +61,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMove(target, source, move) {
 			if (move.flags['sound'] && this.randomChance(3, 10)) {
 				for (const allyActive of target.allies()) {
-					allyActive.addVolatile('attract', target);
+					allyActive.addVolatile('attract', allyActive);
 				}
 			}
 		},
@@ -101,8 +101,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	conjoinedhearts: {
 		onAllyTryHeal(damage, target, source, effect) {
-			if (!effect) return;
-			this.heal(damage / 2, source, source);
+			if (!effect || effect?.name == "Conjoined Hearts") return;
+			this.heal(damage / 2, this.effectState.target, this.effectState.target);
 		},
 		flags: {},
 		name: "Conjoined Hearts",
@@ -123,6 +123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	divorcedemand: {
 		onStart(pokemon) {
 			for (const target of pokemon.adjacentFoes()) {
+				this.add('-ability', pokemon, 'Divorce Demand');
 				target.removeVolatile('attract');
 			}
 		},
@@ -228,12 +229,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.proposed) return;
 			for (const allyActive of pokemon.allies()) {
-				if (allyActive.addVolatile('attract', pokemon)) pokemon.proposed = true;
+				if (!allyActive.volatiles['attract']) {
+					this.add('-ability', pokemon, 'Proposal');
+					allyActive.addVolatile('attract', allyActive)
+					pokemon.proposed = true;
+				}
 			}
 		},
 		flags: {},
 		name: "Proposal",
-		shortDesc: "On switchin or whenever possible., this Pokemon's ally becomes infatuated. Once per battle.",
+		shortDesc: "On switchin, this Pokemon's ally becomes infatuated. Once per battle.",
 	},
 	soothingpetals: {
 		onAllyTryAddVolatile(status, target, source, effect) {
