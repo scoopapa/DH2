@@ -6371,9 +6371,22 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
 		],
 		mod: 'moderngen1',
-		searchShow: false,
 		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
 		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Shell Smash', 'Teeter Dance', 'Flatter'],
+	},
+	{
+		name: "[Gen 1] Modern Gen 1: Crossover",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen1crossover',
+		ruleset: ['Standard', 'Data Mod', '+No Ability', '-All Abilities', '-All Items'],
+		banlist: ['All Pokemon'],
+		unbanlist: ["Faenuce", "Aqualloy", "Hemerati", "Particlage", "Tanphero", "Turrarbon", "Bondra", "Elscythe",
+			"Frostava", "Blossifoul", "Drigike", "Henchinel", "Cladipon", "Killidinal", "Amber Eyes", "Birreteel", "Negusurp",
+			"Mossebble", "Kodorath", "Monkessu", "Toxiwyrn", "Deseroud", "Contamicow", "Whonhef", "Hydrarsh", "Snailmer",
+			"Myrmand", "Eledrake", "Itsufall", "Chiseame", "Marblazard", "Tapu Wifi", "Ungawurm", "Everird",
+			"Flocura", "Jaegorm", "Noxon", "Ramppyre", "Stormulex", "Raccatoskr", "Porynoirz", "Pingray", "Baloon", "Polbearab", "Iron Convector", "Saurosphere", "Gargoyle"],
 	},
 	{
 		name: "[Gen 1] Modern Gen 1 Random Battle",
