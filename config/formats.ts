@@ -3970,10 +3970,10 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: [
 			'Picked Team Size = 2', 'Max Team Size = 6',
-			'Standard Doubles', 'Accuracy Moves Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Evasion Items Clause', 'Data Mod', 'Mega Data Mod'
+			'Standard Doubles', 'Accuracy Moves Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Evasion Items Clause', 'Data Mod', 'Mega Data Mod','Best Of = 3',
 		],
 		banlist: [
-			'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger', 'Best of = 3',
+			'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger', 
 		],
 		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {

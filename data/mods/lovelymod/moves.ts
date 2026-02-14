@@ -41,8 +41,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-start', pokemon, 'Attract');
 				}
-				
-				if (pokemon.species.coupleAbility) {
+			},
+			onUpdate(pokemon) {
+				if (pokemon.species.coupleAbility && !pokemon.volatiles[`ability:${pokemon.species.coupleAbility}`]) {
 					pokemon.addVolatile(`ability:${pokemon.species.coupleAbility}`);
 				}
 			},
