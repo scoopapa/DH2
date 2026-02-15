@@ -284,7 +284,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			followme: ["9L1"],
 			reflect: ["9L1"],
 			lightscreen: ["9L1"],
-			dazlinggleam: ["9L1"],
+			dazzlinggleam: ["9L1"],
 			drainingkiss: ["9L1"],
 			hydropump: ["9L1"],
 			surf: ["9L1"],

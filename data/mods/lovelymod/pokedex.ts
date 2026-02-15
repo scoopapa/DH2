@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cherry Torterra",
 		types: ["Fairy", "Grass", "Ground"],
 		baseStats: {hp: 95, atk: 109, def: 105, spa: 75, spd: 85, spe: 56},
-		abilities: {0: "Guts", H: "Intimidate"},
+		abilities: {0: "Guts", H: "Bulletproof"},
 		coupleAbility: "soothingpetals",
 	},
 	decidueyecupid: {
@@ -46,8 +46,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	furfrouheart: {
 		num: 6705,
 		name: "Furfrou-Heart",
-		baseSpecies: "Furfrou",
-		forme: "Heart",
 		types: ["Fairy", "Normal", "Steel"],
 		baseStats: {hp: 75, atk: 120, def: 60, spa: 65, spd: 90, spe: 102},
 		abilities: {0: "Fur Coat", 1: "Bulletproof", H: "Intimidate"},
@@ -102,7 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Water", "Water", "Fairy"],
 		baseStats: {hp: 60, atk: 50, def: 85, spa: 75, spd: 85, spe: 118},
 		abilities: {0: "Lovely Pair", H: "Friend Guard"},
-		coupleAbility: "sweetie",
+		coupleAbility: "sweetheart",
 	},
 	meloettaserenade: {
 		num: 6712,
