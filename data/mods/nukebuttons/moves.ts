@@ -25,14 +25,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		accuracy: 95,
 		pp: 20,
-		shortDesc: "No additional effect.",
+		shortDesc: "10% chance to flinch the target. 20% paralysis.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "", target);
 		},
-		secondary: null,
+		secondaries: [
+			{
+				chance: 20,
+				status: 'par',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
 		target: "normal",
 	},
 	attack: {
