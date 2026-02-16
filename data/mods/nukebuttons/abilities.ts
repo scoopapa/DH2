@@ -11,9 +11,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon takes 75% damage from special attacks and 90% damage from physical attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category === 'Special') {
+				this.debug('Ice Scales weaken damage');
 				return this.chainModify(0.75);
 			}
 			if (move.category === 'Physical') {
+				this.debug('Ice Scales weaken damage');
 				return this.chainModify(0.9);
 			}
 		},
@@ -34,6 +36,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				!(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Stellar';
 				move.typeChangerBoosted = this.effect;
+				this.debug('Stellarize affected ' + move.name);
 			}
 		},
 		onBasePowerPriority: 23,
@@ -49,6 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's STAB is 1.75x.",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
+				this.debug('Adaptability boost');
 				return 1.75;
 			}
 		},
@@ -58,12 +62,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 3,
 	},
 	poisonpuppeteer: {
-		shortDesc: "If this Pokemon inflicts poison, it also inflicts confusion and infatuation.",
+		shortDesc: "If this Pokemon inflicts poison, it also inflicts confusion and taunts them.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
 				target.addVolatile('confusion');
-				target.addVolatile('infatuation');
+				target.addVolatile('taunt');
+				this.debug('Poison Puppeteer activated on ' + target);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
@@ -71,4 +76,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 4,
 	},
+	solidrock: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Damage reduced (0.4x) by Solid Rock');
+				return this.chainModify(0.4);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Solid Rock",
+		rating: 3,
+		num: 5,
+	},
+	// grassysurge
+	// electromorphosis
+	// waterbubble
 };

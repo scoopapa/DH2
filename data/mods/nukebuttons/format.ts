@@ -4,7 +4,7 @@ export const format: FormatData = {
 		name: "[Gen 9] Nuke Buttons",
 		mod: 'nukebuttons',
 		desc: `nuke buttons`,
-		ruleset: ['Standard', 'Data Mod', 'Picked Team Size = 3'],
+		ruleset: ['Standard', 'Data Mod', 'Terastal Clause', 'Picked Team Size = 3'/*, Nuke Buttons*/],
 		banlist: ['Raticate', 'Choice Band', 'Choice Scarf', 'Choice Specs', 'Focus Sash', 'Focus Band'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {

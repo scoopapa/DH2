@@ -123,6 +123,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			electroweb: ["9L1"],
 			solarbeam: ["9L1"],
 			zapcannon: ["9L1"],
+			attack: ["9L1"],
 		},
 	},
 	hoopa: {
@@ -148,6 +149,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			toxic: ["9L1"],
 			trick: ["9L1"],
 			trickroom: ["9L1"],
+			attack: ["9L1"],
 		},
 	},
 	jirachi: {
@@ -176,6 +178,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			trickroom: ["9L1"],
 			uturn: ["9L1"],
 			wish: ["9L1"],
+			attack: ["9L1"],
 		},
 	},
 	magearna: {
