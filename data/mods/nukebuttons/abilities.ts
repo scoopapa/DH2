@@ -8,6 +8,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	*/
 	icescales: {
+		shortDesc: "This Pokemon takes 75% damage from special attacks and 90% damage from physical attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category === 'Special') {
 				return this.chainModify(0.75);
@@ -22,6 +23,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1,
 	},
 	stellarize: {
+		shortDesc: "This Pokemon's moves become Stellar type and have their power multiplied by 1.2.",
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -44,6 +46,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 2,
 	},
 	adaptability: {
+		shortDesc: "This Pokemon's STAB is 1.75x.",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				return 1.75;
@@ -55,6 +58,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 3,
 	},
 	poisonpuppeteer: {
+		shortDesc: "If this Pokemon inflicts poison, it also inflicts confusion and infatuation.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
