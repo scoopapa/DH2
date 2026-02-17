@@ -713,7 +713,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Forces the target to switch to a random ally.",
 		pp: 10,
 		priority: -6,
-		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1, wind: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Overheat", target);
