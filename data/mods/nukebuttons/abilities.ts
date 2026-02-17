@@ -8,7 +8,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	*/
 	icescales: {
-		shortDesc: "This Pokemon takes 75% damage from special attacks and 90% damage from physical attacks.",
+		shortDesc: "This Pokémon takes 75% damage from special attacks and 90% damage from physical attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category === 'Special') {
 				this.debug('Ice Scales weaken damage');
@@ -25,7 +25,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1,
 	},
 	stellarize: {
-		shortDesc: "This Pokemon's moves become Stellar type and have their power multiplied by 1.2.",
+		shortDesc: "This Pokémon's moves become Stellar type and have their power multiplied by 1.2.",
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -49,7 +49,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 2,
 	},
 	adaptability: {
-		shortDesc: "This Pokemon's STAB is 1.75x.",
+		shortDesc: "This Pokémon's STAB is 1.75x.",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				this.debug('Adaptability boost');
@@ -62,7 +62,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 3,
 	},
 	poisonpuppeteer: {
-		shortDesc: "If this Pokemon inflicts poison, it also inflicts confusion and taunts them.",
+		shortDesc: "If this Pokémon inflicts poison, it also inflicts confusion and taunts them.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
@@ -88,7 +88,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 5,
 	},
-	// grassysurge
+	grassysurge: {
+		shortDesc: "When this Pokémon is on the field, Grassy Terrain is active.",
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+		},
+		flags: {},
+		name: "Grassy Surge",
+		rating: 4,
+		num: 6,
+	},
 	// electromorphosis
-	// waterbubble
+	waterbubble: {
+		shortDesc: "This Pokémon cannot be burned, and its Water-type attacks do 1.5x damage.",
+		onSourceModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Bubble');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Bubble');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Water Bubble",
+		rating: 4.5,
+		num: 8,
+	},
 };

@@ -138,7 +138,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 18,
 		name: "Zeraora",
-		types: ["Electric Fighting"],
+		types: ["Electric", "Fighting"],
 		baseStats: {hp: 145, atk: 135, def: 100, spa: 95, spd: 120, spe: 160},
 		abilities: {0: "Electromorphosis", H: "Adaptability"},
 	},

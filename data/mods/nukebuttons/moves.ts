@@ -71,6 +71,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Expanding Force",
 		pp: 10,
 		priority: 0,
+		shortDesc: "Does 1.3333x damage on supereffective hits.",
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(basePower, source, target, move) {
 			if (target.runEffectiveness(move) > 0) {
