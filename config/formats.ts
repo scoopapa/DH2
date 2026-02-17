@@ -3967,7 +3967,6 @@ export const Formats: FormatList = [
 		banlist: [
 			'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger',
 		],
-		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */
             let speciesTable = {};
@@ -3991,7 +3990,6 @@ export const Formats: FormatList = [
 		banlist: [
 			'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Ally Switch', 'Final Gambit', 'Perish Song', 'Swagger', 
 		],
-		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */
             let speciesTable = {};

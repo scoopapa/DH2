@@ -550,5 +550,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 40,
 	},
+
+	kingsshield: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
 
