@@ -260,7 +260,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	helyrion: {
 		tier: "ESH",
 	},
-	daemaesthus: {
+	daedestus: {
 		tier: "ESH",
 	},
 	apherove: {
@@ -516,6 +516,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	garbodorgmax: null,
 	greninjabond: null,
 	greninjaash: null,
+	floetteeternal: null,
 	gumshoostotem: null,
 	vikavolttotem: null,
 	ribombeetotem: null,
@@ -540,8 +541,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricitygmax: null,
 	toxtricitylowkeygmax: null,
 	centiskorchgmax: null,
-	sinisteaantique: null,
-	polteageistantique: null,
 	hatterenegmax: null,
 	grimmsnarlgmax: null,
 	alcremiegmax: null,
@@ -551,13 +550,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	urshifugmax: null,
 	urshifurapidstrikegmax: null,
 	zarudedada: null,
-	ursalunabloodmoon: null,
-	poltchageistartisan: null,
-	sinistchamasterpiece: null,
-	ogerpontealtera: null,
-	ogerponwellspringtera: null,
-	ogerponhearthflametera: null,
-	ogerponcornerstonetera: null,
 	pokestarsmeargle: null,
 	pokestarufo: null,
 	pokestarufo2: null,
@@ -576,7 +568,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pokestarblackbelt: null,
 	pokestarufopropu2: null,
 	//Can't use algorith anymore and sorting by type manually got messy, so here's everyone else
-	metapod: {
+		metapod: {
 		tier: 'NFE',
 		natDexTier: 'NFE'
 	},
@@ -1941,8 +1933,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'Uber'
 	},
 	zamazenta: {
-		tier: 'Uber',
-		natDexTier: 'Uber'
+		tier: 'OU',
+		natDexTier: 'OU'
 	},
 	zamazentacrowned: {
 		tier: 'Uber',
@@ -4995,10 +4987,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
-	pyroarf: {
-		tier: 'OU',
-		natDexTier: 'OU'
-	},
 	flabebe: {
 		tier: 'LC',
 		natDexTier: 'LC'
@@ -5006,10 +4994,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	floette: {
 		tier: 'NFE',
 		natDexTier: 'NFE'
-	},
-	floetteeternal: {
-		tier: 'OU',
-		natDexTier: 'OU'
 	},
 	skiddo: {
 		tier: 'LC',
@@ -5232,12 +5216,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	magearna: {
-		tier: 'Uber',
-		natDexTier: 'Uber'
+		tier: 'OU',
+		natDexTier: 'OU'
 	},
 	magearnaoriginal: {
-		tier: 'Uber',
-		natDexTier: 'Uber'
+		tier: 'OU',
+		natDexTier: 'OU'
 	},
 	sobble: {
 		tier: 'LC',
@@ -5279,7 +5263,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
+	sinisteaantique: {
+		tier: 'LC',
+		natDexTier: 'LC'
+	},
 	polteageist: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	polteageistantique: {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
@@ -5523,7 +5515,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
+	poltchageistartisan: {
+		tier: 'LC',
+		natDexTier: 'LC'
+	},
 	sinistcha: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	sinistchamasterpiece: {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
