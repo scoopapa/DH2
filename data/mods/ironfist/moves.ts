@@ -2629,6 +2629,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon, target) {
 			move.category = 'Special';
+			move.type = 'Normal';
 			move.basePower = 300;
 		},
 		onAfterHit(target, source) {
