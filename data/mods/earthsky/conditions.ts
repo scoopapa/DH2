@@ -74,7 +74,9 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (source?.hasItem('gripclaw')) return 6;
 			return 4;
 		},
-		onStart(target) {
+		onStart(target, source, move) {
+			if(target.volatiles['trap']) return false;
+			target.addVolatile('trap', source, move);
 			if(!this.turn) this.effectState.duration--;
 			this.add('-activate', target, 'trapped');
 		},
@@ -89,9 +91,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (source?.hasItem('gripclaw')) return 6;
 			return 4;
 		},
-		onStart(pokemon, source) {
-			if(pokemon.volatiles['strongpartialtrap']) return false;
-			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+		onStart(target, source, move) {
+			if(target.volatiles['trap']) return false;
+			target.addVolatile('trap', source, move);
+			this.add('-activate', target, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 		},
 	},
@@ -174,6 +177,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		//Actually ignoring move prevention done in the effects itself
 	},
+	trap: { //Shared by targeted trap sources except Stuck to know not to overlap
+		name: 'trap',
+		noCopy: true,
+	},
 	blocked: {
 		name: 'blocked',
 		noCopy: true,
@@ -183,13 +190,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return 4;
 		},
 		onStart(target, source, move) {
+			if(target.volatiles['trap']) return false;
+			target.addVolatile('trap', source, move);
 			this.add('-start', target, 'Block', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
 		onTrapPokemon(pokemon) {
 			pokemon.tryTrap();
 		},
-		onSourceHit(target, source, move) { //Damaging moves won't switch
+		onHit(target, source, move) { //Damaging moves won't switch
 			if(move.selfSwitch && target !== source && !source.volatiles['substitute'] && !source.hasItem('shedshell') && !source.hasAbility('runaway')) delete move.selfSwitch;
 		},
 		onAfterMoveSecondaryPriority: -100,
@@ -214,8 +223,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onEnd(target) {
-			this.add('-end', target, 'trapped');
-			this.add('-end', target, 'Block', '[silent]');
+			this.add('-end', target, this.effectState.sourceEffect, '[block]');
+			target.removeVolatile('trap');
 		},
 	},
 	meanlooked: {
@@ -227,6 +236,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return 4;
 		},
 		onStart(target, source, move) {
+			if(target.volatiles['trap']) return false;
+			target.addVolatile('trap', source, move);
 			this.add('-start', target, 'Mean Look', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
@@ -235,8 +246,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			pokemon.trapped = true;
 		},
 		onEnd(target) {
-			this.add('-end', target, 'trapped');
-			this.add('-end', target, 'Mean Look', '[silent]');
+			this.add('-end', target, this.effectState.sourceEffect, '[meanlook]');
+			target.removeVolatile('trap');
 		},
 	},
 	arenatrapped: {
@@ -250,20 +261,19 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if(pokemon.isGrounded() && !pokemon.hasAbility('arenatrap')) pokemon.tryTrap();
 		},
 	},
-	singletrap: {
-		name: 'singletrap',
+	stuck: {
+		name: 'stuck',
 		noCopy: true,
 		duration: 2,
 		onTrapPokemon(pokemon) {
 			pokemon.tryTrap();
 		},
 		onStart(target) {
-			this.add('-start', target, 'singletrap', '[silent]');
+			this.add('-start', target, 'Stuck', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
 		onEnd(target) {
-			this.add('-end', target, 'trapped');
-			this.add('-end', target, 'singletrap', '[silent]');
+			this.add('-end', target, this.effectState.sourceEffect, '[silent]');
 		},
 	},
 	strongpartialtrap: {
@@ -273,9 +283,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (source?.hasItem('gripclaw')) return 4;
 			return 3;
 		},
-		onStart(pokemon, source) {
-			if(pokemon.volatiles['partiallytrapped']) return false;
-			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+		onStart(target, source, move) {
+			if(target.volatiles['trap']) return false;
+			target.addVolatile('trap', source, move);
+			this.add('-activate', target, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 3 : 4;
 		},
 		onResidualOrder: 13,
@@ -290,6 +301,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, this.effectState.sourceEffect, '[strongpartialtrap]');
+			pokemon.removeVolatile('trap');
 		},
 		onTrapPokemon(pokemon) {
 			if (this.effectState.source?.isActive) pokemon.tryTrap();
@@ -300,71 +312,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		noCopy: true,
 	},
 	/* Status changes due to other elements */
-	par: {
-		name: 'par',
-		effectType: 'Status',
-		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else {
-				this.add('-status', target, 'par');
-			}
-		},
-		onModifySpe(spe, pokemon) {
-			if (!pokemon.hasAbility('quickfeet')) {
-				return this.chainModify(0.5);
-			}
-		},
-		onBeforeMovePriority: 1,
-		onBeforeMove(pokemon) {
-			if(pokemon.volatiles['nointerrupt']?.ignore.includes('par')) return;
-			if (this.randomChance(1, 4)) {
-				this.add('cant', pokemon, 'par');
-				return false;
-			}
-		},
-	},
-	slp: {
-		inherit: true,
-		onBeforeMove(pokemon, target, move) {
-			if(!pokemon.volatiles['stasis']){
-				if (pokemon.hasAbility('earlybird')) {
-					pokemon.statusState.time--;
-				}
-				pokemon.statusState.time--;
-				if (pokemon.statusState.time <= 0) {
-					pokemon.cureStatus();
-					return;
-				}
-			}
-			if(pokemon.volatiles['nointerrupt']?.ignore.includes('slp')) return;
-			this.add('cant', pokemon, 'slp');
-			if (move.sleepUsable) {
-				return;
-			}
-			return false;
-		},
-	},
-	commanded: {
-		name: "Commanded",
-		noCopy: true,
-		onStart(pokemon) {
-			this.boost({atk: 2, spa: 2, spe: 2, def: 2, spd: 2}, pokemon);
-		},
-		onSwitchOut(pokemon){
-			delete this.effectState.source.volatiles['commanding'];
-		},
-		onFaint(pokemon){
-			delete this.effectState.source.volatiles['commanding'];
-		},
-	},
-	commanding: {
-		inherit: true,
-		onFaint(pokemon){
-			delete this.effectState.source.volatiles['commanded'];
-			this.boost({atk: -2, spa: -2, spe: -2, def: -2, spd: -2}, this.effectState.source);
-		},
-	},
 	confusion: {
 		name: 'confusion',
 		// this is a volatile status
@@ -410,6 +357,51 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return false;
 		},
 	},
+	par: {
+		name: 'par',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'par');
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('quickfeet')) {
+				return this.chainModify(0.5);
+			}
+		},
+		onBeforeMovePriority: 1,
+		onBeforeMove(pokemon) {
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('par')) return;
+			if (this.randomChance(1, 4)) {
+				this.add('cant', pokemon, 'par');
+				return false;
+			}
+		},
+	},
+	slp: {
+		inherit: true,
+		onBeforeMove(pokemon, target, move) {
+			if(!pokemon.volatiles['stasis']){
+				if (pokemon.hasAbility('earlybird')) {
+					pokemon.statusState.time--;
+				}
+				pokemon.statusState.time--;
+				if (pokemon.statusState.time <= 0) {
+					pokemon.cureStatus();
+					return;
+				}
+			}
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('slp')) return;
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
+	},
 	choicelock: {
 		name: 'choicelock',
 		noCopy: true,
@@ -449,6 +441,81 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	commanded: {
+		name: "Commanded",
+		noCopy: true,
+		onStart(pokemon) {
+			this.boost({atk: 2, spa: 2, spe: 2, def: 2, spd: 2}, pokemon);
+		},
+		onSwitchOut(pokemon){
+			delete this.effectState.source.volatiles['commanding'];
+		},
+		onFaint(pokemon){
+			delete this.effectState.source.volatiles['commanding'];
+		},
+	},
+	commanding: {
+		inherit: true,
+		onFaint(pokemon){
+			delete this.effectState.source.volatiles['commanded'];
+			this.boost({atk: -2, spa: -2, spe: -2, def: -2, spd: -2}, this.effectState.source);
+		},
+	},
+	futuremove: { //Does not using an 8-bit turn counter count as an element change?
+		inherit: true,
+		onStart(target) {
+			this.effectState.targetSlot = target.getSlot();
+			this.effectState.endingTurn = (this.turn - 1) + 2;
+		},/*
+		onResidual(targetSide) {
+			if (this.getOverflowedTurnCount() < this.effectState.endingTurn) return;
+			targetSide.removeSlotCondition(this.getAtSlot(this.effectState.targetSlot), 'futuremove');
+		},*/
+		onEnd(target) {
+			const data = this.effectState;
+			// time's up; time to hit! :D
+			const move = this.dex.moves.get(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+			//console.log(hitMove);
+
+			this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
+			this.activeMove = null;
+
+			this.checkWin();
+		},
+	},
+	gem: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {
+			this.debug('Gem Boost');
+			user.removeVolatile('gem'); //Instruct or Dancer later in the turn does not get the boost
+			return this.chainModify([5325, 4096]);
+		},
+	},
+	silvally: {
+		name: 'Silvally',
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem') return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'rkssystem' && pokemon.item !== 'fullmemory') { //Full Memory only type changes on using Multi-Attack
+				type = pokemon.getItem().onMemory;
+				if (!type) {
+					type = 'Normal';
+				}
+			}
+			return [type];
+		},
+	},
+	/* Two-type update */
 	raindance: {
 		inherit: true,
 		onWeatherModifyDamage(damage, attacker, defender, move) {
