@@ -150,6 +150,7 @@ import { Formats as LetsGo                      } from '../data/mods/letsgo/form
 import { Formats as LittleColosseum             } from '../data/mods/littlecolosseum/formats';
 import { Formats as Littleestcup                } from '../data/mods/littleestcup/formats';
 import { Formats as LittlestCup                 } from '../data/mods/littlestcup/formats';
+import { Formats as Lovelymod                   } from '../data/mods/lovelymod/formats';
 import { Formats as LucklessPlay                } from '../data/mods/lucklessplay/formats';
 import { Formats as LukeMod                     } from '../data/mods/lukemod/formats';
 import { Formats as gen9MegasForAll             } from '../data/mods/m4ag9/formats';
@@ -390,6 +391,7 @@ export const Formats: FormatList = [
 	...gen1JumpStarted,
 	...KaensDex,
 	...gen1KantoExpansionPack,
+  ...Lovelymod,
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
