@@ -18,6 +18,68 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	*/
+	/* grassyterrain: {
+		num: 999,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Grassy Terrain",
+		shortDesc: "Grass: +50% power, Ice: -50% power. Grounded Pokémon heal 1/12 max HP, 1/6 if Grass.",
+		pp: 1,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'grassyterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['Aurora Beam', 'Avalanche', 'Blizzard', 'Freeze Shock', 'Freeze-Dry',
+'Frost Breath, Glacial Lance, Glaciate, Ice Ball, Ice Beam, Ice Burn, Ice Fang, Ice Hammer',
+'Ice Punch', 'Ice Shard', 'Ice Spinner', 'Icicle Crash', 'Icicle Spear', 'Icy Wind', 'Mountain Gale',
+'Powder Snow', 'Subzero Slammer', 'Triple Axel'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					this.heal(pokemon.baseMaxhp / 12, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	}, */
 	megakick: {
 		name: "Mega Kick",
 		type: "Normal",
