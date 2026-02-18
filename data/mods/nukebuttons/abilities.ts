@@ -93,6 +93,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setTerrain('grassyterrain');
 		},
+		onAnySetTerrain(target, source, terrain) {
+			const strongTerrains = ['grassyterrain'];
+			if (this.field.getTerrain().id === 'grassyterrain' && !strongTerrains.includes(terrain.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.terrainState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('grassyterrain')) {
+					this.field.terrainState.source = target;
+					return;
+				}
+			}
+			this.field.clearTerrain();
+		},
 		flags: {},
 		name: "Grassy Surge",
 		rating: 4,
