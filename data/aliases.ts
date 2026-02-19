@@ -1045,7 +1045,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	zaci: "Zacian",
 	zam: "Alakazam",
 	zama: "Zamazenta",
-	zard: "Charizard",
+	//zard: "Charizard", bye bye zard
 	zone: "Magnezone",
 	zong: "Bronzong",
 	zor: "Scizor",
