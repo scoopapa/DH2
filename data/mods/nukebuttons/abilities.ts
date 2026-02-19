@@ -62,7 +62,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 3,
 	},
 	poisonpuppeteer: {
-		shortDesc: "If this Pokémon inflicts poison, it also inflicts a bunch of other shit.",
+		shortDesc: "If this Pokémon inflicts poison, it also taunts, torments, and flinches the target.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
@@ -115,7 +115,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 6,
 	},
-	// electromorphosis
+	electromorphosis: {
+		shortDesc: "This Pokémon's attacking stats are raised by 1 stage after it is damaged by an attack, 2 if the attack is Electric type.",
+		onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				if (move.type === 'Electric') {
+					this.boost({atk: 2}, target);
+					this.boost({spa: 2}, target);
+				} else {
+					this.boost({atk: 1}, target);
+					this.boost({spa: 1}, target);
+				}
+			},
+		flags: {},
+		name: "Electromorphosis",
+		rating: 3,
+		num: 7,
+	},
 	waterbubble: {
 		shortDesc: "This Pokémon cannot be burned, and its Water-type attacks do 1.5x damage.",
 		onSourceModifyAtkPriority: 5,
@@ -147,4 +163,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 8,
 	},
+	
+
 };

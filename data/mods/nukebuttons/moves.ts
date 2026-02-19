@@ -148,4 +148,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	placeholder: {
+		name: "Techno Blast",
+		type: "Bug",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Genesect's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
 };
