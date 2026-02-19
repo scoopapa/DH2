@@ -163,6 +163,290 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 8,
 	},
-	
 
+	infest: {
+		shortDesc: "This Pokémon's Normal-type moves become Bug type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Bug';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Infest affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Infest",
+		rating: 0,
+	},
+
+	draconate: {
+		shortDesc: "This Pokémon's Normal-type moves become Dragon type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Dragon';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Draconate affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Draconate",
+		rating: 0,
+	},
+
+	martialize: {
+		shortDesc: "This Pokémon's Normal-type moves become Fighting type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fighting';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Martialize affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Martialize",
+		rating: 0,
+	},
+
+	ignite: {
+		shortDesc: "This Pokémon's Normal-type moves become Fire type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fire';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Ignite affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Ignite",
+		rating: 0,
+	},
+
+	spectriate: {
+		shortDesc: "This Pokémon's Normal-type moves become Ghost type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ghost';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Spectriate affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Spectriate",
+		rating: 0,
+	},
+
+	naturalize: {
+		shortDesc: "This Pokémon's Normal-type moves become Grass type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Grass';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Naturalize affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Naturalize",
+		rating: 0,
+	},
+
+	placeholder1_dark: {
+		shortDesc: "This Pokémon's Normal-type moves become Dark type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Dark';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Placeholder 1 (Dark) affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Placeholder 1 (Dark)",
+		rating: 0,
+	},
+
+	placeholder2: {
+		shortDesc: "This Pokémon's Normal-type moves become Ground type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ground';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Placeholder 2 affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Placeholder 2",
+		rating: 0,
+	},
+
+	placeholder1_psychic: {
+		shortDesc: "This Pokémon's Normal-type moves become Psychic type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Psychic';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Placeholder 1 (Psychic) affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Placeholder 1 (Psychic)",
+		rating: 0,
+	},
+
+	intoxicate: {
+		shortDesc: "This Pokémon's Normal-type moves become Poison type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Poison';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Intoxicate affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Intoxicate",
+		rating: 0,
+	},
+
+	mineralize: {
+		shortDesc: "This Pokémon's Normal-type moves become Rock type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Rock';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Mineralize affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Mineralize",
+		rating: 0,
+	},
+
+	metallize: {
+		shortDesc: "This Pokémon's Normal-type moves become Steel type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Steel';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Metallize affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Metallize",
+		rating: 0,
+	},
+
+	liquidate: {
+		shortDesc: "This Pokémon's Normal-type moves become Water type and have their power multiplied by 1.2.",
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && move.category !== 'Status' && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Water';
+				move.typeChangerBoosted = this.effect;
+				this.debug('Liquidate affected ' + move.name);
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Liquidate",
+		rating: 0,
+	},
 };
