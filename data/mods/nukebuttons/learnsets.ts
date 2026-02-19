@@ -26,6 +26,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lifedew: ["9L1"],
 			metronome: ["9L1"],
 			solarbeam: ["9L1"],
+			autismbeam: ["9L1"],
 		},
 	},
 	deoxys: {

@@ -34,6 +34,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "celebi").learnset.lifedew = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.metronome = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "celebi").learnset.autismbeam = ["9L1"];
 		// Deoxys
 		this.modData("Learnsets", "deoxys").learnset.agility = ["9L1"];
 		this.modData("Learnsets", "deoxys").learnset.calmmind = ["9L1"];

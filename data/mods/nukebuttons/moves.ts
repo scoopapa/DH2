@@ -147,4 +147,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+
+	autismbeam: {
+		num: 261,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Autism Beam",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		status: 'brn',
+		secondary: null,
+		target: "normal",
+		type: "Stellar",
+		zMove: {boost: {atk: 1}},
+		contestType: "Beautiful",
+	},
 };
