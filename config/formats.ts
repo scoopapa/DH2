@@ -6599,4 +6599,14 @@ export const Formats: FormatList = [
 		},
 	},
 	*/
+//placeholder
+	
+	{
+		name: "BanditeAbilities",
+		mod: 'banditeabilities',
+		desc: `adds 30 new abilities to be used on any mon`,
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Data Mod'],
+		teambuilderFormat: 'National Dex', //uncomment if your mod is natdex
+	},
+	
 ];
