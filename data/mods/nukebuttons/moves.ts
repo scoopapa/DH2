@@ -18,7 +18,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	*/
-	/* grassyterrain: {
+/*	grassyterrain: {
 		num: 999,
 		accuracy: true,
 		basePower: 0,
@@ -39,10 +39,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				const weakenedMoves = ['Aurora Beam', 'Avalanche', 'Blizzard', 'Freeze Shock', 'Freeze-Dry',
-'Frost Breath, Glacial Lance, Glaciate, Ice Ball, Ice Beam, Ice Burn, Ice Fang, Ice Hammer',
-'Ice Punch', 'Ice Shard', 'Ice Spinner', 'Icicle Crash', 'Icicle Spear', 'Icy Wind', 'Mountain Gale',
-'Powder Snow', 'Subzero Slammer', 'Triple Axel'];
+				const weakenedMoves = ['aurorabeam', 'avalanche', 'blizzard', 'freezeshock', 'freezedry',
+'frostbreath', 'glaciallance', 'glaciate', 'iceball', 'icebeam', 'iceburn', 'icefang', 'icehammer',
+'icepunch', 'iceshard', 'icespinner', 'iciclecrash', 'iciclespear', 'icywind', 'mountaingale',
+'powdersnow', 'subzeroslammer', 'tripleaxel'];
 				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
 					this.debug('move weakened by grassy terrain');
 					return this.chainModify(0.5);
@@ -79,7 +79,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-	}, */
+	},
+*/
 	megakick: {
 		name: "Mega Kick",
 		type: "Normal",
@@ -146,22 +147,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-	},
-
-	autismbeam: {
-		num: 261,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Autism Beam",
-		pp: 1,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
-		status: 'brn',
-		secondary: null,
-		target: "normal",
-		type: "Stellar",
-		zMove: {boost: {atk: 1}},
-		contestType: "Beautiful",
 	},
 };
