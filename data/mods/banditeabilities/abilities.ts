@@ -8,7 +8,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Rejuvenation",
-		shortDesc: "when hit with an attack, this Pokemon heals 1/8 of its max HP",
+		shortDesc: "When this Pokémon is hit by an attack, it heals 1/8 of its maximum HP.",
 			},
 	
 	parallelguard: {
@@ -19,8 +19,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Parallel Guard",
-		shortDesc:  "This Pokemon ignores the STAB of Pokemon attacking it.",
+		shortDesc:  "This Pokemon ignores the STAB of Pokémon attacking it.",
 			},
+
 	launchingforce: {
 		onStart(pokemon) {
 			pokemon.addVolatile('launchingforce');
@@ -49,7 +50,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Launching Force",
-		shortDesc:"This Pokemon uses its Speed stat to calculate damage dealt on its first turn out.",
+		shortDesc:"This Pokémon uses its Speed stat to calculate damage dealt on its first turn out.",
 			},
 	
 
@@ -74,7 +75,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Underdog",
-		shortDesc: "This pokemon's moves deal more damage based on how much lighter it is than the opponent, by up to 1.5x",
+		shortDesc: "This Pokémon's moves deal increased damage based on how much lighter it is than the target Pokémon, by up to 1.5x.",
 	
 	},
 
@@ -88,7 +89,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 		flags: {},
 		name: "Life Essence",
-		shortDesc: "If this pokemon knocks out an opposing pokemon with an attack, this pokemon heals half of the damage it dealt that turn",
+		shortDesc: "If this Pokémon knocks out an opposing Pokémon with an attack, this Pokémon heals half of the damage it dealt in that attack.",
 	
 	},
 
@@ -119,7 +120,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 		flags: {breakable: 1},
 		name: "Final Breath",
-		shortDesc: "When this Pokemon takes fatal damage, it will remain on the field until the end of the turn instead of fainting immediately.",
+		shortDesc: "When this Pokémon takes fatal damage, it will remain on the field until the end of the turn instead of fainting immediately.",
 	
 	},
 
@@ -131,7 +132,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 		flags: {},
 		name: "Tactical Retreat",
-		shortDesc: "if this Pokémon uses a not very effective move on the opposing Pokémon, this Pokémon is forced to switch out",
+		shortDesc: "If this Pokémon deals resisted damage on an opposing Pokémon, this Pokémon is forced to switch out.",
 
 	},
 
@@ -145,12 +146,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Negligible",
-		shortDesc:  "If this Pokemon were to take less than 12.5% max HP damage from any source, it instead takes no damage." ,
+		shortDesc:  "If this Pokemon were to take less than 12.5% of its max HP from any source, it instead takes no damage." ,
 	},
 
 	identicalbreaker: {
-			/*sadly resorted to using chatGPT on this one*/
-		 onStart(pokemon) {
+		onStart(pokemon) {
         const foes = pokemon.foes(true).filter(p => p && !p.fainted);
         if (!foes.length) return;
         if (foes.length === 1) {
@@ -192,13 +192,5 @@ onguard: {
 		},	
 		flags: {},
 		name: "On Guard",
-		shortDesc: "When an opposing Pokemon raises an attacking stat, this Pokemon raises the respective Defense by 1"
-	/*
-	placeholder: {
-		
-		flags: {},
-		name: "",
-		shortDesc: "",
-	
-	*/
+		shortDesc: "When an opposing Pokemon raises an attacking stat, this Pokemon raises the respective Defense by 1."
 }
