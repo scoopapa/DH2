@@ -148,7 +148,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
-	placeholder: {
+	chloroblast: {
+		name: "Chloroblast",
+		type: "Grass",
+		category: "Special",
+		basePower: 110,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "No additional effect.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+
+	// Nuke Buttons
+	technoblast: {
 		name: "Techno Blast",
 		type: "Bug",
 		category: "Special",
@@ -157,6 +177,315 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 1,
 		noPPBoosts: true,
 		shortDesc: "Genesect's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	genesissupernova: {
+		name: "Genesis Supernova",
+		type: "Dark",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Mew's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	doomdesire: {
+		name: "Doom Desire",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Jirachi's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	plasmafists: {
+		name: "Plasma Fists",
+		type: "Electric",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Zeraora's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	spacialrend: {
+		name: "Spacial Rend",
+		type: "Fairy",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Celebi's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	spectraldistortion: {
+		name: "Spectral Distortion",
+		type: "Fighting",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Marshadow's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	vcreate: {
+		name: "V-Create",
+		type: "Fire",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Victini's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ancientsymphony: {
+		name: "Ancient Symphony",
+		type: "Flying",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Meloetta's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	hyperspacehole: {
+		name: "Hyperspace Hole",
+		type: "Ghost",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Hoopa's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	seedflare: {
+		name: "Seed Flare",
+		type: "Grass",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Shaymin's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fleurcannon: {
+		name: "Fleur Cannon",
+		type: "Ground",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Magearna's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	shatteringiceshards: {
+		name: "Shattering Iceshards",
+		type: "Ice",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Volcanion's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	raticatekick: {
+		name: "Raticate Kick",
+		type: "Yes",
+		category: "Physical",
+		basePower: 500,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "raticate move",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+	},
+	mochitornado: {
+		name: "Mochi Tornado",
+		type: "Poison",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Pecharunt's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	psychoboost: {
+		name: "Psycho Boost",
+		type: "Psychic",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Deoxys's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	diamondstorm: {
+		name: "Diamond Storm",
+		type: "Rock",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Diancie's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ironbeatdown: {
+		name: "Iron Beatdown",
+		type: "Steel",
+		category: "Physical",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Melmetal's nuke button.",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	seaswrath: {
+		name: "Sea\'s Wrath",
+		type: "Water",
+		category: "Special",
+		basePower: 350,
+		accuracy: true,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Manaphy's nuke button.",
 		priority: 0,
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
