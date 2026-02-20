@@ -2986,6 +2986,13 @@ export const Formats: FormatList = [
 		desc: `Solomod by Bandite which adds new Abilities for Pokemon to use`,
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Data Mod'],
 		teambuilderFormat: 'National Dex',
+		onValidateSet(set) {
+  		  const allowed = new Set(['rejuvenation', 'parallelguard', 'launchingforce', 'underdog', 'lifeessence', 'finalbreath', 'tacticalretreat', 'negligible', 'identicalbreaker',  'onguard']);
+   		  const ability = this.dex.abilities.get(set.ability).id;
+   		 if (!allowed.has(ability)) {
+      		  return [`${set.species} has an illegal ability.`];
+    }
+}
 	},
 	/* {
 		name: "[Gen 9] Bare Bones",
