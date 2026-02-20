@@ -2806,7 +2806,7 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
-	{
+/*	{
 		name: "[Gen 5] 33 Valuemons",
 		mod: 'gen5valuemons',
 		desc: `A Draft-like meta where each Pokemon has a point value, and the team's value cannot exceed 33 points. This tier is not quite finished, but we're working on it!`,
@@ -2816,7 +2816,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://pokepast.es/34f176e6623896ab">Sample Teams</a>`,
 			`&bullet; <a href="https://discord.gg/XAKtEnvU6X">33 Valuemons Discord</a>`,
               ],
-		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause'/*,'Restricted Shinies Clause'*/,'Obtainable','!Obtainable Moves','!Obtainable Misc',/* ,'33 Valuemons' */],
+		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause','Sleep Clause Mod','Species Clause','Nickname Clause','OHKO Clause','Evasion Items Clause','Evasion Moves Clause','Baton Pass Stat Clause','Gems Clause','One Starter Clause','One Pseudo Clause','One Legendary Clause','Obtainable','!Obtainable Moves','!Obtainable Misc',],
 		banlist: ['King\'s Rock', 'Razor Fang'],
 		unbanlist: ['Baton Pass'],
 		onValidateTeam(team, format) {
@@ -2830,6 +2830,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+*/
 	{
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
@@ -2978,6 +2979,20 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 9] Bandite Abilities",
+		mod: 'banditeabilities',
+		desc: `Solomod by Bandite which adds new Abilities for Pokemon to use`,
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Data Mod'],
+		teambuilderFormat: 'National Dex',
+		onValidateSet(set) {
+  		  const allowed = new Set(['rejuvenation', 'parallelguard', 'launchingforce', 'underdog', 'lifeessence', 'finalbreath', 'tacticalretreat', 'negligible', 'identicalbreaker',  'onguard']);
+   		  const ability = this.dex.abilities.get(set.ability).id;
+   		 if (!allowed.has(ability)) {
+      		  return [`${set.species} has an illegal ability.`];
+    }
+}
 	},
 	/* {
 		name: "[Gen 9] Bare Bones",
@@ -6599,4 +6614,6 @@ export const Formats: FormatList = [
 		},
 	},
 	*/
+//placeholder
+	
 ];
