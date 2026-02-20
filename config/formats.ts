@@ -37,7 +37,7 @@ export const Formats: FormatList = [
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
 				'Landorus-Incarnate', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
 				'Palkia', 'Palkia-Origin', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier',
-				'Ursaluna-Bloodmoon', 'Urishifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
+				'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -62,7 +62,7 @@ export const Formats: FormatList = [
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
 				'Landorus-Incarnate', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
 				'Palkia', 'Palkia-Origin', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier',
-				'Ursaluna-Bloodmoon', 'Urishifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
+				'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -87,7 +87,7 @@ export const Formats: FormatList = [
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
 				'Lugia', 'Lunala', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Palkia-Origin', 
 				'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo',
-				'Urishifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zamazenta',
+				'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zamazenta',
 				'Genesect-Douse', 'Genesect-Shock', 'Genesect-Burn', 'Genesect-Chill',
 		],
 		onValidateTeam(team, format) {
