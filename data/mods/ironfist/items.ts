@@ -1,4 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	/*
 	//crystals/stones that dont exist yet
 	buginiumz: null,
 	darkiniumz: null,
@@ -21,6 +22,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	absolite: null,
 	houndoominite: null,
 	blueorb: null,
+	*/
 	
 	//vanilla items
 	berryjuice: {
