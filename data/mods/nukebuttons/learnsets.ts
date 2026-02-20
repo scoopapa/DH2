@@ -1,7 +1,7 @@
 export const Learnsets = {
 	celebi: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			moonblast: ["9L1","9L1","9L1"],
 			chloroblast: ["9L1","9L1","9L1"],
@@ -114,7 +114,6 @@ export const Learnsets = {
 	},
 	deoxys: {
 		learnset: {
-			inherit: true,
 			attack: ["9L1","9L1","9L1"],
 			psychoboost: null,
 			aerialace: ["9L1","9M", "7M", "6M", "5M", "4M", "3M"],
@@ -249,7 +248,7 @@ export const Learnsets = {
 	},
 	diancie: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			aeroblast: ["9L1","9L1","9L1"],
 			diamondstorm: null,
@@ -346,7 +345,7 @@ export const Learnsets = {
 	},
 	genesect: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			techoblast: null,
 			aerialace: ["9L1","7M", "6M", "5M"],
@@ -435,7 +434,7 @@ export const Learnsets = {
 	},
 	hoopa: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			powergem: ["9L1","9L1","9L1"],
 			hyperspacehole: null,
@@ -539,7 +538,7 @@ export const Learnsets = {
 	},
 	jirachi: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			dragonpulse: ["9L1","9L1","9L1"],
 			doomdesire: null,
@@ -659,7 +658,7 @@ export const Learnsets = {
 	},
 	magearna: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			malignantchain: ["9L1","9L1","9L1"],
 			earthpower: ["9L1","9L1","9L1"],
@@ -771,7 +770,7 @@ export const Learnsets = {
 	},
 	manaphy: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			ironhead: ["9L1","9L1","9L1"],
 			flashcannon: ["9L1","9L1","9L1"],
@@ -861,7 +860,7 @@ export const Learnsets = {
 	},
 	marshadow: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			shadowbone: ["9L1","9L1","9L1"],
 			spectralthief: null,
@@ -952,7 +951,7 @@ export const Learnsets = {
 	},
 	melmetal: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			closecombat: ["9L1","9L1","9L1"],
 			doubleironbash: null,
@@ -1006,7 +1005,7 @@ export const Learnsets = {
 	},
 	meloetta: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			relicsong: null,
 			acrobatics: ["9L1","9M", "9L26", "7M", "7L26", "6M", "6L26", "5M", "5L26"],
@@ -1118,7 +1117,7 @@ export const Learnsets = {
 	},
 	mew: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			transform: null,
 			acidspray: ["9L1","9M"],
@@ -1540,7 +1539,7 @@ export const Learnsets = {
 	},
 	raticate: {
 		learnset: {
-			inherit: true,
+			
 			bellydrum: ["9L1","9L1","9L1"],
 			extremespeed: ["9L1","9L1","9L1"],
 			slackoff: ["9L1","9L1","9L1"],
@@ -1549,7 +1548,7 @@ export const Learnsets = {
 	},
 	shaymin: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			chloroblast: ["9L1","9L1","9L1"],
 			seedflare: null,
@@ -1628,7 +1627,7 @@ aircutter: ["9L1","9M", "4T"],
 	},
 	victini: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			outrage: ["9L1","9L1","9L1"],
 			dragonclaw: ["9L1","9L1","9L1"],
@@ -1736,7 +1735,7 @@ batonpass: ["9L1","8M"],
 	},
 	volcanion: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			steameruption: null,
 			bodypress: ["9L1","9M", "8M"],
@@ -1824,7 +1823,7 @@ batonpass: ["9L1","8M"],
 	},
 	zeraora: {
 		learnset: {
-			inherit: true,
+			
 			attack: ["9L1","9L1","9L1"],
 			supercellslam: ["9L1","9L1","9L1"],
 			plasmafists: null,
