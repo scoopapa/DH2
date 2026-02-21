@@ -706,6 +706,8 @@ exports.grouplist = [
 
 		console: true,
 		bypassall: true,
+		hotpatch: true,
+		minigame: true,
 		lockdown: true,
 		promote: '&u',
 		roomowner: true,

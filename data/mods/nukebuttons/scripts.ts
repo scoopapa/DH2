@@ -7,7 +7,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// only to specify the order of custom tiers
 		customTiers: ['NB', 'NBU'],
 	},	
-	
+/*	battle: {
+		// something something
+			const mapping: {[k: string]: string} = {
+				celebi: 'spacialrend',
+				deoxys: 'psychoboost',
+				diancie: 'diamondstorm',
+				genesect: 'technoblast',
+				hoopa: 'hyperspacehole',
+				jirachi: 'doomdesire',
+				magearna: 'fleurcannon',
+				manaphy: 'seaswrath',
+				marshadow: 'spectraldistortion',
+				melmetal: 'ironbeatdown',
+				meloetta: 'ancientsymphony',
+				mew: 'genesissupernova',
+				pecharunt: 'mochitornado',
+				raticate: 'raticatekick',
+				shaymin: 'seedflare',
+				victini: 'vcreate',
+				volcanion: 'shatteringiceshards',
+				zeraora: 'plasmafists',
+			};
+			const speciesId = pokemon.species.id;
+			const zMoveName = mapping[speciesId];
+			if (!zMoveName) return;
+			return zMoveName;
+		},
+	},
+*/
 	init() {
 	// Celebi
 		this.modData("Learnsets", "celebi").learnset.attack = ["9L1"];
