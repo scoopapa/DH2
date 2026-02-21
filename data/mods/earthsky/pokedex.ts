@@ -2397,6 +2397,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Induction", H: "Battery"},
 	},
+	spoink: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gourmand"},
+	},
+	grumpig: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gourmand"},
+	},
 	vibrava: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Sheer Force"},
