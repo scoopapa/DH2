@@ -2807,7 +2807,6 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	nukebuttons,
-	{
 /*	{
 		name: "[Gen 5] 33 Valuemons",
 		mod: 'gen5valuemons',
