@@ -1,4 +1,4 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesDataTable} = {
 zombie: {
 		num: 1,
 		name: "Zombie",
