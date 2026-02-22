@@ -17,6 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
+import { format as deadcells               } from '../data/mods/deadcells/formats';
 export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -2806,6 +2807,7 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
+	deadcells,
 	nukebuttons,
 /*	{
 		name: "[Gen 5] 33 Valuemons",
