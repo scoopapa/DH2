@@ -22,15 +22,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 	},
 	batonpass: {
-    inherit: true,
-    selfSwitch: true,
-    onHit(pokemon) {
-			if (!this.canSwitch(pokemon.side) || pokemon.volatiles['commanded']) {
-				this.attrLastMove('[still]');
-				this.add('-fail', pokemon);
-				return this.NOT_FAIL;
-			}
+		num: 100,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Teleport",
+		pp: 40,
+		priority: 0,
+		flags: {metronome: 1},
+		onTry(source) {
+			return !!this.canSwitch(source.side);
 		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
 	},
 	bind: {
 		inherit: true,
