@@ -27,19 +27,17 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-		name: "[Pokemon Throne] NatDex OU",
+		name: "[Gen 9] Pokemon Throne OU",
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'pokemonthrone',
-		gen: 9,
-		ruleset: ['Standard NatDex', 'Species Clause', 'Force Open Team Sheets'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'HP Percentage Mod', 'Species Clause', 'Endless Battle Clause', 'Force Open Team Sheets'],
 		banlist: ['Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chien-Pao', 'Chi-Yu',
 				'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Genesect',
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
 				'Landorus-Incarnate', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
 				'Palkia', 'Palkia-Origin', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier',
-				'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
-		],
+				'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%',],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -47,108 +45,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Pokemon Throne] National Dex OU'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Pokemon Throne] NatDex OU - Closed Teamsheet",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'pokemonthrone',
-		gen: 9,
-		ruleset: ['Standard NatDex', 'Species Clause'],
-		banlist: ['Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chien-Pao', 'Chi-Yu',
-				'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Genesect',
-				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
-				'Landorus-Incarnate', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
-				'Palkia', 'Palkia-Origin', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo', 'Spectrier',
-				'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zygarde-50%', 
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'PUBL', 'PU', 'ZUBL', 'ZU', 'NFE', 'LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Pokemon Throne] National Dex OU'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Pokemon Throne] NatDex Doubles OU",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'pokemonthrone',
-		gameType: 'doubles',
-		gen: 9,
-		ruleset: ['Standard NatDex', 'Species Clause', 'Force Open Team Sheets'],
-		banlist: ['Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Genesect',
-				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
-				'Lugia', 'Lunala', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Palkia-Origin', 
-				'Pheromosa', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Solgaleo',
-				'Urshifu-Single-Strike', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'Zamazenta',
-				'Genesect-Douse', 'Genesect-Shock', 'Genesect-Burn', 'Genesect-Chill',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['DOU', 'DUU', '(DUU)', 'NFE', 'LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Pokemon Throne] National Dex OU'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Pokemon Throne] VGC REG A",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'pokemonthrone',
-		gameType: 'doubles',
-		bestOfDefault: true,
-		gen: 9,
-		ruleset: ['Standard NatDex', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Open Team Sheets'],
-		banlist: [
-			'Restricted Legendary', 'Mythical',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['REG A', 'NFE', 'LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Pokemon Throne] National Dex OU'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Pokemon Throne] VGC REG B",
-		teambuilderFormat: 'National Dex',
-		threads: [],
-		mod: 'pokemonthrone',
-		gameType: 'doubles',
-		bestOfDefault: true,
-		gen: 9,
-		ruleset: ['Standard NatDex', 'Species Clause', 'Item Clause', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Open Team Sheets'],
-		banlist: [
-			'Restricted Legendary', 'Arceus',
-		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['REG A', 'NFE', 'LC'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Pokemon Throne] National Dex OU'];
+					return [set.species + ' is not legal in Pokemon Throne.'];
 				}
 			}
 		},
