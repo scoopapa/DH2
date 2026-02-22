@@ -31,7 +31,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'pokemonthrone',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'HP Percentage Mod', 'Species Clause', 'Endless Battle Clause', 'Force Open Team Sheets'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Force Open Team Sheets'],
 		banlist: ['Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chien-Pao', 'Chi-Yu',
 				'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Genesect',
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
