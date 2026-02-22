@@ -27,6 +27,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NB",
 		doublesTier: "",
 	},
+	magearnaoriginal: {
+		tier: "Illegal",
+		doublesTier: "",
+	},
 	manaphy: {
 		tier: "NB",
 		doublesTier: "",

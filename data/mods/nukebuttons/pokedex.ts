@@ -85,7 +85,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Meloetta",
 		types: ["Flying", "Psychic"],
 		baseStats: {hp: 120, atk: 135, def: 95, spa: 145, spd: 160, spe: 100},
-		abilities: {0: "Shadow Tag", H: "Magic Guard"},
+		abilities: {0: "Delta Stream", H: "Magic Guard"},
 	},
 	mew: {
 		inherit: true,
