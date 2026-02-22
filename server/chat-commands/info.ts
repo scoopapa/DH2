@@ -1661,13 +1661,14 @@ export const commands: Chat.ChatCommands = {
 	opensource(target, room, user) {
 		if (!this.runBroadcast()) return;
 		this.sendReplyBox(
-			`Pok&eacute;mon Showdown is open source:<br />` +
-			`- Language: mostly TypeScript, a little PHP<br />` +
-			`- <a href="https://github.com/smogon/pokemon-showdown/commits/master">What's new?</a><br />` +
-			`- <a href="https://github.com/smogon/pokemon-showdown">Server source code</a><br />` +
-			`- <a href="https://github.com/smogon/pokemon-showdown-client">Client source code</a><br />` +
-			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Dex">Dex source code</a><br />` +
-			`- <a href="https://github.com/smogon/pokemon-showdown-loginserver">Login server source code</a>`
+			`Pok&eacute;mon Showdown (and by extension, Dragon Heaven) is open source:<br />` +
+			`- <a href="https://github.com/scoopapa/DH2/commits/main">What's new?</a><br />` +
+			`- <a href="https://github.com/scoopapa/DH2">Server source</a><br />` +
+/*			'- <a href="https://github.com/Pet-Mods/dragon-heaven">New server</a><br />' + */			
+			`- <a href="https://github.com/scoopapa/dh2-client">Client source</a><br />` +
+/*			'- <a href="https://github.com/Pet-Mods/dragon-heaven-client">New client</a><br />' + */
+			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Dex">Dex source</a><br />` +
+			`- <a href="https://github.com/smogon/pokemon-showdown-loginserver">Login server source</a>`
 		);
 	},
 	opensourcehelp: [
@@ -1920,9 +1921,8 @@ export const commands: Chat.ChatCommands = {
 				descHtml.push(...format.threads);
 			} else {
 				const genID = ['rb', 'gs', 'rs', 'dp', 'bw', 'xy', 'sm', 'ss', 'sv'];
-				descHtml.push(`This format has no resources linked on its <a href="https://www.smogon.com/dex/${genID[format.gen - 1] || 'sv'}/formats/">Smogon Dex page</a>. ` +
-					`Please contact a <a href="https://www.smogon.com/forums/forums/757/">C&amp;C Leader</a> to resolve this. ` +
-					`Alternatively, if this format can't have a page on the Smogon Dex, message <username>dhelmise</username>.<br />`);
+				descHtml.push(`This format has no resources linked. ` +
+					`Please contact a Dragon Heaven coder to resolve this.`);
 			}
 			return this.sendReplyBox(`<h2>${format.name}</h2><hr />${formatDesc ? formatDesc + '<hr />' : ''}${descHtml.join("<br />")}${rulesetHtml ? `<br />${rulesetHtml}` : ''}`);
 		}

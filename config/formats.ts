@@ -16,7 +16,7 @@ If you specify a section that already exists, your format will be added to the b
 New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
-
+import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
 export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -2806,6 +2806,7 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
+	nukebuttons,
 /*	{
 		name: "[Gen 5] 33 Valuemons",
 		mod: 'gen5valuemons',
