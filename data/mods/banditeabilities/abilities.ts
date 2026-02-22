@@ -19,7 +19,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Parallel Guard",
-		shortDesc:  "This Pokemon ignores the STAB of Pokémon attacking it.",
+		shortDesc:  "This Pokémon ignores the STAB of Pokémon attacking it.",
 			},
 
 	launchingforce: {
@@ -116,6 +116,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(target) {
 			this.add('-start', target, 'finalbreath');
 				target.faint()
+			},
+			onStart(pokemon) {
+			this.add('-start', pokemon, 'finalbreath');
+				pokemon.faint()
 			},
 	},
 		flags: {breakable: 1},
