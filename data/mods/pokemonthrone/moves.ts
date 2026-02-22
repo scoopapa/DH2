@@ -26,7 +26,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Teleport",
+		name: "Baton Pass",
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
