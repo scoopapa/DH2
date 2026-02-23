@@ -182,19 +182,101 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 		flags: {},
 		name: "Identical Breaker",
-		shortDesc: "On switch-in, this Pokemon removes from the opponent any types it shares with the holder.",
+		shortDesc: "On switch-in, this Pokémon removes from the opponent any types it shares with the holder.",
 	},
 
-onguard: {
+	onguard: {
 			onFoeAfterBoost(boost, target, source, effect) {
 				const pokemon = this.effectState.target;
 			if (target.side !== this.effectState.target.side && boost.atk && boost.atk > 0)
 			this.boost({def: 1}, pokemon);
 			if (target.side !== this.effectState.target.side && boost.spa && boost.spa > 0)
 			this.boost({spd: 1}, pokemon);
-			}
-		},	
+			},	
 		flags: {},
 		name: "On Guard",
-		shortDesc: "When an opposing Pokemon raises an attacking stat, this Pokemon raises the respective Defense by 1."
+		shortDesc: "When an opposing Pokémon raises an attacking stat, this Pokémon raises the respective Defense by 1."
+	},
+
+	beatbox: {
+			onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				move.category = 'Physical'
+				move.overrideOffensiveStat = 'atk';
+				move.flags.contact = 1
+				return this.chainModify(1.2);
+				}
+			},
+		flags: {},
+		name: "BeatBox",
+		shortDesc: "This Pokémon's sound based moves are are Physical, gain a 1.2x boost, and make contact."
+	},
+
+	adrenalinerush: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Adrenaline Rush');
+						return this.boost({spe: 2}, pokemon);
+					}
+				}
+			}
+		},
+
+		flags: {},
+		name: "Adrenaline Rush",
+		shortDesc: "This Pokémon's speed is boosted by 2 when switching into a pokemon with a super-effective move."
+	},
+	unchecked: { /* credit to chatbats for powerspot code*/
+		onChargeMove(pokemon, target, move) {
+			if (!pokemon.item) {
+			this.debug('unchecked - remove charge turn for ' + move.id);
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!pokemon.item) {
+			if (pokemon.getVolatile('mustrecharge')) {
+				pokemon.removeVolatile('mustrecharge');
+				this.add('-end', pokemon, 'mustrecharge');
+				}
+			}
+		},
+		flags: {},
+		name: "Unchecked",
+		shortDesc: "This Pokémon's moves ignore charge and recharge turns if not holding an item.",
+	},
+	trueforce: { 
+		onModifyMove(move, source) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+			if (source.hasType(move.type))
+				move.ignoreImmunity = true;
+			}
+		},
+		flags: {},
+		name: "True Force",
+		shortDesc: "This Pokémon's STAB moves ignore immunities.",
+	},
+	calculated: { 
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.category != 'Status') {
+				this.damage(source.level / 2);
+
+			}
+		},
+		flags: {},
+		name: "Calculated",
+		shortDesc: "This Pokémon's moves deal additional damage equal to 1/2th this pokemon's level",
+	},
 }
