@@ -1,10 +1,12 @@
-export const Pokedex: {[k: string]: ModdedSpeciesDataTable} = {
-zombie: {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	zombie: {
 		num: 1,
 		name: "Zombie",
 		types: ["Ghost"],
 		baseStats: {hp: 50, atk: 95, def: 30, spa: 60, spd: 55, spe: 60},
 		abilities: {0: "Shed Skin", 1: "Stench", H: "Shadow Tag"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	festeringzombie: {
 		num: 2,
@@ -12,6 +14,8 @@ zombie: {
 		types: ["Ghost", "Bug"],
 		baseStats: {hp: 50, atk: 105, def: 65, spa: 90, spd: 60, spe: 85},
 		abilities: {0: "Shed Skin", 1: "Stench", H: "Swarm"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	swarmzombie: {
 		num: 3,
@@ -19,6 +23,8 @@ zombie: {
 		types: ["Ghost", "Bug"],
 		baseStats: {hp: 60, atk: 125, def: 65, spa: 100, spd: 75, spe: 100},
 		abilities: {0: "Sheer Force", 1: "Stench", H: "Galvanize"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	undeadarcher: {
 		num: 4,
@@ -26,6 +32,8 @@ zombie: {
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 35, atk: 85, def: 50, spa: 80, spd: 70, spe: 50},
 		abilities: {0: "Long Reach", 1: "Quick Draw", H: "Iron Barbs"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	knifethrower: {
 		num: 5,
@@ -33,6 +41,8 @@ zombie: {
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 55, atk: 120, def: 50, spa: 120, spd: 75, spe: 105},
 		abilities: {0: "Long Reach", 1: "Quick Draw", H: "Iron Barbs"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	inquisitor: {
 		num: 6,
@@ -40,6 +50,8 @@ zombie: {
 		types: ["Psychic"],
 		baseStats: {hp: 30, atk: 30, def: 50, spa: 100, spd: 70, spe: 60},
 		abilities: {0: "Trace", 1: "Magic Guard", H: "Telepathy"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	caster: {
 		num: 7,
@@ -47,6 +59,8 @@ zombie: {
 		types: ["Psychic", "Fire"],
 		baseStats: {hp: 65, atk: 50, def: 55, spa: 120, spd: 90, spe: 80},
 		abilities: {0: "Trace", 1: "Magic Guard", H: "Telepathy"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	arbiter: {
 		num: 8,
@@ -54,6 +68,8 @@ zombie: {
 		types: ["Psychic", "Fire"],
 		baseStats: {hp: 75, atk: 55, def: 75, spa: 140, spd: 90, spe: 95},
 		abilities: {0: "Trace", 1: "Magic Guard", H: "Telepathy"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	grenadier: {
 		num: 9,
@@ -61,6 +77,8 @@ zombie: {
 		types: ["Fire"],
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 70, spd: 60, spe: 60},
 		abilities: {0: "Flash", 1: "Forewarn", H: "Mega Launcher"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	bombardier: {
 		num: 10,
@@ -68,6 +86,8 @@ zombie: {
 		types: ["Fire"],
 		baseStats: {hp: 70, atk: 45, def: 65, spa: 105, spd: 75, spe: 60},
 		abilities: {0: "Flash", 1: "Forewarn", H: "Mega Launcher"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	hammer: {
 		num: 11,
@@ -75,6 +95,8 @@ zombie: {
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 95, atk: 85, def: 100, spa: 125, spd: 85, spe: 45},
 		abilities: {0: "Flash", 1: "Forewarn", H: "Mega Launcher"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	thorny: {
 		num: 12,
@@ -82,6 +104,8 @@ zombie: {
 		types: ["Ground", "Grass"],
 		baseStats: {hp: 70, atk: 95, def: 140, spa: 50, spd: 60, spe: 65},
 		abilities: {0: "Iron Barbs", 1: "Rough Skin", H: "Solid Rock"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	groundshaker: {
 		num: 13,
@@ -89,6 +113,8 @@ zombie: {
 		types: ["Ground", "Dragon"],
 		baseStats: {hp: 95, atk: 115, def: 165, spa: 65, spd: 75, spe: 45},
 		abilities: {0: "Iron Barbs", 1: "Rough Skin", H: "Solid Rock"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	shieldbearer: {
 		num: 14,
@@ -96,6 +122,8 @@ zombie: {
 		types: ["Steel"],
 		baseStats: {hp: 65, atk: 90, def: 120, spa: 65, spd: 90, spe: 65},
 		abilities: {0: "Battle Armor", 1: "Bulletproof", H: "Steelworker"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	kamikaze: {
 		num: 15,
@@ -103,6 +131,8 @@ zombie: {
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 1, atk: 200, def: 1, spa: 200, spd: 1, spe: 125},
 		abilities: {0: "Pure Power", 1: "Huge Power", H: "Reckless"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	darktracker: {
 		num: 16,
@@ -110,6 +140,8 @@ zombie: {
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 30, atk: 105, def: 50, spa: 75, spd: 60, spe: 80},
 		abilities: {0: "Sharpness", 1: "Prankster", H: "Speed Boost"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	runner: {
 		num: 17,
@@ -117,6 +149,8 @@ zombie: {
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 50, atk: 115, def: 85, spa: 90, spd: 65, spe: 95},
 		abilities: {0: "Sharpness", 1: "Prankster", H: "Speed Boost"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	automaton: {
 		num: 18,
@@ -124,6 +158,8 @@ zombie: {
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 30, atk: 110, def: 30, spa: 50, spd: 30, spe: 110},
 		abilities: {0: "Quick Draw", 1: "Prism Armor", H: "Intrepid Sword"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	cannibal: {
 		num: 19,
@@ -131,6 +167,8 @@ zombie: {
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 65, atk: 115, def: 70, spa: 50, spd: 85, spe: 115},
 		abilities: {0: "Steely Spirit", 1: "Prism Armor", H: "Intrepid Sword"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	timekeeper: {
 		num: 20,
@@ -138,6 +176,8 @@ zombie: {
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 70, atk: 120, def: 70, spa: 100, spd: 100, spe: 140},
 		abilities: {0: "Intrepid Sword"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	protector: {
 		num: 21,
@@ -145,6 +185,8 @@ zombie: {
 		types: ["Steel", "Electric"],
 		baseStats: {hp: 60, atk: 50, def: 125, spa: 60, spd: 140, spe: 20},
 		abilities: {0: "Bulletproof", 1: "Weak Armor", H: "Dauntless Shield"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	defender: {
 		num: 22,
@@ -152,6 +194,8 @@ zombie: {
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 90, atk: 95, def: 115, spa: 45, spd: 120, spe: 25},
 		abilities: {0: "Bulletproof", 1: "Weak Armor", H: "Dauntless Shield"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	sweeper: {
 		num: 23,
@@ -159,6 +203,8 @@ zombie: {
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 40, atk: 70, def: 60, spa: 30, spd: 50, spe: 80},
 		abilities: {0: "Pressure", 1: "Iron Barbs", H: "Magma Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	royalguard: {
 		num: 24,
@@ -166,6 +212,8 @@ zombie: {
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 75, atk: 110, def: 85, spa: 70, spd: 65, spe: 95},
 		abilities: {0: "Pressure", 1: "Iron Barbs", H: "Magma Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	concierge: {
 		num: 25,
@@ -173,6 +221,8 @@ zombie: {
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 100, atk: 135, def: 90, spa: 75, spd: 80, spe: 70},
 		abilities: {0: "Rock Head", 1: "Iron Barbs", H: "Magma Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	bat: {
 		num: 26,
@@ -180,6 +230,8 @@ zombie: {
 		types: ["Flying"],
 		baseStats: {hp: 20, atk: 40, def: 20, spa: 30, spd: 10, spe: 80},
 		abilities: {0: "Defetists", 1: "Truant", H: "Aerilate"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	dracula: {
 		num: 27,
@@ -187,6 +239,8 @@ zombie: {
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 100, atk: 70, def: 70, spa: 140, spd: 120, spe: 100},
 		abilities: {0: "Stakeout"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	draculafinalform: {
 		num: 28,
@@ -196,6 +250,8 @@ zombie: {
 		types: ["Flying", "Dragon"],
 		baseStats: {hp: 100, atk: 140, def: 135, spa: 50, spd: 100, spe: 75},
 		abilities: {0: "Aerilate"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	corpseworm: {
 		num: 29,
@@ -203,6 +259,8 @@ zombie: {
 		types: ["Bug", "Poison"],
 		baseStats: {hp: 15, atk: 45, def: 15, spa: 30, spd: 25, spe: 20},
 		abilities: {0: "Wimp Out", 1: "Friend Guard", H: "Rattled"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	disgustingworm: {
 		num: 30,
@@ -210,6 +268,8 @@ zombie: {
 		types: ["Water", "Poison"],
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 100, spd: 115, spe: 25},
 		abilities: {0: "Aftermath", 1: "Friend Guard", H: "Innards Out"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	scorpion: {
 		num: 31,
@@ -217,6 +277,8 @@ zombie: {
 		types: ["Poison", "Ground"],
 		baseStats: {hp: 85, atk: 120, def: 125, spa: 55, spd: 65, spe: 45},
 		abilities: {0: "Shell Armor", 1: "Poison Point", H: "Earth Eater"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	sewerstentacle: {
 		num: 32,
@@ -224,6 +286,8 @@ zombie: {
 		types: ["Ground"],
 		baseStats: {hp: 40, atk: 65, def: 30, spa: 60, spd: 80, spe: 120},
 		abilities: {0: "Speed Boost", 1: "Sticky Hold", H: "Poison Touch"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	conjunctivius: {
 		num: 33,
@@ -231,6 +295,8 @@ zombie: {
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 100, atk: 125, def: 90, spa: 125, spd: 90, spe: 20},
 		abilities: {0: "Minds Eye", 1: "Corrosion", H: "Steely Spirit"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	catcher: {
 		num: 34,
@@ -238,6 +304,8 @@ zombie: {
 		types: ["Steel"],
 		baseStats: {hp: 90, atk: 135, def: 90, spa: 75, spd: 70, spe: 40},
 		abilities: {0: "Long Reach", 1: "Staminia", H: "Skill Link"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	cleaver: {
 		num: 35,
@@ -245,6 +313,8 @@ zombie: {
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 105, def: 110, spa: 50, spd: 60, spe: 75},
 		abilities: {0: "Long Reach", 1: "Stalwart", H: "Weak Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	piratecaptain: {
 		num: 36,
@@ -252,6 +322,8 @@ zombie: {
 		types: ["Water", "Fire"],
 		baseStats: {hp: 70, atk: 105, def: 85, spa: 125, spd: 80, spe: 60},
 		abilities: {0: "Solar Power", 1: "Rain Dish", H: "Cursed Body"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	slasher: {
 		num: 37,
@@ -259,6 +331,8 @@ zombie: {
 		types: ["Dark", "Ground"],
 		baseStats: {hp: 60, atk: 135, def: 50, spa: 70, spd: 85, spe: 100},
 		abilities: {0: "Sand Force", 1: "Hyper Cutter", H: "Sharpness"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	lacerator: {
 		num: 38,
@@ -266,13 +340,17 @@ zombie: {
 		types: ["Flying", "Fighting"],
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 60, spd: 70, spe: 110},
 		abilities: {0: "Defiant", 1: "Reckless", H: "No Guard"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	shocker: {
 		num: 39,
 		name: "Shocker",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 30, atk: 30, def: 40, spa: 80, spd: 80, spe: 20},
-		abilities: {0: "Magnet Pull", 1: "Rock Head", H: "Galvanise"},
+		abilities: {0: "Magnet Pull", 1: "Rock Head", H: "Galvanize"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	golem: {
 		inherit: true,
@@ -280,14 +358,18 @@ zombie: {
 		name: "Golem",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 75, atk: 120, def: 110, spa: 80, spd: 45, spe: 30},
-		abilities: {0: "Iron Fist", 1: "Rock Head", H: "Galvanise"},
+		abilities: {0: "Iron Fist", 1: "Rock Head", H: "Galvanize"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	stonewarden: {
 		num: 41,
 		name: "Stone Warden",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 90, atk: 135, def: 130, spa: 80, spd: 90, spe: 25},
-		abilities: {0: "Good As Gold", 1: "Rock Head", H: "Galvanise"},
+		abilities: {0: "Good As Gold", 1: "Rock Head", H: "Galvanize"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	weaverworm: {
 		num: 42,
@@ -295,6 +377,8 @@ zombie: {
 		types: ["Bug"],
 		baseStats: {hp: 20, atk: 35, def: 30, spa: 25, spd: 30, spe: 40},
 		abilities: {0: "Swarm", 1: "Truant", H: "Wimp Out"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	corpsejuice: {
 		num: 43,
@@ -302,6 +386,8 @@ zombie: {
 		types: ["Bug"],
 		baseStats: {hp: 40, atk: 70, def: 50, spa: 65, spd: 60, spe: 35},
 		abilities: {0: "Swarm", 1: "Liquid Ooze", H: "Wimp Out"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	spawner: {
 		num: 44,
@@ -309,6 +395,8 @@ zombie: {
 		types: ["Water", "Bug"],
 		baseStats: {hp: 100, atk: 50, def: 85, spa: 105, spd: 90, spe: 20},
 		abilities: {0: "Swarm", 1: "Liquid Ooze", H: "Poison Heal"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	masker: {
 		num: 45,
@@ -316,6 +404,8 @@ zombie: {
 		types: ["Ghost", "Psychic"],
 		baseStats: {hp: 90, atk: 60, def: 75, spa: 120, spd: 90, spe: 50},
 		abilities: {0: "Illusion", 1: "Dazzling", H: "Psychic Surge"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	buzzcutter: {
 		num: 46,
@@ -323,6 +413,8 @@ zombie: {
 		types: ["Flying"],
 		baseStats: {hp: 40, atk: 80, def: 30, spa: 60, spd: 30, spe: 110},
 		abilities: {0: "Berserk", 1: "Unnerve", H: "Big Pecks"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	demon: {
 		num: 47,
@@ -330,6 +422,8 @@ zombie: {
 		types: ["Flying", "Fire"],
 		baseStats: {hp: 65, atk: 120, def: 60, spa: 100, spd: 80, spe: 110},
 		abilities: {0: "Berserk", 1: "Tough Claws", H: "Gale Wings"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	corpsefly: {
 		num: 48,
@@ -337,13 +431,17 @@ zombie: {
 		types: ["Flying"],
 		baseStats: {hp: 40, atk: 80, def: 30, spa: 60, spd: 30, spe: 110},
 		abilities: {0: "Berserk", 1: "Unnerve", H: "Big Pecks"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	bomber: {
 		num: 49,
 		name: "Bomber",
 		types: ["Flying", "Steel"],
 		baseStats: {hp: 80, atk: 125, def: 100, spa: 70, spd: 75, spe: 85},
-		abilities: {0: "Berserk", 1: "Tinteed Lens", H: "Regenerator"},
+		abilities: {0: "Berserk", 1: "Tinted Lens", H: "Regenerator"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	sewerfly: {
 		num: 50,
@@ -351,6 +449,8 @@ zombie: {
 		types: ["Flying"],
 		baseStats: {hp: 40, atk: 80, def: 30, spa: 60, spd: 30, spe: 110},
 		abilities: {0: "Berserk", 1: "Unnerve", H: "Big Pecks"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	slammer: {
 		num: 51,
@@ -358,6 +458,8 @@ zombie: {
 		types: ["Flying", "Ice"],
 		baseStats: {hp: 100, atk: 140, def: 95, spa: 60, spd: 90, spe: 50},
 		abilities: {0: "Berserk", 1: "Klutz", H: "Strong Jaw"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	skeleton: {
 		num: 52,
@@ -365,6 +467,8 @@ zombie: {
 		types: ["Ghost", "Ground"],
 		baseStats: {hp: 60, atk: 110, def: 60, spa: 50, spd: 40, spe: 80},
 		abilities: {0: "Rough Skin", 1: "Flare Boost", H: "Perish Body"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	thegiant: {
 		num: 53,
@@ -372,6 +476,8 @@ zombie: {
 		types: ["Ghost", "Ground"],
 		baseStats: {hp: 60, atk: 140, def: 140, spa: 90, spd: 130, spe: 40},
 		abilities: {0: "Perish Body"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	soreloser: {
 		num: 54,
@@ -379,6 +485,8 @@ zombie: {
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 40, atk: 35, def: 50, spa: 90, spd: 65, spe: 90},
 		abilities: {0: "Cursed Body", 1: "Dark Aura", H: "Reckless"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	doombringer: {
 		num: 55,
@@ -386,6 +494,8 @@ zombie: {
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 50, atk: 70, def: 110, spa: 90, spd: 90, spe: 40},
 		abilities: {0: "Cursed Body", 1: "Dark Aura", H: "Steelworker"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	curser: {
 		num: 56,
@@ -393,6 +503,8 @@ zombie: {
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 60, atk: 50, def: 40, spa: 130, spd: 80, spe: 90},
 		abilities: {0: "Cursed Body", 1: "Dark Aura", H: "Wandering Spirit"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	rampager: {
 		num: 57,
@@ -400,6 +512,8 @@ zombie: {
 		types: ["Normal", "Dragon"],
 		baseStats: {hp: 60, atk: 100, def: 50, spa: 70, spd: 80, spe: 90},
 		abilities: {0: "Berserk", 1: "Scrappy", H: "Tough Claws"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	werewolf: {
 		num: 58,
@@ -407,6 +521,8 @@ zombie: {
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 60, atk: 115, def: 50, spa: 70, spd: 90, spe: 105},
 		abilities: {0: "Berserk", 1: "Scrappy", H: "Tough Claws"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	direwerewolf: {
 		num: 59,
@@ -414,6 +530,8 @@ zombie: {
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 75, atk: 115, def: 70, spa: 70, spd: 80, spe: 120},
 		abilities: {0: "Berserk", 1: "Scrappy", H: "Tough Claws"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	rancidrat: {
 		num: 60,
@@ -421,6 +539,8 @@ zombie: {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 40, atk: 60, def: 20, spa: 35, spd: 40, spe: 50},
 		abilities: {0: "Poison Point", 1: "Run Away", H: "Toxic Debris"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	toxicmiasma: {
 		num: 61,
@@ -428,6 +548,8 @@ zombie: {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 100, atk: 50, def: 90, spa: 120, spd: 90, spe: 30},
 		abilities: {0: "Poison Point", 1: "Earth Eater", H: "Toxic Debris"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	librarian: {
 		num: 62,
@@ -435,6 +557,8 @@ zombie: {
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 140, spd: 100, spe: 75},
 		abilities: {0: "Levitate", 1: "Pressure", H: "Electric Surge"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	screamingskull: {
 		num: 63,
@@ -442,6 +566,8 @@ zombie: {
 		types: ["Dark"],
 		baseStats: {hp: 20, atk: 80, def: 20, spa: 80, spd: 20, spe: 80},
 		abilities: {0: "Compound Eyes", 1: "Surge Surfer", H: "Magic Guard"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	magistrateofdeath: {
 		num: 64,
@@ -449,6 +575,8 @@ zombie: {
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 50, atk: 110, def: 50, spa: 110, spd: 50, spe: 110},
 		abilities: {0: "Compound Eyes", 1: "Surge Surfer", H: "Magic Guard"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	jerkshroom: {
 		num: 65,
@@ -456,13 +584,17 @@ zombie: {
 		types: ["Grass", "Bug"],
 		baseStats: {hp: 30, atk: 80, def: 100, spa: 30, spd: 40, spe: 20},
 		abilities: {0: "Symbiosis", 1: "Reckless", H: "Shell Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	yeeter: {
 		num: 66,
 		name: "Yeeter",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 70, atk: 110, def: 110, spa: 60, spd: 100, spe: 40},
-		abilities: {0: "Symbiosis", 1: "Stakeout", H: "Rock Heade"},
+		abilities: {0: "Symbiosis", 1: "Stakeout", H: "Rock Head"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	gianttick: {
 		num: 67,
@@ -470,6 +602,8 @@ zombie: {
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 50, atk: 120, def: 100, spa: 30, spd: 100, spe: 100},
 		abilities: {0: "Minds Eye", 1: "Tough Claws", H: "Merciless"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	mamatick: {
 		num: 68,
@@ -477,6 +611,8 @@ zombie: {
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 150, atk: 130, def: 80, spa: 100, spd: 80, spe: 10},
 		abilities: {0: "Minds Eye", 1: "Sharpness", H: "Merciless"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	corpulentzombie: {
 		num: 69,
@@ -484,6 +620,8 @@ zombie: {
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 60, atk: 110, def: 130, spa: 60, spd: 130, spe: 30},
 		abilities: {0: "Mummy", 1: "Tangling Hair", H: "Shadow Tag"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	ovenknight: {
 		num: 70,
@@ -491,6 +629,8 @@ zombie: {
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 60, atk: 120, def: 130, spa: 115, spd: 40, spe: 30},
 		abilities: {0: "Flash Fire", 1: "Triage", H: "Steelworker"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	weirdedwarrior: {
 		num: 71,
@@ -498,6 +638,8 @@ zombie: {
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 100, atk: 130, def: 130, spa: 50, spd: 30, spe: 40},
 		abilities: {0: "Sharpness", 1: "Unaware", H: "Friend Guard"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	livingbarrel: {
 		num: 72,
@@ -505,6 +647,8 @@ zombie: {
 		types: ["Poison", "Water"],
 		baseStats: {hp: 30, atk: 90, def: 20, spa: 50, spd: 20, spe: 90},
 		abilities: {0: "Reckless", 1: "Stakeout", H: "Poison Heal"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	infectedworker: {
 		num: 73,
@@ -512,6 +656,8 @@ zombie: {
 		types: ["Poison", "Water"],
 		baseStats: {hp: 100, atk: 110, def: 70, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Reckless", 1: "Stakeout", H: "Poison Heal"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	throwmaster: {
 		num: 74,
@@ -519,6 +665,8 @@ zombie: {
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 20, atk: 80, def: 30, spa: 50, spd: 100, spe: 50},
 		abilities: {0: "Sturdy", 1: "Rough Skin", H: "Weak Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	dancer: {
 		num: 75,
@@ -526,6 +674,8 @@ zombie: {
 		types: ["Normal", "Rock"],
 		baseStats: {hp: 60, atk: 135, def: 20, spa: 50, spd: 100, spe: 120},
 		abilities: {0: "Sturdy", 1: "Rough Skin", H: "Weak Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	demolisher: {
 		num: 76,
@@ -533,6 +683,8 @@ zombie: {
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 90, atk: 125, def: 90, spa: 125, spd: 40, spe: 40},
 		abilities: {0: "Long Reach", 1: "Sheer Force", H: "Flash Fire"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	impaler: {
 		num: 77,
@@ -540,6 +692,8 @@ zombie: {
 		types: ["Ghost", "Grass"],
 		baseStats: {hp: 100, atk: 105, def: 130, spa: 40, spd: 100, spe: 20},
 		abilities: {0: "Grassy Surge", 1: "Tangling Hair", H: "Swarm"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	blowgunner: {
 		num: 78,
@@ -547,6 +701,8 @@ zombie: {
 		types: ["Poison", "Grass"],
 		baseStats: {hp: 45, atk: 30, def: 20, spa: 90, spd: 80, spe: 60},
 		abilities: {0: "Sniper", 1: "Leaf Guard", H: "Flower Gift"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	banished: {
 		num: 79,
@@ -554,6 +710,8 @@ zombie: {
 		types: ["Poison", "Grass"],
 		baseStats: {hp: 60, atk: 100, def: 60, spa: 90, spd: 90, spe: 80},
 		abilities: {0: "Mold Breaker", 1: "Leaf Guard", H: "Flower Gift"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	scarecrow: {
 		num: 80,
@@ -561,6 +719,8 @@ zombie: {
 		types: ["Dark", "Grass"],
 		baseStats: {hp: 90, atk: 130, def: 90, spa: 90, spd: 100, spe: 100},
 		abilities: {0: "Flower Gift"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	myopiccrow: {
 		num: 81,
@@ -568,13 +728,17 @@ zombie: {
 		types: ["Flying"],
 		baseStats: {hp: 10, atk: 30, def: 15, spa: 20, spd: 40, spe: 55},
 		abilities: {0: "Truant", 1: "Slow Start", H: "Defeatist"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	coldbloodedguardian: {
 		num: 82,
 		name: "Cold Blooded Guardian",
 		types: ["Fairy", "Poison"],
 		baseStats: {hp: 60, atk: 100, def: 70, spa: 115, spd: 85, spe: 70},
-		abilities: {0: "Tinted lens", 1: "Rattled", H: "Prankster"},
+		abilities: {0: "Tinted Lens", 1: "Rattled", H: "Prankster"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	medusa: {
 		num: 83,
@@ -582,6 +746,8 @@ zombie: {
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 70, atk: 125, def: 90, spa: 75, spd: 90, spe: 50},
 		abilities: {0: "Rocky Payload", 1: "Cursed Body", H: "Tough Claws"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	apostate: {
 		num: 84,
@@ -589,6 +755,8 @@ zombie: {
 		types: ["Fairy", "Ghost"],
 		baseStats: {hp: 60, atk: 20, def: 110, spa: 80, spd: 130, spe: 50},
 		abilities: {0: "Perish Body", 1: "Telepathy", H: "Sturdy"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	death: {
 		num: 85,
@@ -596,6 +764,8 @@ zombie: {
 		types: ["Fairy", "Ghost"],
 		baseStats: {hp: 60, atk: 140, def: 60, spa: 100, spd: 100, spe: 90},
 		abilities: {0: "Perish Body", 1: "Telepathy", H: "Grim Neigh"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	mutineer: {
 		num: 86,
@@ -603,13 +773,17 @@ zombie: {
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 90, atk: 100, def: 80, spa: 60, spd: 100, spe: 50},
 		abilities: {0: "Misty Surge", 1: "Steelworker", H: "Water Compaction"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	armoredshrimp: {
 		num: 87,
 		name: "Armored Shrimp",
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 60, atk: 110, def: 120, spa: 60, spd: 70, spe: 60},
-		abilities: {0: "Shell Armor", 1: "Water Bubblel", H: "Anger Shell"},
+		abilities: {0: "Shell Armor", 1: "Water Bubble", H: "Anger Shell"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	goldgorgeri: {
 		num: 88,
@@ -619,6 +793,8 @@ zombie: {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 30, atk: 70, def: 70, spa: 50, spd: 50, spe: 30},
 		abilities: {0: "Sturdy", 1: "Iron Barbs", H: "Good As Gold"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	goldgorgerii: {
 		num: 89,
@@ -628,6 +804,8 @@ zombie: {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 45, atk: 90, def: 100, spa: 30, spd: 85, spe: 50},
 		abilities: {0: "Sturdy", 1: "Iron Barbs", H: "Good As Gold"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	goldgorgeriii: {
 		num: 90,
@@ -637,6 +815,8 @@ zombie: {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 60, atk: 110, def: 115, spa: 75, spd: 100, spe: 40},
 		abilities: {0: "Sturdy", 1: "Iron Barbs", H: "Good As Gold"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	mimic: {
 		num: 91,
@@ -644,13 +824,17 @@ zombie: {
 		types: ["Dragon", "Ghost"],
 		baseStats: {hp: 60, atk: 100, def: 100, spa: 80, spd: 80, spe: 60},
 		abilities: {0: "Unaware", H: "Imposter"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	agitatedpickpocket: {
 		num: 92,
 		name: "Agitated Pickpocket",
 		types: ["Normal", "Bug"],
 		baseStats: {hp: 40, atk: 90, def: 60, spa: 90, spd: 70, spe: 140},
-		abilities: {0: "Slow Start", 1: "Reciver", H: "Steelworker"},
+		abilities: {0: "Slow Start", 1: "Reciever", H: "Steelworker"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	merman: {
 		num: 93,
@@ -658,6 +842,8 @@ zombie: {
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 60, atk: 50, def: 60, spa: 125, spd: 90, spe: 110},
 		abilities: {0: "Strong Jaw", 1: "Ice Scales", H: "Dragons Maw"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	vampirebat: {
 		num: 94,
@@ -665,6 +851,8 @@ zombie: {
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 40, atk: 100, def: 20, spa: 40, spd: 30, spe: 100},
 		abilities: {0: "Speed Boost", 1: "Gale Wings", H: "Flash Fire"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	harpy: {
 		num: 95,
@@ -672,6 +860,8 @@ zombie: {
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 75, atk: 115, def: 60, spa: 50, spd: 85, spe: 110},
 		abilities: {0: "Speed Boost", 1: "Gale Wings", H: "Flash Fire"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	bonepillar: {
 		num: 96,
@@ -679,6 +869,8 @@ zombie: {
 		types: ["Rock", "Ground"],
 		baseStats: {hp: 100, atk: 90, def: 80, spa: 70, spd: 60, spe: 40},
 		abilities: {0: "Strong Jaw", 1: "Rocky Payload", H: "Dragons Maw"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	lancer: {
 		num: 97,
@@ -686,6 +878,8 @@ zombie: {
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 50, spd: 70, spe: 70},
 		abilities: {0: "Inner Focus", 1: "Sharpness", H: "Guard Dog"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	guardianknight: {
 		num: 98,
@@ -693,6 +887,8 @@ zombie: {
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 80, atk: 120, def: 120, spa: 60, spd: 75, spe: 45},
 		abilities: {0: "Inner Focus", 1: "Truant", H: "Guard Dog"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	thehandoftheking: {
 		num: 99,
@@ -700,6 +896,8 @@ zombie: {
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 110, atk: 160, def: 140, spa: 80, spd: 90, spe: 100},
 		abilities: {0: "Inner Focus"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	axearmor: {
 		num: 100,
@@ -707,6 +905,8 @@ zombie: {
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 90, atk: 100, def: 110, spa: 80, spd: 80, spe: 70},
 		abilities: {0: "Battle Armor", 1: "Long Reach", H: "Weak Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	armorknight: {
 		num: 101,
@@ -714,6 +914,8 @@ zombie: {
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 80, atk: 110, def: 100, spa: 90, spd: 70, spe: 80},
 		abilities: {0: "Battle Armor", 1: "Long Reach", H: "Weak Armor"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	buer: {
 		num: 102,
@@ -721,6 +923,8 @@ zombie: {
 		types: ["Dragon", "Electric"],
 		baseStats: {hp: 73, atk: 111, def: 54, spa: 51, spd: 95, spe: 109},
 		abilities: {0: "Guts", 1: "Slow Start", H: "Speed Boost"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	failedhomunculus: {
 		num: 103,
@@ -728,6 +932,8 @@ zombie: {
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 40, atk: 90, def: 50, spa: 80, spd: 100, spe: 80},
 		abilities: {0: "Power of Alchemy", 1: "Unaware", H: "Curious Medicine"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	failedexperiment: {
 		num: 104,
@@ -735,6 +941,8 @@ zombie: {
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 100, atk: 120, def: 70, spa: 40, spd: 120, spe: 50},
 		abilities: {0: "Power of Alchemy", 1: "Unaware", H: "Curious Medicine"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	calliope: {
 		num: 105,
@@ -742,13 +950,17 @@ zombie: {
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 140, atk: 140, def: 80, spa: 80, spd: 80, spe: 80},
 		abilities: {0: "Unaware", H: "Inner Focus"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	euterpe: {
 		num: 106,
 		name: "Euterpe",
 		types: ["Fighting", "Psychic"],
 		baseStats: {hp: 80, atk: 140, def: 80, spa: 140, spd: 80, spe: 80},
-		abilities: {0: "Tinted lens", H: "Inner Focus"},
+		abilities: {0: "Tinted Lens", H: "Inner Focus"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	kleio: {
 		num: 107,
@@ -756,6 +968,8 @@ zombie: {
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 80, atk: 140, def: 80, spa: 80, spd: 80, spe: 140},
 		abilities: {0: "Sharpness", H: "Inner Focus"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	thequeen: {
 		num: 108,
@@ -763,6 +977,8 @@ zombie: {
 		types: ["Fighting", "Ghost"],
 		baseStats: {hp: 90, atk: 140, def: 140, spa: 100, spd: 90, spe: 150},
 		abilities: {0: "Supreme Overlord"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 	thecollector: {
 		num: 109,
@@ -770,6 +986,8 @@ zombie: {
 		types: ["Poison", "Water"],
 		baseStats: {hp: 150, atk: 80, def: 100, spa: 140, spd: 140, spe: 90},
 		abilities: {0: "Soul-Heart"},
+		eggGroups: ['Undiscovered'],
+		weightkg: 1.0,
 	},
 
 };
