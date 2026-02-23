@@ -2465,7 +2465,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-item', target, yourItem, '[from] ability: Pickpocket', '[of] ' + source);
 			}
 		},
-		desc: "If this Pokemon is hit by a contact move, it steals the attacker's item; if this Pokemon is already holding an item, it will discard the stolen item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield, respectively. This effect applies after all hits from a multi-hit move.",
+		desc: "If this Pokemon is hit by a contact move, it steals the attacker's item; if this Pokemon is already holding an item, it will discard the stolen item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause any Pokemon or Genesect to lose its transformation-inducing item or Drive, respectively. This effect applies after all hits from a multi-hit move.",
 		shortDesc: "If this Pokemon is hit by a contact move, it steals the attacker's item.",
 	},
 	poweraura: {

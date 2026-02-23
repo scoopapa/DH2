@@ -724,6 +724,9 @@ exports.grouplist = [
 		exportinputlog: true,
 		importinputlog: true,
 		tournaments: true,
+		minigame: true,
+		tournaments: true,
+		gamemoderation: true,
 	},
 	{
 		symbol: '^',

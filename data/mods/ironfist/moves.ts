@@ -4190,6 +4190,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		stallingMove: true,
 		sideCondition: 'greatestachievement',
+		onTry(source) {
+			const item = source.takeItem();
+			if (item) {
+				this.add('-enditem', source, item.name, '[from] move: Greatest Achievement', `[of] ${source}`);
+			}
+		},
 		condition: {
 			duration: 1,
 			onSideStart(target, source) {
@@ -4211,15 +4217,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				const item = target.takeItem();
-				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Greatest Achievement', `[of] ${target}`);
-				}
 				return this.NOT_FAIL;
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "allySide",
 	},
 	walkthedog: {
 		name: "Walk the Dog",
