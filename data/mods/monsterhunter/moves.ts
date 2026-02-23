@@ -796,7 +796,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Dragon') {
 					this.debug('dragoncharge boost');
-					return this.chainModify(2);
+					return this.chainModify(1.3);
 				}
 			},
 			onMoveAborted(pokemon, target, move) {
@@ -1538,7 +1538,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	selenitebeam: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Selenite Beam",
 		pp: 15,

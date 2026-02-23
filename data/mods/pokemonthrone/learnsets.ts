@@ -1291,6 +1291,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	pidgey: {
 		learnset: {
+			focusblast: ["9M"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			agility: ["8V", "7L29", "7V", "6L29", "5L29", "4L29", "3L39"],
 			aircutter: ["7E", "6E", "5E", "4T", "4E", "3E"],
@@ -63323,6 +63324,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	beheeyem: {
 		learnset: {
+			heatwave: ["9M"],
+			thunder: ["9M"],
 			afteryou: ["7T", "6T", "5T"],
 			agility: ["8M"],
 			allyswitch: ["8M", "7T", "5M"],
