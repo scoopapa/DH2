@@ -8,7 +8,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
 			if (!this.field.isWeather('sunnyday')) {
-				for (const proto of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+				for (const proto of ['pyredrive', 'chlorosynthesis', 'prototoxin', 'protolithos', 'protoavian',
 											'protorefraction', 'protosynthesis']) { 
 					if (pokemon.hasAbility(proto)) {
 						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
@@ -19,7 +19,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!this.field.isTerrain('electricterrain')) {
-				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
+				for (const quark of ['pyredrive', 'chlorosynthesis', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
 											'magicdrive', 'phantomdrive', 'toxicdrive']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {

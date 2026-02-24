@@ -387,6 +387,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
         onWeather(target) {
             if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
         },
+		onImmunity(type) {
+			if (type === 'brn') return false;
+		},
         onFieldEnd() {
 			this.add('-message', 'The environment warmed up!');
 		},
