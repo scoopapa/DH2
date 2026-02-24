@@ -117,10 +117,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-start', target, 'finalbreath');
 				target.faint()
 			},
-			onStart(pokemon) {
-			this.add('-start', pokemon, 'finalbreath');
-				pokemon.faint()
-			},
 	},
 		flags: {breakable: 1},
 		name: "Final Breath",
@@ -209,8 +205,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 		flags: {},
-		name: "BeatBox",
-		shortDesc: "This Pokémon's sound based moves are are Physical, gain a 1.2x boost, and make contact."
+		name: "Beatbox",
+		shortDesc: "This Pokémon's sound based moves are physical, gain a 1.2x boost, and make contact."
 	},
 
 	adrenalinerush: {
@@ -233,7 +229,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 		flags: {},
 		name: "Adrenaline Rush",
-		shortDesc: "This Pokémon's speed is boosted by 2 when switching into a pokemon with a super-effective move."
+		shortDesc: "This Pokémon's speed is boosted by 2 when switching into a Pokémon with a super-effective move."
 	},
 	unchecked: { /* credit to chatbats for powerspot code*/
 		onChargeMove(pokemon, target, move) {
@@ -270,13 +266,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	calculated: { 
 		onSourceDamagingHit(damage, target, source, move) {
-			if (move.category != 'Status') {
+			if (move.category != 'Status' && !move.multihit) {
 				this.damage(source.level / 2);
 
 			}
 		},
 		flags: {},
 		name: "Calculated",
-		shortDesc: "This Pokémon's moves deal additional damage equal to 1/2th this pokemon's level",
+		shortDesc: "This Pokémon's moves deal additional damage equal to 1/2 this pokemon's level. Does not activate on multihit",
 	},
 }
