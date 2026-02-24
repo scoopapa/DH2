@@ -2186,10 +2186,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (!mon.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1}, mon);
 			}
 			const removeTarget = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'blackpowder'
 			];
 			const removeAll = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'blackpowder'
 			];
 			for (const targetCondition of removeTarget) {
 				if (enemySide.removeSideCondition(targetCondition)) {
@@ -2207,7 +2207,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return success;
 		},
 		target: "all",
-		desc: "Lowers all enemies' evasion by 1 stage, excepting enemies that are hiding behind substitutes. The effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
+		desc: "Lowers all enemies' evasion by 1 stage, excepting enemies that are hiding behind substitutes. The effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, Sticky Web, and Black Powder end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, Sticky Web, and Black Powder end for the user's side.",
 		shortDesc: "Enemy -1 evasion, clears screens, all hazards.",
 	},
 	detect: {
@@ -6723,7 +6723,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onHitField(target, source) {
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'healblock', 'luckychant', 'powder'
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'healblock', 'luckychant', 'blackpowder'
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
@@ -7425,7 +7425,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Thousand Waves",
 		pp: 10,
 		priority: 0,
@@ -7956,7 +7955,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	chatter: {
 		inherit: true,
 		isNonstandard: null,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, distance: 1, bypasssub: 1},
 		noSketch: null,
 	},
 	chipaway: {

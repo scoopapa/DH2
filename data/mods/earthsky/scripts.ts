@@ -3459,7 +3459,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','parasect').learnset.synthesis;
 		
 		// Venonat
-		this.modData('Learnsets','venonat').learnset.powder = ["9D"];
+		this.modData('Learnsets','venonat').learnset.blackpowder = ["9D"];
 		this.modData('Learnsets','venonat').learnset.bugcloud = ["9L5"];
 		this.modData('Learnsets','venonat').learnset.supersonic = ["9L11"];
 		this.modData('Learnsets','venonat').learnset.leechlife = ["9L13"];
@@ -3478,7 +3478,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','venonat').learnset.bugbuzz;
 		delete this.modData('Learnsets','venonat').learnset.confusion;
 		// Venomoth
-		this.modData('Learnsets','venomoth').learnset.powder = ["9D"];
+		this.modData('Learnsets','venomoth').learnset.blackpowder = ["9D"];
 		this.modData('Learnsets','venomoth').learnset.silverwind = ["9L0"];
 		this.modData('Learnsets','venomoth').learnset.bugcloud = ["9L5"];
 		this.modData('Learnsets','venomoth').learnset.supersonic = ["9L11"];
@@ -4349,6 +4349,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','mrmimegalar').learnset.torment = ["9M"];
 		this.modData('Learnsets','mrmimegalar').learnset.iceball = ["9E"];
 		delete this.modData('Learnsets','mrmimegalar').learnset.suckerpunch;
+		delete this.modData('Learnsets','mrmimegalar').learnset.thunder;
 		
 		// Scyther
 		this.modData('Learnsets','scyther').learnset.guillotine = ["9D"];
@@ -5053,7 +5054,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','wooperpaldea').learnset.headbutt = ["9D"];
 		this.modData('Learnsets','wooperpaldea').learnset.mudbomb = ["9L24"];
 		this.modData('Learnsets','wooperpaldea').learnset.poisonjab = ["9L28","9M"];
-		this.modData('Learnsets','wooperpaldea').learnset.sludgewave = ["9L32"];
+		this.modData('Learnsets','wooperpaldea').learnset.sludgewave = ["9L32", "9M"];
 		this.modData('Learnsets','wooperpaldea').learnset.amnesia = ["9L36","9M"];
 		this.modData('Learnsets','wooperpaldea').learnset.toxic = ["9L40","9M"];
 		this.modData('Learnsets','wooperpaldea').learnset.earthquake = ["9L44","9M"];
@@ -6674,6 +6675,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Snorunt
 		this.modData('Learnsets','snorunt').learnset.snowtumble = ["9D"];
 		this.modData('Learnsets','snorunt').learnset.flash = ["9M"];
+		this.modData('Learnsets','snorunt').learnset.doubleedge = ["9E"];
 		this.modData('Learnsets','snorunt').learnset.haze = ["9E"];
 		this.modData('Learnsets','snorunt').learnset.iceball = ["9E"];
 		// Glalie
@@ -7250,7 +7252,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		// Glameow
 		this.modData('Learnsets','glameow').learnset.agility = ["9D"];
-		this.modData('Learnsets','glameow').learnset.honeclaws = ["9L49"];
+		this.modData('Learnsets','glameow').learnset.honeclaws = ["9L49", "9M"];
 		this.modData('Learnsets','glameow').learnset.playrough = ["9L53"];
 		this.modData('Learnsets','glameow').learnset.compensation = ["9M"];
 		this.modData('Learnsets','glameow').learnset.screech = ["9M"];
@@ -7259,7 +7261,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Purugly
 		this.modData('Learnsets','purugly').learnset.bulkup = ["9D"];
 		this.modData('Learnsets','purugly').learnset.bodyslam = ["9L45"];
-		this.modData('Learnsets','purugly').learnset.honeclaws = ["9L53"];
+		this.modData('Learnsets','purugly').learnset.honeclaws = ["9L53", "9M"];
 		this.modData('Learnsets','purugly').learnset.playrough = ["9L57"];
 		this.modData('Learnsets','purugly').learnset.thrash = ["9L61"];
 		this.modData('Learnsets','purugly').learnset.compensation = ["9M"];
@@ -8257,8 +8259,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','leavanny').learnset.faketears = ["9M"];
 		this.modData('Learnsets','leavanny').learnset.naturalgift = ["9M"];
 		delete this.modData('Learnsets','leavanny').learnset.knockoff;
-		delete this.modData('Learnsets','leavanny').learnset.poisonjab;
 		delete this.modData('Learnsets','leavanny').learnset.lowkick;
+		delete this.modData('Learnsets','leavanny').learnset.poisonjab;
 		
 		// Venipede
 		this.modData('Learnsets','venipede').learnset.mortalstrike = ["9D"];
@@ -10866,9 +10868,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','orbeetle').learnset.skydrop = ["9D"];
 		this.modData('Learnsets','orbeetle').learnset.bugbite = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.dreameater = ["9M"];
+		this.modData('Learnsets','orbeetle').learnset.foulplay = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.flash = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.gravity = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.magiccoat = ["9M"];
+		this.modData('Learnsets','orbeetle').learnset.nastyplot = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.psychup = ["9M"];
 		this.modData('Learnsets','orbeetle').learnset.roleplay = ["9M"];
@@ -11799,7 +11803,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','urshifu').learnset.brickbreak = ["9L48", "9M"];
 		this.modData('Learnsets','urshifu').learnset.dynamicpunch = ["9L52"];
 		this.modData('Learnsets','urshifu').learnset.throatchop = ["9L56"];
-		this.modData('Learnsets','urshifu').learnset.focuspunch = ["9L66"];
+		this.modData('Learnsets','urshifu').learnset.focuspunch = ["9L60"];
 		this.modData('Learnsets','urshifu').learnset.closecombat = ["9L66"];
 		this.modData('Learnsets','urshifu').learnset.aerialace = ["9M"];
 		this.modData('Learnsets','urshifu').learnset.chipaway = ["9M"];
