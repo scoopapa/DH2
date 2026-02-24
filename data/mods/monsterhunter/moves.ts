@@ -1743,6 +1743,42 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Rock Wrecker", target);
         },
 	},
+	flyingpress: {
+		num: 560,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
+		name: "Flying Press",
+		viable: true,
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Fighting';
+			const type2 = 'Flying';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
+					move.type = 'Flying';
+				} else if (target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !pokemon.hasAbility('mindseye') && !target.hasItem('ringtarget')) {
+					move.type = 'Flying';
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Flying') && !pokemon.hasType('Fighting')) {
+						move.type = 'Flying';
+					}
+				}
+			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Flying Press dealt ${move.type}-type damage!`);
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Fighting",
+		zMove: {basePower: 170},
+		contestType: "Tough",
+	},
 	mentalload: {
 		accuracy: 100,
 		basePower: 80,
@@ -1828,7 +1864,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Fire",
 		onHit(target, source) {
 			// Apply Tar Shot's Fire weakness without Speed drop
 			if (!target.volatiles['tarshot']) {

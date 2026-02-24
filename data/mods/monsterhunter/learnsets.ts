@@ -1319,6 +1319,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	tobikadachi: {
 		learnset: {
 			attract: ["9M"],
+			tailslap: ["9L1"],
+			flyingpress: ["9L1"],
 			agility: ["9L1"],
 			batonpass: ["9M"],
 			nastyplot: ["9L1"],
@@ -7499,7 +7501,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			drainpunch: ["9L1"],
 			facade: ["9L1"],
 			finalgambit: ["9L1"],
-			flyingpress: ["9L1"],
 			gigaimpact: ["9L1"],
 			growl: ["9L1"],
 			heavyslam: ["9L1"],
