@@ -2,10 +2,8 @@ import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
-		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
-		// only to specify the order of custom tiers
-		customTiers: ['DeCe', 'DeCe NFE', 'DeCe LC'],
+		customTiers: ['DeCe', 'DeCe NFE', 'DeCe LC', 'DeCe Uber'],
 	},	
 	
 	init() {
@@ -132,7 +130,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "knifethrower").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "knifethrower").learnset.bulletpunch = ["9L1"];
 		this.modData("Learnsets", "knifethrower").learnset.spiritbreak = ["9L1"];
-		this.modData("Learnsets", "knifethrower").learnset.fluercannon = ["9L1"];
+		this.modData("Learnsets", "knifethrower").learnset.fleurcannon = ["9L1"];
 		this.modData("Learnsets", "knifethrower").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "knifethrower").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "knifethrower").learnset.helpinghand = ["9L1"];

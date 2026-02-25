@@ -9,16 +9,15 @@ export const format: FormatData = {
 			`&bullet; <a href="https://deadcells.wiki.gg/">Dead Cells Wiki</a>`,
 		],
 		mod: 'deadcells',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'Z-Move Clause'],
-		teambuilderFormat: 'National Dex',
-	/*	banlist: [''], */
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
+		banlist: ['DeCe Uber'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['DeCe', 'DeCe NFE', 'DeCe LC'];
+			let allowedTiers = ['DeCe Uber', 'DeCe', 'DeCe NFE', 'DeCe LC'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Gen 9] Dead Cells.'];
+					return [set.species + ' is not legal in Dead Cells.'];
 				}
 			}
 		},

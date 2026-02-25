@@ -131,7 +131,7 @@ zombie: {
 			moonblast: ["9L1"],
 			bulletpunch: ["9L1"],
 			spiritbreak: ["9L1"],
-			fluercannon: ["9L1"],
+			fleurcannon: ["9L1"],
 			toxic: ["9L1"],
 			protect: ["9L1"],
 			helpinghand: ["9L1"],
