@@ -788,8 +788,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	goldgorgeri: {
 		num: 88,
 		name: "Gold Gorger I",
-		baseSpecies: "Gold Gorger",
-		forme: "I",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 30, atk: 70, def: 70, spa: 50, spd: 50, spe: 30},
 		abilities: {0: "Sturdy", 1: "Iron Barbs", H: "Good As Gold"},
@@ -799,7 +797,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	goldgorgerii: {
 		num: 89,
 		name: "Gold Gorger II",
-		baseSpecies: "Gold Gorger",
+		baseSpecies: "Gold Gorger I",
 		forme: "II",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 45, atk: 90, def: 100, spa: 30, spd: 85, spe: 50},
@@ -810,7 +808,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	goldgorgeriii: {
 		num: 90,
 		name: "Gold Gorger III",
-		baseSpecies: "Gold Gorger",
+		baseSpecies: "Gold Gorger I",
 		forme: " III",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 60, atk: 110, def: 115, spa: 75, spd: 100, spe: 40},
