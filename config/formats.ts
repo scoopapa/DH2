@@ -825,7 +825,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen9ferestrictions',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Mega Rayquaza Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Revival Blessing', 'Shed Tail', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Altarianite'],
+		banlist: ['Revival Blessing', 'Shed Tail', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Altarianite', 'Latiasite'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
