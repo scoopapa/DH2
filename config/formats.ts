@@ -2991,7 +2991,7 @@ export const Formats: FormatList = [
 		banlist: [	'Annihilape', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin',
 			'Enamorus-Incarnate', 'Eternatus', 'Flutter Mane', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Ho-Oh',
 			'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
-			'Palkia', 'Palkia-Origin', 'Rayquaza', 'Regieleki', 'Regigigas', 'Reshiram', 'ShaymUncheckedin-Sky', 'Slaking', 'Sneasler', 'Solgaleo', 'Spectrier', 'Urshifu', 'Urshifu-Rapid-Strike',
+			'Palkia', 'Palkia-Origin', 'Rayquaza', 'Regieleki', 'Regigigas', 'Reshiram', 'Shaymin-Sky', 'Slaking', 'Sneasler', 'Solgaleo', 'Spectrier', 'Urshifu', 'Urshifu-Rapid-Strike',
 			'Volcarona', 'Zacian', 'Zacian-Crowned', 'Zekrom', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Shell Smash',
 			'Last Respects', 'Shed Tail',],
 		onValidateSet(set) {
