@@ -392,7 +392,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	thehandoftheking: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	axearmor: {
