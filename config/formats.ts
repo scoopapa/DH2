@@ -53,6 +53,7 @@ import { Formats as ClubmonsRequiem             } from '../data/mods/clubmonsreq
 import { Formats as CommunityUsed2              } from '../data/mods/communityused2/formats';
 import { Formats as ConquestDex                 } from '../data/mods/conquestdex/formats';
 import { Formats as CleanSlateMicro2            } from '../data/mods/csm2/formats';
+import { Formats as DeadCells                   } from '../data/mods/deadcells/formats';
 import { Formats as DenseAF                     } from '../data/mods/denseaf/formats';
 import { Formats as DLCmons                     } from '../data/mods/dlcmons/formats';
 import { Formats as Dollhouse                   } from '../data/mods/dollhouse/formats';
@@ -178,6 +179,7 @@ import { Formats as MonsterHunterOUSoloPLIII    } from '../data/mods/monsterhunt
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
+import { Formats as NukeButtons                 } from '../data/mods/nukebuttons/format';
 import { Formats as OUTheorymons                } from '../data/mods/outheorymons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
 import { Formats as Patratdex                   } from '../data/mods/patratdex/formats';
@@ -369,11 +371,12 @@ export const Formats: FormatList = [
 	...CommunityUsed2,
 	...ConquestDex,
 	...gen2CrystalLegacy,
-	//...DexReversal
+  ...DeadCells,
 	...DenseAF,
+	//...DexReversal,
 	...DoNotUse,
 	...DoubleTrouble,
-    ...EarthSky,
+  ...EarthSky,
 	...EvolutionProject,
 	...gen9EvolutionProject,
 	...ForgottenMons,
@@ -397,6 +400,7 @@ export const Formats: FormatList = [
 	...MaadowrLostZone,
 	...MegaMania,
 	...gen1Metronome,
+  ...NukeButtons,
 	...Solopet,
 	...gen1Moonside,
 	...TheBore,

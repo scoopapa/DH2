@@ -1706,14 +1706,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bloodlinegreatestachievement: {
 		onStart(pokemon) {
 			for (const move of pokemon.moveSlots) {
-				if (move.id === 'greatestacheivement') return;
+				if (move.id === 'greatestachievement') return;
 			}
-			const ga = this.dex.moves.get('greatestacheivement');
+			const ga = this.dex.moves.get('greatestachievement');
 			const newMove = {
 				move: ga.name,
 				id: ga.id,
-				pp: ga.pp * 1.6,
-				maxpp: ga.pp * 1.6,
+				pp: 1,
+				maxpp: 1,
 				target: ga.target,
 				disabled: false,
 				used: false,

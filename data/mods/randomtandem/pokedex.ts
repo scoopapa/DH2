@@ -437,4 +437,127 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			]
 		],
 	},
+	sinistcha: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'Goodra-Hisui',
+					item: 'leftovers',
+					ability: ['Corrosion', 'Regenerator'],
+					teraType: ['Flying', 'Dragon'],
+				},
+				['dracometeor', 'toxic', 'fireblast', 'heavyslam']
+			],
+			[
+				{
+					species: 'Zapdos-Galar',
+					item: 'lifeorb',
+					ability: ['Defiant', 'Wind Rider', 'Scrappy'],
+					teraType: ['Flying', 'Electric'],
+				},
+				['closecombat', 'bravebird', 'tailwind', 'supercellslam']
+			],
+			[
+				{
+					species: 'Ninetales-Alola',
+					item: 'lightclay',
+					ability: 'Snow Warning',
+					teraType: 'Water',
+				},
+				['auroraveil', 'blizzard'], ['freezedry', 'encore', 'moonblast']
+			],
+			[
+				{
+					species: 'Walking Wake',
+					item: ['choicespecs', 'choicescarf'],
+					ability: ['Orichalcum Pulse', 'Hadron Engine'],
+					teraType: ['Fire', 'Water', 'Electric'],
+				},
+				['hydrosteam', 'flamethrower', 'dracometeor', 'voltswitch']
+			]
+		],
+	},
+	azumarill: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'Arcanine-Hisui',
+					item: 'lifeorb',
+					ability: ['Magic Guard', 'Regenerator'],
+					teraType: ['Flying', 'Normal'],
+				},
+				['flareblitz', 'headsmash'], ['extremespeed', 'morningsun', 'stealthrock', 'bravebird']
+			],
+			[
+				{
+					species: 'Meowscarada',
+					item: 'focussash',
+					ability: ['Protean', 'Prankster'],
+					teraType: ['Dark', 'Grass'],
+				},
+				['flowertrick', 'stickyweb'], ['knockoff', 'uturn', 'taunt', 'tripleaxel']
+			],
+			[
+				{
+					species: 'Oricorio-Sensu',
+					item: 'heavydutyboots',
+					ability: ['Shadow Shield', 'Adaptability'],
+					teraType: ['Fighting', 'Psychic'],
+				},
+				['quiverdance', 'revelationdance'], ['hurricane', 'roost', 'taunt', 'storedpower']
+			],
+			[
+				{
+					species: 'Torterra',
+					item: 'whiteherb',
+					ability: ['Orichalcum Pulse', 'Grassy Surge'],
+					teraType: ['Rock', 'Fire'],
+				},
+				['shellsmash', 'woodhammer'], ['headlongrush', 'grassyglide', 'terablast', 'diamondstorm']
+			],
+		],
+	},
+	revavroom: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'Ogerpon-Cornerstone',
+					item: 'cornerstonemask',
+					ability: ['Sturdy', 'Tough Claws'],
+					teraType: 'Rock',
+				},
+				['ivycudgel', 'headlongrush'], ['uturn', 'powerwhip', 'knockoff', 'swordsdance']
+			],
+			[
+				{
+					species: 'Talonflame',
+					item: 'heavydutyboots',
+					ability: ['Rock Head', 'Flame Body'],
+					teraType: ['Steel', 'Dragon', 'Bug'],
+				},
+				['flareblitz', 'bravebird'], ['uturn', 'woodhammer', 'roost', 'swordsdance']
+			],
+			[
+				{
+					species: 'Blastoise',
+					item: ['heavydutyboots', 'whiteherb'],
+					ability: ['Torrent', 'Mega Launcher'],
+					teraType: ['Water', 'Dragon'],
+				},
+				['shellsmash', 'originpulse'], ['dragonpulse', 'icebeam', 'darkpulse', 'aurasphere']
+			],
+			[
+				{
+					species: 'Sandy Shocks',
+					item: 'heavydutyboots',
+					ability: ['Levitate', 'Magnet Pull'],
+					teraType: 'Ghost',
+				},
+				['spikes', 'voltswitch'], ['earthpower', 'discharge', 'icebeam']
+			]
+		],
+	},
 };

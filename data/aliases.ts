@@ -478,7 +478,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	flutter: "Flutter Mane",
 	fmane: "Flutter Mane",
 	slither: "Slither Wing",
-	swing: "Slither Wing",
 	sandy: "Sandy Shocks",
 	shocks: "Sandy Shocks",
 	bonnet: "Brute Bonnet",
