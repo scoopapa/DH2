@@ -10,7 +10,7 @@ export const format: FormatData = {
 		],
 		mod: 'deadcells',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
-		banlist: ['DeCe Uber'],
+		banlist: [/*'DeCe Uber'*/],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['DeCe Uber', 'DeCe', 'DeCe NFE', 'DeCe LC'];
