@@ -76,7 +76,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	timekeeper: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	protector: {
@@ -104,11 +104,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	dracula: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	draculafinalform: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	corpseworm: {
@@ -208,7 +208,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	thegiant: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	soreloser: {
@@ -316,7 +316,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	scarecrow: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	myopiccrow: {
@@ -392,7 +392,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	thehandoftheking: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	axearmor: {
@@ -416,23 +416,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		
 	},
 	calliope: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	euterpe: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	kleio: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	thequeen: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 	thecollector: {
-		tier: "DeCe Ubers",
+		tier: "DeCe Uber",
 		
 	},
 
