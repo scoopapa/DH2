@@ -13,7 +13,7 @@ export const format: FormatData = {
 		banlist: [/*'DeCe Uber'*/],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['DeCe Uber', 'DeCe', 'DeCe NFE', 'DeCe LC'];
+			let allowedTiers = [/*'DeCe Uber',*/ 'DeCe', 'DeCe NFE', 'DeCe LC'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
