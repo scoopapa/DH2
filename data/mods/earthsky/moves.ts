@@ -228,7 +228,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Steel Beam", target);
+			this.add('-anim', source, "Ice Beam", target);
 		},
 		shortDesc: "No additional effect."
 	},

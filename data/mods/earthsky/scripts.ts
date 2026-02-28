@@ -1299,77 +1299,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(pokemon.side.foe.active.length === 1 && pokemon.side.foe.active[0].volatiles['playdead']) return null; //Ran out of retarget checks, except for randomActive() which will get nothing in Singles
 			return pokemon.side.foe.randomActive() || pokemon.side.foe.active[0];
 		},
-		modifyDamage( //Tactician, Dual-type STAB, Terrain check, removal of P-Bond hardcode
-			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-		) {
-			const tr = this.trunc;
-			if (!move.type) move.type = '???';
-			const type = move.type;
-
-			baseDamage += 2;
-
-			// multi-target modifier (doubles only)
-			if (move.spreadHit && !pokemon.tacticianBoosted) {
-				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-				this.debug('Spread modifier: ' + spreadModifier);
-				baseDamage = this.modify(baseDamage, spreadModifier);
-			}
-
-			// field modifier
-			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
-
-			// crit - not a modifier
-			const isCrit = target.getMoveHitData(move).crit;
-			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
-			}
-
-			// random factor - also not a modifier
-			baseDamage = this.randomizer(baseDamage);
-
-			// STAB
-			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			if (move.twoType && pokemon.hasType(move.twoType)) {
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			// types
-			let typeMod = target.runEffectiveness(move);
-			typeMod = this.clampIntRange(typeMod, -6, 6);
-			target.getMoveHitData(move).typeMod = typeMod;
-			if (typeMod > 0) {
-				if (!suppressMessages) this.add('-supereffective', target);
-
-				for (let i = 0; i < typeMod; i++) {
-					baseDamage *= 2;
-				}
-			}
-			if (typeMod < 0) {
-				if (!suppressMessages) this.add('-resisted', target);
-
-				for (let i = 0; i > typeMod; i--) {
-					baseDamage = tr(baseDamage / 2);
-				}
-			}
-
-			if (isCrit && !suppressMessages) this.add('-crit', target);
-
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
-				if (move.id !== 'facade') {
-					baseDamage = this.modify(baseDamage, 0.5);
-				}
-			}
-
-			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
-
-			if (!baseDamage) return 1;
-
-			// ...but 16-bit truncation happens even later, and can truncate to 0
-			return tr(baseDamage, 16);
-		},
 		singleEvent(
 			eventid: string, effect: Effect, state: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
@@ -2357,6 +2286,78 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			return undefined;
+		},
+		modifyDamage( //Tactician, Dual-type STAB, Terrain check, removal of P-Bond hardcode
+			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+		) {
+			const tr = this.trunc;
+			if (!move.type) move.type = '???';
+			const type = move.type;
+
+			baseDamage += 2;
+
+			// multi-target modifier (doubles only)
+			if (move.spreadHit && !pokemon.tacticianBoosted) {
+				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+				this.debug('Spread modifier: ' + spreadModifier);
+				baseDamage = this.modify(baseDamage, spreadModifier);
+			}
+
+			// field modifier
+			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
+
+			// crit - not a modifier
+			const isCrit = target.getMoveHitData(move).crit;
+			if (isCrit) {
+				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
+			}
+
+			// random factor - also not a modifier
+			baseDamage = this.randomizer(baseDamage);
+
+			// STAB
+			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+			}
+			if (move.twoType && pokemon.hasType(move.twoType)) {
+				this.debug('Dual-type STAB');
+				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+			}
+			// types
+			let typeMod = target.runEffectiveness(move);
+			typeMod = this.clampIntRange(typeMod, -6, 6);
+			target.getMoveHitData(move).typeMod = typeMod;
+			if (typeMod > 0) {
+				if (!suppressMessages) this.add('-supereffective', target);
+
+				for (let i = 0; i < typeMod; i++) {
+					baseDamage *= 2;
+				}
+			}
+			if (typeMod < 0) {
+				if (!suppressMessages) this.add('-resisted', target);
+
+				for (let i = 0; i > typeMod; i--) {
+					baseDamage = tr(baseDamage / 2);
+				}
+			}
+
+			if (isCrit && !suppressMessages) this.add('-crit', target);
+
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+				if (move.id !== 'facade') {
+					baseDamage = this.modify(baseDamage, 0.5);
+				}
+			}
+
+			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+			if (!baseDamage) return 1;
+
+			// ...but 16-bit truncation happens even later, and can truncate to 0
+			return tr(baseDamage, 16);
 		},
 		afterMoveSecondaryEvent(targets, pokemon, move) { //Sheer Force post-secondary change
 			this.battle.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);

@@ -1379,6 +1379,7 @@ export class RandomTeams {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
 				role !== 'Wallbreaker' && role !== 'Doubles Wallbreaker' && !counter.get('priority')
+				&& !['Steadfast', 'Speed Boost', 'Weak Armor'].includes(ability)
 			) {
 				return 'Choice Scarf';
 			} else {
