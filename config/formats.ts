@@ -16,8 +16,8 @@ If you specify a section that already exists, your format will be added to the b
 New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
-import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
-import { format as deadcells               } from '../data/mods/deadcells/formats';
+//import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
+//import { Formats as deadcells               } from '../data/mods/deadcells/formats';
 export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -2807,8 +2807,8 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
-	deadcells,
-	nukebuttons,
+	
+	//nukebuttons,
 /*	{
 		name: "[Gen 5] 33 Valuemons",
 		mod: 'gen5valuemons',
@@ -3180,6 +3180,50 @@ export const Formats: FormatList = [
 		mod: 'gen2crystallegacy',
 		desc: `A Solomod centered around Crystal Legacy.`,
 		ruleset: ['Standard', 'Data Mod', 'VGC Timer'],
+	},
+	{
+		name: "[Gen 9] Dead Cells",
+		desc: "bweeeeh",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10882279">Dead Cells on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1dZeB11mp_zb99EmeZ6gn6s3PVx-sxKQ6YbhkmagMks8/">Datasheet</a>`,
+			`&bullet; <a href="https://deadcells.wiki.gg/">Dead Cells Wiki</a>`,
+		],
+		mod: 'deadcells',
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
+		banlist: [/*"DeCe Uber",*/ "Dire Claw", "Shadow Tag", "Choice Band", "Choice Specs", "Eviolite"],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = [/*'DeCe Uber',*/ 'DeCe', 'DeCe NFE', 'DeCe LC'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Dead Cells OU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Dead Cells Ubers",
+		desc: "bweeeeh",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10882279">Dead Cells on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1dZeB11mp_zb99EmeZ6gn6s3PVx-sxKQ6YbhkmagMks8/">Datasheet</a>`,
+			`&bullet; <a href="https://deadcells.wiki.gg/">Dead Cells Wiki</a>`,
+		],
+		mod: 'deadcells',
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
+		banlist: ["Eviolite"],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['DeCe Uber', 'DeCe', 'DeCe NFE', 'DeCe LC'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Dead Cells Ubers.'];
+				}
+			}
+		},
 	},
 	/* {
 		name: "[Gen 9] Dex Reversal",
