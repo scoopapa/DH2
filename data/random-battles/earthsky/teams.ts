@@ -1363,10 +1363,11 @@ export class RandomTeams {
 		if (species.id === 'necrozmadawnwings') return (role === 'Setup Sweeper' ? 'Ultranecrozium Z' : 'Leftovers');
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (
-			ability === 'Imposter' ||
+			ability === 'Imposter' || moves.has('transform') || 
 			(species.id === 'magnezone' && moves.has('bodypress') && !isDoubles)
 		) return 'Choice Scarf';
 		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
+		if (species.id === 'indeedeehassrim') return 'Adrenaline Orb';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
 			['Cheek Pouch', 'Harvest', 'Ripen', 'Gourmand'].some(m => ability === m) ||
@@ -1957,15 +1958,16 @@ export class RandomTeams {
 
 		let leadsRemaining = this.format.gameType === 'doubles' ? 2 : 1;
 		while (baseSpeciesPool.length && pokemon.length < this.maxTeamSize) {
+			let species;
 			// First do forced spawns
 			if (pokemon.length === 1 || this.maxTeamSize === 1) { // Highlight Earth & Sky species by forcing one onto every team
-				const species = this.sample(['graecust','helmuana','claymander','spectrat','pealated','utilitron','utilitronboat','utilitroncopter','faerunee','sosphodel','twintura','silvurah','burryrm','scarabouch','ballooffalo','beedive','litholich','runogre','thylone','hektillion','terrazor','freezelk','moorfrost','lemurod','dragobellos','vorplec','lioxin','scrunge','kravokalypse','stegrove','macedon','paraiagon','pyramyth','keelmora','kendono','antarctross','pikeral','pikeralbluestriped','prominoid','deceuceus','fervintill','selervis','helyrion','daemaesthus','apherove','poleboar','pallatinel','jurotera','hatar','zuros','oceides','norphaval',
+				species = this.dex.species.get(this.sample(['graecust','helmuana','claymander','spectrat','pealated','utilitron','utilitronboat','utilitroncopter','faerunee','sosphodel','twintura','silvurah','burryrm','scarabouch','ballooffalo','beedive','litholich','runogre','thylone','hektillion','terrazor','freezelk','moorfrost','lemurod','dragobellos','vorplec','lioxin','scrunge','kravokalypse','stegrove','macedon','paraiagon','pyramyth','keelmora','kendono','antarctross','pikeral','pikeralbluestriped','prominoid','deceuceus','fervintill','selervis','helyrion','daemaesthus','apherove','poleboar','pallatinel','jurotera','hatar','zuros','oceides','norphaval',
 				'charvenant','suctlot','amplitune','squawkapo','squawkapoblue','squawkapoyellow','squawkapowhite','ralie','pharoslass','wandruss','mistyplumage','orbiterunit','khatrophys',
-				'eelektrossegelas','noctowlegelas','taurosegelas','miltankegelas','delibirdegelas','rapidashegelas','heatmoregelas','durantegelas','puruglysartori','revavroomschedar','revavroomsegin','revavroomnavi','revavroomruchbah','revavroomcaph','octilleryhassrim','indeedeehassrim','indeedeefhassrim',
-				'butterfreemega','slowkingmega','torkoalmega','miloticmega','electiviremega','magmortarmega','garbodormega','beheeyemmega','sandacondamega','alcremiemega','froslassmega','druddigonmega','raliemega','pharoslassmega']);
+				'eelektrossegelas','noctowlegelas','taurosegelas','miltankegelas','delibirdegelas','rapidashegelas','heatmoregelas','durantegelas','puruglysartori','revavroomschedar','revavroomsegin','revavroomnavi','revavroomruchbah','revavroomcaph','octilleryhassrim','indeedeehassrim','indeedeehassrimf',
+				'butterfreemega','slowkingmega','torkoalmega','miloticmega','electiviremega','magmortarmega','garbodormega','beheeyemmega','sandacondamega','alcremiemega','froslassmega','druddigonmega','raliemega','pharoslassmega']));
 			}
 			else if (potd?.exists && pokemon.length === 2) { // The Pokemon of the Day
-				const species = potd;
+				species = potd;
 			}
 			else {
 				const baseSpecies = this.sampleNoReplace(baseSpeciesPool);
@@ -1973,78 +1975,78 @@ export class RandomTeams {
 				// Check if the base species has a mega forme available
 				let canMega = false;
 				for (const poke of pokemonPool) {
-					const species = this.dex.species.get(poke);
-					if (!hasMega && species.baseSpecies === baseSpecies && species.isMega) canMega = true;
+					const checkSpecies = this.dex.species.get(poke);
+					if (!hasMega && checkSpecies.baseSpecies === baseSpecies && checkSpecies.isMega) canMega = true;
 				}
 				for (const poke of pokemonPool) {
-					const species = this.dex.species.get(poke);
-					if (species.baseSpecies === baseSpecies) {
+					const checkSpecies = this.dex.species.get(poke);
+					if (checkSpecies.baseSpecies === baseSpecies) {
 						// Prevent multiple megas
-						if (hasMega && species.isMega) continue;
+						if (hasMega && checkSpecies.isMega) continue;
 						// Prevent base forme, if a mega is available
-						if (canMega && !species.isMega) continue;
-						currentSpeciesPool.push(species);
+						if (canMega && !checkSpecies.isMega) continue;
+						currentSpeciesPool.push(checkSpecies);
 					}
 				}
-				let species = this.sample(currentSpeciesPool);
+				species = this.sample(currentSpeciesPool);
 				if (!species.exists) continue;
+			}
 
-				// Limit to one of each species (Species Clause)
-				if (baseFormes[species.baseSpecies]) continue;
+			// Limit to one of each species (Species Clause)
+			if (baseFormes[species.baseSpecies]) continue;
 
-				// Limit one Mega per team
-				if (hasMega && species.isMega) continue;
+			// Limit one Mega per team
+			if (hasMega && species.isMega) continue;
 
-				// Illusion shouldn't be on the last slot
-				if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
+			// Illusion shouldn't be on the last slot
+			if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
 
-				const types = species.types;
-				const typeCombo = types.slice().sort().join();
-				const weakToFreezeDry = (
-					this.dex.getEffectiveness('Ice', species) > 0 ||
-					(this.dex.getEffectiveness('Ice', species) > -2 && types.includes('Water'))
-				);
+			const types = species.types;
+			const typeCombo = types.slice().sort().join();
+			const weakToFreezeDry = (
+				this.dex.getEffectiveness('Ice', species) > 0 ||
+				(this.dex.getEffectiveness('Ice', species) > -2 && types.includes('Water'))
+			);
 
-				if (!isMonotype && !this.forceMonotype) {
-					let skip = false;
+			if (!isMonotype && !this.forceMonotype) {
+				let skip = false;
 
-					// Limit two of any type
-					for (const typeName of types) {
-						if (typeCount[typeName] >= 2) {
+				// Limit two of any type
+				for (const typeName of types) {
+					if (typeCount[typeName] >= 2) {
+						skip = true;
+						break;
+					}
+				}
+				if (skip) continue;
+
+				// Limit three weak to any type
+				for (const typeName of this.dex.types.names()) {
+					// it's weak to the type
+					if (this.dex.getEffectiveness(typeName, species) > 0) {
+						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
+						if (typeWeaknesses[typeName] >= 3) {
 							skip = true;
 							break;
 						}
 					}
-					if (skip) continue;
+				}
+				if (skip) continue;
 
-					// Limit three weak to any type
-					for (const typeName of this.dex.types.names()) {
-						// it's weak to the type
-						if (this.dex.getEffectiveness(typeName, species) > 0) {
-							if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
-							if (typeWeaknesses[typeName] >= 3) {
-								skip = true;
-								break;
-							}
-						}
-					}
-					if (skip) continue;
-
-					// Limit four weak to Freeze-Dry
-					if (weakToFreezeDry) {
-						if (!typeWeaknesses['Freeze-Dry']) typeWeaknesses['Freeze-Dry'] = 0;
-						if (typeWeaknesses['Freeze-Dry'] >= 4) continue;
-					}
-
-					// Limit one level 100 Pokemon
-					if (!this.adjustLevel && (this.getLevel(species, isDoubles) === 100) && numMaxLevelPokemon >= 1) {
-						continue;
-					}
+				// Limit four weak to Freeze-Dry
+				if (weakToFreezeDry) {
+					if (!typeWeaknesses['Freeze-Dry']) typeWeaknesses['Freeze-Dry'] = 0;
+					if (typeWeaknesses['Freeze-Dry'] >= 4) continue;
 				}
 
-				// Limit three of any type combination in Monotype
-				if (!this.forceMonotype && isMonotype && (typeComboCount[typeCombo] >= 3)) continue;
+				// Limit one level 100 Pokemon
+				if (!this.adjustLevel && (this.getLevel(species, isDoubles) === 100) && numMaxLevelPokemon >= 1) {
+					continue;
+				}
 			}
+
+			// Limit three of any type combination in Monotype
+			if (!this.forceMonotype && isMonotype && (typeComboCount[typeCombo] >= 3)) continue;
 
 			let set: RandomTeamsTypes.RandomSet;
 
@@ -2064,6 +2066,7 @@ export class RandomTeams {
 				set = this.randomSet(species, teamDetails, itemList, false, isDoubles);
 				pokemon.push(set);
 			}
+			if (!set) console.log(species.id);
 
 			// Don't bother tracking details for the last Pokemon
 			if (pokemon.length === this.maxTeamSize) break;
@@ -2099,12 +2102,11 @@ export class RandomTeams {
 
 
 			// Track what the team has
-			if (set.item) {
-				if (this.dex.items.get(set.item).megaStone) hasMega = true;
-				else itemList.push(set.item);
-			}
-			if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails.rain = 1;
-			if (set.ability === 'Drought' || set.ability === 'Orichalcum Pulse' || set.moves.includes('sunnyday')) {
+			const item = this.dex.items.get(set.item);
+			if (item.megaStone) hasMega = true;
+			else itemList.push(set.item);
+			if ((set.ability === 'Drizzle' && !item.isPrimal) || set.moves.includes('raindance')) teamDetails.rain = 1;
+			if ((set.ability === 'Drought' && !item.isPrimal) || set.ability === 'Orichalcum Pulse' || set.moves.includes('sunnyday')) {
 				teamDetails.sun = 1;
 			}
 			if (set.ability === 'Sand Stream' || set.ability === 'Sand Spit' || set.moves.includes('sandstorm')) teamDetails.sand = 1;
@@ -2115,7 +2117,7 @@ export class RandomTeams {
 				teamDetails.spikes = (teamDetails.spikes || 0) + 1;
 			}
 			if (set.moves.includes('toxicspikes') || set.ability === 'Toxic Debris') {
-				teamDetails.toxicSpikes = (teamDetails.toxicSpikes || 0) + 1;
+				teamDetails.toxicSpikes = (teamDetails.toxicSpikes || 0) + (set.ability === 'Potency' ? 2 : 1);
 			}
 			if (set.moves.includes('stealthrock')) teamDetails.stealthRock = 1;
 			if (set.moves.includes('stickyweb')) teamDetails.stickyWeb = 1;

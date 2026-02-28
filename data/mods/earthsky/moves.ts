@@ -4532,6 +4532,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {metronome: 1, protect: 1, bullet: 1, mirror: 1},
 		pp: 5,
 	},
+	paraboliccharge: {
+		inherit: true,
+		basePower: 60,
+	},
 	particleslam: {
 		num: 916,
 		accuracy: 90,
@@ -4550,7 +4554,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Supercell Slam", target);
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Extreme Speed", target);
 		},
 		desc: "If this attack is not successful, the user loses half of its maximum HP, rounded down, as crash damage.",
 		shortDesc: "User is hurt by 50% of its max HP if it misses.",
