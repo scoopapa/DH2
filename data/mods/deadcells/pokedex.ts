@@ -241,21 +241,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 70, spa: 140, spd: 120, spe: 100},
 		abilities: {0: "Stakeout"},
 		eggGroups: ['Undiscovered'],
-		otherFormes: ["Dracula-Final"],
 		formeOrder: ["Dracula", "Dracula-Final"],
 		weightkg: 1.0,
 	},
-	draculafinal: {
+	finaldracula: {
 		num: 27,
-		name: "Dracula-Final",
-		baseSpecies: "Dracula",
-		forme: "Final",
+		name: "Dracula-Final Form",
 		types: ["Flying", "Dragon"],
 		baseStats: {hp: 100, atk: 140, def: 135, spa: 50, spd: 100, spe: 75},
 		abilities: {0: "Aerilate"},
 		eggGroups: ['Undiscovered'],
 		weightkg: 1.0,
-		requiredItem: "Mysterious Bat",
 	},
 	corpseworm: {
 		num: 29,
