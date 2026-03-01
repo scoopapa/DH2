@@ -11128,13 +11128,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		},
 	},
 	ironcrown: null,
-	// Other
-	necrozmaultra: {
-		learnset: {
-			lunarray: ["9R"],
-			solarimpact: ["9R"],
-		},
-	},
+	// Junkyard
 	raticatealolatotem: null,
 	pikachucosplay: null,
 	pikachurockstar: null,
@@ -11174,10 +11168,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	togedemarutotem: null,
 	mimikyutotem: null,
 	kommoototem: null,
-	sinisteaantique: null,
 	zarudedada: null,
 	ursalunabloodmoon: null,
-	poltchageistartisan: null,
-	sinistchamasterpiece: null,
 	missingno: null,
 };

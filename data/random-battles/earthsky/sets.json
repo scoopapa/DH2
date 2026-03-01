@@ -634,7 +634,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["calmmind", "fireblast", "psyshock", "scald", "slackoff"],
+                "movepool": ["calmmind", "flamethrower", "psyshock", "scald", "slackoff"],
                 "abilities": ["Regenerator"]
             }
         ]
@@ -1066,6 +1066,22 @@
                 "role": "Wallbreaker",
                 "movepool": ["Aqua Jet", "Bulk Up", "Close Combat", "Liquidation", "Stone Edge", "Wave Crash"],
                 "abilities": ["Relentless"]
+            }
+        ]
+    },
+    "taurosegelas": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["bodyslam", "earthquake", "explosion", "flareblitz", "rockslide"],
+                "preferredTypes": ["Ground"],
+                "abilities": ["Sheer Force"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["doubleedge", "earthquake", "flareblitz", "explosion"],
+                "abilities": ["Anger Point"]
             }
         ]
     },
@@ -2070,6 +2086,16 @@
             }
         ]
     },
+    "miltankegelas": {
+        "level": 86,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["explosion", "healbell", "milkdrink", "rapidspin", "stealthrock", "willowisp"],
+                "abilities": ["Scrappy"]
+            }
+        ]
+    },
     "blissey": {
         "level": 84,
         "sets": [
@@ -2182,7 +2208,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["healbell", "leafstorm", "psychic", "recover", "restorelife", "stealthrock", "thunderwave", "uturn"],
+                "movepool": ["healbell", "leafstorm", "psychic", "recover", "ecoboon", "stealthrock", "thunderwave", "uturn"],
                 "abilities": ["Natural Cure"]
             }
         ]
@@ -3693,8 +3719,9 @@
         "level": 87,
         "sets": [
             {
-                "role": "Wallbreaker",
+                "role": "Fast Attacker",
                 "movepool": ["healingwish", "highjumpkick", "icepunch", "frustration", "switcheroo"],
+				"preferredTypes": ["Dark"],
                 "abilities": ["Klutz"]
             }
         ]
@@ -3955,7 +3982,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["iceshard", "iciclecrash", "knockoff", "lowkick", "pursuit", "swordsdance"],
+                "movepool": ["iceshard", "icepunch", "knockoff", "lowkick", "pursuit", "swordsdance"],
                 "abilities": ["Pickpocket"]
             }
         ]
@@ -5765,7 +5792,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["explosion", "flareblitz", "honeclaws", "superpower", "xscissor"],
-                "preferredTypes": ["Fighting"],
                 "abilities": ["Hustle"]
             }
         ]
@@ -7989,7 +8015,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Dark Pulse", "Dazzling Gleam", "Healing Wish", "Nasty Plot", "Psychic"],
+                "movepool": ["Dark Pulse", "Dazzling Gleam", "Nasty Plot", "Psychic", "Transform"],
                 "abilities": ["Pickpocket"]
             }
         ]
@@ -7999,7 +8025,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Dark Pulse", "Dazzling Gleam", "Healing Wish", "Hyper Voice", "Nasty Plot", "Psychic", "Psyshock"],
+                "movepool": ["Dark Pulse", "Dazzling Gleam", "Healing Wish", "Psychic", "Transform"],
                 "abilities": ["Infiltrator"]
             }
         ]
@@ -8500,7 +8526,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Giga Drain", "Leech Seed", "Protect", "Substitute", "Restore Life"],
+                "movepool": ["Giga Drain", "Leech Seed", "Protect", "Substitute", "Eco Boon"],
                 "abilities": ["Seed Sower"]
             }
         ]

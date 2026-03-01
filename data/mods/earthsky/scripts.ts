@@ -1299,77 +1299,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(pokemon.side.foe.active.length === 1 && pokemon.side.foe.active[0].volatiles['playdead']) return null; //Ran out of retarget checks, except for randomActive() which will get nothing in Singles
 			return pokemon.side.foe.randomActive() || pokemon.side.foe.active[0];
 		},
-		modifyDamage( //Tactician, Dual-type STAB, Terrain check, removal of P-Bond hardcode
-			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-		) {
-			const tr = this.trunc;
-			if (!move.type) move.type = '???';
-			const type = move.type;
-
-			baseDamage += 2;
-
-			// multi-target modifier (doubles only)
-			if (move.spreadHit && !pokemon.tacticianBoosted) {
-				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-				this.debug('Spread modifier: ' + spreadModifier);
-				baseDamage = this.modify(baseDamage, spreadModifier);
-			}
-
-			// field modifier
-			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
-
-			// crit - not a modifier
-			const isCrit = target.getMoveHitData(move).crit;
-			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
-			}
-
-			// random factor - also not a modifier
-			baseDamage = this.randomizer(baseDamage);
-
-			// STAB
-			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			if (move.twoType && pokemon.hasType(move.twoType)) {
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			// types
-			let typeMod = target.runEffectiveness(move);
-			typeMod = this.clampIntRange(typeMod, -6, 6);
-			target.getMoveHitData(move).typeMod = typeMod;
-			if (typeMod > 0) {
-				if (!suppressMessages) this.add('-supereffective', target);
-
-				for (let i = 0; i < typeMod; i++) {
-					baseDamage *= 2;
-				}
-			}
-			if (typeMod < 0) {
-				if (!suppressMessages) this.add('-resisted', target);
-
-				for (let i = 0; i > typeMod; i--) {
-					baseDamage = tr(baseDamage / 2);
-				}
-			}
-
-			if (isCrit && !suppressMessages) this.add('-crit', target);
-
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
-				if (move.id !== 'facade') {
-					baseDamage = this.modify(baseDamage, 0.5);
-				}
-			}
-
-			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
-
-			if (!baseDamage) return 1;
-
-			// ...but 16-bit truncation happens even later, and can truncate to 0
-			return tr(baseDamage, 16);
-		},
 		singleEvent(
 			eventid: string, effect: Effect, state: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
@@ -2358,6 +2287,78 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return undefined;
 		},
+		modifyDamage( //Tactician, Dual-type STAB, Terrain check, removal of P-Bond hardcode
+			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+		) {
+			const tr = this.trunc;
+			if (!move.type) move.type = '???';
+			const type = move.type;
+
+			baseDamage += 2;
+
+			// multi-target modifier (doubles only)
+			if (move.spreadHit && !pokemon.tacticianBoosted) {
+				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+				this.debug('Spread modifier: ' + spreadModifier);
+				baseDamage = this.modify(baseDamage, spreadModifier);
+			}
+
+			// field modifier
+			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
+
+			// crit - not a modifier
+			const isCrit = target.getMoveHitData(move).crit;
+			if (isCrit) {
+				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
+			}
+
+			// random factor - also not a modifier
+			baseDamage = this.randomizer(baseDamage);
+
+			// STAB
+			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+			}
+			if (move.twoType && pokemon.hasType(move.twoType)) {
+				this.debug('Dual-type STAB');
+				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+			}
+			// types
+			let typeMod = target.runEffectiveness(move);
+			typeMod = this.clampIntRange(typeMod, -6, 6);
+			target.getMoveHitData(move).typeMod = typeMod;
+			if (typeMod > 0) {
+				if (!suppressMessages) this.add('-supereffective', target);
+
+				for (let i = 0; i < typeMod; i++) {
+					baseDamage *= 2;
+				}
+			}
+			if (typeMod < 0) {
+				if (!suppressMessages) this.add('-resisted', target);
+
+				for (let i = 0; i > typeMod; i--) {
+					baseDamage = tr(baseDamage / 2);
+				}
+			}
+
+			if (isCrit && !suppressMessages) this.add('-crit', target);
+
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+				if (move.id !== 'facade') {
+					baseDamage = this.modify(baseDamage, 0.5);
+				}
+			}
+
+			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+			if (!baseDamage) return 1;
+
+			// ...but 16-bit truncation happens even later, and can truncate to 0
+			return tr(baseDamage, 16);
+		},
 		afterMoveSecondaryEvent(targets, pokemon, move) { //Sheer Force post-secondary change
 			this.battle.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
 			this.battle.runEvent('AfterMoveSecondary', targets, pokemon, move);
@@ -2787,11 +2788,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", "Froslass", "Druddigon"].includes(pokemon.baseSpecies)))))
 			continue;
 			//Change generational accessibility
-			if(this.modData('FormatsData', pokemonID)) {
+			/*if(this.modData('FormatsData', pokemonID)) {
 				if(formatsTest) {
 					console.log(this.modData('FormatsData', pokemonID));
 				}
-				/*switch(this.modData('FormatsData', pokemonID).isNonstandard) {
+				switch(this.modData('FormatsData', pokemonID).isNonstandard) {
 					case "CAP":
 						if(!pokemon.battleOnly){
 							if(pokemon.evos) {
@@ -2827,24 +2828,21 @@ export const Scripts: ModdedBattleScriptsData = {
 						break;
 					default: //All other non-standard Pokemon are to remain unusable
 						continue;
-				}*/
+				}
 				//if(pokemon.canGigantamax) delete pokemon.canGigantamax;
 				if(formatsTest) {
 					console.log(pokemon.tier);
 					console.log(pokemon.natDexTier);
 				}
-			}
-			//Don't do move stuff with formes that don't have their own movesets or get them copied later (and Xerneas)
-			if(learnsetTest && this.modData('Learnsets',pokemonID) === undefined){
-				console.log(pokemonID + " does not have a learnset");
-				console.log(pokemon);
-			}
-			if(pokemon.battleOnly || ["Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme) || 
-				(["Deoxys", "Rotom", "Giratina", "Shaymin", "Arceus", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Meloetta", "Genesect", "Vivillon", "Aegislash", 
-				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", 
-				"Squawkabilly", "Maushold", "Revavroom", "Palafin", "Dudunsparce", "Gimmighoul", "Poltchageist", "Sinistcha", "Ogerpon", "Terapagos", "Venomicon"].includes(pokemon.baseSpecies)
-				&& pokemon.baseSpecies !== pokemon.name))
+			}*/
+			//All formes that split their movesets have empty sets defined in learnsets.ts and get copied after updates, so anything remaining truly does not have one
+			if(this.data.Learnsets[pokemonID] === undefined || !this.modData('Learnsets',pokemonID).learnset){
+				if (learnsetTest) {
+					console.log(pokemonID + " does not have a learnset");
+					console.log(pokemon);
+				}
 				continue;
+			}
 			if(learnsetTest) {
 				console.log("Modifying learnset of " + pokemon.name);
 				console.log(this.modData('Learnsets',pokemonID).learnset);
@@ -14550,18 +14548,45 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','pajantom').learnset.hex = ["9M"];
 		this.modData('Learnsets','pajantom').learnset.nastyplot = ["9M"];
 		this.modData('Learnsets','pajantom').learnset.poltergeist = ["9M"];
+		delete this.modData('Learnsets','pajantom').learnset.bravebird;
 		
 		// Mumbao
-		this.modData('Learnsets','mumbao').learnset.wish = ["9D"];
-		this.modData('Learnsets','mumbao').learnset.daydream = ["9L21"];
-		this.modData('Learnsets','mumbao').learnset.gigadrain = ["9L31"];
+		this.modData('Learnsets','mumbao').learnset.shoreup = ["9D"];
+		this.modData('Learnsets','mumbao').learnset.daydream = ["9L1"];
+		this.modData('Learnsets','mumbao').learnset.tackle = ["9L1"];
+		this.modData('Learnsets','mumbao').learnset.branchpoke = ["9L3"];
+		this.modData('Learnsets','mumbao').learnset.ingrain = ["9L7"];
+		this.modData('Learnsets','mumbao').learnset.pounce = ["9L10"];
+		this.modData('Learnsets','mumbao').learnset.wish = ["9L14"];
+		this.modData('Learnsets','mumbao').learnset.magicalleaf = ["9L17"];
+		this.modData('Learnsets','mumbao').learnset.smellingsalts = ["9L21"];
+		this.modData('Learnsets','mumbao').learnset.psychup = ["9L24"];
+		this.modData('Learnsets','mumbao').learnset.bodyslam = ["9L28"];
+		this.modData('Learnsets','mumbao').learnset.gigadrain = ["9L31", "9M"];
+		this.modData('Learnsets','mumbao').learnset.sunnyday = ["9L35", "9M"];
+		this.modData('Learnsets','mumbao').learnset.flameburst = ["9L35"];
+		this.modData('Learnsets','mumbao').learnset.bulletseed = ["9L38"];
+		this.modData('Learnsets','mumbao').learnset.heavyslam = ["9L42"];
+		this.modData('Learnsets','mumbao').learnset.energyball = ["9L45", "9M"];
+		this.modData('Learnsets','mumbao').learnset.moonblast = ["9L49"];
+		this.modData('Learnsets','mumbao').learnset.leafstorm = ["9L52"];
 		this.modData('Learnsets','mumbao').learnset.naturalgift = ["9M"];
+		this.modData('Learnsets','mumbao').learnset.rototiller = ["9E"];
 		this.modData('Learnsets','mumbao').learnset.teeterdance = ["9E"];
+		this.modData('Learnsets','mumbao').learnset.woodhammer = ["9E"];
+		delete this.modData('Learnsets','mumbao').learnset.leafage;
 		// Jumbao
-		this.modData('Learnsets','jumbao').learnset.wish = ["9D"];
-		this.modData('Learnsets','jumbao').learnset.daydream = ["9L21"];
-		this.modData('Learnsets','jumbao').learnset.gigadrain = ["9L32"];
+		this.modData('Learnsets','jumbao').learnset.shoreup = ["9D"];
+		this.modData('Learnsets','jumbao').learnset.daydream = ["9L1"];
+		this.modData('Learnsets','jumbao').learnset.branchpoke = ["9L3"];
+		this.modData('Learnsets','jumbao').learnset.ingrain = ["9L7"];
+		this.modData('Learnsets','jumbao').learnset.pounce = ["9L10"];
+		this.modData('Learnsets','jumbao').learnset.wish = ["9L14"];
+		this.modData('Learnsets','jumbao').learnset.smellingsalts = ["9L21"];
+		this.modData('Learnsets','jumbao').learnset.gigadrain = ["9L31", "9M"];
 		this.modData('Learnsets','jumbao').learnset.naturalgift = ["9M"];
+		delete this.modData('Learnsets','jumbao').learnset.leafage;
+		delete this.modData('Learnsets','jumbao').learnset.rototiller;
 		
 		// Fawnifer
 		this.modData('Learnsets','fawnifer').learnset.solarblade = ["9D"];
@@ -14681,6 +14706,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Saharascal
 		this.modData('Learnsets','saharascal').learnset.jumpkick = ["9D"];
 		this.modData('Learnsets','saharascal').learnset.dustspray = ["9L4"];
+		this.modData('Learnsets','saharascal').learnset.sandtomb = ["9L12"];
 		this.modData('Learnsets','saharascal').learnset.tussle = ["9L16"];
 		this.modData('Learnsets','saharascal').learnset.bulldoze = ["9L32", "9M"];
 		this.modData('Learnsets','saharascal').learnset.sandblast = ["9L44"];
@@ -14718,7 +14744,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','ababo').learnset.shockwave = ["9M"];
 		this.modData('Learnsets','ababo').learnset.disarmingvoice = ["9E"];
 		this.modData('Learnsets','ababo').learnset.quickattack = ["9E"];
-		this.modData('Learnsets','ababo').learnset.rapidspin = ["9E"];
 		delete this.modData('Learnsets','ababo').learnset.extremespeed;
 		delete this.modData('Learnsets','ababo').learnset.flamethrower;
 		delete this.modData('Learnsets','ababo').learnset.metronome;
@@ -14808,7 +14833,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','cresceidon').learnset.magiccoat = ["9M"];
 		this.modData('Learnsets','cresceidon').learnset.heavyslam = ["9E"];
 		delete this.modData('Learnsets','cresceidon').learnset.doubleedge;
+		delete this.modData('Learnsets','cresceidon').learnset.earthquake;
 		delete this.modData('Learnsets','cresceidon').learnset.pound;
+		delete this.modData('Learnsets','cresceidon').learnset.psychic;
 		
 		// Chuggon
 		this.modData('Learnsets','chuggon').learnset.strangesmoke = ["9D"];
@@ -14855,6 +14882,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','chuggalong').learnset.happyhour = ["9S0"];
 		delete this.modData('Learnsets','chuggalong').learnset.encore;
 		
+		// Flox
+		/*this.modData('Learnsets','flox').learnset.nuzzle = ["9D"];
+		this.modData('Learnsets','flox').learnset.hornattack = ["9L0"];
+		this.modData('Learnsets','flox').learnset.defensecurl = ["9L1"];
+		this.modData('Learnsets','flox').learnset.charge = ["9L1"];
+		this.modData('Learnsets','flox').learnset.thunderwave = ["9L10", "9M"];
+		this.modData('Learnsets','flox').learnset.stomp = ["9L15"];
+		this.modData('Learnsets','flox').learnset.charm = ["9M"];
+		this.modData('Learnsets','flox').learnset.bodyslam = ["9E"];
+		this.modData('Learnsets','flox').learnset.headcharge = ["9E"];
+		this.modData('Learnsets','flox').learnset.lick = ["9E"];
+		delete this.modData('Learnsets','flox').learnset.blizzard;*/
 		// Shox
 		this.modData('Learnsets','shox').learnset.nuzzle = ["9D"];
 		this.modData('Learnsets','shox').learnset.hornattack = ["9L0"];
@@ -14864,9 +14903,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','shox').learnset.thunderwave = ["9L10", "9M"];
 		this.modData('Learnsets','shox').learnset.stomp = ["9L15"];
 		this.modData('Learnsets','shox').learnset.charm = ["9M"];
-		this.modData('Learnsets','shox').learnset.bodyslam = ["9E"];
-		this.modData('Learnsets','shox').learnset.headcharge = ["9E"];
-		this.modData('Learnsets','shox').learnset.lick = ["9E"];
 		delete this.modData('Learnsets','shox').learnset.blizzard;
 		
 		// Ramnarok
