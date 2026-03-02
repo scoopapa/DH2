@@ -1676,7 +1676,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Random Tandem",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3695289/">Random Tandem on Smogon Forums</a>`,
 		],
 		mod: 'randomtandem',
 		ruleset: ['Standard', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Data Mod', 'Random Tandem Rule'],
