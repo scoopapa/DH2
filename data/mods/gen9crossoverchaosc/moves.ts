@@ -534,7 +534,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
-				this.add('-anim', source, "Defense Curl", source);
+				this.add('-anim', pokemon, "Defense Curl", pokemon);
 				this.add('-singleturn', pokemon, 'move: Upperdash Arm');
 			},
 			onSourceModifySpAPriority: 5,
