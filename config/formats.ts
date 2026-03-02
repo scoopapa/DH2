@@ -4669,7 +4669,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1qaAn374BZcaGEFFFSZvzF1VUJvrKm59BQkVZaDCrK_w/edit?usp=sharing">Datasheet</a>`,
 		],
-		mod: 'terrariamons2',
+		mod: 'terrariamons',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause', 'Terastal Clause'],
 		banlist: [],
 		onValidateTeam(team, format) {
