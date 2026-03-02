@@ -2290,7 +2290,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		modifyDamage( //Tactician, Dual-type STAB, Terrain check, removal of P-Bond hardcode
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
-			const tr = this.trunc;
+			const tr = this.battle.trunc;
 			if (!move.type) move.type = '???';
 			const type = move.type;
 
@@ -2298,14 +2298,14 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// multi-target modifier (doubles only)
 			if (move.spreadHit && !pokemon.tacticianBoosted) {
-				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-				this.debug('Spread modifier: ' + spreadModifier);
-				baseDamage = this.modify(baseDamage, spreadModifier);
+				const spreadModifier = move.spreadModifier || (this.battle.gameType === 'free-for-all' ? 0.5 : 0.75);
+				this.battle.debug('Spread modifier: ' + spreadModifier);
+				baseDamage = this.battle.modify(baseDamage, spreadModifier);
 			}
 
 			// field modifier
-			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.battle.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
 
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
@@ -2314,45 +2314,45 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// random factor - also not a modifier
-			baseDamage = this.randomizer(baseDamage);
+			baseDamage = this.battle.randomizer(baseDamage);
 
 			// STAB
 			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+				baseDamage = this.battle.modify(baseDamage, move.stab || 1.5);
 			}
 			if (move.twoType && pokemon.hasType(move.twoType)) {
-				this.debug('Dual-type STAB');
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
+				this.battle.debug('Dual-type STAB');
+				baseDamage = this.battle.modify(baseDamage, move.stab || 1.5);
 			}
 			// types
 			let typeMod = target.runEffectiveness(move);
-			typeMod = this.clampIntRange(typeMod, -6, 6);
+			typeMod = this.battle.clampIntRange(typeMod, -6, 6);
 			target.getMoveHitData(move).typeMod = typeMod;
 			if (typeMod > 0) {
-				if (!suppressMessages) this.add('-supereffective', target);
+				if (!suppressMessages) this.battle.add('-supereffective', target);
 
 				for (let i = 0; i < typeMod; i++) {
 					baseDamage *= 2;
 				}
 			}
 			if (typeMod < 0) {
-				if (!suppressMessages) this.add('-resisted', target);
+				if (!suppressMessages) this.battle.add('-resisted', target);
 
 				for (let i = 0; i > typeMod; i--) {
 					baseDamage = tr(baseDamage / 2);
 				}
 			}
 
-			if (isCrit && !suppressMessages) this.add('-crit', target);
+			if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
 			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
 				if (move.id !== 'facade') {
-					baseDamage = this.modify(baseDamage, 0.5);
+					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}
 			}
 
 			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.battle.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
 
 			if (!baseDamage) return 1;
 
