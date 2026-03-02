@@ -1680,7 +1680,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3695289/">Random Tandem on Smogon Forums</a>`,
 		],
 		mod: 'randomtandem',
-		ruleset: ['Standard', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Data Mod', 'Random Tandem Rule'],
+		ruleset: ['Standard', 'Evasion Clause', 'Data Mod', 'Random Tandem Rule'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
