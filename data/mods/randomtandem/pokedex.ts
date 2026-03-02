@@ -290,7 +290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			[
 				{
 					species: 'Salazzle',
-					item: 'blacksludge',
+					item: 'leftovers',
 					ability: ['corrosion', 'merciless'],
 					teraType: ['Grass', 'Ground'],
 				},
