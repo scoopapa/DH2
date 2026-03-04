@@ -83,8 +83,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			target.forceSwitchFlag = true;
-			this.add('-activate', source, 'ability: Deep Terror');
-			this.add('-switchOut', target, 'ability: Deep Terror', '[of] ' + source);
+			this.add('-ability', source, 'Deep Terror');
+			this.add('-message', `${target.name} was scared off of the battlefield!`);
 		},
 		name: "Deep Terror",
 		desc: "When a Pokemon has more than 1/2 its maximum HP and damage from this Pokemon's attack brings it to 1/2 or less of its maximum HP, it is forced to switch out and be replaced with a random unfainted ally, assuming such an ally exists. This effect applies after all hits from a multi-hit move; This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
@@ -92,7 +92,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {},
 		rating: 2,
 		num: 1003,
-		switchOut: "  [POKEMON] was scared off of the battlefield!",
+		switchOut: "[POKEMON] was scared off of the battlefield!",
 	},
 	disturbance: {
 		onStart(pokemon) {
@@ -219,10 +219,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if(this.field.isTerrain("Misty Terrain")){
 				pokemon.addVolatile('evade', pokemon, 'mistyterrain');
 				pokemon.addVolatile('evadestall');
-				this.add('-singleturn', pokemon, 'ability: Misty Shroud');
+				this.add('-ability', pokemon, 'Misty Shroud');
+				this.add('-message', `${pokemon.name} disappeared into the mist!`);
 			} else if (this.effectState.source === 'mistyterrain'){
 				pokemon.removeVolatile('evade');
-				this.add('-end', pokemon, 'ability: Misty Shroud');
+				this.add('-ability', pokemon, 'Misty Shroud');
+				this.add('-message', `${pokemon.name} became visible again.`,);
 			}
 		},
 		name: "Misty Shroud",
@@ -231,8 +233,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {},
 		rating: 1.5,
 		num: 1006,
-		start: "  [POKEMON] disappeared into the mist!",
-		end: "  [POKEMON] became visible again.",
 	},
 	nightwalker: {
 		onModifySpe(spe, pokemon) {
@@ -355,13 +355,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	stoneskin: {
 		onStart(pokemon) {
 			if (!['Druddigon-Mega', 'Druddigon-Mega-Statue'].includes(pokemon.species.name)) return;
-			if (pokemon.species.name !== 'Druddigon-Mega-Statue') pokemon.formeChange('Druddigon-Mega-Statue');
+			if (pokemon.species.name !== 'Druddigon-Mega-Statue') { 
+				pokemon.formeChange('Druddigon-Mega-Statue');
+				this.add('-message', `${pokemon.name} turned to stone!`);
+			}
 		},
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (!['Druddigon-Mega', 'Druddigon-Mega-Statue'].includes(attacker.species.name)) return;
 			const targetForme = (move.category === 'Status' ? 'Druddigon-Mega-Statue' : 'Druddigon-Mega');
-			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			if (attacker.species.name !== targetForme) {
+				attacker.formeChange(targetForme);
+				if(targetForme === 'Druddigon-Mega') {
+					this.add('-message', `${attacker.name} unpetrified itself!`);
+				} else {
+					this.add('-message', `${attacker.name} turned to stone!`);
+				}
+			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!effect || !source || target.species.name !== 'Druddigon-Mega-Statue') return;
@@ -376,7 +386,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onTryAddVolatile(status, target, source, effect) {
 			if (!effect || !source || target.species.name !== 'Druddigon-Mega-Statue') return;
-			if (['confusion', 'curse', 'leechseed', 'nightmare', 'saltcure', 'yawn'].includes(status.id) && target !== source) {
+			if (['confusion', 'curse', 'leechseed', 'nightmare', 'saltcure', 'withering', 'yawn'].includes(status.id) && target !== source) {
 				if (effect.effectType === 'Move' && !effect.secondaries) this.add('-immune', target, '[from] ability: Stoneskin');
 				return false;
 			}
@@ -414,20 +424,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (move.category !== 'Status' && !source.forceSwitchFlag) {
-				this.heal(move.totalDamage / 5, source);
+				this.heal(move.totalDamage / 5, source, 'ability: Soul Drain', 'drain');
 			}
 		},
 		name: "Soul Drain",
-		desc: "The user recovers 1/5 of the damage, rounded half up, dealt by each of its attacks. The healing occurs even if an attack hits a substitute.",
+		desc: "The user recovers 1/5 of the damage, rounded half up, dealt by each of its attacks. The healing occurs even if an attack hits a substitute, but not if the user is forced out by a Red Card.",
 		shortDesc: "After an attack, holder gains 1/5 of the damage in HP dealt to other Pokemon.",
-		heal: "  [POKEMON] restored a little HP with Soul Drain!",
         flags: {},
 		rating: 2,
 		num: 1011,
 	},
 	supermassive: {
 		onStart(source) {
-			this.add('-activate', source, 'ability: Supermassive');
+			this.add('-ability', source, 'Supermassive');
 			this.field.addPseudoWeather('gravity');
 		},
 		name: "Supermassive",
@@ -464,7 +473,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	tireless: {
 		onChargeMove(pokemon, target, move) {
 			this.debug('tireless - remove charge turn for ' + move.id);
-			this.add('-activate', pokemon, 'ability: Tireless');
+			this.add('-ability', pokemon, 'Tireless');
+			this.add('-message', `${pokemon.name} became energized immediately!`);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
 			return false; // skip charge turn
@@ -473,7 +483,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
 				this.debug('tireless - remove recharge');
-				this.add('-activate', pokemon, 'ability: Tireless');
 			}
 		},
 		onBeforeMovePriority: 11,
@@ -486,7 +495,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Tireless",
 		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
 		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
-		activate: "  [POKEMON] became energized immediately!",
         flags: {},
 		rating: 2,
 		num: 1014,
@@ -504,16 +512,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	warmonger: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'ability: Warmonger');
-			this.hint(`  $(pokemon.name) is belligerent!`);
+			this.add('-ability', pokemon, 'Warmonger');
+			this.add('-message', `${pokemon.name} is belligerent!`);
 			pokemon.addVolatile('taunt', '[silent]');
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !pokemon.isAdjacent(target)) continue;
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
-					target.addVolatile('taunt');
-				}
+				if (!target.volatiles['substitute']) target.addVolatile('taunt');
 			}
 		},
 		name: "Warmonger",
@@ -521,27 +525,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {},
 		rating: 3.5,
 		num: 1016,
-		activate: "  [POKEMON] is belligerent!",
 	},
 	glyphicspell: {
+		onSwitchInPriority: 2,
 		onSwitchIn(pokemon) {
-			if(pokemon.species.baseSpecies === 'Unown' && pokemon.abilityState.unownType === 'C') pokemon.abilityState.switchingIn = true;
-		},
-		onPreStart(pokemon) {
 			if(pokemon.species.baseSpecies === 'Unown'){
 				if(!pokemon.abilityState.formeDecided){//Determines forme if it hasn't already.
 					pokemon.abilityState.unownType = pokemon.species.forme;
 					while(pokemon.abilityState.unownType === 'Question'){ //?????: Randomly picks another form each time.
 						pokemon.abilityState.unownType = this.dex.species.get(this.sample(pokemon.species.formeOrder)).forme;
+						this.add('-ability', pokemon, 'Glyphic Spell');
+						this.add('-message', `${pokemon.name} drew in strange power!`);
 					}
 					if(pokemon.abilityState.unownType === pokemon.species.forme){ //Non-? formes only need to determine once.
 						pokemon.abilityState.formeDecided = true;
 					}
 					if(pokemon.abilityState.unownType === '') pokemon.abilityState.unownType = 'A'; //A is the default, this is purely for code legibility
 				}
+				if(pokemon.abilityState.unownType === 'C') pokemon.abilityState.switchingIn = true;
 				if(pokemon.abilityState.unownType === 'N'){ //Negate: Neutralizing Gas
 					//Main implementation is in scripts.ts as an edit to ignoringAbility()
-					this.add('-n', pokemon, 'ability: Glyphic Spell');
+					this.add('-ability', pokemon, 'Glyphic Spell');
+					this.add('-message', `${pokemon.name} is suppressing Abilities!`);
 					pokemon.abilityState.ending = false;
 					const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
 					for (const target of this.getAllActive()) {
@@ -549,7 +554,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							this.add('-block', target, 'item: Ability Shield');
 							continue;
 						}
-						this.singleEvent('End', target.getAbility(), target.abilityState, target, pokemon, 'neutralizinggas');
+						if (target.illusion) {
+							this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
+						}
+						if (strongWeathers.includes(target.getAbility().id)) {
+							this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+						}
 					}
 				}
 			}
@@ -598,12 +608,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 						break;
 					case 'G': //Grow: All stats +1
-						this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon);
 						break;
 					case 'H': //Heal: Full Restore
-						this.add('-h', pokemon, 'ability: Glyphic Spell');
+						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.heal(pokemon.baseMaxhp, pokemon);
 						pokemon.cureStatus();
+						this.add('-message', `${pokemon.name} was healed!`);
 						break;
 					case 'I': //Invert: Topsy-Turvy
 						activated = false;
@@ -648,7 +658,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						const newspe = Math.floor((oppositeFoe.storedStats.spe + pokemon.storedStats.spe) / 2);
 						oppositeFoe.storedStats.spe = newspe;
 						pokemon.storedStats.spe = newspe;
-						this.add('-j', pokemon, 'ability: Glyphic Spell', oppositeFoe);
+						this.add('-message', `${pokemon.name} and ${oppositeFoe.name} had their stats shared!`);
 						break;
 					case 'K': //Klepto: Steal direct foe's item, confiscate the rest, Snatch
 						if (!pokemon.item) {
@@ -687,7 +697,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 						break;
 					case 'M': //Mirror: Ally Switch, Court Change, Wonder Room
+						//Wonder Room
 						this.add('-ability', pokemon, 'Glyphic Spell');
+						this.field.addPseudoWeather('wonderroom');
 						//Ally Switch
 						let success = true;
 						if (this.format.gameType !== 'doubles' && this.format.gameType !== 'triples') success = false;
@@ -753,11 +765,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							for (const id in targetTemp) {
 								sourceSideConditions[id] = targetTemp[id];
 							}
-							this.add('-swapsideconditions');
 						}
-						this.add('-activate', pokemon, 'move: Court Change');
-						//Wonder Room
-						this.field.addPseudoWeather('wonderroom');
+						if (success) {
+							this.add('-swapsideconditions');
+							this.add('-activate', pokemon, 'move: Court Change');
+						}
 						break;
 					case 'N': //Negate: Magic Room
 						this.add('-ability', pokemon, 'Glyphic Spell');
@@ -768,18 +780,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						for (const target of pokemon.side.foe.active) {
 							if (!target || target.fainted) continue;
 							if (target.item) {
-								this.add('-activate', pokemon, 'ability: Glyphic Spell');
 								this.add('-item', target, target.getItem().name, '[from] Frisk', '[of] ' + pokemon, '[identify]');
 							}
 						}
 						pokemon.addVolatile('miracleeye');
 						break;
 					case 'P': //Power: Sp. Attack to +6
-						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.boost({spa: 12}, pokemon);
 						break;
 					case 'Q': //Quicken: Speed to +6
-						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.boost({spe: 12}, pokemon);
 						break;
 					case 'R': //Reverse: Trick Room
@@ -796,9 +805,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						pokemon.addVolatile('imprison');
 						break;
 					case 'T': //Turnabout: Rebound
-						this.add('-t', pokemon, 'ability: Glyphic Spell');
-						pokemon.addVolatile('rebound', pokemon, "Glyphic Spell");
-						pokemon.addVolatile('magiccoat');
+						this.add('-ability', pokemon, 'Glyphic Spell');
+						this.add('-message', `${pokemon.name} is preparing a counterattack!`);
+						pokemon.addVolatile('rebound', pokemon, "Glyphic Spell", '[silent]');
+						pokemon.addVolatile('magiccoat', '[silent]');
 						break;
 					case 'U': //Undo: Clears hazards, screens, weather, and terrain
 						this.add('-ability', pokemon, 'Glyphic Spell');
@@ -849,8 +859,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.add('-ability', pokemon, 'Glyphic Spell');
 								activated = true;
 							}
-							target.addVolatile('magnetrise');
-							//this.add('-start', target, 'Telekinesis');
+							target.addVolatile('magnetrise', '[silent]');
+							this.add('-message', `${target.name} was hurled into the air!`);
 						}
 						for (const target of pokemon.side.foe.active) {
 							if (!target || target.fainted || !target.canFloat()) continue;
@@ -864,7 +874,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 						break;
 					case '!': //!!!!! Primes itself for Explosion
-						this.add('-ex', pokemon, 'ability: Glyphic Spell');
+						this.add('-ability', pokemon, 'Glyphic Spell');
+						this.add('-message', `${pokemon.name} radiates a lot of power...`);
 						break;
 				}
 			}
@@ -934,6 +945,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyPriority(priority, source, target, move) {
 			if(source.species.baseSpecies === 'Unown' && source.abilityState.unownType === 'E'){ //Engage: +4 priority to first move
 				if(source.activeMoveActions === 0 && priority < 4){
+					this.add('-ability', pokemon, 'Glyphic Spell');
 					return 4;
 				}
 			}
@@ -1070,18 +1082,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		rating: 3,
 		num: 1019,
-		fitem: "  [POKEMON] observed [TARGET]'s [ITEM]!",
-		fmove: "  [TARGET]'s [MOVE] was observed!",
-		h: "  [POKEMON] was healed!",
-		n: "  [POKEMON] is suppressing abilities!",
-		j: "  [POKEMON] and [TARGET] had their stats shared!",
-		t: "  [POKEMON] is preparing a counterattack!",
-		ex: "  [POKEMON] radiates a lot of power...",
 	},
 	//Changed Abilities
 	airlock: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'ability: Air Lock');
+			this.add('-message', "The skies cleared above the battlefield.");
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
 			if (!strongWeathers.includes(this.field.weather)){
 				this.field.clearWeather();
@@ -1091,7 +1097,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnySetWeather(target, source, weather) {
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
 			if (!strongWeathers.includes(weather.id)){
-				this.add('-activate', this.effectState.target, 'ability: Air Lock');
+				this.add('-ability', this.effectState.target, 'Air Lock');
+				this.add('-message', "The air remained calm!");
 				return false;
 			}
 		},
@@ -1102,8 +1109,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {},
 		rating: 2,
 		num: 76,
-		start: "  The skies cleared above the battlefield.",
-		activate: "  The air remained calm!",
 	},
 	alchemy: {
 		onSwitchIn(pokemon){
@@ -1214,14 +1219,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			const moveType = move.type;
 			if (this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) >= 2) {
-				this.add('-miss', source, target);
 				return false;
 			}
 		},
 		rating: 3,
 		desc: "On switch-in, this Pokemon is alerted if any opposing Pokemon has an attack that is doubly super effective on this Pokemon. If any such moves are used on this Pokemon, it will become Evasive to them. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types. Bullfight, Hidden Power, Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball use their determined types.",
 		shortDesc: "Shudders to detect x4 effective moves and becomes Evasive to them.",
-		miss: "  [POKEMON] anticipated the attack and evaded!",
 	},
 	arenatrap: {
 		onStart(pokemon){
@@ -1238,7 +1241,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoness: {
 		num: 266,
 		name: "As One S-S",
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			pokemon.abilityState.forme = (pokemon.species.forme === 'Ice' ? 'Ice' : 'Shadow');
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Unnerve');
@@ -1275,7 +1279,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonesh: {
 		num: 266,
 		name: "As One S-H",
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			pokemon.abilityState.forme = (pokemon.species.forme === 'Ice' ? 'Ice' : 'Shadow');
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Unnerve');
@@ -1313,7 +1318,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonehs: {
 		num: 267,
 		name: "As One H-S",
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			pokemon.abilityState.forme = (pokemon.species.forme === 'Ice' ? 'Ice' : 'Shadow');
 			this.add('-ability', pokemon, 'As One');
 		},
@@ -1354,7 +1360,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonehh: {
 		num: 267,
 		name: "As One H-H",
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			pokemon.abilityState.forme = (pokemon.species.forme === 'Ice' ? 'Ice' : 'Shadow');
 			this.add('-ability', pokemon, 'As One');
 		},
@@ -1423,7 +1430,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	climatebreak: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'ability: Climate Break');
+			this.add('-ability', pokemon, 'Climate Break');
+			this.add('-message', `${pokemon.name} is regulating the climate of the battlefield!`);
 			this.field.clearTerrain();
 			this.effectState.switchingIn = false;
 		},
@@ -1432,7 +1440,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.hasAuraBreak = true;
 		},
 		onAnySetTerrain(target, source, terrain) {
-			this.add('-ability', this.effectState.target, 'ability: Climate Break');
+			this.add('-ability', this.effectState.target, 'Climate Break');
+			this.add('-message', "The terrain remained the same!");
 			return false;
 		},
 		suppressTerrain: true,
@@ -1442,8 +1451,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 		rating: 2,
 		num: 188,
-		start: "  [POKEMON] is regulating the climate of the battlefield!",
-		activate: "  The terrain remained the same!",
 	},
 	cloudnine: {
 		onStart(pokemon) {
@@ -1642,61 +1649,83 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	embodyaspect: {
 		onStart(pokemon) {
-			if (pokemon.hp > pokemon.maxhp / 2) return;
-			if (this.boost({def: 1, spd: 1}, pokemon)) {
-				this.effectState.embodyBoost = true;
+			if(pokemon.species.baseSpecies !== "Ogerpon" || this.effectState.embodyBoost || pokemon.hp > pokemon.maxhp / 2) return;
+			switch(pokemon.species.forme){
+				case "Wellspring":
+					if (this.boost({spd: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Hearthflame":
+					if (this.boost({atk: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Cornerstone":
+					if (this.boost({def: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				default:
+					if (this.boost({spe: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
 			}
+			if(this.effectState.embodyBoost) this.add('-message', `The ${pokemon.species.forme} Mask worn by ${pokemon.name} shone brilliantly!`);
 		},
 		onAfterMoveSecondary(pokemon, source, move) {
-			if(pokemon.baseSpecies !== "Ogerpon" || this.effectState.embodyBoost || pokemon.hp > pokemon.maxhp / 2) return;
-			switch(pokemon.forme){
-			case "Wellspring":
-				if (this.boost({spd: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			case "Hearthflame":
-				if (this.boost({atk: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			case "Cornerstone":
-				if (this.boost({def: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			default:
-				if (this.boost({spe: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
+			if(pokemon.species.baseSpecies !== "Ogerpon" || this.effectState.embodyBoost || pokemon.hp > pokemon.maxhp / 2) return;
+			switch(pokemon.species.forme){
+				case "Wellspring":
+					if (this.boost({spd: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Hearthflame":
+					if (this.boost({atk: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Cornerstone":
+					if (this.boost({def: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				default:
+					if (this.boost({spe: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
 			}
+			if(this.effectState.embodyBoost) this.add('-message', `The ${pokemon.species.forme} Mask worn by ${pokemon.name} shone brilliantly!`);
 		},
 		onResidualOrder: -99,
 		onResidual(pokemon, source, move) {
-			if(pokemon.baseSpecies !== "Ogerpon" || this.effectState.embodyBoost || pokemon.hp > pokemon.maxhp / 2) return;
-			switch(pokemon.forme){
-			case "Wellspring":
-				if (this.boost({spd: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			case "Hearthflame":
-				if (this.boost({atk: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			case "Cornerstone":
-				if (this.boost({def: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
-			default:
-				if (this.boost({spe: 1}, pokemon)) {
-					this.effectState.embodyBoost = true;
-				}
-				break;
+			if(pokemon.species.baseSpecies !== "Ogerpon" || this.effectState.embodyBoost || pokemon.hp > pokemon.maxhp / 2) return;
+			switch(pokemon.species.forme){
+				case "Wellspring":
+					if (this.boost({spd: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Hearthflame":
+					if (this.boost({atk: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				case "Cornerstone":
+					if (this.boost({def: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
+				default:
+					if (this.boost({spe: 1}, pokemon)) {
+						this.effectState.embodyBoost = true;
+					}
+					break;
 			}
+			if(this.effectState.embodyBoost) this.add('-message', `The ${pokemon.species.forme} Mask worn by ${pokemon.name} shone brilliantly!`);
 		},
 		onEnd(pokemon) {
 			delete this.effectState.embodyBoost;
@@ -1773,16 +1802,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: { //This is a condition because Glyphic Spell can also add it. It should work as part of the ability otherwise.
 			onStart(pokemon) {
-				//let warnPokeMove: ([String, String][]) = undefined;
-				let warnPokeMove: [String] = undefined;
+				let warnPokeMove: [Pokemon, Move][] = undefined;
 				this.effectState.warnMoves = {};
 				for (let i = 0; i < pokemon.side.foe.active.length; i++) {
 					const target = pokemon.side.foe.active[i];
 					warnPokeMove = target.getStrongestMove(pokemon);
 					if(!warnPokeMove) continue;
 					const newWarning = this.sample(warnPokeMove);
-					this.effectState.warnMoves[newWarning[0]] = newWarning[1];
-					this.add('-activate', pokemon, `ability: $(this.effectState.source)`, newWarning[0].id, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
+					this.effectState.warnMoves[newWarning[0].fullname] = newWarning[1].id;
+					if(this.effectState.sourceEffect === "Glyphic Spell") {
+						this.add('-ability', pokemon, 'Glyphic Spell');
+						this.add('-message', `${newWarning[0].name}'s ${newWarning[1].name} was revealed!`);
+					} else {
+						this.add('-activate', pokemon, 'ability: Forewarn', newWarning[1], `[of] ${newWarning[0]}`);
+					}
 					//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 				}
 			},
@@ -1793,7 +1826,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if(!warnPokeMove) return;
 				const newWarning = this.sample(warnPokeMove);
 				this.effectState.warnMoves[newWarning[0]] = newWarning[1];
-				this.add('-activate', pokemon, `ability: $(this.effectState.source)`, newWarning[0].id, '[of] ' + newWarning[1]); //$ is used because Glyphic Spell also adds this volatile
+				if(this.effectState.sourceEffect === "Glyphic Spell") {
+					this.add('-ability', pokemon, 'Glyphic Spell');
+					this.add('-message', `${newWarning[0].name}'s ${newWarning[1].name} was revealed!`);
+				} else {
+					this.add('-activate', pokemon, 'ability: Forewarn', newWarning[1], `[of] ${newWarning[0]}`);
+				}
 				//console.log("Forewarn found " + newWarning[0] + "'s " + newWarning[1]);
 			},
 			onFoeSwitchOut(target){
@@ -1813,7 +1851,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		desc: "On switch-in, this Pokemon is alerted to each opposing Pokemon's move with the highest power. When an opposing Pokemon uses its identified attack on this Pokemon, it will dodge it using the rules of Evasiveness.",
 		shortDesc: "This Pokemon is alerted to each foe's strongest attack and becomes Evasive to them.",
-		miss: "  [POKEMON] foresaw the attack and evaded!",
 	},
 	galewings: {
 		inherit: true,
@@ -1916,7 +1953,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		//Rest of floating block implemented in scripts.ts as part of pokemon.canFloat()
 		shortDesc: "This Pokemon's weight is doubled. It is unable to float in the air.",
-		block: "  [POKEMON] is weighed down with heavy metal!",
+		block: "[POKEMON] is weighed down with heavy metal!",
 	},
 	hypercutter: {
 		onChangeBoost(boost, target, source, effect) {
@@ -2295,7 +2332,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Moody",
 		desc: `At the end of each turn, this Pokemon has stats raised and lowered based on what it has done during that turn:
-		-Using an attacking move lowers the attacking stat used and sharply raises the other one.
+		-Landing an attacking move lowers the attacking stat used and sharply raises the other one.
 		-Getting hit by an attack sharply raises the defensive stat used and lowers the other one.
 		-Causing another Pokemon to faint raises both defenses but lowers Speed.
 		-Receiving a healing effect of 20% or more of its max HP raises both attacking stats and Speed, but lowers both defenses.
@@ -2373,10 +2410,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	owntempo: {
 		inherit: true,
 		onModifyMove(move) {
-			move.flags = {...move.flags, 'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1,};
+			move.flags = {...move.flags, 'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1, 'nosketch': 1};
 			delete move.flags['mirror'];
 			delete move.flags['snatch'];
-			move.noSketch = true; //Currently does nothing
 			move.uncopyable = true;
 		},
 		onTryBoost(boost, target, source, effect) {
@@ -2399,7 +2435,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		Moves that swap, alter, or override attributes, such as Skill Swap, Guard Split, and Simple Beam, will still function.`,
 		shortDesc: "This Pokemon cannot be confused. Attempts to copy or steal its moves and attributes fail.",
         flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1},
-		activate: "  [POKEMON]'s mannerisms couldn't be acquired!",
+		activate: "[POKEMON]'s mannerisms couldn't be acquired!",
 	},
 	parentalbond: {
 		onPrepareHit(source, target, move) {
@@ -2423,24 +2459,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 184,
 	},
 	pastelveil: {
-		onUpdate(pokemon) {
-			if (['psn', 'tox'].includes(pokemon.status)) {
-				this.add('-activate', pokemon, 'ability: Pastel Veil');
-				pokemon.cureStatus();
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (!['psn', 'tox'].includes(status.id)) return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Pastel Veil');
-			}
-			return false;
-		},
 		onAllySetStatus(status, target, source, effect) {
 			if (!['psn', 'tox'].includes(status.id)) return;
 			if ((effect as Move)?.status) {
 				const effectHolder = this.effectState.target;
-				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
+				this.add('-ability', effectHolder, 'ability: Pastel Veil');
+				this.add('-message', `${target.name} can't be poisoned due to a colorful veil!`);
 			}
 			return false;
 		},
@@ -2469,6 +2493,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokemon is hit by a contact move, it steals the attacker's item.",
 	},
 	poweraura: {
+		onStart(pokemon) {
+			this.add('-message', `${pokemon.name} is radiating a power aura!`);
+		},
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (!move.hasAuraBreak && attacker !== this.effectState.target) {
@@ -2482,7 +2509,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {},
 		rating: 1,
 		num: 249,
-		start: "  [POKEMON] is radiating a power aura!",
 	},
 	prismarmor: {
 		onModifyMovePriority: -100,
@@ -2731,10 +2757,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				pokemon.addVolatile('evade', pokemon, 'sandstorm');
 				pokemon.addVolatile('evadestall');
-				this.add('-singleturn', pokemon, 'ability: Sand Veil');
+				this.add('-ability', pokemon, 'Sand Veil');
+				this.add('-message', `${pokemon.name} disappeared into the sandstorm!`);
 			} else if (pokemon.volatiles['evade'] && pokemon.volatiles['evade'].source === 'sandstorm'){
 				pokemon.removeVolatile('evade');
-				this.add('-end', pokemon, 'ability: Sand Veil');
+				this.add('-message', `${pokemon.name} became visible again.`);
 			}
 		},
 		name: "Sand Veil",
@@ -2743,8 +2770,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {},
 		rating: 1.5,
 		num: 8,
-		start: "  [POKEMON] disappeared into the sandstorm!",
-		end: "  [POKEMON] became visible again.",
 	},
 	schooling: {
 		onStart(pokemon) {
@@ -2961,10 +2986,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				pokemon.addVolatile('evade', pokemon, 'snow');
 				pokemon.addVolatile('evadestall');
-				this.add('-singleturn', pokemon, 'ability: Snow Cloak');
+				this.add('-ability', pokemon, 'Snow Cloak');
+				this.add('-message', `${pokemon.name} disappeared into the snow!`);
 			} else if (pokemon.volatiles['evade'] && pokemon.volatiles['evade'].source === 'snow'){
 				pokemon.removeVolatile('evade');
-				this.add('-end', pokemon, 'ability: Snow Cloak');
+				this.add('-message', `${pokemon.name} became visible again.`);
 			}
 		},
 		name: "Snow Cloak",
@@ -2973,8 +2999,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {},
 		rating: 1.5,
 		num: 81,
-		start: "  [POKEMON] disappeared into the snow!",
-		end: "  [POKEMON] became visible again.",
 	},
 	snowplow: {
 		onImmunity(type, pokemon) {
@@ -3038,15 +3062,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Prevents floating.",
 		desc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
 	},
-	sweetveil: {
-		inherit: true,
-		onUpdate(pokemon) {
-			if (pokemon.status === 'slp') {
-				this.add('-activate', pokemon, 'ability: Sweet Veil');
-				pokemon.cureStatus();
-			}
-		},
-	},
 	synchronize: {
 		inherit: true,
 		onAfterSetStatus(status, target, source, effect) {
@@ -3069,7 +3084,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 2, //Should get removed in onBeforeMove, so this is a failsafe
 			onStart(pokemon, source) {
-				this.add('-activate', pokemon, 'ability: Tangled Feet');
+				this.add('-ability', pokemon, 'Tangled Feet');
+				this.add('-message', `${pokemon.name} started moving erratically!`);
 			},
 			onBeforeMove(pokemon, move) {
 				pokemon.removeVolatile('tangledfeet');
@@ -3087,7 +3103,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {},
 		rating: 1,
 		num: 77,
-		activate: "  [POKEMON] became hard to hit!",
 	},
 	tangling: {
 		onHit(target, source, move) {
@@ -3106,24 +3121,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	teraformzero: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Teraform Zero');
+			this.add('-message', "Terastal energy dominates the area!");
 			this.field.clearWeather();
 			this.field.clearTerrain();
 		},
 		onAnySetWeather(target, source, weather) {
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
 			if (!strongWeathers.includes(weather.id)){
-				this.add('-activate', this.effectState.target, 'ability: Teraform Zero');
+				this.add('-message', "The Terastal energy neutralized any change!");
 				return false;
 			}
 		},
 		onAnySetTerrain(target, source, terrain) {
-			this.add('-ability', pokemon, 'ability: Teraform Zero');
+			this.add('-message', "The Terastal energy neutralized any change!");
 			return false;
 		},
 		suppressWeather: true,
 		suppressTerrain: true,
 		name: "Teraform Zero",
-		shortDesc: "Clears weather and terrain from the field and prevents them from being set.",
+		shortDesc: "Clears normal weather and terrain from the field and prevents them from being set.",
 		desc: "When this Pokemon is sent in, active weather and terrain is cleared. Using a weather- or terrain-changing move will fail, and weather- or terrain-changing Abilities will not work, except for Primordial Sea, Desolate Land, and Delta Stream.",
         flags: {breakable: 1}, 
 		rating: 3.5,
@@ -3145,8 +3161,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 22,
 		onBasePower(basePower, attacker, defender, move) {
-			const itemName = attacker.getItem().name;
-			if (itemName.endsWith('Tera Shard') && itemName.substr(0, itemName.length - 11) === move.type) {
+			const item = attacker.getItem();
+			if (item?.onTera === move.type) {
 				this.debug('Tera Shell boost: ' + move.type);
 				return this.chainModify(1.5);
 			}
@@ -3156,37 +3172,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 	},
 	terashift: {
-		inherit: true,
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos' || pokemon.transformed || 'magicroom' in this.field.pseudoWeather) return;
-			switch(pokemon.getItem().name){
-			case "Stellar Tera Shard":
+			if(pokemon.getItem().name === "Stellar Tera Shard") {
 				this.add('-activate', pokemon, 'ability: Tera Shift');
 				pokemon.formeChange('Terapagos-Stellar', this.effect, true);
-				break;
-			case "Normal Tera Shard":
-			case "Fire Tera Shard":
-			case "Water Tera Shard":
-			case "Electric Tera Shard":
-			case "Grass Tera Shard":
-			case "Ice Tera Shard":
-			case "Fighting Tera Shard":
-			case "Poison Tera Shard":
-			case "Ground Tera Shard":
-			case "Flying Tera Shard":
-			case "Psychic Tera Shard":
-			case "Bug Tera Shard":
-			case "Rock Tera Shard":
-			case "Ghost Tera Shard":
-			case "Dragon Tera Shard":
-			case "Dark Tera Shard":
-			case "Steel Tera Shard":
-			case "Fairy Tera Shard":
+			} else if (pokemon.getItem().onTera) {
 				this.add('-activate', pokemon, 'ability: Tera Shift');
 				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
-				break;
 			}
 		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1 },
+		name: "Tera Shift",
+		rating: 3,
+		num: 307,
 		desc: "If this Pokemon is a Terapagos and it is holding a Tera Shard, it will transform when it enters battle. If holding a Stellar Tera Shard, it will become its Stellar Form; with any other Tera Shard, it will become its Terastal Form.",
 		shortDesc: "If Terapagos, transforms if holding Tera Shard. Stellar = Stellar, else Terastal.",
 	},
@@ -3312,23 +3312,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 199,
 	},
 	waterveil: {
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				this.add('-activate', pokemon, 'ability: Water Veil');
-				pokemon.cureStatus();
-			}
-		},
 		onAllySetStatus(status, target, source, effect) {
 			if (status.id === 'brn') {
 				this.debug('Water Veil prevents burns');
 				const effectHolder = this.effectState.target;
-				this.add('-block', target, 'ability: Water Veil', '[of] ' + effectHolder);
+				this.add('-ability', effectHolder, 'ability: Water Veil');
+				this.add('-message', `${target.name} can't be burned due to a watery veil!`);
 				return null;
 			}
 		},
 		name: "Water Veil",
 		shortDesc: "This Pokemon and its allies cannot be burned.",
-		block: "  [POKEMON] can't be burned due to a watery veil!",
         flags: {breakable: 1},
 		rating: 2,
 		num: 175,
@@ -3396,10 +3390,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Speed raised by 1 if hit by a wind move or encounters Tailwind. Wind move immunity.",
 	},
 	zerotohero: {
-		onSwitchIn() {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
-		},
-		onPreStart(pokemon){ //Presumably, onSwitchIn only activates when not dragged in, and we want the transformation always to activate.
 			if (pokemon.baseSpecies.baseSpecies !== 'Palafin' || pokemon.transformed || !pokemon.side.totalFainted) return;
 			if (pokemon.species.forme !== 'Hero') {
 				pokemon.formeChange('Palafin-Hero', this.effect, true);
@@ -3615,7 +3608,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	neutralizinggas: {
 		inherit: true,
-		onPreStart(pokemon) {
+		onSwitchInPriority: 2,
+		onSwitchIn(pokemon) {
 			if (pokemon.transformed) return;
 			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityState.ending = false;

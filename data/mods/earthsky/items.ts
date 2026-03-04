@@ -38,17 +38,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				move.sideCondition = 'firepledge';
 			}
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				move.self = {sideCondition: 'waterpledge'};
 			}
 		},
@@ -65,17 +65,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				move.sideCondition = 'grasspledge';
 			}
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				move.sideCondition = 'firepledge';
 			}
 		},
@@ -122,6 +122,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onOverrideAction(pokemon) { //only event that happens before BeforeMove, which flinch has to be stopped before.
 			if (pokemon.volatiles['flinch'] && pokemon.eatItem()) {
 				pokemon.removeVolatile('flinch');
+				this.add('-message', `${pokemon.name} is no longer flinching!`);
 			}
 		},
 		onEat(pokemon) {
@@ -150,17 +151,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				move.self = {sideCondition: 'waterpledge'};
 			}
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				move.sideCondition = 'grasspledge';
 			}
 		},
@@ -452,10 +453,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (move.priority > 0.1 && powderHolder.useItem())
 			{
-				this.add('activate', powderHolder, 'item: BrightPowder');
 				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + powderHolder);
+				this.add('-message', `${source.name} was blinded by Bright Powder!`);
 				return false;
 			}
 		},
@@ -918,16 +918,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		onAllyBasePowerPriority: 15,
-		onAllyBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
-				return this.chainModify([0x1199, 0x1000]);
+		onAnyTryMove(target, source, effect) {
+			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', target, 'item: Wave Incense', effect, '[of] ' + source);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
 			}
 		},
 		num: 254,
 		rating: 2,
 		gen: 3,
-		desc: "Holder and allies' Water-type moves have 1.1x power.",
+		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
+		shortDesc: "Prevents explosion-based moves and Abilities.",
 	},
 	shellbell: {
 		inherit: true,
@@ -1001,23 +1008,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		onAnyTryMove(target, source, effect) {
-			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', target, 'item: Wave Incense', effect, '[of] ' + source);
-				return false;
-			}
-		},
-		onAnyDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'aftermath') {
-				return false;
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
+				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
 		num: 317,
 		gen: 4,
 		rating: 1,
-		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
-		shortDesc: "Prevents explosion-based moves and Abilities.",
+		desc: "Holder and allies' Water-type moves have 1.1x power.",
 	},
 	wellspringmask: {
 		name: "Wellspring Mask",
@@ -1098,6 +1098,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Normal',
 		num: 1862,
 		gen: 9,
 		rating: 1,
@@ -1114,6 +1115,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fire',
 		num: 1863,
 		gen: 9,
 		rating: 1,
@@ -1130,6 +1132,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Water',
 		num: 1864,
 		gen: 9,
 		rating: 1,
@@ -1146,6 +1149,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Electric',
 		num: 1865,
 		gen: 9,
 		rating: 1,
@@ -1162,6 +1166,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Grass',
 		num: 1866,
 		gen: 9,
 		rating: 1,
@@ -1178,6 +1183,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ice',
 		num: 1867,
 		gen: 9,
 		rating: 1,
@@ -1194,6 +1200,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fighting',
 		num: 1868,
 		gen: 9,
 		rating: 1,
@@ -1210,6 +1217,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Poison',
 		num: 1869,
 		gen: 9,
 		rating: 1,
@@ -1226,6 +1234,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ground',
 		num: 1870,
 		gen: 9,
 		rating: 1,
@@ -1242,6 +1251,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Flying',
 		num: 1871,
 		gen: 9,
 		rating: 1,
@@ -1258,6 +1268,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Psychic',
 		num: 1872,
 		gen: 9,
 		rating: 1,
@@ -1274,6 +1285,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Bug',
 		num: 1873,
 		gen: 9,
 		rating: 1,
@@ -1290,6 +1302,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Rock',
 		num: 1874,
 		gen: 9,
 		rating: 1,
@@ -1306,6 +1319,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ghost',
 		num: 1875,
 		gen: 9,
 		rating: 1,
@@ -1322,6 +1336,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Dragon',
 		num: 1876,
 		gen: 9,
 		rating: 1,
@@ -1338,6 +1353,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Dark',
 		num: 1877,
 		gen: 9,
 		rating: 1,
@@ -1354,6 +1370,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Steel',
 		num: 1878,
 		gen: 9,
 		rating: 1,
@@ -1370,6 +1387,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fairy',
 		num: 1879,
 		gen: 9,
 		rating: 1,
@@ -1386,9 +1404,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		itemUser: ["Terapagos"],
 		num: 1862,
 		gen: 9,
-		rating: -1,
 		shortDesc: "If held by Terapagos, Tera Shift transforms into Stellar, Tera Blast is best effectiveness.",
 	},
 	/* Items edited as part of other elements */
