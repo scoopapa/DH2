@@ -4119,411 +4119,411 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	// New Mons
 	goodraflame: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	electivirekungfu: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	flygonbuzz: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	banetteblademaster: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	banetteblademastermega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	kingdracamo: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	vikavoltmigale: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	typhlosioncinder: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	flareonocean: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	laprasangry: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	exploudmeow: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	butterfreearmor: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	espeondusk: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	avaluggshield: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	dusclopsgastric: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	delphoxlazy: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	lurantisnut: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	sylveonprotector: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	skarmoryprimordial: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	infernapebugout: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	breloomluau: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	leafeoncutlass: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	froslassgunwoman: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	mantinespiny: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	dodriomystical: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	rapidashmeow: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	mrrimespoon: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	thievulbananas: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	stonjournercastle: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	copperajahforge: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	grapploctray: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	appletunburned: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	vespiquenterra: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	cursolashock: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	machamplucha: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	roseradescarfed: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	marowakhalberd: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	slowkingexplosive: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	rapidashmule: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	dusknoircake: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	drampaschrodinger: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	espeonaura: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	sirfetchdarcher: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	weezingdoctor: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	escavalierthermal: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	galvantulablaze: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	yanmegaoasis: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	roserademasked: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	jumpluffbounce: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	hydrappletoxic: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	rillaboomhotbeats: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	heracrossdustdevil: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	helioliskaurora: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	torterrapowerline: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	abomasnowevergreen: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	abomasnowevergreenmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	ninetalespolno: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	revavroomferrodrift: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	espeonvalkyr: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	mausholdronin: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	cameruptpumpback: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	cameruptpumpbackmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	hariyamagoalkeeper: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	archaludonbifrost: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	lopunnybara: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	lopunnybaramega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	golisopodgreatguzma: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	pelipperpitohui: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	brambleghastfungal: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	mismagiusswampwitch: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	sceptileiron: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	sceptileironmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	lycanrocmidnightpyjama: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	slowkingoverfished: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	dudunsparcezoomer: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	gligarrazorwing: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	flygonaxe: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	doubladeclubs: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	glalieseaglass: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	glalieseaglassmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	dachsbunfrozenpastry: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	gardevoirgenius: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	gardevoirgeniusmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	metagrossbattlebot: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	chesnaughtvanguard: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	primarinafatladysings: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	infernapemimic: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	altariapredator: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	altariapredatormega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	weavilerustler: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	cryogonalmeth: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	froslasszero: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	absoljaded: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	absoljadedmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	skeledirgehyperpop: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	golurkoverclocked: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	steelixmagiclamp: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	steelixmagiclampmega: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	farigirafstonewall: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	miltankmoosquito: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	miloticdownpour: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 	comfeyfeatherdeath: {
-		tier: "OU",
+		tier: "BVOU",
 		doublesTier: "DOU",
 	},
 };
