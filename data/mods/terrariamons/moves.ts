@@ -91,6 +91,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.category = 'Special';
 				move.flags.contact = 0;
 				move.flags.slicing = 0;
+				move.flags.bypasssub = 1;
 			}
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -205,6 +206,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Charge Beam", target);
 		},
+		onModifyMove(move, pokemon){
+			if(this.randomChance(1, 20)){
+				move.selfSwitch = true;
+			}
+		}
+		onBasePower(basePower, pokemon, target) {
+			if (this.randomChance(1, 20)) {
+				return this.chainModify(2);
+			}
+		},
 		ignoreDefensive: false,
 		selfSwitch: false,
 		secondaries: [
@@ -231,10 +242,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						spe: 1,
 					},
 				},
-			},
-			{
-				chance: 5,
-				selfSwitch: true,
 			},
 			{
 				chance: 5,
