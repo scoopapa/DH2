@@ -366,27 +366,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Enraged foes are trapped and cannot switch.",
 	},
 	debris: {
-		onStart(pokemon) {
-			this.effectState.uses = 0;
-		},
 		onDamagingHit(damage, target, source, move) {
 			if (target !== this.effectState.target) return;
 			if (source === target) return;
 			if (!this.checkMoveMakesContact(move, source, target)) return;
-			if (this.effectState.uses >= 3) {
-				this.add('-message', `${target.name} has run out of debris!`);
-				return;
-			}
 			const side = source.side;
 			const spikes = side.sideConditions['spikes'];
 			if (spikes && spikes.layers >= 3) return;
 			this.add('-activate', target, 'ability: Debris');
 			side.addSideCondition('spikes', target);
-			this.effectState.uses++;
 		},
+
 		flags: {},
 		name: "Debris",
-		shortDesc: "Damaged by Contact: Spikes set on opponent's side. (Max 3 activations per battle).",
+		shortDesc: "When hit by a contact move, sets Spikes on the opposing side (max 3 layers).",
 	},
 	densecortex: {
 		onTryHit(pokemon, target, move) {

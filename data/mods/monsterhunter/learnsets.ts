@@ -10172,7 +10172,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wideguard: ["9L1"],
 		},
 	},
-		uthduna: {
+	uthduna: {
 		learnset: {
 			alluringvoice: ["9L1"],
 			aquaring: ["9L1"],
@@ -10181,6 +10181,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			protect: ["9L1"],
 			rest: ["9L1"],
 			bellydrum: ["9L1"],
+			bulkup: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
 			amnesia: ["9L1"],
