@@ -1298,10 +1298,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	glacialgale: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Special",
 		name: "Glacial Gale",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
 		secondary: {
@@ -1745,8 +1745,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	flyingpress: {
 		num: 560,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
@@ -1875,7 +1875,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-
+	},
+	ionsaber: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		overrideDefensiveStat: 'def',
+		name: "Ion Saber",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', target, "Thunderclap", target);
+        },
 	},
 	/*
 	Edits
@@ -2314,6 +2330,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 				volatileStatus: 'flinch',
 			},
 		],
+	},
+	iciclecrash: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 90,
+		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+	},
+	airslash: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 85,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'bleeding',
+		},
+		desc: "30% chance to inflict bleed.",
+		shortDesc: "30% chance to inflict bleed.",
 	},
 	/*
 	DROWSY EDITS
