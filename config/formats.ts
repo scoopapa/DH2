@@ -18,6 +18,7 @@ The column value will be ignored for repeat sections.
 */
 //import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
 //import { Formats as deadcells               } from '../data/mods/deadcells/formats';
+ // import { Formats as terrariamons          } from '../data/mods/terrariamons/formats';
 export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -4682,7 +4683,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
+	}, 
 	{
 		name: "[Gen 9] The 3-3-1 Typechart",
 		desc: [
