@@ -30,6 +30,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.pstatus = statusValue;
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
+					pokemon.sleepFromRest = false;
+					pokemon.sleepTurns = 0;
 				}
 			}
 			const sideOne = this.sides[0];
@@ -41,6 +43,22 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onUpdate(pokemon) {
 			pokemon.statuses = [];
+			/*if (pokemon.status === 'slp') {
+				if (!pokemon.sleepFromRest) pokemon.statuses.push('NonRestSleep');
+			} */
+			if (pokemon.status === 'slp') pokemon.statuses.push('Sleep');
+			else {
+				pokemon.sleepFromRest = false;
+				pokemon.sleepTurns = 0;
+			}
+			/*
+			if (pokemon.nonRestSleep) {
+				if (pokemon.status === 'slp') pokemon.statuses.push('NonRestSleep');
+				else {
+					pokemon.nonRestSleep = false;
+					pokemon.nonRestSleepTurns = 0;
+				}
+			}*/
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
 			if (pokemon.flinchChance > 0) pokemon.statuses.push('Flinch');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
@@ -58,6 +76,39 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				let toAdd = 0;
 				//let nonVolatileStatus = false;
 				switch(status) {
+					case 'Sleep':
+						/*
+						if (pokemon.hasAbility('earlybird')) {
+							pokemon.statusState.time--;
+						}
+						pokemon.statusState.time--;
+						if (pokemon.statusState.time <= 0) {
+							pokemon.cureStatus();
+							pokemon.sleepFromRest = false;
+							pokemon.sleepTurns = 0;
+						}		
+						if (pokemon.sleepFromRest) {
+							toAdd = 100;
+							clauses++;
+						}		*/		
+						if (!pokemon.sleepFromRest) {
+							let sleepMeterIncreases;
+							if (pokemon.hasAbility('earlybird')) {
+								sleepMeterIncreases = [200 / 3, 0];
+							}
+							else {
+								sleepMeterIncreases = [100, 200 / 3, 50, 0];
+							}
+							toAdd = sleepMeterIncreases[pokemon.sleepTurns];
+							clauses++;
+						}
+						break;						
+					/*case 'NonRestSleep':
+						const sleepMeterIncreases = [100, 200 / 3, 50, 0];
+						toAdd = sleepMeterIncreases[pokemon.nonRestSleepTurns];
+						clauses++;
+						break;
+					*/
 					case 'Freeze':
 						if (move.flags['defrost']) break;
 						toAdd = 80;
@@ -90,9 +141,27 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 				let product = toAdd * multiplier;
 				if (prefix.length === 0) {
-					prefix = status;
-					suffix = toAdd;
-				} else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
+					if (status === 'Sleep') {
+						if (!pokemon.sleepFromRest) {
+							let quantifier;
+							switch(pokemon.sleepTurns) {
+								case 0:
+									quantifier = '1st';
+									break;	
+								case 1:
+									quantifier = '2nd';
+									break;
+								case 2:
+									quantifier = '3rd';
+									break;
+							}
+							prefix = `${quantifier} Turn Sleep`;
+						}
+					}
+					else prefix = status;
+					suffix = roundNum(toAdd, 3);
+				}
+				else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
 				if (toAdd > 0) {
 					if (clauses === 1) {
 						//if (nonVolatileStatus) this.add('-message', `\n(${status}: ${suffix})`);
@@ -101,37 +170,74 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					}
 					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);
 				}
-				pokemon.side.addStatus(product);
-				multiplier *= (1 - (toAdd / 100));
-				if (prefix.length !== 0 && prefix !== status) {
-					prefix += (' + No ' + status);
-				}
-				if (pokemon.side.status >= 100) {
-					pokemon.side.subtractStatus(100);
-					switch(status) {
-						case 'Freeze':
-							this.add('cant', pokemon, 'frz');
-							break;
-						case 'Flinch':
-							this.add('cant', pokemon, 'flinch');
-							break;
-						case 'Confusion':
-							this.activeTarget = pokemon;
-							const damage = this.actions.getConfusionDamage(pokemon, 40);
-							if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-							const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
-							this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
-							break;
-						case 'Infatuation':
-							this.add('cant', pokemon, 'Attract');
-							break;
-						case 'Paralysis':
-							this.add('cant', pokemon, 'par');
-							break;						
+				if (status === 'Sleep' && pokemon.sleepFromRest) {
+					if ((pokemon.hasAbility('earlybird') && pokemon.sleepTurns === 1) || 
+					(!pokemon.hasAbility('earlybird') && pokemon.sleepTurns === 2)) {
+						pokemon.cureStatus();
+						pokemon.sleepFromRest = false;
+						pokemon.sleepTurns = 0;
 					}
-					return false;
+					else {
+						this.add('cant', pokemon, 'slp');
+						pokemon.sleepTurns++;
+						if (!move.sleepUsable) {
+							return false;
+						}
+					}
 				}
-				else if (pokemon.status === 'frz') pokemon.cureStatus();
+				else {
+					pokemon.side.addStatus(product);	
+					multiplier *= (1 - (toAdd / 100));
+					if (prefix.length !== 0 && prefix !== status) {
+						if (prefix.includes('Turn Sleep')) {
+							prefix = 'Sleep';
+						}
+						else {
+							prefix += (' + No ' + status);
+						}
+					}
+					if (pokemon.side.status >= 100) {
+						pokemon.side.subtractStatus(100);
+						switch(status) {
+							case 'Sleep':
+								this.add('cant', pokemon, 'slp');
+								pokemon.sleepTurns++;
+								break;
+							case 'Freeze':
+								this.add('cant', pokemon, 'frz');
+								break;
+							case 'Flinch':
+								this.add('cant', pokemon, 'flinch');
+								break;
+							case 'Confusion':
+								this.activeTarget = pokemon;
+								const damage = this.actions.getConfusionDamage(pokemon, 40);
+								if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+								const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
+								this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+								break;
+							case 'Infatuation':
+								this.add('cant', pokemon, 'Attract');
+								break;
+							case 'Paralysis':
+								this.add('cant', pokemon, 'par');
+								break;						
+						}
+						if (status === 'Sleep' && move.sleepUsable) {
+							multiplier = 1;
+							prefix = '';
+							clauses = 0;
+						}
+						else return false;
+					}
+					//if (!move.sleepUsable || status !== 'Sleep') {
+					else if (status === 'Sleep' && !pokemon.sleepFromRest) {
+						pokemon.cureStatus();
+						pokemon.sleepFromRest = false;
+						pokemon.sleepTurns = 0;
+					}
+					else if (status === 'Freeze') pokemon.cureStatus();
+				}		
 			}
 		},
     },
