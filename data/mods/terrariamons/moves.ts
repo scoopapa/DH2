@@ -210,7 +210,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if(this.randomChance(1, 20)){
 				move.selfSwitch = true;
 			}
-		}
+		},
 		onBasePower(basePower, pokemon, target) {
 			if (this.randomChance(1, 20)) {
 				return this.chainModify(2);
