@@ -17,4 +17,5 @@ export const Formats: FormatData[] = [
 				}
 			}
 		},
-	};
+	}
+];
