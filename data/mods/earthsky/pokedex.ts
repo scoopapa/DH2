@@ -4386,7 +4386,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	terapagosterastal: {
 		inherit: true,
 		requiredItems: ["Water Tera Shard", "Ice Tera Shard", "Rock Tera Shard", "Ground Tera Shard", "Fighting Tera Shard", "Fire Tera Shard", "Grass Tera Shard", "Bug Tera Shard", "Poison Tera Shard", 
-		"Normal Tera Shard", "Flying Tera Shard", "Dragon Tera Shard", "Electric Tera Shard", "Psychic Tera Shard", "Ghost Tera Shard", "Dark Tera Shard", "Steel Tera Shard", "Fairy Tera Shard", ],
+		"Normal Tera Shard", "Flying Tera Shard", "Dragon Tera Shard", "Electric Tera Shard", "Psychic Tera Shard", "Ghost Tera Shard", "Dark Tera Shard", "Steel Tera Shard", "Fairy Tera Shard"],
 	},
 	terapagosstellar: {
 		inherit: true,

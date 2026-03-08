@@ -255,7 +255,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		duration: 2,
 		onFieldStart(target) {
 			if(!this.turn) this.effectState.duration--;
-			this.add('-fieldactivate', 'move: Fairy Lock');
+			this.add('-fieldactivate', 'move: Fairy Lock', '[silent]');
+			this.add('-message', `${target.name} dug an arena trap!`);
 		},
 		onTrapPokemon(pokemon) {
 			if(pokemon.isGrounded() && !pokemon.hasAbility('arenatrap')) pokemon.tryTrap();

@@ -428,8 +428,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return hasValidMove ? moves : [];
 		},
-		getStrongestMove(target: Pokemon, seeItem?: boolean){ //New function used by Forewarn & Glyphic Spell for finding the move to reveal
-			let strongestMove: ([String, String][]) = undefined;
+		getStrongestMove(target: Pokemon, seeItem?: boolean) { //New function used by Forewarn & Glyphic Spell for finding the move to reveal
+			let strongestMove: ([Pokemon, Move][]) = undefined;
 			for (const moveSlot of this.moveSlots) {
 				let bestBP = 1;
 				const move = this.battle.dex.moves.get(moveSlot.move);
@@ -496,7 +496,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					case('storedpower'):
 					case('trumpcard'):
 					case('wringout'):
-						bp = move.basePowerCallback(this, target);
+						bp = move.basePowerCallback(target, this);
 					//VP moves which return default values because they require information the player can't see
 					case('fling'): //Held item. I lied, Glyphic Spell also shows items, so it will accurately predict the power in that case
 						if(seeItem){
@@ -533,8 +533,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(!direct){ //Further calculations
 					//STAB
 					if(move.onModifyType) this.battle.singleEvent('ModifyType', move, null, this, target);
-					bp *= target.hasType(move.type) ? 1.5 : 1;
-					bp *= (move.twoType && target.hasType(move.twoType)) ? 1.5 : 1;
+					bp *= this.hasType(move.type) ? 1.5 : 1;
+					bp *= (move.twoType && this.hasType(move.twoType)) ? 1.5 : 1;
 					//Type effectiveness
 					bp *= Math.pow(2, this.battle.dex.getEffectiveness(move, target));
 					if (move.multihit){
@@ -549,10 +549,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				//console.log(move.name + "'s base power is " + bp);
 				if(bp >= bestBP){
 					if(bp === bestBP && strongestMove){ //Multiple equally valid choices, use both
-						strongestMove.push([this.fullname, move.id]);
+						strongestMove.push([this, move]);
 						//console.log("Adding to Forewarn list. " + strongestMove);
 					} else {
-						strongestMove = [[this.fullname, move.id]];
+						strongestMove = [[this, move]];
 						//console.log("Overriding Forewarn list. " + strongestMove);
 					}
 					bestBP = bp;
@@ -1983,7 +1983,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.battle.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.battle.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
 			if (pokemon && pokemon !== target && move.category !== 'Status') {
-				if (pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) {
+				if ((pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) || 
+					(target.hp <= target.maxhp / 2 && originalHp > target.maxhp / 2)) {
 					this.battle.runEvent('EmergencyExit', target, pokemon);
 				}
 			}

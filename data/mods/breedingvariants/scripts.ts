@@ -1,5 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	teambuilderConfig: {
+		excludeStandardTiers: false,
+		customTiers: ['BVOU'],
+	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;
