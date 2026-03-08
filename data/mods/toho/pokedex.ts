@@ -20,7 +20,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Rumia",
 		types: ["Dark"],
 		gender: "F",
-		baseStats: {hp: 75, atk: 108, def: 116, spa: 60, spd: 95, spe: 82},
+		baseStats: {hp: 75, atk: 108, def: 116, spa: 60, spd: 95, spe: 78},
 		abilities: {0: "Levitate", 1: "Dark Aura", H: "Dark Border"},
 	},
 	daiyousei: {
@@ -167,7 +167,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Yuyuko Saigyouji",
 		types: ["Ghost", "Fairy"],
 		gender: "F",
-		baseStats: {hp: 115, atk: 91, def: 73, spa: 96, spd: 85, spe: 60},
+		baseStats: {hp: 115, atk: 91, def: 73, spa: 96, spd: 95, spe: 60},
 		abilities: {0: "Gluttony", 1: "Netherworld's Spring", H: "Flower Veil"},
 	},
 	ranyakumo: {
@@ -290,7 +290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 145, def: 115, spa: 120, spd: 95, spe: 20},
-		abilities: {0: "Overgrow", H: "Solar Power"},
+		abilities: {0: "Overgrow", 1: "Solar Power", H: "Flower Veil"},
 	},
 	komachionozuka: {
 		num: 37,
@@ -417,7 +417,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Yuugi Hoshiguma",
 		types: ["Fighting", "Rock"],
 		gender: "F",
-		baseStats: {hp: 70, atk: 132, def: 81, spa: 93, spd: 70, spe: 74},
+		baseStats: {hp: 90, atk: 132, def: 81, spa: 93, spd: 70, spe: 74},
 		abilities: {0: "Sand Stream", 1: "Mold Breaker", H: "Sheer Force"},
 	},
 	satorikomeiji: {
@@ -498,7 +498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shou Toramaru",
 		types: ["Fairy", "Electric"],
 		gender: "F",
-		baseStats: {hp: 100, atk: 100, def: 61, spa: 110, spd: 79, spe: 95},
+		baseStats: {hp: 100, atk: 110, def: 61, spa: 110, spd: 79, spe: 95},
 		abilities: {0: "Pressure", H: "Illuminate"},
 	},
 	byakurenhijiri: {
@@ -594,7 +594,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Toyosatomimi no Miko",
 		types: ["Fighting", "Fairy"],
 		gender: "F",
-		baseStats: {hp: 80, atk: 110, def: 55, spa: 126, spd: 112, spe: 92},
+		baseStats: {hp: 80, atk: 110, def: 55, spa: 126, spd: 112, spe: 102},
 		abilities: {0: "Telepathy", H: "Soundproof"},
 	},
 	mamizoufutatsuiwa: {
@@ -721,10 +721,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sagumekishin: {
 		num: 90,
 		name: "Sagume Kishin",
-		types: ["Normal", "Flying"],
+		types: ["Poison", "Flying"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 90, def: 69, spa: 90, spd: 125, spe: 81},
-		abilities: {0: "Contrary", 1: "Inner Focus", H: "Immunity"},
+		abilities: {0: "Contrary", 1: "Inner Focus", H: "Mind's Eye"},
 	},
 	clownpiece: {
 		num: 91,
@@ -783,7 +783,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shion Yorigami",
 		types: ["Poison", "Ghost"],
 		gender: "F",
-		baseStats: {hp: 100, atk: 77, def: 60, spa: 130, spd: 88, spe: 75},
+		baseStats: {hp: 100, atk: 60, def: 77, spa: 130, spd: 88, spe: 75},
 		abilities: {0: "Cursed Body", H: "Poison Touch"},
 	},
 	eternitylarva: {
