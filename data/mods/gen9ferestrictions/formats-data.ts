@@ -174,6 +174,46 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},
+	siligoobra: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	sandraconhisui: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	mocune: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gholdtusk: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	empodeer: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gastropult: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipach: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipachmega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	stantplup: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	sheepy: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
   // Silverade
 	silveradebug: {
 		tier: "Silverade",

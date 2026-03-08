@@ -5,7 +5,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		gender: "M",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 80, atk: 74, def: 88, spa: 96, spd: 115, spe: 82},
-		abilities: {0: "Sly Slime", 1: "Sappy Jest", H: "Knights Eye"},
+		abilities: {0: "Sly Slime", 1: "Sappy Jest", H: "Knight's Eye"},
 		weightkg: 171.3,
 	},
 	meowsdraf: {
@@ -1047,7 +1047,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Meta-Lu",
 		types: ["Ground", "Steel"],
 		gender: "N",
-		baseStats: {hp: 134, atk: 122, def: 127, spa: 75, spd: 85, spe: 57},
+		baseStats: {hp: 117, atk: 122, def: 127, spa: 75, spd: 85, spe: 57},
 		abilities: {0: "Automaton of Ruin"},
 		weightkg: 624.9,
 		tags: ["Sub-Legendary"],

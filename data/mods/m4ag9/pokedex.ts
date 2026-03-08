@@ -541,40 +541,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	farigiraf: {
 		inherit: true,
-		otherFormes: [
-			"Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
-		],
-		formeOrder: [
-			"Farigiraf", "Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
-		],
+		mega: "farigirafmega",
+		megaName: "Farigiraf-Mega",
+		megaType: ["Normal", "Psychic"],
+		megaAbility: {0: "Twin Heart"},
+		megaStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
+		megaStone: "Farigirafite",
 		movepoolAdditions: ["superpower"],
-	},
-	farigirafmega: {
-		num: 981,
-		name: "Farigiraf-Mega",
-		baseSpecies: "Farigiraf",
-		forme: "Mega",
-		types: ["Normal", "Psychic"],
-		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
-		abilities: {0: "Twin Heart"},
-		heightm: 1.8,
-		weightkg: 50,
-		eggGroups: ["Field"],
-		megaCreator: "Lysion",
-	},
-	farigirafmeganocturnal: {
-		num: 981,
-		name: "Farigiraf-Mega-Nocturnal",
-		baseSpecies: "Farigiraf",
-		forme: "Mega-Nocturnal",
-		types: ["Normal", "Dark"],
-		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
-		abilities: {0: "Twin Heart"},
-		heightm: 1.8,
-		weightkg: 50,
-		eggGroups: ["Field"],
-		requiredAbility: "Twin Heart",
-		battleOnly: "Farigiraf-Mega",
 		megaCreator: "Lysion",
 	},
 

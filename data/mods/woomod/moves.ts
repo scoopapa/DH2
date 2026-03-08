@@ -123,7 +123,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	nymblekick: {
 		name: "Nymble Kick",
 		type: "Steel",
-		category: "Steel",
+		category: "Physical",
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,

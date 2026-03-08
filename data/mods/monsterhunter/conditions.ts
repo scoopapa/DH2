@@ -279,19 +279,23 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		effectType: 'Status',
 		onStart(pokemon) {
 			if (pokemon.hasType('Fairy')) {
-            	this.add('-immune', pokemon, '[from] status: Dragonblight');
-            	return false;
-        	}
+				this.add('-immune', pokemon, '[from] status: Dragonblight');
+				return false;
+			}
 			this.add('-start', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
 		},
 		onResidualOrder: 10,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
+			if (!pokemon.hasAbility('blackflame')) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
 		},
 		onModifySTAB(stab, source, target, move) {
-        	return 1;
-    	},
+			if (!source.hasAbility('blackflame')) {
+				return 1;
+			}
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} overcame Dragonblight!`);
@@ -299,7 +303,7 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	enraged: {
 		name: 'Enraged',
-		duration: 1,
+		duration: 2,
 		onStart(target) {
 			if (target.activeTurns && !this.queue.willMove(target)) {
 				this.effectState.duration++;
@@ -383,6 +387,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
         onWeather(target) {
             if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
         },
+		onImmunity(type) {
+			if (type === 'brn') return false;
+		},
         onFieldEnd() {
 			this.add('-message', 'The environment warmed up!');
 		},
@@ -395,16 +402,22 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	},
 	ruststorm: {
 		name: "Ruststorm",
-		effectType: "Weather",
 		duration: 0,
 		onFieldStart(field, source) {
-			this.add('-weather', 'Ruststorm', '[from] ability: Rusted Gale', '[of] ' + source);
+			this.add('-fieldstart', 'Ruststorm', '[from] ability: Rusted Gale', '[of] ' + source);
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!this.field.pseudoWeather['ruststorm']) return;
 			if (!target || !target.hasType('Steel')) return;
 			if (target.hasAbility('Rusted Gale')) return typeMod;
-			if (typeMod < 0) return 0;
+			// Only remove Steel's resistances IF Steel is the one providing them
+			if (typeMod < 0) {
+				const steelMod = this.dex.getEffectiveness(type, 'Steel');
+				if (steelMod < 0) {
+					return 0;
+				}
+			}
+			// Otherwise, do not modify the effectiveness
 			return typeMod;
 		},
         onModifyDefPriority: 10,

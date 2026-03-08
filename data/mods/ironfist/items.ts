@@ -1,4 +1,29 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	/*
+	//crystals/stones that dont exist yet
+	buginiumz: null,
+	darkiniumz: null,
+	dragoniniumz: null,
+	electriumz: null,
+	fairiumz: null,
+	fightiniumz: null,
+	firiumz: null,
+	flyiniumz: null,
+	ghostiumz: null,
+	grassiumz: null,
+	groundiumz: null,
+	iciumz: null,
+	normaliumz: null,
+	poisoniumz: null,
+	psychiumz: null,
+	rockiumz: null,
+	steeliumz: null,
+	wateriumz: null,
+	absolite: null,
+	houndoominite: null,
+	blueorb: null,
+	*/
+	
 	//vanilla items
 	berryjuice: {
 		inherit: true,
@@ -1081,7 +1106,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Daiyakuza"],
 		onTryBoostPriority: 1,
 		onTryBoost(boost, target, source, effect) {
-			if (item.itemUser !== source.baseSpecies.baseSpecies || (source && target === source)) return;
+			if (source.baseSpecies.baseSpecies !== "Daiyakuza" || (source && target === source)) return;
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {

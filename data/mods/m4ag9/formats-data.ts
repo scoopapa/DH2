@@ -14,8 +14,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brambleghastmega3: {},
 	brambleghastmega4: {},
 	brambleghastmegatangled: {},
-	farigirafmega: {},
-	farigirafmeganocturnal: {},
 	perrserkermega: {},
 	perrserkermegabusted: {},
 	miniormega: {},

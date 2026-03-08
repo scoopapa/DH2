@@ -3137,6 +3137,10 @@ export class Battle {
 		return this.sides[parseInt(sideid[1]) - 1];
 	}
 
+	getOverflowedTurnCount(): number {
+		return this.gen >= 8 ? (this.turn - 1) % 256 : this.turn - 1;
+	}
+
 	destroy() {
 		// deallocate ourself
 

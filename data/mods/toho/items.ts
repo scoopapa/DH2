@@ -4,7 +4,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 751,
 		shortDesc: "If held by a Cirno, this item changes its forme to Tanned.",
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 5) || pokemon.baseSpecies.num === 5) {
+			if (source.baseSpecies.baseSpecies === 'Cirno') {
 				return false;
 			}
 			return true;

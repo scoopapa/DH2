@@ -63,10 +63,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "woomod",
 		doublesTier: "dwoomod",
 	},
-	ditto: {
-		tier: "woomod",
-		doublesTier: "dwoomod",
-	},
 	jigglypuff: {
 		tier: "woomod",
 		doublesTier: "dwoomod",
@@ -118,5 +114,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	morelull: {
 		tier: "woomod",
 		doublesTier: "dwoomod",
+	},
+		ditto: {
+		tier: "woober",
+		doublesTier: "dwoober",
 	},
 };

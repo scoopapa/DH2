@@ -441,7 +441,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Consuming a berry increases Atk. by one stage.",
 	},
 	lunatictorch: {
-		//effects in pokemon/effectiveWeather
+		onModifyDamage(damage, source, target, move) {
+			if (!this.field.isTerrain('psychicterrain') || source.hasItem('utilityumbrella')) return;
+			if (move.type === 'Fire') {
+				return this.chainModify(1.5);
+			}
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!this.field.isTerrain('psychicterrain') || target.hasItem('utilityumbrella')) return;
+			if (move.type === 'Fire' && !source.hasAbility('lunatictorch')) {
+				return this.chainModify(1.5);
+			}
+			if (move.type === 'Water' && !source.hasAbility('lunatictorch')) {
+				return this.chainModify(0.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (!this.field.isTerrain('psychicterrain') || pokemon.hasItem('utilityumbrella')) return;
+			if (type === 'frz') return false;
+		},
 		flags: {},
 		name: "Lunatic Torch",
 		shortDesc: "Gain the effects of Sun while in Psychic Terrain.",

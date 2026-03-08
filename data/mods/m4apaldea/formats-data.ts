@@ -51,7 +51,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brambleghastmega4: {tier: "Mega"},
 	brambleghastmegatangled: {tier: "Mega"},
 	farigirafmega: {tier: "Mega"},
-	farigirafmeganocturnal: {tier: "Mega"},
 	perrserkermega: {tier: "Mega"},
 	perrserkermegabusted: {tier: "Mega"},
 	mausholdmega: {tier: "Mega"},
