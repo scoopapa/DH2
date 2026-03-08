@@ -2270,6 +2270,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 90,
 	},
+	defog: {
+		inherit: true,
+		viable: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1},
+	},
 	geargrind: {
 		inherit: true,
 		viable: true,
