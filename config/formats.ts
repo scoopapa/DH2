@@ -459,7 +459,7 @@ export const Formats: FormatList = [
 		column: 3,
 	},
 	...MonsterHunter,
-	...MonsterHunterOUSoloPLIII,
+	//...MonsterHunterOUSoloPLIII,
 	
 	{
 		section: "Modern Gen Series",

@@ -1,6 +1,9 @@
+// Hopefully this doesn't break... My lack of technical experience has really made itself known making this mod.
+
 import { FormatData } from '../../../sim/dex-formats';
 
-export const format: FormatData = {
+export const Formats: FormatData[] = [
+	{
 		name: "[Gen 9] Terrariamons",
 		desc: "A solomod that interprets every Terraria Armor (and Flinx Fur Coat) as Pokemon.",
 		threads: [
@@ -19,4 +22,5 @@ export const format: FormatData = {
 				}
 			}
 		},
-	};
+	},
+];
