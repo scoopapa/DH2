@@ -45,5 +45,13 @@ export const Formats: FormatData[] = [
 		team: 'random',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
-	}
+	
+	},
+	{
+		name: "[Gen 2] VGC 2001",
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Team Preview', 'Picked Team Size = 4', 'Min Source Gen = 2'],
+		banlist: [],
+		// teambuilderFormat: 'OU',}
 ];
