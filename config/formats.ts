@@ -287,7 +287,7 @@ export const Formats: FormatList = [
 	...Ironmons,
 	...LittleColosseum,
 	...Masquerade,
-	...MegaRevolution
+	...MegaRevolution,
 	...MegasForAllPaldea,
 	...gen9MegasForAll,
 	...gen8MegasForAllv6,
