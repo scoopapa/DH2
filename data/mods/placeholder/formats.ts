@@ -1,9 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
-export const format: FormatData = {
-	
-// Example tier 
-
+export const Formats: FormatData[] = [
+	{
 		name: "Placeholder Mod",
 		mod: 'placeholder',
 		desc: `The example modfolder.`,
@@ -19,4 +17,5 @@ export const format: FormatData = {
 				}
 			}
 		},
-	};
+	}
+];

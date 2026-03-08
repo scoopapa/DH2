@@ -1,4 +1,4 @@
-/* import { FormatData } from '../../../sim/dex-formats';
+ import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
@@ -24,4 +24,4 @@ export const Formats: FormatData[] = [
 			}
 		},
 	}
-]; */
+];
