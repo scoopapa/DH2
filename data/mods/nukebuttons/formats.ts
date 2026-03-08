@@ -1,6 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
-export const format: FormatData = {
+export const Formats: FormatData[] = [
+	{
 		name: "[Gen 9] Nuke Buttons",
 		mod: 'nukebuttons',
 		desc: `nuke buttons (by ifwih)`,
@@ -22,4 +23,5 @@ export const format: FormatData = {
 				}
 			}
 		},
-	};
+	}
+];,
