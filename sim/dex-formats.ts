@@ -526,15 +526,22 @@ export class DexFormats {
 		const formatsList = [];
 
 		// Load formats
-		let officialFormats = require(`${__dirname}/../config/official-formats`).Formats;
-		if (!Array.isArray(officialFormats)) {
-			throw new TypeError(`Exported property 'Formats' from "./config/official-formats.ts" must be an array`);
+		let customFormats;
+		try {
+			customFormats = require(`${__dirname}/../config/custom-formats`).Formats;
+			if (!Array.isArray(customFormats)) {
+				throw new TypeError(`Exported property 'Formats' from "./config/custom-formats.ts" must be an array`);
+			}
+		} catch (e: any) {
+			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
+				throw e;
+			}
 		}
 		let Formats: AnyObject[] = require(`${__dirname}/../config/formats`).Formats;
 		if (!Array.isArray(Formats)) {
 			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
-		if (officialFormats) Formats = mergeFormatLists(Formats as any, officialFormats);
+		if (customFormats) Formats = mergeFormatLists(Formats as any, customFormats);
 
 		let section = '';
 		let column = 1;
