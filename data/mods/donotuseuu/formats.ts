@@ -1,6 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
-export const format: FormatData = {
+export const Formats: FormatData[] = [
+	{
 		name: "[Gen 9] Do Not Use UU",
 		desc: [
 			"<b>Do Not Use</b>: A National Dex metagame where only Pokemon with 280 BST or less are allowed."
@@ -23,4 +24,5 @@ export const format: FormatData = {
 				}
 			}
 		},
-	};
+	}
+];

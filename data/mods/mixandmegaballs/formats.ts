@@ -1,6 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
-export const format: FormatData = {
+export const Formats: FormatData[] = [
+	{
 		name: "[Gen 9] Balls",
 		mod: 'mixandmegaballs',
 		desc: `A hilarious metagame filled with nothing but balls.`,
