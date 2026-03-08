@@ -224,6 +224,7 @@ import { Formats as SylveMonsTest               } from '../data/mods/sylvemonste
 import { Formats as Tamagotchi                  } from '../data/mods/tamagotchi/formats';
 import { Formats as TeraForming                 } from '../data/mods/teraforming/formats';
 import { Formats as TeraMax                     } from '../data/mods/teramax/formats';
+import { Formats as Terrariamons                } from '../data/mods/terrariamons/formats';
 import { Formats as The331TypeChart             } from '../data/mods/the331typechartg9/formats';
 import { Formats as TheBore                     } from '../data/mods/thebore/formats';
 import { Formats as TierSovereign               } from '../data/mods/tiersovereign/formats';
@@ -394,13 +395,13 @@ export const Formats: FormatList = [
 	...gen1JumpStarted,
 	...KaensDex,
 	...gen1KantoExpansionPack,
-  ...Lovelymod,
+	...Lovelymod,
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
 	...MegaMania,
 	...gen1Metronome,
-  ...NukeButtons,
+	...NukeButtons,
 	...Solopet,
 	...gen1Moonside,
 	...TheBore,
@@ -421,6 +422,7 @@ export const Formats: FormatList = [
 	...StadiumYB,
 	//...SuperTypesOU,
 	...gen2TeraCrystal,
+	...Terrariamons,
 	...The331TypeChart,
 	...Touhou,
 	...gen1TradebacksExpanded,
