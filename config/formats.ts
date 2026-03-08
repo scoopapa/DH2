@@ -4108,9 +4108,19 @@ export const Formats: FormatList = [
 
 		mod: 'thebore',
 		ruleset: ['[Gen 9] NatDex The Bore'],
-		banlist: ['OU', 'UUBL'],
+		banlist: ['OU', 'UUBL', 'Drought'],
 		teambuilderFormat: 'National Dex UU',
 	},
+	/*{
+		name: "[Gen 9] NatDex The Bore RU",
+		threads: [
+		],
+
+		mod: 'thebore',
+		ruleset: ['[Gen 9] NatDex The Bore'],
+		banlist: ['UU', 'RUBL'],
+		teambuilderFormat: 'National Dex RU',
+	},*/
 	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
