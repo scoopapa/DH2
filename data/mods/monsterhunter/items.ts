@@ -72,7 +72,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	astalite: {
 		name: "Astalite",
 		gen: 9,
-		shortDesc: "If held by Asatalos, allows it to transform into Boltreaver. (Mega-Evolution)",
+		shortDesc: "If held by Astalos, allows it to transform into Boltreaver. (Mega-Evolution)",
 		megaStone: "Astalos-Boltreaver",
 		megaEvolves: "Astalos",
 		itemUser: ["Astalos", "Astalos-Boltreaver"],
