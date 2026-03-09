@@ -22,7 +22,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 	},
 	batonpass: {
-		num: 100,
+		num: 226,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -30,15 +30,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
-		onTry(source) {
-			return !!this.canSwitch(source.side);
+		onHit(target) {
+			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
+				this.attrLastMove('[still]');
+				this.add('-fail', target);
+				return this.NOT_FAIL;
+			}
+		},
+		self: {
+			onHit(source) {
+				source.skipBeforeSwitchOutEventFlag = true;
+			},
 		},
 		selfSwitch: true,
 		secondary: null,
 		target: "self",
 		type: "Normal",
-		zMove: {effect: 'heal'},
-		contestType: "Cool",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 	bind: {
 		inherit: true,

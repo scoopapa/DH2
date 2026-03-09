@@ -2,7 +2,7 @@ import { FormatData } from '../../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
-		name: "[Gen 9] Pokemon Throne OU",
+		name: "[Gen 9] Pokemon Throne OU (WIP)",
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'pokemonthrone',
