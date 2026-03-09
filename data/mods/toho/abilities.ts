@@ -690,4 +690,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Cactus Drive",
 		shortDesc: "Grassy Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
+	corruptdata: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				source.setType("???");
+				this.add('-start', pokemon, 'typechange', "???", '[from] ability: Corrupt Data');
+			}
+		},
+		flags: {},
+		name: "Corrupt Data",
+		shortDesc: "When an attacker makes contact with this pokémon, the attacker becomes typeless.",
+	},
+	immovable: {
+		onDragOutPriority: 1,
+		onDragOut(pokemon) {
+			this.add('-activate', pokemon, 'ability: Immovable');
+			return null;
+		},
+		flags: {breakable: 1},
+		name: "Immovable",
+	},
+	truthoverload: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('confusion', source, move);
+				}
+			}
+		},
+		flags: {},
+		name: "Truth Overload",
+	},
 };
