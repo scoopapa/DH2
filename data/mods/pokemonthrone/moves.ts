@@ -22,6 +22,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 	},
 	batonpass: {
+		inherit: true,
 		num: 226,
 		accuracy: true,
 		basePower: 0,
