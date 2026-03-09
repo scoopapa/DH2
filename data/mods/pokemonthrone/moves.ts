@@ -40,6 +40,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		self: {
 			onHit(source) {
+				source.boosts = {
+					atk: 0, def: 0, spa: 0, spd: 0,
+					spe: 0, accuracy: 0, evasion: 0
+				};
 				source.skipBeforeSwitchOutEventFlag = true;
 			},
 		},
