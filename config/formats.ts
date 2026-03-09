@@ -18,7 +18,7 @@ The column value will be ignored for repeat sections.
 */
 //import { format as nukebuttons              } from '../data/mods/nukebuttons/format';
 //import { Formats as deadcells               } from '../data/mods/deadcells/formats';
- // import { Formats as terrariamons          } from '../data/mods/terrariamons/formats';
+// import { Formats as terrariamons           } from '../data/mods/terrariamons/formats';
 export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
@@ -4670,7 +4670,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1qaAn374BZcaGEFFFSZvzF1VUJvrKm59BQkVZaDCrK_w/edit?usp=sharing">Datasheet</a>`,
 		],
 		mod: 'terrariamons',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Sleep Clause Mod', 'Z-Move Clause', 'Terastal Clause'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -4682,7 +4682,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	}, 
+	},
 	{
 		name: "[Gen 9] The 3-3-1 Typechart",
 		desc: [
