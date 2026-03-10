@@ -31,6 +31,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
+		onPrepareHit(pokemon) {
+			pokemon.boosts = {
+				atk: 0, def: 0, spa: 0, spd: 0,
+				spe: 0, accuracy: 0, evasion: 0
+			};
+		},
 		onHit(target) {
 			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
 				this.attrLastMove('[still]');
@@ -40,10 +46,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		self: {
 			onHit(source) {
-				source.boosts = {
-					atk: 0, def: 0, spa: 0, spd: 0,
-					spe: 0, accuracy: 0, evasion: 0
-				};
 				source.skipBeforeSwitchOutEventFlag = true;
 			},
 		},
