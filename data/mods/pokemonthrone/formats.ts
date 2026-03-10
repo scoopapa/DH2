@@ -6,7 +6,7 @@ export const Formats: FormatData[] = [
 		teambuilderFormat: 'National Dex',
 		threads: [],
 		mod: 'pokemonthrone',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Force Open Team Sheets'],
+		ruleset: ['Throne Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Force Open Team Sheets', 'nohptypeiv'],
 		banlist: ['Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chien-Pao', 'Chi-Yu',
 				'Deoxys', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Genesect',
 				'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black',
