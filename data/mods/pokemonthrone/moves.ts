@@ -30,20 +30,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
-		onAfterMove(pokemon) {
-			pokemon.clearBoosts();
-		},
 		onHit(target) {
 			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
 				this.attrLastMove('[still]');
 				this.add('-fail', target);
 				return this.NOT_FAIL;
 			}
-		},
-		self: {
-			onHit(source) {
-				source.skipBeforeSwitchOutEventFlag = true;
-			},
 		},
 		selfSwitch: true,
 		secondary: null,
