@@ -30,12 +30,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
-		onPrepareHit(pokemon) {
-			this.battle.add('-message', 'Custom Baton Pass loaded');
-			pokemon.boosts = {
-				atk: 0, def: 0, spa: 0, spd: 0,
-				spe: 0, accuracy: 0, evasion: 0
-			};
+		onAfterMoveSecondarySelf(pokemon) {
+			pokemon.clearBoosts();
 		},
 		onHit(target) {
 			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
