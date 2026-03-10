@@ -33,6 +33,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTry(source) {
 					return !!this.canSwitch(source.side);
 				},
+		onAfterMove(source) {
+			this.add('-clearboost', source);
+		},
 		selfSwitch: true,
 		secondary: null,
 		target: "self",
