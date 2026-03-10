@@ -30,7 +30,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
-		onAfterMoveSecondarySelf(pokemon) {
+		onAfterMove(pokemon) {
 			pokemon.clearBoosts();
 		},
 		onHit(target) {
