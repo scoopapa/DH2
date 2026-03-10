@@ -30,13 +30,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1},
-		onHit(target) {
-			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
-				this.attrLastMove('[still]');
-				this.add('-fail', target);
-				return this.NOT_FAIL;
-			}
-		},
+		onTry(source) {
+					return !!this.canSwitch(source.side);
+				},
 		selfSwitch: true,
 		secondary: null,
 		target: "self",
