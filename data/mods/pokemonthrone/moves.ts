@@ -27,7 +27,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Baton Pass",
-		pp: 40,
+		pp: 5,
 		priority: 0,
 		flags: {metronome: 1},
 		onTry(source) {
