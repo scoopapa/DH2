@@ -174,7 +174,7 @@ import { Formats as ModernGen2Birds             } from '../data/mods/moderngen2b
 import { Formats as ModernGen3                  } from '../data/mods/moderngen3/formats';
 import { Formats as ModernGen4                  } from '../data/mods/moderngen4/formats';
 import { Formats as MonsterHunter               } from '../data/mods/monsterhunter/formats';
-import { Formats as MonsterHunterOUSoloPLIII    } from '../data/mods/monsterhuntersl/formats';
+import { Formats as PokemonThrone               } from '../data/mods/pokemonthrone/formats';
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
@@ -458,9 +458,8 @@ export const Formats: FormatList = [
 		section: "Monster Hunter Solomod",
 		column: 3,
 	},
+	...PokemonThrone,
 	...MonsterHunter,
-	//...MonsterHunterOUSoloPLIII,
-	
 	{
 		section: "Modern Gen Series",
 		column: 3,

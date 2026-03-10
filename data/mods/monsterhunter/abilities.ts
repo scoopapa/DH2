@@ -1404,7 +1404,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
 	},
 	razoredge: {
-		onDamagingHit(damage, target, source, move) {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 			if (this.checkMoveMakesContact(move, source, target)) {
 				if (this.randomChance(5, 10)) {
 					target.addVolatile('bleeding', source);
@@ -1740,7 +1741,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Sinister Grudge",
-		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
+		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, max 25%.",
 	},
 	spongy: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1803,7 +1804,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	swampsneeze: {
 		onStart(source) {
-			this.add('-ability', source, 'Marshland Lord');
+			this.add('-ability', source, 'Swamp Sneeze');
 			this.field.addPseudoWeather('watersport');
 			this.field.addPseudoWeather('mudsport');
 		},
@@ -2072,7 +2073,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "Flame Orb and Frost Orb are consumed after they trigger. When hit or inflicted with a non-Sleep status, this Pokémon cures the status and gains Dragon Charge, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
 		shortDesc: "Hit/BRN/FRZ/PARA: Cures + Gains Dragon-Charge | Status Immune if Charged.",
 	},
 	/*
