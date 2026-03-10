@@ -22,7 +22,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 	},
 	batonpass: {
-		inherit: true,
 		num: 226,
 		accuracy: true,
 		basePower: 0,
@@ -32,6 +31,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {metronome: 1},
 		onPrepareHit(pokemon) {
+			this.battle.add('-message', 'Custom Baton Pass loaded');
 			pokemon.boosts = {
 				atk: 0, def: 0, spa: 0, spd: 0,
 				spe: 0, accuracy: 0, evasion: 0
