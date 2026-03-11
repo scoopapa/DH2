@@ -2,6 +2,12 @@ import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
+		name: "[Gen 9] Earth & Sky Random Battle",
+		mod: 'earthsky',
+		ruleset: [ 'Sleep Clause Mod', 'Cancel Mod', 'Data Mod', 'Mega Data Mod', 'PotD'],
+		team: 'random',
+	},
+	{
 		name: "[Gen 9] Earth & Sky Horizons OU",
 		desc: `The metagame based on Pok&eacute;mon Earth & Sky, a set of theoretical games created by En Passant, with the Horizons Expansion.`,
 		threads: [
@@ -19,12 +25,6 @@ export const Formats: FormatData[] = [
 		],
 	},
 	{
-		name: "[Gen 9] Earth & Sky Random Battle",
-		mod: 'earthsky',
-		ruleset: [ 'Sleep Clause Mod', 'Cancel Mod', 'Data Mod', 'Mega Data Mod', 'PotD'],
-		team: 'random',
-	},
-	{
 		name: "[Gen 9] Earth & Sky ESH Dexes",
 		desc: `The Pok&eacute;mon Earth & Sky metagame allowing only Pok&eacute;mon that can have the Egelas, Sartori, and Hassrim origin marks.`,
 		threads: [
@@ -39,6 +39,15 @@ export const Formats: FormatData[] = [
 				'Shelmet','Accelgor','Karrablast','Escavalier','Wooper','Quagsire','Clodsire','Tympole','Palpitoad','Seismitoad','Surskit','Masquerain','Goomy','Sliggoo','Goodra','Indeedee','Meowth','Persian','Perrserker','Nickit','Thievul','Tandemaus','Maushold','Espurr','Meowstic','Gothita','Gothorita','Gothitelle','Burmy','Wormadam-Plant','Mothim','Klefki','Dedenne','Grubbin','Charjabug','Vikavolt','Squawkabilly','Squawkapo','Gastly','Haunter','Gengar-Base','Koffing','Weezing','Misdreavus','Mismagius','Finizen','Palafin','Horsea','Seadra','Kingdra','Clobbopus','Grapploct','Remoraid','Octillery','Skrelp','Dragalge','Relicanth','Chewtle','Drednaw','Wimpod','Golisopod','Krabby','Kingler','Hippopotas','Hippowdon','Varoom','Revavroom','Kangaskhan','Geodude','Graveler','Golem','Stonjourner','Pawniard','Bisharp','Kingambit','Zangoose','Seviper','Tyrogue','Hitmonchan','Hitmonlee','Hitmontop','Oricorio','Flabebe','Floette-Base','Florges','Skarmory','Vulpix','Ninetales','Solrunt','Ralie','Pharoslass','Bergmite','Avalugg','Charcadet','Armarouge','Ceruledge','Pawmi','Pawmo','Pawmot','Mankey','Primeape','Annihilape','Sneasel','Sneasler','Weavile','Oddish','Gloom','Vileplume','Bellossom','Pumpkaboo','Gourgeist','Tarountula','Spidops','Applin','Flapple','Appletun','Dipplin','Hydrapple','Gimmighoul','Gholdengo'
 			]
 	},
+	 {
+	 	name: "[Gen 9] Earth & Sky Horizons Ubers",
+	 	threads: [
+	 		`&bullet; <a href="https:docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
+	 	],
+	 	mod: 'earthsky',
+	 	ruleset: [ 'Earth & Sky',],
+	 	banlist: ['Baton Pass'],
+	 },
 	/*{
 		name: "[Gen 9] Earth & Sky Horizons Doubles",
 		threads: [
