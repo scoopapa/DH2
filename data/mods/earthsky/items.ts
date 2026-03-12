@@ -101,10 +101,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			const restoreSlots = pokemon.moveSlots.filter(move => move.pp < move.maxpp);
 			if (!restoreSlots.length) return;
-			for (moveSlot of restoreSlots) {
+			for (let moveSlot of restoreSlots) {
 				moveSlot.pp += 5;
 			}
-			this.add('-activate', pokemon, 'item: Hopo Berry', moveSlot.move, '[consumed]');
+			this.add('-activate', pokemon, 'item: Hopo Berry', '[consumed]');
+			this.add('-message', `${pokemon.name} restored PP to its moves using its Hopo Berry!`);
 		},
 		desc: "Restores 5 PP to all of the holder's moves when consumed; consumes when one move reaches 0 PP. Single use.",
 		shortDesc: "Move reaches 0 PP: +5 PP to all moves. Single use.",
@@ -707,7 +708,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		rating: 1,
 		shortDesc: "Holder's weight is doubled.",
-		desc: "Holder's weight is doubled. Evolves Onix into Steelix and Duraludon into Archaludon when traded.",
+		desc: "Holder's weight is doubled. Evolves Duraludon into Archaludon when used at level 50 or above.",
 	},
 	metalpowder: {
 		name: "Metal Powder",
@@ -1781,7 +1782,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Scyther into Scizor and Plecuum into Vorplec when traded.",
+		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Scyther into Scizor, Onix into Steelix, and Plecuum into Vorplec when traded.",
 		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 	},
 	mindplate: {

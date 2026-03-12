@@ -6729,29 +6729,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
-				// random integer from 1-3 inclusive
-				const offset = this.random(3) + 1;
-				// the list of all sides in counterclockwise order
-				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
-				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				// the list of all sides in clockwise order
+				const sides = [this.sides[0], this.sides[3]!, this.sides[1], this.sides[2]!];
+				const temp: { [k: number]: typeof source.side.sideConditions } = { 0: {}, 1: {}, 2: {}, 3: {} };
 				for (const side of sides) {
 					for (const id in side.sideConditions) {
 						if (!sideConditions.includes(id)) continue;
 						temp[side.n][id] = side.sideConditions[id];
 						delete side.sideConditions[id];
-						const effectName = this.dex.conditions.get(id).name;
-						this.add('-sideend', side, effectName, '[silent]');
 						success = true;
 					}
 				}
 				for (let i = 0; i < 4; i++) {
 					const sourceSideConditions = temp[sides[i].n];
-					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					const targetSide = sides[(i + 1) % 4]; // the next side in rotation
 					for (const id in sourceSideConditions) {
 						targetSide.sideConditions[id] = sourceSideConditions[id];
-						const effectName = this.dex.conditions.get(id).name;
-						let layers = sourceSideConditions[id].layers || 1;
-						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+						targetSide.sideConditions[id].target = targetSide;
 					}
 				}
 			} else {
@@ -6773,13 +6767,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				for (const id in sourceTemp) {
 					targetSideConditions[id] = sourceTemp[id];
+					targetSideConditions[id].target = source.side.foe;
 				}
 				for (const id in targetTemp) {
 					sourceSideConditions[id] = targetTemp[id];
+					sourceSideConditions[id].target = source.side;
 				}
-				this.add('-swapsideconditions');
 			}
 			if (!success) return false;
+			this.add('-swapsideconditions');
 			this.add('-activate', source, 'move: Court Change');
 		},
 		desc: "Switches the Mist, Light Screen, Reflect, Spikes, Safeguard, Tailwind, Toxic Spikes, Stealth Rock, Water Pledge, Fire Pledge, Grass Pledge, Sticky Web, Aurora Veil, Heal Block, Lucky Chant, and Powder effects from the user's side to the opposing side and vice versa.",
@@ -6926,7 +6922,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onOverrideAction(pokemon, target, move) {
 				if(
-				  !(pokemon.volatiles['nointerrupt']?.ignore.includes('encore'))
+				  !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('encore'))
 				  && (move.id !== this.effectState.move)
 				)
 					return this.effectState.move;

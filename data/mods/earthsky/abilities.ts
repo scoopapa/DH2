@@ -424,7 +424,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (move.category !== 'Status' && !source.forceSwitchFlag) {
-				this.heal(move.totalDamage / 5, source, 'ability: Soul Drain', 'drain');
+				this.add('-ability', source, 'Soul Drain');
+				this.heal(move.totalDamage / 5, source, null, 'drain');
 			}
 		},
 		name: "Soul Drain",
@@ -514,7 +515,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Warmonger');
 			this.add('-message', `${pokemon.name} is belligerent!`);
-			pokemon.addVolatile('taunt', '[silent]');
+			pokemon.addVolatile('taunt');
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !pokemon.isAdjacent(target)) continue;
 				if (!target.volatiles['substitute']) target.addVolatile('taunt');
@@ -534,8 +535,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.abilityState.unownType = pokemon.species.forme;
 					while(pokemon.abilityState.unownType === 'Question'){ //?????: Randomly picks another form each time.
 						pokemon.abilityState.unownType = this.dex.species.get(this.sample(pokemon.species.formeOrder)).forme;
-						this.add('-ability', pokemon, 'Glyphic Spell');
-						this.add('-message', `${pokemon.name} drew in strange power!`);
+						const letter = {"": "Adapt", "B": "Block", "C": "Copy", "D": "Darkness", "E": "Engage", "F": "Fear", "G": "Grow", "H": "Heal", "I": "Invert", "J": "Join", "K": "Klepto", "L": "Loop", "M": "Mirror", "N": "Negate", "O": "Observe", "P": "Power", "Q": "Quicken", "R": "Reverse", "S": "Seal", "T": "Turnabout", "U": "Undo", "V": "Vanish", "W": "Weird", "X": "X-Out", "Y": "Yield", "Z": "Zero-G", "Exclamation": "!!!!!"}
+						[pokemon.abilityState.unownType];
+						if (letter) { //Question is not in the object above, so if letter doesn't exist, it's still ????? and we're rerolling
+							this.add('-ability', pokemon, 'Glyphic Spell');
+							this.add('-message', `${pokemon.name} activated its ${letter} spell!`);
+						}
 					}
 					if(pokemon.abilityState.unownType === pokemon.species.forme){ //Non-? formes only need to determine once.
 						pokemon.abilityState.formeDecided = true;
@@ -572,7 +577,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				switch(pokemon.abilityState.unownType){
 					case 'B': //Block: Ally protection
 						this.add('-ability', pokemon, 'Glyphic Spell');
-						for (const ally of pokemon.allies()) {
+						for (const ally of pokemon.alliesAndSelf()) {
 							ally.addVolatile('protect');
 							ally.addVolatile('stall');
 						}
@@ -606,8 +611,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.boost({atk: -2, spa: -2, spe: -2}, target, pokemon, null, true);
 							}
 						}
+						if(!activated){
+							this.add('-ability', pokemon, 'Glyphic Spell');
+						}
+						this.add('-message', `${pokemon.name} is exerting its pressure!`);
 						break;
 					case 'G': //Grow: All stats +1
+						this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon);
 						break;
 					case 'H': //Heal: Full Restore
 						this.add('-ability', pokemon, 'Glyphic Spell');
@@ -714,43 +724,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						//holy damn Court Change code
 						success = false;
 						const sideConditions = [
-							'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'healblock', 'luckychant'
+							'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'healblock', 'luckychant', 'blackpowder'
 						];
 						if (this.gameType === "freeforall") {
-							// random integer from 1-3 inclusive
-							const offset = this.random(3) + 1;
-							// the list of all sides in counterclockwise order
-							const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
-							const temp: {[k: number]: typeof pokemon.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+							// the list of all sides in clockwise order
+							const sides = [this.sides[0], this.sides[3]!, this.sides[1], this.sides[2]!];
+							const temp: { [k: number]: typeof pokemon.side.sideConditions } = { 0: {}, 1: {}, 2: {}, 3: {} };
 							for (const side of sides) {
 								for (const id in side.sideConditions) {
 									if (!sideConditions.includes(id)) continue;
 									temp[side.n][id] = side.sideConditions[id];
 									delete side.sideConditions[id];
-									const effectName = this.dex.conditions.get(id).name;
-									this.add('-sideend', side, effectName, '[silent]');
 									success = true;
 								}
 							}
 							for (let i = 0; i < 4; i++) {
-								const sourceSideConditions = temp[sides[i].n];
-								const targetSide = sides[(i + offset) % 4]; // the next side in rotation
-								for (const id in sourceSideConditions) {
-									targetSide.sideConditions[id] = sourceSideConditions[id];
-									const effectName = this.dex.conditions.get(id).name;
-									let layers = sourceSideConditions[id].layers || 1;
-									for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+								const pokemonSideConditions = temp[sides[i].n];
+								const targetSide = sides[(i + 1) % 4]; // the next side in rotation
+								for (const id in pokemonSideConditions) {
+									targetSide.sideConditions[id] = pokemonSideConditions[id];
+									targetSide.sideConditions[id].target = targetSide;
 								}
 							}
 						} else {
-							const sourceSideConditions = pokemon.side.sideConditions;
+							const pokemonSideConditions = pokemon.side.sideConditions;
 							const targetSideConditions = pokemon.side.foe.sideConditions;
-							const sourceTemp: typeof sourceSideConditions = {};
+							const pokemonTemp: typeof pokemonSideConditions = {};
 							const targetTemp: typeof targetSideConditions = {};
-							for (const id in sourceSideConditions) {
+							for (const id in pokemonSideConditions) {
 								if (!sideConditions.includes(id)) continue;
-								sourceTemp[id] = sourceSideConditions[id];
-								delete sourceSideConditions[id];
+								pokemonTemp[id] = pokemonSideConditions[id];
+								delete pokemonSideConditions[id];
 								success = true;
 							}
 							for (const id in targetSideConditions) {
@@ -759,20 +763,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								delete targetSideConditions[id];
 								success = true;
 							}
-							for (const id in sourceTemp) {
-								targetSideConditions[id] = sourceTemp[id];
+							for (const id in pokemonTemp) {
+								targetSideConditions[id] = pokemonTemp[id];
+								targetSideConditions[id].target = pokemon.side.foe;
 							}
 							for (const id in targetTemp) {
-								sourceSideConditions[id] = targetTemp[id];
+								pokemonSideConditions[id] = targetTemp[id];
+								pokemonSideConditions[id].target = pokemon.side;
 							}
 						}
-						if (success) {
-							this.add('-swapsideconditions');
-							this.add('-activate', pokemon, 'move: Court Change');
-						}
+						if (!success) return false;
+						this.add('-swapsideconditions');
 						break;
 					case 'N': //Negate: Magic Room
-						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.field.addPseudoWeather('magicroom');
 						break;
 					case 'O': //Observe: Frisk, Forewarn, Miracle Eye
@@ -807,8 +810,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					case 'T': //Turnabout: Rebound
 						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.add('-message', `${pokemon.name} is preparing a counterattack!`);
-						pokemon.addVolatile('rebound', pokemon, "Glyphic Spell", '[silent]');
-						pokemon.addVolatile('magiccoat', '[silent]');
+						pokemon.addVolatile('rebound', pokemon, "Glyphic Spell");
+						pokemon.addVolatile('magiccoat');
 						break;
 					case 'U': //Undo: Clears hazards, screens, weather, and terrain
 						this.add('-ability', pokemon, 'Glyphic Spell');
@@ -831,7 +834,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						oppositeFoe.forceSwitchFlag = true;
 						break;
 					case 'W': //Weird: Psychic Surge
-						this.add('-ability', pokemon, 'Glyphic Spell');
 						this.field.setTerrain('psychicterrain');
 						break;
 					case 'Y': //Yield: Quashes foes
@@ -859,7 +861,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.add('-ability', pokemon, 'Glyphic Spell');
 								activated = true;
 							}
-							target.addVolatile('magnetrise', '[silent]');
+							target.addVolatile('magnetrise');
 							this.add('-message', `${target.name} was hurled into the air!`);
 						}
 						for (const target of pokemon.side.foe.active) {
@@ -945,7 +947,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyPriority(priority, source, target, move) {
 			if(source.species.baseSpecies === 'Unown' && source.abilityState.unownType === 'E'){ //Engage: +4 priority to first move
 				if(source.activeMoveActions === 0 && priority < 4){
-					this.add('-ability', pokemon, 'Glyphic Spell');
 					return 4;
 				}
 			}
@@ -1820,6 +1821,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 			onFoeSwitchIn(target){
+				if (this.effectState.warnMoves[target.fullname]) return; //should only happen on turn 1
 				let warnPokeMove: ([String, String][]) = undefined;
 				const pokemon = this.effectState.target;
 				warnPokeMove = target.getStrongestMove(pokemon);
