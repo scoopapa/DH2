@@ -3,8 +3,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		effectType: 'ValidatorRule',
 		name: 'Earth & Sky',
 		desc: 'The standard ruleset for all Earth & Sky tiers',
-		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Post-Gen 7 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
-			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
+		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Post-Gen 7 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause',
+			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod'],
 		onValidateSet(set, format) { //Forme-exclusive moves, re-calculate Hidden Power
 			if(!set.hpType){
 				const hpTypes = [
@@ -152,6 +152,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					return[`You have more than two restricted Pokemon on your team.`];
 				}
 			}
+		},
+		onBegin() {
+			this.add('rule', 'Restricted Rules: Limit two combined Legendaries, Mythicals, Ultra Beasts, and Paradoxes per team');
 		},
 	},
 	hiddenmovelimit: {
