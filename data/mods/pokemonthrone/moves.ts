@@ -596,7 +596,7 @@ export const Moves: {[moveid: string]: MoveData} = {
     inherit: true,
     condition: {
 			inherit: true,
-			onTrapPokemon: undefined, // removes trapping
+			onTrapPokemon: null, // removes trapping
 		},
 	},
 	irontail: {

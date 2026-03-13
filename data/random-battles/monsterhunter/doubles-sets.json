@@ -2867,23 +2867,6 @@
             }
         ]
     },
-    "zohshia": {
-        "level": 84,
-        "sets": [ 
-            {
-                "role": "Bulky Attacker", 
-                "movepool": ["Dragon Rush", "Brave Bird", "Iron Tail", "Crimson Dawn"],
-                "abilities": ["Wylk Encasing"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Bulky Attacker", 
-                "movepool": ["Fickle Beam", "Freezing Glare", "Fiery Wrath", "Ancestral Thunder"],
-                "abilities": ["Wylk Encasing"],
-                "teraTypes": ["Normal"]
-            }
-        ]
-    },
     "stygiogre": {
         "level": 88,
         "sets": [

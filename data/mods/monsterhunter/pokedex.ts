@@ -2248,31 +2248,6 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 80.0,
 		tags: ["Cephalopod"],
 	},
-	zohshia: {
-		num: 146,
-		name: "Zoh Shia",
-		types: ["Fire", "Electric"],
-		gender: "N",
-		baseStats: {hp: 112, atk: 131, def: 70, spa: 142, spd: 70, spe: 110},
-		abilities: {0: "Wylk Encasing"},
-		weightkg: 250.0,
-		tags: ["Construct"],
-		otherFormes: ["Zoh Shia-Encased"],
-	},
-	zohshiaencased: {
-		num: 146,
-		name: "Zoh Shia-Encased",
-		baseSpecies: "Zoh Shia",
-		forme: "Encased",
-		types: ["Normal", "Dragon"],
-		gender: "N",
-		baseStats: {hp: 112, atk: 100, def: 115, spa: 102, spd: 115, spe: 66},
-		abilities: {0: "Wylk Encasing"},
-		weightkg: 350.0,
-		tags: ["Construct"],
-		requiredAbility: "Wylk Encasing",
-		battleOnly: "Zoh Shia",
-	},
 	/*
 	Generation Frontiers
 	*/
