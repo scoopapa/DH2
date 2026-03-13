@@ -430,8 +430,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		getStrongestMove(target: Pokemon, seeItem?: boolean) { //New function used by Forewarn & Glyphic Spell for finding the move to reveal
 			let strongestMove: ([Pokemon, Move][]) = undefined;
+			let bestBP = 1;
 			for (const moveSlot of this.moveSlots) {
-				let bestBP = 1;
 				const move = this.battle.dex.moves.get(moveSlot.move);
 				//console.log("Forewarn investigating " + move.name);
 				if(!move) continue;
@@ -547,8 +547,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if(!target.runImmunity(move.type) || (move.twoType && !target.runImmunity(move.twoType))) bp = 0;
 				//console.log(move.name + "'s base power is " + bp);
+				//console.log("Difference to best is " + (bp - bestBP) + " which is greater: " + (bp >= bestBP));
 				if(bp >= bestBP){
-					if(bp === bestBP && strongestMove){ //Multiple equally valid choices, use both
+					if(bp === bestBP && strongestMove !== undefined){ //Multiple equally valid choices, use both
 						strongestMove.push([this, move]);
 						//console.log("Adding to Forewarn list. " + strongestMove);
 					} else {
@@ -556,6 +557,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						//console.log("Overriding Forewarn list. " + strongestMove);
 					}
 					bestBP = bp;
+					//console.log("New best BP: " + bestBP);
 				}
 			}
 			return strongestMove;
@@ -1765,7 +1767,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (changedMove && changedMove !== true) {
 					baseMove = this.dex.getActiveMove(changedMove);
 					if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
-					target = this.getRandomTarget(pokemon, baseMove);
+					target = this.battle.getRandomTarget(pokemon, baseMove);
 				}
 			}
 			let move = baseMove;
@@ -1805,12 +1807,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				lockedMove = this.battle.runEvent('LockMove', pokemon);
 				if (lockedMove === true) lockedMove = false;
 				if (!lockedMove) {
-					if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle') && !pokemon.volatiles['nointerrupt']) { //Since natural PP deduction will disable move selection, having FC means it was forced down
-						this.add('cant', pokemon, 'nopp', move);
-						const gameConsole = [
-							null, 'Game Boy', 'Game Boy Color', 'Game Boy Advance', 'DS', 'DS', '3DS', '3DS',
-						][this.gen] || 'Switch';
-						this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
+					if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle') && !pokemon.volatiles['nointerrupt']) { //Since natural PP deduction will disable move selection, having nointerrupt means it was forced down
+						this.battle.add('cant', pokemon, 'nopp', move);
 						this.battle.clearActiveMove(true);
 						pokemon.moveThisTurnResult = false;
 						return;
@@ -2505,7 +2503,6 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (isDrag) {
 				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
-				this.battle.singleEvent('PreStart', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				this.runSwitch(pokemon);
 			} else {
 				this.battle.queue.insertChoice({choice: 'runUnnerve', pokemon});
