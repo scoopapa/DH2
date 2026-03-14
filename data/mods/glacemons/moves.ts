@@ -165,6 +165,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Revelation Dance", source);
 			this.add('-anim', source, "Psychic Noise", target);
 		},
+		basePowerCallback(pokemon, target, move) {
+			const item = pokemon.getItem();
+			if(item.id === 'protector') {
+				return move.basePower * 2;
+			}
+			if (item.id === 'assaultvest') {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
 		overrideOffensiveStat: 'spd',
 		secondary: null,
 		target: "normal",
