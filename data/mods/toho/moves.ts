@@ -466,7 +466,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "", target);
 		},
-		secondary: null,
 		target: "normal",
 		secondary: {
 			chance: 20,
