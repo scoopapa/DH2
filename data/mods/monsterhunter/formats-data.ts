@@ -527,12 +527,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	jindahaad: {
 		tier: "MHOU",
 	},
-	zohshia: {
-		tier: "MHUU",
-	},
-	zohshiaencased: {
-		tier: "MHUU",
-	},
 	greencuga: {
 		tier: "MHUU",
 	},

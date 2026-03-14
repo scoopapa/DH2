@@ -254,7 +254,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	flyingpress: {
 		num: 560,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
@@ -596,7 +596,7 @@ export const Moves: {[moveid: string]: MoveData} = {
     inherit: true,
     condition: {
 			inherit: true,
-			onTrapPokemon: undefined, // removes trapping
+			onTrapPokemon: null, // removes trapping
 		},
 	},
 	irontail: {
