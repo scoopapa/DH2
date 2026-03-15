@@ -322,4 +322,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Malicious Roots",
 		shortDesc: "While this Pokemon is active, statused Pokemon are inflicted with Leech Seed.",
 	},
+
+	// Slate 2
+	alpinist: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Alpinist');
+				return null;
+			}
+		},
+		isNonstandard: "CAP",
+		flags: {breakable: 1},
+		name: "Alpinist",
+	},
 };

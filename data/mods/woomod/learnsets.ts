@@ -294,4 +294,155 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
+
+	// Slate 2
+	houndour: {
+		learnset: {
+			inherit: true,
+			knockoff: ["9L1"],
+			slackoff: ["9L1"],
+			friendlyfire: ["9L1"],
+			baddybad: ["9L1"],
+		},
+	},
+	koffing: {
+		learnset: {
+			inherit: true,
+			hydropump: ["9L1"],
+			liquidation: ["9L1"],
+			flipturn: ["9L1"],
+			scald: ["9L1"],
+			waterfall: ["9L1"],
+			aquaring: ["9L1"],
+			bubble: ["9L1"],
+			withdraw: ["9L1"],
+			watergun: ["9L1"],
+			soak: ["9L1"],
+			surf: ["9L1"],
+			flamethrower: null,
+		},
+	},
+	maushold: {
+		learnset: {
+			inherit: true,
+			rockblast: ["9L1"],
+			iciclespear: ["9L1"],
+		},
+	},
+	hakamoo: {
+		learnset: {
+			inherit: true,
+			clangoroussoul: ["9L1"],
+			flashcannon: ["9L1"],
+			stealthrock: ["9L1"],
+		},
+	},
+	kartana: {
+		learnset: {
+			inherit: true,
+			strengthsap: ["9L1"],
+		},
+	},
+	ledyba: {
+		learnset: {
+			inherit: true,
+			ladybugdance: ["9L1"],
+			icebeam: ["9L1"],
+		},
+	},
+	wooperpaldea: {
+		learnset: {
+			inherit: true,
+			woopout: ["9L1"],
+		},
+	},
+	hoothoot: {
+		learnset: {
+			inherit: true,
+			hurricane: null,
+		},
+	},
+	rabootsinnoh: {
+		learnset: {
+			frigidlyslide: ["9L1"],
+			chillyreception: ["9L1"],
+			icebeam: ["9L1"],
+			blizzard: ["9L1"],
+			iceball: ["9L1"],
+			dragonrush: ["9L1"],
+			outrage: ["9L1"],
+			dracometeor: ["9L1"],
+			twister: ["9L1"],
+			auroraveil: ["9L1"],
+			snowscape: ["9L1"],
+			dragoncheer: ["9L1"],
+			mist: ["9L1"],
+			blazekick: null,
+			burningjealousy: null,
+			ember: null,
+			fireblast: null,
+			firefang: null,
+			firepledge: null,
+			firespin: null,
+			flamecharge: null,
+			flamethrower: null,
+			flareblitz: null,
+			heatwave: null,
+			overheat: null,
+			sunnyday: null,
+			swordsdance: null,
+			temperflare: null,
+		},
+	},
+	honedge: {
+		learnset: {
+			inherit: true,
+			aegislash: ["9L1"],
+		},
+	},
+	roselia: {
+		learnset: {
+			inherit: true,
+			knockoff: ["9L1"],
+			spikes: null,
+			sleeppowder: null,
+		},
+	},
+	skiploom: {
+		learnset: {
+			inherit: true,
+			defog: ["9L1"],
+			hurricane: ["9L1"],
+			heatwave: ["9L1"],
+			absorb: null,
+			bulletseed: null,
+			grassknot: null,
+			leafstorm: null,
+			magicalleaf: null,
+			megadrain: null,
+			seedbomb: null,
+			solarbeam: null,
+			trailblaze: null,
+			toxic: null,
+		},
+	},
+	spritzee: {
+		learnset: {
+			inherit: true,
+			closecombat: ["9L1"],
+			uturn: ["9L1"],
+			spiritbreak: ["9L1"],
+			thunderbolt: null,
+		},
+	},
+	helioptile: {
+		learnset: {
+			inherit: true,
+			powergem: ["9L1"],
+			meteorbeam: ["9L1"],
+			stealthrock: ["9L1"],
+			rockblast: ["9L1"],
+			earthpower: ["9L1"],
+		},
+	},
 };

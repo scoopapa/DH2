@@ -119,6 +119,103 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "morelull").learnset.nightmare = ["9L1"];
 		this.modData("Learnsets", "morelull").learnset.scorchingsands = ["9L1"];
 		delete this.modData('Learnsets', 'morelull').learnset.spore;
+	
+
+// Slate 2
+	// Houndour
+		this.modData("Learnsets", "houndour").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "houndour").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "houndour").learnset.friendlyfire = ["9L1"];
+		this.modData("Learnsets", "houndour").learnset.baddybad = ["9L1"];
+		// Koffing
+		this.modData("Learnsets", "koffing").learnset.hydropump = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.liquidation = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.waterfall = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.aquaring = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.bubble = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.withdraw = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.watergun = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.soak = ["9L1"];
+		this.modData("Learnsets", "koffing").learnset.surf = ["9L1"];
+		delete this.modData('Learnsets', 'koffing').learnset.flamethrower;
+		// Maushold
+		this.modData("Learnsets", "maushold").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.iciclespear = ["9L1"];
+		// Hakamo-o
+		this.modData("Learnsets", "hakamoo").learnset.clangoroussoul = ["9L1"];
+		this.modData("Learnsets", "hakamoo").learnset.flashcannon = ["9L1"];
+		this.modData("Learnsets", "hakamoo").learnset.stealthrock = ["9L1"];
+		// Kartana
+		this.modData("Learnsets", "kartana").learnset.strengthsap = ["9L1"];
+		// Ledyba
+		this.modData("Learnsets", "ledyba").learnset.ladybugdance = ["9L1"];
+		this.modData("Learnsets", "ledyba").learnset.icebeam = ["9L1"];
+		// Wooper-Paldea
+		this.modData("Learnsets", "wooperpaldea").learnset.woopout = ["9L1"];
+		// Hoothoot
+		delete this.modData('Learnsets', 'hoothoot').learnset.hurricane;
+		// Raboot-Sinnoh
+		this.modData("Learnsets", "rabootsinnoh").learnset.frigidlyslide = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.chillyreception = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.icebeam = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.blizzard = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.iceball = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.dragonrush = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.outrage = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.twister = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.auroraveil = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.snowscape = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.dragoncheer = ["9L1"];
+		this.modData("Learnsets", "rabootsinnoh").learnset.mist = ["9L1"];
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.blazekick;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.burningjealousy;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.ember;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.fireblast;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.firefang;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.firepledge;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.firespin;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.flamecharge;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.flamethrower;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.flareblitz;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.heatwave;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.overheat;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.sunnyday;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.swordsdance;
+		delete this.modData('Learnsets', 'rabootsinnoh').learnset.temperflare;
+		// Honedge
+		this.modData("Learnsets", "honedge").learnset.aegislash = ["9L1"];
+		// Roselia
+		this.modData("Learnsets", "roselia").learnset.knockoff = ["9L1"];
+		delete this.modData('Learnsets', 'roselia').learnset.spikes;
+		delete this.modData('Learnsets', 'roselia').learnset.sleeppowder;
+		// Skiploom
+		this.modData("Learnsets", "skiploom").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "skiploom").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "skiploom").learnset.heatwave = ["9L1"];
+		delete this.modData('Learnsets', 'skiploom').learnset.absorb;
+		delete this.modData('Learnsets', 'skiploom').learnset.bulletseed;
+		delete this.modData('Learnsets', 'skiploom').learnset.grassknot;
+		delete this.modData('Learnsets', 'skiploom').learnset.leafstorm;
+		delete this.modData('Learnsets', 'skiploom').learnset.magicalleaf;
+		delete this.modData('Learnsets', 'skiploom').learnset.megadrain;
+		delete this.modData('Learnsets', 'skiploom').learnset.seedbomb;
+		delete this.modData('Learnsets', 'skiploom').learnset.solarbeam;
+		delete this.modData('Learnsets', 'skiploom').learnset.trailblaze;
+		delete this.modData('Learnsets', 'skiploom').learnset.toxic;
+		// Spritzee
+		this.modData("Learnsets", "spritzee").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "spritzee").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "spritzee").learnset.spiritbreak = ["9L1"];
+		delete this.modData('Learnsets', 'spritzee').learnset.thunderbolt;
+		// Helioptile
+		this.modData("Learnsets", "helioptile").learnset.powergem = ["9L1"];
+		this.modData("Learnsets", "helioptile").learnset.meteorbeam = ["9L1"];
+		this.modData("Learnsets", "helioptile").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "helioptile").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "helioptile").learnset.earthpower = ["9L1"];
 	},
 	
 	pokemon: {
