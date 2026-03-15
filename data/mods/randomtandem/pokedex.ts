@@ -708,4 +708,127 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			]
 		],
 	},
+	fezandipiti: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'gholdengo',
+					item: 'metalcoat',
+					ability: 'goodasgold',
+					teraType: 'Steel',
+				},
+				['nastyplot', 'makeitrain', 'shadowball', 'recover']
+			],
+			[
+				{
+					species: 'mandibuzz',
+					item: 'heavydutyboots',
+					ability: 'unaware',
+					teraType: 'steel',
+				},
+				['foulplay', 'roost', 'uturn', 'toxic']
+			],
+			[
+				{
+					species: 'latios',
+					item: 'souldew',
+					ability: 'Levitate',
+					teraType: 'steel',
+				},
+				['dracometeor', 'lusterpurge', 'recover', 'nastyplot']
+			],
+			[
+				{
+					species: 'slowbro',
+					item: 'heavydutyboots',
+					ability: 'regenerator',
+					teraType: 'steel',
+				},
+				['scald', 'futuresight', 'slackoff', 'teleport']
+			],
+		],
+	},
+	skarmory: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'alomomola',
+					item: 'assaultvest',
+					ability: 'Regenerator',
+					teraType: ['Fairy', 'Grass'],
+				},
+				['scald', 'flipturn'], ['playrough', 'mirrorcoat', 'rapidspin']
+			],
+			[
+				{
+					species: 'zamazenta',
+					item: 'heavydutyboots',
+					ability: 'dauntlessshield',
+					teraType: ['Dark', 'Fighting'],
+				},
+				['crunch', 'closecombat'], ['encore', 'icefang', 'stoneedge']
+			],
+			[
+				{
+					species: 'latias',
+					item: 'leftovers',
+					ability: 'Levitate',
+					teraType: 'Fairy',
+				},
+				['takeheart', 'recover', 'drainingkiss', 'psychic']
+			],
+			[
+				{
+					species: 'trevenant',
+					item: ['leftovers', 'colburberry'],
+					ability: 'Prankster',
+					teraType: ['dark', 'water'],
+				},
+				['woodhammer', 'painsplit'], ['willowisp', 'toxic', 'poltergeist', 'leechseed']
+			],
+		],
+	},
+	clefable: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'gliscor',
+					item: 'toxicorb',
+					ability: 'poisonheal',
+					teraType: ['Fire', 'Water', 'Steel'],
+				},
+				['earthquake', 'protect', 'toxic', 'firelash']
+			],
+			[
+				{
+					species: 'hydreigon',
+					item: 'choicespecs',
+					ability: 'Levitate',
+					teraType: 'steel',
+				},
+				['dracometeor', 'darkpulse', 'flashcannon', 'earthpower']
+			],
+			[
+				{
+					species: 'lunala',
+					item: 'heavydutyboots',
+					ability: 'shadowshield',
+					teraType: ['ghost', 'fairy'],
+				},
+				['moongeistbeam', 'moonlight'], ['futuresight', 'willowisp', 'teleport', 'thunderwave']
+			],
+			[
+				{
+					species: 'mienshao',
+					item: 'lifeorb',
+					ability: 'regenerator',
+					teraType: ['fighting', 'steel'],
+				},
+				['closecombat', 'uturn'], ['knockoff', 'tripleaxel', 'gigatonhammer']
+			],
+		],
+	},
 };

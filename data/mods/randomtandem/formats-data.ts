@@ -44,4 +44,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	weavile: {
 		tier: "Random",
 	},
+	fezandipiti: {
+		tier: "Random",
+	},
+	skarmory: {
+		tier: "Random",
+	},
+	clefable: {
+		tier: "Random",
+	},
 };
