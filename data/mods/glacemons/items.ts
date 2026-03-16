@@ -882,6 +882,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			basePower: 10,
 		},
 		onPrepareHit(source, target, move) {
+			if (['endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
+                	'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
+            		].includes(move.id)) return;
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !source.volatiles['substitute']) return;
 			move.multihit = 2;
