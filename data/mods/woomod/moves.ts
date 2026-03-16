@@ -480,8 +480,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Sets layers of Spikes based on the opponent's highest stat boost."
-		// lmao code this part ifwih
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		shortDesc: "Sets 1-3 Spikes on foe side based on target's total stat boosts.",
+		onHit(target, source) {
+			let boostSum = 0;
+			for (const stat in target.boosts) {
+				boostSum += target.boosts[stat as BoostName];
+			}
+			let layers = 0;
+			if (boostSum > 0) layers = 1;
+			if (boostSum > 3) layers = 2;
+			if (boostSum > 6) layers = 3;
+			if (!layers) return;
+			for (let i = 0; i < layers; i++) {
+				if (!target.side.addSideCondition('spikes', source)) break;
+			}
+		},
+		target: "normal",
 	},
 	aegislash: {
 		name: "Aegi Slash",
@@ -524,5 +540,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		overrideOffensiveStat: 'spe',
 		shortDesc: "Uses Spe as Atk in damage calculation.",
+	},
+	vcreate: {
+		inherit: true,
+		self: {
+			boosts: {
+				spe: -2,
+				def: -1,
+				spd: -1,
+			},
+		},
 	}
 };

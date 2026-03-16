@@ -342,6 +342,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	honeygather: {
 		inherit: true,
+		shortDesc: "Heals 1/6 max HP at the end of every turn.",
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
@@ -358,4 +359,49 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Poison Puppeteer",
 	},
+	seismicsensor: {
+		onSwitchIn(pokemon) {
+			pokemon.addVolatile('seismicsensor');
+		},
+		condition: {
+			duration: 1,
+			onTryHit(target, source, move) {
+				if (target === source || move.type !== 'Ground' || move.category === 'Status' || move.hasBounced) {
+					return;
+				}
+				this.add('-activate', target, 'ability: Seismic Sensor');
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+		},
+		flags: {protect: 1, mirror: 1},
+		name: "Seismic Sensor",
+		shortDesc: "On switch: if targeted by a Ground-type attack, take no damage and use the move on the opponent.",
+	},
+	hoothootability: {
+		// Gives normal type to non normal type pokemon
+		},
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			if (pokemon === this.effectState.target && move.type !== '???') {
+				const noModifyType = [
+					'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+				];
+				if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Normal';
+					move.typeChangerBoosted = this.effect;
+				}
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon === this.effectState.target && move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Hoothoot Ability",
+		shortDesc: "Adds the Normal type to all Pokemon on the field. This Pokemon has Normalize.",
+	}
 };

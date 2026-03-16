@@ -834,4 +834,11 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			earthpower: ["9L1"],
 		},
 	},
+	jigglypuff: {
+		learnset: {
+			inherit: true,
+			dig: null,
+			subsitute: null
+		}
+	}
 };

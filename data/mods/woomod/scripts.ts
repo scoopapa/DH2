@@ -5,7 +5,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['WM'],
+		customTiers: ['WM','woober'],
 	},	
 	
 	init() {
@@ -546,6 +546,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "helioptile").learnset.stealthrock = ["9L1"];
 		this.modData("Learnsets", "helioptile").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "helioptile").learnset.earthpower = ["9L1"];
+		// Jigglypuff
+		delete this.modData('Learnsets', 'jigglypuff').learnset.dig;
+		delete this.modData('Learnsets', 'jigglypuff').learnset.substitute;
 	},
 	
 	pokemon: {
