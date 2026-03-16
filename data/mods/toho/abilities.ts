@@ -694,7 +694,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				source.setType("???");
-				this.add('-start', pokemon, 'typechange', "???", '[from] ability: Corrupt Data');
+				this.add('-start', source, 'typechange', "???", '[from] ability: Corrupt Data');
 			}
 		},
 		flags: {},
