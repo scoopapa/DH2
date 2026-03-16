@@ -340,4 +340,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Alpinist",
 	},
+	honeygather: {
+		inherit: true,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+	},
+	poisonpuppeteer: {
+		shortDesc: "If this Pokémon inflicts poison, it also taunts, torments, and flinches the target.",
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
+			if (status.id === 'psn' || status.id === 'tox') {
+				this.debug('Poison Puppeteer activated on ' + target);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Poison Puppeteer",
+	},
 };

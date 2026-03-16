@@ -423,4 +423,106 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	friendlyfire: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Friendly Fire",
+		pp: 25,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fire') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	ladybugdance: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Quiver Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1, metronome: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+	},
+	frigidlyslide: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Frigidly Slide",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		secondary: {
+			chance: 100,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		shortDesc: "Freezes the target."
+	},
+	woopout: {
+		name: "Woop Out",
+		basePower: 60,
+		type: "Ground",
+		category: "Physical",
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Sets layers of Spikes based on the opponent's highest stat boost."
+		// lmao code this part ifwih
+	},
+	aegislash: {
+		name: "Aegi Slash",
+		basePower: 45,
+		type: "Ghost",
+		accuracy: 100,
+		category: "Physical",
+		pp: 10,
+		shortDesc: "Hits twice. First hit: +5 priority, second hit: end of turn.",
+		priority: 5,
+		onHit(source, target) {
+			if (!source.side.addSlotCondition(target, 'futuremove') && target.hp && target.isActive) return false;
+			Object.assign(source.side.slotConditions[target.position]['futuremove'], {
+				duration: 1,
+				move: 'aegislash',
+				source: target,
+				moveData: {
+					id: 'aegislash',
+					name: "aegislash",
+					accuracy: 100,
+					basePower: 45,
+					category: "Physical",
+					priority: -6,
+					flags: {protect: 1},
+					onTryHit(target, source) {
+						if (source.fainted || !source.isActive) return false;
+					},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Ghost',
+				},
+			});
+			this.add('-start', source, 'move: Aegislash');
+			return null;
+		},
+	},
+	electroball: {
+		inherit: true,
+		basePower: 90,
+		overrideOffensiveStat: 'spe',
+		shortDesc: "Uses Speed to calculate damage",
+	}
 };
