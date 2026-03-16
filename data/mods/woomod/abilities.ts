@@ -347,11 +347,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	poisonpuppeteer: {
-		shortDesc: "If this Pokémon inflicts poison, it also taunts, torments, and flinches the target.",
+		shortDesc: "If this Pokémon inflicts poison, it also confuses the target.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
 				this.debug('Poison Puppeteer activated on ' + target);
+				target.addVolatile('confusion');
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},

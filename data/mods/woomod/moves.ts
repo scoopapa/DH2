@@ -523,6 +523,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 90,
 		overrideOffensiveStat: 'spe',
-		shortDesc: "Uses Speed to calculate damage",
+		shortDesc: "Uses Spe as Atk in damage calculation.",
 	}
 };
