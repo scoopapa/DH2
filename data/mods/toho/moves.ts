@@ -451,6 +451,118 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Dark",
 	},
+	dustupheaval: {
+		name: "Dust Upheaval",
+		type: "Ground",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Summons Sandstorm before attacking. 20% Chance to flinch",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.field.setWeather('sandstorm');
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		target: "normal",
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+	},
+	invokeamaterasu: {
+		name: "Invoke Amaterasu",
+		type: "Fire",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User gains +1 attack, becomes Fire-type, slicing moves become Fire-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Fire");
+				//this.add('-start', target, 'typechange', 'Fire');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Fire";
+				}
+			},
+		},
+		boosts: {
+			atk: 1,
+		},
+	},
+	invokehonoikazuchi: {
+		name: "Invoke Honoikazuchi",
+		type: "Electric",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User gains +1 speed, becomes Electric-type, slicing moves become Electric-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Electric");
+				//this.add('-start', target, 'typechange', 'Electric');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Electric";
+				}
+			},
+		},
+		boosts: {
+			spe: 1,
+		},
+	},
+	invokeishikoridome: {
+		name: "Invoke Ishikori-Dome",
+		type: "Ice",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User's ability becomes Magic Bounce, becomes Ice-type, slicing moves become Ice-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Ice");
+				pokemon.setAbility('magicguard', pokemon);
+				//this.add('-start', target, 'typechange', 'Ice');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Ice";
+				}
+			},
+		},
+	},
 
 	//vanilla
 	toxicspikes: {

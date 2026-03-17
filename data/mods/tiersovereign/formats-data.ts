@@ -38,5 +38,29 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mollywop: {
 		tier: "TSOU",
 		doublesTier: "TSOU",
+	},
+	frigoberry: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
+	},
+	starlink: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
+	},
+	napoyag: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
+	},
+	psyeena: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
+	},
+	tokusantsu: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
+	},
+	fireflie: {
+		tier: "TSOU",
+		doublesTier: "TSOU",
 	}
 };
