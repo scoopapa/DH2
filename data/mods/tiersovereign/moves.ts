@@ -61,4 +61,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "This move cannot be used consecutively.",
 		shortDesc: "Cannot be used consecutively.",
 	},
+	antpunch: {
+		num: -3,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Ant Punch",
+		pp: 15,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Attack Order", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+		desc: "This move usually goes first.",
+		shortDesc: "Usually goes first.",
+	},
 };

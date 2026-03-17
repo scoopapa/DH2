@@ -26,4 +26,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ironjugulis: {
 		tier: "Random",
 	},
+	sinistcha: {
+		tier: "Random",
+	},
+	azumarill: {
+		tier: "Random",
+	},
+	revavroom: {
+		tier: "Random",
+	},
+	heatran: {
+		tier: "Random",
+	},
+	indeedee: {
+		tier: "Random",
+	},
+	weavile: {
+		tier: "Random",
+	},
+	fezandipiti: {
+		tier: "Random",
+	},
+	skarmory: {
+		tier: "Random",
+	},
+	clefable: {
+		tier: "Random",
+	},
 };

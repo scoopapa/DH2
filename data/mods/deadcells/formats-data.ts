@@ -107,7 +107,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "DeCe Uber",
 		
 	},
-	draculafinalform: {
+	finaldracula: {
 		tier: "DeCe Uber",
 		
 	},
