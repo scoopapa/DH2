@@ -78,6 +78,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Jigglypuff
 		this.modData("Learnsets", "jigglypuff").learnset.starsmash = ["9L1"];
 		this.modData("Learnsets", "jigglypuff").learnset.spikes = ["9L1"];
+		delete this.modData('Learnsets', 'jigglypuff').learnset.dig;
+		delete this.modData('Learnsets', 'jigglypuff').learnset.substitute;
 		// Bronzor
 		this.modData("Learnsets", "bronzor").learnset.mentalspin = ["9L1"];
 		// Wiglett
@@ -394,6 +396,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "roselia").learnset.weatherball = ["9L1"];
 		this.modData("Learnsets", "roselia").learnset.worryseed = ["9L1"];
 		this.modData("Learnsets", "roselia").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "roselia").learnset.mortalspin = ["9L1"];
 		delete this.modData('Learnsets', 'roselia').learnset.spikes;
 		delete this.modData('Learnsets', 'roselia').learnset.sleeppowder;
 		// Skiploom
@@ -546,9 +549,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "helioptile").learnset.stealthrock = ["9L1"];
 		this.modData("Learnsets", "helioptile").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "helioptile").learnset.earthpower = ["9L1"];
-		// Jigglypuff
-		delete this.modData('Learnsets', 'jigglypuff').learnset.dig;
-		delete this.modData('Learnsets', 'jigglypuff').learnset.substitute;
 	},
 	
 	pokemon: {

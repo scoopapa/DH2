@@ -668,6 +668,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			weatherball: ["9L1"],
 			worryseed: ["9L1"],
 			knockoff: ["9L1"],
+			mortalspin: ["9L1"],
 			spikes: null,
 			sleeppowder: null,
 		},

@@ -381,9 +381,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Seismic Sensor",
 		shortDesc: "On switch: if targeted by a Ground-type attack, take no damage and use the move on the opponent.",
 	},
-	hoothootability: {
-		// Gives normal type to non normal type pokemon
+	soothingpresence: {
+		onStart(pokemon) {
+			const last = pokemon.side.lastSwitchedOut;
+			if (last && last !== pokemon && !last.fainted && last.status) {
+				const status = last.status;
+				last.cureStatus();
+				this.add('-activate', pokemon, 'ability: Soothing Presence');
+				this.add('-curestatus', last, status, '[from] ability: Soothing Presence');
+			}
+			pokemon.side.lastSwitchedOut = null;
 		},
+		onTryHit(target, source, move) {
+			if (target !== this.effectState.target) return;
+			if (move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Soothing Presence');
+				return null;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target !== this.effectState.target) return;
+			if (status.id === 'psn' || status.id === 'tox') {
+				this.add('-immune', target, '[from] ability: Soothing Presence');
+				return false;
+			}
+		},
+		flags: {protect: 1},
+		name: "Soothing Presence",
+		shortDesc: "Immune to poison. On switch-in, cures the status of the Pokemon it replaced."
+	},
+
+	// Unfinished / idk how to
+
+	hoothootability: {
+		// Is supposed to force Normal type on opponents + be Normalize.
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			if (pokemon === this.effectState.target && move.type !== '???') {
@@ -403,5 +434,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Hoothoot Ability",
 		shortDesc: "Adds the Normal type to all Pokemon on the field. This Pokemon has Normalize.",
-	}
+	},
+	mitosis: {
+		onDamagingHit(damage, target, source, move) {
+			if (!move || move.effectType !== 'Move' || source === target) return;
+			const stats: BoostID[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			const availableStats = stats.filter(stat => target.boosts[stat] < 6);
+			if (!availableStats.length) return;
+			const randomStat = this.sample(availableStats);
+			this.boost({[randomStat]: 1}, target, target);
+			this.add('-activate', target, 'ability: Mitosis');
+		},
+		flags: {},
+		name: "Mitosis",
+		shortDesc: "Raises a random stat stage when hit.",
+		// Not the preferred implementation
+	},
 };
