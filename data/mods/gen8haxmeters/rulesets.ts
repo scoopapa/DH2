@@ -66,12 +66,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
-			//if (pokemon !== target) target.side.flinchChance = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
-			let clauses = 0;
-			let prefix = "";
-			let suffix = "";
+			let canMove = true;
+			//let clauses = 0;
+			//let frozen = false;
+			//let prefix;
+			//let suffix;
 			for (const status of pokemon.statuses) {
 				let toAdd = 0;
 				//let nonVolatileStatus = false;
@@ -100,7 +101,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								sleepMeterIncreases = [100, 200 / 3, 50, 0];
 							}
 							toAdd = sleepMeterIncreases[pokemon.sleepTurns];
-							clauses++;
+							//clauses++;
 						}
 						break;						
 					/*case 'NonRestSleep':
@@ -113,34 +114,36 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						if (move.flags['defrost']) break;
 						toAdd = 80;
 						//nonVolatileStatus = true;
-						clauses++;
+						//clauses++;
 						break;
 					case 'Flinch':
 						toAdd = pokemon.flinchChance;
 						pokemon.flinchChance = 0;
-						clauses++;		
+						//clauses++;		
 						break;				
 					case 'Confusion':
 						if (pokemon.volatiles['confusion']) {
 							this.add('-activate', pokemon, 'confusion');
 							toAdd = 33;
-							clauses++;
+							//clauses++;
 							break;
 						} 
 						else continue;
 					case 'Infatuation':
 						this.add('-activate', pokemon, 'move: Attract', '[of] ' + target);
 						toAdd = 50;
-						clauses++;
+						//clauses++;
 						break;
 					case 'Paralysis':
 						toAdd = 25;
 						//nonVolatileStatus = true;
-						clauses++;
+						//clauses++;
 						break;						
 				}
 				let product = toAdd * multiplier;
+				/*
 				if (prefix.length === 0) {
+					
 					if (status === 'Sleep') {
 						if (!pokemon.sleepFromRest) {
 							let quantifier;
@@ -160,15 +163,46 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					}
 					else prefix = status;
 					suffix = roundNum(toAdd, 3);
+					
 				}
-				else suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
+				*/
 				if (toAdd > 0) {
-					if (clauses === 1) {
+					let prefix = '';
+					let suffix;
+					if (pokemon.statuses[0] === status) {
+						if (status === 'Sleep' && !pokemon.sleepFromRest) {
+							let quantifier;
+							switch(pokemon.sleepTurns) {
+								case 0:
+									quantifier = '1st';
+									break;	
+								case 1:
+									quantifier = '2nd';
+									break;
+								case 2:
+									quantifier = '3rd';
+									break;
+							}
+							prefix = `${quantifier} Turn Sleep`;
+						}
+						else prefix = status;	
+						suffix = roundNum(toAdd, 3);					
 						//if (nonVolatileStatus) this.add('-message', `\n(${status}: ${suffix})`);
 						//else this.add('-message', `(${status}: ${suffix})`);
-						this.add('-message', `(${prefix}: ${suffix})`);
 					}
-					else this.add('-message', `(No ${prefix} + ${status}: ${suffix})`);
+					else {
+						for (let i = 0; i < pokemon.statuses.length; i++) {
+							if (pokemon.statuses[i+1] === status) {
+								prefix += `${pokemon.statuses[i]} Checked + ${status}`;
+								break;
+							}
+							else {
+								prefix += `${pokemon.statuses[i]}, `;
+							}
+						}
+						suffix = roundNum(multiplier, 3) + ' * ' + roundNum(toAdd, 3) + ' = ' + roundNum(product, 3);
+					}
+					this.add('-message', `(${prefix}: ${suffix})`);
 				}
 				if (status === 'Sleep' && pokemon.sleepFromRest) {
 					if ((pokemon.hasAbility('earlybird') && pokemon.sleepTurns === 1) || 
@@ -188,6 +222,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				else {
 					pokemon.side.addStatus(product);	
 					multiplier *= (1 - (toAdd / 100));
+					/*
 					if (prefix.length !== 0 && prefix !== status) {
 						if (prefix.includes('Turn Sleep')) {
 							prefix = 'Sleep';
@@ -196,12 +231,18 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							prefix += (' + No ' + status);
 						}
 					}
+					*/
 					if (pokemon.side.status >= 100) {
+						canMove = false;
 						pokemon.side.subtractStatus(100);
 						switch(status) {
 							case 'Sleep':
 								this.add('cant', pokemon, 'slp');
 								pokemon.sleepTurns++;
+								if (move.sleepUsable) {
+									canMove = true;
+									multiplier = 1;
+								}
 								break;
 							case 'Freeze':
 								this.add('cant', pokemon, 'frz');
@@ -223,15 +264,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								this.add('cant', pokemon, 'par');
 								break;						
 						}
-						if (status === 'Sleep' && move.sleepUsable) {
-							multiplier = 1;
-							prefix = '';
-							clauses = 0;
+						if (status === 'Sleep' && !move.sleepUsable) {
+							return false;
 						}
-						else return false;
+						else if (status === 'Freeze') return false;
 					}
 					//if (!move.sleepUsable || status !== 'Sleep') {
-					else if (status === 'Sleep' && !pokemon.sleepFromRest) {
+					else if (status === 'Sleep') {
 						pokemon.cureStatus();
 						pokemon.sleepFromRest = false;
 						pokemon.sleepTurns = 0;
@@ -239,6 +278,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					else if (status === 'Freeze') pokemon.cureStatus();
 				}		
 			}
+			return canMove;
 		},
     },
 };
