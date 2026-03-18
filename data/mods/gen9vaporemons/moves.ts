@@ -633,7 +633,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (targetSide.sideConditions['toxicspikes']) {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
-			const bp = Math.min(400, 50 + 50 * allLayers);
+			const bp = Math.min(200, 50 + 50 * allLayers);
 			this.add('-message', `Hazardous Waste currently has a BP of ${bp}!`);
 		},
 		secondary: null,
@@ -1496,7 +1496,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onAnyPrepareHit(source, target, move) {
 				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
-				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
+				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch' || move.sourceEffect === 'greeneyed') {
 					return;
 				}
 				snatchUser.removeVolatile('snatch');
@@ -1602,6 +1602,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			for (const target of pokemon.side.foe.active) {
+			if (target.hasType('Ground') && !target.hasItem('ringtarget')) return;
 			const type1 = 'Bug';
 			const type2 = 'Electric';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {

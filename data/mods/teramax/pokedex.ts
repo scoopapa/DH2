@@ -30,7 +30,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	wochien: {
 		inherit: true,
 		types: ["Dark", "Poison"],
-		baseStats: {hp: 85, atk: 85, def: 100, spa: 105, spd: 125, spe: 70},
+		baseStats: {hp: 85, atk: 85, def: 100, spa: 95, spd: 135, spe: 70},
 	},
 	chienpao: {
 		inherit: true,
@@ -43,12 +43,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	stonjourner: {
 		inherit: true,
 		types: ["Rock", "Ground"],
-		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 80},
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 95},
 	},
 	falinks: {
 		inherit: true,
 		types: ["Fighting", "Rock"],
-		baseStats: {hp: 65, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
+		baseStats: {hp: 90, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
 		abilities: {0: "Battle Armor", 1: "Technician", H: "Defiant"},
 	},
 	scovillain: {
@@ -58,23 +58,25 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	dudunsparce: {
 		inherit: true,
+		types: ["Normal", "Fairy"],
 		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
 		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
 	},
 	dudunsparcethreesegment: {
 		inherit: true,
+		types: ["Normal", "Fairy"],
 		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
 		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
 	},
 	eiscue: {
 		inherit: true,
 		types: ["Ice", "Ground"],
-		baseStats: {hp: 75, atk: 110, def: 130, spa: 65, spd: 130, spe: 50},
+		baseStats: {hp: 75, atk: 120, def: 130, spa: 65, spd: 130, spe: 50},
 	},
 	eiscuenoice: {
 		inherit: true,
 		types: ["Ice", "Ground"],
-		baseStats: {hp: 75, atk: 110, def: 90, spa: 65, spd: 70, spe: 130},
+		baseStats: {hp: 75, atk: 120, def: 90, spa: 65, spd: 70, spe: 130},
 	},
 	tatsugiri: {
 		inherit: true,
@@ -87,12 +89,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	brutebonnet: {
 		inherit: true,
-		types: ["Poison", "Ghost"],
-		baseStats: {hp: 111, atk: 127, def: 89, spa: 79, spd: 99, spe: 65},
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 111, atk: 127, def: 99, spa: 79, spd: 99, spe: 55},
 	},
 	slitherwing: {
 		inherit: true,
-		baseStats: {hp: 97, atk: 139, def: 121, spa: 69, spd: 81, spe: 63},
+		baseStats: {hp: 85, atk: 135, def: 79, spa: 85, spd: 105, spe: 81},
 	},
 	ironjugulis: {
 		inherit: true,
@@ -104,8 +106,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	revavroom: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 77, spe: 100},
-		abilities: {0: "Overcoat", 1: "Neutralizing Gas", H: "Filter"},
+		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 97, spe: 100},
+		abilities: {0: "Self-Repair", 1: "Neutralizing Gas", H: "Filter"},
 	},
 	kilowattrel: {
 		inherit: true,
@@ -119,8 +121,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	ninjask: {
 		inherit: true,
 		types: ["Bug", "Ground"],
-		baseStats: {hp: 81, atk: 110, def: 45, spa: 50, spd: 50, spe: 160},
-		abilities: {0: "Speed Boost", 1: "Sharpness", H: "Infiltrator"},
+		baseStats: {hp: 81, atk: 115, def: 60, spa: 50, spd: 50, spe: 160},
+		abilities: {0: "Speed Boost", 1: "Tough Claws", H: "Infiltrator"},
 	},
 	frosmoth: {
 		inherit: true,
@@ -133,11 +135,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	talonflame: {
 		inherit: true,
-		baseStats: {hp: 83, atk: 81, def: 81, spa: 84, spd: 79, spe: 126},
+		baseStats: {hp: 88, atk: 91, def: 81, spa: 74, spd: 77, spe: 126},
 	},
 	grafaiai: {
 		inherit: true,
-		baseStats: {hp: 73, atk: 95, def: 75, spa: 80, spd: 82, spe: 110},
+		baseStats: {hp: 73, atk: 95, def: 80, spa: 70, spd: 87, spe: 110},
 		abilities: {0: "Unburden", 1: "Corrosion", H: "Prankster"},
 	},
 	gastrodon: {
@@ -148,10 +150,135 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 90, atk: 130, def: 88, spa: 60, spd: 108, spe: 114},
 	},
+	staraptor: {
+		inherit: true,
+		types: ["Fighting", "Flying"],
+		baseStats: {hp: 100, atk: 114, def: 81, spa: 50, spd: 85, spe: 100},
+	},
+	ogerpon: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 84, spa: 50, spd: 96, spe: 130},
+		abilities: {0: "Defiant", H: "Technician"},
+	},
+	ogerpontealtera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 84, spa: 50, spd: 96, spe: 130},
+	},
+	ogerponhearthflame: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 115, spd: 90, spe: 110},
+		abilities: {0: "Mold Breaker", H: "Flash Fire"},
+		changesFrom: null,
+	},
+	ogerponhearthflametera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 115, spd: 90, spe: 110},
+	},
+	ogerponwellspring: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 94, spa: 55, spd: 111, spe: 100},
+		abilities: {0: "Water Absorb", H: "Flower Veil"},
+		changesFrom: null,
+	},
+	ogerponwellspringtera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 94, spa: 55, spd: 111, spe: 100},
+	},
+	ogerponcornerstone: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 104, spa: 40, spd: 96, spe: 110},
+		abilities: {0: "Sturdy", H: "Sand Rush"},
+		changesFrom: null,
+	},
+	ogerponcornerstonetera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 104, spa: 40, spd: 96, spe: 110},
+	},
+	sinistcha: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
+	},
+	slowbrogalar: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 90, def: 110, spa: 110, spd: 75, spe: 30},
+		abilities: {0: "Quick Draw", 1: "Corrosion", H: "Regenerator"},
+	},
+	hydrapple: {
+		inherit: true,
+		types: ["Dragon", "Grass"],
+		baseStats: {hp: 121, atk: 80, def: 120, spa: 120, spd: 80, spe: 54},
+		abilities: {0: "Supersweet Syrup", 1: "Storm Drain", H: "Regenerator"},
+	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 85, spa: 80, spd: 85, spe: 110},
+		abilities: {0: "Unnerve", H: "Contrary"},
+	},
+	glastrier: {
+		inherit: true,
+		abilities: {0: "Chilling Neigh", H: "Solid Rock"},
+	},
+	spectrier: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 85, def: 80, spa: 100, spd: 95, spe: 120},
+		abilities: {0: "Grim Neigh", H: "Unaware"},
+	},
+	okidogi: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 128, def: 115, spa: 63, spd: 101, spe: 85},
+		abilities: {0: "Toxic Chain", 1: "Iron Fist", H: "Guard Dog"},
+	},
+	munkidori: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 65, def: 70, spa: 135, spd: 91, spe: 131},
+		abilities: {0: "Toxic Chain", 1: "Dazzling", H: "Neutralizing Gas"},
+	},
+	fezandipiti: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 76, def: 95, spa: 95, spd: 127, spe: 99},
+	},
+	regidrago: {
+		inherit: true,
+		baseStats: {hp: 150, atk: 100, def: 75, spa: 100, spd: 75, spe: 80},
+	},
+	ironboulder: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 120, def: 82, spa: 66, spd: 108, spe: 124},
+	},
+	gougingfire: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 65, def: 93, spa: 115, spd: 121, spe: 91},
+	},
+	terapagos: {
+		inherit: true,
+		abilities: {0: "Tera Shift", H: "Stellar Shift"},
+		forceTeraType: null,
+	},
+	terapagosterastal: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 90, def: 110, spa: 110, spd: 110, spe: 85},
+		abilities: {0: "Tera Shell", H: "Stellar Shell"},
+		forceTeraType: null,
+	},
+	terapagosstellar: {
+		inherit: true,
+		baseStats: {hp: 160, atk: 100, def: 110, spa: 135, spd: 110, spe: 85},
+		abilities: {0: "Teraform Zero"},
+		requiredAbility: "Stellar Shell",
+	},
 
 // GMaxes and Buffs to GMax base forms
+	venusaur: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 82, def: 90, spa: 113, spd: 115, spe: 80},
+	},
 	venusaurgmax: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 82, def: 90, spa: 113, spd: 115, spe: 80},
 		abilities: {0: "Flower Veil"},
 		weightkg: 999.9,
 	},
@@ -162,11 +289,17 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	charizardgmax: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 99, def: 85, spa: 109, spd: 85, spe: 113},
-		abilities: {0: "Battle Bond (Charizard)"},
+		abilities: {0: "Mold Breaker"},
 		weightkg: 999.9,
+	},
+	blastoise: {
+		inherit: true,
+		baseStats: {hp: 79, atk: 83, def: 110, spa: 95, spd: 120, spe: 78},
+		abilities: {0: "Torrent", H: "Filter"},
 	},
 	blastoisegmax: {
 		inherit: true,
+		baseStats: {hp: 79, atk: 83, def: 110, spa: 95, spd: 120, spe: 78},
 		abilities: {0: "Stamina"},
 		weightkg: 999.9,
 	},
@@ -192,8 +325,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Huge Power"},
 		weightkg: 999.9,
 	},
+	machamp: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 140, def: 80, spa: 65, spd: 85, spe: 55},
+	},
 	machampgmax: {
 		inherit: true,
+		baseStats: {hp: 110, atk: 140, def: 80, spa: 65, spd: 85, spe: 55},
 		abilities: {0: "Scrappy"},
 		weightkg: 999.9,
 	},
@@ -223,11 +361,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	lapras: {
 		inherit: true,
-		baseStats: {hp: 130, atk: 85, def: 80, spa: 115, spd: 95, spe: 70},
+		baseStats: {hp: 130, atk: 85, def: 80, spa: 120, spd: 95, spe: 70},
 	},
 	laprasgmax: {
 		inherit: true,
-		baseStats: {hp: 130, atk: 85, def: 80, spa: 115, spd: 95, spe: 70},
+		baseStats: {hp: 130, atk: 85, def: 80, spa: 120, spd: 95, spe: 70},
 		abilities: {0: "Ice Scales"},
 		weightkg: 999.9,
 	},
@@ -243,11 +381,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	garbodor: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 95, def: 95, spa: 60, spd: 85, spe: 75},
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 60, spd: 100, spe: 75},
+		abilities: {0: "Stench", 1: "Merciless", H: "Aftermath"},
 	},
 	garbodorgmax: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 95, def: 95, spa: 60, spd: 85, spe: 75},
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 60, spd: 100, spe: 75},
 		abilities: {0: "Toxic Debris"},
 		weightkg: 999.9,
 	},
@@ -274,7 +413,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	inteleongmax: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 90, def: 85, spa: 125, spd: 65, spe: 110},
-		abilities: {0: "Stakeout"},
+		abilities: {0: "Analytic"},
 		weightkg: 999.9,
 	},
 	corviknightgmax: {
@@ -335,7 +474,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	appletungmax: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
-		abilities: {0: "Marvel Scale"},
+		abilities: {0: "Grassy Surge"},
 		weightkg: 999.9,
 	},
 	sandaconda: {
@@ -411,33 +550,73 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	copperajah: {
 		inherit: true,
-		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 94, spe: 30},
+		baseStats: {hp: 122, atk: 130, def: 84, spa: 80, spd: 94, spe: 30},
 	},
 	copperajahgmax: {
 		inherit: true,
-		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 94, spe: 30},
+		baseStats: {hp: 122, atk: 130, def: 84, spa: 80, spd: 94, spe: 30},
 		abilities: {0: "Bulletproof"},
 		weightkg: 999.9,
 	},
 	duraludon: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 95, def: 115, spa: 110, spd: 60, spe: 85},
+		baseStats: {hp: 80, atk: 70, def: 125, spa: 120, spd: 80, spe: 85},
 		abilities: {0: "Light Metal", 1: "Bulletproof", H: "Stalwart"},
 	},
 	duraludongmax: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 95, def: 115, spa: 110, spd: 60, spe: 85},
+		baseStats: {hp: 80, atk: 70, def: 125, spa: 120, spd: 80, spe: 85},
 		abilities: {0: "Unaware"},
 		weightkg: 999.9,
 	},
+	urshifu: {
+		inherit: true,
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+	},
 	urshifugmax: {
 		inherit: true,
-		abilities: {0: "Inner Focus"},
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+		abilities: {0: "Iron Fist"},
 		weightkg: 999.9,
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
 	},
 	urshifurapidstrikegmax: {
 		inherit: true,
-		abilities: {0: "Inner Focus"},
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+		abilities: {0: "Iron Fist"},
 		weightkg: 999.9,
+	},
+
+	// Ubers
+	calyrexshadow: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 90, def: 100, spa: 145, spd: 110, spe: 135},
+	},
+	zaciancrowned: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 150, def: 120, spa: 90, spd: 120, spe: 128},
+	},
+	koraidon: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 135, def: 115, spa: 95, spd: 100, spe: 125},
+	},
+	miraidon: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 95, def: 100, spa: 135, spd: 115, spe: 125},
+	},
+	eternatus: {
+		inherit: true,
+		baseStats: {hp: 140, atk: 85, def: 100, spa: 145, spd: 100, spe: 120},
+	},
+	zamazentacrowned: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 120, def: 140, spa: 90, spd: 140, spe: 118},
 	},
 };

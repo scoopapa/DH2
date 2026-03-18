@@ -34,23 +34,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	depletedultranecroziumz: {
 		name: "Depleted Ultranecrozium Z",
 		spritenum: 687,
-		itemUser: ["Necromane-Dusk-Mane"],
+		itemUser: ["Necro Mane-Dusk-Mane"],
 		onTakeItem: false,
 		num: -1001,
-		desc: "If held by a Necromane-Dusk-Mane, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+		desc: "If held by a Necro Mane-Dusk-Mane, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
 	eviolite: {
 		inherit: true,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
 			console.log(pokemon.baseSpecies);
-			if (['basbal', 'naclinch', 'glimmgar'].includes(pokemon.baseSpecies.id)) {
+			if (['basbal', 'naclinch', 'glimmgar', 'roseron'].includes(pokemon.baseSpecies.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (['basbal', 'naclinch', 'glimmgar'].includes(pokemon.baseSpecies.id)) {
+			if (['basbal', 'naclinch', 'glimmgar', 'roseron'].includes(pokemon.baseSpecies.id)) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -81,6 +81,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Absaludon-Mega",
 		megaEvolves: "Absaludon",
 		itemUser: ["Absaludon"],
+		isNonstandard: null,
+	},
+	manectite: {
+		inherit: true,
+		megaStone: "Wo-Man-Mega",
+		megaEvolves: "Wo-Man",
+		itemUser: ["Wo-Man"],
 		isNonstandard: null,
 	},
 };

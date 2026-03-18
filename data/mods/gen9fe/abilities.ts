@@ -1295,7 +1295,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp/4);
+				this.heal(pokemon.baseMaxhp/4);
 				pokemon.cureStatus();
 			}
 		},
@@ -2161,6 +2161,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Hourglass",
 		rating: 3,
 	},
+	
+	piezoelectric: {
+		shortDesc: "Volt Absorb + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Piezoelectric');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && !move.ignoreAbility) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Piezoelectric');
+				}
+				return null;
+			}
+		},
+		flags: {},
+		name: "Piezoelectric",
+		rating: 3,
+	},
 	fieldday: {
 		shortDesc: "If Grassy Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe(spe) {
@@ -2325,7 +2346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('screamcormorant', move);
-				delete target.volatiles['prehistorichunter'];
+				target.removeVolatile('prehistorichunter');
 			}
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
@@ -2351,8 +2372,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['prehistorichunter'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
+			pokemon.removeVolatile('prehistorichunter');
+			this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+			this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2407,7 +2432,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
+				this.add('-end', pokemon, 'protosynthesisatk', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisdef', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspa', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspd', '[silent]');
+				this.add('-end', pokemon, 'protosynthesisspe', '[silent]');
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
@@ -2548,13 +2577,61 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.boost({def: 2})) {
-					this.add('-immune', target, '[from] ability: Well-Baked Body');
+					this.add('-immune', target, '[from] ability: Well-Baked Flame Orb');
 				}
 				return null;
 			}
 		},
 		flags: {breakable: 1},
 		name: "Well-Baked Flame Orb",
+	},
+	adrenalinearoma: {
+		shortDesc: "Guts + Aroma Veil",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status) {
+				//Burn attack cut being ignored is in scripts.ts/actions
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Adrenaline Aroma', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Adrenaline Aroma",
+	},
+	powerbuns: {
+		shortDesc: "Sheer Force + Well-Baked Body",
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({def: 2})) {
+					this.add('-immune', target, '[from] ability: Power Buns');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Power Buns",
 	},
 	honeymoon: {
 		shortDesc: "Levitate + Honey Gather",
@@ -2681,18 +2758,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	heatproofdrive: {
-		shortDesc: "Heatproof + Quark Drive",
+		shortDesc: "Heatproof effects. If hit by Fire, x1.3 to highest stat (x1.5 instead if Speed)",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				target.addVolatile('heatproofdrive');
+			}
+		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive Atk weaken');
+				this.debug('Heatproof Atk weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Drive SpA weaken');
+				this.debug('Heatproof SpA weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -2701,20 +2783,56 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return damage / 2;
 			}
 		},
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
-			}
-		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['quarkdrive'];
-			this.add('-end', pokemon, 'Quark Drive', '[silent]');
+			delete pokemon.volatiles['heatproofdrive'];
+			this.add('-end', pokemon, 'Heatproof Drive', '[silent]');
+		},
+		
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'ability: Heatproof Drive');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Heatproof Drive",
@@ -2903,9 +3021,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Storm Clinic",
 	},
 	ultraface: {
-		shortDesc: "Eisephalon: Change to No Face form on KO; Reverts in Snow",
+		shortDesc: "Eisephalon: Change to No Face form on KO and gain +1 to highest stat; Reverts in Snow",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && source.species.id === 'eisephalon') {
+				this.boost({[this.effectState.bestStat ||= source.getBestStat(true, true)]: length}, source);
 				source.formeChange('Eisephalon-No-Face', this.effect, true);
 			}
 		},
@@ -3049,7 +3168,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "No Nonsense",
 	},
-	magneticstorm: {
+	/*magneticstorm: {
 		shortDesc: "Magnet Pull + Storm Drain",
 		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
@@ -3083,6 +3202,57 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Magnetic Storm",
+	},*/
+	sushistorm: {
+		shortDesc: "Sturdy + Storm Drain",
+		onTryHit(pokemon, target, move) {
+			if (target !== pokemon && move.type === 'Water') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Sushi Storm');
+				}
+				return null;
+			}
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sushi Storm');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Sushi Storm');
+				return target.hp - 1;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Water' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Sushi Storm');
+				}
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sushi Storm",
+	},
+	commandingpull: {
+		shortDesc: "Opposing Steels and boosted are trapped",
+		onFoeTrapPokemon(pokemon) {
+			if ((pokemon.positiveBoosts() || pokemon.hasType('Steel')) && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!(source ||= this.effectState.target) || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.knownType || pokemon.positiveBoosts() ||  pokemon.hasType('Steel')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {},
+		name: "Commanding Pull",
 	},
 	/*ultraimpulse: {
 		shortDesc: "x1.5 to highest stat when burned; +1 upon landing a KO",
@@ -3123,7 +3293,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Ultra Impulse",
 	},*/
 	ultrashackles: {
-		shortDesc: "Beast Boost + Unburden",
+		shortDesc: "Unburden effects. +1 Speed when landing a KO.",
 		onAfterUseItem(item, pokemon) {
 			if (pokemon === this.effectState.target) pokemon.addVolatile('unburden');
 		},
@@ -3135,7 +3305,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({[this.effectState.bestStat ||= source.getBestStat(true, true)]: length}, source);
+				this.boost({spe: length}, source);
 			}
 		},
 		flags: {},
@@ -3312,7 +3482,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Innovate",
 		rating: 4,
 	},
-	numbskull: {
+	/*numbskull: {
 		shortDesc: "Unaware + Rock Head",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -3339,8 +3509,57 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Numbskull",
 		rating: 3,
+	},*/
+	
+	prehistoricpresence: {
+		shortDesc: "Unaware + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		//Mold Breaker doesn't hit through Pressure but it hits through Unaware
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Prehistoric Presence');
+			pokemon.addVolatile('ability:unaware');
+		},
+		onSourcePrepareHit(source, target, move) {
+			if (target.volatiles['ability:unaware']) {
+				if (move.ignoreAbility) target.removeVolatile('ability:unaware');
+			} else if (!move.ignoreAbility) target.addVolatile('ability:unaware');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:unaware');
+		},
+		flags: {},
+		name: "Prehistoric Presence",
+		rating: 3,
 	},
-	appleofruin: {
+	hotheaded: {
+		shortDesc: "Recoil immunity; x1.5 power to Recoil, Fire when below 1/3 HP",
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.hp <= attacker.maxhp / 3 && (move.type === 'Fire' || move.recoil)) {
+				this.debug('Hotheaded boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (attacker.hp <= attacker.maxhp / 3 && (move.type === 'Fire' || move.recoil)) {
+				this.debug('Hotheaded boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Hotheaded",
+		rating: 3,
+	},
+	/*appleofruin: {
 		shortDesc: "Pokemon without this ability have their evasion multiplied by 0.75x.",
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
@@ -3359,6 +3578,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Apple of Ruin",
 		rating: 4,
+	},*/
+	swordofrejuvenation: {
+		shortDesc: "Sword of Ruin + Regenerator.",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Sword of Rejuvenation');
+			this.add('-message', `${pokemon.name}'s Apple of Ruin weakened the Defense of all surrounding Pokémon!`);
+		},
+		onAnyModifyDef(def, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.hasAbility(['Sword of Ruin','Sword of Rejuvenation'])) return;
+			if (!move.ruinedDef?.hasAbility(['Sword of Ruin','Sword of Rejuvenation'])) move.ruinedDef = abilityHolder;
+			if (move.ruinedDef !== abilityHolder) return;
+			this.debug('Sword of Ruin Def drop');
+			return this.chainModify(0.75);
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+		name: "Sword of Rejuvenation",
 	},
 	bestboost: {
 		shortDesc: "This Pokemon's highest stat can't be lowered.", //and raises 1 stage after KOing a foe.",
@@ -3425,8 +3665,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Unidentified Flying Object",
 	},
-	roughimage: {
-		shortDesc: "Illusion effects. This Pokemon's Speed is boosted by 1 each turn while Illusion is active.",
+	/*roughimage: {
+		shortDesc: "Illusion effects. When the illusion is broken, deals 1/8 max HP to the attacker.",
 		onBeforeSwitchIn(pokemon) {
 			pokemon.illusion = null;
 			// yes, you can Illusion an active pokemon but only if it's to your right
@@ -3466,6 +3706,49 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Rough Image",
+	},*/
+	
+	afterimage: {
+		shortDesc: "Illusion effects. When the illusion is broken, +1 Speed.",
+		onBeforeSwitchIn(pokemon) {
+			pokemon.illusion = null;
+			// yes, you can Illusion an active pokemon but only if it's to your right
+			for (let i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				const possibleTarget = pokemon.side.pokemon[i];
+				if (!possibleTarget.fainted) {
+					// If Ogerpon is in the last slot while the Illusion Pokemon is Terastallized
+					// Illusion will not disguise as anything
+					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Hattepon') {
+						pokemon.illusion = possibleTarget;
+					}
+					break;
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.illusion) {
+				this.singleEvent('End', this.dex.abilities.get('Afterimage'), target.abilityState, target, source, move);
+				this.boost({spe: 1});
+			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.illusion) {
+				this.debug('illusion cleared');
+				pokemon.illusion = null;
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender && (', ' + pokemon.gender)) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details);
+				this.add('-message', `${pokemon.name}'s illusion wore off!`);
+				if (this.ruleTable.has('illusionlevelmod')) {
+					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
+				}
+			}
+		},
+		onFaint(pokemon) {
+			pokemon.illusion = null;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Afterimage",
 	},
 	/*riotpayload: {
 		shortDesc: "Rocky Payload + Defiant",
@@ -3544,6 +3827,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Toxic Attitude",
+	},
+	carelessbugs: {
+		shortDesc: "Reckless effects; x1.5 instead at 1/3 HP or less",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Reckless boost');
+				return this.chainModify([attacker.hp <= attacker.maxhp / 3 ? 6144 : 4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Careless Bugs",
 	},
 	quickwit: {
 		shortDesc: "Speed Boost + Keen Eye",
@@ -3705,6 +4000,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Weathered Waves",
 	},
+
+	sandsword: {
+		shortDesc: "x1.25 power to Slicing moves; x1.5 instead in Sand",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Sharpness boost');
+				return this.chainModify(this.field.isWeather('sandstorm') ? 1.5 : 1.25);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		flags: {breakable: 1},
+		name: "Sand Sword",
+	},
 	shellfishing: {
 		shortDesc: "Torrent + Pickup",
 		onModifyAtkPriority: 5,
@@ -3865,6 +4176,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 	},
+	healthydiet: {
+		name: "Healthy Diet",
+		shortDesc: "Heals by 33.3% of Max HP on switch-out or when eating a berry.",
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onEatItem(item, pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+	},
 	sandworm: {
 		name: "Sandworm",
 		shortDesc: "33% chance to cure status at end of turn, 100% instead in Sandstorm",
@@ -3967,10 +4289,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 	},
-	menacing: {
+	delayedreaction: {
+		name: "Delayed Reaction",
+		shortDesc: "Status moves go last, but ignore types and abilities.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category === 'Status') {
+				return -0.1;
+			}
+		},
+		onModifyMove(move) {
+			if (move.category === 'Status') {
+				move.ignoreAbility = true;
+				move.ignoreImmunity = true;
+			}
+		},
+		flags: {},
+	},
+	aquackintime: {
 		shortDesc: "Defiant + Pressure",
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Menacing');
+			this.add('-ability', pokemon, 'A Quack in Time');
 		},
 		onDeductPP(target, source) {
 			if (!target.isAlly(source)) return 1;
@@ -3986,7 +4325,49 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		flags: {},
-		name: "Menacing",
+		name: "A Quack in Time",
+	},
+	magicmirror: {
+		shortDesc: "Effects of Mirror Armor and Magic Bounce.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		onTryBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (!source || target === source || !boost || ['Mirror Armor', 'Magic Mirror'].includes(effect.name)) return;
+			let b: BoostID;
+			for (b in boost) {
+				if (boost[b]! < 0 && target.boosts[b] > -6) {
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					if (source.hp) {
+						this.add('-ability', target, 'Magic Mirror');
+						this.boost(negativeBoost, source, target, null, true);
+					}
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magic Mirror",
 	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
@@ -4130,7 +4511,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-end', target, 'Slow Start', '[silent]');
 				}
 				const targetAbilID = target.getAbility().id;
-				if (targetAbilID === 'eczema') {
+				if (['eczema','prehistoricpresence'].includes(targetAbilID)) {
 					target.removeVolatile('ability:unaware');
 				} else if (strongWeathers.includes(targetAbilID)) {
 					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');

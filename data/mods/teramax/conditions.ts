@@ -15,8 +15,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Flower Veil');
 						break;
 					case 'Charizard':
-						pokemon.setAbility('battlebondcharizard', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Battle Bond (Charizard)');
+						pokemon.setAbility('moldbreaker', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Mold Breaker');
 						break;
 					case 'Blastoise':
 						pokemon.setAbility('stamina', pokemon, true);
@@ -75,12 +75,12 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Magic Guard');
 						break;
 					case 'Inteleon':
-						pokemon.setAbility('stakeout', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Stakeout');
+						pokemon.setAbility('analytic', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Analytic');
 						break;
 					case 'Corviknight':
-						pokemon.setAbility('intimidate', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Intimidate');
+						pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+						//this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
 						pokemon.setAbility('psychicsurge', pokemon, true);
@@ -95,8 +95,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Desolate Land');
 						break;
 					case 'Appletun':
-						pokemon.setAbility('marvelscale', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Marvel Scale');
+						pokemon.setAbility('grassysurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Grassy Surge');
 						break;
 					case 'Flapple':
 						pokemon.setAbility('tintedlens', pokemon, true);
@@ -139,12 +139,12 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Unaware');
 						break;
 					case 'Urshifu':
-						pokemon.setAbility('innerfocus', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Inner Focus');
+						pokemon.setAbility('ironfist', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Iron Fist');
 						break;
 					case 'Urshifu-Rapid-Strike':
-						pokemon.setAbility('innerfocus', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Inner Focus');
+						pokemon.setAbility('ironfist', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Iron Fist');
 						break;
 				}
 			}
@@ -184,7 +184,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (['behemothbash','behemothblade','dynamaxcannon'].includes(move.id)) {
+			if (['behemothbash','behemothblade','dynamaxcannon','terablast'].includes(move.id)) {
 				return this.chainModify(2);
 			}
 		},

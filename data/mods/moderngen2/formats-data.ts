@@ -1111,7 +1111,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mew: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	chikorita: {
 		inherit: true,
@@ -2453,12 +2453,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latios: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "Uber",
 	},
 	latiosmega: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyogre: {
 		inherit: true,
@@ -2488,7 +2488,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rayquazamega: {
 		inherit: true,
 		gen: 2,
-		tier: "Uber",
+		tier: "AG",
 	},
 	jirachi: {
 		inherit: true,
@@ -4911,7 +4911,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naganadel: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "Uber",
 	},
 	stakataka: {
 		inherit: true,

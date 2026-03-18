@@ -154,31 +154,31 @@ export async function getLadderTop(format: string) {
 }
 
 export async function updateBadgeholders() {
-	rollSeason();
-	const period = `${data.current.season}`;
-	if (!data.badgeholders[period]) {
-		data.badgeholders[period] = {};
-	}
-	for (const formatName of data.formatSchedule[findPeriod()]) {
-		const formatid = `gen${Dex.gen}${formatName}`;
-		const response = await getLadderTop(formatid);
-		if (!response) continue; // ??
-		const newHolders: Record<string, string[]> = {};
-		for (const [i, row] of response.entries()) {
-			let badgeType = null;
-			for (const type in BADGE_THRESHOLDS) {
-				if ((i + 1) <= BADGE_THRESHOLDS[type]) {
-					badgeType = type;
-					break;
-				}
-			}
-			if (!badgeType) break;
-			if (!newHolders[badgeType]) newHolders[badgeType] = [];
-			newHolders[badgeType].push(row.userid);
-		}
-		data.badgeholders[period][formatid] = newHolders;
-	}
-	saveData();
+	// rollSeason();
+	// const period = `${data.current.season}`;
+	// if (!data.badgeholders[period]) {
+		// data.badgeholders[period] = {};
+	// }
+	// for (const formatName of data.formatSchedule[findPeriod()]) {
+		// const formatid = `gen${Dex.gen}${formatName}`;
+		// const response = await getLadderTop(formatid);
+		// if (!response) continue; // ??
+		// const newHolders: Record<string, string[]> = {};
+		// for (const [i, row] of response.entries()) {
+			// let badgeType = null;
+			// for (const type in BADGE_THRESHOLDS) {
+				// if ((i + 1) <= BADGE_THRESHOLDS[type]) {
+					// badgeType = type;
+					// break;
+				// }
+			// }
+			// if (!badgeType) break;
+			// if (!newHolders[badgeType]) newHolders[badgeType] = [];
+			// newHolders[badgeType].push(row.userid);
+		// }
+		// data.badgeholders[period][formatid] = newHolders;
+	// }
+	// saveData();
 }
 
 function getYear() {

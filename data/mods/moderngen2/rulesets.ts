@@ -15,6 +15,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Spore + Mean Look',
 			'Spore + Spider Web',
 			'Berserk Gene',
+			'Dire Claw',
 			'Unreleased',
 			'Unobtainable',
 			'Nonexistent',

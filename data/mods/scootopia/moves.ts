@@ -123,6 +123,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	// inherit: true,
 	// category: "Physical",
 	// },
+	photonray: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Photon Ray",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Photon Geyser", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 	energysiphon: {
 		accuracy: 100,
 		basePower: 50,
@@ -402,18 +422,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	grasswhistle: {
 		inherit: true,
@@ -421,6 +444,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
+	},
+	sing: {
+		inherit: true,
+		isNonstandard: null,
+		pp: 25,
+		accuracy: 80,
+		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	// lodestone: {
 	// num: 393,
@@ -938,6 +970,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 	},
 	
+	jetpunch: {
+		inherit: true,
+		viable: true,
+	},
 	karatechop: {
 		inherit: true,
 		isNonstandard: null,

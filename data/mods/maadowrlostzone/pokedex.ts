@@ -346,7 +346,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mega",
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 60, atk: 45, def: 140, spa: 120, spd: 150, spe: 90},
-		abilities: {0: "Graviton"},
+		abilities: {0: "G-Force"},
 		heightm: 0.4,
 		weightkg: 40.8,
 		color: "Red",
@@ -822,7 +822,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Bug"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 125, def: 130, spa: 85, spd: 130, spe: 130},
-		abilities: {0: "Adaptability"},
+		abilities: {0: "Gravitational Pull"},
 	//	category: "Ancient",
 		heightm: 13.8,
 		weightkg: 777.7,
@@ -839,10 +839,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Ursilkith-Origin",
 
 		baseSpecies: "Ursilkith",
+		forme: "Origin",
 		types: ["Bug", "Ice"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 125, def: 130, spa: 85, spd: 255, spe: 5},
-		abilities: {0: "Ice Age"},
+		abilities: {0: "Gravitational Pull"},
 	//	category: "Ancient",
 		heightm: 13.8,
 		weightkg: 777.7,
@@ -852,6 +853,41 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		changesFrom: "Ursilkith",
 
 	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	centiskorch: {
+		num: 851,
+		name: "Centiskorch",
+		types: ["Fire", "Bug"],
+		baseStats: {hp: 100, atk: 115, def: 65, spa: 90, spd: 90, spe: 65},
+		abilities: {0: "Flash Fire", 1: "White Smoke", H: "Flame Body"},
+		heightm: 3,
+		weightkg: 120,
+		color: "Red",
+		eggGroups: ["Bug"],
+
+		otherFormes: ["Centiskorch-Mega"],
+		formeOrder: ["Centiskorch", "Centiskorch-Mega"],
+		prevo: "Sizzlipede",
+		evoLevel: 28,
+		canGigantamax: "G-Max Centiferno",
+	},
+	centiskorchmega: {
+		num: 851,
+		name: "Centiskorch-Mega",
+
+		baseSpecies: "Centiskorch",
+		forme: "Mega",
+		types: ["Fire", "Bug"],
+		baseStats: {hp: 100, atk: 155, def: 85, spa: 90, spd: 110, spe: 85},
+		abilities: {0: "Burning Train"},
+		heightm: 4.5,
+		weightkg: 180.0,
+		color: "Red",
+		eggGroups: ["Bug"],
+		requiredItem: "Centiskorchite",
 	},
 	// end
 
@@ -2183,7 +2219,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Rock", "Flying"],
 		gender: "N",
-		baseStats: {hp: 97, atk: 132, def: 140, spa: 35, spd: 86, spe: 80},
+		baseStats: {hp: 97, atk: 132, def: 140, spa: 65, spd: 86, spe: 50},
 		abilities: {0: "Transmutation"},
 	//	category: "Kaiju",
 		heightm: 16.5,
@@ -2234,7 +2270,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mega",
 		types: ["Ground"],
 		baseStats: {hp: 72, atk: 137, def: 155, spa: 75, spd: 85, spe: 86},
-		abilities: {0: "Desert Gales"},
+		abilities: {0: "Split System"},
 		heightm: 5.6,
 		weightkg: 92.1,
 		color: "Green",
@@ -2269,7 +2305,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ground"],
 		baseStats: {hp: 50, atk: 75, def: 85, spa: 20, spd: 30, spe: 40},
-		abilities: {0: "Sand Veil", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grass Pelt", H: "Sand Rush"},
 		heightm: 0.6,
 		weightkg: 12,
 		color: "Yellow",
@@ -2285,7 +2321,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ground"],
 
 		baseStats: {hp: 75, atk: 100, def: 110, spa: 45, spd: 55, spe: 65},
-		abilities: {0: "Sand Veil", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grass Pelt", H: "Sand Rush"},
 		heightm: 1,
 		weightkg: 29.5,
 		color: "Yellow",
@@ -2303,7 +2339,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ground"],
 		
 		baseStats: {hp: 90, atk: 115, def: 125, spa: 60, spd: 70, spe: 80},
-		abilities: {0: "Grassy Surge", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grassy Surge", H: "Sand Rush"},
 		heightm: 1.7,
 		weightkg: 43.5,
 		color: "Yellow",
@@ -2527,7 +2563,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Fighting"],
 		gender: "N",
 		baseStats: {hp: 168, atk: 100, def: 145, spa: 132, spd: 60, spe: 75},
-		abilities: {0: "Gravitational Pull"},
+		abilities: {0: "Cosmic Pull"},
 	//	category: "Cosmic Street",
 		heightm: 15.5,
 		weightkg: 515.0,
@@ -2990,6 +3026,43 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	goodra: {
+		num: 706,
+		name: "Goodra",
+
+		types: ["Dragon"],
+		baseStats: {hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80},
+		abilities: {0: "Sap Sipper", 1: "Hydration", H: "Gooey"},
+		heightm: 2,
+		weightkg: 150.5,
+		color: "Purple",
+		eggGroups: ["Dragon"],
+
+		prevo: "Sliggoo",
+		evoLevel: 50,
+		evoCondition: "during rain",
+		otherFormes: ["Goodra-Mega", "Goodra-Hisui"],
+		formeOrder: ["Goodra", "Goodra-Mega", "Goodra-Hisui"],
+	},
+	goodramega: {
+		num: 706,
+		name: "Goodra-Mega",
+
+		baseSpecies: "Goodra",
+		forme: "Mega",
+		types: ["Dragon"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 150, spd: 180, spe: 90},
+		abilities: {0: "Gooey Essence"},
+		heightm: 2,
+		weightkg: 150.5,
+		color: "Purple",
+		eggGroups: ["Dragon"],
+
+		requiredItem: "Goodrite",
+	},
+	// end
+
+	// start
 	durassat: {
 		num: -1113,
 		name: "Durassat",
@@ -3151,7 +3224,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Crobat",
 
 		types: ["Poison", "Flying"],
-		baseStats: {hp: 80, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
+		baseStats: {hp: 85, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
 		abilities: {0: "Inner Focus", H: "Infiltrator"},
 	//	movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	//	category: "Bat",
@@ -3172,7 +3245,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Crobat",
 		forme: "Mega",
 		types: ["Poison", "Flying"],
-		baseStats: {hp: 80, atk: 120, def: 95, spa: 90, spd: 95, spe: 150},
+		baseStats: {hp: 85, atk: 120, def: 95, spa: 90, spd: 95, spe: 150},
 	//	category: "Bat",
 		abilities: {0: "Vampirism"},
 		heightm: 2.0,
@@ -3470,7 +3543,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ground", "Rock"],
 		gender: "N",
-		baseStats: {hp: 60, atk: 120, def: 60, spa: 120, spd: 60, spe: 60},
+		baseStats: {hp: 60, atk: 60, def: 120, spa: 60, spd: 120, spe: 60},
 		abilities: {0: "Rewind"},
 	//	category: "Passage of Time",
 		heightm: 1.2,
@@ -3488,7 +3561,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Chronosensis",
 		forme: "Alternate",
 		types: ["Ground", "Rock"],
-		baseStats: {hp: 60, atk: 60, def: 120, spa: 60, spd: 120, spe: 60},
+		baseStats: {hp: 60, atk: 120, def: 60, spa: 120, spd: 60, spe: 60},
 		abilities: {0: "Rewind"},
 		heightm: 1.2,
 		weightkg: 60.0,
@@ -3556,14 +3629,30 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	turtonator: {
 		inherit: true,
-		abilities: {0: "Shell Armor", 1: "Anger Shell", H: "Neutralizing Gas"},
+		abilities: {0: "Shell Armor", 1: "White Smoke", H: "Neutralizing Gas"},
+		evos: ["Turtonox"],
+	},
+	turtonox: {
+		num: -1132,
+		name: "Turtonox",
+		types: ["Fire", "Dragon"],
+		baseStats: {hp: 85, atk: 88, def: 145, spa: 101, spd: 95, spe: 31},
+		abilities: {0: "Shell Armor", 1: "Toxic Debris", H: "Neutralizing Gas"},
+		heightm: 2.2,
+		weightkg: 253.8,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+
+		prevo: "Turtonator",
+		evoLevel: 48,
+		//	creator: "BlueRay",
 	},
 	// end
 
 	// start
 	flygon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Tinted Lens"},
+		abilities: {0: "Levitate", 1: "Coordination", H: "Tinted Lens"},
 	},
 	// end
 

@@ -7,6 +7,7 @@ export interface EventMethods {
 	onAfterEachBoost?: (this: Battle, boost: SparseBoostsTable, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onAfterHit?: MoveEventMethods['onAfterHit'];
 	onAfterMega?: (this: Battle, pokemon: Pokemon) => void;
+	onBeforeMega?: (this: Battle, pokemon: Pokemon) => void;
 	onAfterSetStatus?: (this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onAfterSubDamage?: MoveEventMethods['onAfterSubDamage'];
 	onAfterSwitchInSelf?: (this: Battle, pokemon: Pokemon) => void;
@@ -81,6 +82,7 @@ export interface EventMethods {
 	onSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -145,6 +147,7 @@ export interface EventMethods {
 	onFoeDragOut?: (this: Battle, pokemon: Pokemon, source?: Pokemon, move?: ActiveMove) => void;
 	onFoeEatItem?: (this: Battle, item: Item, pokemon: Pokemon) => void;
 	onFoeEffectiveness?: MoveEventMethods['onEffectiveness'];
+	onFoeEmergencyExit?: (this: Battle, target: Pokemon, source: Pokemon) => void;
 	onFoeFaint?: CommonHandlers['VoidEffect'];
 	onFoeFlinch?: ((this: Battle, pokemon: Pokemon) => boolean | void) | boolean;
 	onFoeHit?: MoveEventMethods['onHit'];
@@ -181,6 +184,7 @@ export interface EventMethods {
 	onFoeSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onFoeSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onFoeSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onFoeStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onFoeSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -282,6 +286,7 @@ export interface EventMethods {
 	onSourceSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onSourceSetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onSourceSetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onSourceStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSourceSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -382,6 +387,7 @@ export interface EventMethods {
 	onAnySetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onAnySetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onAnySetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onAnyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAnySwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -548,6 +554,7 @@ export interface PokemonEventMethods extends EventMethods {
 	onAllySetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
+	onAllySetTerrain?: (this: Battle, target: Pokemon, source: Pokemon, terrain: Condition) => boolean | void;
 	onAllySetWeather?: (this: Battle, target: Pokemon, source: Pokemon, weather: Condition) => boolean | void;
 	onAllySideConditionStart?: (this: Battle, target: Pokemon, source: Pokemon, sideCondition: Condition) => void;
 	onAllyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;

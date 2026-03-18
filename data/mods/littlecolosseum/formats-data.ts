@@ -933,7 +933,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	scyther: {
-		tier: "PU",
+		tier: "LC",
 		doublesTier: "NFE",
 		natDexTier: "NFE",
 	},
@@ -5210,7 +5210,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	flittle: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	espathra: {
 		tier: "Uber",

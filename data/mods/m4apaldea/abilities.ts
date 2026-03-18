@@ -226,54 +226,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('ultrasleep')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.source = source;
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['ultrasleep'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
-				return false;
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('endlessdream');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
-			this.field.removePseudoWeather('ultrasleep');
+			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
 		rating: 3,
 		num: -22,
 	},
 	hairtrigger: {
-		onAfterMega(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onStart(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onModifyPriority(priority, source) {
-			if (source.volatiles['hairtrigger']) {
-				source.removeVolatile('hairtrigger');
+		onModifyPriority(priority, pokemon, target, move) {
+			if (pokemon.activeMoveActions < 1) {
 				return priority + 0.1;
 			}
+			return priority;
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
@@ -394,64 +365,24 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	congestion: { //rn it only works with one move at a time; will have to correct that
-		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
-		shortDesc: "Status moves don't effect until the user switches out.",
-		onBeforeMove(source, target, move) {
-			if (
-				move && move.category === 'Status' && source.hasAbility('congestion') &&
-				source.side.addSlotCondition(source, 'congestion')
-			) {
-				Object.assign(source.side.slotConditions[source.position]['congestion'], {
-					source: source,
-					target: null,
-					move: move,
-					position: target.position,
-					side: target.side,
-					moveData: this.dex.moves.get(move),
-				});
-				this.add('-ability', source, 'Congestion');
-				this.add('-message', `${source.name} will cast ${move.name} when it goes!`);
-				source.deductPP(move.id, 1);
-				return null;
-			}
-		},
-		condition: {
-			onResidualOrder: 3,
-			onSwitchOut(target) {
-				this.effectState.target = this.effectState.side.active[this.effectState.position];
-				const data = this.effectState;
-				const move = this.dex.moves.get(data.move);
-				this.add('-ability', this.effectState.source, 'Congestion');
-				if (!data.target) {
-					this.hint(`${move.name} did not hit because there was no target.`);
-					return;
-				}
-
-				this.add('-message', `${this.effectState.source.name}'s ${move.name} took effect!`);
-				data.target.removeVolatile('Endure');
-
-				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-					data.moveData.infiltrates = true;
-				}
-				if (data.source.hasAbility('normalize') && this.gen >= 6) {
-					data.moveData.type = 'Normal';
-				}
-				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
-					data.moveData.stab = 2;
-				}
-				data.moveData.isFutureMove = true;
-				delete data.moveData.flags['contact'];
-				delete data.moveData.flags['protect'];
-
-				if (move.category === 'Status') {
-					this.actions.useMove(move, target, data.target);
-				}
-			},
-		},
+	congestion: {
 		name: "Congestion",
+		shortDesc: "All status moves are delayed until all Congestion users are gone.",
 		rating: 3,
 		num: -27,
+	
+		onUpdate(pokemon) {
+			// Loop over all active Pokémon
+			for (const p of this.getAllActive()) {
+				const slot = p.position;
+				const side = p.side;
+	
+				// Apply the congestionstatus slot condition if not present
+				if (!side.slotConditions[slot]?.congestionstatus) {
+					side.addSlotCondition(p, 'congestionstatus');
+				}
+			}
+		},
 	},
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
@@ -500,23 +431,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -28,
 	},
 	twinheart: {
-		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
+		shortDesc: "Farigiraf-Mega: Applies Power Trick before using a Physical/Special move, and is Normal/Dark before a Physical move, Normal/Psychic before a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Farigiraf' || attacker.transformed) return;
 			if (move.category === 'Status') return;
-			const targetForme = (move.category === 'Special' ? 'Farigiraf-Mega' : 'Farigiraf-Mega-Nocturnal');
-			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
-			const newatk = attacker.storedStats.spa;
-			const newspa = attacker.storedStats.atk;
-			attacker.storedStats.atk = newatk;
-			attacker.storedStats.spa = newspa;
+			const maxOffense = Math.max(attacker.storedStats.atk, attacker.storedStats.spa);
+			const minOffense = Math.max(attacker.storedStats.atk, attacker.storedStats.spa);
+			if (move.category === 'Physical') {
+				attacker.storedStats.atk = maxOffense;
+				attacker.storedStats.spa = minOffense;
+			}
+			if (move.category === 'Special') {
+				attacker.storedStats.atk = minOffense;
+				attacker.storedStats.spa = maxOffense;				
+			}
+			this.add('-ability', attacker, 'Double Spirit');
+			const secondaryType = move.category === 'Physical' ? 'Dark' : 'Psychic'
+			const types = ["Normal", secondaryType]
+			const oldTypes = attacker.getTypes();
+			if (oldTypes.join() === types.join() || !attacker.setType(types)) return;
+			if (!attacker.setType('Normal')) return;
+			this.add('-start', attacker, 'typechange', 'Normal', '[from] ability: Twin Heart');
+			if (!attacker.addType(secondaryType)) return;
+			this.add('-start', attacker, 'typeadd', secondaryType, '[from] ability: Twin Heart');
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Twin Heart",
@@ -560,20 +504,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -31,
 	},
-	agitation: {
+	agitation: { // Thank you BlueRay lol
 		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
 		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
-		onAnyBoost(boost, target, source, effect) {
+		onAnyTryBoost(boost, target, source, effect) {
+			// Prevent the effect if it's a Z-Power move
 			if (effect && effect.id === 'zpower') return;
-			if (!target || !source || target === source || source !== this.effectState.target) return; // doesn't work on itself
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
-				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+	
+			// Ensure that the target and source are valid and not the same
+			if (!target || !source || target === source || source !== this.effectState.target) return;
+	
+			// Iterate through the boost object to modify stat changes
+			for (const stat in boost) {
+				// Type assertion to ensure stat is a key of BoostsTable
+				const boostValue = boost[stat as keyof BoostsTable];
+				if (boostValue !== undefined) {
+					if (boostValue < 0) {
+						boost[stat as keyof BoostsTable] = boostValue - 1; // Exacerbate debuffs
+					} else if (boostValue > 0) {
+						boost[stat as keyof BoostsTable] = boostValue + 1; // Augment buffs
+					}
+				}
 			}
 		},
+		flags: {},
 		name: "Agitation",
-		rating: 3,
+		rating: 4,
 		num: -32,
 	},
 	vengeful: {
@@ -581,7 +537,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters).",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (pokemon.moveLastTurnResult === false) {
+			if (attacker.moveLastTurnResult === false) {
 				this.debug('doubling ', move, ' BP due to previous move failure');
 				return move.basePower * 2;
 			}
@@ -628,49 +584,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	frostaura: {
 		shortDesc: "Turns all Water-type Pokémon into Ice-type Pokémon, and Water-type moves into Ice-type moves until a thawing move is used.",
 		desc: "While this Pokémon is on the field, all Water-type Pokémon become Ice-type Pokémon, and all Water-type moves become Ice-type moves. This effect ends when a thawing move is used.",
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (!target.hasType('Water')) continue;
-				if (!activated) {
-					this.add('-ability', pokemon, 'Frost Aura', 'boost');
-					activated = true;
-				}
-				else {
-					target.addVolatile('frostaura');
-				}
-			}
+		onStart(source) {
+			this.add('-ability', source, 'Frost Aura');
+			this.field.addPseudoWeather('frostaura');
 		},
-		condition: {
-			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Frost', '[from] ability: Frost Aura', '[of] ' + source);
-			},
-			onModifyTypePriority: -1,
-			onModifyType(move, pokemon) {
-				const noModifyType = [
-					'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
-				];
-				if (move.type === 'Water' && !noModifyType.includes(move.id) &&
-					!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-					move.type = 'Ice';
-					move.typeChangerBoosted = this.effect;
-				}
-			},
-			onUpdate(pokemon) {
-				for (const target of this.getAllActive()) {
-					if (!target || target === pokemon) continue;
-					if (target.hasType('Water') && target.isAdjacent(this.effectState.target)) {
-						target.setType(target.getTypes(true).map(type => type === "Water" ? "Ice" : type));
-						this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Frost Aura', '[of] ' + pokemon);
-					}
-				}
-			},
-			onAfterMoveSecondary(target, source, move) {
-				if (move.flags['defrost']) {
-					target.removeVolatile('frostaura');
-				}
-			}
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd(pokemon) {
+			this.field.removePseudoWeather('frostaura');
 		},
 		name: "Frost Aura",
 		rating: 4,
@@ -699,4 +620,230 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -36,
 	},
+	hauntingmelody: {
+		onModifyMove(move, pokemon, target) {
+			console.log("target is " + target);
+			if (move.flags['sound']) {
+				if (target.hasType('Ghost')) return false;
+				if (!target.addType('Ghost')) return false;
+				this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			}
+		},
+		flags: {},
+		name: "Haunting Melody",
+		shortDesc: "The user's sound moves add ghost type to the target.",
+		rating: 1.5,
+		num: -37,
+	},
+	liquidate: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				this.actions.useMove('soak', this.effectState.target);
+			}
+		},
+		flags: {},
+		name: "Liquidate",
+		shortDesc: "If this pokemon is hit by a physical move, use Soak on the opponent.",
+		rating: 1.5,
+		num: -38,
+	},
+	toxicgains: {
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type !== 'Poison') return basePower;
+			const bp = basePower + 20 * pokemon.positiveBoosts();
+			return bp;
+		},
+		flags: {},
+		name: "Toxic Gains",
+		shortDesc: "Poison-type moves gain +20 base power for each stat boost.",
+		rating: 1.5,
+		num: -39,
+	},
+	iceface: {
+		inherit: true,
+		onStart(pokemon) {
+			if (this.field.isWeather(['hail', 'snow']) && (pokemon.species.id === 'eiscuenoice' || pokemon.species.id === 'perrserkermegabusted')) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && (target.species.id === 'eiscue' || target.species.id === 'perrserkermega')) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'perrserkermega')) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'perrserkermega')) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
+				pokemon.formeChange('Eiscue-Noice', this.effect, true);
+			}
+			else if (pokemon.species.id === 'perrserkermega' && this.effectState.busted) {
+				pokemon.formeChange('Perrserker-Mega-Busted', this.effect, true);
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+			else if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'perrserkermegabusted') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Perrserker-Mega', this.effect, true);
+			}
+		},
+		desc: "If this Pokemon is an Eiscue or a Perrserker-Mega, the first physical hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
+		shortDesc: "If Eiscue or Perrserker-Mega, the first physical hit it takes deals 0 damage. Effect is restored in Snow.",
+	},
+	trickysurge: {
+		onStart(source) {
+			this.add('-activate', source, 'ability: Tricky Surge');
+			this.field.addPseudoWeather('magicroom');
+		},
+		flags: {},
+		name: "Tricky Surge",
+		shortDesc: "On switch-in, set Magic Room for 5 turns.",
+		rating: 4,
+		num: -40,
+	},
+	shieldsdown: {
+		inherit: true,
+		onStart(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Minior' && !attacker.species.name.startsWith('Minior-Mega')) || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme !== 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega-Meteor');
+				}
+				else if (pokemon.baseSpecies.baseSpecies === 'Minior' && pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (attacker.species.name.startsWith('Minior-Mega') && pokemon.species.forme === 'Mega-Meteor') {
+					pokemon.formeChange('Minior-Mega');
+				}
+				else if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Shields Down');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if ((target.species.id !== 'miniormeteor' && target.species.id !== 'miniormegameteor') || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Shields Down');
+			return null;
+		},
+	},
+	dustdevil: {
+		desc: "This pokemon's damaging Ground-type moves damage all affected pokemon for 1/10th of their max HP at the end of each turn and heal the user for that much damage. Does not affect Ground-type pokemon.",
+		shortDesc: "This pokemon's damaging Ground-type moves damage all affected pokemon for 1/10th of their max HP at the end of each turn and heal the user for that much damage. Does not affect Ground-type pokemon.",
+		name: "Dust Devil",
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.category === "Status" || move.type !== "Ground" || target.hasType("Ground")) return;
+			target.addVolatile('dustdevil');
+		},
+		condition: {
+			onResidualOrder: 3,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
+			},
+		},
+	},
+   	roaringscream: {
+		desc: "When this Pokémon uses a Sound move, the target(s) will be inflicted with a Torment effect.",
+		shortDesc: "Inflicts Torment effect if the Pokémon uses a Sound move.",
+		onAfterMove(source: Pokemon, target: Pokemon, move: ActiveMove) {
+			if (!move.flags['sound']) return;
+	
+			const applyTorment = (pokemon: Pokemon) => {
+				if (pokemon && !pokemon.hasAbility('soundproof') && !pokemon.volatiles['torment'] && !pokemon.volatiles['stall']) {
+					pokemon.addVolatile('torment');
+					this.add('-start', pokemon, 'Torment', '[from] ability: Buzz');
+				}
+			};
+	
+			switch (move.target) {
+				case 'all':
+					for (const pokemon of this.getAllActive()) {
+						applyTorment(pokemon);
+					}
+					break;
+				case 'allAdjacent':
+					for (const adjacent of this.getAllActive()) {
+						if (adjacent !== source && adjacent.isAdjacent(source)) {
+							applyTorment(adjacent);
+						}
+					}
+					break;
+				case 'allAdjacentFoes':
+					for (const foe of source.foes()) {
+						if (foe.isAdjacent(source)) {
+							applyTorment(foe);
+						}
+					}
+					break;
+				case 'normal':
+					applyTorment(target);
+					break;
+				case 'self':
+					applyTorment(source);
+					break;
+				default:
+					console.log(`Unhandled move target: ${move.target}`); // notifier in case there's a type of Sound move I forgot to handle
+			}
+		},
+		flags: {},
+	    name: "Roaring Scream",
+		rating: 3,
+		num: -5,
+	},		
 };

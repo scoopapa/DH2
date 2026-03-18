@@ -10,7 +10,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (!target.hasAbility('illusion')) return;
+			if (!target.hasAbility(['illusion','afterimage','roughimage'])) return;
 			if (target.species.forme.startsWith('Mega') || target.species.forme.startsWith('Ultra')) {
 				this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 			} else {
@@ -127,7 +127,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (!target.hasAbility(['illusion','roughimage'])) return; // making sure the correct information is given when an Illusion breaks
+			if (!target.hasAbility(['illusion','roughimage','afterimage'])) return; // making sure the correct information is given when an Illusion breaks
 			if (target.isModded) {
 				this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 				if (target.switchedIn) return;
@@ -186,6 +186,16 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				}
 			}
 			this.add('rule', 'OU Terastal Clause: Only Pok\u00E9mon with Tera forms can Terastallize');
+		},
+	},
+	
+	evasionabilitiesclause: {
+		effectType: 'ValidatorRule',
+		name: 'Evasion Abilities Clause',
+		desc: "Bans abilities that boost Evasion under certain weather conditions",
+		banlist: ['Sand Veil', 'Snow Cloak'/*, 'Sand Sword'*/],
+		onBegin() {
+			this.add('rule', 'Evasion Abilities Clause: Evasion abilities are banned');
 		},
 	},
 };

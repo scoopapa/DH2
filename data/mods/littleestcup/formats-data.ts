@@ -3281,7 +3281,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	florges: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	skiddo: {
 		inherit: true,
@@ -4301,7 +4301,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	zamazentacrowned: {
 		inherit: true,
@@ -4325,7 +4325,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zarude: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	regieleki: {
 		inherit: true,

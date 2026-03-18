@@ -62,7 +62,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gengarmega: {
 		inherit: true,
 		types: ["Ghost", "Poison"],
-		baseStats: {hp: 65, atk: 60, def: 105, spa: 155, spd: 105, spe: 110},
+		baseStats: {hp: 60, atk: 65, def: 105, spa: 155, spd: 105, spe: 110},
 		abilities: {0: "Neutralizing Gas"},
 	},
 	aerodactylmega: {
@@ -151,7 +151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gallademega: {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
-		baseStats: {hp: 68, atk: 150, def: 100, spa: 65, spd: 127, spe: 108},
+		baseStats: {hp: 68, atk: 150, def: 100, spa: 75, spd: 127, spe: 98},
 		abilities: {0: "Sharpness"},
 	},
 	ampharosmega: {

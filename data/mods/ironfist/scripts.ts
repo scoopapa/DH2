@@ -1,14 +1,43 @@
+import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['IF'],
+		customTiers: ['Viable', 'Untested', 'Unviable'],
 	},	
 	
 	init() {
-		
+    	for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				this.modData('Learnsets', this.toID(id)).learnset.fishingterrain = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.holdhands = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.mewing = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
+				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
+				if (!this.data.Pokedex[id].types.includes('Water') && !this.data.Pokedex[id].types.includes('Steel') && !this.data.Pokedex[id].baseForme) {
+	                this.modData('Learnsets', this.toID(id)).learnset.fisheater = ["9L1"];
+            	}
+				if (id.diamondhand) {
+					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
+				}
+				if (id.hoenn || id.gen === 3) {
+					this.modData('Learnsets', this.toID(id)).learnset.hoenn = ["9L1"];
+				}
+				if (id.trans) {
+					this.modData('Learnsets', this.toID(id)).learnset.trans = ["9L1"];
+				}
+				if (id.bird) {
+					this.modData('Learnsets', this.toID(id)).learnset.bird = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.justthebirdsthesequel = ["9L1"];
+				}
+				if (id.fish) {
+					this.modData('Learnsets', this.toID(id)).learnset.fish = ["9L1"];
+					this.modData('Learnsets', this.toID(id)).learnset.fishield = ["9L1"];
+				}
+			}
+		}
 	},
 	battle: {
 		runAction(action: Action) {
@@ -24,13 +53,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				this.add('start');
 
-				// Change Zacian/Zamazenta into their Crowned formes
+				// Change Circall into Wario
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
-					if (pokemon.species.id === 'zacian' && pokemon.item === 'rustedsword') {
-						rawSpecies = this.dex.species.get('Zacian-Crowned');
-					} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
-						rawSpecies = this.dex.species.get('Zamazenta-Crowned');
+					console.log(`${pokemon.species.id}\n
+								${pokemon.baseMoves.indexOf('stankyleg')}\n
+								${pokemon.baseMoves.indexOf('youwantfun')}\n
+								${pokemon.baseMoves.indexOf('wariopicrosspuzzle4g')}\n
+								${pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh')}\n
+								${pokemon.hasAbility('bloodlinegreatestachievement')}\n`);
+					if (pokemon.species.id === 'circall' && 
+						pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
+						pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
+						pokemon.baseMoves.indexOf('wariopicrosspuzzle4g') >= 0 &&
+						pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
+						pokemon.hasAbility('bloodlinegreatestachievement')) {
+						rawSpecies = this.dex.species.get('Wario-Forbidden-One');
 					}
 					if (!rawSpecies) continue;
 					const species = pokemon.setSpecies(rawSpecies);
@@ -40,25 +78,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 					pokemon.setAbility(species.abilities['0'], null, true);
 					pokemon.baseAbility = pokemon.ability;
-
-					const behemothMove: {[k: string]: string} = {
-						'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
-					};
-					const ironHead = pokemon.baseMoves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						const move = this.dex.moves.get(behemothMove[rawSpecies.name]);
-						pokemon.baseMoveSlots[ironHead] = {
-							move: move.name,
-							id: move.id,
-							pp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-							maxpp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-							target: move.target,
-							disabled: false,
-							disabledSource: '',
-							used: false,
-						};
-						pokemon.moveSlots = pokemon.baseMoveSlots.slice();
-					}
 				}
 
 				if (this.format.onBattleStart) this.format.onBattleStart.call(this);
@@ -329,7 +348,51 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			return false;
-		}
+		},
+		heal(damage: number, target?: Pokemon, source: Pokemon | null = null, effect: 'drain' | Effect | null = null) {
+			if (this.event) {
+				target ||= this.event.target;
+				source ||= this.event.source;
+				effect ||= this.effect;
+			}
+			if (effect === 'drain') effect = this.dex.conditions.getByID(effect as ID);
+			if (damage && damage <= 1) damage = 1;
+			damage = this.trunc(damage);
+			// for things like Liquid Ooze, the Heal event still happens when nothing is healed.
+			damage = this.runEvent('TryHeal', target, source, effect, damage);
+			if (!damage) return damage;
+			if (!target?.hp) return false;
+			if (!target.isActive) return false;
+			if (target.hp >= target.maxhp) return false;
+			const finalDamage = target.heal(damage, source, effect);
+			switch (effect?.id) {
+			case 'leechseed':
+			case 'rest':
+				this.add('-heal', target, target.getHealth, '[silent]');
+				break;
+			case 'drain':
+				this.add('-heal', target, target.getHealth, '[from] drain', '[of] ' + source);
+				break;
+			case 'wish':
+				break;
+			case 'zpower':
+				this.add('-heal', target, target.getHealth, '[zeffect]');
+				break;
+			default:
+				if (!effect) break;
+				if (effect.effectType === 'Move') {
+					this.add('-heal', target, target.getHealth);
+				} else if (source && source !== target) {
+					this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname, '[of] ' + source);
+				} else {
+					this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname);
+				}
+				break;
+			}
+			this.runEvent('Heal', target, source, effect, finalDamage);
+			target.addVolatile('healed');
+			return finalDamage;
+		},
 	},
 	queue: {
 		resolveAction(action: ActionChoice, midTurn = false): Action[] {
@@ -445,13 +508,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	actions: {
 		canTerastallize(pokemon: Pokemon) {
-			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || pokemon.volatiles['bigbutton']) {
 				return null;
 			}
 			return pokemon.teraType;
 		},
 
 		terastallize(pokemon: Pokemon) {
+			if (pokemon.volatiles['bigbutton']) return;
 			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
@@ -461,6 +525,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (pokemon.set.ability === 'I Love Fishing') {
 				canTera = true;
 				type = 'Water';
+			}
+			if (pokemon.set.ability === 'Racer\'s Spirit') {
+				canTera = true;
+				type = 'Steel';
 			}
 			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
@@ -486,9 +554,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 				}
 				this.battle.runEvent('AfterTerastallization', pokemon);
-			} else {
-				if(!pokemon.volatiles['bigbutton']) pokemon.addVolatile('bigbutton');
-			}
+			} else pokemon.addVolatile('bigbutton');
 		},
 	
 		modifyDamage(
@@ -505,6 +571,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const spreadModifier = move.spreadModifier || (this.battle.gameType === 'freeforall' ? 0.5 : 0.75);
 				this.battle.debug('Spread modifier: ' + spreadModifier);
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
+				if (move.multihitType === 'bestfriends') {
+					// Best Friends modifier
+					this.battle.debug("Best Friends modifier: 0.33");
+					baseDamage = this.battle.modify(baseDamage, 0.33);
+				}
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
 				const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
@@ -512,8 +583,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				baseDamage = this.battle.modify(baseDamage, bondModifier);
 			} else if (move.multihitType === 'bestfriends') {
 				// Best Friends modifier
-				this.battle.debug("Best Friends modifier: 0.49");
-				baseDamage = this.battle.modify(baseDamage, 0.49);
+				this.battle.debug("Best Friends modifier: 0.33");
+				baseDamage = this.battle.modify(baseDamage, 0.33);
 			}
 
 			// weather modifier
@@ -737,6 +808,199 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			if (atLeastOne && !mustStruggle) return zMoves;
 		},
+	
+		hitStepMoveHitLoop(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) { // Temporary name
+			let damage: (number | boolean | undefined)[] = [];
+			for (const i of targets.keys()) {
+				damage[i] = 0;
+			}
+			move.totalDamage = 0;
+			pokemon.lastDamage = 0;
+			let targetHits = move.multihit || 1;
+			if (Array.isArray(targetHits)) {
+				// yes, it's hardcoded... meh
+				if (targetHits[0] === 2 && targetHits[1] === 5) {
+					if (this.battle.gen >= 5) {
+						// 35-35-15-15 out of 100 for 2-3-4-5 hits
+						targetHits = this.battle.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
+						if (targetHits < 4 && pokemon.hasItem('loadeddice')) {
+							targetHits = 5 - this.battle.random(2);
+						}
+					} else {
+						targetHits = this.battle.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+					}
+				} else {
+					targetHits = this.battle.random(targetHits[0], targetHits[1] + 1);
+				}
+			}
+			if (targetHits === 10 && pokemon.hasItem('loadeddice')) targetHits -= this.battle.random(7);
+			targetHits = Math.floor(targetHits);
+			let nullDamage = true;
+			let moveDamage: (number | boolean | undefined)[] = [];
+			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+
+			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
+			let hit: number;
+			for (hit = 1; hit <= targetHits; hit++) {
+				if (damage.includes(false)) break;
+				if (hit > 1 && pokemon.status === 'slp' && (!isSleepUsable || this.battle.gen === 4)) break;
+				if (targets.every(target => !target?.hp)) break;
+				move.hit = hit;
+				if (move.smartTarget && targets.length > 1) {
+					targetsCopy = [targets[hit - 1]];
+					damage = [damage[hit - 1]];
+				} else {
+					targetsCopy = targets.slice(0);
+				}
+				const target = targetsCopy[0]; // some relevant-to-single-target-moves-only things are hardcoded
+				if (target && typeof move.smartTarget === 'boolean') {
+					if (hit > 1) {
+						this.battle.addMove('-anim', pokemon, move.name, target);
+					} else {
+						this.battle.retargetLastMove(target);
+					}
+				}
+
+				// like this (Triple Kick)
+				if (target && move.multiaccuracy && hit > 1) {
+					let accuracy = move.accuracy;
+					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+					if (accuracy !== true) {
+						if (!move.ignoreAccuracy) {
+							const boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+							const boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
+							if (boost > 0) {
+								accuracy *= boostTable[boost];
+							} else {
+								accuracy /= boostTable[-boost];
+							}
+						}
+						if (!move.ignoreEvasion) {
+							const boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+							const boost = this.battle.clampIntRange(boosts['evasion'], -6, 6);
+							if (boost > 0) {
+								accuracy /= boostTable[boost];
+							} else if (boost < 0) {
+								accuracy *= boostTable[-boost];
+							}
+						}
+					}
+					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+					if (!move.alwaysHit) {
+						accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
+						if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) break;
+					}
+				}
+
+				const moveData = move;
+				if (!moveData.flags) moveData.flags = {};
+
+				let moveDamageThisHit;
+				// Modifies targetsCopy (which is why it's a copy)
+				[moveDamageThisHit, targetsCopy] = this.spreadMoveHit(targetsCopy, pokemon, move, moveData);
+				// When Dragon Darts targets two different pokemon, targetsCopy is a length 1 array each hit
+				// so spreadMoveHit returns a length 1 damage array
+				if (move.smartTarget) {
+					moveDamage.push(...moveDamageThisHit);
+				} else {
+					moveDamage = moveDamageThisHit;
+				}
+
+				if (!moveDamage.some(val => val !== false)) break;
+				nullDamage = false;
+
+				for (const [i, md] of moveDamage.entries()) {
+					if (move.smartTarget && i !== hit - 1) continue;
+					// Damage from each hit is individually counted for the
+					// purposes of Counter, Metal Burst, and Mirror Coat.
+					damage[i] = md === true || !md ? 0 : md;
+					// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
+					move.totalDamage += damage[i] as number;
+				}
+				if (move.mindBlownRecoil) {
+					const hpBeforeRecoil = pokemon.hp;
+					this.battle.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get(move.id), true);
+					move.mindBlownRecoil = false;
+					if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+						this.battle.runEvent('EmergencyExit', pokemon, pokemon);
+					}
+				}
+				this.battle.eachEvent('Update');
+				if (!move.flags['futuremove'] && !pokemon.hp && targets.length === 1) {
+					hit++; // report the correct number of hits for multihit moves
+					break;
+				}
+			}
+			// hit is 1 higher than the actual hit count
+			if (hit === 1) return damage.fill(false);
+			if (nullDamage) damage.fill(false);
+			this.battle.faintMessages(false, false, !pokemon.hp);
+			if (move.multihit && typeof move.smartTarget !== 'boolean') {
+				this.battle.add('-hitcount', targets[0], hit - 1);
+			}
+
+			if ((move.recoil || move.id === 'chloroblast') && move.totalDamage) {
+				const hpBeforeRecoil = pokemon.hp;
+				this.battle.damage(this.calcRecoilDamage(move.totalDamage, move, pokemon), pokemon, pokemon, 'recoil');
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.battle.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+
+			if (move.struggleRecoil) {
+				const hpBeforeRecoil = pokemon.hp;
+				let recoilDamage;
+				if (this.dex.gen >= 5) {
+					recoilDamage = this.battle.clampIntRange(Math.round(pokemon.baseMaxhp / 4), 1);
+				} else {
+					recoilDamage = this.battle.clampIntRange(this.battle.trunc(pokemon.maxhp / 4), 1);
+				}
+				this.battle.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.battle.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+
+			// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
+			if (move.smartTarget) {
+				targetsCopy = targets.slice(0);
+			}
+
+			for (const [i, target] of targetsCopy.entries()) {
+				if (target && pokemon !== target) {
+					target.gotAttacked(move, moveDamage[i] as number | false | undefined, pokemon);
+					if (typeof moveDamage[i] === 'number') {
+						target.timesAttacked += move.smartTarget ? 1 : hit - 1;
+					}
+				}
+			}
+
+			if (move.ohko && !targets[0].hp) this.battle.add('-ohko');
+
+			if (!damage.some(val => !!val || val === 0)) return damage;
+
+			this.battle.eachEvent('Update');
+
+			this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
+
+			if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
+				for (const [i, d] of damage.entries()) {
+					// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
+					// The previous check was for `move.multihit`, but that fails for Dragon Darts
+					const curDamage = targets.length === 1 ? move.totalDamage : d;
+					if (typeof curDamage === 'number' && targets[i].hp) {
+						const targetHPBeforeDamage = (targets[i].hurtThisTurn || 0) + curDamage;
+						if (targets[i].hp <= targets[i].maxhp / 2 && targetHPBeforeDamage > targets[i].maxhp / 2) {
+							this.battle.runEvent('EmergencyExit', targets[i], pokemon);
+						}
+					}
+				}
+			}
+
+			return damage;
+		}
+	
 	},
 	side: {
 		//inherit: true,
@@ -964,23 +1228,59 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addFishingTokens(amount: number) {
 			if (amount === 0 || Number.isNaN(amount)) return false;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
-			if(this.battle.field.isTerrain('fishingterrain')) amount *= 2;
 			this.fishingTokens += amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
 		removeFishingTokens(amount: number) {
-			if (amount === 0 || Number.isNaN(amount)) return false;
 			if (this.fishingTokens === undefined) this.fishingTokens = 0;
-			if (amount > this.fishingTokens) {
-				//this.add('-message', `There weren't enough fishing tokens on the field!`);
-				return false;
-			}
+			if (amount === 0 || Number.isNaN(amount) || amount > this.fishingTokens) return false;
 			this.fishingTokens -= amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} removed from ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
+			if (this.battle.field.isWeather('acidrain')) this.removeFishingToken();
+			return true;
+		},
+		removeFishingToken() {
+			if (this.fishingTokens === undefined) this.fishingTokens = 0;
+			if (this.fishingTokens < 1) return false;
+			this.fishingTokens -= 1;
+			this.battle.add('-message', `1 fishing token was removed from ${this.name}'s side!`);
+			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
+			return true;
+		},
+		addSideCondition(
+		status: string | Condition, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null
+		): boolean {
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (source === 'debug') source = this.active[0];
+			if (!source) throw new Error(`setting sidecond without a source`);
+			if (!source.getSlot) source = (source as any as Side).active[0];
+
+			status = this.battle.dex.conditions.get(status);
+			if (this.sideConditions[status.id]) {
+				if (!(status as any).onSideRestart) return false;
+				return this.battle.singleEvent('SideRestart', status, this.sideConditions[status.id], this, source, sourceEffect);
+			}
+			this.sideConditions[status.id] = {
+				id: status.id,
+				target: this,
+				source,
+				sourceSlot: source.getSlot(),
+				duration: status.duration,
+			};
+			if (status.durationCallback) {
+				this.sideConditions[status.id].duration =
+					status.durationCallback.call(this.battle, this.active[0], source, sourceEffect);
+			}
+			if (source.hasAbility('unitedparty') && status.duration && source.copen) this.sideConditions[status.id].duration += (status.id === 'tailwind') ? Math.floor(source.copen / 2) : source.copen; 
+			if (!this.battle.singleEvent('SideStart', status, this.sideConditions[status.id], this, source, sourceEffect)) {
+				delete this.sideConditions[status.id];
+				return false;
+			}
+			this.battle.runEvent('SideConditionStart', source, source, status);
 			return true;
 		},
 	},
@@ -1007,6 +1307,125 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
+		},
+	},
+	field: {
+		inherit: true,
+		setWeather(status: string | Condition, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+			console.log(status);
+			status = this.battle.dex.conditions.get(status);
+			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (source === 'debug') source = this.battle.sides[0].active[0];
+
+			if (this.weather === status.id) {
+				if (sourceEffect && sourceEffect.effectType === 'Ability') {
+					if (this.battle.gen > 5 || this.weatherState.duration === 0) {
+						return false;
+					}
+				} else if (this.battle.gen > 2 || status.id === 'sandstorm') {
+					return false;
+				}
+			}
+			if (source) {
+				const result = this.battle.runEvent('SetWeather', source, source, status);
+				if (!result) {
+					if (result === false) {
+						if ((sourceEffect as Move)?.weather) {
+							this.battle.add('-fail', source, sourceEffect, '[from] ' + this.weather);
+						} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+							this.battle.add('-ability', source, sourceEffect, '[from] ' + this.weather, '[fail]');
+						}
+					}
+					return null;
+				}
+			}
+			const prevWeather = this.weather;
+			const prevWeatherState = this.weatherState;
+			this.weather = status.id;
+			this.weatherState = {id: status.id};
+			if (source) {
+				this.weatherState.source = source;
+				this.weatherState.sourceSlot = source.getSlot();
+				console.log(this.effectState.copen);
+				if (source.hasAbility('unitedparty') && status.duration && source.copen) status.duration += source.copen; 
+			}
+			if (status.duration) {
+				this.weatherState.duration = status.duration;
+			}
+			if (status.durationCallback) {
+				if (!source) throw new Error(`setting weather without a source`);
+				this.weatherState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+			}
+			if (!this.battle.singleEvent('FieldStart', status, this.weatherState, this, source, sourceEffect)) {
+				this.weather = prevWeather;
+				this.weatherState = prevWeatherState;
+				return false;
+			}
+			this.battle.eachEvent('WeatherChange', sourceEffect);
+			return true;
+		},
+		setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+			console.log(status);
+			status = this.battle.dex.conditions.get(status);
+			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (source === 'debug') source = this.battle.sides[0].active[0];
+			if (!source) throw new Error(`setting terrain without a source`);
+
+			if (this.terrain === status.id) return false;
+			const prevTerrain = this.terrain;
+			const prevTerrainState = this.terrainState;
+			this.terrain = status.id;
+			this.terrainState = {
+				id: status.id,
+				source,
+				sourceSlot: source.getSlot(),
+				duration: status.duration,
+			};
+			if (status.durationCallback) {
+				this.terrainState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+			}
+			if (source.hasAbility('unitedparty') && status.duration && this.effectState.copen) this.terrainState.duration += this.effectState.copen; 
+			if (!this.battle.singleEvent('FieldStart', status, this.terrainState, this, source, sourceEffect)) {
+				this.terrain = prevTerrain;
+				this.terrainState = prevTerrainState;
+				return false;
+			}
+			this.battle.eachEvent('TerrainChange', sourceEffect);
+			return true;
+		},
+		addPseudoWeather(
+		status: string | Condition,
+		source: Pokemon | 'debug' | null = null,
+		sourceEffect: Effect | null = null
+		): boolean {
+			console.log(status);
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (source === 'debug') source = this.battle.sides[0].active[0];
+			status = this.battle.dex.conditions.get(status);
+
+			let state = this.pseudoWeather[status.id];
+			if (state) {
+				if (!(status as any).onFieldRestart) return false;
+				return this.battle.singleEvent('FieldRestart', status, state, this, source, sourceEffect);
+			}
+			state = this.pseudoWeather[status.id] = {
+				id: status.id,
+				source,
+				sourceSlot: source?.getSlot(),
+				duration: status.duration,
+			};
+			if (status.durationCallback) {
+				if (!source) throw new Error(`setting fieldcond without a source`);
+				state.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+			}
+			if (!this.battle.singleEvent('FieldStart', status, state, this, source, sourceEffect)) {
+				delete this.pseudoWeather[status.id];
+				return false;
+			}
+			this.battle.runEvent('PseudoWeatherChange', source, source, status);
+			return true;
 		},
 	},
 };

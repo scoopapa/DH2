@@ -1983,40 +1983,51 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'Curse System',
 		noCopy: true,
 		onSourceDamagingHit(damage, target, source, move) {
-			const isMultihit = move.multihit; // Check if the move is multihit
-			const hasParentalBond = source.hasAbility('parentalbond'); // Check for Parental Bond
-	
+			const isMultihit = move.multihit;
+			const hasParentalBond = source.hasAbility('parentalbond');
+			
 			if (target && !target.fainted && !target.hasType(['Ghost', 'Dark']) && move.category !== 'Status' && !target.volatiles['lzstartersystem']) {
-				if (isMultihit) {
-					// Only damage for the first hit
-					if (move.hit === 1) { // Check if this is the first hit
-						const damage = Math.floor(target.maxhp / 8);
-						this.damage(damage, target, source);
-						this.add('-message', `${target.name} got its life force drained!`);
-					}
-					return; // Stop additional damage from subsequent hits
-				}
-				if (!isMultihit) {
-					if (hasParentalBond) {
-						// Only damage for the first hit if the source has Parental Bond
-						if (move.hit === 1) { // Check if this is the first hit
-						const damage = Math.floor(target.maxhp / 8);
-						this.damage(damage, target, source);
-						this.add('-message', `${target.name} got its life force drained!`);
-						}
+				let curseDamage = 0;
+		
+				const applyCurseDamage = () => {
+					// curseDamage = Math.floor(target.maxhp / 8);
+
+					// Start: Balance Approach
+					// Check if source's HP is at or below 50%
+					if (source.hp <= source.maxhp / 2) {
+						curseDamage = Math.floor(target.maxhp / 8); // 1/8 damage
 					} else {
-						// Proceed as usual if the source does not have Parental Bond
-						const damage = Math.floor(target.maxhp / 8);
-						this.damage(damage, target, source);
-						this.add('-message', `${target.name} got its life force drained!`);
+						curseDamage = Math.floor(target.maxhp / 16); // 1/16 damage
 					}
-				}
-				/*const damage = Math.floor(target.maxhp / 8);
-				this.damage(damage, target, source);
-				this.add('-message', `${target.name} got its life force drained!`);*/
-				if (source.hp < source.maxhp) {
-					const healAmount = Math.min(damage, source.maxhp - source.hp);
-					this.heal(healAmount, source);
+					// End: Balance Approach
+					
+					if (!target.fainted) {  // Check if target is not fainted before applying damage
+						const targetHPBeforeDamage = target.hp;
+						this.damage(curseDamage, target, source);
+						const actualDamage = targetHPBeforeDamage - target.hp;
+						
+						if (actualDamage > 0) {  // Only proceed if damage was actually dealt
+							this.add('-message', `${target.name} got its life force drained!`);
+							
+							// Move healing logic inside this block
+							if (source.hp < source.maxhp) {
+								const healAmount = Math.min(actualDamage, source.maxhp - source.hp);
+								this.heal(healAmount, source);
+							}
+						}
+					}
+				};
+		
+				if (isMultihit) {
+					if (move.hit === 1) {
+						applyCurseDamage();
+					}
+				} else if (hasParentalBond) {
+					if (move.hit === 1) {
+						applyCurseDamage();
+					}
+				} else {
+					applyCurseDamage();
 				}
 			}
 		},
@@ -2989,6 +3000,25 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			source.removeVolatile('rolloutstorage');
 			return bp;
+		},
+	},
+	endlessdream: { 
+		name: "Endless Dream",
+		effectType: 'PseudoWeather',
+		duration: 0,
+		onFieldStart(field, source, effect) {
+			this.add('-pseudoweather', 'EndlessDream', '[of] ' + source);
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
+			if ((effect as Move)?.status || effect?.id === 'yawn') {
+				this.add('-fail', target, '[from] Endless Dream');
+			}
+			return false;
+		},
+		onResidualOrder: 23,
+		onEnd() {
+			this.add('-fieldend', 'none');
 		},
 	},
 };

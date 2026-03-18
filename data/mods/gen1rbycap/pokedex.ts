@@ -1,4 +1,17 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	spriguin: {
+		num: 3000,
+		name: "Spriguin",
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 80, atk: 60, def: 40, spa: 75, spd: 75, spe: 40},
+		abilities: {0: "No Ability"},
+		heightm: 0.7,
+		weightkg: 31,
+		color: "Green",
+		evos: ["Pineguin"],
+		eggGroups: ["Water 1", "Grass"],
+		gen: 1,
+	},
 	pineguin: {
 		num: 2000,
 		name: "Pineguin",
@@ -8,6 +21,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 3.2,
 		weightkg: 106,
 		color: "Green",
+		prevo: "Spriguin",
+		evoLevel: 29,
 		eggGroups: ["Water 1", "Grass"],
 		gen: 1,
 	},
@@ -69,6 +84,61 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 210,
 		color: "Blue",
 		eggGroups: ["Bug"],
+		gen: 1,
+	},
+	spariel: {
+		num: 3007,
+		name: "Spariel",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 58, atk: 61, def: 44, spa: 61, spd: 61, spe: 52},
+		abilities: {0: "No Ability"},
+		heightm: 0.1, // placeholder
+		weightkg: 0.1, // placeholder
+		color: "Purple",
+		evos: ["Sparophim"],
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
+	sparophim: {
+		num: 2006,
+		name: "Sparophim",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 97, atk: 98, def: 77, spa: 98, spd: 98, spe: 88},
+		abilities: {0: "No Ability"},
+		heightm: 0.1, // placeholder
+		weightkg: 0.1, // placeholder
+		color: "Purple",
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
+	doduo: {
+		inherit: true,
+		evos: ["Dodrio", "Roaduo"],
+	},
+	roaduo: {
+		num: 2007,
+		name: "Roaduo",
+		types: ["Ground", "Flying"],
+		baseStats: {hp: 75, atk: 100, def: 100, spa: 50, spd: 50, spe: 75},
+		abilities: {0: "No Ability"},
+		heightm: 1.4, // placeholder
+		weightkg: 87, // placeholder
+		color: "Brown",
+		prevo: "Doduo",
+		evoType: "trade",
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
+	glacienant: {
+		num: 2008,
+		name: "Glacienant",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 80, atk: 134, def: 65, spa: 116, spd: 116, spe: 105},
+		abilities: {0: "No Ability"},
+		heightm: 1.2,
+		weightkg: 0.7,
+		color: "Purple",
+		eggGroups: ["Undiscovered"],
 		gen: 1,
 	},
 };

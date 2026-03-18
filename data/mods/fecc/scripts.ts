@@ -345,6 +345,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({spe: 2}, pokemon);
 					}
+					if (pokemon.hasAbility('coinflipmechanics')) {
+						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Aw dang it`);
+					}
+					if (target.hasAbility('coinflipmechanics')) {
+						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|Hey, ${pokemon.side.name}, did you know 99% of gamblers quit right before hitting it big?`);
+					}
 					if (target.hasAbility('swallowswallow')) {
 						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|@${pokemon.name}, sorry, your vote did not follow the format - try again`);
 					}
@@ -437,6 +443,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return false;
 			}
 			return true;
+		},
+		hasAbility(ability) {
+			if (this.ignoringAbility()) return false;
+			if (Array.isArray(ability)) return ability.some(abil => this.hasAbility(abil));
+			const abilityid = this.battle.toID(ability);
+			return this.ability === abilityid || !!this.volatiles['ability:' + abilityid];
+		},
+		getWorstStat(unboosted?: boolean, unmodified?: boolean): StatIDExceptHP {
+			let statName: StatIDExceptHP = 'atk';
+			let worstStat = 9999;
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			for (const i of stats) {
+				if (this.getStat(i, unboosted, unmodified) < worstStat) {
+					statName = i;
+					worstStat = this.getStat(i, unboosted, unmodified);
+				}
+			}
+
+			return statName;
 		}
 	},
 };

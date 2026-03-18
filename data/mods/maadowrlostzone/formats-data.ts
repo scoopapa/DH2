@@ -316,6 +316,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Illegal",
 	},
 	turtonator: {
+		tier: "LZ NFE",
+		doublesTier: "LZ NFE",
+	},
+	turtonox: {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
@@ -323,9 +327,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ NFE",
 		doublesTier: "LZ NFE",
 	},
-    centiskorch: {
+   centiskorch: {
 		tier: "LZ",
 		doublesTier: "LZ",
+	},
+	centiskorchmega: {
+		tier: "Mega",
+		doublesTier: "Mega",
 	},
 	piahchi0: {
 		tier: "LZ NFE",
@@ -1274,6 +1282,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	goodra: {
 		tier: "LZ",
 		doublesTier: "LZ",
+	},
+	goodramega: {
+		tier: "Mega",
+		doublesTier: "Mega",
 	},
 	cyclizar: {
 		tier: "LZ",

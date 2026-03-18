@@ -1,5 +1,5 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
-	wishingstone: {
+	wishingstone: { 
 		name: "Wishing Stone",
 		spritenum: 22,
 		onTakeItem: false,

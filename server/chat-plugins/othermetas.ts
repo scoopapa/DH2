@@ -942,4 +942,97 @@ export const commands: Chat.ChatCommands = {
 	pokemovehelp: [
 		`/pokemove <Pok\u00e9mon> - Shows the Pokemove data for <Pok\u00e9mon>.`,
 	],
+
+	shiny: 'shinymons',
+	shinymons(target, room, user) {
+		const args = target.split(',');
+		if (!toID(args[0])) return this.parse('/help shiny');
+		this.runBroadcast();
+		const dex = Dex.dexes['shinymons'];
+
+		let buffer = '';
+		const baseSpecies = Utils.deepClone(dex.species.get(args[0]));
+		const species = Utils.deepClone(dex.species.get(args[0] + "shiny"));
+		let details: { [k: string]: string } = {};
+
+		if (!baseSpecies.exists || baseSpecies.gen > dex.gen) {
+			const monName = species.gen > dex.gen ? species.name : args[0].trim();
+			const additionalReason = species.gen > dex.gen ? ` in Generation ${dex.gen}` : ``;
+			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' not found${additionalReason}.`);
+		}
+		if (!species.exists) {
+			const monName = species.gen > dex.gen ? species.name : args[0].trim();
+			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' does not have a Shiny form.`);
+		}
+		let weighthit = 20;
+		if (species.weighthg >= 2000) {
+			weighthit = 120;
+		} else if (species.weighthg >= 1000) {
+			weighthit = 100;
+		} else if (species.weighthg >= 500) {
+			weighthit = 80;
+		} else if (species.weighthg >= 250) {
+			weighthit = 60;
+		} else if (species.weighthg >= 100) {
+			weighthit = 40;
+		}
+		details = {
+			"Dex#": String(species.num),
+			Gen: String(species.gen) || 'CAP',
+			Height: `${species.heightm} m`,
+		};
+		details["Weight"] = `${species.weighthg / 10} kg <em>(${weighthit} BP)</em>`;
+		const gmaxMove = species.canGigantamax || dex.species.get(species.changesFrom).canGigantamax;
+		if (gmaxMove && dex.gen === 8) details["G-Max Move"] = gmaxMove;
+		if (species.color && dex.gen >= 5) details["Dex Colour"] = species.color;
+		if (species.eggGroups && dex.gen >= 2) details["Egg Group(s)"] = species.eggGroups.join(", ");
+		const evos: string[] = [];
+		for (const evoName of species.evos) {
+			const evo = dex.species.get(evoName);
+			if (evo.gen <= dex.gen) {
+				const condition = evo.evoCondition ? ` ${evo.evoCondition}` : ``;
+				switch (evo.evoType) {
+				case 'levelExtra':
+					evos.push(`${evo.name}-Shiny (level-up${condition})`);
+					break;
+				case 'levelFriendship':
+					evos.push(`${evo.name}-Shiny (level-up with high Friendship${condition})`);
+					break;
+				case 'levelHold':
+					evos.push(`${evo.name}-Shiny (level-up holding ${evo.evoItem}${condition})`);
+					break;
+				case 'useItem':
+					evos.push(`${evo.name}-Shiny (${evo.evoItem})`);
+					break;
+				case 'levelMove':
+					evos.push(`${evo.name}-Shiny (level-up with ${evo.evoMove}${condition})`);
+					break;
+				case 'other':
+					evos.push(`${evo.name}-Shiny (${evo.evoCondition})`);
+					break;
+				case 'trade':
+					evos.push(`${evo.name}-Shiny (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
+					break;
+				default:
+					evos.push(`${evo.name}-Shiny (${evo.evoLevel}${condition})`);
+				}
+			}
+		}
+		if (baseSpecies.prevo) {
+			details["Pre-Evolution"] = baseSpecies.prevo + "-Shiny";
+		}
+		if (!evos.length) {
+			details[`<font color="#686868">Does Not Evolve</font>`] = "";
+		} else {
+			details["Evolution"] = evos.join(", ");
+		}
+
+		buffer += `|raw|${Chat.getDataPokemonHTML(species, dex.gen)}\n`;
+		buffer += `|raw|<font size="1">${Object.entries(details).map(([detail, value]) => (
+			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`)).join("&nbsp;|&ThickSpace;")}</font>\n`;
+		this.sendReply(buffer);
+	},
+	'shinymonshelp': [
+		`/shiny OR /shinymons <pokemon>[, gen] - Shows the Shiny form of a Pokémon in Shinymons.`,
+	],
 };

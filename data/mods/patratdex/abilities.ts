@@ -159,4 +159,44 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 9007,
 	},
+	superconductor: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Electric') return priority + 1;
+		},
+		flags: {},
+		name: "Super Conductor",
+		shortDesc: "Electric moves: +1 priority.",
+		rating: 1.5,
+		num: 9008,
+	},
+	wintercoat: {
+  		onSourceModifyAtkPriority: 6,
+  		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Winter Coat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Winter Coat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Winter Coat');
+				pokemon.cureStatus();
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'frz') return false;
+		},
+		flags: { breakable: 1 },
+		name: "Winter Coat",
+		shortDesc: "Ice-type moves used against this Pokemon deal half damage; freeze immunity.",
+		rating: 3.5,
+		num: 9009,
+	},
 };

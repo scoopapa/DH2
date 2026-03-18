@@ -975,7 +975,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 631,
 		onTakeItem: false,
 		num: -1043,
-		desc: "Normal Pokémon on user's side receive halfed indirect damage.",
+		desc: "Normal Pokémon on user's side receive no indirect damage.",
 		 // Check if the item can be activated
 		onUpdate(pokemon) {
 			if (!pokemon.side.sideConditions['normalengravingeffect']) {
@@ -998,7 +998,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 					pokemon.side.addSideCondition('normalengravingeffect');
 					this.add('-sidestart', pokemon.side, 'Normal Engraving');
 					this.add('-anim', pokemon, "Flash");
-					this.add('-message', `The Normal Engraving has been activated on ${pokemon.side.name}'s side! Normal-type Pokémon receive halfed indirect damage.`);
+					this.add('-message', `The Normal Engraving has been activated on ${pokemon.side.name}'s side! Normal-type Pokémon receive no indirect damage.`);
 				}
 			}
 		},

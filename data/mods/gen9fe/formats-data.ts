@@ -176,11 +176,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEOU",
 		doublesTier: "DOU",
 	},
-	lashiram: {
+	aggram: {
 		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["blueflare", "earthpower", "roost", "stealthrock", "flareblitz", "toxic"],
 		randomBattleLevel: 80,
+	},
+	aggrammega: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["blueflare", "earthpower", "roost", "stealthrock", "flareblitz", "toxic"],
+		randomBattleLevel: 75,
+		requiredItem: "Aggronite",
 	},
 	garpyuku: {
 		tier: "FEOU",
@@ -639,7 +646,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	magnegiri: {
-		tier: "FEUUBL",
+		tier: "FEUU",
 		doublesTier: "DOU",
 	},
 	celeblim: {
@@ -707,7 +714,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	aerodirgemega: {
-		tier: "FEUUBL",
+		tier: "FEUU",
 		requiredItem: "Aerodactylite",
 		doublesTier: "DOU",
 	},

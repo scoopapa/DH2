@@ -38,17 +38,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				move.sideCondition = 'firepledge';
 			}
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Fire Plaque');
+				this.add('-message', `${pokemon.name} held up its Fire Plaque!`);
 				move.self = {sideCondition: 'waterpledge'};
 			}
 		},
@@ -65,17 +65,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				move.sideCondition = 'grasspledge';
 			}
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Grass Plaque');
+				this.add('-message', `${pokemon.name} held up its Grass Plaque!`);
 				move.sideCondition = 'firepledge';
 			}
 		},
@@ -99,14 +99,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onEat(pokemon) {
-			const moveSlot = pokemon.moveSlots.find(move => move.pp === 0) ||
-				pokemon.moveSlots.find(move => move.pp < move.maxpp);
-			if (!moveSlot) return;
-			moveSlot.pp += move.maxpp;
-			this.add('-activate', pokemon, 'item: Hopo Berry', moveSlot.move, '[consumed]');
+			const restoreSlots = pokemon.moveSlots.filter(move => move.pp < move.maxpp);
+			if (!restoreSlots.length) return;
+			for (let moveSlot of restoreSlots) {
+				moveSlot.pp += 5;
+			}
+			this.add('-activate', pokemon, 'item: Hopo Berry', '[consumed]');
+			this.add('-message', `${pokemon.name} restored PP to its moves using its Hopo Berry!`);
 		},
-		desc: "Restores all PP to the first of the holder's moves to reach 0 PP. Single use.",
-		num: 1020,
+		desc: "Restores 5 PP to all of the holder's moves when consumed; consumes when one move reaches 0 PP. Single use.",
+		shortDesc: "Move reaches 0 PP: +5 PP to all moves. Single use.",
+		num: 1021,
 	},
 	koknuberry: {
 		name: "Koknu Berry",
@@ -120,6 +123,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onOverrideAction(pokemon) { //only event that happens before BeforeMove, which flinch has to be stopped before.
 			if (pokemon.volatiles['flinch'] && pokemon.eatItem()) {
 				pokemon.removeVolatile('flinch');
+				this.add('-message', `${pokemon.name} is no longer flinching!`);
 			}
 		},
 		onEat(pokemon) {
@@ -136,8 +140,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		desc: "Evolves Minior into Prominoid if it is at least level 50. If held by a Rayquaza, this item allows it to Mega Evolve in battle, if it also knows the move Dragon Ascent.",
-		shortDesc: "Evolves Minior. Must be held for Rayquaza to Mega Evolve in battle.",
+		desc: "If held by a Rayquaza, this item allows it to Mega Evolve in battle, if it also knows the move Dragon Ascent. Evolves Minior into Prominoid if it is at least level 50 and changes Deoxys' form.",
+		shortDesc: "Must be held for Rayquaza to Mega Evolve in battle.",
 		num: 1013,
 	},
 	waterplaque: {
@@ -148,17 +152,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'waterpledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move, pokemon) {
+		onPrepareHit(pokemon, target, move) {
 			if (move.id === 'firepledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				move.self = {sideCondition: 'waterpledge'};
 			}
 			if (move.id === 'grasspledge') {
-				this.add('activate', pokemon, 'item: Water Plaque');
+				this.add('-message', `${pokemon.name} held up its Water Plaque!`);
 				move.sideCondition = 'grasspledge';
 			}
 		},
@@ -166,6 +170,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Fire/Grass Pledge: Add side condition. Water Pledge x1.5 base power.",
 		num: 1018,
 		rating: -1,
+	},
+	fullmemory: {
+		name: "Full Memory",
+		onMemory(move, source, target) {
+			const bestType = this.getBestEffectiveness(source, target);
+			if (bestType && source.getTypes().join() !== bestType) {
+				source.setType(bestType);
+				this.add('-start', source, 'typechange', bestType);
+			}
+			return bestType;
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Silvally"],
+		num: 1022,
+		desc: "When held by a Silvally and the Silvally uses Multi-Attack, Silvally will change to the type with the best effectiveness against the target, and Multi-Attack will also become that type.",
+		shortDesc: "Using Multi-Attack changes user's and move's type to most effective one."
 	},
 	butterfreenite: {
 		name: "Butterfreenite",
@@ -359,7 +384,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		consumable: true,
 		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon's Intimidate or Disturbance Ability affected this Pokemon. Single-use.",
-		shortDesc: "+1 Speed if hit by a Bug/Dark/Ghost-type attack or Intimidate/Disturbance. Single use.",
+		shortDesc: "+1 Speed if hit by a Bug/Dark/Ghost attack or Intimidate/Disturbance. Single use.",
 	},
 	aguavberry: {
 		inherit: true,
@@ -380,6 +405,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
+	auspiciousarmor: {
+		inherit: true,
+		onCriticalHit: false,
+		rating: 1,
+		shortDesc: "Prevents holder from being struck by critical hits.",
+		desc: "Prevents the holder from being struck by a critical hit. Evolves Charcadet into Armarouge when traded.",
+	},
 	bignugget: {
 		inherit: true,
 		fling: {
@@ -387,7 +419,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			flags: {bullet: 1},
 		},
 		shortDesc: "No in-battle effect. Projectile move when Flung.",
-		desc: "A big nugget of pure gold that gives off a lustrous gleam. When Flung, counts as a projectile move.",
 	},
 	bigroot: {
 		inherit: true,
@@ -414,22 +445,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			flags: {powder: 1},
 		},
 		onFoeTryMove(source, target, move) {
-			if (move.target === 'foeSide' || (move.target === 'all' && move.id !== 'perishsong')) {
+			const powderHolder = this.effectState.target;
+			if (move.target === 'foeSide' || 
+			(move.target === 'all' && !['perishsong','equalizer'].includes(move.id)) || 
+			(['adjacentFoes','allAdjacent'].includes(move.target) && !powderHolder.isAdjacent(source)) || 
+			(['normal','any'].includes(move.target) && !(powderHolder === target))) {
 				return;
 			}
-			if (move.priority > 0.1 && target.useItem())
+			if (move.priority > 0.1 && powderHolder.useItem())
 			{
-				this.add('activate', target, 'item: BrightPowder');
 				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + target);
+				this.add('-message', `${source.name} was blinded by Bright Powder!`);
 				return false;
 			}
 		},
 		num: 213,
 		rating: 3,
 		gen: 2,
-		desc: "Causes a priority move that targets the holder to fail, which consumes the item. The effect fails if the attacker is immune to powder moves, but the item is still consumed. When Flung, the target's accuracy is lowered 2 stages.",
+		desc: "Causes a priority move that targets the holder to fail, which consumes the item. When Flung, the target's accuracy is lowered 2 stages. Both of these effects fail if the targeted Pokemon is immune to powder moves, but the item is still consumed.",
 		shortDesc: "Protects from an increased priority move. When Flung, -2 accuracy. Single use.",
 		block: '#damp',
 	},
@@ -468,6 +502,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
 		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
 		rating: 2,
+	},
+	enigmaberry: {
+		inherit: true,
+		consumable: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0 && target.eatItem()) {
+				this.debug('Enigma Berry neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		shortDesc: "Takes 3/4 damage from a supereffective attack. Single use.",
 	},
 	figyberry: {
 		inherit: true,
@@ -557,15 +602,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dark",
 		},
 		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'spa') {
+			if (pokemon.getNature().minus === 'def') {
 				this.heal(pokemon.baseMaxhp * 0.5);
 				pokemon.addVolatile('confusion');
 			} else {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
 	ironball: {
@@ -597,7 +642,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
+					this.damage(source.baseMaxhp / ((target.hasAbility('ripen') || target.hasAbility('gourmand')) ? 2 : 4), source, target);
 				}
 			}
 		},
@@ -645,6 +690,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
+	},
+	maliciousarmor: {
+		inherit: true,
+		onCriticalHit: false,
+		rating: 1,
+		shortDesc: "Prevents holder from being struck by critical hits.",
+		desc: "Prevents the holder from being struck by a critical hit. Evolves Charcadet into Ceruledge when traded.",
+	},
+	metalalloy: {
+		inherit: true,
+		fling: {
+			basePower: 100,
+		},
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg * 2);
+		},
+		rating: 1,
+		shortDesc: "Holder's weight is doubled.",
+		desc: "Holder's weight is doubled. Evolves Duraludon into Archaludon when used at level 50 or above.",
 	},
 	metalpowder: {
 		name: "Metal Powder",
@@ -716,6 +780,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		rating: 2,
 		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
+	},
+	peatblock: {
+		name: "Peat Block",
+		spritenum: 312,
+		fling: {
+			basePower: 20,
+		},
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ground' || (move.twoType && move.twoType === 'Ground')) {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		num: 314,
+		gen: 8,
+		desc: "Holder and allies' Ground-type moves have 1.1x power. Evolves Ursaring into Ursaluna when used within 20 minutes of midnight.",
+		shortDesc: "Holder and allies' Ground-type moves have 1.1x power.",
+		rating: 2,
 	},
 	prismscale: {
 		inherit: true,
@@ -808,7 +890,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
+					this.damage(source.baseMaxhp / ((target.hasAbility('ripen') || target.hasAbility('gourmand')) ? 2 : 4), source, target);
 				}
 			}
 		},
@@ -837,16 +919,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		onAllyBasePowerPriority: 15,
-		onAllyBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
-				return this.chainModify([0x1199, 0x1000]);
+		onAnyTryMove(target, source, effect) {
+			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', target, 'item: Wave Incense', effect, '[of] ' + source);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
 			}
 		},
 		num: 254,
 		rating: 2,
 		gen: 3,
-		desc: "Holder and allies' Water-type moves have 1.1x power.",
+		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
+		shortDesc: "Prevents explosion-based moves and Abilities.",
 	},
 	shellbell: {
 		inherit: true,
@@ -869,10 +958,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 0,
 			flags: {powder: 1},
-			volatileStatus: 'powder',
+			sideCondition: 'blackpowder',
 		},
-		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
-		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
+		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Black Powder to the target's side, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
+		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Black Powder when Flung.",
 	},
 	snowball: {
 		inherit: true,
@@ -920,23 +1009,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		onAnyTryMove(target, source, effect) {
-			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', target, 'item: Wave Incense', effect, '[of] ' + source);
-				return false;
-			}
-		},
-		onAnyDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'aftermath') {
-				return false;
+		onAllyBasePowerPriority: 15,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
+				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
 		num: 317,
 		gen: 4,
 		rating: 1,
-		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
-		shortDesc: "Prevents explosion-based moves and Abilities.",
+		desc: "Holder and allies' Water-type moves have 1.1x power.",
 	},
 	wellspringmask: {
 		name: "Wellspring Mask",
@@ -979,15 +1061,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Rock",
 		},
 		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'def') {
+			if (pokemon.getNature().minus === 'spa') {
 				this.heal(pokemon.baseMaxhp * 0.5);
 				pokemon.addVolatile('confusion');
 			} else {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
 	wiseglasses: {
@@ -1017,6 +1099,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Normal',
 		num: 1862,
 		gen: 9,
 		rating: 1,
@@ -1033,6 +1116,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fire',
 		num: 1863,
 		gen: 9,
 		rating: 1,
@@ -1049,6 +1133,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Water',
 		num: 1864,
 		gen: 9,
 		rating: 1,
@@ -1065,6 +1150,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Electric',
 		num: 1865,
 		gen: 9,
 		rating: 1,
@@ -1081,6 +1167,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Grass',
 		num: 1866,
 		gen: 9,
 		rating: 1,
@@ -1097,6 +1184,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ice',
 		num: 1867,
 		gen: 9,
 		rating: 1,
@@ -1113,6 +1201,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fighting',
 		num: 1868,
 		gen: 9,
 		rating: 1,
@@ -1129,6 +1218,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Poison',
 		num: 1869,
 		gen: 9,
 		rating: 1,
@@ -1145,6 +1235,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ground',
 		num: 1870,
 		gen: 9,
 		rating: 1,
@@ -1161,6 +1252,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Flying',
 		num: 1871,
 		gen: 9,
 		rating: 1,
@@ -1177,6 +1269,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Psychic',
 		num: 1872,
 		gen: 9,
 		rating: 1,
@@ -1193,6 +1286,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Bug',
 		num: 1873,
 		gen: 9,
 		rating: 1,
@@ -1209,6 +1303,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Rock',
 		num: 1874,
 		gen: 9,
 		rating: 1,
@@ -1225,6 +1320,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Ghost',
 		num: 1875,
 		gen: 9,
 		rating: 1,
@@ -1241,6 +1337,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Dragon',
 		num: 1876,
 		gen: 9,
 		rating: 1,
@@ -1257,6 +1354,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Dark',
 		num: 1877,
 		gen: 9,
 		rating: 1,
@@ -1273,6 +1371,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Steel',
 		num: 1878,
 		gen: 9,
 		rating: 1,
@@ -1289,6 +1388,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		onTera: 'Fairy',
 		num: 1879,
 		gen: 9,
 		rating: 1,
@@ -1305,10 +1405,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		itemUser: ["Terapagos"],
 		num: 1862,
 		gen: 9,
-		rating: -1,
-		shortDesc: "If held by a Terapagos, Tera Shift will transform it into its Stellar Form.",
+		shortDesc: "If held by Terapagos, Tera Shift transforms into Stellar, Tera Blast is best effectiveness.",
 	},
 	/* Items edited as part of other elements */
 	blueorb: {
@@ -1682,7 +1782,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix, Scyther into Scizor, and Plecuum into Vorplec when traded.",
+		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Scyther into Scizor, Onix into Steelix, and Plecuum into Vorplec when traded.",
 		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 	},
 	mindplate: {
@@ -1944,6 +2044,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bindingband: {
 		inherit: true,
 		desc: "Holder's binding moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+	},
+	fancyapple: {
+		name: "Fancy Apple",
+		num: 1093,
+		gen: 8,
+		shortDesc: "Holder's use of Apple Bomb lowers Sp. Attack.",
+		desc: "When used by the holder, the move Apple Bomb lowers Special Attack.",
+		rating: -1,
 	},
 	gripclaw: {
 		inherit: true,
@@ -2769,6 +2877,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	berryjuice: {
 		inherit: true,
+		isBerry: true,
 		consumable: true,
 		rating: 1,
 	},
@@ -2789,10 +2898,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		consumable: true,
-	},
-	enigmaberry: {
-		inherit: true,
 		consumable: true,
 	},
 	focussash: {
@@ -3729,7 +3834,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,
-		desc: "A Poke Ball that makes it easier to catch saltwater-dwelling Pokemon.",
+		desc: "A Poke Ball that makes it easier to catch Pokemon while at sea.",
 	},
 	duskball: {
 		inherit: true,

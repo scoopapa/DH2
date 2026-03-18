@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
     excludeStandardTiers: true,
-    customTiers: ['Reg A', 'Reg B', 'Reg A NFE', 'Reg A LC', 'Reg B LC'],
+    customTiers: ['Reg A', 'Reg B', 'Reg C', 'Reg A NFE', 'Reg A LC', 'Reg B LC', 'Reg C LC'],
 	},
 	pokemon: {
 		ignoringAbility() {
@@ -100,7 +100,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !(this.hasType('???') && 'roost' in this.volatiles)) return false;
-			if ((this.hasAbility('levitate') || this.hasAbility('sunlitflight') || this.hasAbility('airdrive')) && !this.battle.suppressingAbility(this)) return null;
+			if ((this.hasAbility('levitate') || this.hasAbility('sunlitflight') || this.hasAbility('airdrive') || this.hasAbility('aerialforce') || this.hasAbility('fightandflight')) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
@@ -281,7 +281,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (
 				!move.negateSecondary &&
-				!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','sirocco','strongarmor','sheerbird'])) &&
+				!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','sirocco','strongarmor','sheerbird','brutebird','frostbite','polarpower','dinomight'])) &&
 				!move.flags['futuremove']
 			) {
 				const originalHp = pokemon.hp;
@@ -545,6 +545,36 @@ export const Scripts: ModdedBattleScriptsData = {
 				// In gen 4, the outermost move is considered the last move for Copycat
 				this.battle.activeMove = oldActiveMove;
 			}
+		},
+		terastallize(pokemon: Pokemon) {
+			if (pokemon.illusion && ['Ogereena', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+	
+			const type = pokemon.teraType;
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogereena') {
+				const tera = pokemon.species.id === 'ogereena' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},
 };

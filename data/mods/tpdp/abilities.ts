@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Absorbent",
 		shortDesc: "When hit by a Light-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Light') {
+			if (target !== source && move.type === 'Lights') {
 				if(!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Absorbent');
 				}
@@ -92,17 +92,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	aircushion: {
 		name: "Air Cushion",
 		shortDesc: "When hit by an Earth-type skill, damage is nullified. Ignores Adverse Wind ability. Ignores mine/poison trap.",
-		onDamage(damage, target, source, effect) {
-			if (effect && (effect.id === "mine" || effect.id === "poison")) {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Earth') {
-				this.add('-immune', target, '[from] ability: Air Cushion');
-				return null;
-			}
-		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 	},
 	antibody: {
 		name: "Antibody",
@@ -220,11 +210,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Battle Mania",
 		shortDesc: "Opponents that are Fighting-type cannot flee or swap out.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Fighting'))
+			if (pokemon.hasType('Fightings'))
 				pokemon.tryTrap(true);
 		},
 		onFoeMaybeTrapPokemon(pokemon, source?) {
-			if (pokemon.hasType('Fighting'))
+			if (pokemon.hasType('Fightings'))
 				pokemon.maybeTrapped = true;
 		},
 	},
@@ -232,7 +222,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Benefit of Fire",
 		shortDesc: "When hit by a Fire-type skill, HP is restored.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fire') {
+			if (target !== source && move.type === 'Fires') {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Benefit of Fire');
 				}
@@ -317,7 +307,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Void')  {
-				move.type = 'Light';
+				move.type = 'Lights';
 				move.typeChangerBoosted = this.effect;
 			}
 		},
@@ -357,7 +347,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
 				return;
 			
-			if (move.type === 'Steel' && this.field.isTerrain('byakko'))
+			if (move.type === 'Steels' && this.field.isTerrain('byakko'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
@@ -439,7 +429,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Cloak of Darkness",
 		shortDesc: "Restores HP when hit by a Dark-type skill and takes Damage against Light-type skills.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Dark' && !this.field.isTerrain('kohryu')) {
+			if (target !== source && move.type === 'Darks' && !this.field.isTerrain('kohryu')) {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Cloak of Darkness');
 				}
@@ -585,6 +575,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
 			}
+		},
+	},
+	desolateform: {
+		name: "Desolate Form",
+		shortDesc: "Void-type skills are treated as Earth-type skills.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Earths';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	desperation: {
@@ -745,7 +750,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Electromagnetic",
 		shortDesc: "When hit by an Electric-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Electric') {
+			if (target !== source && move.type === 'Electrics') {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] ability: Electromagnetic');
 				}
@@ -1059,7 +1064,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Void')  {
-				move.type = 'Fighting';
+				move.type = 'Fightings';
 				move.typeChangerBoosted = this.effect;
 			}
 		},
@@ -1075,7 +1080,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
 				return;
 			
-			if (move.type === 'Water' && this.field.isTerrain('genbu'))
+			if (move.type === 'Waters' && this.field.isTerrain('genbu'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
@@ -1121,7 +1126,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Grace of Water",
 		shortDesc: "When hit by a Water-type skill, HP is restored.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
+			if (target !== source && move.type === 'Waters') {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Grace of Water');
 				}
@@ -1140,27 +1145,57 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	harassment: {
 		name: "Harassment",
 		shortDesc: "When your stats drop, so does the foe. When the foe's stats increase, your stats increase as well.",
-		onBoost(boost, target, source, effect) {
-			let passedBoosts = boost;
+		onAfterBoost(boost, target, source, effect) {
+			console.log(target.name + " " + source.name + " " + effect);
+			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
+			const boostPlus = this.effectState.boosts;
+			if(target.adjacentFoes().length == 0) return;
+			const pokemon = this.sample(target.adjacentFoes());
 			let i: BoostID;
-			for (i in passedBoosts) {
-				if (passedBoosts[i]! > 0)
-					passedBoosts[i]! = 0;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
+				}
 			}
-			for (const foe of target.foes()) {
-				foe.boostBy(passedBoosts);
+			this.boost(this.effectState.boosts, pokemon);
+		},
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
+			if (!this.effectState.boosts) this.effectState.boosts = {} as SparseBoostsTable;
+			const boostPlus = this.effectState.boosts;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
+				}
 			}
 		},
-		onFoeBoost(boost, target, source, effect) {
-			let passedBoosts = boost;
-			let i: BoostID;
-			for (i in passedBoosts) {
-				if (passedBoosts[i]! < 0)
-					passedBoosts[i]! = 0;
-			}
-			for (const foe of target.foes()) {
-				foe.boostBy(passedBoosts);
-			}
+		onAnySwitchInPriority: -3,
+		onAnySwitchIn() {
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("1: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+			delete this.effectState.target;
+		},
+		onAnyAfterMove() {
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("2: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+			delete this.effectState.target;
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("3: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+			delete this.effectState.target;
+		},
+		onEnd() {
+			delete this.effectState.boosts;
+			delete this.effectState.target;
 		},
 	},
 	hateincarnate: {
@@ -1415,7 +1450,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment'))
 				return;
 			
-			if (move.type === 'Earth' && this.field.isTerrain('kohryu'))
+			if (move.type === 'Earths' && this.field.isTerrain('kohryu'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
@@ -1473,7 +1508,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Master's Defense",
 		shortDesc: "When hit by a Fighting-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fighting') {
+			if (target !== source && move.type === 'Fightings') {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, "[from] ability: Master's Defense");
 				}
@@ -1492,7 +1527,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Metallurgy",
 		shortDesc: "When hit by a Steel-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Steel') {
+			if (target !== source && move.type === 'Steels') {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, "[from] ability: Metallurgy");
 				}
@@ -1506,7 +1541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Void')  {
-				move.type = 'Dark';
+				move.type = 'Darks';
 				move.typeChangerBoosted = this.effect;
 			}
 		},
@@ -1621,7 +1656,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Negative Aura",
 		shortDesc: "When hit by a Dark-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Dark') {
+			if (target !== source && move.type === 'Darks') {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] ability: Negative Aura');
 				}
@@ -1786,11 +1821,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Poison Labyrinth",
 		shortDesc: "Only Poison-type opponents can flee.",
 		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
+			if (!pokemon.hasType('Poisons') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
 				pokemon.tryTrap(true);
 		},
 		onFoeMaybeTrapPokemon(pokemon, source?) {
-			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
+			if (!pokemon.hasType('Poisons') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
 				pokemon.maybeTrapped = true;
 		},
 	},
@@ -2074,16 +2109,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let terrainType = null;
 				switch (pokemon.effectiveWeather()) {
 					case 'aurora':
-						weatherType = 'Light';
+						weatherType = 'Lights';
 						break;
 					case 'calm':
 						weatherType = 'Wind';
 						break;
 					case 'duststorm':
-						weatherType = 'Earth';
+						weatherType = 'Earths';
 						break;
 					case 'heavyfog':
-						weatherType = 'Dark';
+						weatherType = 'Darks';
 						break;
 					case 'sunshower':
 						weatherType = 'Warped';
@@ -2091,19 +2126,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				switch (this.field.terrain) {
 					case 'byakko':
-						terrainType = 'Steel';
+						terrainType = 'Steels';
 						break;
 					case 'genbu':
-						terrainType = 'Water';
+						terrainType = 'Waters';
 						break;
 					case 'kohryu':
-						terrainType = 'Earth';
+						terrainType = 'Earths';
 						break;
 					case 'seiryu':
 						terrainType = 'Nature';
 						break;
 					case 'suzaku':
-						terrainType = 'Fire';
+						terrainType = 'Fires';
 						break;
 				}
 				
@@ -2276,7 +2311,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sound Absorb",
 		shortDesc: "When hit by a Sound-type skill, damage is nullified, FoAtk is raised, and SpAtk is raised.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Sound') {
+			if (target !== source && move.type === 'Sounds') {
 				if (!this.boost({atk: 1, spa: 1})) {
 					this.add('-immune', target, '[from] ability: Sound Absorb');
 				}
@@ -2297,7 +2332,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Spirit of Yang",
 		shortDesc: "When hit by an Electric, Light, or Illusion-type skill, Speed is raised.",
 		onDamagingHit(damage, target, source, move) {
-			const affectedTypes = ['Electric', 'Light', 'Illusion'];
+			const affectedTypes = ['Electrics', 'Lights', 'Illusion'];
 			if (target !== source && affectedTypes.includes(move.type)) {
 				this.chainModify(0.8);
 				this.boost({spe: 1});
@@ -2308,7 +2343,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Spirit of Yin",
 		shortDesc: "When hit by a Dark, Nether, or Poison-type skill, Speed is raised.",
 		onDamagingHit(damage, target, source, move) {
-			const affectedTypes = ['Dark', 'Nether', 'Poison'];
+			const affectedTypes = ['Darks', 'Nether', 'Poisons'];
 			if (target !== source && affectedTypes.includes(move.type)) {
 				this.chainModify(0.8);
 				this.boost({spe: 1});
@@ -2363,7 +2398,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Void')  {
-				move.type = 'Water';
+				move.type = 'Waters';
 				move.typeChangerBoosted = this.effect;
 			}
 		},
@@ -2376,7 +2411,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Strict Dosage",
 		shortDesc: "When hit by a Poison-type skill, HP is restored. Ignores poison trap. Ignores Poison Labyrinth ability.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Poison') {
+			if (target !== source && move.type === 'Poisons') {
 				this.add('-immune', target, '[from] ability: Strict Dosage');
 				this.heal(target.baseMaxhp / 4);
 				return null;
@@ -2449,7 +2484,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
 				return;
 			
-			if (move.type === 'Fire' && this.field.isTerrain('suzaku'))
+			if (move.type === 'Fires' && this.field.isTerrain('suzaku'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
@@ -2589,7 +2624,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.type === 'Void')  {
-				move.type = 'Steel';
+				move.type = 'Steels';
 				move.typeChangerBoosted = this.effect;
 			}
 		},

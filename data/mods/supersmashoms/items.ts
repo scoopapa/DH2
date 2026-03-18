@@ -1,0 +1,38 @@
+export const Items: {[itemid: string]: ModdedItemData} = {
+	venusaurite: {
+		inherit: true,
+		megaStone: "Donphan-Mega",
+		megaEvolves: "Donphan",
+		itemUser: ["Donphan"],
+		onTakeItem: false,
+		isNonstandard: null,
+		shortDesc: "If held by an Donphan, this item allows it to Mega Evolve in battle.",
+	},
+	pinsirite: {
+		inherit: true,
+		megaStone: "Revavroom-Mega",
+		megaEvolves: "Revavroom",
+		itemUser: ["Revavroom"],
+		onTakeItem: false,
+		isNonstandard: null,
+		shortDesc: "If held by an Revavroom, this item allows it to Mega Evolve in battle.",
+	},
+	manectite: {
+		inherit: true,
+		megaStone: "Rotom-Mow-Mega",
+		megaEvolves: "Rotom-Mow",
+		itemUser: ["Rotom-Mow"],
+		onTakeItem: false,
+		isNonstandard: null,
+		shortDesc: "If held by an Rotom-Mow, this item allows it to Mega Evolve in battle.",
+	},
+	cameruptite: {
+		inherit: true,
+		megaStone: "Spiritomb-Mega",
+		megaEvolves: "Spiritomb",
+		itemUser: ["Spiritomb"],
+		onTakeItem: false,
+		isNonstandard: null,
+		shortDesc: "If held by an Spiritomb, this item allows it to Mega Evolve in battle.",
+	},
+}
