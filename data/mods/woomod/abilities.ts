@@ -322,4 +322,132 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Malicious Roots",
 		shortDesc: "While this Pokemon is active, statused Pokemon are inflicted with Leech Seed.",
 	},
+
+	// Slate 2
+	alpinist: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Alpinist');
+				return null;
+			}
+		},
+		isNonstandard: "CAP",
+		flags: {breakable: 1},
+		name: "Alpinist",
+	},
+	honeygather: {
+		inherit: true,
+		shortDesc: "Heals 1/6 max HP at the end of every turn.",
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+	},
+	poisonpuppeteer: {
+		shortDesc: "If this Pokémon inflicts poison, it also confuses the target.",
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
+			if (status.id === 'psn' || status.id === 'tox') {
+				this.debug('Poison Puppeteer activated on ' + target);
+				target.addVolatile('confusion');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Poison Puppeteer",
+	},
+	seismicsensor: {
+		onSwitchIn(pokemon) {
+			pokemon.addVolatile('seismicsensor');
+		},
+		condition: {
+			duration: 1,
+			onTryHit(target, source, move) {
+				if (target === source || move.type !== 'Ground' || move.category === 'Status' || move.hasBounced) {
+					return;
+				}
+				this.add('-activate', target, 'ability: Seismic Sensor');
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+		},
+		flags: {protect: 1, mirror: 1},
+		name: "Seismic Sensor",
+		shortDesc: "On switch: if targeted by a Ground-type attack, take no damage and use the move on the opponent.",
+	},
+	soothingpresence: {
+		onStart(pokemon) {
+			const last = pokemon.side.lastSwitchedOut;
+			if (last && last !== pokemon && !last.fainted && last.status) {
+				const status = last.status;
+				last.cureStatus();
+				this.add('-activate', pokemon, 'ability: Soothing Presence');
+				this.add('-curestatus', last, status, '[from] ability: Soothing Presence');
+			}
+			pokemon.side.lastSwitchedOut = null;
+		},
+		onTryHit(target, source, move) {
+			if (target !== this.effectState.target) return;
+			if (move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Soothing Presence');
+				return null;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target !== this.effectState.target) return;
+			if (status.id === 'psn' || status.id === 'tox') {
+				this.add('-immune', target, '[from] ability: Soothing Presence');
+				return false;
+			}
+		},
+		flags: {protect: 1},
+		name: "Soothing Presence",
+		shortDesc: "Immune to poison. On switch-in, cures the status of the Pokemon it replaced."
+	},
+
+	// Unfinished / idk how to
+
+	hoothootability: {
+		// Is supposed to force Normal type on opponents + be Normalize.
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			if (pokemon === this.effectState.target && move.type !== '???') {
+				const noModifyType = [
+					'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+				];
+				if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Normal';
+					move.typeChangerBoosted = this.effect;
+				}
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon === this.effectState.target && move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Hoothoot Ability",
+		shortDesc: "Adds the Normal type to all Pokemon on the field. This Pokemon has Normalize.",
+	},
+	mitosis: {
+		onDamagingHit(damage, target, source, move) {
+			if (!move || move.effectType !== 'Move' || source === target) return;
+			const stats: BoostID[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			const availableStats = stats.filter(stat => target.boosts[stat] < 6);
+			if (!availableStats.length) return;
+			const randomStat = this.sample(availableStats);
+			this.boost({[randomStat]: 1}, target, target);
+			this.add('-activate', target, 'ability: Mitosis');
+		},
+		flags: {},
+		name: "Mitosis",
+		shortDesc: "Raises a random stat stage when hit.",
+		// Not the preferred implementation
+	},
 };

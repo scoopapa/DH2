@@ -76,6 +76,7 @@ export class Side {
 
 	pokemonLeft: number;
 	zMoveUsed: boolean;
+	lastSwitchedOut: Pokemon | null;
 	/**
 	 * This will be true in any gen before 8 or if the player (or their battle partner) has dynamaxed once already
 	 *
@@ -138,6 +139,7 @@ export class Side {
 		this.faintedThisTurn = null;
 		this.totalFainted = 0;
 		this.zMoveUsed = false;
+		this.lastSwitchedOut = null;
 		this.dynamaxUsed = this.battle.gen !== 8;
 
 		this.sideConditions = {};

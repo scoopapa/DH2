@@ -363,7 +363,7 @@ export const Formats: FormatList = [
 	...gen3AdvToThePast,
 	...Balls,
 	//...BareBones
-    ...Beaftopia,
+  ...Beaftopia,
 	...gen5BestWishesYoshiblaze,
 	...ChatBats,
 	...ClubmonsRequiem,
