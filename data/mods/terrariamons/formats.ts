@@ -11,7 +11,7 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'terrariamons',
 		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Sleep Clause Mod', 'Z-Move Clause', 'Terastal Clause'],
-		banlist: [],
+		banlist: ['Rapid Healing'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['TerrariaOU'];
