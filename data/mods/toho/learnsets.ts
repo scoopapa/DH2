@@ -1103,7 +1103,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			weatherball: ["9L1"],
 			shadowforce: ["9L1"],
 			phantomforce: ["9L1"],
-			psynoise: ["9L1"],
+			psychicnoise: ["9L1"],
 			shadowclaw: ["9L1"],
 			shadowpunch: ["9L1"],
 			shadowsneak: ["9L1"],
