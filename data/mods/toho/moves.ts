@@ -494,6 +494,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.setType("Fire");
 				this.add('-start', pokemon, 'typechange', 'Fire');
 			},
+			onRestart(pokemon){
+				pokemon.setType("Fire");
+				this.add('-start', pokemon, 'typechange', 'Fire');
+			},
 			onModifyType(move, pokemon){
 				if (move.flags["slicing"]) {
 					move.type = "Fire";
@@ -525,6 +529,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(pokemon){
 				pokemon.setType("Electric");
 				this.add('-start', pokemon, 'typechange', 'Electric');
+				pokemon.removeVolatile('invokeamaterasu');
+			},
+			onRestart(pokemon){
+				pokemon.setType("Electric");
+				this.add('-start', pokemon, 'typechange', 'Electric');
+				pokemon.removeVolatile('invokeamaterasu');
 			},
 			onModifyType(move, pokemon){
 				if (move.flags["slicing"]) {
@@ -558,6 +568,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.setType("Ice");
 				pokemon.setAbility('magicbounce', pokemon);
 				this.add('-start', pokemon, 'typechange', 'Ice');
+				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokehonoikazuchi');
+			},
+			onRestart(pokemon){
+				pokemon.setType("Ice");
+				pokemon.setAbility('magicbounce', pokemon);
+				this.add('-start', pokemon, 'typechange', 'Ice');
+				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokehonoikazuchi');
 			},
 			onModifyType(move, pokemon){
 				if (move.flags["slicing"]) {
