@@ -20,7 +20,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		otherFormes: ["Wartortle-Patratdex"],
 		formeOrder: ["Wartortle", "Wartortle-Patratdex"],
 	},
-	squirtlepatratdex: {
+	wartortlepatratdex: {
 		num: 8,
 		name: "Wartortle-Patratdex",
 		baseSpecies: "Wartortle",
