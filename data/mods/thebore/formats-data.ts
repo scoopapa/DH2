@@ -4257,7 +4257,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	toxtricity: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	toxtricitylowkey: {
 		inherit: true,
@@ -4381,7 +4381,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dracovish: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	arctovish: {
 		inherit: true,
@@ -4513,7 +4513,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	quaquaval: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	lechonk: {
 		inherit: true,
@@ -4733,7 +4733,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	garganacl: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	glimmet: {
 		inherit: true,
@@ -4877,7 +4877,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tinkaton: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	charcadet: {
 		inherit: true,
@@ -4889,7 +4889,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ceruledge: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	toedscool: {
 		inherit: true,
@@ -4929,7 +4929,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sinistcha: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	sinistchamasterpiece: {
 		inherit: true,

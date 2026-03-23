@@ -4864,4 +4864,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
+	
+	junglosaur: {
+		inherit: true,
+		tier: "OU",
+	},
+	dracandescend: {
+		inherit: true,
+		tier: "OU",
+	},
+	scorchyvern: {
+		inherit: true,
+		tier: "OU",
+	},
+	tortonate: {
+		inherit: true,
+		tier: "OU",
+	},
 };

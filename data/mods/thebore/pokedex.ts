@@ -11,7 +11,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	pikachu: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 		evoType: null,
 		evos: ["Raichu"],
 		otherFormes: null,
@@ -30,7 +30,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	clefairy: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	vulpix: {
 		inherit: true,
@@ -44,11 +44,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	jigglypuff: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	golbat: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	gloom: {
 		inherit: true,
@@ -76,7 +76,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	primeape: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	poliwhirl: {
 		inherit: true,
@@ -90,7 +90,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	magneton: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	exeggcute: {
 		inherit: true,
@@ -102,19 +102,19 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	onix: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	hitmonlee: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	hitmonchan: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	lickitung: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	koffing: {
 		inherit: true,
@@ -122,44 +122,44 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	rhydon: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	chansey: {
 		inherit: true,
-		prevo: null,
-		evos: null,
+		//prevo: null,
+		//evos: null,
 	},
 	tangela: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	seadra: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	mrmime: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 		otherFormes: null,
 		formeOrder: null,
 	},
 	scyther: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	jynx: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	electabuzz: {
 		inherit: true,
-		prevo: null,
-		evos: null,
+		//prevo: null,
+		//evos: null,
 	},
 	magmar: {
 		inherit: true,
-		prevo: null,
-		evos: null,
+		//prevo: null,
+		//evos: null,
 	},
 	eevee: {
 		inherit: true,
@@ -167,11 +167,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	porygon: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	snorlax: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	quilava: {
 		inherit: true,
@@ -179,47 +179,47 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	crobat: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	pichu: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	cleffa: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	igglybuff: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	togetic: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	bellossom: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	marill: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	sudowoodo: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	politoed: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	aipom: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	yanma: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	wooper: {
 		inherit: true,
@@ -228,55 +228,55 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	espeon: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	umbreon: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	murkrow: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	slowking: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	misdreavus: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	girafarig: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	dunsparce: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	gligar: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	sneasel: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	ursaring: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	piloswine: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	mantine: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	stantler: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	kirlia: {
 		inherit: true,
@@ -284,16 +284,16 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	nosepass: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	roselia: {
 		inherit: true,
-		evos: null,
-		prevo: null,
+		//evos: null,
+		//prevo: null,
 	},
 	chimecho: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 	snorunt: {
 		inherit: true,
@@ -309,7 +309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	bisharp: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	applin: {
 		inherit: true,
@@ -317,10 +317,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	duraludon: {
 		inherit: true,
-		evos: null,
+		//evos: null,
 	},
 	annihilape: {
 		inherit: true,
-		prevo: null,
+		//prevo: null,
 	},
 };
