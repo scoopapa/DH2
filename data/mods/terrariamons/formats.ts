@@ -10,8 +10,8 @@ export const Formats: FormatData[] = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1qaAn374BZcaGEFFFSZvzF1VUJvrKm59BQkVZaDCrK_w/edit?usp=sharing">Datasheet</a>`,
 		],
 		mod: 'terrariamons',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause', 'Terastal Clause'],
-		banlist: [],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Mega Data Mod', 'Sleep Clause Mod', 'Z-Move Clause', 'Terastal Clause'],
+		banlist: ['Rapid Healing'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['TerrariaOU'];

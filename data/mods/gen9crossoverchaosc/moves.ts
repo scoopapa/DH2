@@ -254,7 +254,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		onTryHit(source, move) {
-			if (!this.canSwitch(source.side) || !move.selfSwitch) {
+			if (!this.canSwitch(source.side) || source.volatiles['pivotsuppression']) {
 				// nanoboosted Implemented within conditions.ts
 				source.addVolatile('nanoboosted');
 				return this.NOT_FAIL;

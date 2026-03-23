@@ -1746,7 +1746,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	flyingpress: {
 		num: 560,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 85,
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
@@ -1861,20 +1861,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'blotout',
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Blot Out');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-		onHit(target, source) {
-			// Apply Tar Shot's Fire weakness without Speed drop
-			if (!target.volatiles['tarshot']) {
-				target.addVolatile('tarshot');
-				// Remove the Speed drop Tar Shot normally applies
-				if (target.boosts.spe < 0) {
-					this.boost({spe: -target.boosts.spe}, target); // undo any drop
-				}
-			}
-		},
 	},
 	ionsaber: {
 		accuracy: 100,
@@ -1882,6 +1886,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		overrideDefensiveStat: 'def',
 		name: "Ion Saber",
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slicing: 1},

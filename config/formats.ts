@@ -34,7 +34,6 @@ import { Formats as Abilitypos                  } from '../data/mods/abilitypos/
 import { Formats as AGoldenExperience           } from '../data/mods/agoldenexperience/formats';
 import { Formats as Alternatium                 } from '../data/mods/alternatium/formats';
 import { Formats as AlternatiumEX               } from '../data/mods/alternatiumex/formats';
-import { Formats as Animemons                   } from '../data/mods/animemons/formats';
 import { Formats as BackToSinnoh                } from '../data/mods/backtosinnoh/formats';
 import { Formats as Balls                       } from '../data/mods/balls/formats';
 import { Formats as BanHammersC3                } from '../data/mods/banhammersc3/formats';
@@ -176,7 +175,7 @@ import { Formats as ModernGen2Birds             } from '../data/mods/moderngen2b
 import { Formats as ModernGen3                  } from '../data/mods/moderngen3/formats';
 import { Formats as ModernGen4                  } from '../data/mods/moderngen4/formats';
 import { Formats as MonsterHunter               } from '../data/mods/monsterhunter/formats';
-import { Formats as MonsterHunterOUSoloPLIII    } from '../data/mods/monsterhuntersl/formats';
+import { Formats as PokemonThrone               } from '../data/mods/pokemonthrone/formats';
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
@@ -364,10 +363,9 @@ export const Formats: FormatList = [
 	...gen3AdvDeluxe,
 	...gen3Tradebacks,
 	...gen3AdvToThePast,
-	...Animemons,
 	...Balls,
 	//...BareBones
-    ...Beaftopia,
+  ...Beaftopia,
 	...gen5BestWishesYoshiblaze,
 	...ChatBats,
 	...ClubmonsRequiem,
@@ -462,9 +460,8 @@ export const Formats: FormatList = [
 		section: "Monster Hunter Solomod",
 		column: 3,
 	},
+	...PokemonThrone,
 	...MonsterHunter,
-	//...MonsterHunterOUSoloPLIII,
-	
 	{
 		section: "Modern Gen Series",
 		column: 3,

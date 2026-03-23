@@ -3431,6 +3431,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Merciless", 1: "Poison Point", H: "Regenerator"},
 	},
+	mudsdale: {
+		inherit: true,
+		weightkg: 500,
+	},
 	wimpod: {
 		inherit: true,
 		abilities: {0: "Escape Plan", H: "Run Away"},
@@ -5358,6 +5362,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tatsugiri: {
 		inherit: true,
 		color: "Orange",
+	},
+	dondozo: {
+		inherit: true,
+		heightm: 6,
 	},
 	chiyu: {
 		inherit: true,
