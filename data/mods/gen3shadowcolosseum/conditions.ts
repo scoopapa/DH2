@@ -10,6 +10,13 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				pokemon.formeChange('Shadow Lugia', this.effect, true);
 				pokemon.setAbility('shadowdomain', pokemon);
 				this.add('-activate', pokemon, 'ability: Shadow Domain');
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
 		onEnd(pokemon) {
