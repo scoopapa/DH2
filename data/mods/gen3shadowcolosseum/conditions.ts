@@ -27,6 +27,12 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		name: 'Shadow Sky',
 		effectType: 'Weather',
 		duration: 5,
+		durationCallback(source, effect) {
+			if (source.baseSpecies.name === 'Shadow Lugia' && source.hasItem('shadoworb')) {
+				return 10;
+			}
+			return 5;
+		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
