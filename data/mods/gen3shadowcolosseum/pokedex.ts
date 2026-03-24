@@ -11,7 +11,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		forme: "Shadow",
 		types: ["Psychic", "Flying"],
 		gender: "N",
-		baseStats: {hp: 154, atk: 110, def: 90, spa: 130, spd: 110, spe: 90},
+		baseStats: {hp: 154, atk: 110, def: 90, spa: 130, spd: 106, spe: 90},
 		abilities: {0: "Shadow Domain"},
 		heightm: 5.2,
 		weightkg: 216,
