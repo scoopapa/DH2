@@ -6,6 +6,11 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-start', pokemon, 'shadow');
 			this.add('-anim', pokemon, "Hex", pokemon);
 			this.add('-message', `${pokemon.name} has had its heart sealed!`);
+			if (pokemon.species.id === 'lugia') {
+				pokemon.formeChange('Shadow Lugia', this.effect, true);
+				pokemon.setAbility('shadowdomain', pokemon);
+				this.add('-activate', pokemon, 'ability: Shadow Domain');
+			}
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'shadow');
