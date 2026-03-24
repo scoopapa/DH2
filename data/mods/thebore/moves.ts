@@ -1,5 +1,5 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-	accelerock: {
+	/*accelerock: {
 		inherit: true,
 		isNonstandard: "Illegal",
 	},
@@ -51,7 +51,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: "Illegal",
 	},
-	bonemerange: {
+	bonemerang: {
 		inherit: true,
 		isNonstandard: "Illegal",
 	},
@@ -314,5 +314,5 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	volttackle: {
 		inherit: true,
 		isNonstandard: "Illegal",
-	},
+	},*/
 };

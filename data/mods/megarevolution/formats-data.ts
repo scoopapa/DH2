@@ -101,7 +101,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rattataalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	raticate: {
 		inherit: true,
@@ -109,7 +109,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	raticatealola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	spearow: {
 		inherit: true,
@@ -129,43 +129,37 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pichu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
+	},
+	pichuspikyeared: {
 	},
 	pikachu: {
 		inherit: true,
-		tier: "LC",
+		tier: "RU",
 	},
 	pikachuoriginal: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pikachuhoenn: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pikachusinnoh: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pikachuunova: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pikachukalos: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pikachualola: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	pikachupartner: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	pikachuworld: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	raichu: {
 		inherit: true,
@@ -173,7 +167,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	raichualola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sandshrew: {
 		inherit: true,
@@ -181,7 +175,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sandshrewalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	sandslash: {
 		inherit: true,
@@ -189,7 +183,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sandslashalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	nidoranf: {
 		inherit: true,
@@ -213,27 +207,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nidoking: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	cleffa: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	clefairy: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	clefable: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	vulpix: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	vulpixalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	ninetales: {
 		inherit: true,
@@ -241,15 +235,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ninetalesalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	igglybuff: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	jigglypuff: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	wigglytuff: {
 		inherit: true,
@@ -261,11 +255,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	golbat: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	crobat: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	oddish: {
 		inherit: true,
@@ -281,7 +275,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	bellossom: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	paras: {
 		inherit: true,
@@ -305,7 +299,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	diglettalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	dugtrio: {
 		inherit: true,
@@ -313,7 +307,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dugtrioalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	meowth: {
 		inherit: true,
@@ -321,11 +315,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meowthalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	meowthgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	persian: {
 		inherit: true,
@@ -333,11 +327,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	persianalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	perrserker: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	psyduck: {
 		inherit: true,
@@ -353,7 +347,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	primeape: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	growlithe: {
 		inherit: true,
@@ -361,7 +355,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	growlithehisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	arcanine: {
 		inherit: true,
@@ -369,7 +363,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	arcaninehisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	poliwag: {
 		inherit: true,
@@ -385,7 +379,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	politoed: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	abra: {
 		inherit: true,
@@ -397,7 +391,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	alakazam: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	alakazammega: {
 		inherit: true,
@@ -441,7 +435,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	geodudealola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	graveler: {
 		inherit: true,
@@ -449,7 +443,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	graveleralola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	golem: {
 		inherit: true,
@@ -457,7 +451,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	golemalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	ponyta: {
 		inherit: true,
@@ -465,7 +459,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ponytagalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	rapidash: {
 		inherit: true,
@@ -473,7 +467,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rapidashgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	slowpoke: {
 		inherit: true,
@@ -481,11 +475,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slowpokegalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	slowbro: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	slowbromega: {
 		inherit: true,
@@ -493,15 +487,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slowbrogalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	slowking: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	slowkinggalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	magnemite: {
 		inherit: true,
@@ -509,11 +503,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magneton: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	magnezone: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	farfetchd: {
 		inherit: true,
@@ -521,11 +515,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	farfetchdgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	sirfetchd: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	doduo: {
 		inherit: true,
@@ -549,7 +543,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	grimeralola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	muk: {
 		inherit: true,
@@ -557,7 +551,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mukalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	shellder: {
 		inherit: true,
@@ -565,7 +559,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	cloyster: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	gastly: {
 		inherit: true,
@@ -577,7 +571,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gengar: {
 		inherit: true,
-		tier: "OU",
+		tier: "RUBL",
 	},
 	gengarmega: {
 		inherit: true,
@@ -585,11 +579,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	onix: {
 		inherit: true,
-		tier: "RU",
+		tier: "LC",
 	},
 	steelix: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	steelixmega: {
 		inherit: true,
@@ -617,7 +611,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	voltorbhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	electrode: {
 		inherit: true,
@@ -625,7 +619,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	electrodehisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	exeggcute: {
 		inherit: true,
@@ -637,7 +631,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	exeggutoralola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	cubone: {
 		inherit: true,
@@ -649,11 +643,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	marowakalola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tyrogue: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	hitmonlee: {
 		inherit: true,
@@ -665,15 +659,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hitmontop: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	lickitung: {
 		inherit: true,
-		tier: "RU",
+		tier: "LC",
 	},
 	lickilicky: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	koffing: {
 		inherit: true,
@@ -685,7 +679,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	weezinggalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	rhyhorn: {
 		inherit: true,
@@ -693,15 +687,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rhydon: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	rhyperior: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	happiny: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	chansey: {
 		inherit: true,
@@ -709,15 +703,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	blissey: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tangela: {
 		inherit: true,
-		tier: "RU",
+		tier: "LC",
 	},
 	tangrowth: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	kangaskhan: {
 		inherit: true,
@@ -733,11 +727,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	seadra: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	kingdra: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	goldeen: {
 		inherit: true,
@@ -753,11 +747,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	starmie: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	mimejr: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	mrmime: {
 		inherit: true,
@@ -765,19 +759,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mrmimegalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	mrrime: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	scyther: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	scizor: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	scizormega: {
 		inherit: true,
@@ -785,11 +779,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kleavor: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	smoochum: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	jynx: {
 		inherit: true,
@@ -797,7 +791,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	elekid: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	electabuzz: {
 		inherit: true,
@@ -805,11 +799,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	electivire: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	magby: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	magmar: {
 		inherit: true,
@@ -817,7 +811,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magmortar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pinsir: {
 		inherit: true,
@@ -833,15 +827,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	taurospaldeacombat: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	taurospaldeablaze: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	taurospaldeaaqua: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	magikarp: {
 		inherit: true,
@@ -849,7 +843,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gyarados: {
 		inherit: true,
-		tier: "UU",
+		tier: "UUBL",
 	},
 	gyaradosmega: {
 		inherit: true,
@@ -873,7 +867,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	jolteon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	flareon: {
 		inherit: true,
@@ -881,35 +875,35 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	espeon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	umbreon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	leafeon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	glaceon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sylveon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	porygon: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	porygon2: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	porygonz: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	omanyte: {
 		inherit: true,
@@ -929,7 +923,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aerodactyl: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	aerodactylmega: {
 		inherit: true,
@@ -937,7 +931,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	munchlax: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	snorlax: {
 		inherit: true,
@@ -945,27 +939,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	articuno: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	articunogalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	zapdos: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	zapdosgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	moltres: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	moltresgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	dratini: {
 		inherit: true,
@@ -981,7 +975,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mewtwo: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	mewtwomegax: {
 		inherit: true,
@@ -993,7 +987,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mew: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	chikorita: {
 		inherit: true,
@@ -1021,7 +1015,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	typhlosionhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	totodile: {
 		inherit: true,
@@ -1081,11 +1075,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	togetic: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	togekiss: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	natu: {
 		inherit: true,
@@ -1113,19 +1107,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	azurill: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	marill: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	azumarill: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	bonsly: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	sudowoodo: {
 		inherit: true,
@@ -1145,11 +1139,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aipom: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	ambipom: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sunkern: {
 		inherit: true,
@@ -1161,11 +1155,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	yanma: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	yanmega: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	wooper: {
 		inherit: true,
@@ -1173,7 +1167,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wooperpaldea: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	quagsire: {
 		inherit: true,
@@ -1181,19 +1175,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	murkrow: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	honchkrow: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	misdreavus: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	mismagius: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	unown: {
 		inherit: true,
@@ -1201,7 +1195,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wynaut: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	wobbuffet: {
 		inherit: true,
@@ -1209,11 +1203,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	girafarig: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	farigiraf: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	pineco: {
 		inherit: true,
@@ -1225,19 +1219,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dunsparce: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	dudunsparce: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	gligar: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	gliscor: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	snubbull: {
 		inherit: true,
@@ -1253,11 +1247,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	qwilfishhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	overqwil: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	shuckle: {
 		inherit: true,
@@ -1265,7 +1259,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	heracross: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	heracrossmega: {
 		inherit: true,
@@ -1273,19 +1267,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sneasel: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	sneaselhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	weavile: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	sneasler: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	teddiursa: {
 		inherit: true,
@@ -1293,15 +1287,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ursaring: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	ursaluna: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	ursalunabloodmoon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	slugma: {
 		inherit: true,
@@ -1317,11 +1311,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	piloswine: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	mamoswine: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	corsola: {
 		inherit: true,
@@ -1329,11 +1323,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	corsolagalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	cursola: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	remoraid: {
 		inherit: true,
@@ -1349,7 +1343,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mantyke: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	mantine: {
 		inherit: true,
@@ -1381,11 +1375,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	stantler: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	wyrdeer: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	smeargle: {
 		inherit: true,
@@ -1397,15 +1391,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	raikou: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	entei: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	suicune: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	larvitar: {
 		inherit: true,
@@ -1417,7 +1411,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tyranitar: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	tyranitarmega: {
 		inherit: true,
@@ -1425,15 +1419,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lugia: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	hooh: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	celebi: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	treecko: {
 		inherit: true,
@@ -1461,7 +1455,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	blaziken: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	blazikenmega: {
 		inherit: true,
@@ -1497,7 +1491,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zigzagoongalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	linoone: {
 		inherit: true,
@@ -1505,11 +1499,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	linoonegalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	obstagoon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	wurmple: {
 		inherit: true,
@@ -1589,7 +1583,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gallade: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	gallademega: {
 		inherit: true,
@@ -1609,7 +1603,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	breloom: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	slakoth: {
 		inherit: true,
@@ -1633,7 +1627,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	shedinja: {
 		inherit: true,
-		tier: "RU",
+		tier: "AG",
 	},
 	whismur: {
 		inherit: true,
@@ -1657,11 +1651,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nosepass: {
 		inherit: true,
-		tier: "RU",
+		tier: "LC",
 	},
 	probopass: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	skitty: {
 		inherit: true,
@@ -1745,15 +1739,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	budew: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	roselia: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	roserade: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	gulpin: {
 		inherit: true,
@@ -1821,7 +1815,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	flygon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	cacnea: {
 		inherit: true,
@@ -1873,7 +1867,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	crawdaunt: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	baltoy: {
 		inherit: true,
@@ -1905,7 +1899,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	milotic: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	castform: {
 		inherit: true,
@@ -1933,11 +1927,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dusclops: {
 		inherit: true,
-		tier: "RU",
+		tier: "NFE",
 	},
 	dusknoir: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tropius: {
 		inherit: true,
@@ -1945,7 +1939,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chingling: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	chimecho: {
 		inherit: true,
@@ -1973,7 +1967,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	froslass: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	spheal: {
 		inherit: true,
@@ -2017,7 +2011,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	salamence: {
 		inherit: true,
-		tier: "OU",
+		tier: "RUBL",
 	},
 	salamencemega: {
 		inherit: true,
@@ -2033,7 +2027,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	metagross: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	metagrossmega: {
 		inherit: true,
@@ -2041,19 +2035,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	regirock: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	regice: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	registeel: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	latias: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	latiasmega: {
 		inherit: true,
@@ -2061,7 +2055,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latios: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	latiosmega: {
 		inherit: true,
@@ -2069,23 +2063,23 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kyogre: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	kyogreprimal: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	groudon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	groudonprimal: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	rayquaza: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	rayquazamega: {
 		inherit: true,
@@ -2093,23 +2087,23 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	jirachi: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	deoxys: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	deoxysattack: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	deoxysdefense: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	deoxysspeed: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	turtwig: {
 		inherit: true,
@@ -2145,7 +2139,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	empoleon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	starly: {
 		inherit: true,
@@ -2157,7 +2151,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	staraptor: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	bidoof: {
 		inherit: true,
@@ -2213,11 +2207,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wormadamsandy: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	wormadamtrash: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	mothim: {
 		inherit: true,
@@ -2251,13 +2245,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
+	cherrimsunshine: {
+	},
 	shellos: {
 		inherit: true,
 		tier: "LC",
 	},
 	gastrodon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	drifloon: {
 		inherit: true,
@@ -2301,7 +2297,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	bronzong: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	chatot: {
 		inherit: true,
@@ -2345,7 +2341,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hippowdon: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	skorupi: {
 		inherit: true,
@@ -2393,171 +2389,103 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rotomheat: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	rotomwash: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	rotomfrost: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	rotomfan: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	rotommow: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	uxie: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	mesprit: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	azelf: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	dialga: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	dialgaorigin: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	palkia: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	palkiaorigin: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	heatran: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	regigigas: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	giratina: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	giratinaorigin: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	cresselia: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	phione: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	manaphy: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	darkrai: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	shaymin: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	shayminsky: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	arceus: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	arceusbug: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusdark: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusdragon: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceuselectric: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusfairy: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusfighting: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusfire: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusflying: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusghost: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusgrass: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusground: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusice: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceuspoison: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceuspsychic: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceusrock: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceussteel: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	arceuswater: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	victini: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	snivy: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	servine: {
 		inherit: true,
@@ -2593,7 +2521,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	samurotthisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	patrat: {
 		inherit: true,
@@ -2701,7 +2629,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	excadrill: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	audino: {
 		inherit: true,
@@ -2721,7 +2649,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	conkeldurr: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	tympole: {
 		inherit: true,
@@ -2765,7 +2693,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	scolipede: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	cottonee: {
 		inherit: true,
@@ -2785,27 +2713,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lilliganthisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	basculin: {
 		inherit: true,
 		tier: "RU",
 	},
-	basculinbluestriped: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	basculinwhitestriped: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	basculegion: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	basculegionf: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sandile: {
 		inherit: true,
@@ -2817,7 +2737,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	krookodile: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	darumaka: {
 		inherit: true,
@@ -2825,15 +2745,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	darumakagalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	darmanitan: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
+	},
+	darmanitanzen: {
 	},
 	darmanitangalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
+	},
+	darmanitangalarzen: {
 	},
 	maractus: {
 		inherit: true,
@@ -2865,7 +2789,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	yamaskgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	cofagrigus: {
 		inherit: true,
@@ -2873,7 +2797,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	runerigus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tirtouga: {
 		inherit: true,
@@ -2905,7 +2829,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zoruahisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	zoroark: {
 		inherit: true,
@@ -2913,7 +2837,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zoroarkhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	minccino: {
 		inherit: true,
@@ -2945,7 +2869,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	reuniclus: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	ducklett: {
 		inherit: true,
@@ -2965,7 +2889,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	vanilluxe: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	deerling: {
 		inherit: true,
@@ -2985,7 +2909,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	escavalier: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	foongus: {
 		inherit: true,
@@ -3065,7 +2989,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chandelure: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	axew: {
 		inherit: true,
@@ -3077,7 +3001,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	haxorus: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	cubchoo: {
 		inherit: true,
@@ -3105,7 +3029,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	stunfiskgalar: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	mienfoo: {
 		inherit: true,
@@ -3113,7 +3037,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mienshao: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	druddigon: {
 		inherit: true,
@@ -3133,7 +3057,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	bisharp: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	bouffalant: {
 		inherit: true,
@@ -3149,7 +3073,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	braviaryhisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	vullaby: {
 		inherit: true,
@@ -3157,7 +3081,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mandibuzz: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	heatmor: {
 		inherit: true,
@@ -3177,7 +3101,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hydreigon: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	larvesta: {
 		inherit: true,
@@ -3185,95 +3109,91 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	volcarona: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	cobalion: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	terrakion: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	virizion: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tornadus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tornadustherian: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	thundurus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	thundurustherian: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	reshiram: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	zekrom: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	landorus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	landorustherian: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	kyurem: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	kyuremblack: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	kyuremwhite: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	keldeo: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	keldeoresolute: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	meloetta: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	genesect: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	genesectburn: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	genesectchill: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	genesectdouse: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	genesectshock: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	chespin: {
 		inherit: true,
@@ -3285,7 +3205,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chesnaught: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	fennekin: {
 		inherit: true,
@@ -3309,11 +3229,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	greninja: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
-	greninjabond: {
-		inherit: true,
-		tier: "Illegal",
+	greninjaash: {
 	},
 	bunnelby: {
 		inherit: true,
@@ -3321,7 +3239,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	diggersby: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "RU",
 	},
 	fletchling: {
 		inherit: true,
@@ -3333,7 +3251,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	talonflame: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	scatterbug: {
 		inherit: true,
@@ -3346,14 +3264,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	vivillon: {
 		inherit: true,
 		tier: "RU",
-	},
-	vivillonfancy: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	vivillonpokeball: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	litleo: {
 		inherit: true,
@@ -3371,9 +3281,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "NFE",
 	},
+	floetteeternal: {
+	},
 	florges: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	skiddo: {
 		inherit: true,
@@ -3403,10 +3315,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
-	meowsticf: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	honedge: {
 		inherit: true,
 		tier: "LC",
@@ -3417,11 +3325,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aegislash: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	aegislashblade: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	spritzee: {
 		inherit: true,
@@ -3497,7 +3403,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hawlucha: {
 		inherit: true,
-		tier: "OU",
+		tier: "RUBL",
 	},
 	dedenne: {
 		inherit: true,
@@ -3517,7 +3423,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sliggoohisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	goodra: {
 		inherit: true,
@@ -3525,7 +3431,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	goodrahisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	klefki: {
 		inherit: true,
@@ -3544,32 +3450,20 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	pumpkaboosmall: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	pumpkaboolarge: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	pumpkaboosuper: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	gourgeist: {
 		inherit: true,
 		tier: "RU",
 	},
 	gourgeistsmall: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	gourgeistlarge: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	gourgeistsuper: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	bergmite: {
 		inherit: true,
@@ -3581,7 +3475,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	avalugghisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	noibat: {
 		inherit: true,
@@ -3589,31 +3483,33 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	noivern: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	xerneas: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "AG",
+	},
+	xerneasneutral: {
 	},
 	yveltal: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	zygarde: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	zygarde10: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	zygardecomplete: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	diancie: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	dianciemega: {
 		inherit: true,
@@ -3621,15 +3517,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hoopa: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	hoopaunbound: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	volcanion: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	rowlet: {
 		inherit: true,
@@ -3645,7 +3541,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	decidueyehisui: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	litten: {
 		inherit: true,
@@ -3669,7 +3565,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	primarina: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	pikipek: {
 		inherit: true,
@@ -3717,15 +3613,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	oricoriopompom: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	oricoriopau: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	oricoriosensu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	cutiefly: {
 		inherit: true,
@@ -3741,7 +3637,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rockruffdusk: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	lycanroc: {
 		inherit: true,
@@ -3749,15 +3645,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lycanrocmidnight: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	lycanrocdusk: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	wishiwashi: {
 		inherit: true,
 		tier: "RU",
+	},
+	wishiwashischool: {
 	},
 	mareanie: {
 		inherit: true,
@@ -3861,79 +3759,79 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	typenull: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	silvally: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallybug: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallydark: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallydragon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyelectric: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyfairy: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyfighting: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyfire: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyflying: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyghost: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallygrass: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyground: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyice: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallypoison: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallypsychic: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallyrock: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallysteel: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silvallywater: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	minior: {
 		inherit: true,
@@ -3953,7 +3851,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mimikyu: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	bruxish: {
 		inherit: true,
@@ -3977,123 +3875,119 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kommoo: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	tapukoko: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	tapulele: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	tapubulu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tapufini: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	cosmog: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	cosmoem: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	solgaleo: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	lunala: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	nihilego: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	buzzwole: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	pheromosa: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	xurkitree: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	celesteela: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	kartana: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	guzzlord: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	necrozma: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	necrozmaduskmane: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	necrozmadawnwings: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	necrozmaultra: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	magearna: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	magearnaoriginal: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	marshadow: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	poipole: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	naganadel: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	stakataka: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	blacephalon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	zeraora: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	meltan: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	melmetal: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	grookey: {
 		inherit: true,
@@ -4117,7 +4011,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	cinderace: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	sobble: {
 		inherit: true,
@@ -4229,7 +4123,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dipplin: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	silicobra: {
 		inherit: true,
@@ -4249,7 +4143,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	barraskewda: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	toxel: {
 		inherit: true,
@@ -4257,11 +4151,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	toxtricity: {
 		inherit: true,
-		tier: "OU",
-	},
-	toxtricitylowkey: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sizzlipede: {
 		inherit: true,
@@ -4271,6 +4161,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
+
 	clobbopus: {
 		inherit: true,
 		tier: "LC",
@@ -4283,17 +4174,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "LC",
 	},
-	sinisteaantique: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	polteageist: {
 		inherit: true,
-		tier: "UU",
-	},
-	polteageistantique: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	hatenna: {
 		inherit: true,
@@ -4353,11 +4236,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	indeedee: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	indeedeef: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	morpeko: {
 		inherit: true,
@@ -4373,7 +4256,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dracozolt: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	arctozolt: {
 		inherit: true,
@@ -4389,7 +4272,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	duraludon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	dreepy: {
 		inherit: true,
@@ -4405,79 +4288,77 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zacian: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	zaciancrowned: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	eternatus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
+	},
+	eternatuseternamax: {
 	},
 	kubfu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "NFE",
 	},
 	urshifu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	urshifurapidstrike: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	zarude: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	zarudedada: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	regieleki: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	regidrago: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	glastrier: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	spectrier: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	calyrex: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	calyrexice: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	calyrexshadow: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "AG",
 	},
 	enamorus: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	enamorustherian: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sprigatito: {
 		inherit: true,
@@ -4489,7 +4370,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meowscarada: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	fuecoco: {
 		inherit: true,
@@ -4501,7 +4382,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	skeledirge: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	quaxly: {
 		inherit: true,
@@ -4513,7 +4394,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	quaquaval: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	lechonk: {
 		inherit: true,
@@ -4525,7 +4406,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	oinkolognef: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	tarountula: {
 		inherit: true,
@@ -4541,7 +4422,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lokix: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	rellor: {
 		inherit: true,
@@ -4565,19 +4446,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	espathra: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	wiglett: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	wugtrio: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	dondozo: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	veluza: {
 		inherit: true,
@@ -4590,10 +4471,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	palafin: {
 		inherit: true,
 		tier: "Uber",
-	},
-	palafinhero: {
-		inherit: true,
-		tier: "Illegal",
 	},
 	smoliv: {
 		inherit: true,
@@ -4643,10 +4520,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
-	mausholdfour: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	cetoddle: {
 		inherit: true,
 		tier: "LC",
@@ -4685,7 +4558,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pawmot: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	wattrel: {
 		inherit: true,
@@ -4693,7 +4566,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kilowattrel: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	bombirdier: {
 		inherit: true,
@@ -4703,21 +4576,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
-	squawkabillyblue: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	squawkabillywhite: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	squawkabillyyellow: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	flamigo: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	klawf: {
 		inherit: true,
@@ -4781,7 +4642,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gimmighoulroaming: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	gholdengo: {
 		inherit: true,
@@ -4789,83 +4650,83 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	greattusk: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	brutebonnet: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	sandyshocks: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	screamtail: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	fluttermane: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	slitherwing: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	roaringmoon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	irontreads: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	ironmoth: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	ironhands: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	ironjugulis: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	ironthorns: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	ironbundle: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	ironvaliant: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	tinglu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	chienpao: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	wochien: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	chiyu: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	koraidon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "AG",
 	},
 	miraidon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "AG",
 	},
 	tinkatink: {
 		inherit: true,
@@ -4877,7 +4738,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tinkaton: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 	},
 	charcadet: {
 		inherit: true,
@@ -4893,63 +4754,55 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	toedscool: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "LC",
 	},
 	toedscruel: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	kingambit: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	clodsire: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	annihilape: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	walkingwake: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	ironleaves: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RUBL",
 	},
 	poltchageist: {
 		inherit: true,
 		tier: "LC",
 	},
-	poltchageistartisan: {
-		inherit: true,
-		tier: "Illegal",
-	},
 	sinistcha: {
 		inherit: true,
-		tier: "OU",
-	},
-	sinistchamasterpiece: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	okidogi: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	munkidori: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	fezandipiti: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	ogerpon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
 	},
 	ogerpontealtera: {
 		inherit: true,
@@ -4957,7 +4810,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ogerponwellspring: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	ogerponwellspringtera: {
 		inherit: true,
@@ -4965,7 +4818,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	ogerponhearthflametera: {
 		inherit: true,
@@ -4973,7 +4826,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ogerponcornerstone: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UUBL",
 	},
 	ogerponcornerstonetera: {
 		inherit: true,
@@ -4981,42 +4834,51 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	archaludon: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	hydrapple: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	gougingfire: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	ragingbolt: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	ironboulder: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "UU",
 	},
 	ironcrown: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	terapagos: {
 		inherit: true,
-		tier: "Illegal",
-	},
-	terapagosterastal: {
-		inherit: true,
-		tier: "Illegal",
-	},
-	terapagosstellar: {
-		inherit: true,
-		tier: "Illegal",
+		tier: "Uber",
 	},
 	pecharunt: {
 		inherit: true,
-		tier: "Illegal",
+		tier: "RU",
+	},
+	
+	junglosaur: {
+		inherit: true,
+		tier: "OU",
+	},
+	dracandescend: {
+		inherit: true,
+		tier: "OU",
+	},
+	scorchyvern: {
+		inherit: true,
+		tier: "OU",
+	},
+	tortonate: {
+		inherit: true,
+		tier: "OU",
 	},
 };
