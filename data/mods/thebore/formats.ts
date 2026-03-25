@@ -18,7 +18,7 @@ export const Formats: FormatData[] = [
 
 		mod: 'thebore',
 		ruleset: ['[Gen 9] NatDex The Bore'],
-		banlist: ['OU', 'UUBL'],
+		banlist: ['OU', 'UUBL', 'Drought'],
 		teambuilderFormat: 'National Dex UU',
 	}
 ];

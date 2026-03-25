@@ -922,6 +922,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
+	shadowlugia: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	hooh: {
 		tier: "Uber",
 		doublesTier: "DUber",
