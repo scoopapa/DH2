@@ -1491,6 +1491,29 @@ export const Formats: FormatList = [
         mod: 'mmm3',
     },
 	{
+        name: "[Gen 9] Micrometa Mafia 4",
+        desc: [
+            "micrometa mafia 4",
+        ],
+        threads: [
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Micrometa Mafia 4 on Smogon Forums</a>`,
+              ],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+        banlist: ['Baton Pass', 'Assist', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag'],
+		teambuilderFormat: "National Dex",
+        onValidateTeam(team, format) {
+            /**@type {{[k: string]: true}} */
+            let speciesTable = {};
+            for (const set of team) {
+                let template = this.dex.species.get(set.species);
+                if (template.tier !== 'MMM4') {
+                    return [set.species + ' is not usable in Micrometa Mafia 4.'];
+                }
+            }
+        },
+        mod: 'mmm3',
+    },
+	{
 		name: "[Gen 9] More Balanced Hackmons v4",
 		desc: `Balanced Hackmons with National Dex elements mixed in.`,
 		threads: [
@@ -1679,7 +1702,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3695289/">Random Tandem on Smogon Forums</a>`,
 		],
 		mod: 'randomtandem',
-		ruleset: ['Standard', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Data Mod', 'Random Tandem Rule'],
+		ruleset: ['Standard', 'Data Mod', 'Random Tandem Rule'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
