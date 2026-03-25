@@ -864,11 +864,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition:
 		{
+			duration: 2,
 			onStart(pokemon){
 				pokemon.addVolatile('shroud');
 			},
+			onModifyMove(move, pokemon, target) {
+				move.accuracy === true;
+			},
 			onInvulnerability(target, source, move){
-				if(move.accuracy === true) return;
+				if(move.accuracy === true || this.effectState.duration === 1) return;
 				return false;
 			},
 			onResidualOrder: 29,
@@ -881,9 +885,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	holyarrows: { // Holy Arrows is the second half of Daedalus Stormbow, and no Pokemon learns it naturally
 		name: "Holy Arrows",
-		type: "Steel",
+		type: "Fairy",
 		category: "Physical",
-		basePower: 10,
+		basePower: 15,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "",
@@ -892,11 +896,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tera Starstorm", target);
-		},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Water' || type === 'Electric' || type === 'Ice' || type === 'Rock' || type === 'Fairy') return 0;
-			if (type === 'Fighting' || type === 'Dark' || type === 'Dragon') return 1;
-			if (type === 'Poison') return -1;
 		},
 		multihit: 5,
 		secondary: null,
