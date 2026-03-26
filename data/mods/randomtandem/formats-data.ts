@@ -53,4 +53,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	clefable: {
 		tier: "Random",
 	},
+	ogerpon: {
+		tier: "Random",
+	},
+	pecharunt: {
+		tier: "Random",
+	},
+	moltres: {
+		tier: "Random",
+	},
 };
