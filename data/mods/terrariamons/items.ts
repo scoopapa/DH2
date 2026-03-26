@@ -15,8 +15,9 @@ brokenherosword: {
 			if(pokemon.baseSpecies.name === 'Shadow') {
 				pokemon.formeChange('Ancient Shadow', this.effect, true);
 			}
-			if(pokemon.baseSpecies.name === 'Hallowed') 
+			if(pokemon.baseSpecies.name === 'Hallowed') {
 				pokemon.formeChange('Ancient Hallowed', this.effect, true);
+			}
 		},
 		onTakeItem(item, pokemon, source) {
 			if (source.baseSpecies.baseSpecies === 'Shadow' || source.baseSpecies.baseSpecies === 'Hallowed') {
