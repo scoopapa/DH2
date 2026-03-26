@@ -28,7 +28,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
-				'shadowchill', 'shadowfire', 'shadowblast',
+				'shadowchill', 'shadowfire', 'shadowblast', 'shadowguard', 'shadowarmor', 'shadowsiphon',
 			];
 			for (const moveid of shadowMoves) {
 				const move = this.dex.moves.get(moveid);
@@ -57,7 +57,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
-				'shadowchill', 'shadowfire', 'shadowblast',
+				'shadowchill', 'shadowfire', 'shadowblast', 'shadowguard', 'shadowarmor', 'shadowsiphon',
 			];
 			if (set.name === 'shadow') {
 				set.pokeball = 'shadow';
@@ -85,7 +85,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
-				'shadowchill', 'shadowfire', 'shadowblast',
+				'shadowchill', 'shadowfire', 'shadowblast', 'shadowguard', 'shadowarmor', 'shadowsiphon',
 			];
 			for (const moveid of shadowMoves) {
 				const move = this.dex.moves.get(moveid);
@@ -111,7 +111,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			const shadowMoves = [
 				'shadowrush', 'shadowblitz', 'shadowwave', 'shadowbreak', 'shadowrave', 'shadowsky', 'shadowend', 'shadowstorm',
 				'shadowpanic', 'shadowmist', 'shadowdown', 'shadowhold', 'shadowshed', 'shadowhalf', 'shadowsights', 'shadowbolt',
-				'shadowchill', 'shadowfire', 'shadowblast',
+				'shadowchill', 'shadowfire', 'shadowblast', 'shadowguard', 'shadowarmor', 'shadowsiphon',
 			];
 			let shadowCount = 0;
 			for (const moveSlot of pokemon.moveSlots) {
