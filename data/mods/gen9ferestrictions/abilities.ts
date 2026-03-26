@@ -1336,6 +1336,129 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1,
 		shortDesc: "Shell Armor + Sand Spit",
 	},
+	stayinghydrated: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				move.accuracy = true;
+				if (!target.addVolatile('stayinghydrated')) {
+					this.add('-immune', target, '[from] ability: Staying Hydrated');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('stayinghydrated');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Staying Hydrated');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if ((move.type === 'Water' || move.type === 'Grass') && attacker.hasAbility('stayinghydrated')) {
+					this.debug('Staying Hydrated boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if ((move.type === 'Water' || move.type === 'Grass') && attacker.hasAbility('stayinghydrated')) {
+					this.debug('Staying Hydrated boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Staying Hydrated', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Staying Hydrated",
+		rating: 3.5,
+		shortDesc: "This Pokemon's Water/Grass attacks do 1.5x damage if hit by one Water move; Water immunity.",
+	},
+	sandsummons: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Summons boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		flags: {},
+		name: "Sand Summons",
+		rating: 2.5,
+		shortDesc: "Infiltrator + Sand Force",
+	},
+	glasshalffull: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Glass Half Full", "[of] " + target);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Glass Half Full');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Water' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Glass Half Full');
+				}
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Glass Half Full",
+		rating: 2,
+		shortDesc: "Clear Body + Storm Drain",
+	},
+	ghoulishgrip: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectState.target);
+				}
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Ghoulish Grip');
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Ghoulish Grip",
+		rating: 2,
+		shortDesc: "Cursed Body + Sticky Hold",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,

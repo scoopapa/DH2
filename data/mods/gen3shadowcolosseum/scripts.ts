@@ -712,6 +712,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'lileep').learnset.shadowsiphon = ["3L1"];
 		this.modData('Learnsets', 'tropius').learnset.shadowsiphon = ["3L1"];
 		this.modData('Learnsets', 'chimecho').learnset.shadowsiphon = ["3L1"];
+		this.modData('Learnsets', 'lugia').learnset.shadowblast = ["3L1"];
+		this.modData('Learnsets', 'lugia').learnset.shadowsky = ["3L1"];
+		this.modData('Learnsets', 'lugia').learnset.shadowstorm = ["3L1"];
 	},
 	pokemon: {
 		inherit: true,

@@ -492,5 +492,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Toho",
 		doublesTier: "DToho",
 	},
+	ubamechirizuka: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	chimihoujuu: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	narekomichigami: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	yuimanasama: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	watatsukinotoyohime: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	watatsukinoyorihime: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	ariyaiwanaga: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
+	ninawatari: {
+		tier: "Toho",
+		doublesTier: "DToho",
+	},
 
 };

@@ -190,6 +190,30 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
+	empodeer: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gastropult: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipach: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipachmega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	stantplup: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	sheepy: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
   // Silverade
 	silveradebug: {
 		tier: "Silverade",

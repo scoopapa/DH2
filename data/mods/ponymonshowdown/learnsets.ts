@@ -543,7 +543,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	sunburst: {
 		learnset: {
-			sunburstsweatherabjuration: ["9L1"],
+			sunburstsweatherspell: ["9L1"],
 			flamethrower: ["9L1"],
 			fireblast: ["9L1"],
 			moonblast: ["9M"],
@@ -555,7 +555,6 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			toxic: ["9L1"],
 			willowisp: ["9M"],
 			teleport: ["9M"],
-			wish: ["9M"],
 			uturn: ["9M"],
 			morningsun: ["9M"],
 			recover: ["9M"],
@@ -767,6 +766,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			toxic: ["9M"],
 			highhorsepower: ["9M"],
 			trailblaze: ["9M"],
+			voltswitch: ["9M"],
 			zenheadbutt: ["9M"],
 			aurasphere: ["9M"],
 			psychocut: ["9M"],
@@ -1609,7 +1609,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			roost: ["9L1"],
 			defog: ["9M"],
 			uturn: ["9M"],
-			swordsdance: ["9M"],
+			closecombat: ["9M"],
 			rocksmash: ["9M"],
 			temperflare: ["9M"],
 			drillpeck: ["9M"],

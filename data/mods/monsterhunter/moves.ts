@@ -796,7 +796,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Dragon') {
 					this.debug('dragoncharge boost');
-					return this.chainModify(2);
+					return this.chainModify(1.3);
 				}
 			},
 			onMoveAborted(pokemon, target, move) {
@@ -1298,10 +1298,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	glacialgale: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Special",
 		name: "Glacial Gale",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
 		secondary: {
@@ -1538,7 +1538,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	selenitebeam: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Selenite Beam",
 		pp: 15,
@@ -1743,6 +1743,42 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', source, "Rock Wrecker", target);
         },
 	},
+	flyingpress: {
+		num: 560,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
+		name: "Flying Press",
+		viable: true,
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Fighting';
+			const type2 = 'Flying';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
+					move.type = 'Flying';
+				} else if (target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !pokemon.hasAbility('mindseye') && !target.hasItem('ringtarget')) {
+					move.type = 'Flying';
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Flying') && !pokemon.hasType('Fighting')) {
+						move.type = 'Flying';
+					}
+				}
+			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Flying Press dealt ${move.type}-type damage!`);
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Fighting",
+		zMove: {basePower: 170},
+		contestType: "Tough",
+	},
 	mentalload: {
 		accuracy: 100,
 		basePower: 80,
@@ -1825,21 +1861,42 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'blotout',
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Blot Out');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Dark",
-		onHit(target, source) {
-			// Apply Tar Shot's Fire weakness without Speed drop
-			if (!target.volatiles['tarshot']) {
-				target.addVolatile('tarshot');
-				// Remove the Speed drop Tar Shot normally applies
-				if (target.boosts.spe < 0) {
-					this.boost({spe: -target.boosts.spe}, target); // undo any drop
-				}
-			}
-		},
-
+		type: "Fire",
+	},
+	ionsaber: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		overrideDefensiveStat: 'def',
+		name: "Ion Saber",
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', target, "Thunderclap", target);
+        },
 	},
 	/*
 	Edits
@@ -2218,6 +2275,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 90,
 	},
+	defog: {
+		inherit: true,
+		viable: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1},
+	},
 	geargrind: {
 		inherit: true,
 		viable: true,
@@ -2278,6 +2340,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 				volatileStatus: 'flinch',
 			},
 		],
+	},
+	iciclecrash: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 90,
+		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+	},
+	airslash: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 85,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'bleeding',
+		},
+		desc: "30% chance to inflict bleed.",
+		shortDesc: "30% chance to inflict bleed.",
 	},
 	/*
 	DROWSY EDITS

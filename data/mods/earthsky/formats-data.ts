@@ -540,8 +540,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricitygmax: null,
 	toxtricitylowkeygmax: null,
 	centiskorchgmax: null,
-	sinisteaantique: null,
-	polteageistantique: null,
 	hatterenegmax: null,
 	grimmsnarlgmax: null,
 	alcremiegmax: null,
@@ -552,8 +550,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	urshifurapidstrikegmax: null,
 	zarudedada: null,
 	ursalunabloodmoon: null,
-	poltchageistartisan: null,
-	sinistchamasterpiece: null,
 	ogerpontealtera: null,
 	ogerponwellspringtera: null,
 	ogerponhearthflametera: null,
@@ -5279,9 +5275,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
+	sinisteaantique: {
+		isNonstandard: 'Custom',
+		tier: 'Illegal'
+	},
 	polteageist: {
 		tier: 'OU',
 		natDexTier: 'OU'
+	},
+	polteageistantique: {
+		isNonstandard: 'Custom',
+		tier: 'Illegal'
 	},
 	impidimp: {
 		tier: 'LC',
@@ -5523,9 +5527,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
+	poltchageistartisan: {
+		isNonstandard: 'Custom',
+		tier: 'Illegal'
+	},
 	sinistcha: {
 		tier: 'OU',
 		natDexTier: 'OU'
+	},
+	sinistchamasterpiece: {
+		isNonstandard: 'Custom',
+		tier: 'Illegal'
 	},
 	terapagos: {
 		tier: 'OU',

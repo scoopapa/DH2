@@ -198,4 +198,28 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+	waterstone: {
+		inherit: true,
+		onStart(pokemon){
+			if (pokemon.baseSpecies.name === "Hecatia-Otherworld") {
+				pokemon.formeChange("Hecatia-Earth", this.effect, true);
+				this.add('-ability', pokemon, "Natural Cure", '[from] item: Water Stone');
+				pokemon.set.ability = "Natural Cure";
+				pokemon.eatItem();
+			}
+		},
+		shortDesc: "If held by Hecatia-Otherworld, consumed on entry and transforms into Hecatia-Earth",
+	},
+	moonstone: {
+		inherit: true,
+		onStart(pokemon){
+			if (pokemon.baseSpecies.name === "Hecatia-Otherworld") {
+				pokemon.formeChange("Hecatia-Moon", this.effect, true);
+				this.add('-ability', pokemon, "Dazzling", '[from] item: Moon Stone');
+				pokemon.set.ability = "Dazzling";
+				pokemon.eatItem();
+			}
+		},
+		shortDesc: "If held by Hecatia-Otherworld, consumed on entry and transforms into Hecatia-Moon",
+	},
 }

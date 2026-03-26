@@ -279,19 +279,23 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		effectType: 'Status',
 		onStart(pokemon) {
 			if (pokemon.hasType('Fairy')) {
-            	this.add('-immune', pokemon, '[from] status: Dragonblight');
-            	return false;
-        	}
+				this.add('-immune', pokemon, '[from] status: Dragonblight');
+				return false;
+			}
 			this.add('-start', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} is afflicted with Dragonblight! STAB disabled!`);
 		},
 		onResidualOrder: 10,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
+			if (!pokemon.hasAbility('blackflame')) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
 		},
 		onModifySTAB(stab, source, target, move) {
-        	return 1;
-    	},
+			if (!source.hasAbility('blackflame')) {
+				return 1;
+			}
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dragonblight');
 			this.add('-message', `${pokemon.name} overcame Dragonblight!`);
@@ -383,6 +387,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
         onWeather(target) {
             if (this.field.weatherState.source !== target) this.damage(target.baseMaxhp / 16);
         },
+		onImmunity(type) {
+			if (type === 'brn') return false;
+		},
         onFieldEnd() {
 			this.add('-message', 'The environment warmed up!');
 		},

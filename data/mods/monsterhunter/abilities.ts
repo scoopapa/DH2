@@ -174,20 +174,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "When Terrain is active: Gains seed boost + secondary type.",
 	},
 	blackflame: {
-		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.maxhp / 3);
-		},
 		onDamage(damage, target, source, effect) {
 			if (!effect) return;
-			if (effect.id === 'brn' || effect.id === 'dragonblight') {
+			if (effect.id === 'brn') {
 				return false;
 			}
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon, defender, move) {
-			if (pokemon.status === 'brn') {
-				atk = this.chainModify(2);
-			}
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
 				return this.chainModify(1.3);
 			}
@@ -197,13 +191,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(1.3);
 			}
 		},
-		onModifySTAB(stab, source, target, move) {
-			if (source.status === 'dragonblight') {
-				return 1.5;
-			}
-		},
 		name: "Black Flame",
-		shortDesc: "Heals 33% on switch. If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
+		shortDesc: "If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -378,16 +367,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	debris: {
 		onDamagingHit(damage, target, source, move) {
-			const side = source.isAlly(target) ? source.side.foe : source.side;
-			const Spikes = side.sideConditions['spikes'];
-			if (move.category === 'Physical' && (!Spikes || Spikes.layers < 3)) {
-				this.add('-activate', target, 'ability: Debris');
-				side.addSideCondition('spikes', target);
-			}
+			if (target !== this.effectState.target) return;
+			if (source === target) return;
+			if (!this.checkMoveMakesContact(move, source, target)) return;
+			const side = source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (spikes && spikes.layers >= 3) return;
+			this.add('-activate', target, 'ability: Debris');
+			side.addSideCondition('spikes', target);
 		},
+
 		flags: {},
 		name: "Debris",
-		shortDesc: "After taking a Physical attack: Sets Spikes on opposing side",
+		shortDesc: "When hit by a contact move, sets Spikes on the opposing side (max 3 layers).",
 	},
 	densecortex: {
 		onTryHit(pokemon, target, move) {
@@ -694,11 +686,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
 				this.debug('Generalist boost');
-				return this.chainModify(1.3);
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Generalist",
-		shortDesc: "Non-STAB moves: Power is 1.3x.",
+		shortDesc: "Non-STAB moves: Power is 1.2x.",
 	},
 	geminicore: {
 		onChargeMove(pokemon, target, move) {
@@ -1411,6 +1403,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Raging Rebel",
 		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
 	},
+	razoredge: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(5, 10)) {
+					target.addVolatile('bleeding', source);
+				}
+			}
+		},
+		flags: {},
+		shortDesc: "Contact moves have a 50% chance to inflict bleed on the target.",
+		name: "Razor Edge",
+	},
 	reactivecore: {
 		onStart(pokemon) {
 		// Weather-based activation
@@ -1586,27 +1591,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.type === 'Dark' && target.hasAbility('risenburst')) {
-				this.debug('Risen Burst weaken (incoming Dark)');
+			if (move.type === 'Dark') {
 				return this.chainModify(0.5);
 			}
 		},
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dark') {
 				this.debug('Risen Burst boost (Atk)');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpA(spa, attacker, defender, move) {
 			if (move.type === 'Dark') {
 				this.debug('Risen Burst boost (SpA)');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
 		name: "Risen Burst",
-		desc: "On Mega Evolution, this Pokemon immediately uses Risen Burst (60 BP, Typeless). This Pokemon resists Dark-type moves and gains STAB on them. When hit by a Dark-type attack, this Pokemon retaliates with Risen Burst.",
-		shortDesc: "On Mega-Evo/Hit by Dark Attack: Uses Risen Burst (60 BP, Typeless). | Dark Moves are 1.5x + Dark Resistance.",
+		desc: "On Mega Evolution, this Pokemon immediately uses Risen Burst (60 BP, Typeless). This Pokemon resists Dark Moves and own are boosted by 1.3x. When hit by a Dark-type attack, this Pokemon retaliates with Risen Burst.",
+		shortDesc: "On Mega-Evo/Hit by Dark Attack: Uses Risen Burst (60 BP, Typeless). | Dark Moves are 1.3x + Dark Resistance.",
 	},
 	rivalry: {
 		onBasePowerPriority: 24,
@@ -1737,7 +1741,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Sinister Grudge",
-		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, up to 5 allies.",
+		shortDesc: "This Pokemon's moves have 5% more power for each fainted ally, max 25%.",
 	},
 	spongy: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1751,21 +1755,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Spongy",
 	},
 	starvingbite: {
-	onModifyMovePriority: 99,
-	onModifyMove(move, source, target) {
-		if (move.flags?.bite) {
-		move.ignoreAbility = true; 
-		move.ignoreImmunity = true; 
-		}
-	},
-	onEffectiveness(typeMod, target, type, move) {
-		if (!move || !move.flags?.bite) return;
-		if (typeMod < 0) return 0;
-	},
-	flags: {},
-	name: "Starving Bite",
-	desc: "This Pokémon's biting attacks ignore target abilities and type immunities, but still respect resistances and weaknesses.",
-	shortDesc: "Biting attacks ignore immunities and abilities.",
+		onModifyMovePriority: 99,
+		onModifyMove(move, source, target) {
+			// Only modify moves used by the Pokémon with this ability
+			if (source.hasAbility('starvingbite')) {
+				if (move.flags?.bite) {
+					move.ignoreAbility = true;
+					move.ignoreImmunity = true;
+				}
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!move || !move.flags?.bite) return;
+			// Only apply to moves used by the ability holder
+			if (!move.source?.hasAbility?.('starvingbite')) return;
+			if (typeMod < 0) return 0;
+		},
+		flags: {},
+		name: "Starving Bite",
+		desc: "This Pokémon's biting attacks ignore target abilities and type immunities, but still respect resistances and weaknesses.",
+		shortDesc: "Biting attacks ignore immunities and abilities.",
 	},
 	stealthsilver: {
 		onStart(pokemon, source) {
@@ -1795,7 +1804,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	swampsneeze: {
 		onStart(source) {
-			this.add('-ability', source, 'Marshland Lord');
+			this.add('-ability', source, 'Swamp Sneeze');
 			this.field.addPseudoWeather('watersport');
 			this.field.addPseudoWeather('mudsport');
 		},
@@ -2021,7 +2030,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hp && !target.volatiles['dragoncharge']) {
-				if (target.status && target.status !== 'slp') {
+				// Only cure + trigger Dragon Charge for BRN, PAR, FRZ
+				if (
+					target.status &&
+					target.status !== 'slp' &&
+					target.status !== 'psn' &&
+					target.status !== 'tox'
+				) {
 					const oldStatus = target.status;
 					target.cureStatus();
 					this.add('-curestatus', target, oldStatus, '[from] ability: Wyversion');
@@ -2030,14 +2045,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onUpdate(pokemon) {
-			// If Flame Orb, Frost Orb, or Toxic Orb has already triggered, consume it
-			if ((pokemon.item === 'flameorb' || pokemon.item === 'frostorb' || pokemon.item === 'toxicorb') && pokemon.status) {
+			// If Flame Orb or Frost Orb has already triggered, consume it
+			if ((pokemon.item === 'flameorb' || pokemon.item === 'frostorb') && pokemon.status) {
 				const consumed = pokemon.item;
 				pokemon.setItem('');
 				this.add('-enditem', pokemon, consumed, '[from] ability: Wyversion');
 			}
-
-			if (pokemon.status && pokemon.status !== 'slp' && !pokemon.volatiles['dragoncharge']) {
+			// Only cure + trigger Dragon Charge for BRN, PAR, FRZ
+			if (
+				pokemon.status &&
+				pokemon.status !== 'slp' &&
+				pokemon.status !== 'psn' &&
+				pokemon.status !== 'tox' &&
+				!pokemon.volatiles['dragoncharge']
+			) {
 				const oldStatus = pokemon.status;
 				pokemon.cureStatus();
 				pokemon.addVolatile('dragoncharge');
@@ -2045,15 +2066,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onSetStatus(status, target, source, effect) {
 			if (target.volatiles['dragoncharge']) {
-				if (status.id === 'slp') return;
+				if (status.id === 'slp' || status.id === 'psn' || status.id === 'tox') return;
 				this.add('-immune', target, '[from] ability: Wyversion');
 				return false;
 			}
 		},
 		flags: {},
 		name: "Wyversion",
-		desc: "Flame Orb, Frost Orb, and Toxic Orb are consumed after they trigger. When hit or inflicted with a non-Sleep status, this Pokémon cures the status and gains Dragon Charge, boosting its next Dragon-type move. While charged, it cannot be inflicted with status except Sleep.",
-		shortDesc: "Hit/BRN/FRZ/PARA/POI/DRAGB: Gains Dragon-Charge | Cures Status. Immune if Blighted.",
+		shortDesc: "Hit/BRN/FRZ/PARA: Cures + Gains Dragon-Charge | Status Immune if Charged.",
 	},
 	/*
 	Edits
@@ -2124,6 +2144,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'dustdevil', 'absolutezero'];
 			if (this.field.getWeather().id === 'primordialsea' && !strongWeathers.includes(weather.id)) return false;
 		},
+	},
+	sharpness: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Sharpness boost');
+				return this.chainModify(1.3);
+			}
+		},
+		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.3.",
 	},
 	sandforce: {
 		inherit: true,

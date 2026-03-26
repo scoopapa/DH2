@@ -1800,7 +1800,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9M"],
 			return: ["9T"],
 			frustration: ["9T"],
-			uturn: ["9M"],
+			flipturn: ["9M"],
 			scald: ["9M"],
 			endure: ["9M"],
 			aquaring: ["9E"],
@@ -4534,6 +4534,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			roost: ["9M"],
 			dreameater: ["9M"],
 			sleeptalk: ["9M"],
+			uproar: ["9M"],
 			return: ["9T"],
 			frustration: ["9T"],
 			overheat: ["9M"],
@@ -7105,6 +7106,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			bide: ["9E"],
 			disable: ["9E"],
 			disarmingvoice: ["9E"],
+			doubleedge: ["9E"],
 			flameburst: ["9E"],
 			luckychant: ["9E"],
 			rollout: ["9E"],
@@ -11126,13 +11128,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		},
 	},
 	ironcrown: null,
-	// Other
-	necrozmaultra: {
-		learnset: {
-			lunarray: ["9R"],
-			solarimpact: ["9R"],
-		},
-	},
+	// Junkyard
 	raticatealolatotem: null,
 	pikachucosplay: null,
 	pikachurockstar: null,
@@ -11172,10 +11168,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	togedemarutotem: null,
 	mimikyutotem: null,
 	kommoototem: null,
-	sinisteaantique: null,
 	zarudedada: null,
 	ursalunabloodmoon: null,
-	poltchageistartisan: null,
-	sinistchamasterpiece: null,
 	missingno: null,
 };
