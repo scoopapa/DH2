@@ -831,4 +831,127 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			],
 		],
 	},
+	ogerpon: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'scizor',
+					item: 'metalcoat',
+					ability: 'technician',
+					teraType: ['Fire', 'Steel'],
+				},
+				['swordsdance', 'bulletpunch'], ['closecombat', 'pinmissile', 'knockoff']
+			],
+			[
+				{
+					species: 'primarina',
+					item: 'leftovers',
+					ability: 'torrent',
+					teraType: ['ghost', 'steel'],
+				},
+				['calmmind', 'moonblast', 'hydropump', 'watershuriken']
+			],
+			[
+				{
+					species: 'dragapult',
+					item: ['leftovers', 'heavydutyboots'],
+					ability: ['infiltrator', 'defiant'],
+					teraType: ['ghost', 'fairy'],
+				},
+				['hex', 'willowisp'], ['dragondarts', 'dracometeor', 'uturn', 'thunderwave']
+			],
+			[
+				{
+					species: 'regieleki',
+					item: ['magnet', 'heavydutyboots'],
+					ability: 'transistor',
+					teraType: ['fire', 'electric'],
+				},
+				['thunderbolt', 'overheat', 'rapidspin', 'voltswitch']
+			],
+		],
+	},
+	pecharunt: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'ironmoth',
+					item: 'heavydutyboots',
+					ability: 'merciless',
+					teraType: ['Fairy', 'Grass'],
+				},
+				['fierydance', 'sludgewave'], ['dazzlinggleam', 'energyball', 'agility']
+			],
+			[
+				{
+					species: 'mandibuzz',
+					item: 'heavydutyboots',
+					ability: 'overcoat',
+					teraType: 'steel',
+				},
+				['jawlock', 'roost'], ['uturn', 'toxic', 'defog']
+			],
+			[
+				{
+					species: 'dudunsparce',
+					item: 'toxicorb',
+					ability: 'poisonheal',
+					teraType: ['ghost', 'poison'],
+				},
+				['facade', 'toxic'], ['roost', 'stealthrock', 'protect']
+			],
+			[
+				{
+					species: 'ironvaliant',
+					item: 'boosterenergy',
+					ability: 'quarkdrive',
+					teraType: ['fairy', 'steel'],
+				},
+				['magicaltorque', 'closecombat', 'knockoff', 'encore']
+			],
+		],
+	},
+	moltres: {
+		inherit: true,
+		mons: [
+			[
+				{
+					species: 'duraludon',
+					item: 'eviolite',
+					ability: 'regenerator',
+					teraType: 'Grass',
+				},
+				['dracometeor', 'stealthrock'], ['flashcannon', 'bodypress', 'thunderwave']
+			],
+			[
+				{
+					species: 'mamoswine',
+					item: 'lifeorb',
+					ability: 'thickfat',
+					teraType: ['ice', 'ground'],
+				},
+				['iciclecrash', 'earthquake', 'iceshard', 'knockoff']
+			],
+			[
+				{
+					species: 'miraidon',
+					item: 'heavydutyboots',
+					ability: 'stickyhold',
+					teraType: ['Electric', 'steel'],
+				},
+				['discharge', 'dragonpulse', 'flashcannon', 'uturn']
+			],
+			[
+				{
+					species: 'chandelure',
+					item: 'choicespecs',
+					ability: 'stormdrain',
+					teraType: ['fire', 'steel'],
+				},
+				['shadowball', 'fireblast', 'energyball', 'trick']
+			],
+		],
+	},
 };
