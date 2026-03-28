@@ -78,23 +78,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['spikes', 'stealthrock']) {
-				if (pokemon.side.getSideCondition(sideCondition)) {
+				if (pokemon.side.getSideCondition(sideCondition) && !pokemon.side.getSideCondition('excavate')) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Excavate');
-		            activated = true;
+						activated = true;
 					}
-					pokemon.side.removeSideCondition(sideCondition);
 				}
-			   if (pokemon.side.getSideCondition('spikes')) {
-			      this.boost({def: 1}, pokemon);
+				if (pokemon.side.getSideCondition('spikes') && !pokemon.side.getSideCondition('excavate')) {
+					this.add('-sideend', pokemon.side, 'move: Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('spikes');
+					this.boost({ def: 1 }, pokemon);
+					pokemon.side.addSideCondition('excavate');
 				}
-			   if (pokemon.side.getSideCondition('stealthrock')) {
-			      this.boost({def: 1}, pokemon);
+				if (pokemon.side.getSideCondition('stealthrock') && !pokemon.side.getSideCondition('excavate')) {
+					this.add('-sideend', pokemon.side, 'move: Stealth Rock', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('stealthrock');
+					this.boost({ def: 1 }, pokemon);
+					pokemon.side.addSideCondition('excavate');
 				}
 			}
 		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Excavate Used');
+			},
+		},
 		name: "Excavate",
-		shortDesc: "Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
+		shortDesc: "Once per game. Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
 		rating: 4,
 	},
 	lifeguard: {
