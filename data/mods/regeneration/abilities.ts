@@ -224,4 +224,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 90,
 	},
+	bullspirit: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || source.switchFlag === true || !move.hitTargets || move.type !== 'Normal') return;
+			this.add('-ability', source, 'Bull Spirit');
+			this.add('-message', `${source.name}'s next attack will be physical!`)
+			source.addVolatile('bullspirit');
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'ability: Bull Spirit');
+			},
+			duration: 2,
+			onModifyMovePriority: 8,
+			onModifyMove(move, pokemon) {
+				if (move.category !== "Status") {
+					move.category = "Physical";
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Bull Spirit', '[silent]');
+			},
+		},
+		flags: {},
+		name: "Bull Spirit",
+		rating: 1,
+		shortDesc: "After using a Normal-type move, the user's next attack will always be physical.",
+	},
 };
