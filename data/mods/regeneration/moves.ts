@@ -383,4 +383,145 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 	},
+	vengefulbone: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Power doubles if an ally fainted last turn.",
+		name: "Vengeful Bone",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Shadow Bone", target);
+		},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				this.debug('Boosted for a faint last turn');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	escort: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "User switches out. Switch-in is immune to hazards.",
+		name: "Escort",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", source);
+		},
+		self: {
+			sideCondition: 'escort',
+		},
+		condition: {
+			duration: 1,
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	gmaxsteelsurge: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+	},
 };
