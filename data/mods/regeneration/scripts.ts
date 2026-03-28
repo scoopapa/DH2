@@ -195,6 +195,33 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		delete this.modData('Learnsets', 'horsea').learnset.blizzard;
 		delete this.modData('Learnsets', 'horsea').learnset.icebeam;
+
+		this.modData("Learnsets", "raticate").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.poisonjab = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.sludgewave = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.sludge = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "raticate").learnset.pestspread = ["9L1"];
+		delete this.modData('Learnsets', 'raticate').learnset.swordsdance;
+		delete this.modData('Learnsets', 'raticate').learnset.stompingtantrum;
+		delete this.modData('Learnsets', 'raticate').learnset.suckerpunch;
+		delete this.modData('Learnsets', 'raticate').learnset.pursuit;
+		delete this.modData('Learnsets', 'raticate').learnset.zenheadbutt;
+		delete this.modData('Learnsets', 'rattata').learnset.swordsdance;
+		delete this.modData('Learnsets', 'rattata').learnset.stompingtantrum;
+		delete this.modData('Learnsets', 'rattata').learnset.suckerpunch;
+		delete this.modData('Learnsets', 'rattata').learnset.pursuit;
+		delete this.modData('Learnsets', 'rattata').learnset.zenheadbutt;
+		this.modData("Learnsets", "kangaskhan").learnset.familyonslaught = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.dragontail = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.dragonclaw = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.dragondance = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "farfetchd").learnset.bulkup = ["9L1"];
+		this.modData("Learnsets", "farfetchd").learnset.sacredsword = ["9L1"];
+		delete this.modData('Learnsets', 'farfetchd').learnset.toxic;
 	},
 
 
