@@ -23,7 +23,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	smokytorment: {
-		num: 1000,
 		accuracy: true,
 		basePower: 75,
 		category: "Physical",
@@ -32,14 +31,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		self: {
-		   volatileStatus: 'encore',
-		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'torment',
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
@@ -332,5 +331,57 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+	},
+	familyonslaught: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Hits 2-4 times.",
+		name: "Family Onslaught",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		multihit: [2, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Population Bomb", target);
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	pestspread: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Changes the target's type to the user's type.",
+		name: "Pest Spread",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onAfterHit(target, source) {
+			if (target.species && (target.species.num === 493 || target.species.num === 773)) return false;
+			if (target.terastallized) return false;
+			const oldApparentType = target.apparentType;
+			let newBaseTypes = source.getTypes(true).filter(type => type !== '???');
+			if (!newBaseTypes.length) {
+				if (source.addedType) {
+					newBaseTypes = ['Normal'];
+				} else {
+					return false;
+				}
+			}
+			this.add('-start', target, 'typechange', '[from] move: Pest Spread', `[of] ${target}`);
+			target.setType(newBaseTypes);
+			target.addedType = source.addedType;
+			target.knownType = source.isAlly(source) && source.knownType;
+			if (!target.knownType) target.apparentType = oldApparentType;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Bomb", target);
+		},
+		target: "normal",
+		type: "Poison",
 	},
 };
