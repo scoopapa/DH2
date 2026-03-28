@@ -141,7 +141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
 				this.boost({atk: 1, spa: 1, spe: 1}, target, target);
-				pokemon.addVolatile('perishsong');
+				target.addVolatile('perishsong');
 			}
 		},
 		name: "Ballooning",
