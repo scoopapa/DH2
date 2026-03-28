@@ -16,7 +16,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Less power as user's HP decreases. Hits foe(s).",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Grass",
@@ -30,7 +30,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Applies the Torment effect on opponent.",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
@@ -52,7 +52,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Removes all hazards in the field. If any hazards are cleared, the user heals for 50% of its maximum HP.",
 		pp: 40,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
 			let success = false;
 			const removeAll = [
@@ -83,7 +83,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Uses user's Special Defense stat as Special Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		useSourceDefensiveAsOffensive: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -102,7 +102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Lowers the user's Sp. Atk by 1. Heals 25% of the damage done. Heals another 25% for each stage the user's Special Attack is lowered.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		self: {
 			boosts: {
 				spa: -1,
@@ -129,7 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Uses user's Defense stat as Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		useSourceDefensiveAsOffensive: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -148,7 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "33% recoil. 10% chance to poison.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
 			status: 'psn',
@@ -171,7 +171,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to lower the target's Attack by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -197,7 +197,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "100% chance to lower the target's Defense by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -223,7 +223,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "100% chance to lower the target's Speed by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -242,20 +242,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	powdergale: {
 		num: 367,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
 		name: "Powder Gale",
-      shortDesc: "100% chance to poison. Harshly lowers a random one of the target's stat.",
-		pp: 30,
+      shortDesc: "100% chance to poison. Harshly lowers a random one of the target's stats.",
+		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1},
 		onHit(target) {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
 				if (stat === 'accuracy' || stat === 'evasion') continue;
-				if (target.boosts[stat] < 6) {
+				if (target.boosts[stat] > -6) {
 					stats.push(stat);
 				}
 			}
@@ -274,12 +274,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hurricane", target);
+			this.add('-anim', source, "Silver Wind", target);
 		},
 		target: "normal",
 		type: "Bug",
-		zMove: {effect: 'crit2'},
-		contestType: "Tough",
+		contestType: "Clever",
 	},
 	splashback: {
 		num: 889,
@@ -300,7 +299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "Base power increases by 50 every time this Pokemon is hit. Max 300 BP. Reset on switch out.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -314,7 +313,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "Lowers the target's Atk by 1. Inflicts Encore on the user.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		self: {
 		   volatileStatus: 'encore',
 		},
@@ -326,7 +325,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Liquidation", target);
+			this.add('-anim', source, "Breaking Swipe", target);
 		},
 		target: "allAdjacentFoes",
 		type: "Water",
@@ -340,7 +339,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Family Onslaught",
 		pp: 10,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		multihit: [2, 4],
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -358,7 +357,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Pest Spread",
 		pp: 10,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onAfterHit(target, source) {
 			if (target.species && (target.species.num === 493 || target.species.num === 773)) return false;
 			if (target.terastallized) return false;
