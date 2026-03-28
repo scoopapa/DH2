@@ -7,6 +7,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	init() {
 		let customList = [];
+		let dexNo = -1;
 		for (const id in this.dataCache.Pokedex) {
 			const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
 			const gen9only = [
@@ -19,11 +20,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				for (const moveid of notm) {
 					if (this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset[moveid]) {
 						// check if it learns the move naturally
-						let learns = false;
-						for (const method in this.dataCache.Learnsets[id].learnset[moveid]) {
-							if (method.charAt(1) === 'L' || method.charAt(1) === 'E') learns = true;
-						}
-						if (!learns) delete this.modData('Learnsets', id).learnset[moveid];
+						this.modData('Learnsets', id).learnset[moveid] = this.dataCache.Learnsets[id].learnset[moveid].filter(
+							(method) => (method.includes('L') || method.includes('E'))
+						);
 					}
 				}
 			}
@@ -36,12 +35,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!newMon.types && copyData.types) newMon.types = copyData.types;
 			if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
 			if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
-			if (!newMon.num && copyData.num) newMon.num = copyData.num * -1; // inverting the original's dex number
+			// if (!newMon.num && copyData.num) newMon.num = copyData.num * -1; // inverting the original's dex number
 			if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
 			if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
 			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
 			if (!newMon.color && copyData.color) newMon.color = copyData.color;
 			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			
+			// actually, handling dex numbers that way creates issues with species clause! let's fix that:
+			if (newMon.baseSpecies) {
+				newMon.num = this.dataCache.Pokedex[this.toID(newMon.baseSpecies)].num;
+			} else {
+				newMon.num = dexNo;
+				dexNo--;
+			}
 
 			if (!newMon.evos) customList.push(id); // only fully-evolved Pokémon of the Day!
 
@@ -52,7 +59,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-						(method) => !(method.includes('S') || (notm.includes(moveid) && (method.includes('M') || method.includes('T'))) || (gen9only.includes(id) && !(method.startsWith('9'))))
+						(method) => !(method.includes('S') || (notm.includes(moveid) && (method.includes('M') || method.includes('T') || method.includes('V'))) || (gen9only.includes(id) && !(method.startsWith('9'))))
 					);
 				}
 				if (newMon.movepoolAdditions) {

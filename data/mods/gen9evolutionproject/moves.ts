@@ -29,6 +29,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+		longDesc: `The user restores its own HP by up to half its max HP.<br>It regains more HP in snow.`,
 		shortDesc: "Recovers half of max HP, or 2/3 in snow/hail.",
 	},
 	freezetag: {
@@ -53,6 +54,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
+		longDesc: `This also adds the Ice type to the target's type.`,
 		shortDesc: "Does damage and adds Ice to the target's type.",
 	},
 	auroraburst: {
@@ -81,6 +83,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		longDesc: `The user charges up aurora energy and boosts its Sp. Def stat on the first turn, then attacks the opposing Pokémon on the next turn. <em>(spread)</em>`,
 		shortDesc: "Charges and raises Sp. Def, then attacks all adjacent foes.",
 	},
 	banefulbayonet: {
@@ -103,6 +106,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Poison",
+		longDesc: `The user's HP is restored by up to half the damage taken by the target.<br>This may also poison the target. <em>(20% chance)</em>`,
 		shortDesc: "Drains for 50% of the damage dealt; 20% poison chance.",
 	},
 	renewingring: {
@@ -154,6 +158,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		longDesc: `One turn after this move is used, the user's or its replacement's HP is restored by up to half the damage taken by the target.<br>After using this move, the user will no longer be Ice type. <em>(Fails if the user is not Ice-type.)</em><br><em>(sound-based)</em>`,
 		shortDesc: "Sheds the Ice type; two turns later, heals for 50% damage dealt.",
 	},
 	snowroller: {
@@ -183,6 +188,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
+		longDesc: `The user packs snow and ice onto its body to boost its Defense stat and accuracy.<br><em>(doubles the BP of Ice Ball, Rollout)</em>`,
 		shortDesc: "Boosts Defense, accuracy, Rollout and Ice Ball.",
 	},
 	blownfuse: {
@@ -225,6 +231,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		longDesc: `For 4 turns after this move is used, the target or its replacement is burned if it uses a physical move while on the ground.<br><em>(+4 priority; targets an individual slot; doesn't affect Electric-types; cleared by hazard-removing moves and doesn't burn the Pokémon that uses them)</em>"								`,
 		shortDesc: "4 turns: grounded Pokémon in target slot burned after using physical moves, except Electric-types.",
 	},
 	shadowbox: {
@@ -250,6 +257,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Ghost",
+		longDesc: `Hits all adjacent opponents and lowers the Attack and Sp. Atk stats of opposing Pokémon.<br>(punching move)`,
 		shortDesc: "Hits adjacent foes and lowers their Attack, Sp. Atk.",
 	},
 	rekindle: {
@@ -278,6 +286,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		longDesc: `The user rekindles a held item that has been used in battle so it can be used again.`,
 		shortDesc: "Restores the user's item.",
 	},
 	entanglement: {
@@ -331,7 +340,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		shortDesc: "Traps user + target; pseudo Leech Seed.",
+		longDesc: `This move prevents the user and the target from switching out until either of them faints, and it steals some HP from the target every turn. <em>(1/8 of the target's HP; affected by Binding Band)</em><br>The effect goes away if either of the Pokémon leaves the field.`,
+		shortDesc: "Traps user + target; pseudo-Leech Seed.",
 	},
 	myceliate: {
 		num: -11,
@@ -358,6 +368,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+		longDesc: `This move's power is doubled if the target has a status condition.`,
 		shortDesc: "Doubles BP if the target is statused.",
 	},
 	dispersion: {
@@ -380,6 +391,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Beautiful",
+		longDesc: `Frosmoth's Scale Shift determines the type of this move.<br><em>(Hits all adjacent opponents; does not change to match Tera Type when Terastallized, but will continue to update to match ally Pokémon as long as the Pokémon still has Scale Shift.)</em>`,
 		shortDesc: "Spread + changes type to match Scale Shift.",
 	},
 
@@ -410,6 +422,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Water",
+		longDesc: `The higher the user's Sp. Def stat, the greater the damage this move deals.<br>Hitting a target raises the Sp. Def stat.`,
 		shortDesc: "Damage based on Sp. Def. Boosts Sp. Def after use.",
 	},
 	pranceandpierce: {
@@ -515,6 +528,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		longDesc: `Before attacking, the user switches places with a party Pokémon in waiting, if any.<br>Two turns after this move is used, it finally returns to the field to attack a random active opponent.<br>This also poisons the target.<br><em>(biting, contact)</em>`,
 		shortDesc: "User pivots out, then comes back in to attack two turns later. Poisons target.",
 	},
 	grandfinale: {
@@ -522,7 +536,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 25,
 		basePowerCallback(pokemon, target, move) {
-			if (move.hit === 3) move.selfSwitch = true; // I hope this works
+			if (move.hit === 3) move.selfSwitch = true;
 			return 25 * move.hit;
 		},
 		onTryMove(pokemon, target, move) {
@@ -534,6 +548,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterMove(pokemon) {
 			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up'); // I think this still needs Burn Up's message
+		},
+		onDamagePriority: -101,
+		onDamage(damage, target, source, move) {
+			if (damage >= target.hp) move.selfSwitch = true;
 		},
 		category: "Physical",
 		name: "Grand Finale",
@@ -552,6 +570,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 120},
 		maxMove: {basePower: 140},
+		longDesc: `A consecutive three-strike attack that becomes more powerful with each successful hit. <em>(25 -> 50 -> 75)</em><br>After using this move, the user will no longer be Fire type. <em>(Fails if the user is not Fire-type.)</em><br>If it lands all three hits or knocks out the target, the user rushes back to switch places with a party Pokémon in waiting.`,
 		shortDesc: "Hits up to 3 times (25 -> 50 -> 75). Removes Fire type; if hits all 3, pivots out.",
 	},
 	slimecannon: {
@@ -588,6 +607,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		longDesc: `A slimy, somewhat befuddling all-out attack.<br>When the user knocks out a target with this move, all remaining Pokémon adjacent to the target have their Attack and Sp. Atk lowered (including the user and its allies).<br><em>(blocked by Bulletproof)</em>`,
 		shortDesc: "If target is KOed, -1 to everyone's Attack and Sp. Atk.",
 	},
 	totaleclipse: {
@@ -597,7 +617,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Total Eclipse",
 		pp: 10,
-		priority: 3,
+		priority: 0,
 		flags: {bypasssub: 1, noassist: 1, failcopycat: 1, allyanim: 1, cantusetwice: 1},
 		onHit(target, source) {
 			const stolenBoosts: Partial<BoostsTable> = {};
@@ -629,6 +649,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
+		longDesc: `The user steals its ally's stat changes.<br>For the rest of the turn, any damage taken by the ally is instead taken by the user.<br>This move can't be used twice in a row.`,
 		shortDesc: "Steals ally's boosts, then takes damage for the ally. Can't use consecutively.",
 	},
 	flowingflare: {
@@ -660,6 +681,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
+		longDesc: `This move inflicts damage using the Attack or Sp. Atk stat - whichever is higher for the user.<br>The faster the user is than the target, the greater the move's power.<br><em>(scales the same as Electro Ball, except that the max BP is 180 instead of 150)</em>`,
 		shortDesc: "Atk > SpA: physical. Stronger the faster the user is than the target (180 max).",
 	},
 	paranoia: {
@@ -689,6 +711,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Clever",
+		longDesc: `An attack that reduces each target's current HP by a quarter.<br>This also lowers each target's most proficient stat.<br><em>(spread)</em>`,
 		shortDesc: "Damage is 1/4 of target's HP. Lowers target's best stat.",
 	},
 	psykick: {
@@ -712,6 +735,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		longDesc: `This also leaves the target incapable of using the same move twice in a row.`,
 		shortDesc: "Inflicts Torment.",
 	},
 	empathicpulse: {
@@ -742,6 +766,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
+		longDesc: `The user transfers its status conditions to adjacent opponents. <em>(spread)</em><br>This also raises the user's most proficient stat.`,
 		shortDesc: "Passes status to adjacent foes, then raises most proficient stat.",
 	},
 
