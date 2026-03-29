@@ -495,34 +495,36 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 				if (source && !source.isActive && source.hp && this.canSwitch(source.side)) {
-					this.actions.switchIn(source, data.sourcePosition);
-					this.add('-message', `${source.illusion ? source.illusion.name : source.name} pranced back onto the field!`);
+					this.add('-message', `${source.illusion ? source.illusion.name : source.name} is ready to prance back onto the field!`);
+					this.actions.switchIn(source, data.sourcePosition, "Prance and Pierce");
 				}
-				this.add('-message', `${target.illusion ? target.illusion.name : target.name} was pierced by the Prance and Pierce attack!`);
-				this.attrLastMove('[still]');
-				if (source.isActive) {
-					this.add('-anim', source, "Super Fang", target);
-				} else {
-					this.add('-anim', target, "Super Fang", target);
+				if (source && source.isActive && source.hp) { // don't resolve the move if Lopunny faints to hazards
+					this.add('-message', `${target.illusion ? target.illusion.name : target.name} was pierced by the Prance and Pierce attack!`);
+					this.attrLastMove('[still]');
+					if (source.isActive) {
+						this.add('-anim', source, "Super Fang", target);
+					} else {
+						this.add('-anim', target, "Super Fang", target);
+					}
+					target.removeVolatile('Protect');
+					target.removeVolatile('Endure');
+		
+					if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+						data.moveData.infiltrates = true;
+					}
+					if (data.source.hasAbility('normalize') && this.gen >= 6) {
+						data.moveData.type = 'Normal';
+					}
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+		
+					this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
+					if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
+						this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
+					}
+					this.activeMove = null;
+		
+					this.checkWin();
 				}
-				target.removeVolatile('Protect');
-				target.removeVolatile('Endure');
-	
-				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-					data.moveData.infiltrates = true;
-				}
-				if (data.source.hasAbility('normalize') && this.gen >= 6) {
-					data.moveData.type = 'Normal';
-				}
-				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-	
-				this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
-				if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
-					this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
-				}
-				this.activeMove = null;
-	
-				this.checkWin();
 			},
 		},
 		target: "normal",
