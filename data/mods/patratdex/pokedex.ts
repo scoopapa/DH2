@@ -1697,7 +1697,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Grubuggy",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 65, atk: 40, def: 75, spa: 70, spd: 100, spe: 107},
-		abilities: {0: "Sturdy", 1: "Light Metal", H: "Motor Drive"},
+		abilities: {0: "Light Metal", H: "Motor Drive"},
 		weightkg: 40,
 	},
 	spectroe: {
