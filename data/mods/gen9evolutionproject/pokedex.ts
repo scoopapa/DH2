@@ -2162,7 +2162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 70, atk: 74, def: 70, spa: 74, spd: 70, spe: 142},
 		abilities: {0: "Wind Rider", 1: "Sticky Hold", H: "Unburden", S: "Quark Drive"},
-		movepoolAdditions: ["flowingflare", "tailwind", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "overheat", "scorchingsands", "solarbeam", "willowisp"],
+		movepoolAdditions: ["flowingflare", "tailwind", "electricterrain", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "overheat", "scorchingsands", "solarbeam", "willowisp"],
 
 		creator: "Jade",
 	},
@@ -2193,7 +2193,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 81, atk: 125, def: 81, spa: 81, spd: 81, spe: 81},
 		abilities: {0: "Rattled", H: "Archetype", S: "Protosynthesis"},
-		movepoolAdditions: ["paranoia", "powertrip", "frostbreath", "hex", "pounce", "shadowball", "willowisp"],
+		movepoolAdditions: ["paranoia", "powertrip", "frostbreath", "hex", "pounce", "shadowball", "sunnyday", "willowisp"],
 
 		creator: "BlueRay",
 	},

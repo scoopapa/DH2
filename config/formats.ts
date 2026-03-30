@@ -169,6 +169,7 @@ import { Formats as MixAndMegaBalls             } from '../data/mods/mixandmegab
 import { Formats as MixAndMegasForAll           } from '../data/mods/mixandmegasforall/formats';
 import { Formats as MicrometaMafia2             } from '../data/mods/mmm2/formats';
 import { Formats as MicrometaMafia3             } from '../data/mods/mmm3/formats';
+import { Formats as MicrometaMafia4             } from '../data/mods/mmm4/formats';
 import { Formats as ModernGen1                  } from '../data/mods/moderngen1/formats';
 import { Formats as ModernGen2                  } from '../data/mods/moderngen2/formats';
 import { Formats as ModernGen2Birds             } from '../data/mods/moderngen2birds/formats';
