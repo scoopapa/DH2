@@ -2953,6 +2953,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		toxic: ["9L1"],
 		trailblaze: ["9L1"],
 		trickortreat: ["9L1"],
+		wideguard: ["9L1"],
 		wish: ["9L1"],
 		wonderroom: ["9L1"],
 		woodhammer: ["9L1"],
@@ -4325,6 +4326,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		terrainpulse: ["9L1"],
 		toxic: ["9L1"],
 		uproar: ["9L1"],
+		wideguard: ["9L1"],
 	}},
 	lutinsnoot: {learnset: {
 		accelerock: ["9L1"],
@@ -4405,6 +4407,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		tickle: ["9L1"],
 		toxic: ["9L1"],
 		whirlwind: ["9L1"],
+		wideguard: ["9L1"],
 		wingattack: ["9L1"],
 	}},
 	polapod: {learnset: {
@@ -6337,6 +6340,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		watergun: ["9L1"],
 		waterpulse: ["9L1"],
 		waterspout: ["9L1"],
+		wideguard: ["9L1"],
 	}},
 	nyantom: {learnset: {
 		agility: ["9L1"],
@@ -7322,6 +7326,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		twister: ["9L1"],
 		upperhand: ["9L1"],
 		whirlwind: ["9L1"],
+		wideguard: ["9L1"],
 		wish: ["9L1"],
 		wonderroom: ["9L1"],
 		zenheadbutt: ["9L1"],
@@ -10225,7 +10230,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		flashcannon: ["9L1"],
 		fling: ["9L1"],
 		focusenergy: ["9L1"],
-		gigadrain: ["9L1"],
 		gigaimpact: ["9L1"],
 		hardpress: ["9L1"],
 		headlongrush: ["9L1"],
@@ -10487,7 +10491,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		entrainment: ["9L1"],
 		facade: ["9L1"],
 		faketears: ["9L1"],
-		finalgambit: ["9L1"],
 		firstimpression: ["9L1"],
 		flatter: ["9L1"],
 		fling: ["9L1"],
@@ -10534,6 +10537,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		toxic: ["9L1"],
 		toxicspikes: ["9L1"],
 		toxicthread: ["9L1"],
+		wideguard: ["9L1"],
 	}},
 	machinjay: {learnset: {
 		agility: ["9L1"],
@@ -11114,6 +11118,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		thunderbolt: ["9L1"],
 		trailblaze: ["9L1"],
 		upperhand: ["9L1"],
+		wideguard: ["9L1"],
 		wildcharge: ["9L1"],
 	}},
 	thermoram: {learnset: {
