@@ -51,5 +51,37 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 68, atk: 91, def: 82, spa: 70, spd: 125, spe: 99},
 		abilities: {0: "Toxic Chain", H: "Regenerator"},
 	},
+	wyrdeer: {
+		num: 6706,
+		name: "Wyrdeer",
+		types: ["Normal", "Ghost"],
+		baseStats: {hp: 110, atk: 90, def: 75, spa: 90, spd: 75, spe: 85},
+		abilities: {0: "Intimidate", H: "Opportunist"},
+		prevo: null,
+	},
+	skiddo: {
+		num: 6707,
+		name: "Skiddo",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 86, atk: 105, def: 88, spa: 62, spd: 117, spe: 82},
+		abilities: {0: "Sap Sipper", H: "Thick Fat"},
+		evos: null,
+	},
+	altaria: {
+		num: 6708,
+		name: "Altaria",
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 85, atk: 80, def: 105, spa: 120, spd: 115, spe: 40},
+		abilities: {0: "Cloud Nine", H: "Aroma Veil"},
+		prevo: null,
+	},
+	onix: {
+		num: 6709,
+		name: "Onix",
+		types: ["Rock", "Dark"],
+		baseStats: {hp: 65, atk: 75, def: 120, spa: 60, spd: 65, spe: 130},
+		abilities: {0: "Armor Tail", H: "Mold Breaker"},
+		evos: null,
+	},
 
 };
