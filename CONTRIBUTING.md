@@ -20,19 +20,12 @@ Packaging for npm is done by running `./build decl && npm publish`. Only Zarel h
 Contributing
 ------------------------------------------------------------------------
 
-In general, we welcome pull requests that fix bugs.
+Generally, we're pretty open to _most_ feature additions or bug fixes.
+We ask that you indicate the completion of your contribution in the coding channel on the Pet Mods Discord. It increases the visibility of the PR so we can check it.
 
-For feature additions and large projects, please discuss with us at https://psim.us/development and/or https://psim.us/devdiscord first. We'd hate to have to reject a pull request that you spent a long time working on.
+Generally, any new formats or fixes should be crash-free, especially for Random Battles tiers. Try to avoid "half-baked" or incomplete tiers as well. If you need something merged with an incomplete feature, please add `/* comments */` to remove access to incomplete features.
 
-If you're looking for inspiration for something to do, the Ideas issue has some ideas: https://github.com/smogon/pokemon-showdown/issues/2444
-
-Also useful is the Suggestions forum (you don't need to worry about approval if you take Approved suggestions): https://www.smogon.com/forums/forums/suggestions.517/
-
-Also useful is the Mechanics Bugs kanban board: https://github.com/smogon/pokemon-showdown/projects/3
-
-There's no need to worry about code standards too much (unit tests will automatically catch most of what we care about, we'll point out the rest if you make a pull request), but they're here if you want them.
-
-We try to respond to pull requests within a few days, but feel free to bump yours if it seems like we forget about it. Sometimes we did, and sometimes there might be a miscommunication in terms of who is waiting for what.
+Showdown lacks intricate explanations, so any questions you may have, **PLEASE ask instead of guessing!**
 
 
 License

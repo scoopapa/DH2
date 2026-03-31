@@ -18,15 +18,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: 204,
 	},
-	dauntlessshield: {
-		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
-		},
-		flags: {},
-		name: "Dauntless Shield",
-		rating: 3.5,
-		num: 235,
-	},
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move && move.type === 'Flying') return priority + 1;
@@ -65,20 +56,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Protean",
 		rating: 4,
 		num: 168,
-	},
-	corrosion: {
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Poison'] = true;
-			}
-		},
-		// Implemented in sim/pokemon.js:Pokemon#setStatus
-		flags: {},
-		name: "Corrosion",
-		rating: 2.5,
-		num: 212,
 	},
 	magicofequestria: {
 		onStart(pokemon) {
@@ -294,16 +271,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-immune', target);
 				} else {
 					this.boost({def: -1, spd: -1}, target, pokemon, null, true);
-				}
-			}
-		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			for (const target of pokemon.foes()) {
-				if (target.status === 'slp' || target.hasAbility('comatose')) {
-					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
 		},

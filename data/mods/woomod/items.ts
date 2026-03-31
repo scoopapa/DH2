@@ -83,4 +83,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Farfetch'd"],
 	},
-}
+	dragonairite: {
+ 		name: "Dragonairite",
+ 		megaStone: "Dragonair-Mega",
+		megaEvolves: "Dragonair",
+ 		itemUser: ["Dragonair"],
+ 		onTakeItem(item, source) {
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+            return true;
+ 		},
+	},
+	amaurite: {
+ 		name: "Amaurite",
+ 		megaStone: "Amaura-Mega",
+		megaEvolves: "Amaura",
+ 		itemUser: ["Amaura"],
+ 		onTakeItem(item, source) {
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+            return true;
+		},
+ 	},
+	superpikachumegastone: {
+ 		name: "Super Pikachu Mega Stone",
+		megaStone: "Pikachu-Mega",
+		megaEvolves: "Pikachu",
+ 		itemUser: ["Pikachu"],
+ 		onTakeItem(item, source) {
+            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+            return true;
+		},
+ 	},
+};

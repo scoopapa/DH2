@@ -5,7 +5,6 @@ export function roundNum(n: number): number {
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
-	
 	side: {
 		addMiss(amount) {
 			if (amount <= 0) return;
@@ -42,6 +41,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		subtractStatus(amount) {
 			this.status -= amount;
 			this.battle.add('-message', `(${this.name}'s Status Meter: -${roundNum(amount)} -> ${roundNum(this.status)})`);
+		},
+		addRemainingMissPoints(accuracy: number, targetHits: number, hit: number): number {
+			const accuracyChance = accuracy / 100;
+			const remainingMissPoints = (100 - accuracy) * ((accuracyChance)**hit - (accuracyChance)**targetHits) / (1 - accuracyChance);
+			if (remainingMissPoints > 0) {
+				this.battle.add('-message', `(Remaining miss points: ${roundNum(remainingMissPoints)})`);
+				this.addMiss(remainingMissPoints);
+			}
 		},
 		noChange() {
 			return (this.miss === this.pmiss) && 
@@ -102,12 +109,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					pokemon.side.subtractMiss(100);
 					if (move.smartTarget) {
 						move.smartTarget = false;
-					} else {
+					} 
+					else {
 						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
 						this.battle.add('-miss', pokemon, target);
 					}
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({spe: 2}, pokemon);
+					}
+					if (target && move.multiaccuracy) {
+						pokemon.side.addRemainingMissPoints(accuracy, move.multihit, 1);
 					}
 					hitResults[i] = false;
 					continue;
@@ -154,7 +165,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			let suffix = "1st " + moveName;
 			let accuracies = [];
 			let change = false;
-			
+			let partiallyMissed = false;
+			let accuracy = move.accuracy;
 			for (hit = 1; hit <= targetHits; hit++) {
 				if (damage.includes(false)) break;
 				if (hit > 1 && pokemon.status === 'slp' && (!isSleepUsable || this.battle.gen === 4)) break;
@@ -177,7 +189,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				// like this (Triple Kick)
 				if (target && move.multiaccuracy && hit > 1) {
-					let accuracy = move.accuracy;
+					accuracy = move.accuracy;
 					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
 					if (accuracy !== true) {
 						if (!move.ignoreAccuracy) {
@@ -241,6 +253,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						
 						if (accuracy !== true && pokemon.side.miss >= 100) {
 							pokemon.side.subtractMiss(100);
+							partiallyMissed = true;
 							break;
 						}
 					}
@@ -292,7 +305,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (move.multihit && typeof move.smartTarget !== 'boolean') {
 				this.battle.add('-hitcount', targets[0], hit - 1);
 			}
-
+			if (partiallyMissed) {
+				pokemon.side.addRemainingMissPoints(accuracy, targetHits, hit);
+			}
 			if ((move.recoil || move.id === 'chloroblast') && move.totalDamage) {
 				const hpBeforeRecoil = pokemon.hp;
 				this.battle.damage(this.calcRecoilDamage(move.totalDamage, move, pokemon), pokemon, pokemon, 'recoil');
@@ -361,17 +376,34 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.runEvent('ModifySecondaries', target, source, moveData, moveData.secondaries.slice());
 				for (const secondary of secondaries) {
 					if (!secondary.chance) continue; //blank secondary
-					if (!secondary.self && (!target || !target.hp)) continue; //target behind sub or fainted
+					if (!secondary.self) {
+						if (!target) continue; //attack hits substitute and not target
+						if (!target.hp) { //target fainted
+							//target.side.flinchChance = 0;
+							continue; 
+						}
+					}
 					if (secondary.status) {
 						if (target.status) continue; //target already statused
 						if (!target.runStatusImmunity(secondary.status)) continue; //target immune to target status
+						if (target.hasAbility('purifyingsalt')) continue;
 					}
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
 					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
-					if (secondary.chance !== 100) source.side.addEffect(secondary.chance);
-					if (typeof secondary.chance === 'undefined' || secondary.chance === 100 || source.side.effect >= 100) {
-						if (source.side.effect >= 100) source.side.subtractEffect(100);
+					if (typeof secondary.chance === 'undefined' || secondary.chance >= 100) {
 						this.moveHit(target, source, move, secondary, true, isSelf);
+					}
+					else {
+						if (secondary.volatileStatus === 'flinch') {
+							target.flinchChance += (1 - target.flinchChance / 100) * secondary.chance;
+						}
+						else {
+							source.side.addEffect(secondary.chance);
+							if (source.side.effect >= 100) {
+								source.side.subtractEffect(100);
+								this.moveHit(target, source, move, secondary, true, isSelf);							
+							}
+						}
 					}
 				}
 			}

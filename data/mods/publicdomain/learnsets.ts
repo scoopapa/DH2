@@ -1200,7 +1200,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	ttos: {
+	tynar: {
 		learnset: {
 			gigaimpact: ["9L1"],
 			takedown: ["9L1"],

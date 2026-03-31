@@ -63,6 +63,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	sameletterrule: {
+		effectType: 'ValidatorRule',
+		name: 'Same Letter Rule',
+		desc: "Each team's Pokémon's name must start with the same English letter.",
+		onValidateTeam(team) {
+			let requiredLetter: string | null = null;
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				const match = species.name.match(/[A-Za-z]/);
+				if (!match) {
+					return [`${species.name} does not contain an English letter to check. (How did you get this message?)`];
+				}
+				const firstLetter = match[0].toUpperCase();
+				if (!requiredLetter) {
+					requiredLetter = firstLetter;
+				} else if (firstLetter !== requiredLetter) {
+					return [`All Pokémon must have species names starting with the same letter (${requiredLetter}); ${species.name} starts with ${firstLetter}.`];
+				}
+			}
+		},
+	},
 	standarddoubles: {
 		effectType: 'ValidatorRule',
 		name: 'Standard Doubles',

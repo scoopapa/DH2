@@ -163,6 +163,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
         		pokemon.addVolatile('downloadatk');
 			}
 		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+        		pokemon.removeVolatile('downloadspa');
+	        	pokemon.removeVolatile('downloadatk');
+			}
+		},
 		flags: {},
 		name: "Download",
 		rating: 3.5,

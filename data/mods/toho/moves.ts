@@ -27,7 +27,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		shortDesc: "Inflicts partial trapping.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Hidden Power", target);
@@ -178,7 +178,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Hammer Arm", target);
 			this.add('-anim', target, "Haze", pokemon);
 		},
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1, wind: 1},
 		self: {
 			boosts: {
 				spe: -1,
@@ -397,6 +397,193 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Steel",
+	},
+	wickedenergy: {
+		num: 268,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Wicked Energy",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'wickedenergy',
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Wicked Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Wicked Energy', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Wicked Energy');
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Wicked Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Wicked Energy', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Wicked Energy');
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dark') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Dark' && move.id !== 'wickedenergy') {
+					pokemon.removeVolatile('wickedenergy');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Dark' && move.id !== 'wickedenergy') {
+					pokemon.removeVolatile('wickedenergy');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Wicked Energy', '[silent]');
+			},
+		},
+		boosts: {
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Dark",
+	},
+	dustupheaval: {
+		name: "Dust Upheaval",
+		type: "Ground",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Summons Sandstorm before attacking. 20% Chance to flinch",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.field.setWeather('sandstorm');
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		target: "normal",
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+	},
+	invokeamaterasu: {
+		name: "Invoke Amaterasu",
+		type: "Fire",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User gains +1 attack, becomes Fire-type, slicing moves become Fire-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+			pokemon.addVolatile('invokeamaterasu');
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Fire");
+				this.add('-start', pokemon, 'typechange', 'Fire');
+			},
+			onRestart(pokemon){
+				pokemon.setType("Fire");
+				this.add('-start', pokemon, 'typechange', 'Fire');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Fire";
+				}
+			},
+		},
+		boosts: {
+			atk: 1,
+		},
+	},
+	invokehonoikazuchi: {
+		name: "Invoke Honoikazuchi",
+		type: "Electric",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User gains +1 speed, becomes Electric-type, slicing moves become Electric-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+			pokemon.addVolatile('invokehonoikazuchi');
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Electric");
+				this.add('-start', pokemon, 'typechange', 'Electric');
+				pokemon.removeVolatile('invokeamaterasu');
+			},
+			onRestart(pokemon){
+				pokemon.setType("Electric");
+				this.add('-start', pokemon, 'typechange', 'Electric');
+				pokemon.removeVolatile('invokeamaterasu');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Electric";
+				}
+			},
+		},
+		boosts: {
+			spe: 1,
+		},
+	},
+	invokeishikoridome: {
+		name: "Invoke Ishikori-Dome",
+		type: "Ice",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User's ability becomes Magic Bounce, becomes Ice-type, slicing moves become Ice-type",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Take Heart", target);
+			pokemon.addVolatile('invokeishikoridome');
+		},
+		secondary: null,
+		target: "self",
+		condition: {
+			onStart(pokemon){
+				pokemon.setType("Ice");
+				pokemon.setAbility('magicbounce', pokemon);
+				this.add('-start', pokemon, 'typechange', 'Ice');
+				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokehonoikazuchi');
+			},
+			onRestart(pokemon){
+				pokemon.setType("Ice");
+				pokemon.setAbility('magicbounce', pokemon);
+				this.add('-start', pokemon, 'typechange', 'Ice');
+				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokehonoikazuchi');
+			},
+			onModifyType(move, pokemon){
+				if (move.flags["slicing"]) {
+					move.type = "Ice";
+				}
+			},
+		},
 	},
 
 	//vanilla

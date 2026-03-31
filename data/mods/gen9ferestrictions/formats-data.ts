@@ -47,7 +47,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERE",
 		doublesTier: "DOU",
 	},
-  // LCs
+	pangonacl: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	tangalge: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	toedzone: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
 	typedew: {
 		tier: "FERELC",
 		doublesTier: "DOU",
@@ -77,6 +88,129 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	piqwilhisui: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	pannacli: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	tangelp: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	toedmite: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	geobaxalola: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	gravibaxalola: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	golcaliburalola: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	pawnipek: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	bisheak: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	kingannon: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	croamaka: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	darmacroak: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	darmacroakzen: {
+		tier: "Illegal",
+	},
+	mudsaria: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	buttermence: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	buttermencemega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	klawquaza: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	klawquazamega: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	mudsariamega: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	mudblu: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	shelpod: {
+		tier: "FERENFE",
+		doublesTier: "DOU",
+	},
+	bagpie: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	siligoobra: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	sandraconhisui: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	mocune: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gholdtusk: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	empodeer: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gastropult: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipach: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	latipachmega: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	stantplup: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
+	sheepy: {
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},

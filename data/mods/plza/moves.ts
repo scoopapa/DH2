@@ -66,4 +66,73 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	// dlc
+	skullbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	razorwind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	silverwind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	ominouswind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boneclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bonemerang: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shadowbone: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cometpunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dualchop: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magnetbomb: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spectralthief: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	octolock: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	technoblast: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	doubleironbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	volttackle: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.baseSpecies.name === "Raichu-Mega-X") {
+				move.self = { boosts: { atk: 1 } };
+			}
+		},
+	},
 };

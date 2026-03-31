@@ -217,7 +217,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Perish Body",
-		shortDesc: "When this Pokemon is damaged by an attack, the attacker gains Perish Song.",
+		shortDesc: "When this Pokemon is damaged by an attack, the attacker gains the Perish Song effect.",
 	},
 	pinfiltrator: {
 		onModifyMove(move) {

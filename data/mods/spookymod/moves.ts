@@ -200,6 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		viable: true,
 		desc: "Fails if not turn 1 out. 100% chance to flinch.",
 		shortDesc: "Fails if not turn 1 out. 100% chance to flinch.",
+		priority: 3,
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
 				this.hint("Astonish only works on your first turn out.");
@@ -320,8 +321,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 		desc: "User must have used Moonlight last turn. Ignores abilities.",
 		shortDesc: "Must use Moonlight first. Ignores abilities.",
-		onTry(source, target) {
-			return source.lastMove === 'Moonlight';
+		onTry(source) {
+			if (source.lastMove !== 'Moonlight') {
+				this.add('-fail', source, 'move: Moongeist Beam');
+				this.hint("Only Pokemon who have used Moonlight last turn can use this move.");
+				return null;
+			}
 		},
 	},
 	shadowball: {
@@ -378,6 +383,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		forceSwitch: true,
+		priority: -6,
 		secondary: null,
 	},
 	
@@ -502,18 +508,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	confuseray: {
 		inherit: true,
-		priority: 1,
-		desc: "Fails if target attacks. May cause target to disobey.",
-		shortDesc: "Fails if target attacks. May cause target to disobey.",
+		desc: "Fails if target moves first. May cause target to disobey.",
+		shortDesc: "Fails if target moves first. May cause target to disobey.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
-		onTry(source, target) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				return false;
-			}
-		},
 		volatileStatus: 'confuseray',
+		onTryHit(target) {
+			if (!this.queue.willMove(target) && target.activeTurns) return false;
+		},
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
@@ -740,9 +741,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			if (target.basemaxHp === target.hp) return false;
 			const toHeal = target.baseMaxhp - target.hp;
-			console.log(target.baseMaxhp);
-			console.log(target.hp);
-			console.log(toHeal);
 			return !!(this.heal(toHeal, source, target));
 		},
 		secondary: null,

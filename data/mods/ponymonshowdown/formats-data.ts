@@ -4289,7 +4289,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	dragapult: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	zacian: {
 		inherit: true,
@@ -4301,7 +4301,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		inherit: true,
@@ -4473,7 +4473,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	palafin: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	smoliv: {
 		inherit: true,
@@ -4845,7 +4845,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	gougingfire: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ragingbolt: {
 		inherit: true,

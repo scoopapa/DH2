@@ -51,6 +51,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "throh").learnset.rapidspin = ["5L1"];
 		this.modData("Learnsets", "throh").learnset.upperhand = ["5L1"];
 		this.modData("Learnsets", "sawk").learnset.upperhand = ["5L1"];
+		this.modData("Learnsets", "throh").learnset.drainpunch = ["5L1"];
+		this.modData("Learnsets", "sawk").learnset.drainpunch = ["5L1"];
+		this.modData("Learnsets", "throh").learnset.focuspunch = ["5L1"];
+		this.modData("Learnsets", "sawk").learnset.focuspunch = ["5L1"];
+		this.modData("Learnsets", "throh").learnset.foresight = ["5L1"];
+		this.modData("Learnsets", "sawk").learnset.foresight = ["5L1"];
 		this.modData("Learnsets", "cottonee").learnset.defog = ["5L1"];
 		this.modData("Learnsets", "whimsicott").learnset.defog = ["5L1"];
 		this.modData("Learnsets", "whimsicott").learnset.leafstorm = ["5L1"];
@@ -128,6 +134,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "virizion").learnset.poisonpowder = ["5L1"];
 		this.modData("Learnsets", "reshiram").learnset.eruption = ["5L1"];
 		this.modData("Learnsets", "meloetta").learnset.rapidspin = ["5L1"];
+		this.modData("Learnsets", "meloetta").learnset.healingwish = ["5L1"];
 		delete this.modData('Learnsets', 'thundurus').learnset.nastyplot;
 		delete this.modData('Learnsets', 'genesect').learnset.shiftgear;
 		delete this.modData('Learnsets', 'genesect').learnset.rockpolish;
@@ -138,6 +145,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emboar").learnset.drainpunch = ["5L1"];
 		this.modData("Learnsets", "emboar").learnset.suckerpunch = ["5L1"];
 		this.modData("Learnsets", "mienfoo").learnset.vacuumwave = ["5L1"];
+		this.modData("Learnsets", "mienfoo").learnset.healingwish = ["5L1"];
 		this.modData("Learnsets", "mienshao").learnset.vacuumwave = ["5L1"];
 		this.modData("Learnsets", "virizion").learnset.vacuumwave = ["5L1"];
 		this.modData("Learnsets", "emboar").learnset.vacuumwave = ["5L1"];
@@ -159,5 +167,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'reshiram').learnset.teleport = ["5L1"];
 		this.modData('Learnsets', 'zekrom').learnset.teleport = ["5L1"];
 		this.modData("Learnsets", "scrafty").learnset.swordsdance = ["5L1"];
+		this.modData("Learnsets", "karrablast").learnset.rapidspin = ["5L1"];
+		this.modData("Learnsets", "escavalier").learnset.gyroball = ["5L1"];
   },
 };

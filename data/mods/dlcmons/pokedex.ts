@@ -582,4 +582,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		requiredItem: "Wigglytite",
 	},
+	// Slate 8
+	sableyemega: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 95, def: 115, spa: 95, spd: 105, spe: 20},
+	},
+	blaziken: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Reckless"},
+	},
+	blazikenmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 125, def: 95, spa: 125, spd: 95, spe: 110},
+		abilities: {0: "Regenerator"},
+	},
 };
