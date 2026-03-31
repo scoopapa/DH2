@@ -69,7 +69,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Permafrost",
-		longDesc: `All the Pokémon's moves become Ice type. The power of those moves is boosted a little. <em>(20% boost)</em>`,
+		longDesc: `All the Pokémon's moves become Ice type. The power of those moves is boosted a little. <i>(20% boost)</i>`,
 		shortDesc: "Most moves become Ice-type; 20% boost.",
 		rating: 3,
 		num: -4,
@@ -300,7 +300,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Shattering Clay",
-		longDesc: `When the Pokémon is hit by a physical attack, it scatters stone splinters that damage all Pokémon adjacent to it.<br><em>(The damage is the same as Stealth Rock.)</em>`,
+		longDesc: `When the Pokémon is hit by a physical attack, it scatters stone splinters that damage all Pokémon adjacent to it.<br><i>(The damage is the same as Stealth Rock.)</i>`,
 		shortDesc: "Rocks damage surrounding Pokémon when hit with a physical move.",
 		rating: 3,
 		num: -16,
@@ -413,7 +413,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Calcify",
-		longDesc: `Powers up Rock-type moves. <em>(30% boost)</em>`,
+		longDesc: `Powers up Rock-type moves. <i>(30% boost)</i>`,
 		shortDesc: "Boosts Rock-type moves by 1.3x.",
 		rating: 3,
 		num: -19,
@@ -550,7 +550,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// Slate 2
 
 	fendente: { // for Hisuian Kabutops
-		longDesc: `Gives priority to the Pokémon's slicing moves while its HP is full.<br>When the Pokémon's HP is low, its slicing moves always result in a critical hit. <em>(1/3 HP or less)</em><br>Using a slicing move at any other HP range boosts the Pokémon's Defense.`,
+		longDesc: `Gives priority to the Pokémon's slicing moves while its HP is full.<br>When the Pokémon's HP is low, its slicing moves always result in a critical hit. <i>(1/3 HP or less)</i><br>Using a slicing move at any other HP range boosts the Pokémon's Defense.`,
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
@@ -593,7 +593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Canopy",
-		longDesc: `Powers up Grass-type moves. <em>(30% boost)</em>`,
+		longDesc: `Powers up Grass-type moves. <i>(30% boost)</i>`,
 		shortDesc: "Boosts Grass-type moves by 1.3x.",
 		rating: 3,
 		num: -25,
@@ -627,7 +627,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 		name: "Power Surge",
-		longDesc: `The Pokémon instantly eliminates all effects of terrain.<br>Eliminating the effects of a terrain also powers up the next move used by the Pokémon and its partner. <em>(1.3x; each one gets one boost)</em>`,
+		longDesc: `The Pokémon instantly eliminates all effects of terrain.<br>Eliminating the effects of a terrain also powers up the next move used by the Pokémon and its partner. <i>(1.3x; each one gets one boost)</i>`,
 		shortDesc: "Eliminates terrain on entry -> 1.3x each ally's next move.",
 		rating: 3,
 		num: -26,
@@ -730,7 +730,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -29,
 	},
 	batteryleak: { // for Chained Charjabug and Charjouleak
-		longDesc: `Contact with the Pokémon may badly poison the attacker. <em>(30% chance)</em>`,
+		longDesc: `Contact with the Pokémon may badly poison the attacker. <i>(30% chance)</i>`,
 		shortDesc: "30% chance a Pokémon making contact with this Pokémon will be badly poisoned.",
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
