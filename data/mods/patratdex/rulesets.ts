@@ -5,8 +5,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "Bans all previously-existing Pokemon.",
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			const exceptions = ["onixpatratdex", "wobbuffetpatratdex","shucklepatratdex","spoinkpatratdex","shuppetpatratdex","banettepatratdex","wynautpatratdex", "luvdiscpatratdex", "carnivinepatratdex", "patratpatratdex", "watchogpatratdex", "valillitepatratdex", "vanillishpatratdex", "vanilluxepatratdex", "litwickpatratdex", "lampentpatratdex", "chandelurepatratdex", "greedentpatratdex"];
-			const forms = ["incrownitoflock", "monstratahammer", "carnivinepatratdexrevealed", "monsoonurachunky"];
+			const exceptions = ["squirtlepatratdex", "wartortlepatratdex", "blastoisepatratdex", "onixpatratdex", "wobbuffetpatratdex","shucklepatratdex","spoinkpatratdex","shuppetpatratdex","banettepatratdex","wynautpatratdex", "luvdiscpatratdex", "carnivinepatratdex", "patratpatratdex", "watchogpatratdex", "valillitepatratdex", "vanillishpatratdex", "vanilluxepatratdex", "litwickpatratdex", "lampentpatratdex", "chandelurepatratdex", "greedentpatratdex"];
+			const forms = ["incrownitoflock", "ostratahammer", "carnivinepatratdexrevealed", "monsoonurachunky"];
 			if (!(exceptions.includes(species.id)) && (species.num < 1000)) {
 				return [
 					"Previously-existing Pokemon are banned. Please use the Pokemon created for this mod.",
