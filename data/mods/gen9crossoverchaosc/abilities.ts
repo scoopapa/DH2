@@ -31,7 +31,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 		if (this.checkMoveMakesContact(move, target, pokemon)) {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
 		flags: {},

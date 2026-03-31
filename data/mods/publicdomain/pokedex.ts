@@ -164,9 +164,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swift Swim", H: "Plunder"},
 		weightkg: 82.5,
 	},
-	ttos: {
+	tynar: {
 		num: 17,
-		name: "Ttos",
+		name: "Tynar",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 100, atk: 134, def: 110, spa: 86, spd: 90, spe: 60},
 		abilities: {0: "Sand Stream", 1: "Shed Skin", H: "Solid Rock"},

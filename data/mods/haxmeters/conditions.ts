@@ -2,6 +2,18 @@ export function roundNum(n: number, places: number): number {
 	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
 }
 export const Conditions: {[id: string]: ModdedConditionData} = {
+	slp: {
+		inherit: true,
+		onBeforeMove(pokemon) {
+			
+		},
+	},
+	frz: {
+		inherit: true,
+		onBeforeMove(pokemon) {
+		
+		},
+	},
 	par: {
 		inherit: true,
 		onBeforeMove(pokemon) {
@@ -11,12 +23,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (!pokemon.statuses.includes('par')) pokemon.statuses.push('par');
 			console.log(pokemon.name + ": " + pokemon.statuses + " " + pokemon.statuses.includes('par'));
 			*/
-		},
-	},
-	frz: {
-		inherit: true,
-		onBeforeMove(pokemon) {
-		
 		},
 	},
 	confusion: {

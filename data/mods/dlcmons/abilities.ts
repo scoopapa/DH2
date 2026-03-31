@@ -124,4 +124,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: -1,
 		num: -5,
 	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+		flags: {},
+		name: "Protean",
+		rating: 4,
+		num: 168,
+		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type. This effect can only happen once per switch-in, and only if this Pokemon is not Terastallized.",
+		shortDesc: "This Pokemon's type changes to the type of the move it is using. Once per switch-in.",
+	},
+	parentalbond: {
+		inherit: true,
+		desc: "This Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect Doom Desire, Dragon Darts, Dynamax Cannon, Endeavor, Explosion, Final Gambit, Fling, Future Sight, Ice Ball, Rollout, Self-Destruct, any multi-hit move, any move that has multiple targets, or any two-turn move.",
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered.",
+	},
 };

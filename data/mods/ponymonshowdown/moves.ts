@@ -330,24 +330,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
-	corrosivevenom: {
-		num: 920,
-		accuracy: 100,
-		basePower: 85,
-		category: "Special",
-		name: "Corrosive Venom",
-		desc: "Super Effective on Steel types when paired with Corrosion.",
-		shortDesc: "x2 on Steel types if user has Corrosion.",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return 1;
-		},
-		target: "normal",
-		type: "Poison",
-		contestType: "Beautiful",
-	},
 	spiritofharmony: {
 		num: -1,
 		accuracy: 100,
@@ -610,7 +592,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	bouldertoss: {
 		num: -14,
 		accuracy: true,
-		basePower: 50,
+		basePower: 40,
 		category: "Physical",
 		name: "Boulder Toss",
 		desc: "Hits twice.",
@@ -647,12 +629,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	sunburstsweatherabjuration: {
+	sunburstsweatherspell: {
 		num: -16,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Sunburst's Weather Abjuration",
+		name: "Sunburst's Weather Spell",
 		desc: "The user summons Sunny Day and vacates the field, allowing a party Pokemon/Pony to take their place.",
 		shortDesc: "Starts Sunny Day. User switches out.",
 		pp: 10,
@@ -1034,11 +1016,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 				return 5;
 			},
-			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-							if (move.type === 'Psychic' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
-								this.debug('midnight terrain weaken');
-								return this.chainModify(0.5);
+				const weakenedMoves = ['psychic', 'psyshock'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by midnight terrain');
+					return this.chainModify(0.5);
 				}
 				if (move.type === 'Dark' && attacker.isGrounded()) {
 					this.debug('midnight terrain boost');

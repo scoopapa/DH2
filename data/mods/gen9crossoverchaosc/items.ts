@@ -132,4 +132,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -10,
 		gen: 9,
 	},
+	imperialchip: {
+		name: "Imperial Chip",
+		spritenum: 619,
+		megaStone: "Usapyon-Mega",
+		megaEvolves: "Usapyon",
+		itemUser: ["Usapyon", "Usapyon-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -11,
+		gen: 9,
+		desc: "If held by Usapyon, this item allows him to Mega Evolve in battle.",
+	},
 };

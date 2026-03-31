@@ -546,8 +546,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onAnyFaintPriority: 1,
 		onAnyFaint() {
-			if (this.effectState.target.swordBoost) return;
-			this.effectState.target.swordBoost = true;
+			if (this.effectState.target.abilityState.battleBondTriggered) return;
+			this.effectState.target.abilityState.battleBondTriggered = true;
 			this.boost({spa: 1}, this.effectState.target);
 		},
 		shortDesc: "This Pokemon's SpA is raised by 1 stage when other Pokemon faint. Once per switch-in.",

@@ -16,14 +16,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Less power as user's HP decreases. Hits foe(s).",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Beautiful",
 	},
 	smokytorment: {
-		num: 1000,
 		accuracy: true,
 		basePower: 75,
 		category: "Physical",
@@ -31,15 +30,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Applies the Torment effect on opponent.",
 		pp: 10,
 		priority: 0,
-		flags: {},
-		self: {
-		   volatileStatus: 'encore',
-		},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'torment',
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
@@ -53,7 +52,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Removes all hazards in the field. If any hazards are cleared, the user heals for 50% of its maximum HP.",
 		pp: 40,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
 			let success = false;
 			const removeAll = [
@@ -84,7 +83,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Uses user's Special Defense stat as Special Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		useSourceDefensiveAsOffensive: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -103,7 +102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Lowers the user's Sp. Atk by 1. Heals 25% of the damage done. Heals another 25% for each stage the user's Special Attack is lowered.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		self: {
 			boosts: {
 				spa: -1,
@@ -130,7 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Uses user's Defense stat as Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		useSourceDefensiveAsOffensive: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -149,7 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "33% recoil. 10% chance to poison.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
 			status: 'psn',
@@ -172,7 +171,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to lower the target's Attack by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -198,7 +197,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "100% chance to lower the target's Defense by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -224,7 +223,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "100% chance to lower the target's Speed by 1, switches the user out.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -243,20 +242,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	powdergale: {
 		num: 367,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
 		name: "Powder Gale",
-      shortDesc: "100% chance to poison. Harshly lowers a random one of the target's stat.",
-		pp: 30,
+      shortDesc: "100% chance to poison. Harshly lowers a random one of the target's stats.",
+		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1},
 		onHit(target) {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
 				if (stat === 'accuracy' || stat === 'evasion') continue;
-				if (target.boosts[stat] < 6) {
+				if (target.boosts[stat] > -6) {
 					stats.push(stat);
 				}
 			}
@@ -275,12 +274,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hurricane", target);
+			this.add('-anim', source, "Silver Wind", target);
 		},
 		target: "normal",
 		type: "Bug",
-		zMove: {effect: 'crit2'},
-		contestType: "Tough",
+		contestType: "Clever",
 	},
 	splashback: {
 		num: 889,
@@ -301,7 +299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "Base power increases by 50 every time this Pokemon is hit. Max 300 BP. Reset on switch out.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -315,7 +313,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
       shortDesc: "Lowers the target's Atk by 1. Inflicts Encore on the user.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		self: {
 		   volatileStatus: 'encore',
 		},
@@ -327,10 +325,203 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Liquidation", target);
+			this.add('-anim', source, "Breaking Swipe", target);
 		},
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+	},
+	familyonslaught: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Hits 2-4 times.",
+		name: "Family Onslaught",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Population Bomb", target);
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	pestspread: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Changes the target's type to the user's type.",
+		name: "Pest Spread",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source) {
+			if (target.species && (target.species.num === 493 || target.species.num === 773)) return false;
+			if (target.terastallized) return false;
+			const oldApparentType = target.apparentType;
+			let newBaseTypes = source.getTypes(true).filter(type => type !== '???');
+			if (!newBaseTypes.length) {
+				if (source.addedType) {
+					newBaseTypes = ['Normal'];
+				} else {
+					return false;
+				}
+			}
+			this.add('-start', target, 'typechange', '[from] move: Pest Spread', `[of] ${target}`);
+			target.setType(newBaseTypes);
+			target.addedType = source.addedType;
+			target.knownType = source.isAlly(source) && source.knownType;
+			if (!target.knownType) target.apparentType = oldApparentType;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Bomb", target);
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	vengefulbone: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Power doubles if an ally fainted last turn.",
+		name: "Vengeful Bone",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Shadow Bone", target);
+		},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				this.debug('Boosted for a faint last turn');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	escort: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "User switches out. Switch-in is immune to hazards.",
+		name: "Escort",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", source);
+		},
+		self: {
+			sideCondition: 'escort',
+		},
+		condition: {
+			duration: 1,
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	gmaxsteelsurge: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('escort')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
 	},
 };

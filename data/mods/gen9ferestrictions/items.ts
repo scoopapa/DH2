@@ -314,4 +314,60 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 6,
 		shortDesc: "If held by a Gardepharos, this item allows it to Mega Evolve in battle.",
 	},
+	altarianite: {
+		name: "Altarianite",
+		spritenum: 615,
+		megaStone: "Mudsaria-Mega",
+		megaEvolves: "Mudsaria",
+		itemUser: ["Mudsaria"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 755,
+		gen: 6,
+		shortDesc: "If held by a Mudsaria, this item allows it to Mega Evolve in battle.",
+	},
+	salamencite: {
+		name: "Salamencite",
+		spritenum: 627,
+		megaStone: "Buttermence-Mega",
+		megaEvolves: "Buttermence",
+		itemUser: ["Buttermence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 769,
+		gen: 6,
+		shortDesc: "If held by a Buttermence, this item allows it to Mega Evolve in battle.",
+	},
+	boosterenergy: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if ((pokemon.hasAbility('protosynthesis') || pokemon.hasAbility('amazingasamber')) &&
+				 !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+	},
+	latiasite: {
+		name: "Latiasite",
+		spritenum: 629,
+		megaStone: "Latipach-Mega",
+		megaEvolves: "Latipach",
+		itemUser: ["Latipach"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 684,
+		gen: 6,
+		shortDesc: "If held by a Latipach, this item allows it to Mega Evolve in battle.",
+	},
 };

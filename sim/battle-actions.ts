@@ -72,6 +72,7 @@ export class BattleActions {
 		const oldActive = side.active[pos];
 		const unfaintedActive = oldActive?.hp ? oldActive : null;
 		if (unfaintedActive) {
+			pokemon.side.lastSwitchedOut = oldActive;
 			oldActive.beingCalledBack = true;
 			let switchCopyFlag: 'copyvolatile' | 'shedtail' | boolean = false;
 			if (sourceEffect && typeof (sourceEffect as Move).selfSwitch === 'string') {
