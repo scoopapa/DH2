@@ -106,6 +106,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		   this.modData("Learnsets", "butterfree").learnset.strengthsap = ["9L1"];
 		   this.modData("Learnsets", "butterfree").learnset.powdergale = ["9L1"];
 
+		   this.modData("Learnsets", "gyarados").learnset.acrobatics = ["9L1"];
+		   this.modData("Learnsets", "gyarados").learnset.ragingtorrent = ["9L1"];
+
+		   this.modData("Learnsets", "cloyster").learnset.bulletpunch = ["9L1"];
+		   this.modData("Learnsets", "cloyster").learnset.curse = ["9L1"];
+		   this.modData("Learnsets", "cloyster").learnset.explosion = ["9L1"];
+		   this.modData("Learnsets", "cloyster").learnset.ironhead = ["9L1"];
+		   this.modData("Learnsets", "cloyster").learnset.splashback = ["9L1"];
+
+		   this.modData("Learnsets", "tentacruel").learnset.darkpulse = ["9L1"];
+		   this.modData("Learnsets", "tentacruel").learnset.foulplay = ["9L1"];
+		   this.modData("Learnsets", "tentacruel").learnset.nastyplot = ["9L1"];
+
 		delete this.modData('Learnsets', 'alakazam').learnset.focusblast;
 		delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
 
@@ -144,6 +157,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		delete this.modData('Learnsets', 'seadra').learnset.blizzard;
 		delete this.modData('Learnsets', 'seadra').learnset.icebeam;
+
+		delete this.modData('Learnsets', 'cloyster').learnset.iceshard;
+		delete this.modData('Learnsets', 'cloyster').learnset.lifedew;
+		delete this.modData('Learnsets', 'cloyster').learnset.shellsmash;
+
+		delete this.modData('Learnsets', 'tentacruel').learnset.scald;
 
 		// Removing the prevos' moves
 		delete this.modData('Learnsets', 'gastly').learnset.nastyplot;
@@ -195,6 +214,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		delete this.modData('Learnsets', 'horsea').learnset.blizzard;
 		delete this.modData('Learnsets', 'horsea').learnset.icebeam;
+		
+		delete this.modData('Learnsets', 'shellder').learnset.iceshard;
+		delete this.modData('Learnsets', 'shellder').learnset.lifedew;
+		delete this.modData('Learnsets', 'shellder').learnset.shellsmash;
+		
+		delete this.modData('Learnsets', 'tentacool').learnset.scald;
 
 		this.modData("Learnsets", "raticate").learnset.gunkshot = ["9L1"];
 		this.modData("Learnsets", "raticate").learnset.poisonjab = ["9L1"];
