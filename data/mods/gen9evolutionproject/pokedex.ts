@@ -1269,15 +1269,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 103, atk: 79, def: 53, spa: 89, spd: 67, spe: 134},
 		abilities: {0: "Adaptability", H: "Normalize", S: "Beast Boost"},
 		movepoolAdditions: [
+			"reflecttype", "terrainpulse",
 			"blizzard", "chargebeam", "discharge", "expandingforce", "futuresight", "gigaimpact", "haze", "hyperbeam", "icebeam", "icywind", "magiccoat",
-			"naturepower", "psychic", "psyshock", "reflect", "reflecttype", "risingvoltage", "scald", "shockwave", "signalbeam", "skillswap", "snarl", "solarbeam",
-			"suckerpunch", "surf", "terrainpulse", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon",
+			"naturepower", "psychic", "psyshock", "reflect", "risingvoltage", "scald", "shockwave", "signalbeam", "skillswap", "snarl", "solarbeam",
+			"suckerpunch", "surf", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon",
 		],
 
 		prevo: "Eevee",
 		evoType: "levelExtra",
 		evoCondition: "in Ultra Space",
 		creator: "inkbug",
+		description: `<i>(Aleon's moves are handpicked from the other evolutions of Eevee, except Reflect Type and Terrain Pulse.)</i>`,
 	},
 
 	qwilfish: {
@@ -1659,15 +1661,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tapukiki: {
 		name: "Tapu Kiki",
 		copyData: "Tapu Koko",
-		copyMoves: "Cosmog", // sloppy shortcuts yay
 
 		types: ["Fairy"],
 		baseStats: {hp: 70, atk: 75, def: 95, spa: 75, spd: 95, spe: 115},
 		abilities: {0: "Power Surge", H: "Friend Guard"},
-		movepoolAdditions: ["dragoncheer", "dragonhammer", "allyswitch", "aromatherapy", "bulkup", "calmmind", "confide", "dazzlinggleam", "defog", "drainingkiss", "echoedvoice", "endure", "facade", "falseswipe", "fling", "focusblast", "frustration", "grassknot", "gravity", "guardswap", "hiddenpower", "icywind", "irondefense", "knockoff", "lightscreen", "magiccoat", "magicroom", "meanlook", "moonblast", "naturepower", "nature'smadness", "playrough", "powerswap", "protect", "psychup", "raindance", "reflect", "rest", "return", "roar", "rototiller", "round", "safeguard", "shadowball", "sleeptalk", "smartstrike", "snore", "storedpower", "substitute", "sunnyday", "swagger", "taunt", "telekinesis", "thief", "thunderwave", "torment", "toxic", "trick", "voltswitch", "withdraw", "wonderroom", "workup"],
-		movepoolDeletions: ["teleport", "splash"],
+		movepoolAdditions: ["dragoncheer", "dragonhammer", "allyswitch", "aromatherapy", "bulkup", "drainingkiss", "fling", "focusblast", "gravity", "guardswap", "icywind", "knockoff", "magiccoat", "magicroom", "moonblast", "playrough", "rototiller", "shadowball", "smartstrike", "sunnyday", "trick", "wonderroom"],
+		movepoolDeletions: ["acrobatics", "aerialace", "agility", "assurance", "bravebird", "charge", "discharge", "doubleteam", "eerieimpulse", "electricterrain", "electroball", "electroweb", "fairywind", "fly", "gigaimpact", "hyperbeam", "hypervoice", "ironhead", "mirrormove", "quickattack", "roost", "screech", "shockwave", "skyattack", "skydrop", "spark", "steelwing", "swift", "thunder", "thunderbolt", "thunderpunch", "thundershock", "uturn", "wildcharge"],
 
 		creator: "quagsi",
+		description: `<i>(Tapu Kiki's moves are handpicked from the combination of Tapu Koko, Tapu Lele, Tapu Bulu and Tapu Fini, except Dragon Cheer and Dragon Hammer, which represent Exeggutor Island.)</i>`,
 	},
 
 	thievul: {
@@ -1927,6 +1929,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		evos: ["Zacian", "Zamazenta"],
 		creator: "Gravity Monkey",
+		description: `<i>(Zavender learns only the moves that both Zacian and Zamazenta can learn.)</i>`,
 	},
 	zacian: {
 		inherit: true,

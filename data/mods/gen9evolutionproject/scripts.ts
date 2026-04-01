@@ -14,15 +14,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init() {
 		let customList = [];
 		let dexNo = -1;
+		const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
+		const gen9only = [
+			'plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst', 'numeldormant', 'dormedary', 'dormaderupt',
+			'uraxys', 'cytoxys', 'adexys', 'guaxys', 'riboxysu', 'riboxysc', 'riboxysa', 'riboxysg',
+		]; // certain Fakemon are based on Gen IX movepools specifically
+		
 		for (const id in this.dataCache.Pokedex) {
-			const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
-			const gen9only = [
-				'plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst', 'numeldormant', 'dormedary', 'dormaderupt',
-				'uraxys', 'cytoxys', 'adexys', 'guaxys', 'riboxysu', 'riboxysc', 'riboxysa', 'riboxysg',
-			]; // certain Fakemon are based on Gen IX movepools specifically
+			if (
+				!(this.dataCache.Pokedex[id] && this.dataCache.Pokedex[id].copyData) &&
+				!(this.modData('FormatsData', id) && this.modData('FormatsData', id).tier && ['Evo!', '(Prevo)'].includes(this.modData('FormatsData', id).tier))
+			) continue; // skip canon Pokémon that aren't in the dex - but allow Fakemon for both
 
-			// movepool corrections
 			if (this.dataCache.Learnsets[id]) {
+				// movepool corrections
 				for (const moveid of notm) {
 					if (this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset[moveid]) {
 						// check if it learns the move naturally
@@ -35,47 +40,48 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			// Fakemon creation
 			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new
-			const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
-
-			if (!newMon.types && copyData.types) newMon.types = copyData.types;
-			if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
-			if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
-			// if (!newMon.num && copyData.num) newMon.num = copyData.num * -1; // inverting the original's dex number
-			if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
-			if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
-			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
-			if (!newMon.color && copyData.color) newMon.color = copyData.color;
-			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
-			
-			// actually, handling dex numbers that way creates issues with species clause! let's fix that:
-			if (newMon.baseSpecies) {
-				newMon.num = this.dataCache.Pokedex[this.toID(newMon.baseSpecies)].num;
-			} else {
-				newMon.num = dexNo;
-				dexNo--;
-			}
-
-			if (!newMon.evos) customList.push(id); // only fully-evolved Pokémon of the Day!
-
-			let copyMoves = newMon.copyData;
-			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
-			if (copyMoves) {
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file
-				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
-				for (const moveid in learnset) {
-					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-						(method) => !(method.includes('S') || (notm.includes(moveid) && (method.includes('M') || method.includes('T') || method.includes('V'))) || (gen9only.includes(id) && !(method.startsWith('9'))))
-					);
+			if (newMon && newMon.copyData) { // weeding out Pokémon that aren't new
+				const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+	
+				if (!newMon.types && copyData.types) newMon.types = copyData.types;
+				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
+				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
+				// if (!newMon.num && copyData.num) newMon.num = copyData.num * -1; // inverting the original's dex number
+				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
+				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
+				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
+				if (!newMon.color && copyData.color) newMon.color = copyData.color;
+				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+				
+				// actually, handling dex numbers that way creates issues with species clause! let's fix that:
+				if (newMon.baseSpecies) {
+					newMon.num = this.dataCache.Pokedex[this.toID(newMon.baseSpecies)].num;
+				} else {
+					newMon.num = dexNo;
+					dexNo--;
 				}
-				if (newMon.movepoolAdditions) {
-					for (const move of newMon.movepoolAdditions) {
-						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["9M"];
+	
+				if (!newMon.evos) customList.push(id); // only fully-evolved Pokémon of the Day!
+	
+				let copyMoves = newMon.copyData;
+				if (newMon.copyMoves) copyMoves = newMon.copyMoves;
+				if (copyMoves) {
+					if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file
+					const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
+					for (const moveid in learnset) {
+						this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
+							(method) => !(method.includes('S') || (notm.includes(moveid) && (method.includes('M') || method.includes('T') || method.includes('V'))) || (gen9only.includes(id) && !(method.startsWith('9'))))
+						);
 					}
-				}
-				if (newMon.movepoolDeletions) {
-					for (const move of newMon.movepoolDeletions) {
-						delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
+					if (newMon.movepoolAdditions) {
+						for (const move of newMon.movepoolAdditions) {
+							this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["9M"];
+						}
+					}
+					if (newMon.movepoolDeletions) {
+						for (const move of newMon.movepoolDeletions) {
+							delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
+						}
 					}
 				}
 			}

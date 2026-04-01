@@ -33,12 +33,35 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				let extraLineBreak = false;
 				let hideBox = `raw|<div class="infobox" open><details class ="details"><summary>Fakemon on ${side.name}'s team</summary>`;
 				for (const pokemon of side.pokemon) {
-					// add one more line between each Fakemon
-					if (extraLineBreak) hideBox += `<br>`;
-					else extraLineBreak = true;
-					
 					let species = this.dex.species.get(pokemon.species.name);
-					if (species.copyData) { // all modded things in Evo have this
+					
+					// add one more line between each Fakemon
+					if (species && (species.copyData || (species.evos && species.evos.length))) {
+						if (extraLineBreak) hideBox += `<br>`;
+						else extraLineBreak = true;
+					}
+
+					// report Eviolite compatibility even for canon Pokémon
+					if (species && !species.copyData && (species.evos && species.evos.length)) {
+						showFakemon = true;
+						hideBox += `<br><div class="hint">${species.name} <strong>can use Eviolite</strong> because it evolves into`;
+						let order = 0;
+						for (const evoname of species.evos) {
+							order++;
+							if (order < species.evos.length) {
+								hideBox += ` ${evoname}`;
+								if (order + 1 < species.evos.length) hideBox += `,`;
+							}
+							else {
+								if (species.evos.length !== 1) hideBox += ` and`;
+								hideBox += ` ${evoname}`;
+							}
+						}
+						hideBox += `!</div><br>`;
+					}
+
+					// otherwise, Fakemon
+					if (species && species.copyData) { // all modded things in Evo have this
 						showFakemon = true;
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) abilities += ` / ${species.abilities[1]}`;
@@ -54,6 +77,23 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						// creator
 						if (species.creator) {
 							customGuide += `<div class="hint"><br>${species.name} was created by ${species.creator}!</div>`;
+						}
+
+						if (species.evos && species.evos.length) {
+							customGuide += `<br><div class="hint">It <strong>can use Eviolite</strong> because it evolves into`;
+							let order = 0;
+							for (const evoname of species.evos) {
+								order++;
+								if (order < species.evos.length) {
+									customGuide += ` ${evoname}`;
+									if (order + 1 < species.evos.length) customGuide += `,`;
+								}
+								else {
+									if (species.evos.length !== 1) customGuide += ` and`;
+									customGuide += ` ${evoname}`;
+								}
+							}
+							customGuide += `!</div>`;
 						}
 						
 						// movepool changes
@@ -170,7 +210,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						}
 
 						// other info
-						if (species.description) customGuide += `<br><div class="hint"><br>${species.description}</div>`;
+						if (species.description) customGuide += `<br><div class="hint">${species.description}</div>`;
 						
 						customGuide += `<br></details></div>`;
 						hideBox += customGuide;
