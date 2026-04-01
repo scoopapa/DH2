@@ -811,7 +811,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Noirwark",
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 85, atk: 30, def: 95, spa: 110, spd: 85, spe: 95},
-		abilities: {0: "Shadow Shield"},
+		abilities: {0: "Shadow Shield", H: "Magic Bounce"},
 		weightkg: 75,
 	},
 	metarachne: {
@@ -971,7 +971,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Tiaratron",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 85, atk: 100, def: 100, spa: 50, spd: 70, spe: 75},
-		abilities: {0: "Galvanize"},
+		abilities: {0: "Galvanize", H: "Trace"},
 		weightkg: 100,
 	},
 	lianzhao: {

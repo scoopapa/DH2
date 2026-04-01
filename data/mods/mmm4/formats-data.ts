@@ -23,5 +23,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MMM4",
 		doublesTier: "DOU",
 	},
+	wyrdeer: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
+	skiddo: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
+	altaria: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
+	onix: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
 
 };

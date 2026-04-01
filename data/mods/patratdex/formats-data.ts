@@ -755,4 +755,40 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Patratdex Gen 2 OU",
 		doublesTier: "Patratdex Doubles Gen 2 OU",
 	},
+	ragnatropyx: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	swelup: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	squirtlepatratdex: {
+		tier: "Patratdex Gen 2 LC",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	wartortlepatratdex: {
+		tier: "Patratdex Gen 2 NFE",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	blastoisepatratdex: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	parkaratos: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	gobblegill: {
+		tier: "Patratdex Gen 2 NFE",
+		doublesTier: "Patratdex Doubles Gen 2 NFE",
+	},
+	grackulous: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
+	grackulousfemale: {
+		tier: "Patratdex Gen 2 OU",
+		doublesTier: "Patratdex Doubles Gen 2 OU",
+	},
 };
