@@ -5182,7 +5182,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			round: ["8M"],
 			sandstorm: ["9M", "8M"],
 			sandtomb: ["9M", "8M"],
-			scald: ["8M"],
 			scaleshot: ["8T"],
 			scaryface: ["9M", "8M"],
 			skittersmack: ["9M", "8T"],
