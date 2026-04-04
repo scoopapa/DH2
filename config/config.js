@@ -555,7 +555,7 @@ exports.chatlogreader = 'fs';
  */
  
 exports.serverid = 'dragonheaven';
-exports.servertoken = 'VEFWkJjd5iYd';
+exports.servertoken = 'qVkzIUlwEU2K';
  
 exports.grouplist = [
 	{
