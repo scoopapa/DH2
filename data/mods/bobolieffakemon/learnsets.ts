@@ -3821,13 +3821,10 @@ raiga: {learnset: {
 	 rest: ["8L1"],
 	 return: ["8L1"],
 	 round: ["8L1"],
-<<<<<<< HEAD
-=======
 	 psychocut: ["8L1"],
 	 rest: ["8L1"],
 	 return: ["8L1"],
 	 round: ["8L1"],
->>>>>>> 0da8752c0484ffed0fdceba3d09ebeb507d78fee
 	 shadowclaw: ["8L1"],
 	 slash: ["8L1"],
 	 sleeptalk: ["8L1"],
@@ -3978,8 +3975,6 @@ teranim: {learnset: {
 	toxic: ["8L1"],
 	yawn: ["8L1"],
 	zenheadbutt: ["8L1"],
-<<<<<<< Updated upstream
-=======
 }},	
 yolkai: {learnset: {
 	beatup: ["8L1"],
@@ -4758,7 +4753,6 @@ girafadon: {learnset: {
 	pinmissile: ["8L1"],
 	superfang: ["8L1"],
 	wildcharge: ["8L1"],
->>>>>>> Stashed changes
 }},
 yolkai: {learnset: {
 	beatup: ["8L1"],
@@ -5589,9 +5583,7 @@ bloomorbid: {learnset: {
 	willowisp: ["8L1"],
 	xscissor: ["8L1"],
 }},
-<<<<<<< Updated upstream
-=======
-bloomorbid: {learnset: {
+chrysalisk: {learnset: {
 	hiddenpower: ["8L1"],
 	doubleedge: ["8L1"],
 	return: ["8L1"],
@@ -5631,5 +5623,4 @@ bloomorbid: {learnset: {
 	triattack: ["8L1"],
 	weatherball: ["8L1"],
 }},
->>>>>>> Stashed changes
 };
