@@ -695,56 +695,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	googooeyes: {
-		num: 213,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Googoo Eyes",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		volatileStatus: 'googooeyes',
-		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(pokemon, source, effect) {
-				if (!this.runEvent('Googoo Eyes', pokemon, source)) {
-					this.debug('GoogooEyes event failed');
-					return false;
-				}
-
-				if (effect.id === 'universalcharm') {
-					this.add('-start', pokemon, 'Googoo EYes', '[from] ability: Universal Googoo Eyes', '[of] ' + source);
-				} else if (effect.id === 'destinyknot') {
-					this.add('-start', pokemon, 'Googoo Eyes', '[from] item: Destiny Knot', '[of] ' + source);
-				} else {
-					this.add('-start', pokemon, 'Googoo Eyes');
-				}
-			},
-			onUpdate(pokemon) {
-				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['googooeyes']) {
-					this.debug('Removing Googoo Eyes volatile on ' + pokemon);
-					pokemon.removeVolatile('Googoo Eyes');
-				}
-			},
-			onBeforeMovePriority: 2,
-			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: Googoo Eyes', '[of] ' + this.effectData.source);
-				if (this.randomChance(1, 2)) {
-					this.add('cant', pokemon, 'Googoo Eyes');
-					return false;
-				}
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Googoo Eyes', '[silent]');
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cute",
-	},
 	aurasphere: {
 		num: 396,
 		accuracy: true,

@@ -239,4 +239,80 @@ osho: {
     tier: "leif",
     doublesTier: "leif",
 },
+yolkai: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+dududoom: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+tusslesprout: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+wokmon: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+kodamaton: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+timbsguy: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+wiseskeleton: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+vit: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+groverush: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+dezacaiman: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+igrozu: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+obsidiatra: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+cuca: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+nightwinx: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+bulbous: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+olmeria: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+girafadon: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+bloomorbid: {
+    tier: "leif",
+    doublesTier: "leif",
+},
+chrysalisk: {
+    tier: "leif",
+    doublesTier: "leif",
+},
 };

@@ -885,9 +885,8 @@ Ratings and how they work:
 				return null;
 			}
 		},
-		onFoeBasePowerPriority: 17,
-		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -900,6 +899,7 @@ Ratings and how they work:
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
+		flags: {breakable: 1},
 		name: "Dry Skin",
 		rating: 3,
 		num: 87,
@@ -1154,30 +1154,6 @@ Ratings and how they work:
 		rating: 3.5,
 		num: 218,
 	},
-	forceofnature: {
-		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
-		},
-		onStart(pokemon) {
-			// Force Of Nature does not activate when Skill Swapped or when Neutralizing Gas leaves the field
-			if (!this.effectData.switchingIn) return;
-			this.add('-ability', pokemon, 'Force Of Nature');
-			this.effectData.switchingIn = false;
-		},
-		suppressWeather: true,
-		name: "Force Of Nature",
-		rating: 2,
-		num: 13,
-	},
-	forcefield: {
-		onModifyDefPriority: 6,
-		onModifyDef(def) {
-			return this.chainModify(2);
-		},
-		name: "Forcefield",
-		rating: 4,
-		num: 169,
-	},
 	forecast: {
 		onUpdate(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
@@ -1401,52 +1377,18 @@ Ratings and how they work:
 		num: 265,
 	},
 	guanoboost: {
-		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-		if (pokemon.side.active.length === 1) {
-				return;
-			}
-			for (const allyActive of pokemon.side.active) {
-				if (
-					allyActive && allyActive.position !== pokemon.position &&
-					!allyActive.fainted && allyActive.species.id === 'wooliba'
-				) {
-				this.heal(target.baseMaxhp / 4);
-				return false;
-				}
-			} 
-		},
+        onDamagePriority: 1,
+        onDamage(damage, target, source, effect) {
+            for (const targets of this.sides[0].pokemon) {
+              if (targets.species.id === 'wooliba') {
+                this.heal(targets.baseMaxhp / 8);
+                return false;
+              }
+           }
+        },
 		name: "Guano Boost",
 		rating: 0,
 		num: 57,
-	},
-	gulpmissile: {
-		onDamagingHit(damage, target, source, move) {
-			if (target.transformed || target.isSemiInvulnerable()) return;
-			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
-				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'cramorantgulping') {
-					this.boost({def: -1}, source, target, null, true);
-				} else {
-					source.trySetStatus('par', target, move);
-				}
-				target.formeChange('cramorant', move);
-			}
-		},
-		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
-		onSourceTryPrimaryHit(target, source, effect) {
-			if (
-				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
-				source.species.name === 'Cramorant' && !source.transformed
-			) {
-				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				source.formeChange(forme, effect);
-			}
-		},
-		isPermanent: true,
-		name: "Gulp Missile",
-		rating: 2.5,
-		num: 241,
 	},
 	guts: {
 		onModifyAtkPriority: 5,
@@ -2670,6 +2612,14 @@ Ratings and how they work:
 		rating: 1,
 		num: 253,
 	},
+	permeate: {
+		onModifyMove(move) {
+			if (move.flags['contact']) delete move.flags['protect'];
+		},
+		name: "Permeate",
+		rating: 2,
+		num: 260,
+	},
 	pickpocket: {
 		onAfterMoveSecondary(target, source, move) {
 			if (source && source !== target && move?.flags['contact']) {
@@ -2714,33 +2664,6 @@ Ratings and how they work:
 		rating: 0.5,
 		num: 53,
 	},
-	pitcherarmor: {
-        onModifyDefPriority: 6,
-        onModifyDef(def) {
-            for (const allyActive of pokemon.adjacentAllies()) {
-                if ( 
-                    allyActive && (allyActive.position !== pokemon.position) &&
-                    !allyActive.fainted && (allyActive.species.id === 'pichiri')
-                ) {
-                    return this.chainModify(2);
-                }
-            }
-        }, 
-        onModifySpdPriority: 6,
-        onModifySpd(spd) {
-            for (const allyActive of pokemon.adjacentAllies()) {
-                if (
-                    allyActive && (allyActive.position !== pokemon.position) &&
-                    !allyActive.fainted && (allyActive.species.id === 'pichiri')
-                ) {
-                    return this.chainModify(2);
-                }
-            }
-        },
-        name: "Pitcher Armor",
-        rating: 0,
-        num: 57,
-    },
 	pixilate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -4154,21 +4077,6 @@ Ratings and how they work:
 		num: 36,
 	},
 	trailofmalady: {
-        onStart(side) {
-            this.add('-sidestart', side, 'Trail of Malady');
-        },
-        onEnd(side) {
-            this.add('-sideend', side, 'Trail of Malady');
-        },
-        sideCondition: 'trailofmalady',
-        condition: {
-            onStart(pokemon) {
-                pokemon.side.removeSideCondition('trailofmalady');
-                if (!pokemon.isGrounded()) return;
-                else if (pokemon.hasType('Poison') || pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) return;
-                else pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-            },    
-        },
         name: "Trail of Malady",
         rating: 4,
         num: 191,
@@ -4273,18 +4181,6 @@ Ratings and how they work:
 		rating: 3.5,
 		num: 84,
 	},
-	universalcharm: {
-		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('googooeyes', this.effectData.target);
-				}
-			}
-		},
-		name: "Universal Charm",
-		rating: 0.5,
-		num: 56,
-	},
 	unnerve: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Unnerve', pokemon.side.foe);
@@ -4373,6 +4269,7 @@ Ratings and how they work:
                 if (this.randomChance(3, 10)) {
                     this.add('-activate', target, 'Ability: Warped');
                     this.actions.useMove("Trick Room", source, source);
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
                 }
             }
         },
