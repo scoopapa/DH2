@@ -822,7 +822,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} else {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					target.addVolatile('ability:hacked');
+					if (!target.hasAbility('gexserver')) target.addVolatile('ability:hacked');
 				}
 			}
 		},

@@ -1676,7 +1676,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tired of it Owl",
 		types: ["Silly", "Flying"],
 		baseStats: {hp: 95, atk: 95, def: 105, spa: 70, spd: 105, spe: 95},
-		abilities: {0: "Just the Birds", 1: "Sticky Hold", H: "Water Absorb", S: "Fishy Surge"},
+		abilities: {0: "just the birds", 1: "Sticky Hold", H: "Water Absorb", S: "Fishy Surge"},
 		weightkg: 12.0,
 	},
 	caracal: {
