@@ -163,7 +163,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onPrepareHit(source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Iron Fist') {
-				if (!move.flags['punch']) this.actions.useMove("Iron Fist", source, target);
+				if (!move.flags['punch'] && move.category !== 'Status') this.actions.useMove("Iron Fist", source, target);
 			} else if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;

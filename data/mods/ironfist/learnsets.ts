@@ -16197,6 +16197,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	bluminion: {
 		learnset: {
 			wish: ["9L1"],
+			fish: ["9L1"],
 			vineboom: ["9L1"],
 			flipturn: ["9L1"],
 			acrobatics: ["9L1"],
