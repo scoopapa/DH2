@@ -42,7 +42,7 @@ export const Formats: FormatData[] = [
 			/**@type {{[k: string]: true}} */
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'DToho') {
+				if (template.doublesTier !== 'DToho') {
 					return [set.species + ' is not a Touhou character.'];
 				}
 				if (set.species == 'Cirno-Tanned' && set.ability !== 'Drought')
