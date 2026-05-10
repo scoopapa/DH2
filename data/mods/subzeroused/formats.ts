@@ -2,7 +2,7 @@ import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
-		name: "[Gen 9] Sub-Zero Used",
+		name: "[Gen 9] SU",
 		desc: [
 			"<b>Sub-Zero Used</b>: An unofficial usage-based tier below ZU.",
 		],
