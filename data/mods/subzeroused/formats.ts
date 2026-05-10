@@ -16,7 +16,7 @@ export const Formats: FormatData[] = [
       'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang',
       'Baton Pass', 'Last Respects', 'Shed Tail', 'Tera Blast', 'Unburden', 'Heat Rock', 'Damp Rock', 'Drought', 'Quick Claw',
       'Light Clay', 'Basculin', 'Brute Bonnet', 'Charizard', 'Clawitzer', 'Drifblim', 'Farigiraf', 'Froslass', 'Gurdurr',
-      'Hitmontop', 'Houndoom', 'Jolteon', 'Lycanroc', 'Magneton', 'Malamar', 'Medicham', 'Mepsrit', 'Minior', 'Muk', 'Orthworm',
+      'Hitmontop', 'Houndoom', 'Jolteon', 'Lycanroc', 'Magneton', 'Malamar', 'Medicham', 'Mesprit', 'Minior', 'Muk', 'Orthworm',
       'Regirock', 'Sableye', 'Sandslash', 'Skuntank', 'Sneasel', 'Sneasel-Hisui', 'Spiritomb', 'Typhlosion', 'Venusaur', 'Vikavolt',
       'Weezing', 'Whimsicott', 'Whiscash', 'Beartic', 'Primeape', 'Tauros-Paldea-Combat', 'Virizion',
     ],
