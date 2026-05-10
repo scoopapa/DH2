@@ -1965,7 +1965,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			snore: ["9L1"],
 			stompingtantrum: ["9L1"],
 			stoneedge: ["9L1"],
-			stormthrow: ["9L1"],
 			strength: ["9L1"],
 			substitute: ["9L1"],
 			sunnyday: ["9L1"],
