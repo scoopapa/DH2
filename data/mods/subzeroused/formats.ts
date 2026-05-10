@@ -12,7 +12,7 @@ export const Formats: FormatData[] = [
 		mod: 'subzeroused',
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: [
-      'Uber', 'AG', 'OU', 'UUBL', 'UU', 'RUBL', 'NU', 'PUBL', 'PU', 'ZUBL',
+      'Uber', 'AG', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'PUBL', 'PU', 'ZUBL',
       'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang',
       'Baton Pass', 'Last Respects', 'Shed Tail', 'Tera Blast', 'Unburden', 'Heat Rock', 'Damp Rock', 'Drought', 'Quick Claw',
       'Light Clay', 'Basculin', 'Brute Bonnet', 'Charizard', 'Clawitzer', 'Drifblim', 'Farigiraf', 'Froslass', 'Gurdurr',
