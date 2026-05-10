@@ -822,7 +822,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} else {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					target.addVolatile('ability:hacked');
+					if (!target.hasAbility('gexserver')) target.addVolatile('ability:hacked');
 				}
 			}
 		},
@@ -1948,10 +1948,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	illgetamegathistimeiswear: {
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'flygon') {
-				if (pokemon.species.id !== 'plus' && pokemon.item && pokemon.item.megaStone) {
+				if (pokemon.species.forme !== 'Plus' && pokemon.item && pokemon.item.megaStone) {
 					this.add('-ability', pokemon, "i'll get a mega this time i swear");
 					pokemon.formeChange('flygonplus', this.effect, false);
-				} else if (pokemon.species.id === 'plus' && (!pokemon.item || !pokemon.item.megaStone)) {
+				} else if (pokemon.species.forme === 'Plus' && (!pokemon.item || !pokemon.item.megaStone)) {
 					this.add('-ability', pokemon, "i'll get a mega this time i swear");
 					pokemon.formeChange('flygon', this.effect, false);
 				}
