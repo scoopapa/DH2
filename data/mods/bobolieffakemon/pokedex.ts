@@ -434,6 +434,17 @@ export const Pokedex: {[k: string]: ModdednameData} = {
           weightkg: 272,
           eggGroups: ["Undiscovered"],
     },
+	 rodiche: {
+        num: 1037,
+          name: "Rodiche",
+          types: ["Normal"],
+          genderRatio: {M:0.5, F:0.5},
+          baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+          abilities: {0: "Ball Fetch"},
+          heightm: 0.7,
+          weightkg: 20,
+          eggGroups: ["Undiscovered"],
+    },
     mowisp: {
         num: 1038,
           name: "Mowisp",
