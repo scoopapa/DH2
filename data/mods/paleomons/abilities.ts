@@ -1,4 +1,20 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	
+	//new abilities
+	electrooverload: {
+		shortDesc: "Electric Surge + lands before using Electric-type moves (Roost effect).",
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+		onPrepareHit(target, source, move) {
+			if (move.type === "Electric") {
+				source.addVolatile('roost');
+			}
+		},
+		flags: {},
+		name: "Electro Overload",
+	},
+
 	firstflight: {
 		name: "First Flight",
 		shortDesc: "User is considered airborne until hit with an attack. Resets upon switching out.",
@@ -29,6 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 		},
 	},
+
 	headbarrage: {
 		name: "Head Barrage",
 		shortDesc: "All Special moves used by the user become physical and add 25% recoil.",
@@ -39,6 +56,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+
 	leatherback: {
 		name: "Leatherback",
 		shortDesc: "This Pokemon's Special Defense is raised one stage if hit by an Electric move; Electric immunity.",
@@ -52,25 +70,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 	},
-	specterate: {
-		name: "Specterate",
-		shortDesc: "This Pokemon's Normal-type moves become Ghost type and have 1.2x power.",
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Ghost';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
-		},
-	},
+	
 	nightwatch: {
 		name: "Night Watch",
 		shortDesc: "This Pokemon's attacks have 1.5x power against Dark types.",
@@ -79,6 +79,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(target.hasType('Dark')) return this.chainModify(1.5);
 		},
 	},
+
 	permafrost: {
 		name: "Permafrost",
 		onStart(pokemon) {
@@ -108,6 +109,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def when hit by Ice.",
 		rating: 4,
 	},
+
+	predator: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.totalDamage && !pokemon.forceSwitchFlag) {
+				this.heal(move.totalDamage / 8, pokemon);
+			}
+		},
+		flags: {},
+		name: "Predator",
+		shortDesc: "After an attack, this Pokemon gains 1/8 of the damage in HP dealt to other Pokemon.",
+	},
+
 	sedimentary: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -127,18 +141,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sedimentary",
 		shortDesc: "This Pokemon's Bug-type moves have 1.5x power in Rain.",
 	},
-	predator: {
-		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.totalDamage && !pokemon.forceSwitchFlag) {
-				this.heal(move.totalDamage / 8, pokemon);
+
+	specterate: {
+		name: "Specterate",
+		shortDesc: "This Pokemon's Normal-type moves become Ghost type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ghost';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		flags: {},
-		name: "Predator",
-		shortDesc: "After an attack, this Pokemon gains 1/8 of the damage in HP dealt to other Pokemon.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
 	},
 
+	//edited vanilla abilities
 	zenmode: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Eleffigy' || pokemon.transformed) {

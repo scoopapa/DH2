@@ -8,16 +8,5 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
                 this.add('-start', pokemon, 'dragonblight', '[silent]');
             }
         },
-        onSetStatus(status, target, source, effect) {
-            if (status === 'dragonblight') {
-                this.add('-start', target, 'dragonblight', '[silent]');
-            }
-        },
-        onCureStatus(pokemon, source, effect) {
-            const cured = effect?.status || pokemon.statusState?.prevStatus;
-            if (cured === 'dragonblight') {
-                this.add('-end', pokemon, 'dragonblight', '[silent]');
-            }
-        },
     },
 }

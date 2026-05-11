@@ -587,13 +587,14 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	furfroumatron: "Furfrou",
 	furfroupharaoh: "Furfrou",
 	furfroustar: "Furfrou",
+	/*
 	miniorred: "Minior",
 	miniororange: "Minior",
 	minioryellow: "Minior",
 	miniorgreen: "Minior",
 	miniorblue: "Minior",
 	miniorindigo: "Minior",
-	miniorviolet: "Minior",
+	miniorviolet: "Minior",*/
 	unownb: "Unown",
 	unownc: "Unown",
 	unownd: "Unown",

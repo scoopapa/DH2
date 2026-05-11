@@ -402,30 +402,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
 	},
 	bewitchingtail: {
-    onModifyAtk(atk, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1333); // 1.2x
-        }
-    },
-    onModifySpA(spa, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1333); // 1.2x
-        }
-    },
-    onModifySpe(spe, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1800); // 1.5x
-        }
-    },
-    onSourceModifyDamage(damage, source, target, move) {
-        if (source.status === 'slp') {
-            return this.chainModify(0.8);
-        }
-    },
-    flags: {},
-    name: "Bewitching Tail",
-    shortDesc: "Targeting drowsy foes: Offenses 1.2x, Spe 1.5x | From drowsy foes: 0.8x Damage.",
-},
+		onModifySpe(spe, pokemon, target, move) {
+			if (target && target.status === 'slp') {
+				return this.chainModify(0x1800); // 1.5x
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.status === 'slp') {
+				return this.chainModify(0.8);
+			}
+		},
+		flags: {},
+		name: "Bewitching Tail",
+		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage.",
+	},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
 			const terrain = this.field.terrain;
@@ -1668,11 +1658,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by Contact moves: 30% chance of inflicting Stench.",
 		name: "Pungency",
 	},
-	ragingrebel: {
-		onAllyBasePowerPriority: 22,
-		onAllyBasePower(basePower, attacker, defender, move) {
+		ragingrebel: {
+		onModifyAtk(atk, attacker, defender, move) {
+			// Check if user or any ally has stat drops
 			let rebel = false;
-			for (const pokemon of this.getAllActive()) {
+			for (const pokemon of attacker.side.active) {
+				if (!pokemon) continue;
 				for (const stat in pokemon.boosts) {
 					if (pokemon.boosts[stat as BoostName] < 0) {
 						rebel = true;
@@ -1682,13 +1673,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (rebel) break;
 			}
 			if (rebel) {
-				this.debug('Raging Rebel boost');
-				this.add('-activate', attacker, 'ability: Raging Rebel');
+				this.debug('Raging Rebel Attack boost');
 				return this.chainModify(1.3);
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			// Prevent Attack drops from applying to this Pokémon
+			// Prevent Attack drops from applying
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
 				if (!(effect as ActiveMove)?.secondaries) {
@@ -1697,20 +1687,23 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onUpdate(pokemon) {
+			// Cure burn if somehow applied
 			if (pokemon.status === 'brn') {
 				this.add('-immune', pokemon, '[from] ability: Raging Rebel');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
+			// Prevent burn from being applied
 			if (status === 'brn') {
 				this.add('-immune', target, '[from] ability: Raging Rebel');
 				return false;
 			}
 		},
+
 		flags: {},
 		name: "Raging Rebel",
-		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
+		shortDesc: "1.3x Atk if it or allies have stat drops. Ignores Atk drops. BRN immune.",
 	},
 	razoredge: {
 		onSourceDamagingHit(damage, target, source, move) {

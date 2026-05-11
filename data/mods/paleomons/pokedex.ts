@@ -776,4 +776,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Comatose"},
 		weightkg: 238.8,
 	},
+	chimeragon: {
+		num: 89,
+		name: "Chimeragon",
+		types: ["Dragon", "Bug"],
+		baseStats: {hp: 61, atk: 108, def: 80, spa: 108, spd: 80, spe: 98},
+		abilities: {0: "Swarm", H: "Heatproof"},
+		weightkg: 280.0,
+	},
+	vulcaneast: {
+		num: 90,
+		name: "Vulcaneast",
+		types: ["Ground", "Fire"],
+		baseStats: {hp: 90, atk: 106, def: 82, spa: 101, spd: 81, spe: 70},
+		abilities: {0: "Pressure", H: "Sheer Force"},
+		weightkg: 590.0,
+	},
+	stratusaur: {
+		num: 91,
+		name: "Stratusaur",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 108, atk: 53, def: 81, spa: 104, spd: 79, spe: 75},
+		abilities: {0: "Electro Overload", H: "Immunity"},
+		weightkg: 480.0,
+	},
 }

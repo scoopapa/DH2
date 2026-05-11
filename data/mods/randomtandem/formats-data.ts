@@ -80,5 +80,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kingambit: {
 		tier: "Random",
 	},
+	quaquaval: {
+		tier: "Random",
+	},
+	corviknight: {
+		tier: "Random",
+	},
+	brambleghast: {
+		tier: "Random",
+	},
+	hatterene: {
+		tier: "Random",
+	},
 
 };

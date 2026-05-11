@@ -1459,6 +1459,268 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		shortDesc: "Cursed Body + Sticky Hold",
 	},
+	meathead: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Meathead boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Meathead', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Meathead', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Meathead', '[of] ' + target);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Meathead');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Meathead');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Meathead');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Meathead');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Meathead",
+		rating: 3,
+		shortDesc: "Reckless + Oblivious",
+	},
+	recklesssymbiosis: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Reckless Symbiosis boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Reckless Symbiosis', myItem, '[of] ' + pokemon);
+		},
+		flags: {},
+		name: "Reckless Symbiosis",
+		rating: 3,
+		shortDesc: "Reckless + Symbiosis",
+	},
+	abominable: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (['snowscape', 'hail'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		// burn interaction in scripts.ts
+		flags: {},
+		name: "Abominable",
+		rating: 2,
+		shortDesc: "This Pokemon's Attack is 1.5x in Snow; ignores burn halving physical damage.",
+	},
+	thickskin: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({atk: 2}, target, target, null, false, true);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Skin weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Skin weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Thick Skin",
+		rating: 3,
+		shortDesc: "Defiant + Thick Fat",
+	},
+	blazingpetalsii: {
+		onAllyTryBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Fire')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Blazing Petals II', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Blazing Petals II');
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Blazing Petals II', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Fire') && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Blazing Petals II', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Blazing Petals II",
+		rating: 0,
+		shortDesc: "This side's Fire-types can't have stats lowered or status inflicted by other Pokémon.",
+	},
+	pickupartist: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup Artist');
+			pokemon.setItem(item);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Fairy Portal', 'Malocchio'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Pickup Artist', '[of] ' + target);
+			}
+			if (['Debilitate'].includes(effect.name) && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Pickup Artist', '[of] ' + target);
+			}
+			if (['Sink or Swim'].includes(effect.name) && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Pickup Artist', '[of] ' + target);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Meathead');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Pickup Artist');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Pickup Artist');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Pickup Artist');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Pickup Artist",
+		rating: 3,
+		shortDesc: "Pickup + Oblivious",
+	},
+	quickfat: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Quick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Quick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Quick Fat",
+		rating: 3,
+		shortDesc: "Quick Feet + Thick Fat",
+	},
+	winterfeast: {
+		onStart(pokemon) {
+			pokemon.abilityState.gluttony = true;
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		onWeatherChange(pokemon) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				if (pokemon.getItem().isBerry) {
+					pokemon.eatItem(true);
+				}
+			}
+		},
+		flags: {},
+		name: "Winter Feast",
+		rating: 1.5,
+		shortDesc: "Effects of Gluttony. This Pokemon eats its berry if Snow is active.",
+	},
 	// collateral
 	guarddog: {
 		inherit: true,
@@ -1608,4 +1870,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	// champions
+	// Abilities that got edits but aren't on any FE Pokemon: Anger Shell, Berserk, Disguise, Healer, Unseen Fist
 };

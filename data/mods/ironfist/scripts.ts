@@ -530,6 +530,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				canTera = true;
 				type = 'Steel';
 			}
+			if (pokemon.species.id === 'boogerponclownerstone' && type === 'Grass') {
+				canTera = true;
+				type = 'Silly';
+			}
 			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
 				pokemon.terastallized = type;
@@ -539,9 +543,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.addedType = '';
 				pokemon.knownType = true;
 				pokemon.apparentType = type;
-				if (pokemon.species.baseSpecies === 'Ogerpon') {
-					const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
-					pokemon.formeChange(pokemon.species.id + tera, null, true);
+				if (pokemon.species.id === 'boogerponclownerstone') {
+					pokemon.formeChange('boogerponclownerstonetera', null, true);
 				}
 				if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
 					pokemon.formeChange('Terapagos-Stellar', null, true);
@@ -1308,6 +1311,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
+		effectiveWeather(message?: string | boolean) {
+			const weather = this.battle.field.effectiveWeather();
+			switch (weather) {
+			case 'sunnyday':
+			case 'raindance':
+			case 'desolateland':
+			case 'primordialsea':
+				if (this.hasItem('utilityumbrella')) return '';
+			}
+			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
+			if (this.hasAbility('lemonga') && this.battle.activePokemon === this && weather !== 'acidrain') {
+				if (message) this.battle.add('-activate', this, 'ability: Lemonga Sour');
+				return 'acidrain' as ID;
+			}
+			return weather;
+		}
 	},
 	field: {
 		inherit: true,

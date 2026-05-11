@@ -313,6 +313,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 	},
+	scathingswarm: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Scathing Swarm",
+		shortDesc: "Lower's the user's Special Attack by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+	},
 	
 	//edited vanilla moves
 	fishiousrend: {

@@ -214,6 +214,38 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FERELC",
 		doublesTier: "DOU",
 	},
+	piloonegalar: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	swinagoongalar: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	flutterglass: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	boaretteeternalmegay: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	boaretteeternalmegax: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	boaretteeternal: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	mamogoon: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	gyarafablemegaz: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
   // Silverade
 	silveradebug: {
 		tier: "Silverade",

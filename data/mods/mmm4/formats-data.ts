@@ -111,5 +111,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MMM4",
 		doublesTier: "DOU",
 	},
+	goodrahisui: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
+	castform: {
+		tier: "MMM4",
+		doublesTier: "DOU",
+	},
 
 };

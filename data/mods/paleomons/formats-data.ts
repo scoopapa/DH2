@@ -347,4 +347,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	chimeragon: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	vulcaneast: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	stratusaur: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 };

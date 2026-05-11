@@ -1,29 +1,14 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	/*
-	//crystals/stones that dont exist yet
-	buginiumz: null,
-	darkiniumz: null,
-	dragoniniumz: null,
-	electriumz: null,
-	fairiumz: null,
-	fightiniumz: null,
-	firiumz: null,
-	flyiniumz: null,
-	ghostiumz: null,
-	grassiumz: null,
-	groundiumz: null,
-	iciumz: null,
-	normaliumz: null,
-	poisoniumz: null,
-	psychiumz: null,
-	rockiumz: null,
-	steeliumz: null,
-	wateriumz: null,
-	absolite: null,
-	houndoominite: null,
-	blueorb: null,
+	placeholder: {
+		name: "",
+		fling: {
+			basePower: ,
+		},
+		shortDesc: "",
+		rating: 2,
+	},
 	*/
-	
 	//vanilla items
 	berryjuice: {
 		inherit: true,
@@ -178,7 +163,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onPrepareHit(source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Iron Fist') {
-				if (!move.flags['punch']) this.actions.useMove("Iron Fist", source, target);
+				if (!move.flags['punch'] && move.category !== 'Status') this.actions.useMove("Iron Fist", source, target);
 			} else if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;
@@ -900,7 +885,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'sigmarice',
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && pokemon.baseSpecies.name === 'Sigma Rice Lion') {
+			if (!pokemon.ignoringItem() && (pokemon.baseSpecies.name === 'Sigma Rice Lion' || pokemon.hasAbility('eternalrice'))) {
 				this.add('-item', pokemon, 'Sigma Rice');
 				pokemon.addVolatile('sigmarice');
 			}
@@ -1194,5 +1179,278 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Solar Bean"],
 		isPrimalOrb: true,
+	},
+
+	//slate 12
+	shrineofthesilvermonkey: {
+		name: "Shrine of the Silver Monkey",
+		fling: {
+			basePower: 80,
+			effect(target) {
+				target.addVolatile('inexplicablesouvenir');
+			},
+		},
+		onStart(pokemon) {
+			pokemon.shrine = 0;
+		},
+		onResidual(pokemon) {
+			if (pokemon.shrine > 0) {
+				pokemon.shrine ++;
+				if (!pokemon.side.removeFishingTokens(1)) {
+					if (pokemon.volatiles['trapped'] || pokemon.volatiles['partiallytrapped']) {
+						if (pokemon.takeItem()) this.add('-enditem', pokemon, 'Shrine of the Silver Monkey');
+					}
+					else pokemon.switchFlag = true;
+				}
+			}
+			if (pokemon.activeTurns % 2 == 1) {
+				this.boost({ atk: 1, def: 1, spa: 1, spd: 1 }, pokemon, pokemon);
+				if (!pokemon.shrine) pokemon.shrine = 1;
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.shrine) return this.chainModify(Math.pow(0.5, pokemon.shrine));
+		},
+		shortDesc: "Every 2 turns: Atk/Def/SpA/SpD +1, Spe halved, switch out unless -1 token.",
+		rating: 2,
+	},
+	goofyplate: {
+		name: "Goofy Plate",
+		shortDesc: "Holder's Silly-type attacks have 1.2x power. Judgement is Silly type.",
+		spritenum: 282,
+		onPlate: 'Silly',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Silly') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+	},
+	sourplate: {
+		name: "Sour Plate",
+		shortDesc: "Holder's Lemon-type attacks have 1.2x power. Judgement is Lemon type.",
+		spritenum: 572,
+		onPlate: 'Lemon',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Lemon') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+	},
+	everhliumz: {
+		name: "Everhálium-Z",
+		shortDesc: "If held by a Everhál with Everstorm Halberd, it can use Yggdrasil Justice Strike.",
+		onTakeItem: false,
+		zMove: "Yggdrasil Justice Strike",
+		zMoveFrom: "Everstorm Halberd",
+		itemUser: ["Everhál"],
+	},
+	bassjpg: {
+		name: "bass.jpg",
+		shortDesc: "Holder's Fishing attacks have 1.2x power.",
+		rating: 2,
+		fling: {
+			basePower: 100,
+			effect(target, source, move) {
+				source.side.addFishingTokens(1);
+				source.lastItem = '';
+				this.add('-item', source, this.dex.items.get(item), '[from] move: Fling');
+				source.setItem(item, source, move);
+			},
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.flags['fishing']) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
+	fishrifle: {
+		name: "Fish Rifle",
+		shortDesc: "Holder's SpA is 1.5x if they have tokens. Special attacks remove 1 token from both sides.",
+		rating: 2,
+		fling: {
+			basePower: 120,
+			effect(target, source, move) {
+				source.side.removeFishingTokens(3);
+				target.side.removeFishingTokens(3);
+			},
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.side.fishingTokens > 0) return this.chainModify(1.5);
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category === 'Special') {
+				pokemon.side.removeFishingTokens(1);
+				pokemon.side.foe.removeFishingTokens(1);
+			}
+		},
+	},
+	lunchly: {
+		name: "Lunchly",
+		shortDesc: "Holder heals 15% at turn end for first 3 turns, then attempts to poison.",
+		fling: {
+			basePower: 30,
+			status: 'psn',
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns < 3) this.heal(pokemon.baseMaxhp * 0.15);
+			else pokemon.trySetStatus('psn', pokemon);
+		},
+	},
+	ironwillribbon: {
+		name: "Iron Will Ribbon",
+		shortDesc: "Holder takes 20% less damage for each empty moveslot it has.",
+		fling: {
+			basePower: 80,
+			volatileStatus: "partiallytrapped",
+		},
+		onSourceModifyDamage(relayVar, target, source, move) {
+			this.chainModify(1 - (0.2 * target.moveSlots.length));
+		},
+	},
+	lemonomicsindustryconnectionscard: {
+		name: "Lemonomics industry connections card",
+		shortDesc: "Holder uses Fish Processing at the end of turn if Acid Rain is active. Single use.",
+		fling: {
+			basePower: 77,
+			effect(target, source, move) {
+				this.actions.useMove("Feebas Pro Shops", source);
+				this.actions.useMove("Feebas Pro Shops", source);
+			},
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.effectiveWeather === 'acidrain') {
+				target.useItem();
+				this.actions.useMove("Fish Processing", pokemon);
+			}
+		},
+	},
+	zacianorb: {
+		name: "zacian orb",
+		shortDesc: "At the end of each turn, attempts to transform the holder into Zacian-Crowned.",
+		fling: {
+			basePower: 30,
+			effect(target, source, move) {
+				if (target.species !== 'Zacian-Crowned') {
+					target.formeChange('Zacian-Crowned');
+					if (target.ability === target.species.abilities['H'] || target.set.ability === pokemon.species.abilities['S']) target.setAbility('stall');
+					else target.setAbility('identitycrisis');
+				}
+			},
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.species !== 'Zacian-Crowned') {
+				pokemon.formeChange('Zacian-Crowned');
+				if (pokemon.ability === pokemon.species.abilities['H'] || pokemon.set.ability === pokemon.species.abilities['S']) pokemon.setAbility('stall');
+				else pokemon.setAbility('identitycrisis');
+			}
+		},
+	},
+	ipgrabberlink: {
+		fling: {
+			basePower: 40,
+			effect(target, source, move) {
+				const temp = this.sample(target.moveSlots);
+				const moveSlot = this.dex.moves.get(temp.id);
+				if (moveSlot === null) return;
+				const learnedMove = {
+					move: moveSlot,
+					id: moveSlot.id,
+					pp: moveSlot.pp,
+					maxpp: moveSlot.pp,
+					target: moveSlot.target,
+					disabled: false,
+					used: false,
+				};
+				pokemon.moveSlots[pokemon.moveSlots.length] = learnedMove;
+			},
+		},
+		name: "IP Grabber Link",
+		shortDesc: "On switchin, if holder has <4 moves, copy opponent's moves and gain 0.1x power each time.",
+		onSwitchIn(pokemon) {
+			if (pokemon.moveSlots.length >= 4 || pokemon.adjacentFoes().length === 0) return;
+			const amount = 4 - pokemon.moveSlots.length + 1;
+			const target = this.sample(pokemon.adjacentFoes());
+			for (let i = 0; i < amount; i ++) {
+				const temp = this.sample(target.moveSlots);
+				const moveSlot = this.dex.moves.get(temp.id);
+				if (moveSlot === null) continue;
+				const learnedMove = {
+					move: moveSlot,
+					id: moveSlot.id,
+					pp: moveSlot.pp,
+					maxpp: moveSlot.pp,
+					target: moveSlot.target,
+					disabled: false,
+					used: false,
+				};
+				pokemon.moveSlots[pokemon.moveSlots.length] = learnedMove;
+			}
+			pokemon.ipboost = amount;
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.ipboost) return this.chainModify(1 + 0.1 * pokemon.ipboost);
+		},
+	},
+	'ironfistslate13': {
+		name: "Iron Fist Slate 13",
+		shortDesc: "On switch-in, starts Slate 13. Also boosts damage by x1.3. Announces itself when used.",
+		fling: {
+			basePower: 13,
+			effect(target, source, move) {
+				this.add('-message', `https://www.smogon.com/forums/threads/iron-fist-slate-14-submissions.3748853/page-32`);
+			},
+		},
+		onSwitchIn(pokemon) {
+			this.add('-message', `${pokemon.name} started slate 13 or something idfk`);
+		},
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([5324, 4096]);
+		},
+	},
+	lemonganite: {
+		name: "Lemonganite",
+		shortDesc: "If held by a Lemonganium, this item allows it to Lemonga Evolve in battle.",
+		megaStone: "Lemonganium-Lemonga",
+		megaEvolves: "Lemonganium",
+		itemUser: ["Lemonganium"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	biganvilite: {
+		name: "BIG ANVILITE",
+		shortDesc: "If held by a BIG ANVIL, this item allows it to Mega Evolve in battle.",
+		megaStone: "BIG ANVIL-MEGA",
+		megaEvolves: "BIG ANVIL",
+		itemUser: ["BIG ANVIL"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
 	},
 }

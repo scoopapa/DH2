@@ -231,5 +231,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insomnia", 1: "Super Luck", H: "Moxie"},
 		prevo: null,
 	},
+	goodrahisui: {
+		inherit: true,
+		num: 6728,
+		name: "Goodra-Hisui",
+		types: ["Steel", "Dragon"],
+		baseStats: {hp: 78, atk: 105, def: 84, spa: 68, spd: 127, spe: 63},
+		abilities: {0: "Shell Armor", 1: "Volt Absorb", H: "Gooey"},
+		prevo: null,
+	},
+	castform: {
+		inherit: true,
+		num: 6729,
+		name: "Castform",
+		types: ["Ice"],
+		baseStats: {hp: 60, atk: 60, def: 100, spa: 80, spd: 160, spe: 80},
+		abilities: {0: "Drought", 1: "Drizzle", H: "Snow Warning"},
+	},
 
 };

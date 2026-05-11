@@ -906,10 +906,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Samurott, this item allows it to Mega Evolve in battle.",
 	},
-	meowsticite: {
-		name: "Meowsticite",
+	meowsticitey: {
+		name: "Meowsticite-Y",
 		spritenum: 578,
-		megaStone: "Meowstic-Mega",
+		megaStone: "Meowstic-Mega-Y",
 		megaEvolves: "Meowstic",
 		itemUser: ["Meowstic"],
 		onTakeItem(item, source) {

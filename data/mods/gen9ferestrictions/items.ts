@@ -370,4 +370,49 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 6,
 		shortDesc: "If held by a Latipach, this item allows it to Mega Evolve in battle.",
 	},
+	emboarite: {
+		name: "Emboarite",
+		spritenum: 0,
+		megaStone: "Boarette-Eternal-Mega-Y",
+		megaEvolves: "Boarette-Eternal",
+		itemUser: ["Boarette-Eternal"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2569,
+		gen: 9,
+		isNonstandard: null,
+		shortDesc: "If held by a Boarette-Eternal, this item allows it to Mega Evolve in battle.",
+	},
+	floettite: {
+		name: "Floettite",
+		spritenum: 0,
+		megaStone: "Boarette-Eternal-Mega-X",
+		megaEvolves: "Boarette-Eternal",
+		itemUser: ["Boarette-Eternal"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.name) return false;
+			return true;
+		},
+		num: 2579,
+		gen: 9,
+		isNonstandard: null,
+		shortDesc: "If held by a Boarette-Eternal, this item allows it to Mega Evolve in battle.",
+	},
+	clefablite: {
+		name: "Clefablite",
+		spritenum: 0,
+		megaStone: "Gyarafable-Mega-Z",
+		megaEvolves: "Gyarafable",
+		itemUser: ["Gyarafable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2559,
+		gen: 9,
+		isNonstandard: null,
+		shortDesc: "If held by a Gyarafable, this item allows it to Mega Evolve in battle.",
+	},
 };
