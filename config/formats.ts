@@ -1835,8 +1835,8 @@ export const Formats: FormatList = [
 	},
 	{
         name: "[Gen 8] leif",
-        mod: 'boboleiffakemon',
-        desc: `<b>boboleiffakemon</b>: This is your mod!`,
+        mod: 'bobolieffakemon',
+        desc: `<b>bobolieffakemon</b>: This is your mod!`,
 		  threads: [
 			  `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/">Solomods Megathread</a>`,
 		  ],
