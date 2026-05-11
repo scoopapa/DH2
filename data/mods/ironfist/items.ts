@@ -163,7 +163,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onPrepareHit(source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Iron Fist') {
-				if (!move.flags['punch']) this.actions.useMove("Iron Fist", source, target);
+				if (!move.flags['punch'] && move.category !== 'Status') this.actions.useMove("Iron Fist", source, target);
 			} else if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;
@@ -1198,7 +1198,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.shrine ++;
 				if (!pokemon.side.removeFishingTokens(1)) {
 					if (pokemon.volatiles['trapped'] || pokemon.volatiles['partiallytrapped']) {
-						if (pokemon.takeItem()) this.add('-enditem', target, 'Shrine of the Silver Monkey');
+						if (pokemon.takeItem()) this.add('-enditem', pokemon, 'Shrine of the Silver Monkey');
 					}
 					else pokemon.switchFlag = true;
 				}
@@ -1349,6 +1349,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "zacian orb",
 		shortDesc: "At the end of each turn, attempts to transform the holder into Zacian-Crowned.",
 		fling: {
+			basePower: 30,
+			effect(target, source, move) {
+				if (target.species !== 'Zacian-Crowned') {
+					target.formeChange('Zacian-Crowned');
+					if (target.ability === target.species.abilities['H'] || target.set.ability === pokemon.species.abilities['S']) target.setAbility('stall');
+					else target.setAbility('identitycrisis');
+				}
+			},
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
