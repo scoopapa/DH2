@@ -45,14 +45,14 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			let critMult;
 			let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
-			critRatio = this.battle.clampIntRange(critRatio, 0, 4);
-			critMult = [0, 24, 8, 2, 1];
+			critRatio = this.battle.clampIntRange(critRatio, 0, 5);
+			critMult = [0, 10, 32, 64, 85, 128];
 
 			const moveHit = target.getMoveHitData(move);
 			moveHit.crit = move.willCrit || false;
 			if (move.willCrit === undefined) {
 				if (critRatio) {
-					moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
+					moveHit.crit = this.battle.random(256) < critMult[critRatio];
 				}
 			}
 
@@ -96,8 +96,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
 
 			if (moveHit.crit) {
-				ignoreNegativeOffensive = true;
-				ignorePositiveDefensive = true;
+				move.ignoreOffensive = true;
+				move.ignoreDefensive = true;
 			}
 			const ignoreOffensive = !!(move.ignoreOffensive || (ignoreNegativeOffensive && atkBoosts < 0));
 			const ignoreDefensive = !!(move.ignoreDefensive || (ignorePositiveDefensive && defBoosts > 0));
@@ -120,9 +120,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			attack = this.battle.runEvent('Modify' + statTable[attackStat], source, target, move, attack);
 			defense = this.battle.runEvent('Modify' + statTable[defenseStat], target, source, move, defense);
 
-			if (['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def') {
+			/*if (['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def' && this.gen <= 4) {
 				defense = this.battle.clampIntRange(Math.floor(defense / 2), 1);
-			}
+			}*/
 
 			const tr = this.battle.trunc;
 
@@ -149,7 +149,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
-				const bondModifier = 0.5;
+				const bondModifier = 0.25;
 				this.battle.debug(`Parental Bond modifier: ${bondModifier}`);
 				baseDamage = this.battle.modify(baseDamage, bondModifier);
 			}
@@ -160,7 +160,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
 			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
+				baseDamage = tr(baseDamage * 7 / 6);
 			}
 
 			// random factor - also not a modifier
