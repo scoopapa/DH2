@@ -635,21 +635,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
-	bonesaw: {
+	amputator: {
 		num: -22,
-		accuracy: 90,
-		basePower: 65,
+		accuracy: 100,
+		basePower: 75,
 		category: "Physical",
-		name: "Bonesaw",
-		shortDesc: "Extra high critical hit ratio.",
-		pp: 15,
+		name: "Amputator",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, slicing: 1},
+		drain: [1, 2],
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Slash", target);
 		},
-		critRatio: 2,
 		secondary: null,
 		target: "normal",
 		type: "Dark",
@@ -661,20 +661,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Medi-Gun",
-		shortDesc: "Next hurt ally healed for 25% & status cured.",
-		pp: 5,
+		shortDesc: "33% healing to self. 25% healing to next incoming ally.",
+		pp: 10,
 		priority: 0,
+		heal: [33, 100],
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		slotCondition: 'medigun',
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					const damage = this.heal(target.baseMaxhp / 4, target, target);
-					target.clearStatus();
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
-					target.side.removeSlotCondition(target, 'medigun');
+				if (!target.fainted) {
+					target.heal(target.baseMaxhp / 4);
+					this.add('-heal', target, target.getHealth, '[from] move: Medigun');
+					target.side.removeSlotCondition(target, 'lifedew');
 				}
 			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", source);
 		},
 		secondary: null,
 		target: "self",
