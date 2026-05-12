@@ -1837,6 +1837,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			slam: ["9L1"],
 			bodyslam: ["9L1"],
 			decorate: ["9L1"],
+			blazingtorque: ["9L1"],
 		},
 	},
 	voidkong: {

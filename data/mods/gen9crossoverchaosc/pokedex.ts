@@ -285,7 +285,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Heavy Lobster",
 		gender: "N",
 		types: ["Steel", "Bug"],
-		baseStats: {hp: 85, atk: 105, def: 79, spa: 68, spd: 100, spe: 98},
+		baseStats: {hp: 85, atk: 115, def: 79, spa: 68, spd: 100, spe: 98},
 		abilities: {0: "Heavy Metal", H: "Weak Armor"},
 		weightkg: 400,
 	},
