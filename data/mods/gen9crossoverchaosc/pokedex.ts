@@ -380,8 +380,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 37,
 		name: "Sunflower",
 		types: ["Grass", "Fire"],
-		baseStats: {hp: 95, atk: 70, def: 95, spa: 95, spd: 110, spe: 55},
-		abilities: {0: "Sun Gathering", 1: "Grassy Surge", H: "Costar"},
+		baseStats: {hp: 95, atk: 70, def: 95, spa: 105, spd: 110, spe: 55},
+		abilities: {0: "Natural Cure", 1: "Grassy Surge", H: "Solar Power"},
 		weightkg: 10,
 	},
 	svarog: {
