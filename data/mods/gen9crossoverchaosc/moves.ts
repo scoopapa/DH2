@@ -394,7 +394,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	forceanature: {
 		num: -13,
 		accuracy: 90,
-		basePower: 65,
+		basePower: 50,
 		category: "Physical",
 		name: "Force-A-Nature",
 		shortDesc: "Hits twice.",
