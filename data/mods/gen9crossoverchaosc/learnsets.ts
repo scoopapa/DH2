@@ -956,6 +956,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			takedown: ["9L1"],
 			terablast: ["9L1"],
+			recover: ["9L1"],
+			foulplay: ["9L1"],
+			thunderwave: ["9L1"],
 		},
 	},
 	amingo: {

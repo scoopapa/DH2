@@ -87,18 +87,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
-		shortDesc: "This Pokemon retaliates with Shadow Sneak whenever it is damaged by an attack.",
-		onDamagingHitOrder: 3,
+		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp) {
-				const reaction = this.dex.getActiveMove('shadowsneak');
-				reaction.noreact = true;
-				this.actions.useMove(reaction, target, source);
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
 		flags: {},
 		name: "Shadow Pounce",
-		rating: 3.5,
+		rating: 2.5,
 		num: -4,
 	},
 	domainofice: {

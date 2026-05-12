@@ -137,7 +137,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 16,
 		name: "Maw Jaw",
 		types: ["Ghost", "Ground"],
-		baseStats: {hp: 110, atk: 95, def: 91, spa: 55, spd: 70, spe: 79},
+		baseStats: {hp: 110, atk: 105, def: 91, spa: 55, spd: 70, spe: 79},
 		abilities: {0: "Shadow Pounce", H: "Strong Jaw"},
 		weightkg: 24.2,
 	},
