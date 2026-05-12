@@ -58,7 +58,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Donkey Kong",
 		gender: "M",
 		types: ["Fighting", "Ground"],
-		baseStats: {hp: 105, atk: 120, def: 85, spa: 50, spd: 75, spe: 65},
+		baseStats: {hp: 115, atk: 120, def: 85, spa: 50, spd: 76, spe: 74},
 		abilities: {0: "Sturdy", 1: "Iron Fist", H: "Dancer"},
 		weightkg: 78.5,
 	},
