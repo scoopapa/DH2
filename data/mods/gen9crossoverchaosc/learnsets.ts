@@ -59,7 +59,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uproar: ["9L1"],
 			crunch: ["9L1"],
 			bite: ["9L1"],
-			energyball: ["9L1"],
 			swift: ["9L1"],
 			firefang: ["9L1"],
 			flash: ["9L1"],

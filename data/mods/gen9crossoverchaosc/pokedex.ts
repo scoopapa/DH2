@@ -4,7 +4,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Narwa",
 		types: ["Dragon", "Electric"],
 		gender: "F",
-		baseStats: {hp: 88, atk: 83, def: 77, spa: 120, spd: 117, spe: 75},
+		baseStats: {hp: 88, atk: 83, def: 77, spa: 113, spd: 117, spe: 77},
 		abilities: {0: "Pressure", 1: "Queenly Majesty", H: "Telepathy"},
 		weightkg: 244,
 	},
