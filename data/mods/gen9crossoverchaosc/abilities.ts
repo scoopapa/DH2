@@ -216,7 +216,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -10,
 	},
 	launchedfist: {
-		shortDesc: "Punch moves: 1.2x power & become special."
+		shortDesc: "Punch moves: 1.2x power & become special.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
