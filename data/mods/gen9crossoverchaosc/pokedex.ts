@@ -247,7 +247,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	ragman: {
 		num: 27,
-		name: "Ragman",
+		name: "Rag Man",
 		gender: "M",
 		types: ["Ghost"],
 		baseStats: {hp: 100, atk: 70, def: 95, spa: 105, spd: 85, spe: 70},

@@ -1575,6 +1575,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
 			substitute: ["9L1"],
+			willowisp: ["9L1"],
+			foulplay: ["9L1"],
 		},
 	},
 	ranno: {
