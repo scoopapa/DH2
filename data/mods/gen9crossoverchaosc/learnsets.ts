@@ -1276,7 +1276,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			lifedew: ["9L1"],
 		},
 	},
-		mayafey: {
+	mayafey: {
 		learnset: {
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
