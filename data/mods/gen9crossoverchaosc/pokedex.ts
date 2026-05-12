@@ -359,7 +359,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		gender: "M",
 		types: ["Ground", "Dragon"],
 		baseStats: {hp: 105, atk: 115, def: 115, spa: 65, spd: 70, spe: 60},
-		abilities: {0: "Steadfast", 1: "Gifts Given", H: "Guard Dog"},
+		abilities: {0: "Technician", 1: "Gifts Given", H: "Guard Dog"},
 		weightkg: 167,
 		otherFormes: ["Midbus-Mega"],
 		formeOrder: ["Midbus", "Midbus-Mega"],
