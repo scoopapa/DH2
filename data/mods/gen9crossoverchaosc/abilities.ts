@@ -87,6 +87,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP."
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
@@ -188,6 +189,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -9,
 	},
 	luigilogic: {
+		shortDesc: "This Pokemon blocks certain Status moves and bounces them back to the user.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
