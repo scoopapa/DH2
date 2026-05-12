@@ -134,10 +134,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -5,
 	},
 	blindinglight: {
-		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Bug attack; Bug immunity.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Bug attack; Bug immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Bug' && move.category !== "Status") {
-				if (!this.boost({spe: 1})) {
+				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] ability: Blinding Light');
 				}
 				return null;

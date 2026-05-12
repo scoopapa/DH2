@@ -1447,6 +1447,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spikes: ["9L1"],
 			toxic: ["9L1"],
 			recover: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			earthpower: ["9L1"],
 		},
 	},
 	sophie: {

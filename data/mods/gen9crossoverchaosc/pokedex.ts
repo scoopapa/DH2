@@ -232,7 +232,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Radiance",
 		gender: "F",
 		types: ["Bug", "Psychic"],
-		baseStats: {hp: 100, atk: 86, def: 100, spa: 90, spd: 105, spe: 85},
+		baseStats: {hp: 100, atk: 105, def: 100, spa: 105, spd: 105, spe: 85},
 		abilities: {0: "Blinding Light"},
 		weightkg: 80,
 	},
