@@ -137,7 +137,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	luigi: {
 		learnset: {
-			luigilogic: ["9L1"],
 			stomp: ["9L1"],
 			return: ["9L1"],
 			bodyslam: ["9L1"],
@@ -179,6 +178,15 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rest: ["9L1"],
 			snore: ["9L1"],
 			sleeptalk: ["9L1"],
+			airslash: ["9L1"],
+			flamethrower: ["9L1"],
+			thunderwave: ["9L1"],
+			knockoff: ["9L1"],
+			healingwish: ["9L1"],
+			encore: ["9L1"],
+			disable: ["9L1"],
+			nightshade: ["9L1"],
+			poltergust: ["9L1"],
 		},
 	},
 	v1: {

@@ -22,8 +22,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Luigi",
 		types: ["Flying"],
 		gender: "M",
-		baseStats: {hp: 96, atk: 85, def: 116, spa: 100, spd: 106, spe: 82},
-		abilities: {0: "Rattled", 1: "Klutz", H: "Analytic"},
+		baseStats: {hp: 86, atk: 85, def: 91, spa: 110, spd: 76, spe: 82},
+		abilities: {0: "Rattled", 1: "Klutz", H: "Luigi Logic"},
 		weightkg: 62,
 	},
 	v1: {
