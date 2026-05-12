@@ -96,7 +96,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			switcheroo: ["9L1"],
 			taunt: ["9L1"],
 			poisonjab: ["9L1"],
-			mortalspin: ["9L1"],
 			sludgebomb: ["9L1"],
 			sludgewave: ["9L1"],
 			venoshock: ["9L1"],
@@ -133,6 +132,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["9L1"],
 			whirlwind: ["9L1"],
 			painsplit: ["9L1"],
+			poisonfang: ["9L1"],
+			gunkshot: ["9L1"],
 		},
 	},
 	luigi: {
