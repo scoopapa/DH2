@@ -577,6 +577,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			terablast: ["9L1"],
 			toxic: ["9L1"],
 			woodhammer: ["9L1"],
+			accelerock: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 	wriggle: {
