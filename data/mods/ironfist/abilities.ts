@@ -1902,17 +1902,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onDisableMove(pokemon) {
 				const hazardMoves = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge'];
-				for (const move of hazardMoves) {
-					if (moveSlot.id === 'struggle') continue;
-					pokemon.disableMove(move, true);
+				for (const moveSlot of pokemon.moveSlots) {
+					for (const move of hazardMoves) {
+						if (moveSlot.id === 'struggle') continue;
+						pokemon.disableMove(move, true);
+					}
 				}
 				pokemon.maybeDisabled = true;
 			},
 			onFoeDisableMove(pokemon) {
 				const hazardMoves = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge'];
-				for (const move of hazardMoves) {
-					if (moveSlot.id === 'struggle') continue;
-					pokemon.disableMove(move, true);
+				for (const moveSlot of pokemon.moveSlots) {
+					for (const move of hazardMoves) {
+						if (moveSlot.id === 'struggle') continue;
+						pokemon.disableMove(move, true);
+					}
 				}
 				pokemon.maybeDisabled = true;
 			},
