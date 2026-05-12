@@ -1360,9 +1360,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			agility: ["9L1"],
 			swordsdance: ["9L1"],
 			mysticalfire: ["9L1"],
-			sacredfire: ["9L1"],
-			flareblitz: ["9L1"],
 			sunnyday: ["9L1"],
+			flamethrower: ["9L1"],
+			blazekick: ["9L1"],
 		},
 	},
 	nifl: {
