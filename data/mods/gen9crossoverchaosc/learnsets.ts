@@ -1961,7 +1961,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			imprison: ["9L1"],
 		},
 	},
-		bowser: {
+	bowser: {
 		learnset: {
 			hornattack: ["9L1"],
 			leer: ["9L1"],
@@ -2017,6 +2017,20 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
 			rest: ["9L1"],
+			rapidspin: ["9L1"],
+			lavaplume: ["9L1"],
+			willowisp: ["9L1"],
+			sludgebomb: ["9L1"],
+			toxic: ["9L1"],
+			banefulbunker: ["9L1"],
+			toxicspikes: ["9L1"],
+			sludgewave: ["9L1"],
+			poisonjab: ["9L1"],
+			gunkshot: ["9L1"],
+			acid: ["9L1"],
+			acidspray: ["9L1"],
+			bodypress: ["9L1"],
+			irondefense: ["9L1"],
 		},
 	},
 	peach: {
