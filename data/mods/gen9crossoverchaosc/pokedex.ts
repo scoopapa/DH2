@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		baseSpecies: "Bowser",
 		forme: "Mega",
 		types: ["Dragon", "Poison"],
-		baseStats: {hp: 80, atk: 95, def: 140, spa: 95, spd: 130, spe: 90},
+		baseStats: {hp: 80, atk: 110, def: 140, spa: 130, spd: 120, spe: 80},
 		abilities: {0: "Iron Barbs"},
 		weightkg: 999,
 		requiredItem: "Bowsite",
