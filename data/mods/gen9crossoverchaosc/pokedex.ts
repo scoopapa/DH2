@@ -112,7 +112,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		gender: "M",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 65, atk: 50, def: 70, spa: 120, spd: 90, spe: 115},
-		abilities: {0: "Ice Body", 1: "Pickpocket", H: "Vital Spirit"},
+		abilities: {0: "Ice Body", 1: "Slush Rush", H: "Omagatoki"},
 		weightkg: 0.9,
 	},
 	mermaid: {

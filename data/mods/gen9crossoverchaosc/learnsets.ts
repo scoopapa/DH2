@@ -795,6 +795,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			blizzard: ["9L1"],
 			lightscreen: ["9L1"],
 			moonlight: ["9L1"],
+			jackbufula: ["9L1"],
+			encore: ["9L1"],
 		},
 	},
 	mermaid: {

@@ -1101,6 +1101,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
+	jackbufula: {
+		num: -40,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Jack Bufula",
+		shortDesc: "100% chance to lower the targets Special Defense by 1.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icicle Crash", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cute",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {

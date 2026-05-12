@@ -158,19 +158,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -7,
 	},
-	sungathering: {
-		shortDesc: "At end of turn, recovers 1/16 of max hp; 1/12 if under Sun.",
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				this.heal(pokemon.baseMaxhp / 12);
-				return;
+	omagatoki: {
+		shortDesc: "This Pokemon's attacks that are super effective against the target do 1.25x damage.",
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([5120, 4096]);
 			}
-			this.heal(pokemon.baseMaxhp / 16);
 		},
 		flags: {},
-		name: "Sun Gathering",
+		name: "Omagatoki",
 		rating: 2.5,
 		num: -8,
 	},
