@@ -1056,7 +1056,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rudebuster: ["9L1"],
 			ultimateheal: ["9L1"],
 			spikes: ["9L1"],
-			partingshot: ["9L1"],
 			dragontail: ["9L1"],
 			outrage: ["9L1"],
 			dragonclaw: ["9L1"],
@@ -1084,7 +1083,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gunkshot: ["9L1"],
 			snarl: ["9L1"],
 			torment: ["9L1"],
-			stoneaxe: ["9L1"],
 			brickbreak: ["9L1"],
 			dragondance: ["9L1"],
 			secretpower: ["9L1"],
@@ -1123,6 +1121,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["9L1"],
 			hammerarm: ["9L1"],
 			bodypress: ["9L1"],
+			uturn: ["9L1"],
 		},
 	},
 	scout: {
