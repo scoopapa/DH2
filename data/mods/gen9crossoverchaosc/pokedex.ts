@@ -40,7 +40,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "The Defect",
 		gender: "N",
 		types: ["Steel", "Electric"],
-		baseStats: {hp: 75, atk: 100, def: 110, spa: 90, spd: 60, spe: 100},
+		baseStats: {hp: 75, atk: 101, def: 110, spa: 91, spd: 60, spe: 103},
 		abilities: {0: "Tough Claws", H: "Electric Surge"},
 		weightkg: 244,
 	},
