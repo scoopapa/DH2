@@ -219,4 +219,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -10,
 	},
+	launchedfist: {
+		shortDesc: "Punch moves: 1.2x power & become special."
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Launched Fist boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['punch']) {
+				this.debug('Launched Fist category change');
+				move.category = 'Special';
+			}
+		},
+		flags: {},
+		name: "Launched Fist",
+		rating: 3,
+		num: -11,
+	},
 };

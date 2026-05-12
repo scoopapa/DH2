@@ -463,10 +463,10 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	djoctavio: {
 		num: 45,
 		name: "DJ Octavio",
-		types: ["Poison"],
+		types: ["Poison", "Electric"],
 		gender: "M",
-		baseStats: {hp: 88, atk: 98, def: 78, spa: 108, spd: 128, spe: 48},
-		abilities: {0: "Quark Drive"},
+		baseStats: {hp: 88, atk: 88, def: 108, spa: 108, spd: 128, spe: 48},
+		abilities: {0: "Quark Drive", H: "Launched Fist"},
 		tags: ["Paradox"],
 		weightkg: 600,
 	},
