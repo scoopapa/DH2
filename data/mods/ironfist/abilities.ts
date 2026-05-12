@@ -2151,7 +2151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ilovesewers: {
 		onStart(pokemon) {
-			if (pokemon.species.baseSpecies !== 'Dip' || attacker.transformed) return;
+			if (pokemon.species.baseSpecies !== 'Dip' || pokemon.transformed) return;
 			if (pokemon.effectiveWeather() === 'acidrain') pokemon.formeChange('Flushmaster');
 		},
 		onImmunity(type, pokemon) {

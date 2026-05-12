@@ -59,7 +59,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 				{
 					species: 'Froslass',
 					item: 'focussash',
-					ability: ['Cursed Body', 'Perish Body'],
+					ability: 'weakarmor',
 					gender: 'F',
 					teraType: ['Fighting', 'Steel'],
 				},
@@ -73,12 +73,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			[
 				{
 					species: 'Magnezone',
-					item: 'assaultvest',
-					ability: 'Analytic',
+					item: ['assaultvest', 'choicespecs'],
+					ability: ['Analytic', 'magnetpull'],
 					gender: 'N',
-					teraType: ['Grass', 'Fire'],
+					teraType: 'fire',
 				},
-				['discharge', 'flashcannon', 'voltswitch', 'terablast']
+				['discharge', 'flashcannon', 'voltswitch', 'flamethrower']
 			],
 			[
 				{
@@ -88,7 +88,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					gender: 'N',
 					teraType: ['Water', 'Dragon'],
 				},
-				['dracometeor', 'flamethrower', 'hydrosteam', 'dragonpulse']
+				['hydrosteam', 'dracometeor', 'flamethrower', 'flipturn']
 			],
 			[
 				{
@@ -101,12 +101,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			],
 			[
 				{
-					species: 'Tsareena',
+					species: 'decidueye',
 					item: 'heatrock',
 					ability: 'Drought',
-					teraType: ['Fire', 'Steel'],
+					teraType: ['fairy', 'water'],
 				},
-				['solarblade', 'rapidspin'], ['knockoff', 'uturn', 'synthesis']
+				['solarblade', 'defog', 'roost', 'uturn']
 			]
 		],
 	},
@@ -138,7 +138,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'Mold Breaker',
 					teraType: 'Flying',
 				},
-				['rapidspin', 'earthquake'], ['ironhead', 'swordsdance', 'stealthrock', 'zingzap']
+				['rapidspin', 'earthquake'], ['ironhead', 'swordsdance', 'stoneaxe']
 			],
 			[
 				{
@@ -162,25 +162,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'magicbounce',
 					teraType: 'Water',
 				},
-				['psychicnoise', 'nuzzle'], ['drainingkiss', 'mysticalfire', 'calmmind']
+				['psychicnoise', 'drainingkiss'], ['nuzzle', 'mysticalfire', 'calmmind']
 			],
 			[
 				{
-					species: 'Flygon',
-					item: 'choicescarf',
-					ability: 'Levitate',
-					teraType: 'Steel',
+					species: 'dragonite',
+					item: 'heavydutyboots',
+					ability: 'multiscale',
+					teraType: ['normal', 'fire'],
 				},
-				['earthquake', 'uturn'], ['flareblitz', 'dragonclaw', 'stoneedge']
+				['extremespeed', 'bitterblade', 'dragondance', 'icespinner']
 			],
 			[
 				{
-					species: 'Klefki',
-					item: 'leftovers',
-					ability: 'Prankster',
-					teraType: ['Water', 'Ghost'],
+					species: 'tatsugiri',
+					item: 'heavydutyboots',
+					ability: 'Adaptability',
+					teraType: ['Water', 'dragon'],
 				},
-				['encore', 'thunderwave'], ['spikes', 'foulplay', 'playrough']
+				['nastyplot', 'hydropump', 'dracometeor', 'rapidspin']
 			],
 			[
 				{
@@ -213,9 +213,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					item: 'leftovers',
 					ability: 'Unaware',
 					gender: 'N',
-					teraType: ['Steel', 'Grass'],
+					teraType: ['water', 'Grass'],
 				},
-				['scald', 'energyball'], ['heartswap', 'knockoff', 'uturn']
+				['tailglow', 'surf', 'energyball', 'icebeam']
 			],
 			[
 				{
@@ -258,9 +258,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					item: 'leftovers',
 					ability: 'Unaware',
 					gender: 'N',
-					teraType: ['Steel', 'Grass'],
+					teraType: ['water', 'Grass'],
 				},
-				['scald', 'energyball'], ['heartswap', 'knockoff', 'uturn']
+				['tailglow', 'surf', 'energyball', 'icebeam']
 			],
 			[
 				{
@@ -289,12 +289,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		mons: [
 			[
 				{
-					species: 'Salazzle',
-					item: 'leftovers',
-					ability: ['corrosion', 'merciless'],
-					teraType: ['Grass', 'Ground'],
+					species: 'Ogerpon-Hearthflame',
+					item: 'hearthflamemask',
+					ability: 'grassysurge',
+					gender: 'F',
+					teraType: 'fire',
 				},
-				['toxic', 'flamethrower'], ['nastyplot', 'toxic', 'substitute', 'encore', 'sludgebomb', 'protect']
+				['ivycudgel', 'grassyglide', 'hornleech', 'swordsdance']
 			],
 			[
 				{
@@ -307,13 +308,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			],
 			[
 				{
-					species: 'Entei',
+					species: 'gougingfire',
 					item: 'choiceband',
-					ability: ['Pressure', 'Inner Focus'],
+					ability: 'Protosynthesis',
 					gender: 'N',
-					teraType: ['Fire', 'Ground', 'Normal'],
+					teraType: ['Fire', 'Ground'],
 				},
-				['sacredfire', 'stoneedge', 'earthquake', 'extremespeed']
+				['sacredfire', 'outrage', 'dragonclaw', 'earthquake']
 			],
 			[
 				{
@@ -322,7 +323,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: ['Moxie', 'Motor Drive'],
 					teraType: ['Flying', 'Grass', 'Ice'],
 				},
-				['waterfall', 'terablast', 'dragondance', 'earthquake']
+				['dragondance', 'dragonascent'], ['earthquake', 'stoneedge', 'waterfall']
 			]
 		],
 	},
@@ -345,12 +346,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'Skill Link',
 					teraType: ['Water', 'Ice'],
 				},
-				['shellsmash', 'iciclespear', 'rockblast', 'watershuriken']
+				['shellsmash', 'iciclespear', 'rockblast', 'wavecrash']
 			],
 			[
 				{
 					species: 'Tyranitar',
-					item: ['leftovers', 'chopleberry'],
+					item: 'leftovers',
 					ability: 'Sand Stream',
 					teraType: ['Flying', 'Steel'],
 				},
@@ -363,7 +364,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'Levitate',
 					teraType: ['Fairy', 'Electric'],
 				},
-				['hex', 'sludgebomb'], ['taunt', 'willowisp', 'toxic', 'thunderwave']
+				['hex', 'sludgebomb'], ['taunt', 'willowisp', 'nastyplot', 'thunderwave']
 			]
 		],
 	},
@@ -378,17 +379,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					gender: 'N',
 					teraType: ['Poison', 'Fairy'],
 				},
-				['moonblast', 'mysticalpower'], ['moonlight', 'thunderwave', 'lunardance']
+				['mysticalpower', 'moonlight', 'moonblast', 'thunderwave']
 			],
 			[
 				{
 					species: 'Heatran',
-					item: 'airballoon',
+					item: ['leftovers', 'airballoon'],
 					ability: ['Flash Fire', 'Flame Body'],
 					gender: 'N',
 					teraType: ['Ground', 'Grass'],
 				},
-				['magmastorm', 'earthpower'], ['lavaplume', 'heavyslam', 'torment', 'protect']
+				['magmastorm', 'earthpower'], ['lavaplume', 'heavyslam', 'toxic', 'protect']
 			],
 			[
 				{
@@ -397,7 +398,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'Regenerator',
 					teraType: 'Water',
 				},
-				['spore', 'foulplay'], ['synthesis', 'clearsmog', 'gigadrain', 'rapidspin']
+				['sludgebomb', 'spore'], ['foulplay', 'gigadrain', 'rapidspin']
 			],
 			[
 				{
@@ -522,7 +523,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					species: 'Oricorio-Sensu',
 					item: 'heavydutyboots',
 					ability: ['Shadow Shield', 'Adaptability'],
-					teraType: ['Fighting', 'Psychic'],
+					teraType: 'fighting',
 				},
 				['quiverdance', 'revelationdance'], ['hurricane', 'roost', 'taunt', 'storedpower']
 			],
@@ -548,13 +549,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					gender: 'F',
 					teraType: 'Rock',
 				},
-				['ivycudgel', 'headlongrush'], ['uturn', 'powerwhip', 'knockoff', 'swordsdance']
+				['ivycudgel', 'powerwhip'], ['uturn', 'headlongrush', 'knockoff', 'swordsdance']
 			],
 			[
 				{
 					species: 'Talonflame',
-					item: 'heavydutyboots',
-					ability: ['Rock Head', 'Flame Body'],
+					item: 'lifeorb',
+					ability: ['magicguard', 'regenerator'],
 					teraType: ['Steel', 'Dragon', 'Bug'],
 				},
 				['flareblitz', 'bravebird'], ['uturn', 'woodhammer', 'roost', 'swordsdance']
@@ -576,7 +577,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					gender: 'N',
 					teraType: 'Ghost',
 				},
-				['spikes', 'voltswitch'], ['earthpower', 'discharge', 'icebeam']
+				['earthpower', 'voltswitch'], ['spikes', 'thunderbolt', 'icebeam']
 			]
 		],
 	},
@@ -596,11 +597,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			[
 				{
 					species: 'Hawlucha',
-					item: ['electricseed', 'sitrusberry'],
+					item: ['electricseed', 'whiteherb'],
 					ability: 'Unburden',
 					teraType: 'Flying',
 				},
-				['acrobatics', 'lowkick'], ['swordsdance', 'taunt', 'substitute', 'icepunch']
+				['swordsdance', 'acrobatics', 'closecombat', 'taunt']
 			],
 			[
 				{
@@ -775,9 +776,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					species: 'latias',
 					item: 'leftovers',
 					ability: 'Levitate',
-					teraType: 'Fairy',
+					teraType: 'steel',
 				},
-				['takeheart', 'recover', 'drainingkiss', 'psychic']
+				['calmmind', 'recover', 'drainingkiss', 'psystrike']
 			],
 			[
 				{
@@ -856,10 +857,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 				{
 					species: 'dragapult',
 					item: ['leftovers', 'heavydutyboots'],
-					ability: ['infiltrator', 'defiant'],
+					ability: ['infiltrator', 'clearbody'],
 					teraType: ['ghost', 'fairy'],
 				},
-				['hex', 'willowisp'], ['dragondarts', 'dracometeor', 'uturn', 'thunderwave']
+				['hex', 'dragondarts'], ['willowisp', 'uturn', 'thunderwave']
 			],
 			[
 				{
@@ -882,7 +883,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'merciless',
 					teraType: ['Fairy', 'Grass'],
 				},
-				['fierydance', 'sludgewave'], ['dazzlinggleam', 'energyball', 'agility']
+				['fierydance', 'sludgewave'], ['dazzlinggleam', 'energyball', 'toxic']
 			],
 			[
 				{
@@ -1087,7 +1088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: 'naturalcure',
 					teraType: ['dark', 'water'],
 				},
-				['calmmind', 'softboiled'], ['seismictoss', 'shadowball', 'toxic']
+				['seismictoss', 'softboiled'], ['calmmind', 'shadowball', 'toxic']
 			],
 			[
 				{
@@ -1096,7 +1097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 					ability: ['unaware', 'waterabsorb'],
 					teraType: 'dark',
 				},
-				['recover', 'mortalspin'], ['earthquake', 'poisonjab', 'spikes', 'amnesia']
+				['recover', 'mortalspin'], ['earthquake', 'spikes', 'amnesia']
 			],
 			[
 				{
@@ -1363,5 +1364,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 				['earthquake', 'gunkshot', 'stoneedge', 'liquidation']
 			],
 		],
+	},
+
+	//za
+	floetteeternal: {
+		inherit: true,
+		otherFormes: ["Floette-Mega"],
+	},
+	floettemega: {
+		inherit: true,
+		baseSpecies: 'Floette-Eternal',
 	},
 };
