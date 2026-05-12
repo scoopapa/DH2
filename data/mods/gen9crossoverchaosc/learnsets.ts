@@ -1416,6 +1416,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			safeguard: ["9L1"],
 			snowscape: ["9L1"],
 			spite: ["9L1"],
+			dragondance: ["9L1"],
 		},
 	},
 	radiance: {
