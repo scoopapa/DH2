@@ -87,7 +87,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
-		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP."
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
