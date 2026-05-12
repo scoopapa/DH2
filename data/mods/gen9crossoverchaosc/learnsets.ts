@@ -1282,7 +1282,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			barrier: ["9L1"],
 			calmmind: ["9L1"],
 			storedpower: ["9L1"],
-			uturn: ["9L1"],
 			surf: ["9L1"],
 			scald: ["9L1"],
 			futuresight: ["9L1"],
