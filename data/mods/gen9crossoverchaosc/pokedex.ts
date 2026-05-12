@@ -241,8 +241,8 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Sophie",
 		gender: "F",
 		types: ["Grass", "Ghost"],
-		baseStats: {hp: 97, atk: 45, def: 100, spa: 108, spd: 98, spe: 70},
-		abilities: {0: "Filter", 1: "Flash Fire", H: "Effect Spore"},
+		baseStats: {hp: 82, atk: 45, def: 110, spa: 108, spd: 98, spe: 80},
+		abilities: {0: "Power of Alchemy", 1: "Magician", H: "Effect Spore"},
 		weightkg: 15,
 	},
 	ragman: {

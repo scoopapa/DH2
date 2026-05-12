@@ -1516,6 +1516,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
 			rest: ["9L1"],
+			nastyplot: ["9L1"],
+			stunspore: ["9L1"],
 		},
 	},
 	ragman: {
