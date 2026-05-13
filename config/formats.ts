@@ -421,7 +421,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SignatureMons,
 	...SpookyMod,
 	...StadiumYB,
-	...SU,
 	//...SuperTypesOU,
 	...gen2TeraCrystal,
 	...Terrariamons,
@@ -491,6 +490,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...FurfrOU,
 	...LittlestCup,
 	...PLZA,
+	...SU,
 	...TPDP,
 	...WhiteTusk,
 	
