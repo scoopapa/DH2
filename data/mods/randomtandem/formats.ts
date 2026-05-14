@@ -8,6 +8,7 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'randomtandem',
 		ruleset: ['Standard', 'Data Mod', 'Random Tandem Rule'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Tera Blast'],
+		unbanlist: ['Regieleki'],
 	}
 ];
