@@ -33,7 +33,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	charizardmegay: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	squirtle: {
 		inherit: true,
@@ -3105,7 +3105,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	volcarona: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	cobalion: {
 		inherit: true,
@@ -4826,7 +4826,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ragingbolt: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironboulder: {
 		inherit: true,
