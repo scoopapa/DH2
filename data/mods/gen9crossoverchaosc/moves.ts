@@ -24,50 +24,27 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[k: string]: ModdedMoveData} = {
-	luigilogic: {
+	poltergust: {
 		num: -1,
-		accuracy: 90,
-		basePower: 0,
-		category: "Status",
-		name: "Luigi Logic",
-		shortDesc: "Disables target's ability and previous move choice.",
-		pp: 5,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Poltergust",
+		shortDesc: "For 2 turns, the target is prevented from healing.",
+		pp: 15,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
-		volatileStatus: 'luigilogic',
-		onTryHit(target) {
-			// If both ability suppression & and move disabling aren't possible (cannot stack with disable)
-			if ((target.getAbility().flags['cantsuppress'] || target.volatiles['gastroacid'] || target.hasItem('Ability Shield'))
-			&& (!target.lastMove || target.lastMove.isZ || target.lastMove.isMax || target.lastMove.id === 'struggle' || target.volatiles['disable'] )) {
-				if (target.hasItem('Ability Shield')) {
-				  this.add('-block', target, 'item: Ability Shield');
-				}
-				this.hint("Luigi Logic will fail if it is both impossible to suppress ability & disable the last used move.");
-				return false;
-			}
-		},
-		onHit(target) {
-			// Ability suppression
-			if (!target.getAbility().flags['cantsuppress'] && !target.volatiles['gastroacid'] && !target.hasItem('Ability Shield')) {
-			target.addVolatile('gastroacid');
-			}
-			else if(target.hasItem('Ability Shield')) {
-				this.add('-block', target, 'item: Ability Shield');
-			}
-			// Move disable
-			if (target.lastMove && !target.lastMove.isZ && !target.lastMove.isMax && target.lastMove.id !== 'struggle' && !target.volatiles['disable']) {
-				target.addVolatile('disable');
-			}
-		},
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Nasty Plot", source);
-			this.add('-anim', source, "Flash", target);
+			this.add('-anim', target, "Tackle", source);
+			this.add('-anim', source, "Aeroblast", target);
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'healblock',
+		},
 		target: "normal",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		type: "Flying",
 		contestType: "Clever",
 	},
 	linkinglighthouselaunch: {
@@ -394,7 +371,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	forceanature: {
 		num: -13,
 		accuracy: 90,
-		basePower: 65,
+		basePower: 50,
 		category: "Physical",
 		name: "Force-A-Nature",
 		shortDesc: "Hits twice.",
@@ -658,21 +635,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
-	bonesaw: {
+	amputator: {
 		num: -22,
-		accuracy: 90,
-		basePower: 65,
+		accuracy: 100,
+		basePower: 75,
 		category: "Physical",
-		name: "Bonesaw",
-		shortDesc: "Extra high critical hit ratio.",
-		pp: 15,
+		name: "Amputator",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, slicing: 1},
+		drain: [1, 2],
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Slash", target);
 		},
-		critRatio: 2,
 		secondary: null,
 		target: "normal",
 		type: "Dark",
@@ -684,20 +661,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Medi-Gun",
-		shortDesc: "Next hurt ally healed for 25% & status cured.",
-		pp: 5,
+		shortDesc: "33% healing to self. 25% healing to next incoming ally.",
+		pp: 10,
 		priority: 0,
+		heal: [33, 100],
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		slotCondition: 'medigun',
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					const damage = this.heal(target.baseMaxhp / 4, target, target);
-					target.clearStatus();
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Medi-Gun', '[of] ' + this.effectState.source);
-					target.side.removeSlotCondition(target, 'medigun');
+				if (!target.fainted) {
+					target.heal(target.baseMaxhp / 4);
+					this.add('-heal', target, target.getHealth, '[from] move: Medigun');
+					target.side.removeSlotCondition(target, 'lifedew');
 				}
 			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", source);
 		},
 		secondary: null,
 		target: "self",
@@ -1124,6 +1105,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
+	jackbufula: {
+		num: -40,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Jack Bufula",
+		shortDesc: "100% chance to lower the targets Special Defense by 1.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icicle Crash", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cute",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
@@ -1140,7 +1145,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade" || effect?.name === "Orb of Discord") {
+				if (effect?.name === "Psychic Noise" || effect?.name === "Biotic Grenade" || effect?.name === "Orb of Discord" || effect?.name === "Poltergust") {
 					return 2;
 				}
 				if (source?.hasAbility('persistent')) {
