@@ -76,6 +76,7 @@ import { Formats as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format
 import { Formats as ForgottenMons               } from '../data/mods/forgottenmons/formats';
 import { Formats as FurfrOU                     } from '../data/mods/furfrou/formats';
 import { Formats as Blindsided                  } from '../data/mods/g9blindsided/formats';
+import { Formats as GamenightCAP                } from '../data/mods/gamenightcap/formats';
 import { Formats as gen9Duomod                  } from '../data/mods/g9duomod/formats';
 import { Formats as gen1Azure                   } from '../data/mods/gen1azure/formats';
 import { Formats as gen1BacktothePast           } from '../data/mods/gen1backtothepast/formats';
@@ -122,7 +123,7 @@ import { Formats as gen9FusionEvolutionR        } from '../data/mods/gen9ferestr
 import { Formats as gen9FusionEvolutionVGC      } from '../data/mods/gen9fevgc/formats';
 import { Formats as gen9Multiverse              } from '../data/mods/gen9multiverse/formats';
 //import { Formats as gen9SSB                     } from '../data/mods/gen9ssb/formats';
-import { Formats as gen9Strong                  } from '../data/mods/gen9strong/formats';
+import { Formats as gen9Weak                    } from '../data/mods/gen9weak/formats';
 import { Formats as gen9Ubermons                } from '../data/mods/gen9ubermons/formats';
 import { Formats as VaporeMons                  } from '../data/mods/gen9vaporemons/formats';
 import { Formats as gen9VGC20XX                 } from '../data/mods/gen9vgc20xx/formats';
@@ -385,6 +386,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,
@@ -410,7 +412,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
 	...PonymonShowdown,
-	...gen9Strong,
 	...Pokemorty,
 	...gen1Recolored,
 	...RockBottom,
@@ -429,6 +430,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1TradebacksExpanded,
 	...UpsideDown,
 	...gen1VioletVersion,
+	...gen9Weak,
 	...WeatherWar,
 	...Weedmons,
 	...Woomod,
