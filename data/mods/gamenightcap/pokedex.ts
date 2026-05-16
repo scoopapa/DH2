@@ -318,7 +318,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         color: "Yellow",
         eggGroups: ["Undiscovered"],
     },
-	Raidplank: {
+	raidplank: {
         num: -16030,
         name: "Raidplank",
         types: ["Ghost", "Steel"],
