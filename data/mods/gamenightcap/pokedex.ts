@@ -223,7 +223,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         num: -16021,
         name: "Catscan",
         types: ["Electric"],
-        baseStats: {hp: 40, atk: 150, def: 30, spa: 150, spd: 130, spe: 150},
+        baseStats: {hp: 40, atk: 150, def: 30, spa: 150, spd: 30, spe: 150},
         abilities: {0: "Anger Point", H: "Electromorphosis"},
         heightm: 1.0,
         weightkg: 24,
