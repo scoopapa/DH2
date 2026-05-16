@@ -9,22 +9,55 @@ export const Formats: FormatData[] = [
         desc: `A Gartic Phone-esque tournament was held by a group of 8 people to create wacky fakemon, these are the results.`,
         mod: 'gamenightcap',
         gameType: 'doubles',
-        ruleset: ['Cancel Mod', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', '+Past', '+LGPE'],
-        banlist: ['King\'s Rock', 'Razor Fang', 'Berserk Gene'],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'Species Clause', 'Data Mod', 'Z-Move Clause'],
+        banlist: ['King\'s Rock', 'Razor Fang'],
+        unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
+    		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let allowedTiers = ['GNCDOU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' doesnt exist.'];
+				}
+            }
+        }
     },
     {
         name: "[Gen 9] Gamenight Draft Singles",
         desc: `A Gartic Phone-esque tournament was held by a group of 8 people to create wacky fakemon, these are the results.`,
         mod: 'gamenightcap',
-        ruleset: ['Cancel Mod', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', '+Past', '+LGPE'],
-        banlist: ['King\'s Rock', 'Razor Fang', 'Berserk Gene'],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Data Mod', 'Z-Move Clause'],
+        banlist: ['King\'s Rock', 'Razor Fang'],
+        unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
+    		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let allowedTiers = ['GNCOU', 'GNCBonus'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' doesnt exist.'];
+				}
+            }
+        }
     },
     {
         name: "[Gen 9] Gamenight Draft Doubles AG",
         desc: `A Gartic Phone-esque tournament was held by a group of 8 people to create wacky fakemon, these are the results.`,
         mod: 'gamenightcap',
         gameType: 'doubles',
-        ruleset: ['Cancel Mod', 'HP Percentage Mod', '+Past', '+LGPE'],
+        ruleset: ['Standard NatDex', 'Data Mod'],
+        unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
+    		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let allowedTiers = ['GNCDOU', 'GNCBonus'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' doesnt exist.'];
+				}
+            }
+        }
     },
 	{
 		name: "[Gen 9] Gamenight Draft FFA",
@@ -32,6 +65,7 @@ export const Formats: FormatData[] = [
 		mod: 'gamenightcap',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', '+Past', '+LGPE'],
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Data Mod'],
+        unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
 	},
 ];

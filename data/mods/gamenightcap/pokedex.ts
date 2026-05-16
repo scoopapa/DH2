@@ -279,7 +279,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         name: "Listeria",
         types: ["Poison"],
         baseStats: {hp: 127, atk: 53, def: 53, spa: 71, spd: 71, spe: 127},
-        abilities: {0: "Corrosion", H: "Corrosion"},
+        abilities: {0: "Corrosion", H: "Lingering Aroma"},
         heightm: 1.5,
         weightkg: 61,
         color: "White",
