@@ -554,7 +554,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         name: "Ohwowadsdis",
         types: ["Water"],
         baseStats: {hp: 40, atk: 50, def: 110, spa: 100, spd: 55, spe: 88},
-        abilities: {0: " ", H: " "},
+        abilities: {0: "Rain Dish", H: "Water Veil"},
         heightm: 1.5,
         weightkg: 61,
         color: "Brown",
