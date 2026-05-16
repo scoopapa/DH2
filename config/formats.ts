@@ -76,6 +76,7 @@ import { Formats as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format
 import { Formats as ForgottenMons               } from '../data/mods/forgottenmons/formats';
 import { Formats as FurfrOU                     } from '../data/mods/furfrou/formats';
 import { Formats as Blindsided                  } from '../data/mods/g9blindsided/formats';
+import { Formats as GamenightCAP                } from '../data/mods/gamenightcap/formats';
 import { Formats as gen9Duomod                  } from '../data/mods/g9duomod/formats';
 import { Formats as gen1Azure                   } from '../data/mods/gen1azure/formats';
 import { Formats as gen1BacktothePast           } from '../data/mods/gen1backtothepast/formats';
@@ -385,6 +386,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,

@@ -4,10 +4,6 @@ export const Formats: FormatData[] = [
 
 	// Gamenight CAP
 	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "Gamenight CAP",
-	},	
     {
         name: "[Gen 9] Gamenight Draft Doubles",
         desc: `A Gartic Phone-esque tournament was held by a group of 8 people to create wacky fakemon, these are the results.`,
