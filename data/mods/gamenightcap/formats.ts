@@ -14,7 +14,7 @@ export const Formats: FormatData[] = [
         unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
     		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
-			let allowedTiers = ['GNCDOU'];
+			let allowedTiers = ['GNCOU', 'GNCDOU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -50,7 +50,7 @@ export const Formats: FormatData[] = [
         unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
     		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
-			let allowedTiers = ['GNCDOU', 'GNCBonus'];
+			let allowedTiers = ['GNCOU', 'GNCDOU', 'GNCBonus'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
