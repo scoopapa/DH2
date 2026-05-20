@@ -875,7 +875,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             knockoff: ["9M"],
             spite: ["9M"],
             confuseray: ["9M"],
-            forestcurse: ["9M"],
+            forestscurse: ["9M"],
             willowisp: ["9M"],
             fakeout: ["9M"],
             spiritshackle: ["9M"],
@@ -2005,6 +2005,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             scaryface: ["9M"],
             snarl: ["9M"],
             moonlight: ["9M"],
+            sludgebomb: ["9M"],
+            drainingkiss: ["9M"],
         },
     },
 };
