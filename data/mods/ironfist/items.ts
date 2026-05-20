@@ -1,3 +1,27 @@
+import {FS} from '../../../lib';
+import {toID} from '../../../sim/dex-data';
+import {Pokemon} from "../../../sim/pokemon";
+
+// Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
+// This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
+const usergroups: {[userid: string]: string} = {};
+const usergroupData = FS('config/usergroups.csv').readIfExistsSync().split('\n');
+for (const row of usergroupData) {
+	if (!toID(row)) continue;
+
+	const cells = row.split(',');
+	if (cells.length > 3) throw new Error(`Invalid entry when parsing usergroups.csv`);
+	usergroups[toID(cells[0])] = cells[1].trim() || ' ';
+}
+
+export function getName(name: string): string {
+	const userid = toID(name);
+	if (!userid) throw new Error('No/Invalid name passed to getSymbol');
+
+	const group = usergroups[userid] || ' ';
+	return group + name;
+}
+
 export const Items: {[itemid: string]: ModdedItemData} = {
 	/*
 	placeholder: {
@@ -1391,17 +1415,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "On switchin, if holder has <4 moves, copy opponent's moves and gain 0.1x power each time.",
 		onSwitchIn(pokemon) {
 			if (pokemon.moveSlots.length >= 4 || pokemon.adjacentFoes().length === 0) return;
-			const amount = 4 - pokemon.moveSlots.length + 1;
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|http://191.101.232.116/`);
+			const amount = 4 - pokemon.moveSlots.length;
 			const target = this.sample(pokemon.adjacentFoes());
 			for (let i = 0; i < amount; i ++) {
-				const temp = this.sample(target.moveSlots);
+				const moveSlots = new Set(pokemon.moveSlots.map(move => move.id));
+				const pickable = target.moveSlots.filter(move => !moveSlots.has(move.id));
+				const temp = this.sample(pickable);
 				const moveSlot = this.dex.moves.get(temp.id);
 				if (moveSlot === null) continue;
 				const learnedMove = {
 					move: moveSlot,
 					id: moveSlot.id,
-					pp: moveSlot.pp,
-					maxpp: moveSlot.pp,
+					pp: moveSlot.pp * 1.6,
+					maxpp: moveSlot.pp * 1.6,
 					target: moveSlot.target,
 					disabled: false,
 					used: false,
