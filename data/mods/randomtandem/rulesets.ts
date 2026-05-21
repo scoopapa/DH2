@@ -20,9 +20,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				for (const pokemon of side.pokemon) {
 					if (!pokemon.baseSpecies.mons || pokemon.random) continue;
 					let pokemonList = side.pokemon.map(mon => mon.baseSpecies.id);
-					console.log(pokemonList);
+					//console.log(pokemonList);
 					let mons = pokemon.baseSpecies.mons.filter(mon => !pokemonList.includes(mon[0].species));
-					console.log(mons);
+					//console.log(mons);
 					let mon1 = this.sample(mons);
 					mons = mons.filter(mon => mon !== mon1);
 					let mon2 = this.sample(mons);
