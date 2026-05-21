@@ -1715,7 +1715,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -23,
 		gen: 9,
-		shortDesc: "Holder's moves ignore abilities once.",
+		shortDesc: "Moves that would've had their damage reduced or negated by an ability, item, or move ignore it and deal neutral damage.",
 		rating: 3,
 	},
 	redlicorice: {
