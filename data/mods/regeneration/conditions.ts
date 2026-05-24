@@ -4,7 +4,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('smoothrock')) {
+			if (source?.hasItem('smoothrock') || source?.hasItem('boosterenergy')) {
 				return 8;
 			}
 			return 5;
@@ -33,10 +33,11 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onWeather(target) {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('jurassicdust')) {
-          this.damage(target.baseMaxhp / 8);
-			  } else {
-          this.damage(target.baseMaxhp / 16);
-        }
+					this.damage(target.baseMaxhp / 8);
+				} else {
+					this.damage(target.baseMaxhp / 16);
+				}
+			}
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
