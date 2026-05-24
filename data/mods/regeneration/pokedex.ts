@@ -158,6 +158,27 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 80, def: 105, spa: 50, spd: 95, spe: 100},
 		abilities: {0: "Battle Armor", 1: "Sand Force", H: "Justified"},
 	},
+	omastar: { // "Savage Spines"
+		inherit: true,
+		types: ["Rock", "Water"],
+		baseStats: {hp: 73, atk: 73, def: 151, spa: 95, spd: 77, spe: 101},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
+	kabutops: { // "Dwelling Dome"
+		inherit: true,
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 69, atk: 117, def: 125, spa: 75, spd: 93, spe: 91},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
+	aerodactyl: { // "Roaring Moon"
+		inherit: true,
+		types: ["Rock", "Dragon"],
+		baseStats: {hp: 93, atk: 109, def: 69, spa: 67, spd: 105, spe: 147},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
 	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,
