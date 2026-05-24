@@ -204,6 +204,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "whimsicott").learnset.healingwish = ["5L1"];
 		this.modData("Learnsets", "whimsicott").learnset.skillswap = ["5L1"];
 		this.modData("Learnsets", "samurott").learnset.hydrosteam = ["5L1"];
+		this.modData("Learnsets", "samurott").learnset.uturn = ["5L1"];
 		this.modData("Learnsets", "scrafty").learnset.stealthrock = ["5L1"];
 		this.modData("Learnsets", "scrafty").learnset.closecombat = ["5L1"];
 		this.modData("Learnsets", "scrafty").learnset.superpower = ["5L1"];
