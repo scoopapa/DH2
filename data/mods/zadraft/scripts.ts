@@ -1,6 +1,6 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
+	inherit: 'plza',
 	init() {
 		const legalItems = [
 			'assaultvest', 'bigroot', 'blackbelt', 'blackglasses', 'charcoal', 'dragonfang', 'eviolite', 'expertbelt', 'fairyfeather',
