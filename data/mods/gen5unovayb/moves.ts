@@ -332,4 +332,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+	hydrosteam: {
+		inherit: true,
+    	isNonstandard: null,
+    	gen: 5,
+	},
+	icespinner: {
+		inherit: true,
+    	isNonstandard: null,
+    	gen: 5,
+	},
+	aurorabeam: {
+		inherit: true,
+		basePower: 70,
+	},
+	shockwave: {
+		inherit: true,
+		basePower: 70,
+	},
 };
