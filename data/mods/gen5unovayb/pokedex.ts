@@ -301,6 +301,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 75, atk: 100, def: 115, spa: 60, spd: 85, spe: 90},
 		abilities: {0: "Plus", 1: "Levitate", H: "Clear Body"},
 	},
+	tynamo: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Swift Swim"},
+	},
+	eelektrik: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Dry Skin"},
+	},
 	eelektross: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 105, spd: 80, spe: 50},
