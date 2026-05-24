@@ -70,7 +70,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const wasMega = pokemon.canMegaEvo;
 			for (const ally of pokemon.side.pokemon) {
 				if (wasMega) {
-					ally.canMegaEvo = false;
+					ally.canMegaEvo = null;
 				} else {
 					ally.canUltraBurst = null;
 				}
