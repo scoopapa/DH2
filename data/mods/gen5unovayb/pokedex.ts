@@ -42,7 +42,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	watchog: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 95, def: 79, spa: 60, spd: 79, spe: 77},
+		baseStats: {hp: 70, atk: 110, def: 79, spa: 60, spd: 79, spe: 77},
 		abilities: {0: "Tinted Lens", 1: "Keen Eye", H: "Analytic"},
 	},
 	stoutland: {
