@@ -36,6 +36,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	samurott: {
 		inherit: true,
+		baseStats: {hp: 90, atk: 100, def: 80, spa: 108, spd: 65, spe: 85},
 		abilities: {0: "Torrent", H: "Sharpness"},
 		unreleasedHidden: null,
 	},
@@ -64,7 +65,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simisage: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
+		baseStats: {hp: 76, atk: 105, def: 63, spa: 105, spd: 63, spe: 108},
 		abilities: {0: "Gluttony", 1: "Leaf Guard", H: "Overgrow"},
 		maleOnlyHidden: null,
 	},
@@ -75,7 +76,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simisear: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
+		baseStats: {hp: 76, atk: 105, def: 63, spa: 105, spd: 63, spe: 108},
 		abilities: {0: "Gluttony", 1: "Solar Power", H: "Blaze"},
 		maleOnlyHidden: null,
 	},
@@ -86,13 +87,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	simipour: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 104, def: 63, spa: 104, spd: 63, spe: 106},
+		baseStats: {hp: 76, atk: 105, def: 63, spa: 105, spd: 63, spe: 108},
 		abilities: {0: "Gluttony", 1: "Rain Dish", H: "Torrent"},
 		maleOnlyHidden: null,
 	},
 	audino: {
 		inherit: true,
-		baseStats: {hp: 103, atk: 60, def: 76, spa: 60, spd: 106, spe: 40},
+		baseStats: {hp: 113, atk: 60, def: 76, spa: 60, spd: 116, spe: 30},
 	},
 	musharna: {
 		inherit: true,
@@ -148,11 +149,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	throh: {
 		inherit: true,
-		baseStats: {hp: 135, atk: 100, def: 85, spa: 30, spd: 85, spe: 45},
+		baseStats: {hp: 135, atk: 105, def: 85, spa: 30, spd: 85, spe: 45},
 	},
 	sawk: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 135, def: 75, spa: 30, spd: 75, spe: 85},
+		baseStats: {hp: 80, atk: 135, def: 75, spa: 30, spd: 75, spe: 90},
 	},
 	leavanny: {
 		inherit: true,
@@ -174,10 +175,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	basculin: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 92, def: 75, spa: 80, spd: 65, spe: 98},
 		abilities: {0: "Reckless", 1: "Adaptability", H: "Drizzle"},
 	},
 	basculinbluestriped: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 92, def: 75, spa: 80, spd: 65, spe: 98},
 		abilities: {0: "Rock Head", 1: "Adaptability", H: "Drizzle", S: "Reckless"},
 	},
 	sandile: {
@@ -215,6 +218,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	zoroark: {
 		inherit: true,
 		types: ["Dark", "Ghost"],
+		baseStats: {hp: 60, atk: 105, def: 60, spa: 120, spd: 60, spe: 106},
 		abilities: {0: "Illusion", 1: "Forewarn"},
 	},
 	gothita: {
@@ -260,7 +264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	emolga: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 55, def: 70, spa: 55, spd: 87, spe: 103},
+		baseStats: {hp: 55, atk: 55, def: 70, spa: 55, spd: 87, spe: 104},
 	},
 	foongus: {
 		inherit: true,
@@ -285,18 +289,22 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	klink: {
 		inherit: true,
 		unreleasedHidden: null,
+		abilities: {0: "Plus", 1: "Levitate", H: "Clear Body"},
 	},
 	klang: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 80, def: 95, spa: 60, spd: 85, spe: 50},
+		abilities: {0: "Levitate", 1: "Minus", H: "Clear Body"},
 	},
 	klinklang: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 100, def: 115, spa: 60, spd: 85, spe: 90},
+		abilities: {0: "Plus", 1: "Levitate", H: "Clear Body"},
 	},
 	eelektross: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 105, spd: 80, spe: 50},
+		abilities: {0: "Levitate", 1: "Dry Skin"},
 	},
 	beheeyem: {
 		inherit: true,
@@ -308,7 +316,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	beartic: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 130, def: 80, spa: 70, spd: 80, spe: 50},
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 130, def: 80, spa: 70, spd: 80, spe: 70},
 		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Swift Swim"},
 	},
 	bouffalant: {
@@ -348,23 +357,23 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	genesect: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
+		baseStats: {hp: 71, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
 	},
 	genesectdouse: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
+		baseStats: {hp: 71, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
 	},
 	genesectchill: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
+		baseStats: {hp: 71, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
 	},
 	genesectburn: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
+		baseStats: {hp: 71, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
 	},
 	genesectshock: {
 		inherit: true,
-		baseStats: {hp: 91, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
+		baseStats: {hp: 71, atk: 90, def: 106, spa: 130, spd: 106, spe: 77},
 	},
 	tornadus: {
 		inherit: true,
@@ -373,7 +382,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	tornadustherian: {
 		inherit: true,
 		baseStats: {hp: 79, atk: 105, def: 85, spa: 105, spd: 85, spe: 121},
-		abilities: {0: "Trace"},
+		abilities: {0: "Natural Cure"},
 	},
 	thundurus: {
 		inherit: true,
@@ -396,11 +405,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 80, atk: 50, def: 50, spa: 95, spd: 135, spe: 105},
-		abilities: {0: "Levitate", 1: "Snow Cloak"},
+		abilities: {0: "Levitate", 1: "Magic Guard"},
 	},
 	druddigon: {
 		inherit: true,
 		types: ["Dragon", "Ground"],
+		baseStats: {hp: 87, atk: 120, def: 90, spa: 60, spd: 90, spe: 48},
+		abilities: {0: "Rough Skin", 1: "Magma Armor", H: "Mold Breaker"},
 	},
 	cobalion: {
 		inherit: true,
@@ -408,7 +419,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	terrakion: {
 		inherit: true,
-		baseStats: {hp: 92, atk: 119, def: 90, spa: 72, spd: 90, spe: 107},
+		baseStats: {hp: 92, atk: 119, def: 90, spa: 82, spd: 90, spe: 97},
 	},
 	virizion: {
 		inherit: true,
@@ -424,6 +435,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	accelgor: {
 		inherit: true,
+		types: ["Bug", "Ghost"],
 		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Unburden"},
 	},
 	crustle: {
@@ -451,5 +463,27 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	braviary: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Sheer Force", H: "Defiant"},
+	},
+	whimsicott: {
+		inherit: true,
+		types: ["Grass", "Psychic"],
+		baseStats: {hp: 70, atk: 67, def: 95, spa: 77, spd: 75, spe: 116},
+	},
+	lilligant: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 65, def: 75, spa: 115, spd: 75, spe: 90},
+	},
+	jellicent: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Cursed Body", H: "Ice Body"},
+	},
+	scrafty: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 90, def: 121, spa: 45, spd: 121, spe: 58},
+		abilities: {0: "Shed Skin", 1: "Moxie", H: "Intimidate", S: "Dry Skin"},
+	},
+	sigilyph: {
+		inherit: true,
+		baseStats: {hp: 72, atk: 58, def: 80, spa: 103, spd: 80, spe: 102},
 	},
 };
