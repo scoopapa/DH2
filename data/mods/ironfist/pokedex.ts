@@ -1871,6 +1871,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 80, spa: 95, spd: 80, spe: 90},
 		abilities: {0: "Intimidate", 1: "Flash Fire", H: "Rock Head"},
 		weightkg: 13.3,
+		prevo: null,
 	},
 	murcowd: {
 		num: -196,
