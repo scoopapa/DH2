@@ -382,7 +382,7 @@
                 "role": "Fast Attacker",
                 "movepool": ["aquajet", "crunch", "superpower", "waterfall", "zenheadbutt"],
                 "abilities": ["Drizzle"]
-            }
+            },
             {
                 "role": "Bulky Support",
                 "movepool": ["scald", "toxic", "protect", "taunt", "energyball"],
