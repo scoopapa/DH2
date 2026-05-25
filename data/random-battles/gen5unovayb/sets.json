@@ -60,7 +60,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["hydrosteam", "grassknot", "hydropump", "icebeam", "uturn", "aurasphere"],
+                "movepool": ["hydrosteam", "grassknot", "icebeam", "uturn", "aurasphere"],
                 "abilities": ["Torrent"]
             },
             {
@@ -188,7 +188,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["bravebird", "ironhead", "roost", "swordsdance"],
+                "movepool": ["acrobatics", "ironhead", "roost", "swordsdance"],
                 "abilities": ["Unnerve"]
             }
         ]
@@ -341,7 +341,7 @@
         ]
     },
     "whimsicott": {
-        "level": 88,
+        "level": 87,
         "sets": [
             {
                 "role": "Fast Support",
@@ -814,7 +814,7 @@
         ]
     },
     "beartic": {
-        "level": 91,
+        "level": 85,
         "sets": [
             {
                 "role": "Wallbreaker",
