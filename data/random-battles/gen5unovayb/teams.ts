@@ -5,11 +5,11 @@ import {toID} from '../../../sim/dex';
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
-	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'slackoff', 'softboiled', 'synthesis',
+	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'slackoff', 'softboiled', 'swallow', 'synthesis',
 ];
 // Moves that boost Attack:
 const PHYSICAL_SETUP = [
-	'bellydrum', 'bulkup', 'coil', 'curse', 'dragondance', 'honeclaws', 'howl', 'meditate', 'screech', 'swordsdance',
+	'bellydrum', 'bulkup', 'coil', 'curse', 'dragondance', 'honeclaws', 'howl', 'meditate', 'screech', 'swordsdance', 'tidyup',
 ];
 // Some moves that only boost Speed:
 const SPEED_SETUP = [
@@ -19,7 +19,7 @@ const SPEED_SETUP = [
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'coil', 'curse', 'dragondance', 'flamecharge',
 	'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'quiverdance', 'raindance', 'rockpolish',
-	'shellsmash', 'shiftgear', 'sunnyday', 'swordsdance', 'tailglow', 'workup',
+	'shellsmash', 'shiftgear', 'sunnyday', 'swordsdance', 'tailglow', 'tidyup', 'workup',
 ];
 // Moves that shouldn't be the only STAB moves:
 const NO_STAB = [
@@ -34,7 +34,7 @@ const HAZARDS = [
 ];
 // Moves that switch the user out
 const PIVOT_MOVES = [
-	'uturn', 'voltswitch',
+	'teleport', 'uturn', 'voltswitch',
 ];
 
 // Moves that should be paired together when possible
@@ -578,6 +578,17 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		role: RandomTeamsTypes.Role,
 	): string | undefined {
 		if (species.requiredItems) return this.sample(species.requiredItems);
+		// new hardcodes
+		if (species.id === 'zorua' && ability === 'Imposter') return this.randomChance(1, 2) ? 'Choice Scarf' : 'Eviolite';
+		if (species.id === 'emolga') return 'Light Ball';
+		if (species.id === 'liepard' && role === 'Setup Sweeper') return this.randomChance(1, 2) ? 'Dark Gem' : 'Normal Gem';
+		if (species.id === 'sawk' && role === 'Setup Sweeper') return 'Salac Berry';
+		if (species.id === 'sandile') return 'Focus Sash';
+		if (species.id === 'swanna' && role === 'Fast Attacker') return 'Sharp Beak';
+		if (species.id === 'cobalion' && role === 'Bulky Setup') return 'Steel Gem';
+		if (species.id === 'reshiram' && role === 'Bulky Attacker') return 'Fire Gem';
+		if (species.id === 'keldeo' && role === 'Setup Sweeper' && moves.has('calmmind')) return 'Water Gem';
+		// old hardcodes
 		if (species.id === 'farfetchd') return 'Stick';
 		if (species.id === 'latias' || species.id === 'latios') return 'Soul Dew';
 		if (species.id === 'marowak') return 'Thick Club';
@@ -590,7 +601,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (species.id === 'exploud' && role === 'Bulky Attacker') return 'Choice Band';
 		if (ability === 'Poison Heal' || moves.has('facade')) return 'Toxic Orb';
 		if (ability === 'Speed Boost' && species.id !== 'ninjask') return 'Life Orb';
-		if (species.nfe) return 'Eviolite';
+		// if (species.nfe) return 'Eviolite';
 		if (['healingwish', 'memento', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 && role !== 'Wallbreaker' && !counter.get('priority')
@@ -828,7 +839,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			name: species.baseSpecies,
 			species: forme,
 			gender: species.gender,
-			shiny: this.randomChance(1, 1024),
+			shiny: this.randomChance(1, 649),
 			level,
 			moves: shuffledMoves,
 			ability,
