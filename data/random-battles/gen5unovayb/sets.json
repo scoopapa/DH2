@@ -81,7 +81,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["crunch", "icespinner", "drainpunch", "extremespeed", "substitute", "workup"],
-                "abilities": ["Tinted Lens"]
+                "abilities": ["Tinted Lens"],
                 "preferredTypes": ["Dark"]
             }
         ]
