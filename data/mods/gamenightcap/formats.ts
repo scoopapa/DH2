@@ -28,7 +28,7 @@ export const Formats: FormatData[] = [
         desc: `A Gartic Phone-esque tournament was held by a group of 8 people to create wacky fakemon, these are the results.`,
         mod: 'gamenightcap',
         ruleset: ['Standard NatDex', 'Terastal Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Data Mod', 'Z-Move Clause'],
-        banlist: ['King\'s Rock', 'Razor Fang'],
+        banlist: ['King\'s Rock', 'Razor Fang', 'Shell Smash'],
         unbanlist: ['Baddy Bad', 'Freezy Frost', 'Glitzy Glow', 'Sappy Seed'],
     		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
