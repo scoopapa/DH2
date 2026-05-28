@@ -320,4 +320,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         rating: 3,
         shortDesc: "Stores HP when biting, then heals self and ally on switch.",
     },
+	jurassicdust: {
+		// both effects coded elsewhere
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Jurassic Dust",
+		rating: 3.5,
+		shortDesc: "Sandstorm does 2x damage while this Pokemon is active. Held Booster Energy will set up Sandstorm once for 8 turns.",
+	},
 };

@@ -87,18 +87,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
-		shortDesc: "This Pokemon retaliates with Shadow Sneak whenever it is damaged by an attack.",
-		onDamagingHitOrder: 3,
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/8 of their max HP.",
+		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!move.noreact && target.hp && source.hp) {
-				const reaction = this.dex.getActiveMove('shadowsneak');
-				reaction.noreact = true;
-				this.actions.useMove(reaction, target, source);
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
 		flags: {},
 		name: "Shadow Pounce",
-		rating: 3.5,
+		rating: 2.5,
 		num: -4,
 	},
 	domainofice: {
@@ -134,10 +132,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -5,
 	},
 	blindinglight: {
-		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Bug attack; Bug immunity.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Bug attack; Bug immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Bug' && move.category !== "Status") {
-				if (!this.boost({spe: 1})) {
+				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] ability: Blinding Light');
 				}
 				return null;
@@ -160,19 +158,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -7,
 	},
-	sungathering: {
-		shortDesc: "At end of turn, recovers 1/16 of max hp; 1/12 if under Sun.",
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				this.heal(pokemon.baseMaxhp / 12);
-				return;
+	omagatoki: {
+		shortDesc: "This Pokemon's attacks that are super effective against the target do 1.25x damage.",
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([5120, 4096]);
 			}
-			this.heal(pokemon.baseMaxhp / 16);
 		},
 		flags: {},
-		name: "Sun Gathering",
+		name: "Omagatoki",
 		rating: 2.5,
 		num: -8,
 	},
@@ -189,5 +183,56 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stormwing Matriarch",
 		rating: 2.5,
 		num: -9,
+	},
+	luigilogic: {
+		shortDesc: "This Pokemon blocks certain Status moves and bounces them back to the user.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		flags: {breakable: 1},
+		name: "Luigi Logic",
+		rating: 4,
+		num: -10,
+	},
+	launchedfist: {
+		shortDesc: "Punch moves: 1.2x power & become special.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Launched Fist boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['punch']) {
+				this.debug('Launched Fist category change');
+				move.category = 'Special';
+			}
+		},
+		flags: {},
+		name: "Launched Fist",
+		rating: 3,
+		num: -11,
 	},
 };

@@ -1225,25 +1225,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
-		onEatItem(pokemon) {
-			if (pokemon.shieldBoost) return;
-			pokemon.shieldBoost = true;
-			pokemon.setItem(pokemon.lastItem);
-			pokemon.lastItem = '';
-			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Resourceful');
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.resourceful) return;
+			pokemon.resourceful = true;
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Resourceful');
+			pokemon.setItem(item);
 		},
-		onAfterUseItem(pokemon) {
-			if (pokemon.swordBoost) return;
-			pokemon.swordBoost = true;
-			this.actions.runEvent('UseItem', this, null, null, pokemon.getItem())
-		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			pokemon.swordBoost = false;
-		},
-		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
-		shortDesc: "Items trigger twice, and can avoid being consumed once.",
+		desc: "Items are recycled once after use.",
+		shortDesc: "Items are recycled once after use.",
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

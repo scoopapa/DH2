@@ -2034,7 +2034,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: 'Bonfire',
 		pp: 10,
 		priority: 0,
-		shortDesc: "+20 BP for each ally with this move.",
+		shortDesc: "Physical if user's Atk > SpA. 20 BP for each ally with this move.",
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {

@@ -76,6 +76,7 @@ import { Formats as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format
 import { Formats as ForgottenMons               } from '../data/mods/forgottenmons/formats';
 import { Formats as FurfrOU                     } from '../data/mods/furfrou/formats';
 import { Formats as Blindsided                  } from '../data/mods/g9blindsided/formats';
+import { Formats as GamenightCAP                } from '../data/mods/gamenightcap/formats';
 import { Formats as gen9Duomod                  } from '../data/mods/g9duomod/formats';
 import { Formats as gen1Azure                   } from '../data/mods/gen1azure/formats';
 import { Formats as gen1BacktothePast           } from '../data/mods/gen1backtothepast/formats';
@@ -242,6 +243,7 @@ import { Formats as WhiteTusk                   } from '../data/mods/whitetusk/f
 import { Formats as Woomod                      } from '../data/mods/woomod/formats';
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
+import { Formats as ZADraft						} from '../data/mods/zadraft/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -385,6 +387,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,
@@ -420,7 +423,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SignatureMons,
 	...SpookyMod,
 	...StadiumYB,
-	...SU,
 	//...SuperTypesOU,
 	...gen2TeraCrystal,
 	...Terrariamons,
@@ -491,6 +493,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...FurfrOU,
 	...LittlestCup,
 	...PLZA,
+	...SU,
 	...TPDP,
 	...WhiteTusk,
 	
@@ -499,4 +502,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	...gen3OURandomSampleTeam,
+
+	{
+		section: "Temporary Tour Metas",
+		column: 3,
+	},
+	...ZADraft,
 ];

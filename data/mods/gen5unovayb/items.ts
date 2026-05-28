@@ -72,7 +72,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				source.addVolatile('darkgem');
 			}
 		},
-		desc: "First Dark move: 1.3x power, removes the foe's item. Single use.",
+		desc: "First Dark move: 1.3x power, Embargoes the foe. Single use.",
 		num: 562,
 		gen: 5,
 		isNonstandard: null,
@@ -150,7 +150,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				source.addVolatile('firegem');
 			}
 		},
-		desc: "First Fire move: 1.3x power, thaws the user. Single use.",
+		desc: "First Fire move: 1.3x power, sets Sea of Fire for 2 turns. Single use.",
 		num: 548,
 		gen: 5,
 		isNonstandard: null,
@@ -199,7 +199,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				source.addVolatile('grassgem');
 			}
 		},
-		desc: "First Grass move: 1.3x power, cures user's poisoning. Single use.",
+		desc: "First Grass move: 1.3x power, cures user's status. Single use.",
 		num: 551,
 		gen: 5,
 		isNonstandard: null,
@@ -326,7 +326,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				source.addVolatile('watergem');
 			}
 		},
-		desc: "First Water move: 1.3x power, heals burn. Single use.",
+		desc: "First Water move: 1.3x power, gives the user Aqua Ring. Single use.",
 		num: 549,
 		gen: 5,
 		isNonstandard: null,

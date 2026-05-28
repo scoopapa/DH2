@@ -266,4 +266,52 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 127,
 		shortDesc: "If this Pokemon is active, opposing Pokemon can't use Berries or Gems.",
 	},
+	magmaarmor: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Magma Armor');
+				}
+				return null;
+			}
+		},
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magma Armor",
+		rating: 3,
+		num: 40,
+		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
+	},
+	overcoat: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail') return false;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.isWeather(['hail', 'snow', 'sandstorm']) && move.category === 'Special') {
+				this.debug('Overcoat neutralize');
+				return this.chainModify(0.75);
+			} else if (this.field.isWeather(['sunnyday', 'raindance', 'desolateland', 'primordialsea']) && move.category === 'Physical') {
+				this.debug('Overcoat neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Overcoat",
+		rating: 3.5,
+		num: 142,
+		shortDesc: "This Pokemon takes 0.75x damage from special moves in Snow/Sandstorm and 0.75x damage from physical moves in Rain/Sun; Sandstorm immunity.",
+	},
 };
