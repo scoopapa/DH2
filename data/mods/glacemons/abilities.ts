@@ -819,10 +819,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onModifyMove(move) {},
 		onDamagingHit(damage, target, source, move) {
+			if (this.effectState.stench) return;
 			source.addVolatile('torment');
+			this.effectState.stench = true;
+
 		},
-		desc: "Torments any target hitting this Pokemon.",
-		shortDesc: "Torments any target hitting this Pokemon.",
+		onSwitchIn(pokemon) {
+			delete this.effectState.stench;
+		},
+		desc: "Torments any target hitting this Pokemon. Once per switch-in.",
+		shortDesc: "Torments any target hitting this Pokemon. Once per switch-in.",
 	},
 	nostalgiatrip: {
 		shortDesc: "All moves used by or against this Pokemon ignore the Physical/Special split. Fairy-type = Special.",

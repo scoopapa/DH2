@@ -787,7 +787,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				volatileStatus: 'mustrecharge',
 			},
 		},
-		onTakeItem: false,
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		rating: 3,
@@ -1234,15 +1233,19 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 20,
 		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			if (!target.runImmunity(move.type)) return;
-			if (this.dex.getEffectiveness(move, target) === -1) return;
-			return 0;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Neutralizer neutralize');
+				return this.chainModify([2731, 4096]);
+			}
 		},
-		// Implemented in scripts.js
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([2731, 4096]);
+			}
+		},
 		name: "Neutralizer",
-		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
+		shortDesc: "User takes 2/3 from super effective damage, and deals 2/3 super effective damage.",
 		num: -19,
 		spritenum: 119,
 		rating: 3,
@@ -2050,10 +2053,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -33,
 		gen: 9,
 		rating: 3,
-		onStart(pokemon) {
-			this.actions.useMove("surprise", pokemon)
-			this.add('-enditem', pokemon, "Surprise Bomb");
-			pokemon.useItem();
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.actions.useMove("surprise", pokemon)
+				this.add('-enditem', pokemon, "Surprise Bomb");
+				pokemon.useItem();
+			}
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
