@@ -28,15 +28,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switchin, this Pokemon summons Meteor Shower.",
 	},
 	ligma: {
-		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
-			if (!this.checkMoveMakesContact(move, source, target, true)) {
-				this.damage(source.baseMaxhp / 8, source, target);
-			}
+		onModifyMove(move, pokemon) {
+			if (move.flags['bullet']) {
+				move.overrideOffensiveStat = pokemon.getBestStat(true, true);
+			},
 		},
 		flags: {},
 		name: "Ligma",
-		shortDesc: "Pokemon using non-contact attacks against this Pokemon lose 1/8 of their max HP."
+		shortDesc: "This Pokemon's bullet moves use its highest stat as its offensive stat."
 	},
 	ligmaaura: {
 		onStart(pokemon) {
@@ -408,5 +407,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Crazy Smoke",
 		shortDesc: "Reduces damage taken by 20% from moves that do not match their user's type. Belch can be used without eating a berry."
+	},
+
+	retainspice: {
+        onBeforeSwitchOut(pokemon) {
+            this.effectState.spiceStats = pokemon.boosts.atk;
+        },
+        onStart(pokemon) {
+            if (this.effectState.spiceStats) {
+                this.boost(this.effectState.spiceStats, pokemon, pokemon);
+            }
+        },
+        flags: {},
+        name: "Retain Spice",
+        shortDesc: "This Pokemon gains its previous boosts to its Atk on switchin.",
+    },
+	snailfever: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				source.addVolatile('leechseed', target);
+			}
+		},
+		flags: {},
+		name: "Snail Fever",
+		shortDesc: "This Pokemon inflicts Leech Seed on attackers who make contact with it.",
 	},
 };
