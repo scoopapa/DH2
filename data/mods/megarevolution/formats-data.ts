@@ -4894,4 +4894,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	goldeliath: {
 		tier: "OU",
 	},
+	wooluster: {
+		tier: "OU",
+	},
+	asperitazul: {
+		tier: "OU",
+	},
+	taxelmatose: {
+		tier: "OU",
+	},
+	aufcorse: {
+		tier: "OU",
+	},
 };
