@@ -3317,9 +3317,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["9L1"],
 		},
 	},
-	goodrahisui: {
+	goodrahisuireallife: {
 		learnset: {
-			inherit: true,
 			absorb: ["9L1"],
 			acidarmor: ["9L1"],
 			acidspray: ["9L1"],
@@ -3405,8 +3404,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			watergun: ["9L1"],
 			waterpulse: ["9L1"],
 			weatherball: ["9L1"],
-			bugbuz: ["9L1"],
-			infestation: ["9L1"],
+			bugbuzz: ["9L1"],
 			stringshot: ["9L1"],
 		},
 	},

@@ -175,7 +175,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DOU",
 	},
-	goodrahisui: {
+	goodrahisuireallife: {
 		tier: "PD",
 		doublesTier: "DOU",
 	},

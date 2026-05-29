@@ -31,7 +31,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon) {
 			if (move.flags['bullet']) {
 				move.overrideOffensiveStat = pokemon.getBestStat(true, true);
-			},
+			}
 		},
 		flags: {},
 		name: "Ligma",
@@ -411,11 +411,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 	retainspice: {
         onBeforeSwitchOut(pokemon) {
-            this.effectState.spiceStats = pokemon.boosts.atk;
+            this.effectState.spiceStats = pokemon.boosts['atk'];
         },
         onStart(pokemon) {
             if (this.effectState.spiceStats) {
-                this.boost(this.effectState.spiceStats, pokemon, pokemon);
+                this.boost({atk: this.effectState.spiceStats}, pokemon, pokemon);
             }
         },
         flags: {},
