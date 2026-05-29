@@ -1384,7 +1384,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	hippowdon: {
 		inherit: true,
-		abilities: {0: "Sand Stream", 1: "Moody", H: "Sand Force"},
+		abilities: {0: "Sand Stream", 1: "Moody", H: "Thick Fat"},
 	},
 	gastly: {
 		inherit: true,
@@ -1560,7 +1560,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	sharpedomega: {
 		inherit: true,
-		abilities: {0: "Strong Jaw", H: "Speed Boost"},
+		abilities: {0: "Speed Boost", H: "Strong Jaw"},
 		// requiredItem: null,
 		// requiredItems: ["Sharpedonite", "Parallel Mega Orb"],
 	},
@@ -2453,7 +2453,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	braviaryhisui: {
 		inherit: true,
-		abilities: {0: "Wind Power", 1: "Gale Wings", H: "Tinted Lens"},
+		abilities: {0: "Wind Power", 1: "Sheer Force", H: "Tinted Lens"},
 	},
 	hoothoot: {
 		inherit: true,
