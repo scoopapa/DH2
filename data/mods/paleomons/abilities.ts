@@ -114,7 +114,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.totalDamage && !pokemon.forceSwitchFlag) {
-				this.heal(move.totalDamage / 8, pokemon);
+				this.heal(move.totalDamage / 8, pokemon, pokemon);
 			}
 		},
 		flags: {},
