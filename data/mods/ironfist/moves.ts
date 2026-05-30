@@ -534,8 +534,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
         },
         category: "Physical",
         name: "The Kitchen Sink",
-        desc: "Power doubles if user is damaged by the target. Power doubles if user moves before the target. Power doubles if the user moves after the target. Power doubles if user is burn/poison/ paralyzed. Power doubles if the target's HP is 50% or less. Power doubles if the target is poisoned. Power doubles if target is burned. Power doubles if the target has a status ailment. More power the more HP the target has left. Max 102 power at minimum Happiness. More power the heavier the user than the target. +50 power for each time a party member fainted. More power the heavier the target. + 20 power for each of the user's stat boosts. +20 for each of the target's stat boosts. If a foe is switching out, hits it at 2x power. +50 power for each time user was hit. Max 6 hits. More power the less HP the user has left. Power doubles if target is paralyzed. Power doubles if the user's last move failed. Each hit can miss, but power rises. More power the fewer PP this move has left. Power doubles if target is asleep. Breaks protect. High critical hit ratio. Heals 50% of the damage dealt. Ignores the Abilities of other Pokemon. Ignores the target's stat stage changes. User loses 50% max HP. Hits adjacent Pokemon. Hits 10 times. Uses user's Def stat as Atk in damage calculation. Uses target's Attack stat in damage calculation. Normal moves become Electric type this turn. Steals target's boosts before dealing damage. Cannot be redirected. Traps and damages the target for 4-5 turns. Always results in a critical hit. Burns on contact with the user before it moves. Fails if the user takes damage before it hits. Removes item. Frees user from hazards/bind/ Leech Seed. If the user has no item, it steals the target's. Lasts 2-3 turns. Confuses the user afterwards. The target is cured of its burn. Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe. Ends terrain. 2x power if the user had a stat lowered this turn. During Electric Terrain: 1.5x power. Power doubles if an ally fainted last turn. No charge in sunlight. Halved power in other weathers. Cannot be selected until the user eats a Berry. Grounds adjacent foes. First hit neutral on Flying. User steals and eats the target's Berry. If the target is an ally, heals 50% of its max HP. Summons Leech Seed. All healthy allies aid in damaging the target. Can't miss in rain. Power varies; 2x on Dig. Physical if user's Atk > Sp. Atk. 40, 80, 120 power, or heals target 1/4 max HP. Effect varies with terrain. (30% paralysis chance). If Terastallized: Phys. if Atk > SpA, type = Tera. User on terrain: power doubles, type varies. Power doubles and type varies in each weather. Type varies based on the held Memory. Type varies based on the user's primary type. Type varies based on the held Drive. User is hurt by 50% of its max HP if it misses. Fails if target is not attacking. Power increases when used on consecutive turns. Fails if user has no Stockpile. Fails if the target has no held item. Fails if there is no terrain active. Destroys screens, unless the target is immune. Active Pokemon cannot fall asleep. Hits adjacent Pokemon sharing the user's type. Summons Reflect. Lower's the user's Attack and Defense by 1. Lowers the user's Sp. Attack by 2. Lowers the user's Sp. Defense by 1. Lowers the user's Spe by 2. Cures the user's party of all status conditions.",
-        shortDesc: "Power doubles if user is damaged by the target. Power doubles if user moves before the target. Power doubles if the user moves after the target. Power doubles if user is burn/poison/ paralyzed. Power doubles if the target's HP is 50% or less. Power doubles if the target is poisoned. Power doubles if target is burned. Power doubles if the target has a status ailment. More power the more HP the target has left. Max 102 power at minimum Happiness. More power the heavier the user than the target. +50 power for each time a party member fainted. More power the heavier the target. + 20 power for each of the user's stat boosts. +20 for each of the target's stat boosts. If a foe is switching out, hits it at 2x power. +50 power for each time user was hit. Max 6 hits. More power the less HP the user has left. Power doubles if target is paralyzed. Power doubles if the user's last move failed. Each hit can miss, but power rises. More power the fewer PP this move has left. Power doubles if target is asleep. Breaks protect. High critical hit ratio. Heals 50% of the damage dealt. Ignores the Abilities of other Pokemon. Ignores the target's stat stage changes. User loses 50% max HP. Hits adjacent Pokemon. Hits 10 times. Uses user's Def stat as Atk in damage calculation. Uses target's Attack stat in damage calculation. Normal moves become Electric type this turn. Steals target's boosts before dealing damage. Cannot be redirected. Traps and damages the target for 4-5 turns. Always results in a critical hit. Burns on contact with the user before it moves. Fails if the user takes damage before it hits. Removes item. Frees user from hazards/bind/ Leech Seed. If the user has no item, it steals the target's. Lasts 2-3 turns. Confuses the user afterwards. The target is cured of its burn. Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe. Ends terrain. 2x power if the user had a stat lowered this turn. During Electric Terrain: 1.5x power. Power doubles if an ally fainted last turn. No charge in sunlight. Halved power in other weathers. Cannot be selected until the user eats a Berry. Grounds adjacent foes. First hit neutral on Flying. User steals and eats the target's Berry. If the target is an ally, heals 50% of its max HP. Summons Leech Seed. All healthy allies aid in damaging the target. Can't miss in rain. Power varies; 2x on Dig. Physical if user's Atk > Sp. Atk. 40, 80, 120 power, or heals target 1/4 max HP. Effect varies with terrain. (30% paralysis chance). If Terastallized: Phys. if Atk > SpA, type = Tera. User on terrain: power doubles, type varies. Power doubles and type varies in each weather. Type varies based on the held Memory. Type varies based on the user's primary type. Type varies based on the held Drive. User is hurt by 50% of its max HP if it misses. Fails if target is not attacking. Power increases when used on consecutive turns. Fails if user has no Stockpile. Fails if the target has no held item. Fails if there is no terrain active. Destroys screens, unless the target is immune. Active Pokemon cannot fall asleep. Hits adjacent Pokemon sharing the user's type. Summons Reflect. Lower's the user's Attack and Defense by 1. Lowers the user's Sp. Attack by 2. Lowers the user's Sp. Defense by 1. Lowers the user's Spe by 2. Cures the user's party of all status conditions.",
+        desc: "Power doubles if user is damaged by the target. Power doubles if user moves before the target. Power doubles if the user moves after the target. Power doubles if user is burn/poison/ paralyzed. Power doubles if the target's HP is 50% or less. Power doubles if the target is poisoned. Power doubles if target is burned. Power doubles if the target has a status ailment. More power the more HP the target has left. Max 102 power at minimum Happiness. More power the heavier the user than the target. +50 power for each time a party member fainted. More power the heavier the target. + 20 power for each of the user's stat boosts. +20 for each of the target's stat boosts. If a foe is switching out, hits it at 2x power. +50 power for each time user was hit. Max 6 hits. More power the less HP the user has left. Power doubles if target is paralyzed. Power doubles if the user's last move failed. Each hit can miss, but power rises. More power the fewer PP this move has left. Power doubles if target is asleep. Breaks protect. High critical hit ratio. Heals 50% of the damage dealt. Ignores the Abilities of other Pokemon. Ignores the target's stat stage changes. User loses 50% max HP. Hits adjacent Pokemon. Hits 10 times. Uses user's Def stat as Atk in damage calculation. Uses target's Attack stat in damage calculation. Normal moves become Electric type this turn. Steals target's boosts before dealing damage. Cannot be redirected. Traps and damages the target for 4-5 turns. Always results in a critical hit. Burns on contact with the user before it moves. Fails if the user takes damage before it hits. Removes item. Frees user from hazards/bind/ Leech Seed. If the user has no item, it steals the target's. Lasts 2-3 turns. Confuses the user afterwards. The target is cured of its burn. Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe. Ends terrain. 2x power if the user had a stat lowered this turn. During Electric Terrain: 1.5x power. Power doubles if an ally fainted last turn. No charge in sunlight. Halved power in other weathers. Cannot be selected until the user eats a Berry. Grounds adjacent foes. First hit neutral on Flying. User steals and eats the target's Berry. If the target is an ally, heals 50% of its max HP. Summons Leech Seed. All healthy allies aid in damaging the target. Can't miss in rain. Power varies; 2x on Dig. Physical if user's Atk > Sp. Atk. 40, 80, 120 power, or heals target 1/4 max HP. Effect varies with terrain. (30% paralysis chance). If Terastallized: Phys. if Atk > SpA, type = Tera. User on terrain: power doubles, type varies. Power doubles and type varies in each weather. Type varies based on the held Memory. Type varies based on the user's primary type. Type varies based on the held Drive. User is hurt by 50% of its max HP if it misses. Fails if target is not attacking. Power increases when used on consecutive turns. Fails if user has no Stockpile. Fails if the target has no held item. Fails if there is no terrain active. Destroys screens, unless the target is immune. Active Pokemon cannot fall asleep. Hits adjacent Pokemon sharing the user's type. Summons Reflect. Lower's the user's Attack and Defense by 1. Lowers the user's Sp. Attack by 2. Lowers the user's Sp. Defense by 1. Lowers the user's Spe by 2. Cures the user's party of all status conditions. If used successfully, the player wins.",
+        shortDesc: "Power doubles if user is damaged by the target. Power doubles if user moves before the target. Power doubles if the user moves after the target. Power doubles if user is burn/poison/ paralyzed. Power doubles if the target's HP is 50% or less. Power doubles if the target is poisoned. Power doubles if target is burned. Power doubles if the target has a status ailment. More power the more HP the target has left. Max 102 power at minimum Happiness. More power the heavier the user than the target. +50 power for each time a party member fainted. More power the heavier the target. + 20 power for each of the user's stat boosts. +20 for each of the target's stat boosts. If a foe is switching out, hits it at 2x power. +50 power for each time user was hit. Max 6 hits. More power the less HP the user has left. Power doubles if target is paralyzed. Power doubles if the user's last move failed. Each hit can miss, but power rises. More power the fewer PP this move has left. Power doubles if target is asleep. Breaks protect. High critical hit ratio. Heals 50% of the damage dealt. Ignores the Abilities of other Pokemon. Ignores the target's stat stage changes. User loses 50% max HP. Hits adjacent Pokemon. Hits 10 times. Uses user's Def stat as Atk in damage calculation. Uses target's Attack stat in damage calculation. Normal moves become Electric type this turn. Steals target's boosts before dealing damage. Cannot be redirected. Traps and damages the target for 4-5 turns. Always results in a critical hit. Burns on contact with the user before it moves. Fails if the user takes damage before it hits. Removes item. Frees user from hazards/bind/ Leech Seed. If the user has no item, it steals the target's. Lasts 2-3 turns. Confuses the user afterwards. The target is cured of its burn. Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe. Ends terrain. 2x power if the user had a stat lowered this turn. During Electric Terrain: 1.5x power. Power doubles if an ally fainted last turn. No charge in sunlight. Halved power in other weathers. Cannot be selected until the user eats a Berry. Grounds adjacent foes. First hit neutral on Flying. User steals and eats the target's Berry. If the target is an ally, heals 50% of its max HP. Summons Leech Seed. All healthy allies aid in damaging the target. Can't miss in rain. Power varies; 2x on Dig. Physical if user's Atk > Sp. Atk. 40, 80, 120 power, or heals target 1/4 max HP. Effect varies with terrain. (30% paralysis chance). If Terastallized: Phys. if Atk > SpA, type = Tera. User on terrain: power doubles, type varies. Power doubles and type varies in each weather. Type varies based on the held Memory. Type varies based on the user's primary type. Type varies based on the held Drive. User is hurt by 50% of its max HP if it misses. Fails if target is not attacking. Power increases when used on consecutive turns. Fails if user has no Stockpile. Fails if the target has no held item. Fails if there is no terrain active. Destroys screens, unless the target is immune. Active Pokemon cannot fall asleep. Hits adjacent Pokemon sharing the user's type. Summons Reflect. Lower's the user's Attack and Defense by 1. Lowers the user's Sp. Attack by 2. Lowers the user's Sp. Defense by 1. Lowers the user's Spe by 2. Cures the user's party of all status conditions. If used successfully, the player wins.",
         pp: 13.41701681,
         priority: 0.0341176471,
 		gen: 5,
@@ -553,7 +553,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
         mindBlownRecoil: true,
         multihit: 10,
         multiaccuracy: true,
-        noSketch: true, //torques
+        nosketch: true, //torques
         overrideDefensiveStat: 'def',
         overrideOffensiveStat: 'def', //body press
         overrideOffensivePokemon: 'target', //foul play
@@ -648,6 +648,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
                     pokemon.cureStatus();
                 }
             }
+			pokemon.side.win();
         },
         onAfterMoveSecondarySelf(pokemon, target, move) {
             //order up
@@ -1192,8 +1193,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Rainbow Feather",
-		desc: "User switches out. Target uses Conversion.",
-		shortDesc: "User switches out. Target uses Conversion.",
+		desc: "User switches out. Target uses Conversion 2.",
+		shortDesc: "User switches out. Target uses Conversion 2.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -1203,7 +1204,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		selfSwitch: true,
 		onHit(target, source, move) {
-			this.actions.useMove("Conversion", target);
+			this.actions.useMove("Conversion 2", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -1267,7 +1268,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "awesome Earthquake",
 		type: "Silly",
 		category: "Physical",
-		basePower: 100,
+		basePower: 110,
 		accuracy: 100,
 		pp: 10,
 		desc: "No additional effect.",
@@ -1341,7 +1342,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			if (!move.hasSheerForce) {
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil'];
 				for (const condition of sideConditions) {
 					if (source.side.removeSideCondition(condition)) {
 						this.add('-sideend', source.side, this.dex.conditions.get(condition).name, '[from] move: OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH', '[of] ' + source);
@@ -1359,8 +1360,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Frigid Terrain",
-		desc: "5 turns. Grounded: +Ice power, Fishing takes 3x PP.",
-		shortDesc: "5 turns. Grounded: +Ice power, Fishing takes 3x PP.",
+		desc: "5 turns. Grounded: +Ice power, -non-Ice SE power.",
+		shortDesc: "5 turns. Grounded: +Ice power, -non-Ice SE power.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
@@ -1373,12 +1374,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				if (attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-					if(move.type === 'Ice') return this.chainModify(1.5);
-				}
-			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Frigid Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
@@ -1386,8 +1381,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-fieldstart', 'move: Frigid Terrain');
 				}
 			},
-			onAnyDeductPP(target, source) {
-				if (target.isGrounded() && target.lastMoveUsed.flags['fishing']) return 2;
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					if(move.type === 'Ice') return this.chainModify(1.3);
+				}
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (target.isGrounded() && move.type !== 'Ice' && target.getMoveHitData(move).typeMod > 0) {
+					this.debug('Filter neutralize');
+					return this.chainModify(0.75);
+				}
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
@@ -1491,7 +1495,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		category: "Physical",
 		basePower: 185,
-		accuracy: 100,
+		accuracy: true,
 		pp: 1,
 		desc: "User gains the Laser Focus effect.",
 		shortDesc: "User gains the Laser Focus effect.",
@@ -2315,7 +2319,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Brainrot Cudgel",
 		type: "Silly",
 		category: "Physical",
-		basePower: 50,
+		basePower: 80,
 		accuracy: 100,
 		pp: 10,
 		desc: "Always results in a critical hit.",
@@ -3256,7 +3260,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	//slate 9
 	trumpcard: {
 		inherit: true,
-		desc: "More power the fewer PP this move has left. Now has 40/60/90/120/250 base power, respectively.",
+		desc: "More power the fewer PP this move has left. Now has 40/60/90/120/250 base power, respectively. This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes.",
+		shortDesc: "Phys if Atk > SpA, 40/60/90/150/250 BP per -PP.",
 		basePowerCallback(source, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
@@ -3296,6 +3301,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
 			console.log(source.name + " " + source.side.trumpcard);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 	},
 	racism2: {
@@ -3380,7 +3388,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		basePower: 0,
 		damageCallback(pokemon, target) {
-			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Boogerpon-CLOWNerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator", "Bart", "Upvybones", "Ludicolo", "T'La'Ágh", "Regibloom", "Old Duke", "Iron Fist", "Lucario-Calm-Mega", "awesome possum", "Tired of it Owl", "Caracal", "Solar Bean-Primal", "Circall", "Kyogre-Original", "Lawset", "Daiyakuza-Origin", "Princirang-Mega", "Ratstagoon-NewYorkian", "Spewpa-Mega", "Zapmolcuno", "Girafarig-Mega", "fat fuck", "Flygon-Plus", "VishZolt", "murcow :D", "Green Guillotina", "Burmy-Sand", "1000-THR \"Earthmover\"", "PRONOUNS", "Lemonganium-Lemonga", "Kanon", "Kanon-Blue-Sea", "Marlboro", "Dip", "Flushmaster", "Bluminion", "BIG ANVIL-MEGA", "melmetal 3", "birbevil bot"];
 			return nonVanilla.includes(target.baseSpecies.name) ? 200 : 150;
 		},
 		accuracy: 90,
@@ -3533,7 +3541,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		basePower: 20,
 		accuracy: 100,
-		pp: 20,
+		pp: 10,
 		desc: "Steals the target's item if user is not holding one. User switches out.",
 		shortDesc: "Steals the target's item if user is not holding one. User switches out.",
 		priority: 0,
@@ -3545,19 +3553,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onAfterHit(target, source, move) {
 			if (source.item || source.volatiles['gem']) {
-				return;
+				const item = target.takeItem();
+				this.add('-enditem', target, item.name, '[from] move: Knock Off', `[of] ${source}`);
+			} else {
+				const yourItem = target.takeItem(source);
+				if (!yourItem) {
+					return;
+				}
+				if (!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
+					!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Snag Phone', '[of] ' + source);
+				this.add('-item', source, yourItem, '[from] move: Snag Phone', '[of] ' + target);
 			}
-			const yourItem = target.takeItem(source);
-			if (!yourItem) {
-				return;
-			}
-			if (!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
-				!source.setItem(yourItem)) {
-				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
-				return;
-			}
-			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Snag Phone', '[of] ' + source);
-			this.add('-item', source, yourItem, '[from] move: Snag Phone', '[of] ' + target);
 		},
 		secondary: null,
 		target: "normal",
@@ -4331,6 +4341,519 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onUseMoveMessage: null,
 	},
 	
+	//slate 12
+	lightningstrike: {
+		name: "Lightning Strike",
+		type: "Electric",
+		category: "Physical",
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Payback NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Payback damage boost');
+			return 120;
+		},
+		accuracy: 100,
+		pp: 10,
+		desc: "120 BP if the user moves after the target.",
+		shortDesc: "120 BP if the user moves after the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Volt Tackle", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ephemeralprism: {
+		name: "Ephemeral Prism",
+		type: "Stellar",
+		category: "Special",
+		basePower: 105,
+		accuracy: true,
+		pp: 15,
+		desc: "This move's typing matches the type of the move the user used previously.",
+		shortDesc: "Type changes to the user's last move.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tera Starstorm", target);
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.lastMove) move.type = pokemon.lastMove.type;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	twoguysonthemoon: {
+		name: "Two guys on the moon",
+		type: "Rock",
+		category: "Physical",
+		basePower: 85,
+		accuracy: 100,
+		pp: 15,
+		desc: "If this move KOs a Pokemon, kill that Pokemon instead (killing a Pokemon adds 'dead' to its name). This move has the Gen 1 1/256 miss chance. If this move misses, a blurb plays.",
+		shortDesc: "On KO: adds 'dead' to the target's name. 1/256 miss.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rock Wrecker", target);
+		},
+		onTry(source, target) {
+			if (this.randomChance(255, 256)) return;
+			this.add('-miss', target, source);
+			this.hint("In Gen 1, moves with 100% accuracy can still miss 1/256 of the time.");
+			return null;
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) target.set.name += " (dead)";
+		},
+		secondary: null,
+		target: "normal",
+	},
+	releasethebees: {
+		name: "Release the Bees",
+		type: "Bug",
+		category: "Special",
+		basePower: 90,
+		accuracy: 100,
+		pp: 10,
+		desc: "On hit, chooses the following effect to occur, determined by the result of calculating Turn Count % 5:\n1. Bug type is added to target's types\n2. Target gets poisoned\n3. User follows up with using Infestation on the target\n4. Target gets forced out at end of turn\n0. Target hits itself with Echoed Voice.",
+		shortDesc: "Effect depends on turn count.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Attack Order", target);
+		},
+		onAfterHit(target, source, move) {
+			switch (this.turn % 5) {
+				case 1:
+					if (target.hasType('Bug')) return;
+					if (!target.addType('Bug')) return;
+					this.add('-start', target, 'typeadd', 'Bug', '[from] move: Release the Bees');
+					break;
+				case 2:
+					target.trySetStatus('psn', source);
+					break;
+				case 3:
+					this.actions.useMove('infestation', source);
+					break;
+				case 4:
+					target.addVolatile('releasethebees');
+					break;
+				default:
+					this.actions.useMove('echoedvoice', target, target);
+					break;
+			}
+		},
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				pokemon.forceSwitch = true;
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	blueshell: {
+		name: "Blue Shell",
+		type: "Silly",
+		category: "Physical",
+		basePower: 150,
+		accuracy: 100,
+		pp: 5,
+		desc: "Can only be used if your opponent is winning (they have less mons fainted than you). This move cannot be used twice in a row.",
+		shortDesc: "User must have more fainted mons. Can't use twice.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1,},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fling", target);
+			this.add('-anim', target, "Explosion", target);
+		},
+		onTry(source) {
+			if (source.side.totalFainted > source.side.foe.totalFainted) {
+				return;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Blue Shell');
+			this.hint("This move can only be used if you have more fainted mons than the opponent.");
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	krowzone: {
+		name: "Krow Zone",
+		type: "Dark",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		desc: "Uses up all Fishing Tokens on the user's side of the field. For every Fishing Token above 3 on the user's side of the field, sets up Krow Zone on the opponent's side of the field for one turn (Sea of Fire clone but immune to Court Change and hits Fire-types too). If there's less than 3 Fishing Tokens on the user's side of the field, does nothing.",
+		shortDesc: "Sets Krow Zone for (token - 3) turns.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, snatch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rain Dance", target);
+		},
+		onTry(source) {
+			return source.side.fishingTokens >= 3;
+		},
+		sideCondition: 'krowzone',
+		condition: {
+			duration: 1,
+			durationCallback(source, effect) {
+				const tokens = source.side.fishingTokens;
+				source.side.removeFishingTokens(tokens);
+				return tokens - 3;
+			},
+			onSideStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Krow Zone');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 8, pokemon);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 8,
+			onSideEnd(targetSide) {
+				this.add('-sideend', targetSide, 'Krow Zone');
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+	},
+	paraboliccharge: {
+		inherit: true,
+		basePower: 75,
+	},
+	bigbuckler: {
+		name: "Big Buckler",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 85,
+		accuracy: 100,
+		pp: 10,
+		desc: "Lowers the target's Defense by 1 stage if they are Big, lower their Attack by 1 stage if not.",
+		shortDesc: "Target's Def -1 if Big, Atk -1 if not.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Spirit Break", target);
+		},
+		onAfterHit(target, source, move) {
+			if (target.volatiles['big']) this.boost({ def: -1 }, target, source, move);
+			else this.boost({ atk: -1 }, target, source, move);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	sourshot: {
+		name: "Sour Shot",
+		type: "Lemon",
+		category: "Physical",
+		basePower: 85,
+		accuracy: 90,
+		pp: 15,
+		desc: "If Acid Rain is active, this move never misses and always crits.",
+		shortDesc: "Acid Rain: never misses, always crits.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Snipe Shot", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target?.effectiveWeather() === 'acidrain') {
+				move.accuracy = true;
+				move.willCrit = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ohmyroooodwaaaaaaaaaanisfokifnouh: {
+		name: "OH MY ROOOOD WAAAAAAAAAANISFOKIFNOUH",
+		type: "Water",
+		category: "Physical",
+		basePower: 150,
+		accuracy: 100,
+		pp: 1,
+		desc: "User faints. Removes hazards from the user's side.",
+		shortDesc: "User faints. Removes hazards from the user's side.",
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Wave Crash", target);
+		},
+		onHit(target, source, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil'];
+				for (const condition of sideConditions) {
+					if (source.side.removeSideCondition(condition)) {
+						this.add('-sideend', source.side, this.dex.conditions.get(condition).name, '[from] move: OH MY ROOOOD WAAAAAAAAAANISFOKIFNOUH', '[of] ' + source);
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	miniorshower: {
+		name: "Minior Shower",
+		type: "Stellar",
+		category: "Special",
+		basePower: 110,
+		accuracy: 100,
+		pp: 10,
+		desc: "If used by Meteor form Minior, it transforms into its Core form and the move's type matches its current color's secondary type. Stellar Type if the user doesn't have a valid Core form for whatever reason. Phys if Atk > SpA.",
+		shortDesc: "Minior: changes to Core, type of user's secondary type. Phys if Atk > SpA.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Meteor Beam", target);
+		},
+		onTry(source) {
+			if (source.species.baseSpecies === 'Minior-Meteor') {
+				return;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Minior Shower');
+			this.hint("Only a Pokemon whose base form is Minior can use this move.");
+			return null;
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.baseSpecies !== 'Minior-Meteor' || pokemon.transformed) return;
+			console.log(pokemon.set);
+			switch (pokemon.set.teraType) {
+				case 'Fire':
+					pokemon.formeChange('Minior');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Ground':
+					pokemon.formeChange('Minior-Orange');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Lemon':
+					pokemon.formeChange('Minior-Yellow');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Silly':
+					pokemon.formeChange('Minior-Green');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Flying':
+					pokemon.formeChange('Minior-Blue');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Water':
+					pokemon.formeChange('Minior-Indigo');
+					move.type = pokemon.set.teraType;
+					break;
+				case 'Ghost':
+					pokemon.formeChange('Minior-Violet');
+					move.type = pokemon.set.teraType;
+					break;
+				default:
+					move.type = 'Stellar';
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	drippyblade: {
+		name: "Drippy Blade",
+		type: "Water",
+		category: "Special",
+		overrideDefensiveStat: 'def',
+		basePower: 120,
+		accuracy: 100,
+		pp: 5,
+		desc: "Consumes 2 fishing tokens to use, fails if you don't have enough tokens. No cost if the user is Kanon-Blue-Sea. Hits the target's Defense instead of Special Defense.",
+		shortDesc: "Costs 2 tokens unless Kanon-Blue-Sea. Hits Def.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Aqua Cutter", target);
+		},
+		onTry(source) {
+			return source.species.name === 'Kanon-Blue-Sea' || source.side.removeFishingTokens(2);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ashflick: {
+		name: "Ash Flick",
+		type: "Fire",
+		category: "Physical",
+		basePower: 65,
+		accuracy: 100,
+		pp: 10,
+		desc: "50% chance to burn the target.",
+		shortDesc: "50% chance to burn the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, defrost: 1, bullet: 1, reflectable: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Lava Plume", target);
+		},
+		secondary: {
+			chance: 50,
+			status: 'brn',
+		},
+		target: "normal",
+	},
+	flush: {
+		name: "Flush",
+		type: "Water",
+		category: "Special",
+		basePower: 90,
+		accuracy: true,
+		pp: 10,
+		desc: "Opponent takes hazard damage as if it had just switched into the field.",
+		shortDesc: "Target is affected by hazards.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Whirlpool", target);
+		},
+		onAfterHit(target, source) {
+			const targetSide = source.side.foe;
+			if (targetSide.getSideCondition('stealthrock')) {
+				if (target.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				this.add('-message', `Pointed stones dug into ${target.name}!`);
+			}
+			if (targetSide.getSideCondition('spikes')) {
+				if (!target.isGrounded() || pokemon.hasAbility('divininghorn')) return;
+				if (target.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * target.maxhp / 24);
+				this.add('-message', `${target.name} was hurt by the spikes!`);
+			}
+			if (targetSide.getSideCondition('toxicspikes')) {
+				if (!target.isGrounded() || pokemon.hasAbility('divininghorn')) return;
+				if (target.hasType('Poison')) {
+					this.add('-sideend', target.side, 'move: Toxic Spikes', `[of] ${target}`);
+					target.side.removeSideCondition('toxicspikes');
+				} else if (target.hasType('Steel') || target.hasItem('heavydutyboots')) {
+					// do nothing
+				} else if (this.effectState.layers >= 2) {
+					target.trySetStatus('tox', target.side.foe.active[0]);
+				} else {
+					target.trySetStatus('psn', target.side.foe.active[0]);
+				}
+			}
+			if (targetSide.getSideCondition('stickyweb')) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			}
+			if (targetSide.getSideCondition('fertilesoil')) {
+				if (pokemon.hasType('Grass') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				if(pokemon.adjacentFoes().length == 0) return;
+				const target = this.sample(pokemon.adjacentFoes());
+				pokemon.addVolatile('leechseed', target);
+				pokemon.side.removeSideCondition('fertilesoil');
+				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	advertising: {
+		name: "Advertising",
+		type: "Electric",
+		category: "Special",
+		basePower: 25,
+		accuracy: 100,
+		pp: 10,
+		desc: "Hits 3-5 times. If there's 5 or more Fishing Tokens on the user's side, hits 3 times.",
+		shortDesc: "Hits 3-5 times. 5+ tokens: 3 times.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [3, 5],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Electro Ball", target);
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.side.fishingTokens >= 5) move.multihit = 3;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	killtoken: {
+		name: "Kill Token",
+		type: "Dark",
+		category: "Physical",
+		basePower: 25,
+		basePowerCallback(pokemon, target, move) {
+			return Math.min(250, 25 + 25 * pokemon.side.fishingTokens);
+		},
+		accuracy: 100,
+		pp: 5,
+		desc: "Requires 3 Fishing Tokens to use. +25 BP per token. Consumes 3 Fishing Tokens after moving. (Caps at 250).",
+		shortDesc: "Spends 3 tokens. +25 BP per token, max 250 BP.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Malicious Moonsault", target);
+		},
+		onTry(source) {
+			return source.side.fishingTokens >= 3;
+		},
+		onAfterHit(target, source) {
+			source.side.removeFishingTokens(3);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	yggdrasiljusticestrike: {
+		name: "Yggdrasil Justice Strike",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 150,
+		accuracy: true,
+		pp: 1,
+		desc: "User heals 100% HP if 6 Diamond Hand members.",
+		shortDesc: "User heals 100% HP if 6 Diamond Hand members.",
+		priority: 0,
+		flags: {},
+		isZ: "everhliumz",
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Clangorous Soulblaze", target);
+		},
+		self: {
+			onHit(source) {
+				const diamondHand = pokemon.side.pokemon.filter(p => p != pokemon && p.baseSpecies.diamondHand);
+				if (diamondHand.length === 6) this.heal(source.baseMaxhp);
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
 	//silly shit
 	attract: {
 		inherit: true,
@@ -4649,10 +5172,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onEntryHazard(pokemon) {
 				if (pokemon.baseSpecies.diamondHand) {
 					if (pokemon.hasAbility('stillwater')) pokemon.side.addFishingTokens(3);
-					else {
-						const bestStat = pokemon.getBestStat(true, true);
-						this.boost({[bestStat]: 1}, pokemon);
-					}
+					const bestStat = pokemon.getBestStat(true, true);
+					this.boost({[bestStat]: 1}, pokemon);
 					pokemon.side.removeSideCondition('madnesscounter');
 					this.add('-sideend', pokemon.side, 'move: Madness Counter', '[of] ' + pokemon);
 				}
@@ -4792,7 +5313,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "", target);
 		},
 		secondary: null,
-		target: "Flying",
+		target: "normal",
+	},
+	honk: {
+		name: "Honk",
+		type: "Silly",
+		category: "Special",
+		basePower: 60,
+		accuracy: 100,
+		pp: 1,
+		shortDesc: "No additional effect.",
+		viable: false,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, nosketch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Bug Buzz", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	transspikes: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Trans Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		sideCondition: 'abomacarespikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Trans Spikes', '[silent]');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.species.trans) this.boost({ spe: 1 }, pokemon, pokemon);
+				pokemon.side.removeSideCondition('transspikes');
+				this.add('-sideend', pokemon.side, 'move: Trans Spikes', '[of] ' + pokemon, '[silent]');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fairy",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
 	},
 
 	//vanilla moves

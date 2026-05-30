@@ -322,7 +322,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "User must have used Moonlight last turn. Ignores abilities.",
 		shortDesc: "Must use Moonlight first. Ignores abilities.",
 		onTry(source) {
-			if (source.lastMove !== 'Moonlight') {
+			if (source.moonlight) {
 				this.add('-fail', source, 'move: Moongeist Beam');
 				this.hint("Only Pokemon who have used Moonlight last turn can use this move.");
 				return null;
@@ -752,6 +752,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mindblown: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	moonlight: {
+		inherit: true,
+		volatileStatus: "moonlight",
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				pokemon.moonlight = true;
+			},
+			onEnd(pokemon) {
+				pokemon.moonlight = false;
+			},
+			onSwitchOut(pokemon) {
+				pokemon.moonlight = false;
+			},
+		},
 	},
 
 	//spells

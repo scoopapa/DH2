@@ -398,5 +398,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lickitung").learnset.tastetest = ["9L1"];
 		this.modData("Learnsets", "lickitung").learnset.strengthsap = ["9L1"];
 		this.modData("Learnsets", "lickitung").learnset.suckerpunch = ["9L1"];
+		this.modData("Learnsets", "omastar").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "omastar").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.shiftgear = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.bulletpunch = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "kabutops").learnset.leafblade = ["9L1"];
+		this.modData("Learnsets", "aerodactyl").learnset.headsmash = ["9L1"];
+		this.modData("Learnsets", "aerodactyl").learnset.outrage = ["9L1"];
+		this.modData("Learnsets", "aerodactyl").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "aerodactyl").learnset.scaleshot = ["9L1"];
+		delete this.modData('Learnsets', 'aerodactyl').learnset.hurricane;
+		delete this.modData('Learnsets', 'aerodactyl').learnset.dragondance;
 	},
 };

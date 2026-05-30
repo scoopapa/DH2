@@ -76,6 +76,7 @@ import { Formats as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format
 import { Formats as ForgottenMons               } from '../data/mods/forgottenmons/formats';
 import { Formats as FurfrOU                     } from '../data/mods/furfrou/formats';
 import { Formats as Blindsided                  } from '../data/mods/g9blindsided/formats';
+import { Formats as GamenightCAP                } from '../data/mods/gamenightcap/formats';
 import { Formats as gen9Duomod                  } from '../data/mods/g9duomod/formats';
 import { Formats as gen1Azure                   } from '../data/mods/gen1azure/formats';
 import { Formats as gen1BacktothePast           } from '../data/mods/gen1backtothepast/formats';
@@ -122,7 +123,7 @@ import { Formats as gen9FusionEvolutionR        } from '../data/mods/gen9ferestr
 import { Formats as gen9FusionEvolutionVGC      } from '../data/mods/gen9fevgc/formats';
 import { Formats as gen9Multiverse              } from '../data/mods/gen9multiverse/formats';
 //import { Formats as gen9SSB                     } from '../data/mods/gen9ssb/formats';
-import { Formats as gen9Strong                  } from '../data/mods/gen9strong/formats';
+import { Formats as gen9Weak                    } from '../data/mods/gen9weak/formats';
 import { Formats as gen9Ubermons                } from '../data/mods/gen9ubermons/formats';
 import { Formats as VaporeMons                  } from '../data/mods/gen9vaporemons/formats';
 import { Formats as gen9VGC20XX                 } from '../data/mods/gen9vgc20xx/formats';
@@ -218,6 +219,7 @@ import { Formats as SpookyMod                   } from '../data/mods/spookymod/f
 //import { Formats as Stadium                     } from '../data/mods/stadium/formats';
 import { Formats as StadiumYB                   } from '../data/mods/stadiumyb/formats';
 import { Formats as Stereotypes                 } from '../data/mods/stereotypes/formats';
+import { Formats as SU                 			} from '../data/mods/subzeroused/formats';
 import { Formats as SuperSmashOMs               } from '../data/mods/supersmashoms/formats';
 //import { Formats as SuperTypesOU                } from '../data/mods/supertypesou/formats';
 //import { Formats as SylveMonsTest               } from '../data/mods/sylvemonstest/formats';
@@ -241,6 +243,7 @@ import { Formats as WhiteTusk                   } from '../data/mods/whitetusk/f
 import { Formats as Woomod                      } from '../data/mods/woomod/formats';
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
+import { Formats as ZADraft						} from '../data/mods/zadraft/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -384,6 +387,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,
@@ -409,7 +413,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
 	...PonymonShowdown,
-	...gen9Strong,
 	...Pokemorty,
 	...gen1Recolored,
 	...RockBottom,
@@ -428,6 +431,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1TradebacksExpanded,
 	...UpsideDown,
 	...gen1VioletVersion,
+	...gen9Weak,
 	...WeatherWar,
 	...Weedmons,
 	...Woomod,
@@ -489,6 +493,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...FurfrOU,
 	...LittlestCup,
 	...PLZA,
+	...SU,
 	...TPDP,
 	...WhiteTusk,
 	
@@ -497,4 +502,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	...gen3OURandomSampleTeam,
+
+	{
+		section: "Temporary Tour Metas",
+		column: 3,
+	},
+	...ZADraft,
 ];

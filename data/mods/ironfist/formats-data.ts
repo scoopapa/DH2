@@ -80,7 +80,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DIF",
 	},
 	crabominable: {
-		tier: "Unviable",
+		tier: "Untested",
 		doublesTier: "DIF",
 	},
 	samurottsinnoh: {
@@ -197,7 +197,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DIF",
 	},
 	hitmontop: {
-		tier: "Unviable",
+		tier: "Untested",
 		doublesTier: "DIF",
 	},
 	zelda: {
@@ -513,7 +513,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DIF",
 	},
 	minunandplusled: {
-		tier: "Unviable",
+		tier: "Untested",
 		doublesTier: "DIF",
 	},
 	silvallystellar: {
@@ -820,6 +820,87 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	girafarigmega: {
 		tier: "Viable",
+		doublesTier: "DIF",
+	},
+
+	charjabug: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	fatfuck: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	flygon: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	vishzolt: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	flaaffy: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	murcowd: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	greenguillotina: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	burmysand: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	'1000threarthmover': {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	pronouns: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	lemonganiumlemonga: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	miniormeteor: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	kanon: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	kanonbluesea: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	marlboro: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	dip: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	bluminion: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	biganvilmega: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	melmetal3: {
+		tier: "Untested",
+		doublesTier: "DIF",
+	},
+	birbevilbot: {
+		tier: "Untested",
 		doublesTier: "DIF",
 	},
 };

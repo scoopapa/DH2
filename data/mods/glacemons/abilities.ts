@@ -819,10 +819,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onModifyMove(move) {},
 		onDamagingHit(damage, target, source, move) {
+			if (this.effectState.stench) return;
 			source.addVolatile('torment');
+			this.effectState.stench = true;
+
 		},
-		desc: "Torments any target hitting this Pokemon.",
-		shortDesc: "Torments any target hitting this Pokemon.",
+		onSwitchIn(pokemon) {
+			delete this.effectState.stench;
+		},
+		desc: "Torments any target hitting this Pokemon. Once per switch-in.",
+		shortDesc: "Torments any target hitting this Pokemon. Once per switch-in.",
 	},
 	nostalgiatrip: {
 		shortDesc: "All moves used by or against this Pokemon ignore the Physical/Special split. Fairy-type = Special.",
@@ -1225,25 +1231,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
-		onEatItem(pokemon) {
-			if (pokemon.shieldBoost) return;
-			pokemon.shieldBoost = true;
-			pokemon.setItem(pokemon.lastItem);
-			pokemon.lastItem = '';
-			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Resourceful');
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.resourceful) return;
+			pokemon.resourceful = true;
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Resourceful');
+			pokemon.setItem(item);
 		},
-		onAfterUseItem(pokemon) {
-			if (pokemon.swordBoost) return;
-			pokemon.swordBoost = true;
-			this.actions.runEvent('UseItem', this, null, null, pokemon.getItem())
-		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			pokemon.swordBoost = false;
-		},
-		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
-		shortDesc: "Items trigger twice, and can avoid being consumed once.",
+		desc: "Items are recycled once after use.",
+		shortDesc: "Items are recycled once after use.",
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

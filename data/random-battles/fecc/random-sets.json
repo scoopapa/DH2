@@ -985,7 +985,7 @@
         ]
     },
 	"beetar": {
-        "level": 93,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1140,7 +1140,7 @@
     	]
 	},
 	"fiskomagalar": {
-        "level": 97,
+        "level": 90,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -1160,7 +1160,7 @@
         ]
     },
 	"yvenne": {
-        "level": 87,
+        "level": 85,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1215,7 +1215,7 @@
     	]
 	},
 	"araquacroak": {
-        "level": 92,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1305,7 +1305,7 @@
         ]
     },
 	"necromaneduskmane": {
-        "level": 82,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1446,7 +1446,7 @@
     },
 	
 	"lurret": {
-        "level": 80,
+        "level": 82,
         "sets": [
 			{
                 "role": "Setup Sweeper",
@@ -1461,7 +1461,7 @@
         ]
     },
 	"bibaminsky": {
-        "level": 81,
+        "level": 85,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1471,7 +1471,7 @@
         ]
     },
 	"wokedog": {
-        "level": 84,
+        "level": 88,
         "sets": [
 			{
                 "role": "AV Pivot",
@@ -1481,7 +1481,7 @@
         ]
     },
 	"espathrem": {
-        "level": 80,
+        "level": 84,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1546,7 +1546,7 @@
         ]
     },
 	"grenospaldeaaqua": {
-        "level": 80,
+        "level": 82,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1596,7 +1596,7 @@
         ]
     },
 	"xatoking": {
-        "level": 90,
+        "level": 92,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1611,7 +1611,7 @@
         ]
     },
 	"shedlurk": {
-        "level": 95,
+        "level": 90,
         "sets": [
 			{
                 "role": "Setup Sweeper",
@@ -1621,7 +1621,7 @@
         ]
     },
 	"whiskiaorigin": {
-        "level": 82,
+        "level": 87,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1641,7 +1641,7 @@
         ]
     },
 	"fiskiarygalar": {
-        "level": 82,
+        "level": 85,
         "sets": [
 			{
                 "role": "Bulky Setup",
@@ -1701,7 +1701,7 @@
         ]
     },
 	"heliogre": {
-        "level": 94,
+        "level": 100,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1841,7 +1841,7 @@
         ]
     },
 	"cramoraid": {
-        "level": 95,
+        "level": 90,
         "sets": [
 			{
                 "role": "Bulky Attacker",
@@ -1931,7 +1931,7 @@
         ]
     },
 	"toxicott": {
-        "level": 83,
+        "level": 87,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1946,7 +1946,7 @@
         ]
     },
 	"lycaneopsmidnight": {
-        "level": 80,
+        "level": 85,
         "sets": [
 			{
                 "role": "Setup Sweeper",
@@ -1976,7 +1976,7 @@
         ]
     },
 	"regipult": {
-        "level": 75,
+        "level": 78,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -2036,7 +2036,7 @@
         ]
     },
 	"chompgiri": {
-        "level": 76,
+        "level": 82,
         "sets": [
 			{
                 "role": "Fast Support",
@@ -2081,7 +2081,7 @@
         ]
     },
 	"ironstar": {
-        "level": 80,
+        "level": 83,
         "sets": [
 			{
                 "role": "Bulky Setup",

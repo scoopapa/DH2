@@ -332,4 +332,41 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Dark",
 		contestType: "Cool",
 	},
+	hydrosteam: {
+		inherit: true,
+    	isNonstandard: null,
+    	gen: 5,
+	},
+	icespinner: {
+		inherit: true,
+    	isNonstandard: null,
+    	gen: 5,
+	},
+	aurorabeam: {
+		inherit: true,
+		basePower: 70,
+	},
+	shockwave: {
+		inherit: true,
+		basePower: 70,
+	},
+	firepledge: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onSideStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Fire Pledge');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1,
+			onResidual(pokemon) {
+				if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 8,
+			onSideEnd(targetSide) {
+				this.add('-sideend', targetSide, 'Fire Pledge');
+			},
+		},
+	},
 };

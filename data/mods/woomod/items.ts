@@ -1,10 +1,10 @@
-export const Items: {[itemid: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	belliboltkeychain: {
 		name: "Bellibolt Keychain",
-		shortDesc: "Tadbulb: contact moves lower the target's SpD by 1.",
+		shortDesc: "Tadbulb: moves lower the target's SpD by 1.",
 		onSourceDamagingHit(damage, target, source, move) {
-			if (!source.baseSpecies.name === 'Tadbulb') return;
-			this.boost({spd: -1}, target, source, null, true);
+			if (source.baseSpecies.name !== 'Tadbulb') return;
+			this.boost({ spd: -1 }, target, source, null, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.name === 'Tadbulb') return false;
@@ -84,33 +84,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Farfetch'd"],
 	},
 	dragonairite: {
- 		name: "Dragonairite",
- 		megaStone: "Dragonair-Mega",
+		name: "Dragonairite",
+		megaStone: "Dragonair-Mega",
 		megaEvolves: "Dragonair",
- 		itemUser: ["Dragonair"],
- 		onTakeItem(item, source) {
-            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-            return true;
- 		},
+		itemUser: ["Dragonair", "Dragonair-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		shortDesc: "If held by a Dragonair, this item allows it to Mega Evolve in battle.",
 	},
 	amaurite: {
- 		name: "Amaurite",
- 		megaStone: "Amaura-Mega",
+		name: "Amaurite",
+		megaStone: "Amaura-Mega",
 		megaEvolves: "Amaura",
- 		itemUser: ["Amaura"],
- 		onTakeItem(item, source) {
-            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-            return true;
+		itemUser: ["Amaura", "Amaura-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
- 	},
+		shortDesc: "If held by an Amaura, this item allows it to Mega Evolve in battle.",
+	},
 	superpikachumegastone: {
- 		name: "Super Pikachu Mega Stone",
+		name: "Super Pikachu Mega Stone",
 		megaStone: "Pikachu-Mega",
 		megaEvolves: "Pikachu",
- 		itemUser: ["Pikachu"],
- 		onTakeItem(item, source) {
-            if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-            return true;
+		itemUser: ["Pikachu", "Pikachu-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
- 	},
+		shortDesc: "pikachu mega evolve",
+	},
 };

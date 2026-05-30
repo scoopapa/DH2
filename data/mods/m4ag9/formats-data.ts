@@ -18,7 +18,80 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	perrserkermegabusted: {},
 	miniormega: {},
 	miniormegameteor: {},
+	// Champions
+	clefablemega: {
+		isNonstandard: null,
+	},
+	victreebelmega: {
+		isNonstandard: null,
+	},
+	starmiemega: {
+		isNonstandard: null,
+	},
+	dragonitemega: {
+		isNonstandard: null,
+	},
+	meganiummega: {
+		isNonstandard: null,
+	},
+	feraligatrmega: {
+		isNonstandard: null,
+	},
+	skarmorymega: {
+		isNonstandard: null,
+	},
+	chimechomega: {
+		isNonstandard: null,
+	},
+	froslassmega: {
+		isNonstandard: null,
+	},
+	emboarmega: {
+		isNonstandard: null,
+	},
+	excadrillmega: {
+		isNonstandard: null,
+	},
+	chandeluremega: {
+		isNonstandard: null,
+	},
+	golurkmega: {
+		isNonstandard: null,
+	},
+	chesnaughtmega: {
+		isNonstandard: null,
+	},
+	delphoxmega: {
+		isNonstandard: null,
+	},
+	greninjamega: {
+		isNonstandard: null,
+	},
 	floetteeternal: {
-		tier: "Heat!",
+		isNonstandard: null,
+	},
+	floettemega: {
+		isNonstandard: null,
+	},
+	/**meowsticmmega: {
+		isNonstandard: null,
+	},
+	meowsticfmega: {
+		isNonstandard: null,
+	},*/
+	hawluchamega: {
+		isNonstandard: null,
+	},
+	crabominablemega: {
+		isNonstandard: null,
+	},
+	drampamega: {
+		isNonstandard: null,
+	},
+	scovillainmega: {
+		isNonstandard: null,
+	},
+	glimmoramega: {
+		isNonstandard: null,
 	},
 };

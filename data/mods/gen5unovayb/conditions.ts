@@ -77,16 +77,12 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.randomChance(1, 10)) {
-				pokemon.cureStatus();
-				return;
-			}
-  		if (this.field.isWeather('snow')) {
-				this.damage(pokemon.baseMaxhp / 8);
-				return;
-			} else {
-			  this.damage(pokemon.baseMaxhp / 16);
-      }
+	  		if (this.field.isWeather('snow')) {
+					this.damage(pokemon.baseMaxhp / 8);
+					return;
+				} else {
+				  this.damage(pokemon.baseMaxhp / 16);
+	      }
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			this.debug('Freeze extra damage');
@@ -185,9 +181,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (!move || !target) return;
 			if (this.effectState.gemUsed) return;
 			this.effectState.gemUsed = true;
-			if (source.status === 'brn') {
-				source.cureStatus();
-			}
+			source.addVolatile('aquaring');
 		},
 	},
 	grassgem: {
@@ -198,7 +192,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (!move || !target) return;
 			if (this.effectState.gemUsed) return;
 			this.effectState.gemUsed = true;
-			if (source.status === 'psn' || source.status === 'tox') {
+			if (source.status) {
 				source.cureStatus();
 			}
 		},
@@ -211,8 +205,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (!move || !target) return;
 			if (this.effectState.gemUsed) return;
 			this.effectState.gemUsed = true;
-			if (source.status === 'frz') {
-				source.cureStatus();
+			for (const side of source.side.foeSidesWithConditions()) {
+				side.addSideCondition('firepledge');
 			}
 		},
 	},
@@ -324,12 +318,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (!move || !target) return;
 			if (this.effectState.gemUsed) return;
 			this.effectState.gemUsed = true;
-			if (source.hp) {
-				const item = target.takeItem();
-				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
-				}
-			}
+			target.addVolatile('embargo');
 		},
 	},
 	steelgem: {

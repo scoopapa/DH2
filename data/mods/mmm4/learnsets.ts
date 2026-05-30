@@ -2716,7 +2716,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			spikes: ["9L1"],
 			stoneedge: ["9L1"],
 			thunderwave: ["9L1"],
-			toxic: ["9L1"],
 		},
 	},
 	castform: {
