@@ -420,8 +420,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if ((!target || target.fainted || target.hp <= 0) && this.field.pseudoWeather.trickroom) {
-				this.useMove('trickroom', pokemon);
-				this.useMove('trickroom', pokemon);
+				this.field.removePseudoWeather('trickroom');
+        		this.field.addPseudoWeather('trickroom', pokemon, pokemon, move);
 			}
 		},
 	},
