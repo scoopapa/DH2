@@ -1471,5 +1471,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	blazingtorque: {
 		inherit: true,
 		isNonstandard: null,
-	}
+	},
 };
