@@ -1468,4 +1468,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	}
 };
