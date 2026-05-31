@@ -1251,7 +1251,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	//slate 5
 	pecharunt: {
 		inherit: true,
-		abilities: {0: "Poison Puppeteer", 1: "Stench", H: "Merciless"},
+		abilities: {0: "Poison Puppeteer", H: "Merciless"},
 	},
 	mantine: {
 		inherit: true,

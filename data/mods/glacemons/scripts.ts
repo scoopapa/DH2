@@ -3114,5 +3114,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'registeel').learnset.railgun = ['9M'];
 		// may 28 2026
 		this.modData('Learnsets', 'haxorus').learnset.shiftgear = ['9M'];
+		// weird bandaid for champs
+		this.modData('Learnsets', 'floetteeternal').learnset.hiddenpower = ['9M'];
 	}
 };
