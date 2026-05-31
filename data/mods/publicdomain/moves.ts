@@ -614,6 +614,92 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Tough",
 	},
+	stelmosfire: {
+		name: "St. Elmo's Fire",
+		type: "Psychic",
+		category: "Physical",
+		basePower: 65,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Wheel", target);
+		},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: St. Elmo\'s Fire', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	overray: {
+		name: "Over Ray",
+		shortDesc: "1.5x power in Meteor Shower or Sun.",
+		target: "normal",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 40,
+		pp: 30,
+		accuracy: 100,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flash", target);
+		},
+		onBasePower(basePower, pokemon, target) {
+			const strongWeathers = ['sunnyday', 'meteorshower'];
+			if (strongWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('strongened by weather');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	hyperrealisticquack: {
+		name: "Hyperrealistic Quack",
+		type: "Flying",
+		category: "Special",
+		basePower: 95,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "No additional effect. Hits adjacent foes.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Chatter", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+	},
+	dragonascent: {
+		name: "Dragon Ascent",
+		type: "Flying",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		overrideOffensiveStat: 'def',
+		secondary: null,
+		target: "normal",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
