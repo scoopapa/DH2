@@ -533,7 +533,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Big Pecks",
-		shortDesc: "Holder's Speed is raised by 2 for each of its stats that is lowered by a Foe.",
+		shortDesc: "Holder's Attack is raised by 2 for each of its stats that is lowered by a Foe.",
 	},
 	butterflystar: {
 		onModifyMovePriority: 1,
