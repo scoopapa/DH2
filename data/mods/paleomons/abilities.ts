@@ -46,6 +46,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 
+	genteisprotection: {
+		name: "Gentei's Protection",
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move' && this.field.pseudoWeather.trickroom) {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		shortDesc: "In Trick Room: Immune to indirect damage.",
+	},
+
 	headbarrage: {
 		name: "Head Barrage",
 		shortDesc: "All Special moves used by the user become physical and add 25% recoil.",
@@ -107,6 +119,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 		},
 		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def when hit by Ice.",
+		flags: {breakable: 1},
 		rating: 4,
 	},
 
@@ -114,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.totalDamage && !pokemon.forceSwitchFlag) {
-				this.heal(move.totalDamage / 8, pokemon);
+				this.heal(move.totalDamage / 8, pokemon, pokemon);
 			}
 		},
 		flags: {},

@@ -363,6 +363,68 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	bleakwindstorm: {
+		inherit: true,
+		isNonStandard: null,
+		pp: 5,
+		shortDesc: "1.5x power and can't miss in Snow. Sets target's ability to Delta Stream.",
+		secondary: null,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['snow'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+				move.basePower *= 1.5;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('deltastream');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Delta Stream', '[from] move: Bleakwind Storm');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+	},
+	wildboltstorm: {
+		inherit: true,
+		isNonStandard: null,
+		pp: 5,
+		shortDesc: "Can't miss in Rain; sets Rain.",
+		secondary: null,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			this.field.setWeather('raindance');
+		}
+	},
+	sandsearstorm: {
+		inherit: true,
+		isNonStandard: null,
+		basePower: 110,
+		shortDesc: "30% chance to Burn the target. Can't miss in Sandstorm or Sun.",
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		type: "Rock",
+	},
+	springtidestorm: {
+		inherit: true,
+		isNonStandard: null,
+		accuracy: 100,
+		category: "Physical",
+		pp: 10,
+		shortDesc: "Resets Trick Room if this KOes the target.",
+		secondary: null,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if ((!target || target.fainted || target.hp <= 0) && this.field.pseudoWeather.trickroom) {
+				this.field.removePseudoWeather('trickroom');
+        		this.field.addPseudoWeather('trickroom', pokemon, pokemon, move);
+			}
+		},
+	},
 	
 	//vanilla moves affected by other customs
 	toxicspikes: {

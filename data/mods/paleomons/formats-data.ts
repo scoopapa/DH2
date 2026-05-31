@@ -359,4 +359,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	thundurusestival: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	tornadushibernal: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	landorushourglass: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	enamorusgenbu: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 };
