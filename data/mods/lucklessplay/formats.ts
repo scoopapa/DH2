@@ -8,7 +8,7 @@ export const Formats: FormatData[] = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Luckless Play Doubles OU",
+		name: "[Gen 9] Luckless Play Doubles",
 		mod: 'lucklessplay',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
@@ -21,7 +21,7 @@ export const Formats: FormatData[] = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
 	},
 	{
-		name: "[Gen 8] Luckless Play Doubles OU",
+		name: "[Gen 8] Luckless Play Doubles",
 		mod: 'gen8lucklessplay',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Hax Meter Rule'],
