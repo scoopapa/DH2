@@ -103,7 +103,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	starfall: {
 		name: "Starfall",
@@ -314,7 +314,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ spe: -1 });
 			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', '24karatlabubu'];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
@@ -652,7 +652,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		category: "Physical",
-		basePower: 40,
+		basePower: 60,
 		pp: 30,
 		accuracy: 100,
 		priority: 1,
