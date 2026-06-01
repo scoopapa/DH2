@@ -15,13 +15,13 @@
 		"sets": [
 			{
 				"role": "Bulky Support",
-				"movepool": ["Will-O-Wisp", "Knock Off", "Poison Jab", "Mortal Spin", "Rapid Spin"],
+				"movepool": ["Will-O-Wisp", "Knock Off", "Gunk Shot", "Rapid Spin"],
 				"abilities": ["Pressure"],
 				"teraTypes": ["Poison"]
 			},
 			{
 				"role": "AV Pivot",
-				"movepool": ["Knock Off", "Mortal Spin", "Rapid Spin", "Volt Switch"],
+				"movepool": ["Knock Off", "Gunk Shot", "Rapid Spin", "Volt Switch"],
 				"abilities": ["Pressure"],
 				"teraTypes": ["Poison"]
 			}
@@ -32,8 +32,8 @@
 		"sets": [
 			{
 				"role": "Bulky Support",
-				"movepool": ["Defog", "Thunder Wave", "Hurricane", "Recover"],
-				"abilities": ["Analytic"],
+				"movepool": ["Defog", "Thunder Wave", "Poltergust", "Recover"],
+				"abilities": ["Luigi Logic"],
 				"teraTypes": ["Flying"]
 			}
 		]
@@ -166,8 +166,8 @@
 		"sets": [
 			{
 				"role": "Fast Attacker",
-				"movepool": ["Parting Shot", "Ice Beam", "Moonblast", "Aura Sphere"],
-				"abilities": ["Pickpocket"],
+				"movepool": ["Parting Shot", "Jack Bufula", "Moonblast", "Aura Sphere"],
+				"abilities": ["Omagatoki"],
 				"teraTypes": ["Ice"]
 			}
 		]
@@ -211,13 +211,13 @@
 		"sets": [
 			{
 				"role": "Bulky Attacker",
-				"movepool": ["Shade Mend", "Play Rough", "Poltergeist", "Headlong Rush"],
+				"movepool": ["Recover", "Play Rough", "Poltergeist", "Headlong Rush"],
 				"abilities": ["Shadow Pounce"],
 				"teraTypes": ["Ghost"]
 			},
 			{
 				"role": "Bulky Support",
-				"movepool": ["Shade Mend", "Spikes", "Poltergiest", "High Horsepower"],
+				"movepool": ["Recover", "Spikes", "Poltergiest", "High Horsepower"],
 				"abilities": ["Shadow Pounce"],
 				"teraTypes": ["Ghost"]
 			}
@@ -239,7 +239,7 @@
 		"sets": [
 			{
 				"role": "Bulky Support",
-				"movepool": ["Parting Shot", "Body Press", "Knock Off", "Dragon Tail"],
+				"movepool": ["U-Turn", "Body Press", "Knock Off", "Dragon Tail"],
 				"abilities": ["Intimidate"],
 				"teraTypes": ["Dragon"]
 			}
@@ -301,13 +301,13 @@
 		"sets": [
 			{
 				"role": "Fast Support",
-				"movepool": ["Future Sight", "Light Screen", "Reflect", "U-turn"],
+				"movepool": ["Future Sight", "Light Screen", "Reflect", "Scald"],
 				"abilities": ["Magic Guard"],
 				"teraTypes": ["Psychic"]
 			},
 			{
 				"role": "Bulky Attacker",
-				"movepool": ["Scald", "Psychic Noise", "Psyshock", "Future Sight", "Recover", "U-turn"],
+				"movepool": ["Scald", "Psychic Noise", "Psyshock", "Future Sight", "Recover"],
 				"abilities": ["Magic Guard"],
 				"teraTypes": ["Psychic"]
 			}
@@ -318,7 +318,7 @@
 		"sets": [
 			{
 				"role": "Setup Sweeper",
-				"movepool": ["Swords Dance", "Brave Bird", "Flare Blitz", "Play Rough", "Mach Punch", "Bullet Punch"],
+				"movepool": ["Swords Dance", "Brave Bird", "Blaze Kick", "Play Rough", "Mach Punch", "Bullet Punch"],
 				"abilities": ["Justified", "Reckless"],
 				"teraTypes": ["Flying"]
 			}
@@ -329,7 +329,7 @@
 		"sets": [
 			{
 				"role": "Setup Sweeper",
-				"movepool": ["Swords Dance", "Upperdash Arm", "Bullet Punch", "Sacred Fire"],
+				"movepool": ["Swords Dance", "Upperdash Arm", "Bullet Punch", "Blaze Kick"],
 				"abilities": ["Justified"],
 				"teraTypes": ["Flying"]
 			},
@@ -363,7 +363,7 @@
 		"sets": [
 			{
 				"role": "Bulky Support",
-				"movepool": ["Infected Dreams", "Bug Buzz", "Spikes", "Morning Sun", "Teleport"],
+				"movepool": ["Infected Dreams", "Earth Power", "Spikes", "Morning Sun", "Teleport"],
 				"abilities": ["Blinding Light"],
 				"teraTypes": ["Bug"]
 			}
@@ -375,7 +375,7 @@
 			{
 				"role": "Bulky Support",
 				"movepool": ["Strength Sap", "Psychic Noise", "Shadow Ball", "Leaf Storm"],
-				"abilities": ["Flash Fire"],
+				"abilities": ["Effect Spore"],
 				"teraTypes": ["Grass"]
 			}
 		]
@@ -441,7 +441,7 @@
 		"sets": [
 			{
 				"role": "Fast Support",
-				"movepool": ["First Impression", "U-Turn", "Iron Head", "Stealth Rock"],
+				"movepool": ["Blazing Torque", "U-Turn", "Iron Head", "Stealth Rock"],
 				"abilities": ["Weak Armor"],
 				"teraTypes": ["Steel"]
 			}
@@ -671,6 +671,12 @@
 				"role": "Bulky Attacker",
 				"movepool": ["Splat Bomb", "Overdrive", "Boomburst", "Psychic Noise"],
 				"abilities": ["Quark Drive"],
+				"teraTypes": ["Poison"]
+			},
+			{
+				"role": "Choice Item User",
+				"movepool": ["Splat Bomb", "Volt Switch", "Bullet Punch", "Drain Punch"],
+				"abilities": ["Launched Fist"],
 				"teraTypes": ["Poison"]
 			}
 		]
