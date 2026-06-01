@@ -811,7 +811,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		auroraveil: {
   inherit: true,
   onTry() {
             return this.field.isWeather(['hail', 'snowscape']);
