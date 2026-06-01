@@ -674,7 +674,7 @@
 				"teraTypes": ["Poison"]
 			},
 			{
-				"role": "Choice Item User",
+				"role": "Choice Item user",
 				"movepool": ["Splat Bomb", "Volt Switch", "Bullet Punch", "Drain Punch"],
 				"abilities": ["Launched Fist"],
 				"teraTypes": ["Poison"]
