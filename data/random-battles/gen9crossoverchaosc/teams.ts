@@ -653,7 +653,8 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'amingo' && role === 'Bulky Setup') return 'Rocky Helmet';
 		if (species.id === 'berdly') return 'Life Orb';
 		if (species.id === 'roy') return this.sample(['Life Orb', 'Heavy-Duty Boots']);
-		if (species.id === 'djoctavio') return 'Booster Energy';
+		if (species.id === 'djoctavio' && role === 'Bulky Attacker') return 'Booster Energy';
+		if (species.id === 'djoctavio' && role === 'Choice Item user') return 'Choice Specs';
 		if (species.id === 'hornet' && role === 'Fast Support') return 'Focus Sash';
 		if (species.id === 'hornet' && role === 'Choice Item user') return 'Choice Band';
 		if (species.id === 'scout') return 'Choice Band';
@@ -667,7 +668,7 @@ export class RandomCCVCTeams extends RandomTeams {
 		if (species.id === 'mawjaw') return 'Rocky Helmet';
 		if (species.id === 'morian' && role === 'Bulky Attacker') return 'Leftovers';
 		if (species.id === 'eox' && role === 'Bulky Setup') return 'Leftovers';
-		
+
 		if (counter.get('skilllink') && ability !== 'Skill Link') return 'Loaded Dice';
 		if (ability === 'Sand Stream') return 'Smooth Rock';
 		if (ability === 'Drought' && role !== 'Setup Sweeper') return 'Heat Rock';
