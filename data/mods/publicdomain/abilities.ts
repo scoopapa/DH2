@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.isWeather('raindance')) {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 16, target, target);
 			}
 		},
 		flags: {},
