@@ -805,6 +805,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd(side) {
 				this.add('-sideend', side, 'move: Aurora Veil');
 			},
+			auroraveil: {
+  			inherit: true,
+  			onTry() {
+            return this.field.isWeather(['hail', 'snowscape']);
+			}
+        },
 		},
 		secondary: null,
 		target: "allySide",
