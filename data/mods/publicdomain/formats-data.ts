@@ -87,7 +87,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
-	amoongusfairyring: {
+	amoongussfairyring: {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
@@ -155,4 +155,29 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DPDOU",
 	},
+	assistakyuu: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	porygon10: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	pimento: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	fug: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	fugmega: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	goodrahisuireallife: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+
 };

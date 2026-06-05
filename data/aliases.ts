@@ -904,7 +904,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	fini: "Tapu Fini",
 	florg: "Florges",
 	forry: "Forretress",
-	fug: "Rayquaza",
+	//fug: "Rayquaza",
 	galv: "Galvantula",
 	gambit: "Kingambit",
 	gar: "Gengar",

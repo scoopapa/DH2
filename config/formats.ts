@@ -391,7 +391,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,
-	...gen8HaxMeters,
+	...HaxMeters,
 	//...gen3Hoennification, 
 	//...iforgor,
 	...gen1JohtoMons,
