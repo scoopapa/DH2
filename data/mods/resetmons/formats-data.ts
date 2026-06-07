@@ -47,4 +47,40 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Resetmons",
 		doublesTier: "Resetmons Doubles",
 	},
+	arachedge: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	horspiral: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	unnamedelectricpossum: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	terascatter: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	gen6gar: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	entophasm: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	charmera: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	arcawing: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	faefloss: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
 }
