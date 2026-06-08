@@ -132,8 +132,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						disabled: false,
 						used: false,
 					};
-					source.moveSlots[source.moveSlots.length] = learnedMove;
-					source.baseMoveSlots[source.moveSlots.length] = learnedMove;
+					source.moveSlots.push(learnedMove);
+					source.baseMoveSlots.push(learnedMove);
 					target.moveSlots.splice(i, 1);
 					target.baseMoveSlots.splice(i, 1);
 					source.stole = true;
