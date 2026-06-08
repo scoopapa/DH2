@@ -362,7 +362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Kangesa",
 		types: ["Normal", "Ground"],
 		gender: "F",
-		baseStats: {hp: 125, atk: 95, def: 90, spa: 60, spd: 90, spe: 90},
+		baseStats: {hp: 115, atk: 95, def: 90, spa: 60, spd: 90, spe: 90},
 		abilities: {0: "Parental Bond", 1: "Scrappy", H: "Thick Fat"},
 		heightm: 2.2,
 		weightkg: 100,
