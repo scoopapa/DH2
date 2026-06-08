@@ -4906,4 +4906,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	aufcorse: {
 		tier: "OU",
 	},
+	strechterror: {
+		tier: "OU",
+	},
+	kangesa: {
+		tier: "OU",
+	},
+	floetteange: {
+		tier: "OU",
+	},
+	glimmortis: {
+		tier: "OU",
+	},
 };
