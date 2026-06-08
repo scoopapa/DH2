@@ -243,6 +243,7 @@ import { Formats as WhiteTusk                   } from '../data/mods/whitetusk/f
 import { Formats as Woomod                      } from '../data/mods/woomod/formats';
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
+import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
 import { Formats as ZADraft						} from '../data/mods/zadraft/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
@@ -436,6 +437,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Weedmons,
 	...Woomod,
 	//...YayaMons
+	...Yokaimons,
 
 	/*{
 		section: "Randbats",
