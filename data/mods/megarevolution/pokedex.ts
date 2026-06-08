@@ -342,7 +342,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	strechterror: {
 		num: 2020,
 		name: "Strechterror",
-		types: ["Ghost", "Poison"],
+		types: ["Ghost", "Rock"],
 		baseStats: {hp: 60, atk: 130, def: 60, spa: 65, spd: 75, spe: 110},
 		abilities: {0: "Long Reach", H: "Shadow Tag"},
 		heightm: 1.4,
@@ -373,6 +373,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	floette: {
 		inherit: true,
 		otherFormes: ["Floette-Eternal", "Floette-Ange"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Ange"],
 	},
 	floetteange: {
 		num: 670,
@@ -387,6 +388,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 100.8,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cosmeticFormes: null,
 	},
 	glimmora: {
 		inherit: true,
