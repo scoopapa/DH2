@@ -246,6 +246,22 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "Uber",
 		doublesTier: "DOU",
 	},
+	rotoweezheatgalar: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	yveljabug: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	golisogus: {
+		tier: "FERE",
+		doublesTier: "DOU",
+	},
+	yawimpgalar: {
+		tier: "FERELC",
+		doublesTier: "DOU",
+	},
   // Silverade
 	silveradebug: {
 		tier: "Silverade",
