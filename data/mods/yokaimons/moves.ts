@@ -13,6 +13,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		stallingMove: true,
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, 'Spike Cannon', pokemon);
 			if (pokemon.activeMoveActions === 0) return true;
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
@@ -25,7 +27,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(target) {
 				this.add('-singleturn', target, 'Guard');
 			},
-			onBeforeMovePriority: 10,
+			onBeforeMovePriority: 9,
 			onBeforeMove(pokemon, target, move) {
 				if (move.id !== 'guard') {
 					pokemon.removeVolatile('guard');
@@ -55,6 +57,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		tracksTarget: true,
 		volatileStatus: 'pin',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Spike Cannon', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -97,6 +103,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Refresh', target);
+		},
 		onTryHit(pokemon) {
 			const hasInspirit = Object.keys(pokemon.volatiles).some(volatile => {
 				const condition = this.dex.conditions.get(volatile);
@@ -131,6 +141,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Ember', target);
+		},
 		secondary: {
 			chance: 50,
 			status: 'brn',
@@ -148,6 +162,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Flamethrower', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Fire",
@@ -161,6 +179,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "No additional effect.",
 		pp: 10,
 		priority: 0,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Inferno', target);
+		},
 		flags: {protect: 1},
 		secondary: null,
 		target: "any",
@@ -176,6 +198,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Water Gun', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Water",
@@ -190,6 +216,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Whirlpool', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Water",
@@ -204,6 +234,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Water Spout', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Water",
@@ -213,17 +247,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 65,
 		category: "Special",
 		name: "Shock",
-		shortDesc: "50% chance to burn the target.",
-		desc: "50% chance to burn the target.",
+		shortDesc: "50% chance to paralyze the target.",
+		desc: "50% chance to paralyze the target.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Shock Wave', target);
+		},
 		secondary: {
 			chance: 50,
 			status: 'par',
 		},
 		target: "any",
-		type: "Shock",
+		type: "Electric",
 	},
 	thunderbolt: {
 		accuracy: 100,
@@ -235,6 +273,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Thunderbolt', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Electric",
@@ -249,6 +291,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Thunder', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Electric",
@@ -263,6 +309,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Rock Throw', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -282,6 +332,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Rock Slide', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Rock",
@@ -296,6 +350,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Meteor Beam', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Rock",
@@ -310,6 +368,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Air Cutter', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -329,6 +391,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Gust', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -343,6 +409,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Hurricane', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -357,6 +427,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Icy Wind', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -376,6 +450,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Ice Beam', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Ice",
@@ -390,6 +468,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Blizzard', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Ice",
@@ -405,6 +487,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, protect: 1},
 		drain: [3, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Absorb', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Drain",
@@ -419,6 +505,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {heal: 1, protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Giga Drain', target);
+		},
 		drain: [1, 2],
 		secondary: null,
 		target: "any",
@@ -435,6 +525,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, protect: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Oblivion Wing', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Drain",
@@ -449,6 +543,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -473,6 +571,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -497,6 +599,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -524,6 +630,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, recharge: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Sheer Cold', target);
+		},
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
@@ -560,6 +670,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Slam', target);
+		},
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -579,6 +693,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Aeroblast', target);
+		},
 		secondary: {
 			chance: 30,
 			status: 'brn'
@@ -596,6 +714,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Slam', target);
+		},
 		secondary: {
 			chance: 100,
 			self: {
@@ -617,6 +739,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {cantusetwice: 1, protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Apple Acid', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Grass",
@@ -631,6 +757,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Splash', target);
+			this.add('-anim', source, 'Wave Crash', target);
+		},
 		onHit(target, source, move) {
 			for (const ally of target.adjacentAllies()) {
 				this.damage(Math.floor(ally.baseMaxhp / 8), ally, source, move);
@@ -655,6 +786,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Bite', target);
+		},
 		onHit(target, source, move) {
 			return target.addVolatile('trapped', source, move, 'trapper');
 		},
@@ -672,6 +807,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Slam', target);
+		},
 		recoil: [33, 100],
 		secondary: null,
 		target: "any",
@@ -702,6 +841,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Fire Lash', target);
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Water') return 1;
 		},
@@ -719,6 +862,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Ice Punch', target);
+		},
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -797,6 +944,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, protect: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Snap Trap', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Grass",
@@ -812,6 +963,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		multihit: [2, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Make It Rain', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Steel",
@@ -827,6 +982,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		recoil: [1, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Press', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Dark",
@@ -841,6 +1000,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Night Slash', target);
+		},
 		onHit(target, source, move) {
 			const drops: SparseBoostsTable = {};
 			let hasPositiveBoost = false;
@@ -868,6 +1031,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		overrideOffensivePokemon: 'target',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Mirror Shot', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Dark",
@@ -882,6 +1049,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Icy Wind', target);
+		},
 		pseudoWeather: 'darksparkles',
 		condition: {
 			duration: 1,
@@ -901,25 +1072,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allFoes",
 		type: "Dark",
 	},
-	lustrousglow: {
-		accuracy: 95,
-		basePower: 40,
-		category: "Physical",
-		name: "Lustrous Glow",
-		shortDesc: "100% chance to lower the foe(s) Strength by 1.",
-		desc: "100% chance to lower the foe(s) Strength by 1.",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				atk: -1,
-			},
-		},
-		target: "allFoes",
-		type: "Steel",
-	},
 	dragonbite: {
 		accuracy: 100,
 		basePower: 80,
@@ -930,6 +1082,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Crunch', target);
+		},
 		onHit(target, source, move) {
 			return target.addVolatile('trapped', source, move, 'trapper');
 		},
@@ -977,6 +1133,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		recoil: [1, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Slam', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Ghost",
@@ -991,6 +1151,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Strength Sap', target);
+		},
 		onAfterHit(target, source, move) {
 			for (const ally of source.adjacentAllies()) {
 				this.boost({spa: 1}, ally, source);
@@ -1033,6 +1197,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Assurance', target);
+		},
 		onModifyMove(move, pokemon) {
 			move.basePower = this.random(30, 161);
 			this.debug(`Fate's Hand base power: ${move.basePower}`);
@@ -1072,6 +1240,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Incinerate', target);
+			this.add('-anim', source, 'Slash', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Fire",
@@ -1101,6 +1274,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Bullet Punch', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Electric",
@@ -1116,6 +1293,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		hasCrashDamage: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Jump Kick', target);
+		},
 		onMoveFail(target, source, move) {
 			this.damage(source.baseMaxhp / 2, source, source, move);
 		},
@@ -1133,6 +1314,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Aqua Cutter', target);
+		},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -1184,6 +1369,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Shadow Ball', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1203,6 +1392,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Knock Off', target);
+		},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -1222,6 +1415,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Mega Punch', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Fighting",
@@ -1236,6 +1433,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {head: 1, protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Headbutt', target);
+		},
 		onHit(target, source, move) {
 			if (target.getStat('def') < source.getStat('def')) {
 				this.boost({def: -1}, target, source);
@@ -1255,6 +1456,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {head: 1, protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Head Smash', target);
+		},
 		onHit(target, source, move) {
 			if (target.getStat('def') < source.getStat('def')) {
 				this.boost({def: -1}, target, source);
@@ -1315,6 +1520,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Psycho Cut', target);
+		},
 		onAfterHit(target, source, move) {
 			const toRemove = Object.keys(target.volatiles).filter(volatile => {
 				const condition = this.dex.conditions.get(volatile);
@@ -1340,6 +1549,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Metal Sound', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1381,6 +1594,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Throat Chop', target);
+		},
 		onHit(target, source, move) {
 			if (target.hp * 2 <= target.maxhp) {
 				source.trySetStatus('slp', target);
@@ -1401,6 +1618,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Sacred Sword', target);
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dark') return 1;
 		},
@@ -1434,6 +1655,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Air Slash', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Electric",
@@ -1448,6 +1673,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Moonblast', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1456,6 +1685,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "any",
 		type: "Fairy",
+	},
+	lustrousglow: {
+		accuracy: 95,
+		basePower: 40,
+		category: "Physical",
+		name: "Lustrous Glow",
+		shortDesc: "100% chance to lower the foe(s) Strength by 1.",
+		desc: "100% chance to lower the foe(s) Strength by 1.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Flash', target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "allFoes",
+		type: "Steel",
 	},
 	masamune: {
 		accuracy: 100,
@@ -1468,6 +1720,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Sacred Sword', target);
+		},
 		secondary: {
 			chance: 20,
 			self: {
@@ -1505,6 +1761,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1},
 		ignoreEvasion: true,
 		ignoreDefensive: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Meteor Mash', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Rock",
@@ -1519,6 +1779,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Wake-Up Slap', target);
+		},
 		secondary: {
 			chance: 50,
 			self: {
@@ -1540,6 +1804,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Ceaseless Edge', target);
+		},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -1578,6 +1846,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Pluck', target);
+		},
 		onHit(target, source, move) {
 			target.addVolatile('bleed');
 		},
@@ -1628,6 +1900,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Pin Missile', target);
+		},
 		onHit(target, source, move) {
 			target.addVolatile('bleed');
 		},
@@ -1645,6 +1921,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Fell Stinger', target);
+		},
 		onHit(target, source, move) {
 			target.addVolatile('bleed');
 		},
@@ -1666,6 +1946,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		volatileStatus: 'practicedpunch',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Power-Up Punch', target);
+		},
 		condition: {
 			onStart(pokemon) {
 				this.effectState.lastMove = '';
@@ -1702,6 +1986,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Seed Flare', target);
+		},
 		secondary: {
 			chance: 100,
 			self: {
@@ -1724,6 +2012,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Razor Leaf', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Grass",
@@ -1737,21 +2029,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "High critical hit ratio.",
 		pp: 15,
 		priority: 0,
-		flags: {futuremove: 1, protect: 1},
+		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Meteor Mash', target);
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['futuremove']) {
+				return this.chainModify(0.5);
+			}
+		},
 		onHit(target, source, move) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 2,
-				move: 'returnpunch',
+				move: 'rocketpunch',
             	source: source,
 				moveData: {
-					id: 'returnpunch',
+					id: 'rocketpunch',
 					name: "Rocket Punch",
 					accuracy: 100,
 					basePower: 50,
 					category: "Physical",
 					priority: 0,
-					flags: {futuremove: 1},
+					flags: {futuremove: 1, protect: 1},
 					ignoreImmunity: false,
 					effectType: 'Move',
 					type: 'Steel',
@@ -1774,6 +2075,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		recoil: [33, 100],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Body Slam', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Dragon",
@@ -1788,6 +2093,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {heal: 1, protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Power Whip', target);
+		},
 		onAfterHit(target, source, move) {
 			for (const ally of source.alliesAndSelf()) {
 				if (!ally.fainted) this.heal(Math.floor(ally.baseMaxhp / 8), ally, source);
@@ -1807,6 +2116,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Shadow Claw', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Ghost",
@@ -1835,6 +2148,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Pound', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Normal",
@@ -1850,6 +2167,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		multihit: [3, 5],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Diamond Storm', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Steel",
@@ -1917,6 +2238,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Slash', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Steel",
@@ -1931,6 +2256,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Shock Wave', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1950,6 +2279,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Astonish', target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1969,8 +2302,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1},
-		onAfterHit(target, source, move) {
-			source.addVolatile('charge');
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			pokemon.addVolatile('charge');
 		},
 		secondary: null,
 		target: "any",
@@ -2005,6 +2338,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Fang', target);
+		},
 		onHit(target, source, move) {
 			return target.addVolatile('trapped', source, move, 'trapper');
 		},
@@ -2070,6 +2407,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Liquidation', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Water",
@@ -2085,6 +2426,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Air Cutter', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Flying",
@@ -2127,6 +2472,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Chatter', target);
+		},
 		boosts: {
 			def: -1,
 		},
@@ -2817,6 +3166,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'absence',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -2857,6 +3210,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'aimless',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -2896,6 +3253,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'alltalk',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -2935,6 +3296,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'amateur',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -2970,6 +3335,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'armordefense',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3005,6 +3374,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'auntieslove',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3044,6 +3417,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'awkwardness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3079,6 +3456,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'backpain',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3122,6 +3503,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'badbet',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3157,6 +3542,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'bananapower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3192,6 +3581,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'bedtime',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3224,6 +3617,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'berserk',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3242,7 +3639,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} went berserk and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Berserk', '[silent]');
@@ -3263,6 +3662,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'bias',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3303,6 +3706,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'bigneedlepoke',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3339,6 +3746,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'blazingheart',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3376,6 +3787,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'bossiness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3415,6 +3830,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'bratty',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3433,7 +3852,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is being a brat!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Bratty', '[silent]');
@@ -3454,6 +3875,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'bronzepower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3501,6 +3926,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'burlypower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3536,6 +3965,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'burn',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3572,6 +4005,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'careless',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3607,6 +4044,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'castlepower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3642,6 +4083,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'catchcold',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3682,6 +4127,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'cavity',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3718,6 +4167,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'cheerfulness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3753,6 +4206,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'chills',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3791,6 +4248,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'cicadaninjutsu',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3826,6 +4287,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'clumsiness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3861,6 +4326,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'cobaltpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -3896,6 +4365,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'complaints',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3935,6 +4408,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'confusion',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3953,7 +4430,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} got confused and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Confusion', '[silent]');
@@ -3974,6 +4453,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'contrariness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -3992,7 +4475,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is being a contrarian!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Contrariness', '[silent]');
@@ -4013,6 +4498,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'cursedmirror',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4048,6 +4537,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'cursedsword',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4083,6 +4576,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'cyborgstrength',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4120,6 +4617,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'dadssupport',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4155,6 +4656,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'darknesspower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4191,6 +4696,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'defenseless',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4226,6 +4735,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'delinquency',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4244,7 +4757,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is acting out!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Delinquency', '[silent]');
@@ -4265,6 +4780,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'demotivator',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4312,6 +4831,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'depression',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4351,6 +4874,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'despair',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4390,6 +4917,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'detest',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4408,7 +4939,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} lashed out!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Detest', '[silent]');
@@ -4429,6 +4962,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'diamondpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4482,6 +5019,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'disclose',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4517,6 +5058,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'distrust',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4535,7 +5080,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} got suspicious and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Distrust', '[silent]');
@@ -4556,6 +5103,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'divineprotection',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4591,6 +5142,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'dragonpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4626,6 +5181,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'dullness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4665,6 +5224,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'earthhealing',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4700,6 +5263,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'electrocute',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4736,6 +5303,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'emblaze',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4771,6 +5342,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'emeraldpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4818,6 +5393,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'enemymaker',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4836,7 +5415,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is enemies with everyone!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Enemy Maker', '[silent]');
@@ -4857,6 +5438,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'energize',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4904,6 +5489,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'enrage',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -4922,7 +5511,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is in a rage!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Enraged', '[silent]');
@@ -4943,6 +5534,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'enshroud',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -4983,6 +5578,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'envy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5001,7 +5600,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} got jealous and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Envy', '[silent]');
@@ -5022,6 +5623,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'exposeweakness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5057,6 +5662,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'facepaint',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5107,6 +5716,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'fadeaway',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5147,6 +5760,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'fallflat',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5189,6 +5806,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'falteringheart',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5236,6 +5857,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'feelingfine',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5283,6 +5908,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'fidgeting',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5322,6 +5951,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'fighterpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5359,6 +5992,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'fineweapon',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5394,6 +6031,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'fortunate',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5482,6 +6123,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'frenzy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5500,7 +6145,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} can't stop attacking!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Frenzy', '[silent]');
@@ -5521,6 +6168,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'frighten',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5598,6 +6249,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'fullofsighs',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5636,6 +6291,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'funkydance',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5674,6 +6333,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'generousheart',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5721,6 +6384,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'gildedpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5759,6 +6426,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'goldpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5806,6 +6477,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'gluttony',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5851,6 +6526,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'guide',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5890,6 +6569,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'gutsiness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5925,6 +6608,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'hateful',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -5943,7 +6630,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} lashed out!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Hateful', '[silent]');
@@ -5964,6 +6653,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'hazepower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -5999,6 +6692,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'headache',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6041,6 +6738,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'healingair',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6076,6 +6777,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'healthywakame',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6111,6 +6816,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'heartofawarrior',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6148,6 +6857,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'heartsroar',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6185,6 +6898,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'helmetdefense',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6220,6 +6937,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'holysword',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6255,6 +6976,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'illusionpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6290,6 +7015,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'insecurity',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6308,7 +7037,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} lashed out!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Insecurity', '[silent]');
@@ -6329,6 +7060,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'insomnia',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6395,6 +7130,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'itchy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6431,6 +7170,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'jealousy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6449,7 +7192,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} got jealous and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Jealousy', '[silent]');
@@ -6470,6 +7215,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'kabukifun',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6505,6 +7254,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'keepchatting',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6540,6 +7293,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'knightscurse',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6575,6 +7332,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'kombuenergy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6610,6 +7371,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'laziness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6649,6 +7414,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'legendpowerd',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6685,6 +7454,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'legendpowers',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6720,6 +7493,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'lifeisgood',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6755,6 +7532,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'lionspride',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6792,6 +7573,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'livenup',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6831,6 +7616,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'loitering',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -6870,6 +7659,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'luckssmile',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6908,6 +7701,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'luckystreak',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6946,6 +7743,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'machismo',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -6981,6 +7782,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'makeover',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7020,6 +7825,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'mamaswarmth',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7055,6 +7864,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'memoryeater',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7073,7 +7886,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} forgot who its allies are!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Memory Eater', '[silent]');
@@ -7095,6 +7910,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'miracleblossom',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7130,6 +7949,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'mirrorpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7165,6 +7988,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'mochipower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7200,6 +8027,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'musclehead',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7218,7 +8049,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Musclehead', '[silent]');
@@ -7239,6 +8072,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'mysteriouspower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7274,6 +8111,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'naptime',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7313,6 +8154,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'needlepoke',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7349,6 +8194,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'negasuswaves',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7367,7 +8216,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is being influenced!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Negasus Waves', '[silent]');
@@ -7388,6 +8239,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'negativize',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7423,6 +8278,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'neighingcurse',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7470,6 +8329,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'nosebleed',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7510,6 +8373,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'numbify',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7545,6 +8412,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'oceanpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7592,6 +8463,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'onipower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7627,6 +8502,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'optimism',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7662,6 +8541,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'overcast',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7697,6 +8580,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'pandacuteness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7732,6 +8619,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'paralyze',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7764,6 +8655,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'peerlesspower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7799,6 +8694,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'perseverence',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7836,6 +8735,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'pessimism',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7871,6 +8774,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'pitvipervenom',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -7907,6 +8814,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'platinumpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7948,6 +8859,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'playfulness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -7983,6 +8898,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'popularize',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8022,6 +8941,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'poverty',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8056,6 +8979,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'powerofsong',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8091,6 +9018,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'pruned',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8127,6 +9058,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'radicalninjutsu',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8162,6 +9097,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'rebelsoul',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8197,6 +9136,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'refusal',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8236,6 +9179,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'rhinopower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8271,6 +9218,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'riceskindness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8306,6 +9257,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'rubypower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8350,6 +9305,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'runnynose',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8393,6 +9352,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'samuraispirit',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8430,6 +9393,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'sapphirepower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8474,6 +9441,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'scaredycat',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8513,6 +9484,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'serpentspower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8548,6 +9523,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'shaking',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8587,6 +9566,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'shoulderpain',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8626,6 +9609,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'shivers',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8661,6 +9648,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'shutaway',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8700,6 +9691,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'sidesplitter',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8739,6 +9734,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'silverpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8786,6 +9785,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'skipabeat',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8821,6 +9824,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'slipperymekabu',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -8856,6 +9863,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'slowdown',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8888,6 +9899,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'snatch',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8906,7 +9921,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} tried to steal from an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Snatch', '[silent]');
@@ -8927,6 +9944,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'sogenerous',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8963,6 +9984,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'sorethroat',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -8999,6 +10024,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'stagpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9034,6 +10063,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'starve',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9074,6 +10107,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'steelpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9106,12 +10143,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Stinginess",
-		shortDesc: "After attacking, the affected Yo-kai will also attack an ally.",
-		desc: "After attacking, the affected Yo-kai will also attack an ally.",
+		shortDesc: "After attacking, the affected Yo-kai will also attack an ally. It will also steal its teammates' positive Inspirits for itself.",
+		desc: "After attacking, the affected Yo-kai will also attack an ally. It will also steal its teammates' positive Inspirits for itself.",
 		pp: 5,
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'stinginess',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9130,7 +10171,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is lashing out!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onAnyTryAddVolatile(status, target, source, effect) {
 				const pokemon = this.effectState.target;
@@ -9160,6 +10203,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'stinkup',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9197,6 +10244,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'stygiancurse',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9232,6 +10283,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'styxscurse',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9267,6 +10322,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'sulky',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9285,7 +10344,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is sulking. It attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Sulky', '[silent]');
@@ -9306,6 +10367,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'surfpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9341,6 +10406,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'sweetdreams',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9376,6 +10445,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'tengud',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9415,6 +10488,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'tigerpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9450,6 +10527,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'topazpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9497,6 +10578,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'torrentpower',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9534,6 +10619,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'trickery',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9552,7 +10641,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} was fooled into attacking an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Trickery', '[silent]');
@@ -9573,6 +10664,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'unclesshout',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9608,6 +10703,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'unpopularize',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9648,6 +10747,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1},
 		volatileStatus: 'venoctsblessing',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9683,6 +10786,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1},
 		volatileStatus: 'volcanicblessing',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -9718,6 +10825,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'wanderlust',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9753,6 +10864,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'wastefulness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9789,6 +10904,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'wrinkles',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9824,6 +10943,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1},
 		volatileStatus: 'youthdrain',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		onTryHit(target, source, move) {
 			// anyFoe replacement
 			if (target.isAlly(source)) {
@@ -9874,6 +10997,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {protect: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Dance', target);
+			this.add('-anim', source, 'Tachyon Cutter', target);
+		},
 		multihit: 9,
 		secondary: null,
 		target: "allFoes",
@@ -9890,6 +11018,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {protect: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Catastropika', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Electric",
@@ -9906,6 +11038,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'amotherslove',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -9936,6 +11072,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, protect: 1, soultimate: 1},
 		volatileStatus: 'abodaballad',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Hyper Voice', target);
+			this.add('-anim', source, 'Poison Powder', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: false,
@@ -9978,6 +11119,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'airofhappiness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -10007,10 +11152,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 10,
 		priority: 0,
 		flags: {protect: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Subzero Slammer', target);
+		},
 		secondary: null,
 		target: "allFoes",
 		type: "Ice",
-	},
+	}, // animations stopping point
 	awfullyawkward: {
 		accuracy: 100,
 		basePower: 70,
@@ -10319,6 +11468,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((165 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -10646,7 +11799,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} is being a contrarian!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Contrary Gas', '[silent]');
@@ -10817,6 +11972,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'daydream',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onHit(target, source, move) {
 			this.heal(100, target, source);
 		},
@@ -11053,6 +12213,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 6,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((155 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11228,6 +12392,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((150 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11298,6 +12466,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 4,
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		volatileStatus: 'funfield',
 		condition: {
 			isInspirit: true,
@@ -11348,6 +12520,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 6,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((130 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11389,6 +12565,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((175 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11456,6 +12636,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'goforbroke',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -11501,6 +12685,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'goldenthundpurr',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -11626,6 +12814,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 10,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			this.heal(target.maxhp, target, source);
 		},
@@ -11700,6 +12892,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((180 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11719,6 +12915,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 4,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((90 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11768,6 +12968,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 10,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((195 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11803,6 +13007,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'helmsmanhelm',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -11939,6 +13147,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 6,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((130 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -11981,6 +13193,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'illtakethelead',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -12026,6 +13242,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'ignoranceisbliss',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -12061,6 +13281,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 4,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((70 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12188,6 +13412,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'justforyou',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		onTryHit(target, source, move) {
 			// anyAllyOrSelf replacement
 			if (!target.isAlly(source)) {
@@ -12231,6 +13459,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 6,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((160 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12367,6 +13599,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'lockofsteel',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -12396,6 +13632,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 10,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+			this.add('-anim', source, 'Revival Blessing', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((150 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12448,6 +13689,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 6,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((150 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12468,6 +13713,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 1,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'mambomadness',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -12834,6 +14083,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 4,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((80 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12899,6 +14152,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((160 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -12918,6 +14175,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 10,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((180 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -13203,6 +14464,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'roaringstance',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -13290,6 +14555,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'seaweedsamba',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -13352,6 +14621,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'shadowspeed',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -14004,7 +15277,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!allies.length || move.category === 'Status') return;
 				const allyTarget = this.sample(allies);
 				this.add('-message', `${pokemon.name} got suspicious and attacked an ally!`);
-				this.actions.useMove(move, pokemon, allyTarget);
+				const validTargetTypes = ['normal', 'any'];
+				const moveToUse = validTargetTypes.includes(move.target) ? move : this.dex.getActiveMove('bash');
+				this.actions.useMove(moveToUse, pokemon, allyTarget);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Suspicious Eyes', '[silent]');
@@ -14336,6 +15611,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		soultimateMaxCharge: 8,
 		priority: 0,
 		flags: {heal: 1, soultimate: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Recover', target);
+		},
 		onHit(target, source, move) {
 			const healing = Math.floor((210 * Math.floor(source.getStat('spa') / 2)) / 100);
 			this.heal(healing, target, source);
@@ -14589,6 +15868,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'wigglingwave',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -14638,6 +15921,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {inspirit: 1, soultimate: 1},
 		volatileStatus: 'windrun',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,
@@ -14758,6 +16045,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {heal: 1, inspirit: 1, soultimate: 1},
 		volatileStatus: 'zanyzone',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, 'Dragon Cheer', target);
+		},
 		condition: {
 			isInspirit: true,
 			isGood: true,

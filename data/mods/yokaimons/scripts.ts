@@ -6,6 +6,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	init() {
 		for (const i in this.data.Moves) {
+			if (this.data.Moves[i].isNonstandard === 'Past') {
+				this.modData('Moves', i).isNonstandard = null;
+			}
 			if (this.data.Moves[i].pp > 20) {
 				this.modData('Moves', i).pp = 20;
 			}
@@ -37,10 +40,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	onBeforeTurn(pokemon) {
 		pokemon.loafedThisTurn = false;
-		pokemon.dodgedThisTurn = false;
 	},
 	onAnyAccuracy(accuracy, target, source, move) {
-		if (target.dodgedThisTurn && move.type !== 'Inspirit') {
+		if ((target as any).dodgedOnTurn === this.turn - 1 && move.type !== 'Inspirit') {
 			return true;
 		}
 		return accuracy;
@@ -260,7 +262,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				} else {
 					// Parse a move ID.
 					// Move names are also allowed, but may cause ambiguity (see client issue #167).
-					moveid = toID(moveText);
+					moveid = this.battle.toID(moveText);
 					if (moveid.startsWith('hiddenpower')) {
 						moveid = 'hiddenpower';
 					}
@@ -281,7 +283,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					if (!targetType && ['', 'zmove'].includes(event) && request.canZMove) {
 						const soultimateRequest = request.canZMove[0];
-						if (soultimateRequest && moveid === toID(soultimateRequest.move)) {
+						if (soultimateRequest && moveid === this.battle.toID(soultimateRequest.move)) {
 							moveid = request.moves[0].id;
 							targetType = soultimateRequest.target;
 							event = 'zmove';
@@ -346,7 +348,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const lockedMove = pokemon.getLockedMove();
 				if (lockedMove) {
 					let lockedMoveTargetLoc = pokemon.lastMoveTargetLoc || 0;
-					const lockedMoveID = toID(lockedMove);
+					const lockedMoveID = this.battle.toID(lockedMove);
 					if (pokemon.volatiles[lockedMoveID] && pokemon.volatiles[lockedMoveID].targetLoc) {
 						lockedMoveTargetLoc = pokemon.volatiles[lockedMoveID].targetLoc;
 					}
@@ -508,7 +510,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past') ||
 				this.battle.ruleTable.has('+pokemontag:future')) &&
 				altForme?.isMega && altForme?.requiredMove &&
-				pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
+				pokemon.baseMoves.includes(this.battle.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
 			return item.megaStone?.[species.name] || null;
@@ -1367,7 +1369,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (!move.spreadHit) this.battle.attrLastMove('[miss]');
 					this.battle.add('-miss', pokemon, target);
 					if (!move.flags['inspirit']) {
-						target.dodgedThisTurn = true;
+						(target as any).dodgedOnTurn = this.battle.turn;
 					}
 				}
 				if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {

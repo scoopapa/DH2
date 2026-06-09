@@ -185,20 +185,36 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			if (move.category === 'Special') {
 				if (type === 'Drain' || type === 'Restoration') return 0;
+				// Same element = resist
 				if (target.element == type ||
-				   (target.element === 'Earth' && type === 'Rock') ||
-				   (target.element === 'Wind' && type === 'Flying') ||
-				   (target.element === 'Lightning' && type === 'Electric')) return 2;
+				(target.element === 'Earth' && type === 'Rock') ||
+				(target.element === 'Wind' && type === 'Flying') ||
+				(target.element === 'Lightning' && type === 'Electric')) return 2;
+				// Element weaknesses
 				else if ((target.element === 'Fire' && type === 'Water') ||
-						 (target.element === 'Water' && type === 'Electric') ||
-						 (target.element === 'Lightning' && type === 'Rock') ||
-						 (target.element === 'Earth' && type === 'Flying') ||
-						 (target.element === 'Wind' && type === 'Ice') ||
-						 (target.element === 'Ice' && type === 'Fire')) {
+						(target.element === 'Water' && type === 'Electric') ||
+						(target.element === 'Lightning' && type === 'Rock') ||
+						(target.element === 'Earth' && type === 'Flying') ||
+						(target.element === 'Wind' && type === 'Ice') ||
+						(target.element === 'Ice' && type === 'Fire')) {
 							if (target?.volatiles['guard'] && target?.hasAbility('spiritguard')) return 0;
 							return 1;
-						 }
+						}
 				else return 0;
+			} else if (move.category === 'Physical') {
+				if (type === 'Drain' || type === 'Restoration') return;
+				// Same element = resist
+				if (target.element === type ||
+				(target.element === 'Earth' && type === 'Rock') ||
+				(target.element === 'Wind' && type === 'Flying') ||
+				(target.element === 'Lightning' && type === 'Electric')) return -1;
+				// Attribute weaknesses
+				else if ((target.element === 'Fire' && type === 'Water') ||
+						(target.element === 'Water' && type === 'Electric') ||
+						(target.element === 'Lightning' && type === 'Rock') ||
+						(target.element === 'Earth' && type === 'Flying') ||
+						(target.element === 'Wind' && type === 'Ice') ||
+						(target.element === 'Ice' && type === 'Fire')) return 1;
 			}
 		},
 	},
