@@ -261,7 +261,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'par',
 		},
 		target: "any",
-		type: "Shock",
+		type: "Electric",
 	},
 	thunderbolt: {
 		accuracy: 100,
@@ -2029,25 +2029,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "High critical hit ratio.",
 		pp: 15,
 		priority: 0,
-		flags: {futuremove: 1, protect: 1},
+		flags: {protect: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, 'Meteor Mash', target);
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['futuremove']) {
+				return this.chainModify(0.5);
+			}
 		},
 		onHit(target, source, move) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 2,
-				move: 'returnpunch',
+				move: 'rocketpunch',
             	source: source,
 				moveData: {
-					id: 'returnpunch',
+					id: 'rocketpunch',
 					name: "Rocket Punch",
 					accuracy: 100,
 					basePower: 50,
 					category: "Physical",
 					priority: 0,
-					flags: {futuremove: 1},
+					flags: {futuremove: 1, protect: 1},
 					ignoreImmunity: false,
 					effectType: 'Move',
 					type: 'Steel',

@@ -40,10 +40,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	onBeforeTurn(pokemon) {
 		pokemon.loafedThisTurn = false;
-		pokemon.dodgedThisTurn = false;
 	},
 	onAnyAccuracy(accuracy, target, source, move) {
-		if (target.dodgedThisTurn && move.type !== 'Inspirit') {
+		if ((target as any).dodgedOnTurn === this.turn - 1 && move.type !== 'Inspirit') {
 			return true;
 		}
 		return accuracy;
@@ -1370,7 +1369,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (!move.spreadHit) this.battle.attrLastMove('[miss]');
 					this.battle.add('-miss', pokemon, target);
 					if (!move.flags['inspirit']) {
-						target.dodgedThisTurn = true;
+						(target as any).dodgedOnTurn = this.battle.turn;
 					}
 				}
 				if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
