@@ -38,7 +38,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Flash Fire + Mold Breaker",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Magma Purge');
-  		this.add('-message', `${pokemon.name} breaks the mold!`);
+  			this.add('-message', `${pokemon.name} breaks the mold!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -1720,6 +1720,141 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Winter Feast",
 		rating: 1.5,
 		shortDesc: "Effects of Gluttony. This Pokemon eats its berry if Snow is active.",
+	},
+	gasleak: {
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				// Can't suppress a Tatsugiri inside of Dondozo already
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'gasleak');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				if (strongWeathers.includes(target.getAbility().id)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'gasleak');
+				}
+			}
+		},
+		onEnd(source) {
+			if (source.transformed) return;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source && pokemon.hasAbility('Gas Leak')) {
+					return;
+				}
+			}
+			this.add('-end', source, 'ability: Gas Leak');
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If you're tackling this, do note extreme weathers have the same issue)
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			if (source.abilityState.ending) return;
+			source.abilityState.ending = true;
+			const sortedActive = this.getAllActive();
+			this.speedSort(sortedActive);
+			for (const pokemon of sortedActive) {
+				if (pokemon !== source) {
+					if (pokemon.getAbility().flags['cantsuppress']) continue; // does not interact with e.g Ice Face, Zen Mode
+					if (pokemon.hasItem('abilityshield')) continue; // don't restart abilities that weren't suppressed
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+					if (pokemon.ability === "gluttony") {
+						pokemon.abilityState.gluttony = false;
+					}
+				}
+			}
+		},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Gas Leak",
+		rating: 4.5,
+		shortDesc: "Levitate + Neutralizing Gas",
+	},
+	maliciousaura: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Malicious Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category !== 'Special') return;
+			if (!move.auraBooster?.hasAbility('Malicious Aura')) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([move.hasAuraBreak ? 3151 : 5325, 4096]);
+		},
+		flags: {},
+		name: "Malicious Aura",
+		rating: 3,
+		shortDesc: "While this Pokemon is active, a special move used by any Pokemon has 1.3x power.",
+	},
+	exorcism: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					activated = true;
+				}
+				target.addVolatile('exorcism');
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectState.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['exorcism']) {
+					target.addVolatile('exorcism');
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (source.getAbility().flags['failskillswap'] || target.volatiles['dynamax']) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, source.ability);
+				if (!targetCanBeSet) return targetCanBeSet;
+				const sourceAbility = source.setAbility('exorcism', target);
+				if (!sourceAbility) return;
+				if (target.isAlly(source)) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Exorcism', this.dex.abilities.get(sourceAbility).name, 'Exorcism', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			}
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(target, source, move) {
+				this.debug('Exorcism start');
+				if (source.getAbility().flags['failskillswap'] || target.volatiles['dynamax']) return;
+				const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, source.ability);
+				if (!targetCanBeSet) return targetCanBeSet;
+				const sourceAbility = source.setAbility('exorcism', target);
+				if (!sourceAbility) return;
+				if (target.isAlly(source)) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Exorcism', this.dex.abilities.get(sourceAbility).name, 'Exorcism', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			},
+		},
+		flags: {},
+		name: "Exorcism",
+		rating: 2.5,
+		shortDesc: "Pokemon making contact with this Pokemon or switching out have their Ability swapped with this one.",
 	},
 	// collateral
 	guarddog: {

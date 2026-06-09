@@ -445,6 +445,36 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		tags: ["Paradox"],
 	},
+	rotoweezheatgalar: {
+ // fusion: ['Rotom-Heat', 'Weezing-Galar'],
+		num: 28,
+		name: "Rotoweez-Heat-Galar",
+		types: ["Poison", "Fire"],
+		baseStats: {hp: 57, atk: 77, def: 113, spa: 96, spd: 89, spe: 73},
+		abilities: {0: "Gas Leak"},
+		weightkg: 8.2,
+		eggGroups: ["Undiscovered"],
+	},
+	yveljabug: {
+ // fusion: ['Yveltal', 'Charjabug'],
+		num: 29,
+		name: "Yveljabug",
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 95, atk: 110, def: 95, spa: 95, spd: 90, spe: 70},
+		abilities: {0: "Malicious Aura"},
+		weightkg: 106.8,
+		eggGroups: ["Undiscovered"],
+	},
+	golisogus: {
+ // fusion: ['Golisopod', 'Runerigus'],
+		num: 30,
+		name: "Golisogus",
+		types: ["Ghost", "Bug"],
+		baseStats: {hp: 66, atk: 110, def: 162, spa: 55, spd: 97, spe: 35},
+		abilities: {0: "Exorcism"},
+		weightkg: 87.3,
+		eggGroups: ["Undiscovered"],
+	},
 
   // LCs
 	typedew: {
@@ -710,6 +740,17 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 44.2,
 		eggGroups: ["Undiscovered"],
 		evos: ["Mamogoon"],
+	},
+	yawimpgalar: {
+ // fusion: ['Yamask-Galar', 'Wimpod'],
+		num: 3025,
+		name: "Yawimp-Galar",
+		types: ["Ghost", "Bug"],
+		baseStats: {hp: 31, atk: 45, def: 62, spa: 25, spd: 47, spe: 55},
+		abilities: {0: "Exorcism"},
+		weightkg: 6.8,
+		eggGroups: ["Undiscovered"],
+		evos: ["Golisogus"],
 	},
 
   // when the ADE is SILVER !!
