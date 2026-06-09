@@ -5,16 +5,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customTiers: ['S Rank', 'A Rank', 'B Rank', 'C Rank', 'D Rank', 'E Rank'],
 	},
 	init() {
-		init() {
-			for (const i in this.data.Moves) {
-				if (this.data.Moves[i].isNonstandard === 'Past') {
-					this.modData('Moves', i).isNonstandard = null;
-				}
-				if (this.data.Moves[i].pp > 20) {
-					this.modData('Moves', i).pp = 20;
-				}
+		for (const i in this.data.Moves) {
+			if (this.data.Moves[i].isNonstandard === 'Past') {
+				this.modData('Moves', i).isNonstandard = null;
 			}
-		},
+			if (this.data.Moves[i].pp > 20) {
+				this.modData('Moves', i).pp = 20;
+			}
+		}
 	},
 	statModify(baseStats, set, statName) {
 		const tr = this.trunc;
