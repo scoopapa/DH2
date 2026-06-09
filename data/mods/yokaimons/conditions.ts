@@ -6,7 +6,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onStart(pokemon) {
 			this.effectState.loafChance = 0;
 		},
-		onBeforeMovePriority: 1,
+		onBeforeMovePriority: 10,
 		onBeforeMoveSubPriority: 1,
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.hasAbility('tooserious')) return;

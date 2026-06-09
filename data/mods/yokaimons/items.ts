@@ -897,7 +897,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onDamagingHit(damage, target, source, move) {
-			this.add('-activate', source, 'item: Vampiric Fangs');
 			this.heal(Math.floor(damage * 0.25), source);
 		},
 	},
