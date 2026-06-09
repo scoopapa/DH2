@@ -22,12 +22,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = effectValue;
 				side.crit = critValue;
 				side.status = statusValue;
-				//side.flinchChance = 0;
 
 				side.pmiss = missValue;
 				side.peffect = effectValue;
 				side.pcrit = critValue;
 				side.pstatus = statusValue;
+				
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 					pokemon.sleepFromRest = false;
@@ -68,7 +68,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
-			let canMove = true;			
+			let canMove = true;
 			//let clauses = 0;
 			//let frozen = false;
 			//let prefix;
