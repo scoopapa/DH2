@@ -897,7 +897,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onDamagingHit(damage, target, source, move) {
-			this.heal(Math.floor(damage * 0.25), source);
+			this.heal(damage / 4);
 		},
 	},
 	crystalball: {
