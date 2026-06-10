@@ -353,7 +353,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
-		onSwitchOut(pokemon) {
+		/* onSwitchOut(pokemon) {
 			pokemon.side.addSlotCondition(pokemon, 'hospitality');
 		},
 		condition: {
@@ -363,8 +363,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					target.side.removeSlotCondition(target, 'hospitality');
 				}
 			},
-		},
-		shortDesc: "User heals 1/16 of its HP per turn. Switch-in heals 1/4 once.",
+		}, */
+		shortDesc: "User heals 1/16 of its HP per turn.",
 	},
 	quickdraw: {
 		onDamage(damage, target, source, effect) {
@@ -920,5 +920,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		num: 303,
 		shortDesc: "On switch-in, this Pokemon's Sp. Attack is raised by 1 stage.",
+	},
+	transistor: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		rating: 3.5,
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using an Electric-type attack.",
 	},
 };
