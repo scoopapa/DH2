@@ -393,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['guard'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Forgot to Guard', effect, '[of] ' + target);
+				this.add('cant', source, 'ability: Forgot to Guard', effect, '[of] ' + this.effectState.target);
 				return false;
 			}
 		},

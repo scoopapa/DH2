@@ -1049,11 +1049,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
+		pseudoWeather: 'darksparkles',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, 'Icy Wind', target);
 		},
-		pseudoWeather: 'darksparkles',
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			this.field.addPseudoWeather('darksparkles');
+		},
 		condition: {
 			duration: 1,
 			onStart(field, source) {
@@ -1600,7 +1603,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHit(target, source, move) {
 			if (target.hp * 2 <= target.maxhp) {
-				source.trySetStatus('slp', target);
+				target.trySetStatus('slp', source);
 			}
 		},
 		secondary: null,
@@ -2625,6 +2628,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+    			if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Follow Me redirected target of move");
