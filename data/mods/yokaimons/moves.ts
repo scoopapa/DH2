@@ -2815,7 +2815,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Protects allies from priority attacks this turn.",
 		desc: "Protects allies from priority attacks this turn.",
 		pp: 15,
-		priority: 3,
+		priority: 4,
 		flags: {},
 		sideCondition: 'quickguard',
 		onTry() {
