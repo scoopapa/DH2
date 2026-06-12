@@ -593,6 +593,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Absorb Bulb');
+				this.add('-message', `${target.name} is holding an Absorb Bulb!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -603,10 +604,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Absorb Bulb');
-			this.boost({ spa: 1 });
+			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Absorb Bulb broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+			
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
@@ -615,6 +618,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Absorb Bulb broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
 			}
 		},
@@ -632,6 +636,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Cell Battery');
+				this.add('-message', `${target.name} is holding a Cell Battery!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -645,6 +650,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Cell Battery broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
@@ -654,6 +660,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Cell Battery broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
 			}
 		},
@@ -671,6 +678,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Snowball');
+				this.add('-message', `${target.name} is holding a Snowball!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -684,6 +692,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Snowball broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
@@ -693,6 +702,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Snowball broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
 			}
 		},
