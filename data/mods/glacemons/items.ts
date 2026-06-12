@@ -604,7 +604,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Absorb Bulb');
-			this.boost({ atk: 1 });
+			this.boost({ spa: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
 			this.add('-message', `${target.name}'s Absorb Bulb broke!`);
@@ -615,7 +615,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Absorb Bulb');
-				this.boost({ atk: 1 });
+				this.boost({ spa: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
 				this.add('-message', `${target.name}'s Absorb Bulb broke!`);
