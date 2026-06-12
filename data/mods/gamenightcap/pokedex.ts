@@ -912,4 +912,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         color: "White",
         eggGroups: ["Undiscovered"],
     },
+	flowmy: {
+        num: -16084,
+        name: "Flowmy",
+        types: ["Grass", "Fairy"],
+        baseStats: {hp: 50, atk: 130, def: 10, spa: 130, spd: 180, spe: 100},
+        abilities: {0: "Misty Surge", H: "Weak Armor"},
+        heightm: 1,
+        weightkg: 10,
+        color: "White",
+        eggGroups: ["Undiscovered"],
+    },
 };

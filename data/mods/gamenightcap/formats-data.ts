@@ -331,4 +331,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GNCS1",
 		doublesTier: "GNCS1",
 	},
+	flowmy: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
 };
