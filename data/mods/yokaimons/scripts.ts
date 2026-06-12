@@ -953,6 +953,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 				}
 				this.battle.add('-zpower', pokemon);
+				const maxCharge = this.dex.moves.get(pokemon.soultimateMove as string).soultimateMaxCharge!;
+				this.battle.add('-end', pokemon, `soultimate${maxCharge}`, '[silent]');
+				this.battle.add('-start', pokemon, `soultimate0`, '[silent]');
 				pokemon.soultimateCharge = 0;
 			}
 

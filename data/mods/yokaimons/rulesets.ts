@@ -125,6 +125,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onSwitchIn(pokemon) {
 			pokemon.soultimateMove = this.dex.species.get(pokemon.species.id).soultimateMove;
 			if (pokemon.soultimateCharge === undefined) pokemon.soultimateCharge = 0;
+			if (pokemon.soultimateMove) {
+				this.add('-start', pokemon, `soultimate${pokemon.soultimateCharge}`, '[silent]');
+			}
 		},
 		onResidualOrder: 10,
 		onResidualSubOrder: 2,
@@ -132,11 +135,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (pokemon.fainted) return;
 			if (!pokemon.soultimateMove) return;
 			const maxCharge = this.dex.moves.get(pokemon.soultimateMove).soultimateMaxCharge!;
+			const oldCharge = pokemon.soultimateCharge;
 			pokemon.soultimateCharge = Math.min(pokemon.soultimateCharge + 1, maxCharge);
-			this.add('-message', `${pokemon.name}'s Soultimate charge rose to ${pokemon.soultimateCharge}!`);
+			if (pokemon.soultimateCharge !== oldCharge) {
+				this.add('-end', pokemon, `soultimate${oldCharge}`, '[silent]');
+				this.add('-start', pokemon, `soultimate${pokemon.soultimateCharge}`, '[silent]');
+			}
+			this.add('-message', `${pokemon.side.name}'s ${pokemon.name}'s Soultimate charge rose to ${pokemon.soultimateCharge}!`);
 			if (pokemon.soultimateCharge >= maxCharge) {
 				pokemon.soultimateCharge = maxCharge;
-				this.add('-message', `${pokemon.name}'s Soultimate is ready to be used!`);
+				this.add('-message', `${pokemon.side.name}'s ${pokemon.name}'s Soultimate is ready to be used!`);
 				return;
 			}
 		},
@@ -145,9 +153,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (move.soultimateCharged) return;
 			move.soultimateCharged = true;
 			const maxCharge = this.dex.moves.get(source.soultimateMove).soultimateMaxCharge!;
+			const oldCharge = source.soultimateCharge;
 			source.soultimateCharge = Math.min(source.soultimateCharge + 1, maxCharge);
 			if (target.loafedThisTurn) {
 				source.soultimateCharge = Math.min(source.soultimateCharge + 1, maxCharge);
+			}
+			if (source.soultimateCharge !== oldCharge) {
+				this.add('-end', source, `soultimate${oldCharge}`, '[silent]');
+				this.add('-start', source, `soultimate${source.soultimateCharge}`, '[silent]');
 			}
 		},
 	},

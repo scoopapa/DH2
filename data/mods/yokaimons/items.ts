@@ -829,12 +829,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onResidualOrder: 10,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (pokemon.soultimateCharge !== undefined) {
-				const move = pokemon.soultimateMove ? this.dex.moves.get(pokemon.soultimateMove) : null;
-				const maxCharge = move?.soultimateMaxCharge ?? 0;
-				if (pokemon.soultimateCharge < maxCharge) {
-					pokemon.soultimateCharge++;
-				}
+			if (!pokemon.soultimateMove) return;
+			const move = this.dex.moves.get(pokemon.soultimateMove);
+			const maxCharge = move?.soultimateMaxCharge ?? 0;
+			if (pokemon.soultimateCharge < maxCharge) {
+				const oldCharge = pokemon.soultimateCharge;
+				pokemon.soultimateCharge++;
+				this.add('-end', pokemon, `soultimate${oldCharge}`, '[silent]');
+				this.add('-start', pokemon, `soultimate${pokemon.soultimateCharge}`, '[silent]');
 			}
 		},
 	},
