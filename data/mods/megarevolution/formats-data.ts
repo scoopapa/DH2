@@ -4918,4 +4918,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	glimmortis: {
 		tier: "OU",
 	},
+	stardem: {
+		tier: "OU",
+	},
+	devouress: {
+		tier: "OU",
+	},
+	medirvana: {
+		tier: "OU",
+	},
 };
