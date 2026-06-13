@@ -761,7 +761,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				used: false,
 				virtual: true,
 			};
-			pokemon.moveSlots[index] = sovereignblade;
+			pokemon.moveSlots.push(sovereignblade);
+			pokemon.baseMoveSlots.push(sovereignblade);
 		},
 		secondary: null,
 		target: "self",
