@@ -803,11 +803,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Whirlwind", target);
 		},
 		onAfterHit(target, source, move) {
-			if (!source.hp || source.item || !source.lastItem) return;
-			const item = source.lastItem;
-			source.lastItem = '';
-			this.add('-item', source, this.dex.items.get(item), '[from] move: Recycle');
-			source.setItem(item, source, move);
+			if (source.hp && !source.item) {
+				if (source.lastItem) {
+					const item = source.lastItem;
+					source.lastItem = '';
+				} else if (source.knockedItem) {
+					const item = source.knockedItem;
+					source.knockedItem = '';
+				} else return;
+				this.add('-item', source, this.dex.items.get(item), '[from] move: Recycle');
+				source.setItem(item, source, move);
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -1308,5 +1314,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
+	},
+	knockoff: {
+		inherit: true,
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Knock Off', `[of] ${source}`);
+			}
+			target.knockedItem = item;
+		},
+	},
+	corrosivegas: {
+		inherit: true,
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', `[of] ${source}`);
+				target.knockedItem = item;
+			} else {
+				this.add('-fail', target, 'move: Corrosive Gas');
+			}
+		},
 	},
 };
