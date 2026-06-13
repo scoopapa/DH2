@@ -804,10 +804,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onAfterHit(target, source, move) {
 			if (!source.hp || source.item || !source.lastItem) return;
-			const item = pokemon.lastItem;
-			pokemon.lastItem = '';
-			this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Recycle');
-			pokemon.setItem(item, source, move);
+			const item = source.lastItem;
+			source.lastItem = '';
+			this.add('-item', source, this.dex.items.get(item), '[from] move: Recycle');
+			source.setItem(item, source, move);
 		},
 		secondary: null,
 		target: "normal",
