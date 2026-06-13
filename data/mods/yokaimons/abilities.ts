@@ -393,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['guard'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Forgot to Guard', effect, '[of] ' + target);
+				this.add('cant', source, 'ability: Forgot to Guard', effect, '[of] ' + this.effectState.target);
 				return false;
 			}
 		},
@@ -1196,6 +1196,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Suspicion",
 		shortDesc: "This Yo-kai has a 25% chance to attack an adjacent ally after moving.",
     	desc: "This Yo-kai has a 25% chance to attack a random adjacent ally after using a move.",
+	},
+	thestand: {
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.shieldBoost) return;
+			if (damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'The Stand');
+				target.shieldBoost = true;
+				return target.hp - 1;
+			}
+		},
+		flags: {},
+		name: "The Stand",
+		shortDesc: "This Yo-kai will survive an attack with 1 HP once per battle.",
+    	desc: "This Yo-kai will survive an attack with 1 HP once per battle.",
 	},
 	tooafraid: {
 		onStart(pokemon) {

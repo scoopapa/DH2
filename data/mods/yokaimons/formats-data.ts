@@ -666,7 +666,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "S Rank",
 	},
 	shadowvenoct: {
-		tier: "A Rank",
+		tier: "S Rank",
 	},
 	wisp: {
 		tier: "Illegal",
