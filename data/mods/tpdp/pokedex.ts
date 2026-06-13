@@ -8,7 +8,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Slow Tempo"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "akyuu",
 	},
 	defenseakyuu: {
 		num: 2,
@@ -19,7 +18,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Slow Tempo"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "akyuu",
+		prevo: "Normal Akyuu",
 	},
 	assistakyuu: {
 		num: 3,
@@ -31,7 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Frail Health", 1: "Curse Return"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "akyuu",
+		prevo: "Normal Akyuu",
 	},
 	extraakyuu: {
 		num: 4,
@@ -42,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Wariness"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "akyuu",
+		prevo: "Normal Akyuu",
 	},
 	normalalice: {
 		num: 5,
@@ -53,7 +52,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Suppression", 1: "Composed"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "alice",
 	},
 	poweralice: {
 		num: 6,
@@ -64,7 +62,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "After Move", 1: "Stubborn"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "alice",
+		prevo: "Normal Alice",
 	},
 	defensealice: {
 		num: 7,
@@ -75,7 +73,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Suppression", 1: "Composed"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "alice",
+		prevo: "Normal Alice",
 	},
 	extraalice: {
 		num: 8,
@@ -86,7 +84,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Jamming", 1: "Northern Expanse"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "alice",
+		prevo: "Normal Alice",
 	},
 	normalaunn: {
 		num: 9,
@@ -97,7 +95,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Wariness"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aunn",
 	},
 	defenseaunn: {
 		num: 10,
@@ -108,7 +105,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Wariness"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aunn",
+		prevo: "Normal Aunn",
 	},
 	poweraunn: {
 		num: 11,
@@ -119,7 +116,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Economist"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aunn",
+		prevo: "Normal Aunn",
 	},
 	extraaunn: {
 		num: 12,
@@ -130,7 +127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Two of a Kind", 1: "Divine Protection"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aunn",
+		prevo: "Normal Aunn",
 	},
 	normalaya: {
 		num: 13,
@@ -141,7 +138,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale", 1: "Free Will"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aya",
 	},
 	speedaya: {
 		num: 14,
@@ -152,7 +148,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale", 1: "Free Will"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aya",
+		prevo: "Normal Aya",
 	},
 	poweraya: {
 		num: 15,
@@ -163,7 +159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale", 1: "Salvo"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aya",
+		prevo: "Normal Aya",
 	},
 	extraaya: {
 		num: 16,
@@ -174,7 +170,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intuition", 1: "Unjustness"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "aya",
+		prevo: "Normal Aya",
 	},
 	normalbenben: {
 		num: 17,
@@ -185,7 +181,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Cure", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "benben",
 	},
 	powerbenben: {
 		num: 18,
@@ -196,7 +191,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "benben",
+		prevo: "Normal Benben",
 	},
 	defensebenben: {
 		num: 19,
@@ -207,7 +202,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Economist"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "benben",
+		prevo: "Normal Benben",
 	},
 	extrabenben: {
 		num: 20,
@@ -218,7 +213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Light Curtain", 1: "Stimulative"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "benben",
+		prevo: "Normal Benben",
 	},
 	normalchen: {
 		num: 21,
@@ -229,7 +224,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flexible", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chen",
 	},
 	speedchen: {
 		num: 22,
@@ -240,7 +234,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flexible", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chen",
+		prevo: "Normal Chen",
 	},
 	assistchen: {
 		num: 23,
@@ -251,7 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Niche", 1: "Adverse Wind"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chen",
+		prevo: "Normal Chen",
 	},
 	extrachen: {
 		num: 24,
@@ -262,7 +256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits", 1: "Eastern Expanse"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chen",
+		prevo: "Normal Chen",
 	},
 	normalchimata: {
 		num: 25,
@@ -273,7 +267,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Empowered"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chimata",
 	},
 	defensechimata: {
 		num: 26,
@@ -284,7 +277,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Empowered"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chimata",
+		prevo: "Normal Chimata",
 	},
 	powerchimata: {
 		num: 27,
@@ -295,7 +288,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Disjointed Blow", 1: "Sore Loser"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chimata",
+		prevo: "Normal Chimata",
 	},
 	extrachimata: {
 		num: 28,
@@ -306,7 +299,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grand Opening", 1: "Strange Rainbow"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chimata",
+		prevo: "Normal Chimata",
 	},
 	normalchiyuri: {
 		num: 29,
@@ -317,7 +310,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Disturber", 1: "Collectomaniac"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chiyuri",
 	},
 	defensechiyuri: {
 		num: 30,
@@ -328,7 +320,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Disturber", 1: "Metallurgy"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chiyuri",
+		prevo: "Normal Chiyuri",
 	},
 	speedchiyuri: {
 		num: 31,
@@ -339,7 +331,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Common Senseless", 1: "Reckless"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chiyuri",
+		prevo: "Normal Chiyuri",
 	},
 	extrachiyuri: {
 		num: 32,
@@ -350,7 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Stubborn"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "chiyuri",
+		prevo: "Normal Chiyuri",
 	},
 	normalcirno: {
 		num: 33,
@@ -361,7 +353,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Active"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "cirno",
 	},
 	assistcirno: {
 		num: 34,
@@ -372,7 +363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Active"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "cirno",
+		prevo: "Normal Cirno",
 	},
 	powercirno: {
 		num: 35,
@@ -383,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Daredevil", 1: "Up Tempo"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "cirno",
+		prevo: "Normal Cirno",
 	},
 	extracirno: {
 		num: 36,
@@ -394,7 +385,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Known Limits"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "cirno",
+		prevo: "Normal Cirno",
 	},
 	normalclownpiece: {
 		num: 37,
@@ -405,7 +396,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Chaos Induction"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "clownpiece",
 	},
 	defenseclownpiece: {
 		num: 38,
@@ -416,7 +406,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recoil Offset", 1: "Chaos Induction"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "clownpiece",
+		prevo: "Normal Clownpiece",
 	},
 	speedclownpiece: {
 		num: 39,
@@ -427,7 +417,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wasteful", 1: "Telescopic"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "clownpiece",
+		prevo: "Normal Clownpiece",
 	},
 	extraclownpiece: {
 		num: 40,
@@ -438,7 +428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Up Tempo"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "clownpiece",
+		prevo: "Normal Clownpiece",
 	},
 	normaldaiyousei: {
 		num: 41,
@@ -449,7 +439,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Glamorous"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "daiyousei",
 	},
 	defensedaiyousei: {
 		num: 42,
@@ -460,7 +449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Glamorous"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "daiyousei",
+		prevo: "Normal Daiyousei",
 	},
 	speeddaiyousei: {
 		num: 43,
@@ -471,7 +460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Skilled Hand"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "daiyousei",
+		prevo: "Normal Daiyousei",
 	},
 	extradaiyousei: {
 		num: 44,
@@ -482,7 +471,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "daiyousei",
+		prevo: "Normal Daiyousei",
 	},
 	normaldoremy: {
 		num: 45,
@@ -493,7 +482,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Spirit of Yin"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "doremy",
 	},
 	powerdoremy: {
 		num: 46,
@@ -504,7 +492,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invigorative", 1: "Appeased Spirit"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "doremy",
+		prevo: "Normal Doremy",
 	},
 	defensedoremy: {
 		num: 47,
@@ -515,7 +503,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Cloak of Darkness", 1: "Reflect Guard"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "doremy",
+		prevo: "Normal Doremy",
 	},
 	extradoremy: {
 		num: 48,
@@ -526,7 +514,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dream World", 1: "Vision Bonus"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "doremy",
+		prevo: "Normal Doremy",
 	},
 	normaleika: {
 		num: 49,
@@ -537,7 +525,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eika",
 	},
 	defenseeika: {
 		num: 50,
@@ -548,7 +535,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eika",
+		prevo: "Normal Eika",
 	},
 	assisteika: {
 		num: 51,
@@ -559,7 +546,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Appeased Spirit", 1: "Curse Return"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eika",
+		prevo: "Normal Eika",
 	},
 	extraeika: {
 		num: 52,
@@ -570,7 +557,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stone Stacker", 1: "Known Limits"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eika",
+		prevo: "Normal Eika",
 	},
 	normaleiki: {
 		num: 53,
@@ -581,7 +568,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sermon", 1: "Sixth Sense"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eiki",
 	},
 	powereiki: {
 		num: 54,
@@ -592,7 +578,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sermon", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eiki",
+		prevo: "Normal Eiki",
 	},
 	defenseeiki: {
 		num: 55,
@@ -603,7 +589,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sermon", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eiki",
+		prevo: "Normal Eiki",
 	},
 	extraeiki: {
 		num: 56,
@@ -614,7 +600,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Known Limits"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eiki",
+		prevo: "Normal Eiki",
 	},
 	normaleirin: {
 		num: 57,
@@ -625,7 +611,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eirin",
 	},
 	assisteirin: {
 		num: 58,
@@ -636,7 +621,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eirin",
+		prevo: "Normal Eirin",
 	},
 	powereirin: {
 		num: 59,
@@ -647,7 +632,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eirin",
+		prevo: "Normal Eirin",
 	},
 	extraeirin: {
 		num: 60,
@@ -658,7 +643,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Composed", 1: "Emergency Cure"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eirin",
+		prevo: "Normal Eirin",
 	},
 	normalelis: {
 		num: 61,
@@ -669,7 +654,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elis",
 	},
 	speedelis: {
 		num: 62,
@@ -680,7 +664,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elis",
+		prevo: "Normal Elis",
 	},
 	powerelis: {
 		num: 63,
@@ -691,7 +675,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Telescopic"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elis",
+		prevo: "Normal Elis",
 	},
 	extraelis: {
 		num: 64,
@@ -702,7 +686,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Unjustness"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elis",
+		prevo: "Normal Elis",
 	},
 	normalellen: {
 		num: 65,
@@ -713,7 +697,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Peaceful"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ellen",
 	},
 	powerellen: {
 		num: 66,
@@ -724,7 +707,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Projection"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ellen",
+		prevo: "Normal Ellen",
 	},
 	speedellen: {
 		num: 67,
@@ -735,7 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Air Cushion"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ellen",
+		prevo: "Normal Ellen",
 	},
 	extraellen: {
 		num: 68,
@@ -746,7 +729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electromagnetic", 1: "Slow Tempo"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ellen",
+		prevo: "Normal Ellen",
 	},
 	normalelly: {
 		num: 69,
@@ -757,7 +740,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elly",
 	},
 	powerelly: {
 		num: 70,
@@ -768,7 +750,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Recoil Offset"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elly",
+		prevo: "Normal Elly",
 	},
 	defenseelly: {
 		num: 71,
@@ -779,7 +761,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elly",
+		prevo: "Normal Elly",
 	},
 	extraelly: {
 		num: 72,
@@ -790,7 +772,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Nimble", 1: "Ascertainment"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "elly",
+		prevo: "Normal Elly",
 	},
 	normaleternity: {
 		num: 73,
@@ -801,7 +783,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eternity",
 	},
 	speedeternity: {
 		num: 74,
@@ -812,7 +793,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Sanguine"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eternity",
+		prevo: "Normal Eternity",
 	},
 	assisteternity: {
 		num: 75,
@@ -823,7 +804,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Phlegmatic"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eternity",
+		prevo: "Normal Eternity",
 	},
 	extraeternity: {
 		num: 76,
@@ -834,7 +815,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash", 1: "Surprise Tactics"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "eternity",
+		prevo: "Normal Eternity",
 	},
 	normalflandre: {
 		num: 77,
@@ -845,7 +826,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hot Head", 1: "Overwhelm"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "flandre",
 	},
 	speedflandre: {
 		num: 78,
@@ -856,7 +836,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hot Head", 1: "Unbound"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "flandre",
+		prevo: "Normal Flandre",
 	},
 	powerflandre: {
 		num: 79,
@@ -867,7 +847,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sutei's Fire", 1: "Overwhelm"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "flandre",
+		prevo: "Normal Flandre",
 	},
 	extraflandre: {
 		num: 80,
@@ -878,7 +858,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Full Power", 1: "Unbound"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "flandre",
+		prevo: "Normal Flandre",
 	},
 	normalfuto: {
 		num: 81,
@@ -889,7 +869,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Weather Resist"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "futo",
 	},
 	speedfuto: {
 		num: 82,
@@ -900,7 +879,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Strategist"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "futo",
+		prevo: "Normal Futo",
 	},
 	powerfuto: {
 		num: 83,
@@ -911,7 +890,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Unbound"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "futo",
+		prevo: "Normal Futo",
 	},
 	extrafuto: {
 		num: 84,
@@ -922,7 +901,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sore Loser", 1: "Active"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "futo",
+		prevo: "Normal Futo",
 	},
 	normalgengetsu: {
 		num: 85,
@@ -933,7 +912,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Sixth Sense"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "gengetsu",
 	},
 	powergengetsu: {
 		num: 86,
@@ -944,7 +922,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Sixth Sense"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "gengetsu",
+		prevo: "Normal Gengetsu",
 	},
 	speedgengetsu: {
 		num: 87,
@@ -955,7 +933,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Eastern Expanse", 1: "Quick Eye"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "gengetsu",
+		prevo: "Normal Gengetsu",
 	},
 	extragengetsu: {
 		num: 88,
@@ -966,7 +944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "gengetsu",
+		prevo: "Normal Gengetsu",
 	},
 	normalhatate: {
 		num: 89,
@@ -977,7 +955,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Telescopic"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hatate",
 	},
 	powerhatate: {
 		num: 90,
@@ -988,7 +965,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Salvo", 1: "Telescopic"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hatate",
+		prevo: "Normal Hatate",
 	},
 	assisthatate: {
 		num: 91,
@@ -999,7 +976,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Quick Eye"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hatate",
+		prevo: "Normal Hatate",
 	},
 	extrahatate: {
 		num: 92,
@@ -1010,7 +987,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Nimble", 1: "Stimulative"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hatate",
+		prevo: "Normal Hatate",
 	},
 	normalhecatia: {
 		num: 93,
@@ -1021,7 +998,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stimulative", 1: "Sixth Sense"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia",
 	},
 	powerhecatia: {
 		num: 94,
@@ -1032,7 +1008,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Niche", 1: "Central Expanse"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia",
+		prevo: "Normal Hecatia",
 	},
 	defensehecatia: {
 		num: 95,
@@ -1043,7 +1019,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Restraint", 1: "Recalibration"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia",
+		prevo: "Normal Hecatia",
 	},
 	extrahecatia: {
 		num: 96,
@@ -1054,8 +1030,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia",
-		otherFormes: ["Extra Hecatia-Earth", "Extra Hecatia-Moon"]
+		otherFormes: ["Extra Hecatia-Earth", "Extra Hecatia-Moon"],
+		prevo: "Normal Hecatia",
 	},
 	extrahecatiaearth: {
 		num: 97,
@@ -1066,7 +1042,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia-earth",
 		changesFrom: "extrahecatia",
 		forme: "Earths"
 	},
@@ -1079,7 +1054,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hecatia-moon",
 		changesFrom: "extrahecatia",
 		forme: "Moon"
 	},
@@ -1092,7 +1066,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Light Curtain"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hijiri",
 	},
 	defensehijiri: {
 		num: 100,
@@ -1103,7 +1076,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Aurora Grace"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hijiri",
+		prevo: "Normal Hijiri",
 	},
 	speedhijiri: {
 		num: 101,
@@ -1114,7 +1087,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Reckless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hijiri",
+		prevo: "Normal Hijiri",
 	},
 	extrahijiri: {
 		num: 102,
@@ -1125,7 +1098,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "First Hit", 1: "Recoil Offset"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hijiri",
+		prevo: "Normal Hijiri",
 	},
 	normalhina: {
 		num: 103,
@@ -1136,7 +1109,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hina",
 	},
 	defensehina: {
 		num: 104,
@@ -1147,7 +1119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hina",
+		prevo: "Normal Hina",
 	},
 	assisthina: {
 		num: 105,
@@ -1158,7 +1130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hina",
+		prevo: "Normal Hina",
 	},
 	extrahina: {
 		num: 106,
@@ -1169,7 +1141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Cushion", 1: "Reflect Guard"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "hina",
+		prevo: "Normal Hina",
 	},
 	normalichirin: {
 		num: 107,
@@ -1180,7 +1152,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ichirin",
 	},
 	powerichirin: {
 		num: 108,
@@ -1191,7 +1162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ichirin",
+		prevo: "Normal Ichirin",
 	},
 	defenseichirin: {
 		num: 109,
@@ -1202,7 +1173,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ichirin",
+		prevo: "Normal Ichirin",
 	},
 	extraichirin: {
 		num: 110,
@@ -1213,7 +1184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Cushion", 1: "Forward Dash"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ichirin",
+		prevo: "Normal Ichirin",
 	},
 	normaliku: {
 		num: 111,
@@ -1224,7 +1195,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "iku",
 	},
 	poweriku: {
 		num: 112,
@@ -1235,7 +1205,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "iku",
+		prevo: "Normal Iku",
 	},
 	speediku: {
 		num: 113,
@@ -1246,7 +1216,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale Form", 1: "Electrification"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "iku",
+		prevo: "Normal Iku",
 	},
 	extraiku: {
 		num: 114,
@@ -1257,7 +1227,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electromagnetic", 1: "Reckless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "iku",
+		prevo: "Normal Iku",
 	},
 	normaljunko: {
 		num: 115,
@@ -1268,7 +1238,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "junko",
 	},
 	powerjunko: {
 		num: 116,
@@ -1279,7 +1248,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "junko",
+		prevo: "Normal Junko",
 	},
 	speedjunko: {
 		num: 117,
@@ -1290,7 +1259,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "junko",
+		prevo: "Normal Junko",
 	},
 	extrajunko: {
 		num: 118,
@@ -1301,7 +1270,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Absorbent"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "junko",
+		prevo: "Normal Junko",
 	},
 	normalkagerou: {
 		num: 119,
@@ -1312,7 +1281,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Gale"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kagerou",
 	},
 	speedkagerou: {
 		num: 120,
@@ -1323,7 +1291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Gale"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kagerou",
+		prevo: "Normal Kagerou",
 	},
 	powerkagerou: {
 		num: 121,
@@ -1334,7 +1302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Invigorative"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kagerou",
+		prevo: "Normal Kagerou",
 	},
 	extrakagerou: {
 		num: 122,
@@ -1345,7 +1313,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vigorous", 1: "Cloak of Darkness"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kagerou",
+		prevo: "Normal Kagerou",
 	},
 	normalkaguya: {
 		num: 123,
@@ -1356,7 +1324,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kaguya",
 	},
 	defensekaguya: {
 		num: 124,
@@ -1367,7 +1334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kaguya",
+		prevo: "Normal Kaguya",
 	},
 	powerkaguya: {
 		num: 125,
@@ -1378,7 +1345,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Pride"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kaguya",
+		prevo: "Normal Kaguya",
 	},
 	extrakaguya: {
 		num: 126,
@@ -1389,7 +1356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sore Loser", 1: "Strange Rainbow"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kaguya",
+		prevo: "Normal Kaguya",
 	},
 	normalkana: {
 		num: 127,
@@ -1400,7 +1367,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skilled Hand", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kana",
 	},
 	assistkana: {
 		num: 128,
@@ -1411,7 +1377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kana",
+		prevo: "Normal Kana",
 	},
 	powerkana: {
 		num: 129,
@@ -1422,7 +1388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skilled Hand", 1: "Up Tempo"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kana",
+		prevo: "Normal Kana",
 	},
 	extrakana: {
 		num: 130,
@@ -1433,7 +1399,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Negative Aura"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kana",
+		prevo: "Normal Kana",
 	},
 	normalkanako: {
 		num: 131,
@@ -1444,7 +1410,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kanako",
 	},
 	defensekanako: {
 		num: 132,
@@ -1455,7 +1420,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kanako",
+		prevo: "Normal Kanako",
 	},
 	powerkanako: {
 		num: 133,
@@ -1466,7 +1431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Zen"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kanako",
+		prevo: "Normal Kanako",
 	},
 	extrakanako: {
 		num: 134,
@@ -1477,7 +1442,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Metallurgy", 1: "Western Expanse"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kanako",
+		prevo: "Normal Kanako",
 	},
 	normalkasen: {
 		num: 135,
@@ -1488,7 +1453,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sermon"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kasen",
 	},
 	powerkasen: {
 		num: 136,
@@ -1499,7 +1463,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Charge!"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kasen",
+		prevo: "Normal Kasen",
 	},
 	assistkasen: {
 		num: 137,
@@ -1510,7 +1474,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Absorbent", 1: "Battle Mania"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kasen",
+		prevo: "Normal Kasen",
 	},
 	extrakasen: {
 		num: 138,
@@ -1521,7 +1485,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Restraint", 1: "Stubborn"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kasen",
+		prevo: "Normal Kasen",
 	},
 	normalkeiki: {
 		num: 139,
@@ -1532,7 +1496,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keiki",
 	},
 	powerkeiki: {
 		num: 140,
@@ -1543,7 +1506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Recoil Offset"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keiki",
+		prevo: "Normal Keiki",
 	},
 	assistkeiki: {
 		num: 141,
@@ -1554,7 +1517,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keiki",
+		prevo: "Normal Keiki",
 	},
 	extrakeiki: {
 		num: 142,
@@ -1565,7 +1528,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Phalanx", 1: "Sand Force"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keiki",
+		prevo: "Normal Keiki",
 	},
 	normalkeine: {
 		num: 143,
@@ -1576,7 +1539,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overwhelm", 1: "Sermon"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keine",
 	},
 	defensekeine: {
 		num: 144,
@@ -1587,8 +1549,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Were-Hakutaku", 1: "Wisdom Eye"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keine",
 		otherFormes: ["Defense Keine-Hakutaku"],
+		prevo: "Normal Keine",
 	},
 	defensekeinehakutaku: {
 		num: 145,
@@ -1599,7 +1561,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Were-Hakutaku"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keine-hakutaku",
 		forme: "Hakutaku",
 		changesFrom: "Defense Keine"
 	},
@@ -1612,7 +1573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overwhelm", 1: "Byakutei's Metal"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keine",
+		prevo: "Normal Keine",
 	},
 	extrakeine: {
 		num: 147,
@@ -1623,7 +1584,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Yata no Kagami", 1: "Sermon"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "keine",
+		prevo: "Normal Keine",
 	},
 	normalkikuri: {
 		num: 148,
@@ -1634,7 +1595,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kikuri",
 	},
 	defensekikuri: {
 		num: 149,
@@ -1645,7 +1605,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Southern Expanse", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kikuri",
+		prevo: "Normal Kikuri",
 	},
 	powerkikuri: {
 		num: 150,
@@ -1656,7 +1616,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Healing Power"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kikuri",
+		prevo: "Normal Kikuri",
 	},
 	extrakikuri: {
 		num: 151,
@@ -1667,7 +1627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Niche"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kikuri",
+		prevo: "Normal Kikuri",
 	},
 	normalkisume: {
 		num: 152,
@@ -1678,7 +1638,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kisume",
 	},
 	assistkisume: {
 		num: 153,
@@ -1689,7 +1648,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kisume",
+		prevo: "Normal Kisume",
 	},
 	defensekisume: {
 		num: 154,
@@ -1700,7 +1659,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kisume",
+		prevo: "Normal Kisume",
 	},
 	extrakisume: {
 		num: 155,
@@ -1711,7 +1670,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Restraint"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kisume",
+		prevo: "Normal Kisume",
 	},
 	normalkoakuma: {
 		num: 156,
@@ -1722,7 +1681,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Infiltration"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koakuma",
 	},
 	defensekoakuma: {
 		num: 157,
@@ -1733,7 +1691,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Inverse Reaction"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koakuma",
+		prevo: "Normal Koakuma",
 	},
 	assistkoakuma: {
 		num: 158,
@@ -1744,7 +1702,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Infiltration"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koakuma",
+		prevo: "Normal Koakuma",
 	},
 	extrakoakuma: {
 		num: 159,
@@ -1755,7 +1713,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Harassment"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koakuma",
+		prevo: "Normal Koakuma",
 	},
 	normalkogasa: {
 		num: 160,
@@ -1766,7 +1724,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kogasa",
 	},
 	assistkogasa: {
 		num: 161,
@@ -1777,7 +1734,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kogasa",
+		prevo: "Normal Kogasa",
 	},
 	speedkogasa: {
 		num: 162,
@@ -1788,7 +1745,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kogasa",
+		prevo: "Normal Kogasa",
 	},
 	extrakogasa: {
 		num: 163,
@@ -1799,7 +1756,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Metallurgy", 1: "Gentei's Water"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kogasa",
+		prevo: "Normal Kogasa",
 	},
 	normalkoishi: {
 		num: 164,
@@ -1810,7 +1767,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wasteful", 1: "Peaceful"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koishi",
 	},
 	powerkoishi: {
 		num: 165,
@@ -1821,7 +1777,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!", 1: "Recalibration"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koishi",
+		prevo: "Normal Koishi",
 	},
 	assistkoishi: {
 		num: 166,
@@ -1832,7 +1788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wasteful", 1: "Curiosity"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koishi",
+		prevo: "Normal Koishi",
 	},
 	extrakoishi: {
 		num: 167,
@@ -1843,7 +1799,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Active"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "koishi",
+		prevo: "Normal Koishi",
 	},
 	normalkokoro: {
 		num: 168,
@@ -1854,7 +1810,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Moody"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kokoro",
 	},
 	defensekokoro: {
 		num: 169,
@@ -1865,7 +1820,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Moody"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kokoro",
+		prevo: "Normal Kokoro",
 	},
 	powerkokoro: {
 		num: 170,
@@ -1876,7 +1831,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Infinite Changes"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kokoro",
+		prevo: "Normal Kokoro",
 	},
 	extrakokoro: {
 		num: 171,
@@ -1887,7 +1842,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Master's Defense", 1: "Mindless Dance"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kokoro",
+		prevo: "Normal Kokoro",
 	},
 	normalkomachi: {
 		num: 172,
@@ -1898,7 +1853,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grace of Water", 1: "Suppression"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "komachi",
 	},
 	assistkomachi: {
 		num: 173,
@@ -1909,7 +1863,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grace of Water", 1: "Suppression"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "komachi",
+		prevo: "Normal Komachi",
 	},
 	powerkomachi: {
 		num: 174,
@@ -1920,7 +1874,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strategist", 1: "Moody"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "komachi",
+		prevo: "Normal Komachi",
 	},
 	extrakomachi: {
 		num: 175,
@@ -1931,7 +1885,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flat Speed", 1: "Drunkard"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "komachi",
+		prevo: "Normal Komachi",
 	},
 	normalkonngara: {
 		num: 176,
@@ -1942,7 +1896,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "konngara",
 	},
 	powerkonngara: {
 		num: 177,
@@ -1953,7 +1906,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "konngara",
+		prevo: "Normal Konngara",
 	},
 	speedkonngara: {
 		num: 178,
@@ -1964,7 +1917,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Sand Devil"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "konngara",
+		prevo: "Normal Konngara",
 	},
 	extrakonngara: {
 		num: 179,
@@ -1975,7 +1928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inverse Reaction", 1: "Air Cushion"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "konngara",
+		prevo: "Normal Konngara",
 	},
 	normalkosuzu: {
 		num: 180,
@@ -1986,7 +1939,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Free Will", 1: "Moody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
 	},
 	defensekosuzu: {
 		num: 181,
@@ -1997,7 +1949,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Free Will", 1: "Curiosity"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
+		prevo: "Normal Kosuzu",
 	},
 	assistkosuzu: {
 		num: 182,
@@ -2008,7 +1960,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Free Will", 1: "Moody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
+		prevo: "Normal Kosuzu",
 	},
 	extrakosuzu: {
 		num: 183,
@@ -2019,8 +1971,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bibliophilia"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
-		otherFormes: ["Extra Kosuzu-Red","Extra Kosuzu-Blue","Extra Kosuzu-Black","Extra Kosuzu-White"]
+		otherFormes: ["Extra Kosuzu-Red","Extra Kosuzu-Blue","Extra Kosuzu-Black","Extra Kosuzu-White"],
+		prevo: "Normal Kosuzu",
 	},
 	extrakosuzured: {
 		num: 184,
@@ -2031,7 +1983,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Red",
 		changesFrom: "Extra Kosuzu",
 		forme: "Red"
@@ -2045,7 +1996,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Blue",
 		changesFrom: "Extra Kosuzu",
 		forme: "Blue"
@@ -2059,7 +2009,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Black",
 		changesFrom: "Extra Kosuzu",
 		forme: "Black"
@@ -2073,7 +2022,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: White",
 		changesFrom: "Extra Kosuzu",
 		forme: "White"
@@ -2087,7 +2035,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Collectomaniac", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kotohime",
 	},
 	assistkotohime: {
 		num: 189,
@@ -2098,7 +2045,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Karmic Retribution", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kotohime",
+		prevo: "Normal Kotohime",
 	},
 	defensekotohime: {
 		num: 190,
@@ -2109,7 +2056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Karmic Retribution", 1: "Moody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kotohime",
+		prevo: "Normal Kotohime",
 	},
 	extrakotohime: {
 		num: 191,
@@ -2120,7 +2067,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Niche", 1: "Common Senseless"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kotohime",
+		prevo: "Normal Kotohime",
 	},
 	normalkurumi: {
 		num: 192,
@@ -2131,7 +2078,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Surprise Tactics"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kurumi",
 	},
 	powerkurumi: {
 		num: 193,
@@ -2142,7 +2088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Surprise Tactics"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kurumi",
+		prevo: "Normal Kurumi",
 	},
 	assistkurumi: {
 		num: 194,
@@ -2153,7 +2099,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Melancholic"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kurumi",
+		prevo: "Normal Kurumi",
 	},
 	extrakurumi: {
 		num: 195,
@@ -2164,7 +2110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "First Hit"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kurumi",
+		prevo: "Normal Kurumi",
 	},
 	normalkutaka: {
 		num: 196,
@@ -2175,7 +2121,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kutaka",
 	},
 	assistkutaka: {
 		num: 197,
@@ -2186,7 +2131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kutaka",
+		prevo: "Normal Kutaka",
 	},
 	speedkutaka: {
 		num: 198,
@@ -2197,7 +2142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Positive", 1: "Strict Dosage"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kutaka",
+		prevo: "Normal Kutaka",
 	},
 	extrakutaka: {
 		num: 199,
@@ -2208,7 +2153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Auto Heal"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kutaka",
+		prevo: "Normal Kutaka",
 	},
 	normalkyouko: {
 		num: 200,
@@ -2219,7 +2164,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Last Defense"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kyouko",
 	},
 	powerkyouko: {
 		num: 201,
@@ -2230,7 +2174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Niche"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kyouko",
+		prevo: "Normal Kyouko",
 	},
 	assistkyouko: {
 		num: 202,
@@ -2241,7 +2185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Resonance", 1: "In Sync"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kyouko",
+		prevo: "Normal Kyouko",
 	},
 	extrakyouko: {
 		num: 203,
@@ -2252,7 +2196,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Impulsive", 1: "Full Power"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "kyouko",
+		prevo: "Normal Kyouko",
 	},
 	normalletty: {
 		num: 204,
@@ -2263,7 +2207,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Last Defense", 1: "Grace of Water"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "letty",
 	},
 	powerletty: {
 		num: 205,
@@ -2274,7 +2217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Last Defense", 1: "Force of Nature"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "letty",
+		prevo: "Normal Letty",
 	},
 	defenseletty: {
 		num: 206,
@@ -2285,7 +2228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Some Guts", 1: "Supine"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "letty",
+		prevo: "Normal Letty",
 	},
 	extraletty: {
 		num: 207,
@@ -2296,7 +2239,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Skilled Hand"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "letty",
+		prevo: "Normal Letty",
 	},
 	normallily: {
 		num: 208,
@@ -2307,7 +2250,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wasteful", 1: "Antibody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lily",
 	},
 	assistlily: {
 		num: 209,
@@ -2318,7 +2260,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Phlegmatic", 1: "Auto Heal"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lily",
+		prevo: "Normal Lily",
 	},
 	powerlily: {
 		num: 210,
@@ -2329,7 +2271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Auto Heal"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lily",
+		prevo: "Normal Lily",
 	},
 	extralily: {
 		num: 211,
@@ -2340,7 +2282,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Smooth Sailing", 1: "Glamorous"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lily",
+		prevo: "Normal Lily",
 	},
 	normallouise: {
 		num: 212,
@@ -2351,7 +2293,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Peaceful"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "louise",
 	},
 	defenselouise: {
 		num: 213,
@@ -2362,7 +2303,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unique Shield", 1: "Lucky"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "louise",
+		prevo: "Normal Louise",
 	},
 	assistlouise: {
 		num: 214,
@@ -2373,7 +2314,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Phlegmatic"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "louise",
+		prevo: "Normal Louise",
 	},
 	extralouise: {
 		num: 215,
@@ -2384,7 +2325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Natural Form", 1: "Instant Win"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "louise",
+		prevo: "Normal Louise",
 	},
 	normalluna: {
 		num: 216,
@@ -2395,7 +2336,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash", 1: "Sound Absorb"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "luna",
 	},
 	powerluna: {
 		num: 217,
@@ -2406,7 +2346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash", 1: "Sound Absorb"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "luna",
+		prevo: "Normal Luna",
 	},
 	speedluna: {
 		num: 218,
@@ -2417,7 +2357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sanguine", 1: "Sound Absorb"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "luna",
+		prevo: "Normal Luna",
 	},
 	extraluna: {
 		num: 219,
@@ -2428,7 +2368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skilled Hand", 1: "Healing Power"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "luna",
+		prevo: "Normal Luna",
 	},
 	normallunasa: {
 		num: 220,
@@ -2439,7 +2379,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lunasa",
 	},
 	assistlunasa: {
 		num: 221,
@@ -2450,7 +2389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lunasa",
+		prevo: "Normal Lunasa",
 	},
 	defenselunasa: {
 		num: 222,
@@ -2461,7 +2400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Slow Tempo"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lunasa",
+		prevo: "Normal Lunasa",
 	},
 	extralunasa: {
 		num: 223,
@@ -2472,7 +2411,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Projection", 1: "Poker Face"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lunasa",
+		prevo: "Normal Lunasa",
 	},
 	normallyrica: {
 		num: 224,
@@ -2483,7 +2422,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lyrica",
 	},
 	speedlyrica: {
 		num: 225,
@@ -2494,7 +2432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lyrica",
+		prevo: "Normal Lyrica",
 	},
 	powerlyrica: {
 		num: 226,
@@ -2505,7 +2443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Charge!"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lyrica",
+		prevo: "Normal Lyrica",
 	},
 	extralyrica: {
 		num: 227,
@@ -2516,7 +2454,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Instant Win"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "lyrica",
+		prevo: "Normal Lyrica",
 	},
 	normalmagan: {
 		num: 228,
@@ -2527,7 +2465,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Cloak of Darkness"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "magan",
 	},
 	assistmagan: {
 		num: 229,
@@ -2538,7 +2475,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Curiosity"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "magan",
+		prevo: "Normal Magan",
 	},
 	powermagan: {
 		num: 230,
@@ -2549,7 +2486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "After Move", 1: "Cloak of Darkness"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "magan",
+		prevo: "Normal Magan",
 	},
 	extramagan: {
 		num: 231,
@@ -2560,7 +2497,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Inverse Toxin"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "magan",
+		prevo: "Normal Magan",
 	},
 	normalmai: {
 		num: 232,
@@ -2571,7 +2508,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Dark Force"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mai",
 	},
 	powermai: {
 		num: 233,
@@ -2582,7 +2518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Strict Dosage"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mai",
+		prevo: "Normal Mai",
 	},
 	defensemai: {
 		num: 234,
@@ -2593,7 +2529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Deploy Smoke"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mai",
+		prevo: "Normal Mai",
 	},
 	extramai: {
 		num: 235,
@@ -2604,7 +2540,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grace of Water", 1: "Fast Talker"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mai",
+		prevo: "Normal Mai",
 	},
 	normalmamizou: {
 		num: 236,
@@ -2615,7 +2551,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wisdom Eye", 1: "Slow Tempo"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mamizou",
 	},
 	defensemamizou: {
 		num: 237,
@@ -2626,7 +2561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wisdom Eye", 1: "Slow Tempo"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mamizou",
+		prevo: "Normal Mamizou",
 	},
 	powermamizou: {
 		num: 238,
@@ -2637,7 +2572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hobgoblin"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mamizou",
+		prevo: "Normal Mamizou",
 	},
 	extramamizou: {
 		num: 239,
@@ -2648,7 +2583,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deflective", 1: "Fast Talker"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mamizou",
+		prevo: "Normal Mamizou",
 	},
 	normalmarisa: {
 		num: 240,
@@ -2659,7 +2594,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Positive", 1: "Collectomaniac"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "marisa",
 	},
 	speedmarisa: {
 		num: 241,
@@ -2670,7 +2604,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Positive", 1: "Collectomaniac"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "marisa",
+		prevo: "Normal Marisa",
 	},
 	powermarisa: {
 		num: 242,
@@ -2681,7 +2615,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Devil", 1: "Collectomaniac"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "marisa",
+		prevo: "Normal Marisa",
 	},
 	extramarisa: {
 		num: 243,
@@ -2692,7 +2626,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fast Talker", 1: "Full Power"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "marisa",
+		prevo: "Normal Marisa",
 	},
 	normalmayumi: {
 		num: 244,
@@ -2703,7 +2637,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mayumi",
 	},
 	defensemayumi: {
 		num: 245,
@@ -2714,7 +2647,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mayumi",
+		prevo: "Normal Mayumi",
 	},
 	speedmayumi: {
 		num: 246,
@@ -2725,7 +2658,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Desolation Form", 1: "General's Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mayumi",
+		prevo: "Normal Mayumi",
 	},
 	extramayumi: {
 		num: 247,
@@ -2736,7 +2669,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Master's Defense", 1: "Counter Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mayumi",
+		prevo: "Normal Mayumi",
 	},
 	normalmedicine: {
 		num: 248,
@@ -2747,7 +2680,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "medicine",
 	},
 	defensemedicine: {
 		num: 249,
@@ -2758,7 +2690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Body", 1: "Karmic Retribution"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "medicine",
+		prevo: "Normal Medicine",
 	},
 	powermedicine: {
 		num: 250,
@@ -2769,7 +2701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "medicine",
+		prevo: "Normal Medicine",
 	},
 	extramedicine: {
 		num: 251,
@@ -2780,7 +2712,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flat Speed", 1: "Poison Labyrinth"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "medicine",
+		prevo: "Normal Medicine",
 	},
 	normalmegumu: {
 		num: 252,
@@ -2791,7 +2723,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Up Tempo", 1: "Gale"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "megumu",
 	},
 	speedmegumu: {
 		num: 253,
@@ -2802,7 +2733,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Up Tempo", 1: "Smooth Sailing"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "megumu",
+		prevo: "Normal Megumu",
 	},
 	powermegumu: {
 		num: 254,
@@ -2813,7 +2744,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Up Tempo", 1: "Absorbent"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "megumu",
+		prevo: "Normal Megumu",
 	},
 	extramegumu: {
 		num: 255,
@@ -2824,7 +2755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flat Speed", 1: "Astronomy"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "megumu",
+		prevo: "Normal Megumu",
 	},
 	normalmeiling: {
 		num: 256,
@@ -2835,7 +2766,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flexible", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meiling",
 	},
 	speedmeiling: {
 		num: 257,
@@ -2846,7 +2776,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Iron Resolve"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meiling",
+		prevo: "Normal Meiling",
 	},
 	defensemeiling: {
 		num: 258,
@@ -2857,7 +2787,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Choleric", 1: "Counter Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meiling",
+		prevo: "Normal Meiling",
 	},
 	extrameiling: {
 		num: 259,
@@ -2868,7 +2798,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strategist", 1: "Imposing Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meiling",
+		prevo: "Normal Meiling",
 	},
 	normalmeira: {
 		num: 260,
@@ -2879,7 +2809,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Assault", 1: "Armor Purge"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meira",
 	},
 	powermeira: {
 		num: 261,
@@ -2890,7 +2819,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Immovable", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meira",
+		prevo: "Normal Meira",
 	},
 	speedmeira: {
 		num: 262,
@@ -2901,7 +2830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sore Loser", 1: "Armor Purge"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meira",
+		prevo: "Normal Meira",
 	},
 	extrameira: {
 		num: 263,
@@ -2912,7 +2841,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Master's Defense", 1: "Indomitable"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "meira",
+		prevo: "Normal Meira",
 	},
 	normalmerlin: {
 		num: 264,
@@ -2923,7 +2852,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Optimist"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "merlin",
 	},
 	assistmerlin: {
 		num: 265,
@@ -2934,7 +2862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Up Tempo"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "merlin",
+		prevo: "Normal Merlin",
 	},
 	powermerlin: {
 		num: 266,
@@ -2945,7 +2873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sound Absorb", 1: "Mind's Eye"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "merlin",
+		prevo: "Normal Merlin",
 	},
 	extramerlin: {
 		num: 267,
@@ -2956,7 +2884,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!", 1: "Impulsive"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "merlin",
+		prevo: "Normal Merlin",
 	},
 	normalmaribel: {
 		num: 268,
@@ -2967,7 +2895,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "maribel",
 	},
 	defensemaribel: {
 		num: 269,
@@ -2978,7 +2905,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Boundary Savior"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "maribel",
+		prevo: "Normal Maribel",
 	},
 	powermaribel: {
 		num: 270,
@@ -2989,7 +2916,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Boundary Blurrer"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "maribel",
+		prevo: "Normal Maribel",
 	},
 	extramaribel: {
 		num: 271,
@@ -3000,7 +2927,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits", 1: "Skilled Hand"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "maribel",
+		prevo: "Normal Maribel",
 	},
 	normalmike: {
 		num: 272,
@@ -3011,7 +2938,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mike",
 	},
 	speedmike: {
 		num: 273,
@@ -3022,7 +2948,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Morale Boost"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mike",
+		prevo: "Normal Mike",
 	},
 	assistmike: {
 		num: 274,
@@ -3033,7 +2959,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Economist", 1: "Free Will"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mike",
+		prevo: "Normal Mike",
 	},
 	extramike: {
 		num: 275,
@@ -3044,7 +2970,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Niche", 1: "Sore Loser"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mike",
+		prevo: "Normal Mike",
 	},
 	normalmiko: {
 		num: 276,
@@ -3055,7 +2981,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miko",
 	},
 	speedmiko: {
 		num: 277,
@@ -3066,7 +2991,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miko",
+		prevo: "Normal Miko",
 	},
 	powermiko: {
 		num: 278,
@@ -3077,7 +3002,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "True Admin"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miko",
+		prevo: "Normal Miko",
 	},
 	extramiko: {
 		num: 279,
@@ -3088,7 +3013,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "First Hit", 1: "Intuition"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miko",
+		prevo: "Normal Miko",
 	},
 	normalmima: {
 		num: 280,
@@ -3099,7 +3024,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mima",
 	},
 	defensemima: {
 		num: 281,
@@ -3110,7 +3034,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mima",
+		prevo: "Normal Mima",
 	},
 	powermima: {
 		num: 282,
@@ -3121,7 +3045,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Hot Head"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mima",
+		prevo: "Normal Mima",
 	},
 	extramima: {
 		num: 283,
@@ -3132,7 +3056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Pride"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mima",
+		prevo: "Normal Mima",
 	},
 	normalminoriko: {
 		num: 284,
@@ -3143,7 +3067,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Breather"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "minoriko",
 	},
 	powerminoriko: {
 		num: 285,
@@ -3154,7 +3077,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Skilled Hand"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "minoriko",
+		prevo: "Normal Minoriko",
 	},
 	defenseminoriko: {
 		num: 286,
@@ -3165,7 +3088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Breather"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "minoriko",
+		prevo: "Normal Minoriko",
 	},
 	extraminoriko: {
 		num: 287,
@@ -3176,7 +3099,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Auto Heal", 1: "Antibody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "minoriko",
+		prevo: "Normal Minoriko",
 	},
 	normalmisumaru: {
 		num: 288,
@@ -3187,7 +3110,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Projection", 1: "Divine Protection"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "misumaru",
 	},
 	defensemisumaru: {
 		num: 289,
@@ -3198,7 +3120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Projection", 1: "Self Exorcism"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "misumaru",
+		prevo: "Normal Misumaru",
 	},
 	powermisumaru: {
 		num: 290,
@@ -3209,7 +3131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Projection", 1: "Divine Protection"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "misumaru",
+		prevo: "Normal Misumaru",
 	},
 	extramisumaru: {
 		num: 291,
@@ -3220,7 +3142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yang", 1: "Spirit of Yin"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "misumaru",
+		prevo: "Normal Misumaru",
 	},
 	normalmiyoi: {
 		num: 292,
@@ -3231,7 +3153,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Disturber"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miyoi",
 	},
 	assistmiyoi: {
 		num: 293,
@@ -3242,7 +3163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Good Management"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miyoi",
+		prevo: "Normal Miyoi",
 	},
 	powermiyoi: {
 		num: 294,
@@ -3253,7 +3174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wariness", 1: "Disturber"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miyoi",
+		prevo: "Normal Miyoi",
 	},
 	extramiyoi: {
 		num: 295,
@@ -3264,7 +3185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strict Dosage", 1: "Worrywart"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "miyoi",
+		prevo: "Normal Miyoi",
 	},
 	normalmokou: {
 		num: 296,
@@ -3275,7 +3196,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Emergency Cure"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mokou",
 	},
 	speedmokou: {
 		num: 297,
@@ -3286,7 +3206,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hate Incarnate", 1: "Instant Win"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mokou",
+		prevo: "Normal Mokou",
 	},
 	powermokou: {
 		num: 298,
@@ -3297,7 +3217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fox's Wedding", 1: "Reckless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mokou",
+		prevo: "Normal Mokou",
 	},
 	extramokou: {
 		num: 299,
@@ -3308,7 +3228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Southern Expanse", 1: "Full Power"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mokou",
+		prevo: "Normal Mokou",
 	},
 	normalmomiji: {
 		num: 300,
@@ -3319,7 +3239,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Telescopic"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momiji",
 	},
 	speedmomiji: {
 		num: 301,
@@ -3330,7 +3249,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stubborn", 1: "Gale Form"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momiji",
+		prevo: "Normal Momiji",
 	},
 	defensemomiji: {
 		num: 302,
@@ -3341,7 +3260,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Telescopic"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momiji",
+		prevo: "Normal Momiji",
 	},
 	extramomiji: {
 		num: 303,
@@ -3352,7 +3271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Counter Stance", 1: "Sixth Sense"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momiji",
+		prevo: "Normal Momiji",
 	},
 	normalmomoyo: {
 		num: 304,
@@ -3363,7 +3282,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Body", 1: "Negative Aura"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momoyo",
 	},
 	powermomoyo: {
 		num: 305,
@@ -3374,7 +3292,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Thorns", 1: "Sand Mask"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momoyo",
+		prevo: "Normal Momoyo",
 	},
 	speedmomoyo: {
 		num: 306,
@@ -3385,7 +3303,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Body", 1: "Koutei's Earth"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momoyo",
+		prevo: "Normal Momoyo",
 	},
 	extramomoyo: {
 		num: 307,
@@ -3396,7 +3314,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inverse Toxin", 1: "Negative Aura"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "momoyo",
+		prevo: "Normal Momoyo",
 	},
 	normalmugetsu: {
 		num: 308,
@@ -3407,7 +3325,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dark Force", 1: "Brutality"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mugetsu",
 	},
 	powermugetsu: {
 		num: 309,
@@ -3418,7 +3335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mugetsu",
+		prevo: "Normal Mugetsu",
 	},
 	assistmugetsu: {
 		num: 310,
@@ -3429,7 +3346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dark Force", 1: "Weather Resist"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mugetsu",
+		prevo: "Normal Mugetsu",
 	},
 	extramugetsu: {
 		num: 311,
@@ -3440,7 +3357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Divine Festival", 1: "Spirit of Yin"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mugetsu",
+		prevo: "Normal Mugetsu",
 	},
 	normalmurasa: {
 		num: 312,
@@ -3451,7 +3368,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "murasa",
 	},
 	powermurasa: {
 		num: 313,
@@ -3462,7 +3378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "murasa",
+		prevo: "Normal Murasa",
 	},
 	defensemurasa: {
 		num: 314,
@@ -3473,7 +3389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Negative Aura", 1: "Inverse Toxin"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "murasa",
+		prevo: "Normal Murasa",
 	},
 	extramurasa: {
 		num: 315,
@@ -3484,7 +3400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fast Talker", 1: "Metallurgy"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "murasa",
+		prevo: "Normal Murasa",
 	},
 	normalmystia: {
 		num: 316,
@@ -3495,7 +3411,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mystia",
 	},
 	defensemystia: {
 		num: 317,
@@ -3506,7 +3421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mystia",
+		prevo: "Normal Mystia",
 	},
 	powermystia: {
 		num: 318,
@@ -3517,7 +3432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Smooth Sailing", 1: "Up Tempo"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mystia",
+		prevo: "Normal Mystia",
 	},
 	extramystia: {
 		num: 319,
@@ -3528,7 +3443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Stimulative"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "mystia",
+		prevo: "Normal Mystia",
 	},
 	normalnarumi: {
 		num: 320,
@@ -3539,7 +3454,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Composed"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "narumi",
 	},
 	defensenarumi: {
 		num: 321,
@@ -3550,7 +3464,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Composed"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "narumi",
+		prevo: "Normal Narumi",
 	},
 	powernarumi: {
 		num: 322,
@@ -3561,7 +3475,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Healing Power"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "narumi",
+		prevo: "Normal Narumi",
 	},
 	extranarumi: {
 		num: 323,
@@ -3572,7 +3486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Empowered", 1: "Unbound"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "narumi",
+		prevo: "Normal Narumi",
 	},
 	normalnazrin: {
 		num: 324,
@@ -3583,7 +3497,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Collectomaniac"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nazrin",
 	},
 	speednazrin: {
 		num: 325,
@@ -3594,7 +3507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Sand Force"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nazrin",
+		prevo: "Normal Nazrin",
 	},
 	defensenazrin: {
 		num: 326,
@@ -3605,7 +3518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Sand Mask"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nazrin",
+		prevo: "Normal Nazrin",
 	},
 	extranazrin: {
 		num: 327,
@@ -3616,7 +3529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Unbound"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nazrin",
+		prevo: "Normal Nazrin",
 	},
 	normalnemuno: {
 		num: 328,
@@ -3627,7 +3540,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nemuno",
 	},
 	powernemuno: {
 		num: 329,
@@ -3638,7 +3550,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nemuno",
+		prevo: "Normal Nemuno",
 	},
 	defensenemuno: {
 		num: 330,
@@ -3649,7 +3561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Force of Nature"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nemuno",
+		prevo: "Normal Nemuno",
 	},
 	extranemuno: {
 		num: 331,
@@ -3660,7 +3572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance", 1: "Choleric"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nemuno",
+		prevo: "Normal Nemuno",
 	},
 	normalnitori: {
 		num: 332,
@@ -3671,7 +3583,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Maintenance", 1: "Collectomaniac"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nitori",
 	},
 	powernitori: {
 		num: 333,
@@ -3682,7 +3593,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Byakutei's Metal", 1: "Recoil Offset"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nitori",
+		prevo: "Normal Nitori",
 	},
 	speednitori: {
 		num: 334,
@@ -3693,7 +3604,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Maintenance", 1: "Electromagnetic"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nitori",
+		prevo: "Normal Nitori",
 	},
 	extranitori: {
 		num: 335,
@@ -3704,7 +3615,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Maintenance", 1: "Metallurgy"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nitori",
+		prevo: "Normal Nitori",
 	},
 	normalnue: {
 		num: 336,
@@ -3715,7 +3626,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Telescopic"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nue",
 	},
 	powernue: {
 		num: 337,
@@ -3726,7 +3636,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hobgoblin", 1: "Telescopic"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nue",
+		prevo: "Normal Nue",
 	},
 	defensenue: {
 		num: 338,
@@ -3737,7 +3647,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Disturber"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nue",
+		prevo: "Normal Nue",
 	},
 	extranue: {
 		num: 339,
@@ -3748,7 +3658,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intuition", 1: "Charge!"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "nue",
+		prevo: "Normal Nue",
 	},
 	normalokina: {
 		num: 340,
@@ -3759,7 +3669,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Weather Resist"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "okina",
 	},
 	powerokina: {
 		num: 341,
@@ -3770,7 +3679,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Benefit of Fire", 1: "Pride"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "okina",
+		prevo: "Normal Okina",
 	},
 	defenseokina: {
 		num: 342,
@@ -3781,7 +3690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Divine Festival", 1: "Infiltration"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "okina",
+		prevo: "Normal Okina",
 	},
 	extraokina: {
 		num: 343,
@@ -3792,7 +3701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Secret Ceremony"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "okina",
+		prevo: "Normal Okina",
 	},
 	normalorange: {
 		num: 344,
@@ -3803,7 +3712,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Cure", 1: "Wasteful"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "orange",
 	},
 	defenseorange: {
 		num: 345,
@@ -3814,7 +3722,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Cure", 1: "Lucky"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "orange",
+		prevo: "Normal Orange",
 	},
 	powerorange: {
 		num: 346,
@@ -3825,7 +3733,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Harassment", 1: "Usurpation"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "orange",
+		prevo: "Normal Orange",
 	},
 	extraorange: {
 		num: 347,
@@ -3836,7 +3744,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Niche", 1: "Deploy Smoke"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "orange",
+		prevo: "Normal Orange",
 	},
 	normalparsee: {
 		num: 348,
@@ -3847,7 +3755,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Karmic Retribution", 1: "Quick Eye"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "parsee",
 	},
 	defenseparsee: {
 		num: 349,
@@ -3858,7 +3765,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Karmic Retribution", 1: "Metallurgy"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "parsee",
+		prevo: "Normal Parsee",
 	},
 	assistparsee: {
 		num: 350,
@@ -3869,7 +3776,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unwavering Heart", 1: "Hate Incarnate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "parsee",
+		prevo: "Normal Parsee",
 	},
 	extraparsee: {
 		num: 351,
@@ -3880,7 +3787,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Two of a Kind", 1: "Hate Incarnate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "parsee",
+		prevo: "Normal Parsee",
 	},
 	normalpatchouli: {
 		num: 352,
@@ -3891,7 +3798,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Resonance", 1: "Immovable"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "patchouli",
 	},
 	powerpatchouli: {
 		num: 353,
@@ -3902,7 +3808,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Resonance", 1: "Immovable"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "patchouli",
+		prevo: "Normal Patchouli",
 	},
 	defensepatchouli: {
 		num: 354,
@@ -3913,7 +3819,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Resonance", 1: "Wisdom Eye"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "patchouli",
+		prevo: "Normal Patchouli",
 	},
 	extrapatchouli: {
 		num: 355,
@@ -3924,7 +3830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deflective", 1: "Counter Stance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "patchouli",
+		prevo: "Normal Patchouli",
 	},
 	normalraiko: {
 		num: 356,
@@ -3935,7 +3841,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Sixth Sense"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "raiko",
 	},
 	powerraiko: {
 		num: 357,
@@ -3946,7 +3851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Sixth Sense"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "raiko",
+		prevo: "Normal Raiko",
 	},
 	assistraiko: {
 		num: 358,
@@ -3957,7 +3862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Disturber"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "raiko",
+		prevo: "Normal Raiko",
 	},
 	extraraiko: {
 		num: 359,
@@ -3968,7 +3873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Maintenance"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "raiko",
+		prevo: "Normal Raiko",
 	},
 	normalran: {
 		num: 360,
@@ -3979,7 +3884,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Discourager", 1: "Disturber"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ran",
 	},
 	powerran: {
 		num: 361,
@@ -3990,7 +3894,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Morale Boost", 1: "Jamming"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ran",
+		prevo: "Normal Ran",
 	},
 	defenseran: {
 		num: 362,
@@ -4001,7 +3905,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits", 1: "Disturber"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ran",
+		prevo: "Normal Ran",
 	},
 	extraran: {
 		num: 363,
@@ -4012,7 +3916,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ascertainment", 1: "Supine"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ran",
+		prevo: "Normal Ran",
 	},
 	normalreimu: {
 		num: 364,
@@ -4023,7 +3927,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Economist", 1: "Composed"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reimu"
 	},
 	defensereimu: {
 		num: 365,
@@ -4034,7 +3937,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Economist", 1: "Composed"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reimu",
+		prevo: "Normal Reimu",
 	},
 	powerreimu: {
 		num: 366,
@@ -4045,7 +3948,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Economist", 1: "Self Exorcism"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reimu",
+		prevo: "Normal Reimu",
 	},
 	extrareimu: {
 		num: 367,
@@ -4056,7 +3959,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Strange Rainbow"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reimu",
+		prevo: "Normal Reimu",
 	},
 	normalreisen: {
 		num: 368,
@@ -4067,7 +3970,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Common Senseless", 1: "Worrywart"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reisen",
 	},
 	speedreisen: {
 		num: 369,
@@ -4078,7 +3980,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Strategist"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reisen",
+		prevo: "Normal Rei'sen",
 	},
 	powerreisen: {
 		num: 370,
@@ -4089,7 +3991,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Common Senseless", 1: "Worrywart"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reisen",
+		prevo: "Normal Rei'sen",
 	},
 	extrareisen: {
 		num: 371,
@@ -4100,7 +4002,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skilled Hand", 1: "Precise Aim"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "reisen",
+		prevo: "Normal Rei'sen",
 	},
 	normalremilia: {
 		num: 372,
@@ -4111,7 +4013,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "remilia",
 	},
 	powerremilia: {
 		num: 373,
@@ -4122,7 +4023,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vanishing Act", 1: "Charge!"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "remilia",
+		prevo: "Normal Remilia",
 	},
 	speedremilia: {
 		num: 374,
@@ -4133,7 +4034,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "remilia",
+		prevo: "Normal Remilia",
 	},
 	extraremilia: {
 		num: 375,
@@ -4144,7 +4045,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pride", 1: "Fog Traveler"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "remilia",
+		prevo: "Normal Remilia",
 	},
 	normalrenko: {
 		num: 376,
@@ -4155,7 +4056,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "renko",
 	},
 	assistrenko: {
 		num: 377,
@@ -4166,7 +4066,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Timegazer"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "renko",
+		prevo: "Normal Renko",
 	},
 	speedrenko: {
 		num: 378,
@@ -4177,7 +4077,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stargazer"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "renko",
+		prevo: "Normal Renko",
 	},
 	extrarenko: {
 		num: 379,
@@ -4188,7 +4088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Sixth Sense"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "renko",
+		prevo: "Normal Renko",
 	},
 	normalrika: {
 		num: 380,
@@ -4199,7 +4099,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Immovable", 1: "Maintenance"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rika",
 	},
 	speedrika: {
 		num: 381,
@@ -4210,7 +4109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Benefit of Fire"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rika",
+		prevo: "Normal Rika",
 	},
 	powerrika: {
 		num: 382,
@@ -4221,7 +4120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gentei's Water", 1: "Unyielding Form"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rika",
+		prevo: "Normal Rika",
 	},
 	extrarika: {
 		num: 383,
@@ -4232,8 +4131,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mode Shift"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rika",
-		otherFormes: ['Extra Rika-Shift']
+		otherFormes: ['Extra Rika-Shift'],
+		prevo: "Normal Rika",
 	},
 	extrarikashift: {
 		num: 384,
@@ -4244,7 +4143,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mode Shift"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rika-shift",
 		forme: "Shift",
 		changesFrom: "Extra Rika"
 	},
@@ -4257,7 +4155,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rikako",
 	},
 	powerrikako: {
 		num: 386,
@@ -4268,7 +4165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rikako",
+		prevo: "Normal Rikako",
 	},
 	speedrikako: {
 		num: 387,
@@ -4279,7 +4176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rikako",
+		prevo: "Normal Rikako",
 	},
 	extrarikako: {
 		num: 388,
@@ -4290,7 +4187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unwavering Heart", 1: "Fog Traveler"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rikako",
+		prevo: "Normal Rikako",
 	},
 	normalrin: {
 		num: 389,
@@ -4301,7 +4198,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flexible", 1: "Morale Boost"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rin",
 	},
 	speedrin: {
 		num: 390,
@@ -4312,7 +4208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Southern Expanse", 1: "Morale Boost"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rin",
+		prevo: "Normal Rin",
 	},
 	powerrin: {
 		num: 391,
@@ -4323,7 +4219,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flexible", 1: "Up Tempo"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rin",
+		prevo: "Normal Rin",
 	},
 	extrarin: {
 		num: 392,
@@ -4334,7 +4230,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Benefit of Fire", 1: "Infiltration"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rin",
+		prevo: "Normal Rin",
 	},
 	normalringo: {
 		num: 393,
@@ -4345,7 +4241,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Overcompensate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ringo",
 	},
 	defenseringo: {
 		num: 394,
@@ -4356,7 +4251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Overcompensate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ringo",
+		prevo: "Normal Ringo",
 	},
 	powerringo: {
 		num: 395,
@@ -4367,7 +4262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Overcompensate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ringo",
+		prevo: "Normal Ringo",
 	},
 	extraringo: {
 		num: 396,
@@ -4378,7 +4273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Moody", 1: "Overcompensate"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ringo",
+		prevo: "Normal Ringo",
 	},
 	normalrinnosuke: {
 		num: 397,
@@ -4389,7 +4284,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Collectomaniac"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rinnosuke",
 	},
 	defenserinnosuke: {
 		num: 398,
@@ -4400,7 +4294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rinnosuke",
+		prevo: "Normal Rinnosuke",
 	},
 	powerrinnosuke: {
 		num: 399,
@@ -4411,7 +4305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rinnosuke",
+		prevo: "Normal Rinnosuke",
 	},
 	extrarinnosuke: {
 		num: 400,
@@ -4422,7 +4316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rinnosuke",
+		prevo: "Normal Rinnosuke",
 	},
 	normalrumia: {
 		num: 401,
@@ -4433,7 +4327,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Spirit of Yin"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rumia",
 	},
 	defenserumia: {
 		num: 402,
@@ -4444,7 +4337,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Cloak of Darkness", 1: "Healing Power"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rumia",
+		prevo: "Normal Rumia",
 	},
 	powerrumia: {
 		num: 403,
@@ -4455,7 +4348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Brutality", 1: "Spirit of Yin"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rumia",
+		prevo: "Normal Rumia",
 	},
 	extrarumia: {
 		num: 404,
@@ -4466,7 +4359,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fog Traveler", 1: "Unbound"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "rumia",
+		prevo: "Normal Rumia",
 	},
 	normalruukoto: {
 		num: 405,
@@ -4477,7 +4370,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ruukoto",
 	},
 	assistruukoto: {
 		num: 406,
@@ -4488,7 +4380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ruukoto",
+		prevo: "Normal Ruukoto",
 	},
 	powerruukoto: {
 		num: 407,
@@ -4499,7 +4391,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ruukoto",
+		prevo: "Normal Ruukoto",
 	},
 	extraruukoto: {
 		num: 408,
@@ -4510,7 +4402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Restraint"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "ruukoto",
+		prevo: "Normal Ruukoto",
 	},
 	normalsagume: {
 		num: 409,
@@ -4521,7 +4413,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reverse Function", 1: "Ascertainment"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sagume",
 	},
 	powersagume: {
 		num: 410,
@@ -4532,7 +4423,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reverse Function", 1: "Reflect Guard"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sagume",
+		prevo: "Normal Sagume",
 	},
 	defensesagume: {
 		num: 411,
@@ -4543,7 +4434,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wisdom Eye", 1: "Ascertainment"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sagume",
+		prevo: "Normal Sagume",
 	},
 	extrasagume: {
 		num: 412,
@@ -4554,7 +4445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reverse Function", 1: "Divine Festival"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sagume",
+		prevo: "Normal Sagume",
 	},
 	normalsaki: {
 		num: 413,
@@ -4565,7 +4456,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "saki",
 	},
 	speedsaki: {
 		num: 414,
@@ -4576,7 +4466,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aggressive", 1: "Battle Mania"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "saki",
+		prevo: "Normal Saki",
 	},
 	powersaki: {
 		num: 415,
@@ -4587,7 +4477,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "saki",
+		prevo: "Normal Saki",
 	},
 	extrasaki: {
 		num: 416,
@@ -4598,7 +4488,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vigorous", 1: "Common Senseless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "saki",
+		prevo: "Normal Saki",
 	},
 	normalsakuya: {
 		num: 417,
@@ -4609,7 +4499,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poker Face", 1: "Nimble"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sakuya",
 	},
 	speedsakuya: {
 		num: 418,
@@ -4620,7 +4509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Force", 1: "Nimble"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sakuya",
+		prevo: "Normal Sakuya",
 	},
 	powersakuya: {
 		num: 419,
@@ -4631,7 +4520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strategist", 1: "Nimble"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sakuya",
+		prevo: "Normal Sakuya",
 	},
 	extrasakuya: {
 		num: 420,
@@ -4642,7 +4531,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Gale"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sakuya",
+		prevo: "Normal Sakuya",
 	},
 	normalsanae: {
 		num: 421,
@@ -4653,7 +4542,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sanae",
 	},
 	powersanae: {
 		num: 422,
@@ -4664,7 +4552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Phlegmatic"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sanae",
+		prevo: "Normal Sanae",
 	},
 	speedsanae: {
 		num: 423,
@@ -4675,7 +4563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sanae",
+		prevo: "Normal Sanae",
 	},
 	extrasanae: {
 		num: 424,
@@ -4686,7 +4574,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inverse Reaction", 1: "On the Edge"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sanae",
+		prevo: "Normal Sanae",
 	},
 	normalsannyo: {
 		num: 425,
@@ -4697,7 +4585,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Composed"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sannyo",
 	},
 	assistsannyo: {
 		num: 426,
@@ -4708,7 +4595,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Jamming"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sannyo",
+		prevo: "Normal Sannyo",
 	},
 	powersannyo: {
 		num: 427,
@@ -4719,7 +4606,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Wisdom Eye"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sannyo",
+		prevo: "Normal Sannyo",
 	},
 	extrasannyo: {
 		num: 428,
@@ -4730,7 +4617,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fog Traveler", 1: "Weather Resist"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sannyo",
+		prevo: "Normal Sannyo",
 	},
 	normalsara: {
 		num: 429,
@@ -4741,7 +4628,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Healing Power"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sara",
 	},
 	defensesara: {
 		num: 430,
@@ -4752,7 +4638,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Resolve", 1: "Choleric"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sara",
+		prevo: "Normal Sara",
 	},
 	speedsara: {
 		num: 431,
@@ -4763,7 +4649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Good Management", 1: "Sniper"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sara",
+		prevo: "Normal Sara",
 	},
 	extrasara: {
 		num: 432,
@@ -4774,7 +4660,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Master's Defense"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sara",
+		prevo: "Normal Sara",
 	},
 	normalsariel: {
 		num: 433,
@@ -4785,7 +4671,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flawless", 1: "Dark Force"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sariel",
 	},
 	powersariel: {
 		num: 434,
@@ -4796,7 +4681,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flawless", 1: "Dark Force"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sariel",
+		prevo: "Normal Sariel",
 	},
 	defensesariel: {
 		num: 435,
@@ -4807,7 +4692,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flawless", 1: "Inverse Reaction"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sariel",
+		prevo: "Normal Sariel",
 	},
 	extrasariel: {
 		num: 436,
@@ -4818,7 +4703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ascertainment", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sariel",
+		prevo: "Normal Sariel",
 	},
 	normalsatono: {
 		num: 437,
@@ -4829,7 +4714,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Reflect Guard"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satono",
 	},
 	assistsatono: {
 		num: 438,
@@ -4840,7 +4724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Reflect Guard"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satono",
+		prevo: "Normal Satono",
 	},
 	speedsatono: {
 		num: 439,
@@ -4851,7 +4735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Optimist"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satono",
+		prevo: "Normal Satono",
 	},
 	extrasatono: {
 		num: 440,
@@ -4862,7 +4746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "First Hit", 1: "After Move"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satono",
+		prevo: "Normal Satono",
 	},
 	normalsatori: {
 		num: 441,
@@ -4873,7 +4757,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Projection"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satori",
 	},
 	defensesatori: {
 		num: 442,
@@ -4884,7 +4767,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curse Return", 1: "Projection"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satori",
+		prevo: "Normal Satori",
 	},
 	assistsatori: {
 		num: 443,
@@ -4895,7 +4778,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shadow Stitch"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satori",
+		prevo: "Normal Satori",
 	},
 	extrasatori: {
 		num: 444,
@@ -4906,7 +4789,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infinite Changes", 1: "Projection"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "satori",
+		prevo: "Normal Satori",
 	},
 	normalseiga: {
 		num: 445,
@@ -4917,7 +4800,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiga",
 	},
 	speedseiga: {
 		num: 446,
@@ -4928,7 +4810,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiga",
+		prevo: "Normal Seiga",
 	},
 	powerseiga: {
 		num: 447,
@@ -4939,7 +4821,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiga",
+		prevo: "Normal Seiga",
 	},
 	extraseiga: {
 		num: 448,
@@ -4950,7 +4832,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flat Speed", 1: "Known Limits"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiga",
+		prevo: "Normal Seiga",
 	},
 	normalseija: {
 		num: 449,
@@ -4961,7 +4843,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seija",
 	},
 	speedseija: {
 		num: 450,
@@ -4972,7 +4853,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seija",
+		prevo: "Normal Seija",
 	},
 	defenseseija: {
 		num: 451,
@@ -4983,7 +4864,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seija",
+		prevo: "Normal Seija",
 	},
 	extraseija: {
 		num: 452,
@@ -4994,7 +4875,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Usurpation", 1: "Affinity Twist"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seija",
+		prevo: "Normal Seija",
 	},
 	normalseiran: {
 		num: 453,
@@ -5005,7 +4886,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiran",
 	},
 	speedseiran: {
 		num: 454,
@@ -5016,7 +4896,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiran",
+		prevo: "Normal Seiran",
 	},
 	defenseseiran: {
 		num: 455,
@@ -5027,7 +4907,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "Chaos Induction"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiran",
+		prevo: "Normal Seiran",
 	},
 	extraseiran: {
 		num: 456,
@@ -5038,7 +4918,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Unbound"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "seiran",
+		prevo: "Normal Seiran",
 	},
 	normalsekibanki: {
 		num: 457,
@@ -5049,7 +4929,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yin"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sekibanki",
 	},
 	powersekibanki: {
 		num: 458,
@@ -5060,7 +4939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bright Form", 1: "Spirit of Yin"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sekibanki",
+		prevo: "Normal Sekibanki",
 	},
 	assistsekibanki: {
 		num: 459,
@@ -5071,7 +4950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Melancholic", 1: "Appeased Spirit"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sekibanki",
+		prevo: "Normal Sekibanki",
 	},
 	extrasekibanki: {
 		num: 460,
@@ -5082,7 +4961,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Impulsive"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sekibanki",
+		prevo: "Normal Sekibanki",
 	},
 	normalshingyoku: {
 		num: 461,
@@ -5093,7 +4972,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shingyoku",
 	},
 	assistshingyoku: {
 		num: 462,
@@ -5104,7 +4982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shingyoku",
+		prevo: "Normal Shingyoku",
 	},
 	defenseshingyoku: {
 		num: 463,
@@ -5115,7 +4993,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shingyoku",
+		prevo: "Normal Shingyoku",
 	},
 	extrashingyoku: {
 		num: 464,
@@ -5126,7 +5004,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Midnight Form", 1: "After Move"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shingyoku",
+		prevo: "Normal Shingyoku",
 	},
 	normalshinki: {
 		num: 465,
@@ -5137,7 +5015,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shinki",
 	},
 	powershinki: {
 		num: 466,
@@ -5148,7 +5025,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shinki",
+		prevo: "Normal Shinki",
 	},
 	speedshinki: {
 		num: 467,
@@ -5159,7 +5036,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Smile", 1: "Cloak of Darkness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shinki",
+		prevo: "Normal Shinki",
 	},
 	extrashinki: {
 		num: 468,
@@ -5170,7 +5047,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Surprise Tactics", 1: "Projection"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shinki",
+		prevo: "Normal Shinki",
 	},
 	normalshizuha: {
 		num: 469,
@@ -5181,7 +5058,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yin", 1: "Antibody"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shizuha",
 	},
 	speedshizuha: {
 		num: 470,
@@ -5192,7 +5068,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yin", 1: "Curiosity"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shizuha",
+		prevo: "Normal Shizuha",
 	},
 	powershizuha: {
 		num: 471,
@@ -5203,7 +5079,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit of Yin", 1: "Strict Dosage"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shizuha",
+		prevo: "Normal Shizuha",
 	},
 	extrashizuha: {
 		num: 472,
@@ -5214,7 +5090,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sutei's Fire", 1: "Charge!"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shizuha",
+		prevo: "Normal Shizuha",
 	},
 	normalshou: {
 		num: 473,
@@ -5225,7 +5101,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Absorbent", 1: "Flash"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shou",
 	},
 	powershou: {
 		num: 474,
@@ -5236,7 +5111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Absorbent", 1: "Flash"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shou",
+		prevo: "Normal Shou",
 	},
 	speedshou: {
 		num: 475,
@@ -5247,7 +5122,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance", 1: "Sand Devil"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shou",
+		prevo: "Normal Shou",
 	},
 	extrashou: {
 		num: 476,
@@ -5258,7 +5133,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "On the Edge", 1: "Flat Speed"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "shou",
+		prevo: "Normal Shou",
 	},
 	normalstar: {
 		num: 477,
@@ -5269,7 +5144,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Light Curtain", 1: "Aurora Grace"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "star",
 	},
 	powerstar: {
 		num: 478,
@@ -5280,7 +5154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Light Curtain", 1: "Niche"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "star",
+		prevo: "Normal Star",
 	},
 	defensestar: {
 		num: 479,
@@ -5291,7 +5165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sanguine", 1: "Aurora Grace"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "star",
+		prevo: "Normal Star",
 	},
 	extrastar: {
 		num: 480,
@@ -5302,7 +5176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Surprise Tactics", 1: "Good Management"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "star",
+		prevo: "Normal Star",
 	},
 	normalsuika: {
 		num: 481,
@@ -5313,7 +5187,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suika",
 	},
 	powersuika: {
 		num: 482,
@@ -5324,7 +5197,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Drunkard"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suika",
+		prevo: "Normal Suika",
 	},
 	defensesuika: {
 		num: 483,
@@ -5335,7 +5208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!", 1: "Battle Mania"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suika",
+		prevo: "Normal Suika",
 	},
 	extrasuika: {
 		num: 484,
@@ -5346,7 +5219,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suika",
+		prevo: "Normal Suika",
 	},
 	normalsukuna: {
 		num: 485,
@@ -5357,7 +5230,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sore Loser"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sukuna",
 	},
 	defensesukuna: {
 		num: 486,
@@ -5368,7 +5240,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Miracle Mallet", 1: "Master's Defense"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sukuna",
+		prevo: "Normal Sukuna",
 	},
 	powersukuna: {
 		num: 487,
@@ -5379,7 +5251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sukuna",
+		prevo: "Normal Sukuna",
 	},
 	extrasukuna: {
 		num: 488,
@@ -5390,7 +5262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Active", 1: "Sand Force"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sukuna",
+		prevo: "Normal Sukuna",
 	},
 	normalsumireko: {
 		num: 489,
@@ -5401,7 +5273,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Sixth Sense"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sumireko",
 	},
 	powersumireko: {
 		num: 490,
@@ -5412,7 +5283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Suppression"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sumireko",
+		prevo: "Normal Sumireko",
 	},
 	speedsumireko: {
 		num: 491,
@@ -5423,7 +5294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Common Senseless", 1: "Invalidate"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sumireko",
+		prevo: "Normal Sumireko",
 	},
 	extrasumireko: {
 		num: 492,
@@ -5434,7 +5305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Disjointed Blow", 1: "Sixth Sense"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sumireko",
+		prevo: "Normal Sumireko",
 	},
 	normalsunny: {
 		num: 493,
@@ -5445,7 +5316,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash", 1: "Active"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sunny",
 	},
 	assistsunny: {
 		num: 494,
@@ -5456,7 +5326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sanguine", 1: "Active"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sunny",
+		prevo: "Normal Sunny",
 	},
 	powersunny: {
 		num: 495,
@@ -5467,7 +5337,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash", 1: "Absorbent"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sunny",
+		prevo: "Normal Sunny",
 	},
 	extrasunny: {
 		num: 496,
@@ -5478,7 +5348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Light Curtain", 1: "Some Guts"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "sunny",
+		prevo: "Normal Sunny",
 	},
 	normalsuwako: {
 		num: 497,
@@ -5489,7 +5359,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Moody"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suwako",
 	},
 	speedsuwako: {
 		num: 498,
@@ -5500,7 +5369,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Moody"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suwako",
+		prevo: "Normal Suwako",
 	},
 	defensesuwako: {
 		num: 499,
@@ -5511,7 +5380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stimulative", 1: "Breather"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suwako",
+		prevo: "Normal Suwako",
 	},
 	extrasuwako: {
 		num: 500,
@@ -5522,7 +5391,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Negative Aura", 1: "Hate Incarnate"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "suwako",
+		prevo: "Normal Suwako",
 	},
 	normaltakane: {
 		num: 501,
@@ -5533,7 +5402,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overcompensate", 1: "Quick Eye"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "takane",
 	},
 	powertakane: {
 		num: 502,
@@ -5544,7 +5412,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overcompensate", 1: "Silent Running"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "takane",
+		prevo: "Normal Takane",
 	},
 	speedtakane: {
 		num: 503,
@@ -5555,7 +5423,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Seitei's Wood", 1: "Metallurgy"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "takane",
+		prevo: "Normal Takane",
 	},
 	extratakane: {
 		num: 504,
@@ -5566,7 +5434,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!", 1: "Gale"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "takane",
+		prevo: "Normal Takane",
 	},
 	normalteireida: {
 		num: 505,
@@ -5577,7 +5445,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Curiosity"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "teireida",
 	},
 	assistteireida: {
 		num: 506,
@@ -5588,7 +5455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Curiosity"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "teireida",
+		prevo: "Normal Teireida",
 	},
 	speedteireida: {
 		num: 507,
@@ -5599,7 +5466,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chaos Induction", 1: "Mindless Dance"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "teireida",
+		prevo: "Normal Teireida",
 	},
 	extrateireida: {
 		num: 508,
@@ -5610,7 +5477,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Charge!", 1: "Fox's Wedding"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "teireida",
+		prevo: "Normal Teireida",
 	},
 	normaltenshi: {
 		num: 509,
@@ -5621,7 +5488,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Flawless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tenshi",
 	},
 	powertenshi: {
 		num: 510,
@@ -5632,7 +5498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Unbound"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tenshi",
+		prevo: "Normal Tenshi",
 	},
 	defensetenshi: {
 		num: 511,
@@ -5643,7 +5509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Indomitable", 1: "Flawless"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tenshi",
+		prevo: "Normal Tenshi",
 	},
 	extratenshi: {
 		num: 512,
@@ -5654,7 +5520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Koutei's Earth"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tenshi",
+		prevo: "Normal Tenshi",
 	},
 	normaltewi: {
 		num: 513,
@@ -5665,7 +5531,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tewi",
 	},
 	assisttewi: {
 		num: 514,
@@ -5676,7 +5541,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tewi",
+		prevo: "Normal Tewi",
 	},
 	powertewi: {
 		num: 515,
@@ -5687,7 +5552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lucky", 1: "Strategist"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tewi",
+		prevo: "Normal Tewi",
 	},
 	extratewi: {
 		num: 516,
@@ -5698,7 +5563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Counter Stance", 1: "Glamorous"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tewi",
+		prevo: "Normal Tewi",
 	},
 	normaltojiko: {
 		num: 517,
@@ -5709,7 +5574,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electrification", 1: "Desperation"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tojiko",
 	},
 	speedtojiko: {
 		num: 518,
@@ -5720,7 +5584,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Morale Boost", 1: "Mind's Eye"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tojiko",
+		prevo: "Normal Tojiko",
 	},
 	defensetojiko: {
 		num: 519,
@@ -5731,7 +5595,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electrification", 1: "Jamming"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tojiko",
+		prevo: "Normal Tojiko",
 	},
 	extratojiko: {
 		num: 520,
@@ -5742,7 +5606,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pride", 1: "Healing Power"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tojiko",
+		prevo: "Normal Tojiko",
 	},
 	normaltokiko: {
 		num: 521,
@@ -5753,7 +5617,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Healing Power"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tokiko",
 	},
 	powertokiko: {
 		num: 522,
@@ -5764,7 +5627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Healing Power"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tokiko",
+		prevo: "Normal Tokiko",
 	},
 	defensetokiko: {
 		num: 523,
@@ -5775,7 +5638,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Deploy Smoke", 1: "In Sync"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tokiko",
+		prevo: "Normal Tokiko",
 	},
 	extratokiko: {
 		num: 524,
@@ -5786,7 +5649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Invalidate", 1: "Wariness"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tokiko",
+		prevo: "Normal Tokiko",
 	},
 	normaltoyohime: {
 		num: 525,
@@ -5797,7 +5660,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "toyohime",
 	},
 	defensetoyohime: {
 		num: 526,
@@ -5808,7 +5670,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "toyohime",
+		prevo: "Normal Toyohime",
 	},
 	powertoyohime: {
 		num: 527,
@@ -5819,7 +5681,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "toyohime",
+		prevo: "Normal Toyohime",
 	},
 	extratoyohime: {
 		num: 528,
@@ -5830,7 +5692,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healing Power", 1: "Flawless"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "toyohime",
+		prevo: "Normal Toyohime",
 	},
 	normaltsukasa: {
 		num: 529,
@@ -5841,7 +5703,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sniper", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tsukasa",
 	},
 	speedtsukasa: {
 		num: 530,
@@ -5852,7 +5713,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sniper", 1: "First Hit"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tsukasa",
+		prevo: "Normal Tsukasa",
 	},
 	assisttsukasa: {
 		num: 531,
@@ -5863,7 +5724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tsukasa",
+		prevo: "Normal Tsukasa",
 	},
 	extratsukasa: {
 		num: 532,
@@ -5874,7 +5735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fox's Wedding", 1: "In Sync"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "tsukasa",
+		prevo: "Normal Tsukasa",
 	},
 	normaludonge: {
 		num: 533,
@@ -5885,7 +5746,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Precise Aim", 1: "Chaos Induction"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "udonge",
 	},
 	assistudonge: {
 		num: 534,
@@ -5896,7 +5756,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inverse Toxin", 1: "Chaos Induction"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "udonge",
+		prevo: "Normal Udonge",
 	},
 	powerudonge: {
 		num: 535,
@@ -5907,7 +5767,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Precise Aim", 1: "Worrywart"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "udonge",
+		prevo: "Normal Udonge",
 	},
 	extraudonge: {
 		num: 536,
@@ -5918,7 +5778,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strict Dosage", 1: "Final Form"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "udonge",
+		prevo: "Normal Udonge",
 	},
 	normalurumi: {
 		num: 537,
@@ -5929,7 +5789,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Charge!"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "urumi",
 	},
 	powerurumi: {
 		num: 538,
@@ -5940,7 +5799,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Charge!"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "urumi",
+		prevo: "Normal Urumi",
 	},
 	defenseurumi: {
 		num: 539,
@@ -5951,7 +5810,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Grace of Water"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "urumi",
+		prevo: "Normal Urumi",
 	},
 	extraurumi: {
 		num: 540,
@@ -5962,7 +5821,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warning Shot", 1: "Unbound"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "urumi",
+		prevo: "Normal Urumi",
 	},
 	normalutsuho: {
 		num: 541,
@@ -5973,7 +5832,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Absorbent", 1: "Aggressive"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "utsuho",
 	},
 	powerutsuho: {
 		num: 542,
@@ -5984,7 +5842,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Aggressive"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "utsuho",
+		prevo: "Normal Utsuho",
 	},
 	speedutsuho: {
 		num: 543,
@@ -5995,7 +5853,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Positive", 1: "Duel"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "utsuho",
+		prevo: "Normal Utsuho",
 	},
 	extrautsuho: {
 		num: 544,
@@ -6006,7 +5864,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sore Loser", 1: "Sutei's Fire"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "utsuho",
+		prevo: "Normal Utsuho",
 	},
 	normalwakasagi: {
 		num: 545,
@@ -6017,7 +5875,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grace of Water", 1: "Final Form"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wakasagi",
 	},
 	powerwakasagi: {
 		num: 546,
@@ -6028,7 +5885,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grace of Water", 1: "Sound Absorb"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wakasagi",
+		prevo: "Normal Wakasagi",
 	},
 	speedwakasagi: {
 		num: 547,
@@ -6039,7 +5896,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fog Traveler", 1: "Force of Nature"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wakasagi",
+		prevo: "Normal Wakasagi",
 	},
 	extrawakasagi: {
 		num: 548,
@@ -6050,7 +5907,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gentei's Water", 1: "Seitei's Wood"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wakasagi",
+		prevo: "Normal Wakasagi",
 	},
 	normalwriggle: {
 		num: 549,
@@ -6061,7 +5918,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wriggle",
 	},
 	powerwriggle: {
 		num: 550,
@@ -6072,7 +5928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Quick Eye"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wriggle",
+		prevo: "Normal Wriggle",
 	},
 	assistwriggle: {
 		num: 551,
@@ -6083,7 +5939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wriggle",
+		prevo: "Normal Wriggle",
 	},
 	extrawriggle: {
 		num: 552,
@@ -6094,7 +5950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "First Hit", 1: "Instant Win"},
 		weightkg: 0,
 		eggGroups: ["Undiscovered"],
-		spriteid: "wriggle",
+		prevo: "Normal Wriggle",
 	},
 	normalyachie: {
 		num: 553,
@@ -6105,7 +5961,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yachie",
 	},
 	poweryachie: {
 		num: 554,
@@ -6116,7 +5971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yachie",
+		prevo: "Normal Yachie",
 	},
 	defenseyachie: {
 		num: 555,
@@ -6127,7 +5982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ascertainment", 1: "Restraint"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yachie",
+		prevo: "Normal Yachie",
 	},
 	extrayachie: {
 		num: 556,
@@ -6138,7 +5993,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Precise Aim", 1: "Strategist"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yachie",
+		prevo: "Normal Yachie",
 	},
 	normalyamame: {
 		num: 557,
@@ -6149,7 +6004,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yamame",
 	},
 	poweryamame: {
 		num: 558,
@@ -6160,7 +6014,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yamame",
+		prevo: "Normal Yamame",
 	},
 	assistyamame: {
 		num: 559,
@@ -6171,7 +6025,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yamame",
+		prevo: "Normal Yamame",
 	},
 	extrayamame: {
 		num: 560,
@@ -6182,7 +6036,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Infectious", 1: "Disturber"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yamame",
+		prevo: "Normal Yamame",
 	},
 	normalyatsuhashi: {
 		num: 561,
@@ -6193,7 +6047,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Final Form", 1: "Sound Absorb"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yatsuhashi",
 	},
 	speedyatsuhashi: {
 		num: 562,
@@ -6204,7 +6057,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Instant Win", 1: "Strategist"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yatsuhashi",
+		prevo: "Normal Yatsuhashi",
 	},
 	defenseyatsuhashi: {
 		num: 563,
@@ -6215,7 +6068,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Some Guts"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yatsuhashi",
+		prevo: "Normal Yatsuhashi",
 	},
 	extrayatsuhashi: {
 		num: 564,
@@ -6226,7 +6079,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "In Sync", 1: "Composed"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yatsuhashi",
+		prevo: "Normal Yatsuhashi",
 	},
 	normalyorigami: {
 		num: 565,
@@ -6237,7 +6090,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorigami",
 	},
 	poweryorigami: {
 		num: 566,
@@ -6248,7 +6100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorigami",
+		prevo: "Normal Yorigami",
 	},
 	defenseyorigami: {
 		num: 567,
@@ -6259,7 +6111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Southern Expanse", 1: "Negative Aura"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorigami",
+		prevo: "Normal Yorigami",
 	},
 	extrayorigami: {
 		num: 568,
@@ -6270,7 +6122,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reckless", 1: "Wasteful"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorigami",
+		prevo: "Normal Yorigami",
 	},
 	normalyorihime: {
 		num: 569,
@@ -6281,7 +6133,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Sniper"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorihime",
 	},
 	poweryorihime: {
 		num: 570,
@@ -6292,7 +6143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Sniper"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorihime",
+		prevo: "Normal Yorihime",
 	},
 	speedyorihime: {
 		num: 571,
@@ -6303,7 +6154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Insight", 1: "Immovable"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorihime",
+		prevo: "Normal Yorihime",
 	},
 	extrayorihime: {
 		num: 572,
@@ -6314,7 +6165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flawless", 1: "Wisdom Eye"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yorihime",
+		prevo: "Normal Yorihime",
 	},
 	normalyoshika: {
 		num: 573,
@@ -6325,7 +6176,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ghost Form", 1: "Spirit of Yin"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yoshika",
 	},
 	poweryoshika: {
 		num: 574,
@@ -6336,7 +6186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ghost Form", 1: "Armor Purge"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yoshika",
+		prevo: "Normal Yoshika",
 	},
 	defenseyoshika: {
 		num: 575,
@@ -6347,7 +6197,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Full Power", 1: "Inverse Reaction"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yoshika",
+		prevo: "Normal Yoshika",
 	},
 	extrayoshika: {
 		num: 576,
@@ -6358,7 +6208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Free Will", 1: "Common Senseless"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yoshika",
+		prevo: "Normal Yoshika",
 	},
 	normalyoumu: {
 		num: 577,
@@ -6369,7 +6219,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "youmu",
 	},
 	speedyoumu: {
 		num: 578,
@@ -6380,7 +6229,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "youmu",
+		prevo: "Normal Youmu",
 	},
 	poweryoumu: {
 		num: 579,
@@ -6391,7 +6240,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "youmu",
+		prevo: "Normal Youmu",
 	},
 	extrayoumu: {
 		num: 580,
@@ -6402,7 +6251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reflect Guard", 1: "Stubborn"},
 		weightkg: 2,
 		eggGroups: ["Undiscovered"],
-		spriteid: "youmu",
+		prevo: "Normal Youmu",
 	},
 	normalyukari: {
 		num: 581,
@@ -6413,7 +6262,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Smile", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yukari",
 	},
 	poweryukari: {
 		num: 582,
@@ -6424,7 +6272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Placid"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yukari",
+		prevo: "Normal Yukari",
 	},
 	defenseyukari: {
 		num: 583,
@@ -6435,7 +6283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Restraint", 1: "Unjustness"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yukari",
+		prevo: "Normal Yukari",
 	},
 	extrayukari: {
 		num: 584,
@@ -6446,7 +6294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wisdom Eye", 1: "Strange Rainbow"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yukari",
+		prevo: "Normal Yukari",
 	},
 	normalyuki: {
 		num: 585,
@@ -6457,7 +6305,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flaming Garment", 1: "Positive"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuki",
 	},
 	speedyuki: {
 		num: 586,
@@ -6468,7 +6315,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strict Dosage", 1: "Charge!"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuki",
+		prevo: "Normal Yuki",
 	},
 	poweryuki: {
 		num: 587,
@@ -6479,7 +6326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Recalibration", 1: "Positive"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuki",
+		prevo: "Normal Yuki",
 	},
 	extrayuki: {
 		num: 588,
@@ -6490,7 +6337,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Known Limits", 1: "Gentei's Water"},
 		weightkg: 1,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuki",
+		prevo: "Normal Yuki",
 	},
 	normalyumeko: {
 		num: 589,
@@ -6501,7 +6348,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumeko",
 	},
 	poweryumeko: {
 		num: 590,
@@ -6512,7 +6358,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumeko",
+		prevo: "Normal Yumeko",
 	},
 	speedyumeko: {
 		num: 591,
@@ -6523,7 +6369,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Salvo", 1: "Strategist"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumeko",
+		prevo: "Normal Yumeko",
 	},
 	extrayumeko: {
 		num: 592,
@@ -6534,7 +6380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Telescopic", 1: "Ascertainment"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumeko",
+		prevo: "Normal Yumeko",
 	},
 	normalyumemi: {
 		num: 593,
@@ -6545,7 +6391,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale", 1: "Aggressive"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumemi",
 	},
 	poweryumemi: {
 		num: 594,
@@ -6556,7 +6401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unwavering Heart", 1: "Aggressive"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumemi",
+		prevo: "Normal Yumemi",
 	},
 	speedyumemi: {
 		num: 595,
@@ -6567,7 +6412,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gale", 1: "Positive"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumemi",
+		prevo: "Normal Yumemi",
 	},
 	extrayumemi: {
 		num: 596,
@@ -6578,7 +6423,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mind's Eye", 1: "Sore Loser"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yumemi",
+		prevo: "Normal Yumemi",
 	},
 	normalyuugi: {
 		num: 597,
@@ -6589,7 +6434,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance", 1: "Recoil Offset"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuugi",
 	},
 	poweryuugi: {
 		num: 598,
@@ -6600,7 +6444,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbound", 1: "Imposing Stance"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuugi",
+		prevo: "Normal Yuugi",
 	},
 	speedyuugi: {
 		num: 599,
@@ -6611,7 +6455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Imposing Stance", 1: "Battle Mania"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuugi",
+		prevo: "Normal Yuugi",
 	},
 	extrayuugi: {
 		num: 600,
@@ -6622,7 +6466,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Brute Force"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuugi",
+		prevo: "Normal Yuugi",
 	},
 	normalyuuka: {
 		num: 601,
@@ -6633,7 +6477,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Peaceful"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuka",
 	},
 	poweryuuka: {
 		num: 602,
@@ -6644,7 +6487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "Peaceful"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuka",
+		prevo: "Normal Yuuka",
 	},
 	defenseyuuka: {
 		num: 603,
@@ -6655,7 +6498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unjustness", 1: "After Move"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuka",
+		prevo: "Normal Yuuka",
 	},
 	extrayuuka: {
 		num: 604,
@@ -6666,7 +6509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overwhelm", 1: "Pride"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuka",
+		prevo: "Normal Yuuka",
 	},
 	normalyuuma: {
 		num: 605,
@@ -6677,7 +6520,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Empowered", 1: "Overcompensate"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuma",
 	},
 	poweryuuma: {
 		num: 606,
@@ -6688,7 +6530,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Empowered", 1: "Projection"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuma",
+		prevo: "Normal Yuuma",
 	},
 	defenseyuuma: {
 		num: 607,
@@ -6699,7 +6541,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Smile", 1: "Projection"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuma",
+		prevo: "Normal Yuuma",
 	},
 	extrayuuma: {
 		num: 608,
@@ -6710,8 +6552,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Avarice"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuma",
-		otherFormes: ["Extra Yuuma-Avarice"]
+		otherFormes: ["Extra Yuuma-Avarice"],
+		prevo: "Normal Yuuma",
 	},
 	extrayuumaavarice: {
 		num: 609,
@@ -6722,7 +6564,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Avarice"},
 		weightkg: 3,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuuma-avarice",
 		forme: "Avarice",
 		changesFrom: "Extra Yuuma"
 	},
@@ -6735,7 +6576,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuyuko",
 	},
 	defenseyuyuko: {
 		num: 611,
@@ -6746,7 +6586,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Karmic Retribution"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuyuko",
+		prevo: "Normal Yuyuko",
 	},
 	poweryuyuko: {
 		num: 612,
@@ -6757,7 +6597,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Eye", 1: "Final Form"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuyuko",
+		prevo: "Normal Yuyuko",
 	},
 	extrayuyuko: {
 		num: 613,
@@ -6768,6 +6608,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inverse Reaction", 1: "Impulsive"},
 		weightkg: 4,
 		eggGroups: ["Undiscovered"],
-		spriteid: "yuyuko",
+		prevo: "Normal Yuyuko",
 	},
 };
