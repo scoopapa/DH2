@@ -335,4 +335,64 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GNCS1",
 		doublesTier: "GNCS1",
 	},
+	kracattack: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	mausoleon: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	megapincurchin: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	pincurchin2: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	snickitiki: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	bellmon: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	bogongoth: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	mottlas: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	remotail: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	toadparent: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	gourgelax: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	spinesnax: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	grapwile: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	actioth: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
+	ironthroat: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
 };
