@@ -404,7 +404,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Tynar",
 		forme: "Mega",
 		types: ["Rock", "Dark"],
-		baseStats: {hp: 100, atk: 164, def: 150, spa: 95, spd: 120, spe: 71},
+		baseStats: {hp: 100, atk: 164, def: 150, spa: 86, spd: 110, spe: 70},
 		abilities: {0: "Mac Tonight"},
 		weightkg: 17,
 		requiredItem: "Tynarite",
