@@ -1341,8 +1341,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Wishiwashi, this item allows it to Mega Evolve in battle.",
 	},
-	falinksite: {
-		name: "Falinksite",
+	falinksitey: {
+		name: "Falinksite Y",
 		spritenum: 578,
 		megaStone: "Falinks-Mega-Legion",
 		megaEvolves: "Falinks",
