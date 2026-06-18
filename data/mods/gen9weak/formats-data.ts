@@ -4750,7 +4750,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	annihilape: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	walkingwake: {
 		inherit: true,
