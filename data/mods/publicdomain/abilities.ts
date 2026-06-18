@@ -317,7 +317,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			this.add('-ability', pokemon, 'Ruler\'s Coronation');
 			this.add('-message', pokemon.name + " has been crowned!");
-			pokemon.side.addSlotCondition('rulerscoronation');
+			pokemon.side.addSlotCondition(pokemon, 'rulerscoronation');
 		},
 		condition: {
 			duration: 1,
