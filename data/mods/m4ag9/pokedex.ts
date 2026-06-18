@@ -492,11 +492,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	staraptor: {
 		inherit: true,
-		mega: "staraptormega",
-		megaName: "Staraptor-Mega",
+		mega: "staraptormegay",
+		megaName: "Staraptor-Mega-Y",
 		megaStats: {hp: 85, atk: 150, def: 85, spa: 50, spd: 80, spe: 135},
 		megaAbility: {0: "Showdown"},
-		megaStone: "Staraptorite",
+		megaStone: "Staraptorite-Y",
 		megaCreator: "IsoCon",
 		movepoolAdditions: ["superfang"],
 	},

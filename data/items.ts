@@ -5062,6 +5062,34 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		isNonstandard: "Past",
 		rating: 0,
 	},
+	raichunitex: {
+		name: "Raichunite X",
+		spritenum: 0,
+		megaStone: "Raichu-Mega-X",
+		megaEvolves: "Raichu",
+		itemUser: ["Raichu"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2635,
+		gen: 9,
+		isNonstandard: "Future",
+	},
+	raichunitey: {
+		name: "Raichunite Y",
+		spritenum: 0,
+		megaStone: "Raichu-Mega-Y",
+		megaEvolves: "Raichu",
+		itemUser: ["Raichu"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2636,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	rarebone: {
 		name: "Rare Bone",
 		spritenum: 379,
@@ -6009,6 +6037,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 499,
 		gen: 2,
 		isPokeball: true,
+	},
+	staraptite: {
+		name: "Staraptite",
+		spritenum: 0,
+		megaStone: "Staraptor-Mega",
+		megaEvolves: "Staraptor",
+		itemUser: ["Staraptor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2639,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 	starfberry: {
 		name: "Starf Berry",
