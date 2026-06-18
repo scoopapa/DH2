@@ -244,7 +244,7 @@ import { Formats as Woomod                      } from '../data/mods/woomod/form
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
 import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
-import { Formats as ZAOU						            } from '../data/mods/gen9legendsou/formats';
+import { Formats as ZAOU						      } from '../data/mods/gen9legendsou/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
