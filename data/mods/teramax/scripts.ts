@@ -436,6 +436,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kyuremblack").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "reshiram").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "zekrom").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.triattack = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.temperflare = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.foulplay = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.heatcrash = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.flashcannon = ["9L1"];
 	},
 	actions: {
 		inherit: true,

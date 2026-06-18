@@ -132,8 +132,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						disabled: false,
 						used: false,
 					};
-					source.moveSlots[source.moveSlots.length] = learnedMove;
-					source.baseMoveSlots[source.moveSlots.length] = learnedMove;
+					source.moveSlots.push(learnedMove);
+					source.baseMoveSlots.push(learnedMove);
 					target.moveSlots.splice(i, 1);
 					target.baseMoveSlots.splice(i, 1);
 					source.stole = true;
@@ -338,7 +338,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Man",
 		flags: {},
-		shortDesc: "This Pokemon gains the normal type on switch in.",
+		shortDesc: "This Pokemon gains the Normal type on switchin.",
 	},
 	utau: {
 		onBasePowerPriority: 23,
@@ -408,7 +408,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Crazy Smoke",
 		shortDesc: "Reduces damage taken by 20% from moves that do not match their user's type. Belch can be used without eating a berry."
 	},
-
 	retainspice: {
         onBeforeSwitchOut(pokemon) {
             this.effectState.spiceStats = pokemon.boosts['atk'];
@@ -431,5 +430,59 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Snail Fever",
 		shortDesc: "This Pokemon inflicts Leech Seed on attackers who make contact with it.",
+	},
+	divineright: {
+		onSwitchIn(pokemon) {
+			if (this.field.isWeather('meteorshower')) pokemon.divineright = 2;
+			else pokemon.divineright = 1;
+		},
+		onModifyMove(move, attacker) {
+			if (attacker.divineright > 0 && move.secondaries) {
+				let success = false;
+				for (const secondary in move.secondaries) {
+					if (secondary.chance < 100) {
+						success = true;
+						secondary.chance = 100;
+					}
+				}
+				if (success) pokemon.divineright --;
+			}
+		},
+		name: "Divine Right",
+		flags: {},
+		shortDesc: "On switchin, this Pokemon's first 1 (2 if Starfall) have 100% secondary chance.",
+	},
+	icecubesmydad: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.debug('Filter neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "ice cube\'s my dad??",
+		shortDesc: "This Pokemon takes 0.75x damage from contact attacks.",
+	},
+	magicworms: {
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Physical' && move.category === 'Bug') {
+				move.overrideOffensiveStat = 'spa';
+			}
+		},
+		flags: {},
+		name: "Magic Worms",
+		shortDesc: "This Pokemon's physical Bug-Type moves use its SpA as its offensive stat.",
+	},
+	punishingpierce: {
+		onFoeAfterMove(target, source, move) {
+			if (!this.lastSuccessfulMoveThisTurn) {
+				const pierce = this.dex.getActiveMove('hornattack');
+				const effectHolder = this.effectState.target;
+				this.actions.useMove(pierce, effectHolder, source);
+			}
+		},
+		flags: {},
+		name: "Punishing Pierce",
+		shortDesc: "When the opponent fails a move against this Pokemon, it uses Horn Attack against them.",
 	},
 };

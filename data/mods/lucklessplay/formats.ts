@@ -12,7 +12,7 @@ export const Formats: FormatData[] = [
 		mod: 'lucklessplay',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
-		banlist: ['DUber', 'Shadow Tag'],
+		banlist: ['DUber', 'Commander', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 8] Luckless Play OU",

@@ -668,7 +668,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 76,
 		name: "Combysa",
 		types: ["Fire", "Fighting"],
-		baseStats: {hp: 85, atk: 85, def: 85, spa: 125, spd: 79, spe: 91},
+		baseStats: {hp: 85, atk: 85, def: 85, spa: 115, spd: 79, spe: 91},
 		abilities: {0: "Compound Eyes", 1: "Shield Dust", H: "Flame Body"},
 		weightkg: 92.0,
 	},
