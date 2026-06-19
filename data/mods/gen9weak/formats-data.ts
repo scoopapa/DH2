@@ -2055,11 +2055,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latios: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "Uber",
 	},
 	latiosmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyogre: {
 		inherit: true,
@@ -3153,7 +3153,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kyurem: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyuremblack: {
 		inherit: true,
@@ -3501,7 +3501,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hoopaunbound: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "Uber",
 	},
 	volcanion: {
 		inherit: true,
@@ -3859,11 +3859,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tapukoko: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapulele: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapubulu: {
 		inherit: true,
@@ -4750,7 +4750,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	annihilape: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	walkingwake: {
 		inherit: true,
@@ -4790,7 +4790,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ogerponwellspring: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ogerponwellspringtera: {
 		inherit: true,
