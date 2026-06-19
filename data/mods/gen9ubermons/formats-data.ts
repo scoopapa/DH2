@@ -29,7 +29,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	charizardmegax: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	charizardmegay: {
 		inherit: true,
