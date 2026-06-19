@@ -30,6 +30,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	eelevate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	firemane: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	megasol: {
 		inherit: true,
 		isNonstandard: null,
