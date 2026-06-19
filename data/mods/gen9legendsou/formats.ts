@@ -9,7 +9,7 @@ export const Formats: FormatData[] = [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/10749086">List of Changes</a>`,
 		],
 		mod: 'gen9legendsou',
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!! Min Source Gen = 3', 'Terastal Clause'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
@@ -20,7 +20,7 @@ export const Formats: FormatData[] = [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/10749086">List of Changes</a>`,
 		],
 		mod: 'gen9legendsou',
-		ruleset: ['Standard Draft', 'Sleep Moves Clause', '!Sleep Clause Mod', '!! Min Source Gen = 3', 'Terastal Clause', 'Freeze Clause Mod'],
+		ruleset: ['Standard Draft', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Terastal Clause', 'Freeze Clause Mod'],
 		banlist: ['Moody', 'Power Construct', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Last Respects', 'Shed Tail',
 				'Greninja + Battle Bond + Greninjite', 'Slowbro-Galar + Slowbronite'],
 	},
