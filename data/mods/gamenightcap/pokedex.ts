@@ -1002,7 +1002,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
     },
 	mottlas: {
         num: -16092,
-        name: "Mottlass",
+        name: "Mottlas",
         types: ["Fire", "Ground"],
         baseStats: {hp: 30, atk: 150, def: 45, spa: 45, spd: 110, spe: 110},
         abilities: {0: "Magic Guard", H: "Regenerator"},
@@ -1079,7 +1079,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
     },
 	ironthroat: {
         num: -16099,
-        name: "Spinesnax",
+        name: "Iron Throat",
         types: ["Poison", "Steel"],
         baseStats: {hp: 80, atk: 150, def: 60, spa: 70, spd: 60, spe: 136},
         abilities: {0: "Intimidate", H: "Contrary"},
