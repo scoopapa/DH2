@@ -2705,6 +2705,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		volatileStatus: 'flinch',
 		secondary: null,
+		onDisableMove(pokemon) {
+			if (pokemon.activeMoveActions) {
+				pokemon.disableMove('fakeout');
+			}
+		},
 		desc: "Makes the target flinch; this is not considered a secondary effect and is not removed by Sheer Force or Shield Dust/Covert Cloak. Fails unless it is the user's first turn on the field.",
 		shortDesc: "Hits first and flinches. Only works on first turn out.",
 	},
@@ -2794,6 +2799,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "If one of the user's allies chose to use Grass Pledge or Water Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, become dual-typed in both Pledges' types, and set a secondary effect. If combined with Grass Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. If combined with Water Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. This move does not consume the user's Fire Gem.",
+	},
+	firstimpression: {
+		inherit: true,
+		onDisableMove(pokemon) {
+			if (pokemon.activeMoveActions) {
+				pokemon.disableMove('firstimpression');
+			}
+		},
 	},
 	fishiousrend: {
 		inherit: true,
@@ -5139,6 +5152,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 20,
 	},
+	sandstorm: {
+		inherit: true,
+		pp: 5,
+	},
 	scald: {
 		inherit: true,
 		basePower: 70,
@@ -5519,6 +5536,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		inherit: true,
+		type: "Steel",
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		volatileStatus: 'strongpartialtrap',
 		isNonstandard: null,
@@ -5575,6 +5593,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snowscape: {
 		inherit: true,
+		pp: 5,
 		desc: "For 5 turns, the weather becomes Snow. During the effect, the Defense of Ice-type Pokemon is multiplied by 1.5 when taking damage from a physical attack. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Breaker, Ice Body, Magic Guard, Magma Armor, Overcoat, Purifying Salt, Snow Cloak, or Snow Plow Abilities. If a Pokemon is frozen, the residual damage will combine to 1/8 of its max HP sourced from being frozen. Lasts for 8 turns if the user is holding Icy Rock. Fails if the current weather is Snow.",
 		shortDesc: "For 5 turns: Ice types 1.5x Def, cold hurts others.",
 		contestType: "Beautiful",
