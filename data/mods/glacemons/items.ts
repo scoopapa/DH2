@@ -344,8 +344,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 3) {
-				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2) && pokemon.useItem()) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3) && pokemon.useItem()) {
 					this.heal(pokemon.baseMaxhp / 3);
 				}
 			}
@@ -816,6 +816,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe) {
 			return this.chainModify(0.5);
 		},
+		onFractionalPriority: -0.1,
 	},
 
 
