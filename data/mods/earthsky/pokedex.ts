@@ -3194,7 +3194,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	litleo: {
 		inherit: true,
-		baseStats: {hp: 62, atk: 59, def: 54, spa: 73, spd: 49, spe: 72},
+		baseStats: {hp: 62, atk: 59, def: 58, spa: 73, spd: 54, spe: 72},
 	},
 	pyroar: {
 		inherit: true,
@@ -5193,7 +5193,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Spewpa",
 		evoLevel: 12,
 		eggGroups: ["Bug"],
-		cosmeticFormes: ["Vivillon-Archipelago", "Vivillon-Continental", "Vivillon-Elegant", "Vivillon-Garden", "Vivillon-High Plains", "Vivillon-Icy Snow", "Vivillon-Jungle", "Vivillon-Marine", "Vivillon-Modern", "Vivillon-Monsoon", "Vivillon-Ocean", "Vivillon-Polar", "Vivillon-River", "Vivillon-Sandstorm", "Vivillon-Savanna", "Vivillon-Sun", "Vivillon-Tundra", "Vivillon-Fancy", "Vivillon-Pok\u0301 Ball"],
+		cosmeticFormes: ["Vivillon-Archipelago", "Vivillon-Continental", "Vivillon-Elegant", "Vivillon-Garden", "Vivillon-High Plains", "Vivillon-Icy Snow", "Vivillon-Jungle", "Vivillon-Marine", "Vivillon-Modern", "Vivillon-Monsoon", "Vivillon-Ocean", "Vivillon-Polar", "Vivillon-River", "Vivillon-Sandstorm", "Vivillon-Savanna", "Vivillon-Sun", "Vivillon-Tundra", "Vivillon-Fancy", "Vivillon-Poke Ball"],
 		formeOrder: [
 			"Vivillon-Icy Snow",
 			"Vivillon-Polar",
@@ -5214,7 +5214,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Vivillon-Ocean",
 			"Vivillon-Jungle",
 			"Vivillon-Fancy",
-			"Vivillon-Pok\u0301 Ball",
+			"Vivillon-Poke Ball",
 		],
 	},
 	vivillonfancy: null,

@@ -2762,13 +2762,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move) {
 			if (move.sourceEffect === 'waterpledge') {
-				move.type = 'Water';
-				move.forceSTAB = true;
+				move.twoType = 'Water';
 				move.self = {sideCondition: 'waterpledge'};
 			}
 			if (move.sourceEffect === 'grasspledge') {
-				move.type = 'Grass';
-				move.forceSTAB = true;
+				move.twoType = 'Grass';
 				move.sideCondition = 'firepledge';
 			}
 		},
@@ -2795,7 +2793,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		desc: "If one of the user's allies chose to use Grass Pledge or Water Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Grass Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. If combined with Water Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. This move does not consume the user's Fire Gem.",
+		desc: "If one of the user's allies chose to use Grass Pledge or Water Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, become dual-typed in both Pledges' types, and set a secondary effect. If combined with Grass Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. If combined with Water Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. This move does not consume the user's Fire Gem.",
 	},
 	fishiousrend: {
 		inherit: true,
@@ -3201,13 +3199,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move) {
 			if (move.sourceEffect === 'waterpledge') {
-				move.type = 'Water';
-				move.forceSTAB = true;
+				move.twoType = 'Water';
 				move.sideCondition = 'grasspledge';
 			}
 			if (move.sourceEffect === 'firepledge') {
-				move.type = 'Fire';
-				move.forceSTAB = true;
+				move.twoType = 'Fire';
 				move.sideCondition = 'firepledge';
 			}
 		},
@@ -3225,7 +3221,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		desc: "If one of the user's allies chose to use Water Pledge or Fire Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Water Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. If combined with Fire Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. This move does not consume the user's Grass Gem.",
+		desc: "If one of the user's allies chose to use Water Pledge or Fire Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, become dual-typed in both Pledges' types, and set a secondary effect. If combined with Water Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. If combined with Fire Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. This move does not consume the user's Grass Gem.",
 	},
 	grasswhistle: {
 		inherit: true,
@@ -3292,6 +3288,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	growl: {
 		inherit: true,
 		pp: 30,
+	},
+	growth: {
+		inherit: true,
+		type: "Grass",
 	},
 	gyroball: {
 		inherit: true,
@@ -6125,15 +6125,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[anim] Tera Blast ' + move.type);
+		basePowerCallback(pokemon, target, move) {
+			if(pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			return item?.onTera ? 100 : 80;
 		},
 		onModifyType(move, pokemon, target) {
 			if(pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
 			if (pokemon.species.baseSpecies === "Terapagos" && pokemon.species.forme === "Stellar" && item.name === "Stellar Tera Shard") {
 				move.type = this.getBestEffectiveness(pokemon, target);
-			} else if (item.onTera) {
+			} else if (item?.onTera) {
 				move.type = item.onTera;
 			}
 		},
@@ -6141,6 +6143,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
 			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Tera Blast ' + move.type);
 		},
 		secondary: null,
 		target: "normal",
@@ -6412,17 +6417,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move) {
 			if (move.sourceEffect === 'grasspledge') {
-				move.type = 'Grass';
-				move.forceSTAB = true;
+				move.twoType = 'Grass';
 				move.sideCondition = 'grasspledge';
 			}
 			if (move.sourceEffect === 'firepledge') {
-				move.type = 'Fire';
-				move.forceSTAB = true;
+				move.twoType = 'Fire';
 				move.self = {sideCondition: 'waterpledge'};
 			}
 		},
-		desc: "If one of the user's allies chose to use Fire Pledge or Grass Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Fire Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. If combined with Grass Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. This move does not consume the user's Grass Gem.",
+		desc: "If one of the user's allies chose to use Fire Pledge or Grass Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, become dual-typed in both Pledges' types, and set a secondary effect. If combined with Fire Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. If combined with Grass Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. This move does not consume the user's Grass Gem.",
 	},
 	waterpulse: {
 		inherit: true,
