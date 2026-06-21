@@ -4927,4 +4927,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	medirvana: {
 		tier: "OU",
 	},
+	houndemise: {
+		tier: "OU",
+	},
+	clapback: {
+		tier: "OU",
+	},
+	abresol: {
+		tier: "OU",
+	},
 };
