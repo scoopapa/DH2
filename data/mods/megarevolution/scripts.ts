@@ -61,5 +61,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "mawile").learnset.pounce = ["9L1"];
 		this.modData("Learnsets", "mawile").learnset.hypervoice = ["9L1"];
 		this.modData("Learnsets", "medicham").learnset.machpunch = ["9L1"];
+		
+		this.modData("Learnsets", "houndoom").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "houndoom").learnset.mysticalfire = ["9L1"];
 	},
 };
