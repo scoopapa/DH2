@@ -1947,4 +1947,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Cute Charm", 1: "Rivalry", H: "Adaptability"},
 		weightkg: 50,
 	},
+	chupacari: {
+		num: 9188,
+		name: "Chupacari",
+		types: ["Poison", "Psychic"],
+		baseStats: {hp: 70, atk: 115, def: 70, spa: 52, spd: 70, spe: 103},
+		abilities: {0: "Poison Touch", H: "Stakeout"},
+		weightkg: 160.4,
+	},
+	seditacean: {
+		num: 9189,
+		name: "Seditacean",
+		types: ["Ground", "Rock"],
+		baseStats: {hp: 160, atk: 102, def: 75, spa: 63, spd: 72, spe: 40},
+		abilities: {0: "Sand Rush", H: "Sand Spit"},
+		weightkg: 999.9,
+	},
+	toppaclaw: {
+		num: 9190,
+		name: "Toppaclaw",
+		types: ["Steel"],
+		baseStats: {hp: 74, atk: 100, def: 140, spa: 55, spd: 72, spe: 41},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Iron Fist"},
+		weightkg: 500,
+	},
 };
