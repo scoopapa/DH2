@@ -1,9 +1,9 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	// Champions megas
-	/**barbaracite: {
+	barbaracite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	chandelurite: {
 		inherit: true,
 		isNonstandard: null,
@@ -20,10 +20,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	/**dragalgite: {
+	dragalgite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	dragoninite: {
 		inherit: true,
 		isNonstandard: null,
@@ -32,10 +32,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	/**eelektrossite: {
+	eelektrossite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	emboarite: {
 		inherit: true,
 		isNonstandard: null,
@@ -44,10 +44,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	/*falinksite: {
+	falinksite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	feraligite: {
 		inherit: true,
 		isNonstandard: null,
@@ -68,15 +68,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	/**malamarite: {
+	malamarite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	meganiumite: {
 		inherit: true,
 		isNonstandard: null,
 	},
-	/**pyroarite: {
+	pyroarite: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -87,7 +87,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	scraftinite: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	skarmorite: {
 		inherit: true,
 		isNonstandard: null,
@@ -103,7 +103,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	/**zygardite: {
 		inherit: true,
 		isNonstandard: null,
-	},
+	},*/
 	raichunitex: {
 		inherit: true,
 		isNonstandard: null,
@@ -111,7 +111,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	raichunitey: {
 		inherit: true,
 		isNonstandard: null,
-	},*/
+	},
 	chimechite: {
 		inherit: true,
 		isNonstandard: null,
@@ -119,12 +119,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	/**absolitez: {
 		inherit: true,
 		isNonstandard: null,
-	},
+	},*/
 	staraptite: {
 		inherit: true,
 		isNonstandard: null,
 	},
-	garchompitez: {
+	/**garchompitez: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -685,10 +685,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Talonflame, this item allows it to Mega Evolve in battle.",
 	},
-	staraptorite: {
-		name: "Staraptorite",
+	staraptoritey: {
+		name: "Staraptorite Y",
 		spritenum: 578,
-		megaStone: "Staraptor-Mega",
+		megaStone: "Staraptor-Mega-Y",
 		megaEvolves: "Staraptor",
 		itemUser: ["Staraptor"],
 		onTakeItem(item, source) {
@@ -1341,8 +1341,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Wishiwashi, this item allows it to Mega Evolve in battle.",
 	},
-	falinksite: {
-		name: "Falinksite",
+	falinksitey: {
+		name: "Falinksite Y",
 		spritenum: 578,
 		megaStone: "Falinks-Mega-Legion",
 		megaEvolves: "Falinks",

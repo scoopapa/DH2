@@ -6,7 +6,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			this.field.setTerrain('electricterrain');
 		},
-		onPrepareHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (move.type === "Electric") {
 				source.addVolatile('roost');
 			}

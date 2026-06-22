@@ -15,6 +15,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "charizard").learnset.stompingtantrum = ["9L1"];
 		this.modData("Learnsets", "charizard").learnset.heavyslam = ["9L1"];
 		
+		delete this.modData('Learnsets', 'pikachu').learnset.sing;
+		delete this.modData('Learnsets', 'raichu').learnset.sing;
+		
 		this.modData("Learnsets", "abomasnow").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.flipturn = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.slackoff = ["9L1"];
@@ -35,5 +38,31 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chandelure").learnset.powergem = ["9L1"];
 		this.modData("Learnsets", "chandelure").learnset.spiritshackle = ["9L1"];
 		this.modData("Learnsets", "golurk").learnset.headlongrush = ["9L1"];
+		
+		this.modData("Learnsets", "kangaskhan").learnset.milkdrink = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "kangaskhan").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.darkpulse = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.suckerpunch = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.foulplay = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.powertrip = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.torment = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.meteorbeam = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.hex = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.teleport = ["9L1"];
+		
+		this.modData("Learnsets", "mawile").learnset.hardpress = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.trailblaze = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.temperflare = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.psychicnoise = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.pounce = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.hypervoice = ["9L1"];
+		this.modData("Learnsets", "medicham").learnset.machpunch = ["9L1"];
+		
+		this.modData("Learnsets", "houndoom").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "houndoom").learnset.mysticalfire = ["9L1"];
 	},
 };

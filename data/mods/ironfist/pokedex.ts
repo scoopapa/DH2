@@ -1424,7 +1424,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -154,
 		fish: true,
 		types: ["Water", "Bug"],
-		baseStats: {hp: 49, atk: 49, def: 44, spa: 49, spd: 44, spe: 50},
+		baseStats: {hp: 44, atk: 49, def: 44, spa: 49, spd: 44, spe: 50},
 		abilities: {0: "MILF", 1: "Technician", H: "Schooling"},
 		weightkg: 0.3,
 	},

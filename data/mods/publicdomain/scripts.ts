@@ -4,4 +4,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ['PD'],
 	},
+	
+	actions: {
+		
+	},
 };

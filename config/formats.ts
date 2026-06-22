@@ -243,7 +243,8 @@ import { Formats as WhiteTusk                   } from '../data/mods/whitetusk/f
 import { Formats as Woomod                      } from '../data/mods/woomod/formats';
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
-import { Formats as ZADraft						} from '../data/mods/zadraft/formats';
+import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
+import { Formats as ZAOU						} from '../data/mods/gen9legendsou/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -332,6 +333,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...VaporeMons,
 	...Worldbuilding,
 	...gen9VGC20XX,
+	...ZAOU,
 	
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -436,6 +438,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Weedmons,
 	...Woomod,
 	//...YayaMons
+	...Yokaimons,
 
 	/*{
 		section: "Randbats",
@@ -502,10 +505,4 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	...gen3OURandomSampleTeam,
-
-	{
-		section: "Temporary Tour Metas",
-		column: 3,
-	},
-	...ZADraft,
 ];

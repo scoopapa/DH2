@@ -391,6 +391,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	makeitrain: {
 		inherit: true,
+		desc: "Lowers the user's Special Attack by 2 stages.",
+		shortDesc: "Lowers the user's Sp. Atk by 2. Hits foe(s).",
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
 		accuracy: 95,
 	},
 	megadrain: {
@@ -495,6 +502,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	psywave: {
 		inherit: true,
 		accuracy: 80,
+	},
+	ragefist: {
+		inherit: true,
+		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and resets to 0 when the user leaves the field. Each hit of a multi-hit attack is counted, but confusion damage is not counted.",
+		shortDesc: "+50 BP/hit on user. Max 6 hits. Resets on switch-out.",
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Rage Fist', '[silent]');
+		},
 	},
 	ragingfury: {
 		inherit: true,

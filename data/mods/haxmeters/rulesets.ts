@@ -22,12 +22,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				side.effect = effectValue;
 				side.crit = critValue;
 				side.status = statusValue;
-				//side.flinchChance = 0;
 
 				side.pmiss = missValue;
 				side.peffect = effectValue;
 				side.pcrit = critValue;
 				side.pstatus = statusValue;
+				
 				for (const pokemon of side.pokemon) {
 					pokemon.statuses = [];
 					pokemon.sleepFromRest = false;
@@ -66,9 +66,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
+			//pokemon.target.selfAbilityHits = 0;
+			//pokemon.target.targetAbilityHits = 0;
+			pokemon.sourceAbilityHit = 0;
+			pokemon.sourceAbilityActivateHit = 0;
+			pokemon.targetAbilityHit = 0;
+			pokemon.targetAbilityActivateHit = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
-			let canMove = true;			
+			let canMove = true;
 			//let clauses = 0;
 			//let frozen = false;
 			//let prefix;
@@ -280,5 +286,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 			return canMove;
 		},
+		onAfterMove(pokemon, target) {
+			//if (pokemon.sourceAbilityActivateHit > 0 && pokemon.sourceAbilityHit > pokemon.sourceAbilityActivateHit) {
+			if (pokemon.targetAbilityActivateHit > 0) {
+				target.side.addRemainingEffectPoints(target, 30, pokemon.targetAbilityHit, pokemon.targetAbilityActivateHit);
+			}
+			if (pokemon.sourceAbilityActivateHit > 0) {
+				pokemon.side.addRemainingEffectPoints(pokemon, 30, pokemon.sourceAbilityHit, pokemon.sourceAbilityActivateHit);
+			}		
+		}
     },
 };

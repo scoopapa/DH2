@@ -4906,4 +4906,34 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	aufcorse: {
 		tier: "OU",
 	},
+	strechterror: {
+		tier: "OU",
+	},
+	kangesa: {
+		tier: "OU",
+	},
+	floetteange: {
+		tier: "OU",
+	},
+	glimmortis: {
+		tier: "OU",
+	},
+	stardem: {
+		tier: "OU",
+	},
+	devouress: {
+		tier: "OU",
+	},
+	medirvana: {
+		tier: "OU",
+	},
+	houndemise: {
+		tier: "OU",
+	},
+	clapback: {
+		tier: "OU",
+	},
+	abresol: {
+		tier: "OU",
+	},
 };

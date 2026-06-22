@@ -1,4 +1,13 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+	teracrystal: {
+		name: "Tera Crystal",
+		spritenum: 658,
+		onTakeItem: false,
+		num: -1000,
+		gen: 9,
+		desc: "Allows this the holder to Terastallize.",
+		rating: 3,
+	},
 	berserkgene: {
 		inherit: true,
 		isNonstandard: "Future",
