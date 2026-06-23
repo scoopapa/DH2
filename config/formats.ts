@@ -201,6 +201,7 @@ import { Formats as RockBottom                  } from '../data/mods/rockbottom/
 import { Formats as Roulettemons                } from '../data/mods/roulettemons/formats';
 import { Formats as Roulettemons2               } from '../data/mods/roulettemons2/formats';
 import { Formats as Roulettemons2Ubers          } from '../data/mods/roulettemons2/formats';
+import { Formats as Rpgmod                      } from '../data/mods/rpgmod/formats';
 import { Formats as Scootopia                   } from '../data/mods/scootopia/formats';
 import { Formats as ScootopiaV4                 } from '../data/mods/scootopiav4/formats';
 import { Formats as SecretSanta                 } from '../data/mods/secretsanta/formats';
@@ -419,6 +420,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1Recolored,
 	...RockBottom,
 	//...RoulettemonsSolomod,
+	...Rpgmod,
 	...Scootopia,
 	...ScootopiaV4,
 	...Shinymons,
