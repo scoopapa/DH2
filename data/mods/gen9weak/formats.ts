@@ -7,7 +7,7 @@ export const Formats: FormatData[] = [
 		],
 
 		mod: 'gen9weak',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
 		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Hidden Power'],
 		teambuilderFormat: 'National Dex',
 	},
@@ -17,7 +17,7 @@ export const Formats: FormatData[] = [
 		],
 
 		mod: 'gen9weak',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
 		banlist: ['AG'],
 		teambuilderFormat: 'National Dex Uber',
 	},

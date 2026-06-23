@@ -52,5 +52,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "floetteeternal").learnset.shadowball = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.hex = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.teleport = ["9L1"];
+		
+		this.modData("Learnsets", "mawile").learnset.hardpress = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.trailblaze = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.temperflare = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.psychicnoise = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.pounce = ["9L1"];
+		this.modData("Learnsets", "mawile").learnset.hypervoice = ["9L1"];
+		this.modData("Learnsets", "medicham").learnset.machpunch = ["9L1"];
+		
+		this.modData("Learnsets", "houndoom").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "houndoom").learnset.mysticalfire = ["9L1"];
 	},
 };

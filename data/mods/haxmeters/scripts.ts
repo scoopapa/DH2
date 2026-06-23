@@ -44,10 +44,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 		addRemainingMissPoints(accuracy: number, targetHits: number, hit: number): number {
 			const accuracyChance = accuracy / 100;
-			const remainingMissPoints = (100 - accuracy) * ((accuracyChance)**hit - (accuracyChance)**targetHits) / (1 - accuracyChance);
+			const remainingMissPoints = (100 - accuracy) * (accuracyChance**hit - accuracyChance**targetHits) / (1 - accuracyChance);
 			if (remainingMissPoints > 0) {
 				this.battle.add('-message', `(Remaining miss points: ${roundNum(remainingMissPoints)})`);
 				this.addMiss(remainingMissPoints);
+			}
+		},
+		addRemainingEffectPoints(pokemon: Pokemon, effectPercentChance: number, targetHits: number, hit: number): number {
+			const multiplier = 1 - effectPercentChance / 100;
+			const remainingEffectPoints = effectPercentChance * (multiplier**hit - multiplier**targetHits) / (1 - multiplier);
+			if (remainingEffectPoints > 0) {
+				this.battle.add('-message', `(Remaining effect points for ${pokemon.name}'s Ability: ${roundNum(remainingEffectPoints)})`);
+				this.addEffect(remainingEffectPoints);
 			}
 		},
 		noChange() {

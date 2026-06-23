@@ -19,6 +19,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	miniormega: {},
 	miniormegameteor: {},
 	// Champions
+	raichumegax: {
+		isNonstandard: null,
+	},
+	raichumegay: {
+		isNonstandard: null,
+	},
 	clefablemega: {
 		isNonstandard: null,
 	},
@@ -43,6 +49,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chimechomega: {
 		isNonstandard: null,
 	},
+	staraptormega: {
+		isNonstandard: null,
+	},
 	froslassmega: {
 		isNonstandard: null,
 	},
@@ -52,7 +61,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	excadrillmega: {
 		isNonstandard: null,
 	},
+	scolipedemega: {
+		isNonstandard: null,
+	},
+	scraftymega: {
+		isNonstandard: null,
+	},
 	chandeluremega: {
+		isNonstandard: null,
+	},
+	eelektrossmega: {
 		isNonstandard: null,
 	},
 	golurkmega: {
@@ -65,6 +83,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	greninjamega: {
+		isNonstandard: null,
+	},
+	pyroarmega: {
 		isNonstandard: null,
 	},
 	floetteeternal: {
@@ -82,10 +103,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hawluchamega: {
 		isNonstandard: null,
 	},
+	malamarmega: {
+		isNonstandard: null,
+	},
+	barbaraclemega: {
+		isNonstandard: null,
+	},
+	dragalgemega: {
+		isNonstandard: null,
+	},
 	crabominablemega: {
 		isNonstandard: null,
 	},
 	drampamega: {
+		isNonstandard: null,
+	},
+	falinksmega: {
 		isNonstandard: null,
 	},
 	scovillainmega: {
