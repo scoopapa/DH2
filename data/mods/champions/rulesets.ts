@@ -3,7 +3,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		inherit: true,
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Cancel Mod', 'Endless Battle Clause',
-			'Adjust Level = 50', 'Species Clause', 'Item Clause = 1', 'Min Team Size = 6',
+			'Adjust Level = 50', 'Species Clause', 'Item Clause', 'Min Team Size = 6',
 		],
 	},
 	standard: {
@@ -27,8 +27,8 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 	},
 	flatrules: {
 		inherit: true,
-		desc: "The in-game Flat Rules: Adjust Level 50, Species Clause, Item Clause = 1, -Mythical, -Restricted Legendary, Bring 6 Pick 3-6 depending on game type.",
-		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Adjust Level = 50', 'Picked Team Size = Auto', 'Min Team Size = 6', 'Cancel Mod'],
+		desc: "The in-game Flat Rules: Adjust Level 50, Species Clause, Item Clause, -Mythical, -Restricted Legendary, Bring 6 Pick 3-6 depending on game type.",
+		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Adjust Level = 50', 'Picked Team Size = Auto', 'Min Team Size = 6', 'Cancel Mod'],
 		banlist: ['Mythical', 'Restricted Legendary'],
 	},
 	teampreview: {
