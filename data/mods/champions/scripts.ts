@@ -54,8 +54,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return speed;
 		},
-		// Don't revert Mega Evolutions after fainting
-		// TODO: confirm interaction with Revival Blessing
+		updateMaxHp() {
+			const newBaseMaxHp = this.battle.statModify(this.species.baseStats, this.set, 'hp');
+			if (newBaseMaxHp === this.baseMaxhp) return;
+			this.baseMaxhp = newBaseMaxHp;
+			const newMaxHP = this.volatiles['dynamax'] ? (2 * this.baseMaxhp) : this.baseMaxhp;
+			this.hp = this.hp <= 0 ? 0 : Math.max(1, newMaxHP - (this.maxhp - this.hp));
+			this.maxhp = newMaxHP;
+			if (this.hp) this.battle.add('-heal', this, this.getHealth, '[silent]');
+		},
 		formeChange(speciesId, source, isPermanent, abilitySlot = '0', message) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
 
@@ -69,7 +76,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
 				this.baseSpecies = rawSpecies;
-				this.details = this.getUpdatedDetails();
+				this.details = this.species.name + (this.level === 100 ? '' : ', L' + this.level) +
+					(this.gender ? ', ' + this.gender : '') + (this.set.shiny ? ', shiny' : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				this.battle.add('detailschange', this, details);
@@ -192,7 +200,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
-			return item.megaStone?.[species.name] || null;
+			if (item.megaStone && item.megaEvolves === species.name) {
+				return item.megaStone;
+			}
+
+			return null;
 		},
 		// Announce 4x and 0.25x effectiveness
 		modifyDamage(baseDamage, pokemon, target, move, suppressMessages) {
