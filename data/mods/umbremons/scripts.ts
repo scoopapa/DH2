@@ -49,5 +49,31 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return this.getRandomTarget(pokemon, move);
 		}
-	}
+	},
+	init() {
+		// Slate 1
+		this.modData('Learnsets', 'meowstic').learnset.taunt = ['9M'];
+		this.modData('Learnsets', 'meowstic').learnset.toxicspikes = ['9M'];
+		this.modData('Learnsets', 'meowstic').learnset.disable = ['9M'];
+		this.modData('Learnsets', 'meowstic').learnset.encore = ['9M'];
+
+		this.modData('Learnsets', 'meowsticf').learnset.earthpower = ['9M'];
+		this.modData('Learnsets', 'meowsticf').learnset.moonblast = ['9M'];
+
+		this.modData('Learnsets', 'gallade').learnset.fakeout = ['9M'];
+
+		this.modData('Learnsets', 'krookodile').learnset.fakeout = ['9M'];
+		this.modData('Learnsets', 'krookodile').learnset.suckerpunch = ['9M'];
+		this.modData('Learnsets', 'krookodile').learnset.partingshot = ['9M'];
+
+		this.modData('Learnsets', 'musharna').learnset.mysticalfire = ['9M'];
+		this.modData('Learnsets', 'musharna').learnset.psychicnoise = ['9M'];
+		this.modData('Learnsets', 'musharna').learnset.tickle = ['9M'];
+
+		this.modData('Learnsets', 'scolipede').learnset.bulkup = ['9M'];
+		this.modData('Learnsets', 'scolipede').learnset.coil = ['9M'];
+		this.modData('Learnsets', 'scolipede').learnset.bodypress = ['9M'];
+		this.modData('Learnsets', 'scolipede').learnset.powertrip = ['9M'];
+		this.modData('Learnsets', 'scolipede').learnset.stringshot = ['9M'];
+	},
 };
