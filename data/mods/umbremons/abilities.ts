@@ -4,7 +4,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onFoeModifyDamage(relayVar, target, source, move) {
 		// If an allAdjacentFoes move is targeting a massive Pokemon's side, it's now a single target move and has its spread damage nerf neutralized
 		if (move.target === 'allAdjacentFoes')
-			this.chainModify(1 + (1/3));
+			this.chainModify(1 / 0.75);
 		},
 		onAllyTryHit(target, source, move) {
 			if (['allAdjacentFoes', 'allAdjacent'].includes(move.target)) {
