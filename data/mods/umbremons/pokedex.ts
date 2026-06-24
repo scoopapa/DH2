@@ -57,12 +57,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	avalugg: {
 		inherit: true,
-		abilities: {0: "Massive", 1: "Ice Body", H: "Sturdy"},
+		abilities: {0: "Own Tempo", 1: "Massive", H: "Sturdy"},
 	},
-	// Waiting on confirmation of which ability Massive replaces for Avalugg Hisui
 	avalugghisui: {
 		inherit: true,
-		abilities: {0: "Strong Jaw", 1: "Ice Body", H: "Sturdy"},
+		abilities: {0: "Strong Jaw", 1: "Massive", H: "Sturdy"},
 	},
 	rhyperior: {
 		inherit: true,
