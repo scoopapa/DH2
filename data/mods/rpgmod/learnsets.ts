@@ -173,7 +173,7 @@ cloudstrife: {
 	blossomaw: {
 		learnset: {
 			leechseed: ["9L1"],
-			sleeppower: ["9L1"],
+			sleeppowder: ["9L1"],
 			poisonpowder: ["9L1"],
 			stunspore: ["9L1"],
 			ragepowder: ["9L1"],
@@ -403,7 +403,7 @@ cloudstrife: {
 			overheat: ["9L1"],
 			mist: ["9L1"],
 			megapunch: ["9L1"],
-			mjnimize: ["9L1"],
+			minimize: ["9L1"],
 		},
 	},
 	alpha: {

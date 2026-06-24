@@ -144,7 +144,7 @@ cloudstrife: {
 		name: "Floramancer",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 95, atk: 86, def: 105, spa: 100, spd: 91, spe: 71},
-		abilities: {0: "Grassy Surge", 1: "Mega Sol", H: "Floramancy"},
+		abilities: {0: "Grassy Surge", H: "Floramancy"},
 	},
 	akira: {
 		num: -980,
