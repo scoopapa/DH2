@@ -608,8 +608,18 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 	},
 	meowsticite: {
-		inherit: true,
-		isNonstandard: null,
+		name: "Meowsticite",
+		spritenum: 506,
+		megaStone: "Meowstic-Mega",
+		megaEvolves: "Meowstic",
+		altMegaEvolves: ["Meowstic-F"],
+		itemUser: ["Meowstic", "Meowstic-F"],
+		onTakeItem(item, source) {
+			if ((item.megaEvolves === source.baseSpecies.baseSpecies) || (item.altMegaEvolves[0] === source.baseSpecies.baseSpecies)) return false;
+			return true;
+		},
+		num: 2643,
+		gen: 9,
 	},
 	metalalloy: {
 		inherit: true,
@@ -716,10 +726,6 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: "Past",
 	},
 	premierball: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	prettyfeather: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
