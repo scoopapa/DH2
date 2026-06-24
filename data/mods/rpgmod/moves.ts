@@ -100,7 +100,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
-		shortDesc:: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
+		shortDesc: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
 	},
 	premonition: {
 		num: 2006,
