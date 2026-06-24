@@ -18,6 +18,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(target.maxhp / 2, target, source);
 			}
 		},
+		name: "Health Pack",
 		shortDesc: "When the holder enters the field, consumes and restores 1/4 of its ally's HP",
 	},
 	// Item Adjustments
