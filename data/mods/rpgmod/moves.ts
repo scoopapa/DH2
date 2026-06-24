@@ -14,7 +14,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		desc: "Hits 10 times. Each hit can miss. High Crit. Cannot be used twice in a row.",
+		shortDesc: "Hits 10 times. Each hit can miss. High Crit. Cannot be used twice in a row.",
 	},
 	pkrockin: {
 		num: 2001,
@@ -32,7 +32,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Psychic",
 		contestType: "Clever",
-		desc: "Inflicts random amount of damage equal to 1x-2x the user's level to foe(s).",
+		shortDesc: "Inflicts random amount of damage equal to 1x-2x the user's level to foe(s).",
 	},
 	shadefist: {
 		num: 2002,
@@ -100,7 +100,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
-		Desc: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
+		shortDesc:: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
 	},
 	premonition: {
 		num: 2006,
@@ -138,7 +138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		desc: "Hits two turns after being used.",
+		shortDesc:: "Hits two turns after being used.",
 	},
 	retreat: {
 		num: 2007,
@@ -245,7 +245,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		desc: "Prevents moves from affecting user this turn. Heals 1/8 max hp. ",
+		shortDesc: "Prevents moves from affecting user this turn. Heals 1/8 max hp. ",
 	},
 	bannerofcommand: {
 		num: 2010,
@@ -401,7 +401,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		desc: "Uses user's speed stat in damage calculation",
+		shortDesc: "Uses user's speed stat in damage calculation",
 	},
 	veil: {
 		num: 2016,
@@ -449,7 +449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
-		desc: "Protects allies from damaging attacks. Turn 1 only.",
+		shortDesc: "Protects allies from damaging attacks. Turn 1 only.",
 	},
 	forceofnature: {
 		num: 2017,
@@ -490,6 +490,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Cute",
-		desc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
+		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
 	},
 };
