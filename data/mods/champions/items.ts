@@ -197,6 +197,16 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	darkranite: {
 		inherit: true,
+		name: "Darkranite",
+		spritenum: 0,
+		megaStone: "Darkrai-Mega",
+		megaEvolves: "Darkrai",
+		itemUser: ["Darkrai"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		gen: 9,
 		isNonstandard: "Past",
 	},
 	dawnstone: {
@@ -389,6 +399,16 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	golisopite: {
 		inherit: true,
+		name: "Golisopite",
+		spritenum: 0,
+		megaStone: "Golisopod-Mega",
+		megaEvolves: "Golisopod",
+		itemUser: ["Golisopod"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		gen: 9,
 		isNonstandard: "Past",
 	},
 	golurkite: {
@@ -441,6 +461,16 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	heatranite: {
 		inherit: true,
+		name: "Heatranite",
+		spritenum: 0,
+		megaStone: "Heatran-Mega",
+		megaEvolves: "Heatran",
+		itemUser: ["Heatran"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		gen: 9,
 		isNonstandard: "Past",
 	},
 	heavyball: {
