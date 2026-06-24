@@ -611,7 +611,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Meowsticite",
 		shortDesc: "If held by a Meowstic, this item allows it to Mega Evolve in battle.",
 		spritenum: 506,
-		megaStone: "Meowstic-Mega",
+		megaStone: "Meowstic-M-Mega",
 		megaEvolves: "Meowstic",
 		altMegaEvolves: ["Meowstic-F"],
 		itemUser: ["Meowstic", "Meowstic-F"],
