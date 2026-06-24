@@ -138,7 +138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		shortDesc:: "Hits two turns after being used.",
+		shortDesc: "Hits two turns after being used.",
 	},
 	retreat: {
 		num: 2007,
