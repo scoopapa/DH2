@@ -203,6 +203,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item.megaStone && item.megaEvolves === species.name) {
 				return item.megaStone;
 			}
+			if (item.altMegaStone.includes(species.name)) {
+				return species.name + "-Mega";
+			}
 
 			return null;
 		},
