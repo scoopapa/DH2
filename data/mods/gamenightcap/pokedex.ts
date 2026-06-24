@@ -1088,4 +1088,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         color: "White",
         eggGroups: ["Undiscovered"],
     },
+	overcurchin: {
+        num: -16100,
+        name: "Overcurchin",
+        types: ["Dragon", "Electric"],
+        baseStats: {hp: 85, atk: 50, def: 130, spa: 60, spd: 124, spe: 36},
+        abilities: {0: "Healer", H: "Poison Heal"},
+        heightm: 1,
+        weightkg: 10,
+        color: "White",
+        eggGroups: ["Undiscovered"],
+    },
 };
