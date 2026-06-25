@@ -9,6 +9,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 	},
+	/* Problematic medias for now
 	statModify(baseStats, set, statName) {
 		const tr = this.trunc;
 		let stat = baseStats[statName];
@@ -43,6 +44,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	calculatePP(move, ppUps) {
 		return move.noPPBoosts ? move.pp : (move.pp / 5 + 1) * 4;
 	},
+	*/
 	pokemon: {
 		// Remove Trick Room underflow
 		getActionSpeed() {
@@ -54,6 +56,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return speed;
 		},
+		/* This function was botching up the bulk calculations, so it will be scrapped for now, as well as its call within formeChange()
 		updateMaxHp() {
 			const newBaseMaxHp = this.battle.statModify(this.species.baseStats, this.set, 'hp');
 			if (newBaseMaxHp === this.baseMaxhp) return;
@@ -63,6 +66,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.maxhp = newMaxHP;
 			if (this.hp) this.battle.add('-heal', this, this.getHealth, '[silent]');
 		},
+		*/
 		formeChange(speciesId, source, isPermanent, abilitySlot = '0', message) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
 
@@ -81,7 +85,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				this.battle.add('detailschange', this, details);
-				this.updateMaxHp();
+				// this.updateMaxHp();
 				if (!source) {
 					// Tera forme
 					// Ogerpon/Terapagos text goes here
