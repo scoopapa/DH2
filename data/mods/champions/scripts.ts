@@ -124,7 +124,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				const ability = species.abilities[abilitySlot] || species.abilities['0'];
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, null, true);
+				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
 				this.baseAbility = this.battle.toID(ability);
 			}
