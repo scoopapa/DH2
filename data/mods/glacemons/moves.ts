@@ -2219,4 +2219,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	catastropika: {
+		inherit: true,
+		basePower: 195,
+	},
 };
