@@ -229,7 +229,6 @@ import { Formats as TeraForming                 } from '../data/mods/teraforming
 import { Formats as TeraMax                     } from '../data/mods/teramax/formats';
 import { Formats as Terrariamons                } from '../data/mods/terrariamons/formats';
 import { Formats as The331TypeChart             } from '../data/mods/the331typechartg9/formats';
-import { Formats as TheBore                     } from '../data/mods/thebore/formats';
 import { Formats as TierSovereign               } from '../data/mods/tiersovereign/formats';
 import { Formats as Touhou                      } from '../data/mods/toho/formats';
 import { Formats as TPDP                        } from '../data/mods/tpdp/formats';
@@ -413,7 +412,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1Metronome,
 	...Solopet,
 	...gen1Moonside,
-	...TheBore,
 	...Patratdex,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
