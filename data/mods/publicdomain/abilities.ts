@@ -178,28 +178,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "User ignores its acc drops and target's eva boosts; heals 1/16 in Meteor Shower.",
 	},
 	mimicry: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (!this.field.terrain || !pokemon.isGrounded()) return;
-			if (move.type === 'Steel' && pokemon.hasType("Steel")) return this.chainModify([2, 3]);
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				if (move.type === 'Electric') return this.chainModify(1.5);
-				break;
-			case 'grassyterrain':
-				if (move.type === 'Grass') return this.chainModify(1.5);
-				break;
-			case 'mistyterrain':
-				if (move.type === 'Fairy') return this.chainModify(1.5);
-				break;
-			case 'psychicterrain':
-				if (move.type === 'Psychic') return this.chainModify(1.5);
-				break;
-			}
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.field.isTerrain('electricterrain') && ['Electric', 'Flying', 'Steel'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('psychicterrain') && ['Psychic', 'Fighting'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('grassyterrain') && ['Electric', 'Grass', 'Ground', 'Water'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('mistyterrain') && ['Bug', 'Dark', 'Fighting'].includes(move.type)) return typeMod - 1;
 		},
 		flags: {},
 		name: "Mimicry",
-		shortDesc: "This Pokemon loses Steel STAB but gains corresponding STAB in terrain.",
+		shortDesc: "This Pokemon gains the resistances of the type associated with the current terrain.",
 	},
 	protosandthesis: {
 		onImmunity(type, pokemon) {
@@ -484,5 +471,56 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Punishing Pierce",
 		shortDesc: "When the opponent fails a move against this Pokemon, it uses Horn Attack against them.",
+	},
+	frostbell: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Frost Bell');
+					activated = true;
+				}
+				this.boost({ atk: -2 }, pokemon, target, null, true);
+				pokemon.addVolatile('frostbell');
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Frost');
+			},
+			onSourceDamagingHit(damage, target, source, move) {
+				source.removeVolatile('frostbell');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Frost', '[silent]');
+				this.effectState.boosts = {} as SparseBoostsTable;
+				if (pokemon.boosts['atk'] < 0) {
+					this.effectState.boosts['atk'] = 0;
+				}
+				if (pokemon.boosts['spa'] < 0) {
+					this.effectState.boosts['spa'] = 0;
+				}
+				delete this.effectState.boosts;
+			},
+		},
+		flags: {},
+		name: "Frost Bell",
+		shortDesc: "Ice resist + When hit, attacker's next attack has its corresponding Attack stat -2.",
 	},
 };
