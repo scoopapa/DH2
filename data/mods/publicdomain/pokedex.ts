@@ -388,7 +388,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 140, def: 90, spa: 100, spd: 90, spe: 135},
 		abilities: {0: "Intimidate"},
 		weightkg: 392,
-		requiredItem: "Fuginite",
+		requiredMove: "Dragon Ascent",
 	},
 	goodrahisuireallife: {
 		num: 42,
@@ -451,6 +451,30 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Punishing Pierce"},
 		weightkg: 260.8,
 		requiredItem: "Espinasite",
+	},
+	wirescruel: {
+		num: 43,
+		name: "Wirescruel",
+		types: ["Electric", "Steel"],
+		baseStats: {hp: 80, atk: 70, def: 65, spa: 80, spd: 120, spe: 100},
+		abilities: {0: "Heatproof", H: "Transistor"},
+		weightkg: 55,
+	},
+	theringer: {
+		num: 44,
+		name: "The Ringer",
+		types: ["Dark"],
+		baseStats: {hp: 90, atk: 80, def: 105, spa: 105, spd: 85, spe: 65},
+		abilities: {0: "Frost Bell"},
+		weightkg: 241,
+	},
+	necrozmalightningbeak: {
+		num: 45,
+		name: "Necrozma-Lightning-Beak",
+		types: ["Psychic", "Electric"],
+		baseStats: {hp: 89, atk: 83, def: 103, spa: 131, spd: 107, spe: 67},
+		abilities: {0: "Prism Armor"},
+		weightkg: 282,
 	},
 
 };

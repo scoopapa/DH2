@@ -861,6 +861,83 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+	powersap: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Power Sap",
+		shortDesc: "User heals HP=target's SpA stat. Lowers Atk by 1. Cures target's paralysis.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, heal: 1, metronome: 1 },
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Strength Sap", target);
+		},
+		onHit(target, source) {
+			if (target.status === 'par') target.cureStatus();
+			if (target.boosts.spa === -6) return false;
+			const spa = target.getStat('spa', false, true);
+			const success = this.boost({ spa: -1 }, target, source, null, false, true);
+			return !!(this.heal(spa, source, target) || success);
+		},
+		target: "normal",
+		type: "Electric",
+		zMove: { boost: { def: 1 } },
+		contestType: "Cute",
+	},
+	livewire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Livewire",
+		pp: 5,
+		priority: 4,
+		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
+		stallingMove: true,
+		volatileStatus: 'livewire',
+		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Charge", target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.checkMoveBypassesProtect(move, source, target, false)) return;
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+			},
+		},
+		target: "self",
+		type: "Electric",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
