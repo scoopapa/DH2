@@ -5,12 +5,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
 			for (const ally of pokemon.adjacentAllies()) {
-				if (!pokemon.ignoringItem() && this.runEvent('TryHeal', ally, null, this.effect, ally.baseMaxhp / 4)) {
-					this.heal(ally.baseMaxhp / 4, ally, pokemon);					
+				if (!pokemon.ignoringItem() && this.heal(ally.baseMaxhp / 4, ally, pokemon)) {
 					pokemon.useItem();
 					return;
-                }
-            }
+				}
+			}
 		},
 		fling: {
 			basePower: 30,
