@@ -11,6 +11,6 @@ export const Formats: FormatData[] = [
 		gameType: 'doubles',
 		bestOfDefault: true,
 		ruleset: ['Flat Rules', 'VGC Timer', 'Open Team Sheets'],
-		teambuilderFormat: "National Dex",
+		// teambuilderFormat: "National Dex",
 	},
 ];

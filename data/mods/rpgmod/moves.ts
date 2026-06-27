@@ -305,7 +305,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Brine Bucket",
 		pp: 15,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
 			onHit(source){
 				for (const side of source.side.foeSidesWithConditions()) {
@@ -343,7 +343,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Floraconda",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
 			onHit(source) {
 				for (const side of source.side.foeSidesWithConditions()) {

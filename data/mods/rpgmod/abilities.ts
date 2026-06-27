@@ -26,7 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	beemerang: {
 		onBeforeMove(pokemon, target, move){
 			if (move.type !== 'Bug') return;
-			if (!target) return; 
+			if (target === pokemon) return; 
 			this.add('-ability', pokemon, 'Beemerang')
 			target.addVolatile('smackdown');
 		},
