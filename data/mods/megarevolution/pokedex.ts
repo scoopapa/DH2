@@ -565,7 +565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: null,
 	},
 	libreagle: {
-		num: 701,
+		num: 2029,
 		name: "Libreagle",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 96, atk: 104, def: 96, spa: 78, spd: 72, spe: 104},
