@@ -123,7 +123,6 @@ import { Formats as gen9FusionEvolutionR        } from '../data/mods/gen9ferestr
 import { Formats as gen9FusionEvolutionVGC      } from '../data/mods/gen9fevgc/formats';
 import { Formats as gen9Multiverse              } from '../data/mods/gen9multiverse/formats';
 //import { Formats as gen9SSB                     } from '../data/mods/gen9ssb/formats';
-import { Formats as gen9Weak                    } from '../data/mods/gen9weak/formats';
 import { Formats as gen9Ubermons                } from '../data/mods/gen9ubermons/formats';
 import { Formats as VaporeMons                  } from '../data/mods/gen9vaporemons/formats';
 import { Formats as gen9VGC20XX                 } from '../data/mods/gen9vgc20xx/formats';
@@ -431,7 +430,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1TradebacksExpanded,
 	...UpsideDown,
 	...gen1VioletVersion,
-	...gen9Weak,
 	...WeatherWar,
 	...Weedmons,
 	...Woomod,
