@@ -508,6 +508,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {
+			noCopy: true,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Frost');
 				pokemon.moveUnended = true;
