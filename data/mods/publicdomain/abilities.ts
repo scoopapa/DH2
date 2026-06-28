@@ -495,7 +495,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', target, 'Frost Bell');
 					activated = true;
 				}
-				this.boost({ atk: -2 }, pokemon, target, null, true);
+				if (move.category === 'Physical') this.boost({ atk: -2 }, pokemon, target, null, true);
+				else this.boost({ spa: -2 }, pokemon, target, null, true);
 				pokemon.addVolatile('frostbell');
 			}
 		},
