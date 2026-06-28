@@ -64,5 +64,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData("Learnsets", "houndoom").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "houndoom").learnset.mysticalfire = ["9L1"];
+		
+		this.modData("Learnsets", "skarmory").learnset.aquacutter = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.sacredsword = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.metalburst = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.furycutter = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.leafblade = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.shadowclaw = ["9L1"];
 	},
 };
