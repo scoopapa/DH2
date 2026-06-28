@@ -395,4 +395,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GNCS1",
 		doublesTier: "GNCS1",
 	},
+	overcurchin: {
+		tier: "GNCS1",
+		doublesTier: "GNCS1",
+	},
 };
