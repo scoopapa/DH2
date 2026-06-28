@@ -891,6 +891,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Livewire",
+		shortDesc: "Protects from damaging attacks. Contact: para.",
 		pp: 5,
 		priority: 4,
 		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
