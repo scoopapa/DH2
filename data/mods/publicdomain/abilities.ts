@@ -376,7 +376,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMove(pokemon, target, move) {
 			if(move.id === 'chillyreception') {
 				const reaction = this.dex.getActiveMove('futuresight');
-				this.actions.useMove(reaction, source, target);
+				this.actions.useMove(reaction, pokemon, pokemon.side.foe.active[pokemon.position]);
 			}
 		},
 		flags: {},
