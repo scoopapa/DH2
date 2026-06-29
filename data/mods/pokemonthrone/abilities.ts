@@ -77,4 +77,42 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Full Circle",
 		shortDesc: "When hit by an attack, attacker takes indirect damage equal to HP this Pokémon lost.",
 	},
+	glochidia: {
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (move.category === 'Physical' && (!spikes || spikes.layers < 3)) {
+				this.add('-activate', target, 'ability: Glochidia');
+				side.addSideCondition('spikes', target);
+			}
+		},
+		flags: {},
+		name: "Glochidia",
+		shortDesc: "If this Pokemon is hit by a physical attack, Spikes are set on the opposing side.",
+	},
+	healingchime: {
+		name: "Healing Chime",
+		shortDesc: "On switch-in, cures all party status if any ally is statused.",
+		onStart(pokemon) {
+			const side = pokemon.side;
+			let hasStatus = false;
+			// Check if anyone on the side has a status condition
+			for (const ally of side.pokemon) {
+				if (ally.status) {
+					hasStatus = true;
+					break;
+				}
+			}
+			if (!hasStatus) return;
+			// Activate ability
+			this.add('-ability', pokemon, 'Healing Chime');
+			this.add('-message', `A soothing chime echoed across ${side.name}'s party!`);
+			// Cure all party status
+			for (const ally of side.pokemon) {
+				if (ally.status) {
+					ally.cureStatus();
+				}
+			}
+		},
+	},
 }
