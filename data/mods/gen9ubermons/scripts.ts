@@ -113,7 +113,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (type !== '???') {
 				let stab: number | [number, number] = 1;
 
-				const isSTAB = move.forceSTAB || pokemon.hasType(type)/* || pokemon.getTypes(false, true).includes(type)*/;
+				const isSTAB = move.forceSTAB || pokemon.hasType(type);
 				if (isSTAB) {
 					stab = 1.5;
 				}
