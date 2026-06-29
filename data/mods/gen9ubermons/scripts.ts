@@ -35,8 +35,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		inherit: true,
 		canTerastallize(pokemon: Pokemon) {
 			//const teraItems = ['teracrystal', 'wellspringmask', 'hearthflamemask', 'cornerstonemask'],
-			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || !pokemon.hasItem('teracrystal') ||
-				!pokemon.hasItem('wellspringmask') || !pokemon.hasItem('hearthflamemask') || !pokemon.hasItem('cornerstonemask')) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9/* || !pokemon.hasItem('teracrystal') ||
+				!pokemon.hasItem('wellspringmask') || !pokemon.hasItem('hearthflamemask') || !pokemon.hasItem('cornerstonemask')*/) {
 				return null;
 			}
 			return pokemon.teraType;
