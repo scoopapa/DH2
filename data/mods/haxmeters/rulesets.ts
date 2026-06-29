@@ -3,7 +3,11 @@ export function roundNum(n: number, places: number): number {
 }
 
 export function randomMeterValue(): number {
-	return 10 * Math.floor(6 * Math.random() + 2);
+	return 10 * Math.floor(6 * Math.random()) + 20;
+}
+
+export function randomCritMeterValue(): number {
+	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
 }
 
 export const Rulesets: {[k: string]: ModdedFormatData} = {
@@ -15,7 +19,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.field.addPseudoWeather('haxmeterweather');
 			const missValue = randomMeterValue()
 			const effectValue = randomMeterValue()
-			const critValue = randomMeterValue()
+			const critValue = randomCritMeterValue()
 			const statusValue = randomMeterValue()
 			for (const side of this.sides) {
 				side.miss = missValue;
