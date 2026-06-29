@@ -1,5 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'champions',
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE'],
+	},
 	gen: 9,
 	battle: {
 		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) {

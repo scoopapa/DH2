@@ -4936,4 +4936,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	abresol: {
 		tier: "OU",
 	},
+	clefablehisui: {
+		tier: "OU",
+	},
+	skarmorysharpened: {
+		tier: "OU",
+	},
+	libreagle: {
+		tier: "OU",
+	},
 };
