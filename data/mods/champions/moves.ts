@@ -286,7 +286,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	encore: {
 		inherit: true,
 		condition: {
-			inherit: true,
+			duration: 3,
+			noCopy: true, // doesn't get copied by Z-Baton Pass
 			onStart(target) {
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move || target.volatiles['dynamax']) return false;
@@ -316,6 +317,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						order: action.order,
 					});
 					this.queue.willMove(target)!.priority = priority;
+				}
+			},
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectState.move) return this.effectState.move;
+			},
+			onResidualOrder: 16,
+			onResidual(target) {
+				if (!target.moves.includes(this.effectState.move) ||
+					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
+					// early termination if you run out of PP
+					target.removeVolatile('encore');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Encore');
+			},
+			onDisableMove(pokemon) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+					return;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id !== this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
 				}
 			},
 		},
