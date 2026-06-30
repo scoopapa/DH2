@@ -2489,7 +2489,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Yama Kurai",
 		types: ["Grass"],
 		baseStats: {hp: 110, atk: 117, def: 80, spa: 117, spd: 80, spe: 100},
-		abilities: {0: "Chlorophyll", H: "Effect Spore"},
+		abilities: {0: "Chlorophyll", 1: "Effect Spore", H: "Mega Sol"},
 		weightkg: 80,
 		tags: ["Elder Dragon"],
 	},

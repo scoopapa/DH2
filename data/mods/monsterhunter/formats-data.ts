@@ -147,7 +147,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	goremagala: {
-		tier: "MHRUBL",
+		tier: "MHUU",
 	},
 	chaoticgore: {
 		tier: "MHOU",
@@ -459,7 +459,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	balahara: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	doshaguma: {
 		tier: "MHRU",
@@ -528,7 +528,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	greencuga: {
-		tier: "MHRUBL",
+		tier: "MHRU",
 	},
 	narwaallmother: {
 		tier: "MHOU",
@@ -621,7 +621,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	ajarakan: {
-		tier: "MHRUBL",
+		tier: "MHRU",
 	},
 	emgalala: {
 		tier: "MHNU",

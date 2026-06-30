@@ -2317,7 +2317,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			acupressure: ["9L1"],
 			flashcannon: ["9L1"],
 			powergem: ["9L1"],
-			psychic: ["9L1"],
 			aquacutter: ["9M"],
 			swordsdance: ["9L1"],
 			aquajet: ["9L15"],
@@ -12430,7 +12429,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			cottonguard: ["9L1"],
 			amnesia: ["9L1"],
-			imoolationorder: ["9L1"],
+			immolationorder: ["9L1"],
 			acrobatics: ["9L1"],
 			growth: ["9L1"],
 			stockpile: ["9L1"],
