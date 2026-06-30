@@ -135,8 +135,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				this.heal(allyActive.baseMaxhp / 8, allyActive, pokemon);
+				if (allyActive.hp < allyActive.baseMaxhp && this.runEvent('TryHeal', allyActive, null, this.effect, pokemon.baseMaxhp / 8)) {
+					this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+				}
 			}
 		},
+		shortDesc: "At the end of every turn, gives 1/8 of its own hp to an ally."
+		desc: "At the end of every turn, this Pokemon will attempt to heal injured allies equivalent to 1/8 of its own hp. On a successful heal, this Pokemon will damage itself for 1/8. If an ally is at full health, this heal will not be attempted.",
 	},
 };
