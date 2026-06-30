@@ -140,7 +140,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		shortDesc: "At the end of every turn, gives 1/8 of its own hp to an ally."
+		shortDesc: "At the end of every turn, gives 1/8 of its own hp to an ally.",
 		desc: "At the end of every turn, this Pokemon will attempt to heal injured allies equivalent to 1/8 of its own hp. On a successful heal, this Pokemon will damage itself for 1/8. If an ally is at full health, this heal will not be attempted.",
 	},
 };
