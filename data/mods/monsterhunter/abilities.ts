@@ -3,7 +3,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.flags['sound']) {
-				this.add('-activate', pokemon, 'ability: Soothing Song');
 				for (const ally of pokemon.alliesAndSelf()) {
 					this.heal(ally.baseMaxhp / 8, ally);
 				}
@@ -1457,7 +1456,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
-				this.add('-activate', pokemon, 'ability: Soothing Song');
 				this.boost({def: 1}, target);
 			}
 		},
@@ -1469,7 +1467,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onModifyTypePriority: -1,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
-					this.add('-activate', pokemon, 'ability: Soothing Song');
 					move.type = 'Ice';
 				}
 			},
@@ -1479,7 +1476,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Permafrost",
-		shortDesc: "Targeted by Water-type moves: They become Ice-type | Hit by Ice Moves: 1+ Def.",
+		shortDesc: "Targeted by Water-type moves: They become Ice-type | Hit by Ice-type Moves: 1+ Def.",
 	},
 	plow: {
 		onTryHit(target, source, move) {
