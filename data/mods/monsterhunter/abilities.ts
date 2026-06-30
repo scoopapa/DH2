@@ -3,7 +3,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.flags['sound']) {
-				this.add('-activate', pokemon, 'ability: Soothing Song', '[silent]');
+				this.add('-ability', pokemon, 'Soothing Song', '[silent]');
 				for (const ally of pokemon.alliesAndSelf()) {
 					this.heal(ally.baseMaxhp / 8, ally);
 				}
@@ -1457,7 +1457,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
-				this.add('-activate', target, 'ability: Permafrost', '[silent]');
+				this.add('-ability', target, 'Permafrost', '[silent]');
 				this.boost({def: 1}, target);
 			}
 		},
@@ -1469,7 +1469,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onModifyTypePriority: -1,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
-					this.add('-activate', pokemon, 'ability: Permafrost', '[silent]');
+					this.add('-ability', target, 'Permafrost', '[silent]');
 					move.type = 'Ice';
 				}
 			},
