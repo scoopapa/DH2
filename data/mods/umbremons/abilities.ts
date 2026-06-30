@@ -137,6 +137,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			for (const allyActive of pokemon.adjacentAllies()) {
 				if (allyActive.hp < allyActive.baseMaxhp && this.runEvent('TryHeal', allyActive, null, this.effect, pokemon.baseMaxhp / 8)) {
 					this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+					this.heal(pokemon.baseMaxhp / 8, allyActive, pokemon);
 				}
 			}
 		},
