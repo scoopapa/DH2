@@ -40,7 +40,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']
 			|| this.volatiles['stench']
 		);
-	}
+	},
 	
 		effectiveWeather(message?: string | boolean) {
 			const weather = this.battle.field.effectiveWeather();
