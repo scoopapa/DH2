@@ -1059,6 +1059,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	whiteherb: {
 		inherit: true,
+		/* DH2's version of White Herb is too out of date to handle this
 		onAnyAfterMove() {
 			// Desync: proceed from Parting Shot's point of view
 			this.queue.insertChoice({
@@ -1071,6 +1072,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onWhiteHerb(pokemon) {
 			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
 		},
+		*/
 	},
 	wikiberry: {
 		inherit: true,
