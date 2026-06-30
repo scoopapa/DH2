@@ -318,6 +318,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "White Gale",
 	},
+	megasol: {
+		isNonstandard: null,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (this.field.weather !== 'sunnyday') {
+				(this.dex.conditions.getByID('sunnyday' as ID) as any).onWeatherModifyDamage
+					.call(this, damage, attacker, defender, move);
+			}
+		},
+		flags: {},
+		name: "Mega Sol",
+		rating: 3,
+		num: 315,
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+	},
 	absolutezero: {
 		onStart(source) {
 			this.field.setWeather('absolutezero');
