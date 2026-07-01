@@ -1113,6 +1113,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aquatail: ["9T"],
 			astonish: ["9M"],
 			bulldoze: ["9M"],
+			spikes: ["9M"],
 			confide: ["9M",],
 			coldsnap: ["9L1"],
 			dig: ["9M"],
