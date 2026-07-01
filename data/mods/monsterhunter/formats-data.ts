@@ -66,7 +66,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	brachydios: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	bulldrome: {
 		tier: "MHUU",
@@ -330,7 +330,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	rathian: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	royalludroth: {
 		tier: "MHNU",
@@ -726,13 +726,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	rathalosdreadking: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	zinogrethunderlord: {
 		tier: "MHUU",
 	},
 	brachydiosraging: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	lagiacrusabyssal: {
 		tier: "MHOU",
