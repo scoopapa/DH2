@@ -426,7 +426,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	xenojiiva: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	yamatsukami: {
 		tier: "MHUU",
@@ -495,7 +495,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	blackblos: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	sandrioth: {
 		tier: "MHRU",
@@ -543,7 +543,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	primozeno: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	arkveld: {
 		tier: "MHOU",
@@ -639,7 +639,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	yamakurai: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	balenox: {
 		tier: "MHRU",
