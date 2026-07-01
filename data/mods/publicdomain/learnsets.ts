@@ -890,6 +890,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wideguard: ["9L1"],
 			wish: ["9L1"],
 			workup: ["9L1"],
+			healingwish: ["9L1"],
+			suckerpunch: ["9L1"],
 		},
 	},
 	bigclefable: {
