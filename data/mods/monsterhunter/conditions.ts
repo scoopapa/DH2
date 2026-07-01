@@ -191,12 +191,17 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	fatigue: {
 		name: 'Fatigue',
 		duration: 5,
-		onStart(pokemon, source) {
+		onStart(pokemon) {
 			this.add('-start', pokemon, 'Fatigue');
 			this.add('-message', `${pokemon.name} is Fatigued! Moves use more PP!`);
 		},
-		onDeductPP(pokemon) {
-			return 1;
+		onDeductPP(target, source, move) {
+			// Only drain PP if the fatigued Pokémon is the one USING the move
+			if (source !== this.effectState.target) return 0;
+
+			const drain = 1;
+			this.add('-message', `${source.name}'s Fatigue drained ${drain} extra PP!`);
+			return drain;
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Fatigue');

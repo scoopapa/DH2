@@ -3,7 +3,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.flags['sound']) {
-				this.add('-ability', pokemon, 'Soothing Song');
 				for (const ally of pokemon.alliesAndSelf()) {
 					this.heal(ally.baseMaxhp / 8, ally);
 				}
@@ -317,6 +316,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Flying moves get +1 priority at full HP or at 50% HP or less.",
 		flags: {},
 		name: "White Gale",
+	},
+	megasol: {
+		isNonstandard: null,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (this.field.weather !== 'sunnyday') {
+				(this.dex.conditions.getByID('sunnyday' as ID) as any).onWeatherModifyDamage
+					.call(this, damage, attacker, defender, move);
+			}
+		},
+		flags: {},
+		name: "Mega Sol",
+		rating: 3,
+		num: 315,
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
 	},
 	absolutezero: {
 		onStart(source) {
@@ -1443,7 +1456,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
-				this.add('-activate', target, 'ability: Permafrost');
 				this.boost({def: 1}, target);
 			}
 		},
@@ -1455,7 +1467,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onModifyTypePriority: -1,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
-					this.add('-activate', pokemon, 'ability: Permafrost');
 					move.type = 'Ice';
 				}
 			},
@@ -1465,7 +1476,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Permafrost",
-		shortDesc: "Targeted by Water moves: They become Ice | Hit by Ice Moves: 1+ Def.",
+		shortDesc: "Targeted by Water-type moves: They become Ice-type | Hit by Ice-type Moves: 1+ Def.",
 	},
 	plow: {
 		onTryHit(target, source, move) {
