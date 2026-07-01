@@ -8,6 +8,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Moves', i).pp = 20;
 			}
 		}
+		for (const i in this.data.Pokedex) this.data.Pokedex[i].prevo = null;
 	},
 	/* Problematic medias for now
 	statModify(baseStats, set, statName) {
