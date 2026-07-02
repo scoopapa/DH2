@@ -2329,6 +2329,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["9L1"],
 			worryseed: ["9L1"],
 		},
+		eventOnly: null,
 	},
 	glimmortis: {
 		learnset: {
