@@ -3276,6 +3276,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	floetteeternal: {
+		inherit: true,
+		tier: "OU",
+		isNonstandard: null,
 	},
 	florges: {
 		inherit: true,

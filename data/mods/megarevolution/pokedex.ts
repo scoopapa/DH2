@@ -372,14 +372,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	floette: {
 		inherit: true,
-		otherFormes: ["Floette-Eternal"/*, "Floette-Ange"*/],
-		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal"/*, "Floette-Ange"*/],
+		otherFormes: ["Floette-Eternal", "Floette-Ange"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Ange"],
 	},
 	floetteange: {
-		num: 3001,
+		num: 670,
 		name: "Floette-Ange",
-		//baseSpecies: "Floette",
-		//forme: "Ange",
+		baseSpecies: "Floette",
+		forme: "Ange",
 		types: ["Fairy", "Dark"],
 		gender: "F",
 		baseStats: {hp: 74, atk: 85, def: 94, spa: 135, spd: 138, spe: 28},
@@ -389,6 +389,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Undiscovered"],
 		cosmeticFormes: null,
+		changesFrom: "Floette-Eternal",
 	},
 	glimmora: {
 		inherit: true,
