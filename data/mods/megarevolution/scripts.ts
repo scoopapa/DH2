@@ -42,7 +42,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kangaskhan").learnset.milkdrink = ["9L1"];
 		this.modData("Learnsets", "kangaskhan").learnset.stealthrock = ["9L1"];
 		this.modData("Learnsets", "kangaskhan").learnset.knockoff = ["9L1"];
-		this.modData("Learnsets", "floetteeternal").learnset.darkpulse = ["9L1"];
+		/*this.modData("Learnsets", "floetteeternal").learnset.darkpulse = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.suckerpunch = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.foulplay = ["9L1"];
@@ -51,7 +51,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "floetteeternal").learnset.meteorbeam = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.shadowball = ["9L1"];
 		this.modData("Learnsets", "floetteeternal").learnset.hex = ["9L1"];
-		this.modData("Learnsets", "floetteeternal").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "floetteeternal").learnset.teleport = ["9L1"];*/
 		
 		this.modData("Learnsets", "mawile").learnset.hardpress = ["9L1"];
 		this.modData("Learnsets", "mawile").learnset.alluringvoice = ["9L1"];
