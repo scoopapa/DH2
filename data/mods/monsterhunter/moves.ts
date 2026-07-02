@@ -124,7 +124,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Wretched Water",
-		shortDesc: "30% chance to paralyze the target.",
+		shortDesc: "Hits adjacent pokemon. 30% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -132,7 +132,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Water",
 		contestType: "Cool",
 		onPrepareHit(target, source, move) {
@@ -1046,9 +1046,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		volatileStatus: 'defensedown',
-		shortDesc: "Hits adjacent pokemon. Inflicts defense down.",
+		shortDesc: "Hits adjacent foes. Inflicts defense down.",
 		secondary: null,
-		target: "allAdjacent",
+		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Beautiful",
 		onPrepareHit(target, source, move) {
@@ -1069,7 +1069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'defensedown',
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
-		target: "allAdjacentFoes",
+		target: "Normal",
 		type: "Water",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
