@@ -2519,6 +2519,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "30% chance to inflict bleed.",
 		shortDesc: "30% chance to inflict bleed.",
 	},
+	fierydance: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+	},
 	/*
 	DROWSY EDITS
 	*/
