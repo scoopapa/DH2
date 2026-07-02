@@ -1044,34 +1044,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		inherit: true,
-		shortDesc: "User on terrain: 1.3x power, type varies.",
+		shortDesc: "User's Def +1 in Grassy/Electric Terrain, SpD +1 in Psychic/Misty Terrain.",
 		type: "Steel",
 		basePower: 90,
 		accuracy: 100,
 		pp: 10,
 		volatileStatus: null,
-		onModifyType(move, pokemon) {
-			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				move.type = 'Electric';
-				break;
-			case 'grassyterrain':
-				move.type = 'Grass';
-				break;
-			case 'mistyterrain':
-				move.type = 'Fairy';
-				break;
-			case 'psychicterrain':
-				move.type = 'Psychic';
-				break;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.field.terrain && pokemon.isGrounded()) {
-				move.basePower *= 1.3;
-				this.debug('BP doubled in Terrain');
-			}
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('electricterrain')) this.boost({ def: 1 }, pokemon, pokemon, move);
+			if (this.field.isTerrain('psychicterrain') || this.field.isTerrain('mistyterrain')) this.boost({ spd: 1 }, pokemon, pokemon, move);
 		},
 	},
 	attackorder: {
