@@ -2262,7 +2262,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["9L1"],
 		},
 	},
-	floetteeternal: {
+	floetteange: {
 		learnset: {
 			afteryou: ["9L1"],
 			allyswitch: ["9L1"],
@@ -2329,7 +2329,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["9L1"],
 			worryseed: ["9L1"],
 		},
-		eventOnly: null,
 	},
 	glimmortis: {
 		learnset: {
