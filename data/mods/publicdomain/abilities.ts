@@ -437,7 +437,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Divine Right",
 		flags: {},
-		shortDesc: "On switchin, this Pokemon's first 1 (2 if Starfall) have 100% secondary chance.",
+		shortDesc: "On switchin, this Pokemon's first 1 (2 if Starfall) attacks have 100% secondary chance.",
 	},
 	icecubesmydad: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -452,7 +452,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	magicworms: {
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Physical' && move.category === 'Bug') {
+			if (move.category === 'Physical' && move.type === 'Bug') {
 				move.overrideOffensiveStat = 'spa';
 			}
 		},

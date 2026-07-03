@@ -707,7 +707,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Physical if user's Atk > SpA. 0% chance for SpA/Atk -1, SpD/Def -2.",
+		shortDesc: "Atk > SpA: Phys. 0%: SpA/Atk -1, SpD/Def -2.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
