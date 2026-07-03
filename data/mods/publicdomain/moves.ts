@@ -707,7 +707,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Physical if user's Atk > SpA. 0% chance for SpA/Atk -1, SpD/Def -2.",
+		shortDesc: "Atk > SpA: Phys. 0%: SpA/Atk -1, SpD/Def -2.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -861,6 +861,84 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+	powersap: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Power Sap",
+		shortDesc: "User heals HP=target's SpA stat. Lowers Atk by 1. Cures target's paralysis.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, heal: 1, metronome: 1 },
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Strength Sap", target);
+		},
+		onHit(target, source) {
+			if (target.status === 'par') target.cureStatus();
+			if (target.boosts.spa === -6) return false;
+			const spa = target.getStat('spa', false, true);
+			const success = this.boost({ spa: -1 }, target, source, null, false, true);
+			return !!(this.heal(spa, source, target) || success);
+		},
+		target: "normal",
+		type: "Electric",
+		zMove: { boost: { def: 1 } },
+		contestType: "Cute",
+	},
+	livewire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Livewire",
+		shortDesc: "Protects from damaging attacks. Contact: para.",
+		pp: 5,
+		priority: 4,
+		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
+		stallingMove: true,
+		volatileStatus: 'livewire',
+		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Charge", target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.checkMoveBypassesProtect(move, source, target, false)) return;
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+			},
+		},
+		target: "self",
+		type: "Electric",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
@@ -966,34 +1044,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		inherit: true,
-		shortDesc: "User on terrain: 1.3x power, type varies.",
+		shortDesc: "User's Def +1 in Grassy/Electric Terrain, SpD +1 in Psychic/Misty Terrain.",
 		type: "Steel",
 		basePower: 90,
 		accuracy: 100,
 		pp: 10,
 		volatileStatus: null,
-		onModifyType(move, pokemon) {
-			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				move.type = 'Electric';
-				break;
-			case 'grassyterrain':
-				move.type = 'Grass';
-				break;
-			case 'mistyterrain':
-				move.type = 'Fairy';
-				break;
-			case 'psychicterrain':
-				move.type = 'Psychic';
-				break;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.field.terrain && pokemon.isGrounded()) {
-				move.basePower *= 1.3;
-				this.debug('BP doubled in Terrain');
-			}
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('electricterrain')) this.boost({ def: 1 }, pokemon, pokemon, move);
+			if (this.field.isTerrain('psychicterrain') || this.field.isTerrain('mistyterrain')) this.boost({ spd: 1 }, pokemon, pokemon, move);
 		},
 	},
 	attackorder: {

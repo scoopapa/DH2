@@ -2266,7 +2266,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
         magneticflux: ["9M"],
         fairylock: ["9M"],
         doodle: ["9M"],
-        weallhatediaper: ["9M"],
           },
         },
       helicoverpa: {
@@ -2493,6 +2492,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
         trickroom: ["9M"],
         wideguard: ["9M"],
         tarshot: ["9M"],
+        lavaplume: ["9M"],
           },
         },
       beliolisk: {
@@ -2617,6 +2617,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
           recover: ["9M"],
           curse: ["9M"],
           wideguard: ["9M"],
+          jawlock: ["9M"],
+          populationbomb: ["9M"],
+          powertrip: ["9M"],
           },
     },
       megapincurchin: {
@@ -2637,6 +2640,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
           eerieimpulse: ["9M"],
           snipeshot: ["9M"],
           afteryou: ["9M"],
+          overdrive: ["9M"],
+          zingzap:["9M"]
           },
     },
       pincurchin2: {

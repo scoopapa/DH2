@@ -203,5 +203,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DOU",
 	},
+	wirescruel: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	theringer: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	necrozmalightningbeak: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
 
 };
