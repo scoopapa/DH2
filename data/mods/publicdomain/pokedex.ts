@@ -378,6 +378,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 90, def: 110, spa: 90, spd: 90, spe: 75},
 		abilities: {0: "Air Lock"},
 		weightkg: 206.5,
+		otherFormes: ["Fug-Mega"],
+		formeOrder: ["Fug", "Fug-Mega"],
 	},
 	fugmega: {
 		num: 41,
