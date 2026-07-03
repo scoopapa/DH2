@@ -3276,6 +3276,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	floetteeternal: {
+		inherit: true,
+		tier: "OU",
+		isNonstandard: null,
 	},
 	florges: {
 		inherit: true,
@@ -4943,6 +4946,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	libreagle: {
+		tier: "OU",
+	},
+	shazakazam: {
+		tier: "OU",
+	},
+	slowbrosheltered: {
+		tier: "OU",
+	},
+	druidevoir: {
+		tier: "OU",
+	},
+	valianoble: {
 		tier: "OU",
 	},
 };
