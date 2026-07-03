@@ -178,28 +178,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "User ignores its acc drops and target's eva boosts; heals 1/16 in Meteor Shower.",
 	},
 	mimicry: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (!this.field.terrain || !pokemon.isGrounded()) return;
-			if (move.type === 'Steel' && pokemon.hasType("Steel")) return this.chainModify([2, 3]);
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				if (move.type === 'Electric') return this.chainModify(1.5);
-				break;
-			case 'grassyterrain':
-				if (move.type === 'Grass') return this.chainModify(1.5);
-				break;
-			case 'mistyterrain':
-				if (move.type === 'Fairy') return this.chainModify(1.5);
-				break;
-			case 'psychicterrain':
-				if (move.type === 'Psychic') return this.chainModify(1.5);
-				break;
-			}
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.field.isTerrain('electricterrain') && ['Electric', 'Flying', 'Steel'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('psychicterrain') && ['Psychic', 'Fighting'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('grassyterrain') && ['Electric', 'Grass', 'Ground', 'Water'].includes(move.type)) return typeMod - 1;
+			if (this.field.isTerrain('mistyterrain') && ['Bug', 'Dark', 'Fighting'].includes(move.type)) return typeMod - 1;
 		},
 		flags: {},
 		name: "Mimicry",
-		shortDesc: "This Pokemon loses Steel STAB but gains corresponding STAB in terrain.",
+		shortDesc: "This Pokemon gains the resistances of the type associated with the current terrain.",
 	},
 	protosandthesis: {
 		onImmunity(type, pokemon) {
@@ -317,7 +304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			this.add('-ability', pokemon, 'Ruler\'s Coronation');
 			this.add('-message', pokemon.name + " has been crowned!");
-			pokemon.side.addSlotCondition('rulerscoronation');
+			pokemon.side.addSlotCondition(pokemon, 'rulerscoronation');
 		},
 		condition: {
 			duration: 1,
@@ -338,7 +325,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Man",
 		flags: {},
-		shortDesc: "This Pokemon gains the normal type on switch in.",
+		shortDesc: "This Pokemon gains the Normal type on switchin.",
 	},
 	utau: {
 		onBasePowerPriority: 23,
@@ -389,7 +376,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMove(pokemon, target, move) {
 			if(move.id === 'chillyreception') {
 				const reaction = this.dex.getActiveMove('futuresight');
-				this.actions.useMove(reaction, source, target);
+				this.actions.useMove(reaction, pokemon, pokemon.side.foe.active[pokemon.position]);
 			}
 		},
 		flags: {},
@@ -408,7 +395,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Crazy Smoke",
 		shortDesc: "Reduces damage taken by 20% from moves that do not match their user's type. Belch can be used without eating a berry."
 	},
-
 	retainspice: {
         onBeforeSwitchOut(pokemon) {
             this.effectState.spiceStats = pokemon.boosts['atk'];
@@ -431,5 +417,125 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Snail Fever",
 		shortDesc: "This Pokemon inflicts Leech Seed on attackers who make contact with it.",
+	},
+	divineright: {
+		onSwitchIn(pokemon) {
+			this.add('-ability', pokemon, 'Mold Breaker');
+			if (this.field.isWeather('meteorshower')) {
+				pokemon.divineright = 2;
+				this.add('-message', pokemon.name + " exerts their Divine Destiny!");
+			}
+			else {
+				pokemon.divineright = 1;
+				this.add('-message', pokemon.name + " exerts their Divine Right!");
+			}
+		},
+		onModifyMove(move, attacker) {
+			if (attacker.divineright > 0 && move.secondaries) {
+				let success = false;
+				for (const secondary in move.secondaries) {
+					if (secondary.chance < 100) {
+						success = true;
+						secondary.chance = 100;
+					}
+				}
+				if (success) pokemon.divineright --;
+			}
+		},
+		name: "Divine Right",
+		flags: {},
+		shortDesc: "On switchin, this Pokemon's first 1 (2 if Starfall) attacks have 100% secondary chance.",
+	},
+	icecubesmydad: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.debug('Filter neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "ice cube\'s my dad??",
+		shortDesc: "This Pokemon takes 0.75x damage from contact attacks.",
+	},
+	magicworms: {
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Physical' && move.type === 'Bug') {
+				move.overrideOffensiveStat = 'spa';
+			}
+		},
+		flags: {},
+		name: "Magic Worms",
+		shortDesc: "This Pokemon's physical Bug-Type moves use its SpA as its offensive stat.",
+	},
+	punishingpierce: {
+		onFoeAfterMove(target, source, move) {
+			if (!this.lastSuccessfulMoveThisTurn) {
+				const pierce = this.dex.getActiveMove('hornattack');
+				const effectHolder = this.effectState.target;
+				this.actions.useMove(pierce, effectHolder, source);
+			}
+		},
+		flags: {},
+		name: "Punishing Pierce",
+		shortDesc: "When the opponent fails a move against this Pokemon, it uses Horn Attack against them.",
+	},
+	frostbell: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Frost Bell weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Frost Bell weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Frost Bell');
+					activated = true;
+				}
+				if (move.category === 'Physical') this.boost({ atk: -2 }, pokemon, target, null, true);
+				else this.boost({ spa: -2 }, pokemon, target, null, true);
+				pokemon.addVolatile('frostbell');
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Frost');
+				pokemon.moveUnended = true;
+			},
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (target !== source && move.category !== 'Status') {
+					if (source.moveUnended) {
+						source.moveUnended = false;
+						return;
+					}
+					source.removeVolatile('frostbell');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Frost');
+				let statName: BoostID;
+				const nanoStats: BoostID[] = ['atk', 'spa']
+				for (const statName of nanoStats) {
+					if ((pokemon.boosts[statName]) < 0) {
+						pokemon.boosts[statName] = 0;
+						this.add('-setboost', pokemon, statName, pokemon.boosts[statName], '[silent]');
+					}
+				}
+			},
+		},
+		flags: {},
+		name: "Frost Bell",
+		shortDesc: "Ice resist + When hit, attacker's next attack has its corresponding Attack stat -2.",
 	},
 };

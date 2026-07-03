@@ -77,18 +77,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			gen: 9,
 			desc: "Activates Paradox Abilities. Single Use."
 		},
-	fuginite: {
-		name: "Fuginite",
-		spritenum: 589,
-		megaStone: "Fug-Mega",
-		megaEvolves: "Fug",
-		itemUser: ["Fug", "Fug-Mega"],
+	tynarite: {
+		name: "Tynarite",
+		spritenum: 607,
+		megaStone: "Tynar-Mega",
+		megaEvolves: "Tynar",
+		itemUser: ["Tynar", "Tynar-Mega"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: -4,
 		gen: 9,
-		desc: "If held by Fug, this item allows it to Mega Evolve in battle.",
+		desc: "If held by Tynar, this item allows it to Mega Evolve in battle.",
+	},
+	espinasite: {
+		name: "Espinasite",
+		spritenum: 608,
+		megaStone: "Espinas-Zenith",
+		megaEvolves: "Espinas",
+		itemUser: ["Espinas", "Espinas-Zenith"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -4,
+		gen: 9,
+		desc: "If held by Espinas, this item allows it to Mega Evolve in battle.",
 	},
 };

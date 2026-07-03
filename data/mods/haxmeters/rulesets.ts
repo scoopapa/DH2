@@ -3,7 +3,11 @@ export function roundNum(n: number, places: number): number {
 }
 
 export function randomMeterValue(): number {
-	return 10 * Math.floor(6 * Math.random() + 2);
+	return 10 * Math.floor(6 * Math.random()) + 20;
+}
+
+export function randomCritMeterValue(): number {
+	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
 }
 
 export const Rulesets: {[k: string]: ModdedFormatData} = {
@@ -15,7 +19,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.field.addPseudoWeather('haxmeterweather');
 			const missValue = randomMeterValue()
 			const effectValue = randomMeterValue()
-			const critValue = randomMeterValue()
+			const critValue = randomCritMeterValue()
 			const statusValue = randomMeterValue()
 			for (const side of this.sides) {
 				side.miss = missValue;
@@ -66,6 +70,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (pokemon.status === 'par') pokemon.statuses.push('Paralysis');
 		},
 		onBeforeMove(pokemon, target, move) {
+			//pokemon.target.selfAbilityHits = 0;
+			//pokemon.target.targetAbilityHits = 0;
+			pokemon.sourceAbilityHit = 0;
+			pokemon.sourceAbilityActivateHit = 0;
+			pokemon.targetAbilityHit = 0;
+			pokemon.targetAbilityActivateHit = 0;
 			if (!pokemon.statuses || pokemon.statuses.length === 0) return;
 			let multiplier = 1;
 			let canMove = true;
@@ -280,5 +290,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 			return canMove;
 		},
+		onAfterMove(pokemon, target) {
+			//if (pokemon.sourceAbilityActivateHit > 0 && pokemon.sourceAbilityHit > pokemon.sourceAbilityActivateHit) {
+			if (pokemon.targetAbilityActivateHit > 0) {
+				target.side.addRemainingEffectPoints(target, 30, pokemon.targetAbilityHit, pokemon.targetAbilityActivateHit);
+			}
+			if (pokemon.sourceAbilityActivateHit > 0) {
+				pokemon.side.addRemainingEffectPoints(pokemon, 30, pokemon.sourceAbilityHit, pokemon.sourceAbilityActivateHit);
+			}		
+		}
     },
 };

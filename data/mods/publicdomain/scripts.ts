@@ -1,7 +1,27 @@
+import {Dex, toID} from '../../../sim/dex';
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['PD'],
+	},
+	
+	actions: {
+		canMegaEvo(pokemon: Pokemon) {
+			const species = pokemon.baseSpecies;
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
+			const item = pokemon.getItem();
+			// Mega Rayquaza
+			if (altForme?.isMega && altForme?.requiredMove &&
+				pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
+				return altForme.name;
+			}
+			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
+			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+				return item.megaStone;
+			}
+			return null;
+		}
 	},
 };

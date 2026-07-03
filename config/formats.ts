@@ -123,7 +123,6 @@ import { Formats as gen9FusionEvolutionR        } from '../data/mods/gen9ferestr
 import { Formats as gen9FusionEvolutionVGC      } from '../data/mods/gen9fevgc/formats';
 import { Formats as gen9Multiverse              } from '../data/mods/gen9multiverse/formats';
 //import { Formats as gen9SSB                     } from '../data/mods/gen9ssb/formats';
-import { Formats as gen9Weak                    } from '../data/mods/gen9weak/formats';
 import { Formats as gen9Ubermons                } from '../data/mods/gen9ubermons/formats';
 import { Formats as VaporeMons                  } from '../data/mods/gen9vaporemons/formats';
 import { Formats as gen9VGC20XX                 } from '../data/mods/gen9vgc20xx/formats';
@@ -201,6 +200,7 @@ import { Formats as RockBottom                  } from '../data/mods/rockbottom/
 import { Formats as Roulettemons                } from '../data/mods/roulettemons/formats';
 import { Formats as Roulettemons2               } from '../data/mods/roulettemons2/formats';
 import { Formats as Roulettemons2Ubers          } from '../data/mods/roulettemons2/formats';
+import { Formats as Rpgmod                      } from '../data/mods/rpgmod/formats';
 import { Formats as Scootopia                   } from '../data/mods/scootopia/formats';
 import { Formats as ScootopiaV4                 } from '../data/mods/scootopiav4/formats';
 import { Formats as SecretSanta                 } from '../data/mods/secretsanta/formats';
@@ -228,7 +228,6 @@ import { Formats as TeraForming                 } from '../data/mods/teraforming
 import { Formats as TeraMax                     } from '../data/mods/teramax/formats';
 import { Formats as Terrariamons                } from '../data/mods/terrariamons/formats';
 import { Formats as The331TypeChart             } from '../data/mods/the331typechartg9/formats';
-import { Formats as TheBore                     } from '../data/mods/thebore/formats';
 import { Formats as TierSovereign               } from '../data/mods/tiersovereign/formats';
 import { Formats as Touhou                      } from '../data/mods/toho/formats';
 import { Formats as TPDP                        } from '../data/mods/tpdp/formats';
@@ -236,6 +235,7 @@ import { Formats as TradingPost                 } from '../data/mods/tradingpost
 import { Formats as TrainerSupport              } from '../data/mods/trainersupport/formats';
 import { Formats as TripleThreat                } from '../data/mods/triplethreat/formats';
 import { Formats as TwoStepMonsV3               } from '../data/mods/twostepmonsv3/formats';
+import { Formats as UmbreMons                   } from '../data/mods/umbremons/formats';
 import { Formats as UpsideDown                  } from '../data/mods/upsidedown/formats';
 import { Formats as WeatherWar                  } from '../data/mods/weatherwar/formats';
 import { Formats as Weedmons                    } from '../data/mods/weedmons/formats';
@@ -244,7 +244,7 @@ import { Formats as Woomod                      } from '../data/mods/woomod/form
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
 import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
-import { Formats as ZADraft						} from '../data/mods/zadraft/formats';
+import { Formats as ZAOU						} from '../data/mods/gen9legendsou/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -330,9 +330,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...TripleThreat,
 	...TwoStepMonsV3,
 	...gen9Ubermons,
+	...UmbreMons,
 	...VaporeMons,
 	...Worldbuilding,
 	...gen9VGC20XX,
+	...ZAOU,
 	
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -409,7 +411,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1Metronome,
 	...Solopet,
 	...gen1Moonside,
-	...TheBore,
 	...Patratdex,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
@@ -418,6 +419,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1Recolored,
 	...RockBottom,
 	//...RoulettemonsSolomod,
+	...Rpgmod,
 	...Scootopia,
 	...ScootopiaV4,
 	...Shinymons,
@@ -432,7 +434,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1TradebacksExpanded,
 	...UpsideDown,
 	...gen1VioletVersion,
-	...gen9Weak,
 	...WeatherWar,
 	...Weedmons,
 	...Woomod,
@@ -504,10 +505,4 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	...gen3OURandomSampleTeam,
-
-	{
-		section: "Temporary Tour Metas",
-		column: 3,
-	},
-	...ZADraft,
 ];

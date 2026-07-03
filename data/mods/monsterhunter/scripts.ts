@@ -40,7 +40,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']
 			|| this.volatiles['stench']
 		);
-	}
+	},
+	
+		effectiveWeather(message?: string | boolean) {
+			const weather = this.battle.field.effectiveWeather();
+			switch (weather) {
+			case 'sunnyday':
+			case 'raindance':
+			case 'desolateland':
+			case 'primordialsea':
+				if (this.hasItem('utilityumbrella')) return '';
+			}
+			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
+			if (this.hasAbility('megasol') && this.battle.activePokemon === this && weather !== 'sunnyday') {
+				if (message) this.battle.add('-activate', this, 'ability: Mega Sol');
+				return 'sunnyday';
+			}
+			return weather;
+		}
 	},
 	
 	actions: {

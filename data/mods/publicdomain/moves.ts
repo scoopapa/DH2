@@ -700,6 +700,245 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	fallingstar: {
+		name: "Falling Star",
+		type: "Fairy",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Atk > SpA: Phys. 0%: SpA/Atk -1, SpD/Def -2.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Draco Meteor", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+				move.secondary.boosts = { atk: -1, def: -2};
+			}
+		},
+		secondary: {
+			chance: 0,
+			boosts: {
+				spa: -1,
+				spd: -2,
+			},
+		},
+		target: "normal",
+	},
+	forge: {
+		name: "Forge",
+		type: "Steel",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		shortDesc: "User gains Sovereign Blade as an additional move.",
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Swords Dance", target);
+		},
+		onHit(pokemon) {
+			if (!pokemon.forge) {
+				pokemon.forge = 0;
+			}
+			pokemon.forge ++;
+			for (const moveSlot in pokemon.moveSlots) {
+				if (moveSlot.id === 'sovereignblade') return;
+			}
+			const sovereignblade = {
+				move: "Sovereign Blade",
+				id: "sovereignblade",
+				pp: 8,
+				maxpp: 8,
+				target: "normal",
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			pokemon.moveSlots.push(sovereignblade);
+			pokemon.baseMoveSlots.push(sovereignblade);
+		},
+		secondary: null,
+		target: "self",
+	},
+	sovereignblade: {
+		name: "Sovereign Blade",
+		type: "Psychic",
+		category: "Special",
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.forge) return move.basePower + 40 * pokemon.forge;
+			else return move.basePower;
+		},
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "+40 BP for each time Forge was used by this Pokemon.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Psycho Cut", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	amazondeliverydrone: {
+		name: "amazon delivery drone",
+		type: "Flying",
+		category: "Special",
+		basePower: 75,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Restores user's previously consumed or otherwise removed item.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Whirlwind", target);
+		},
+		onAfterHit(target, source, move) {
+			if (source.hp && !source.item) {
+				if (source.lastItem) {
+					const item = source.lastItem;
+					source.lastItem = '';
+				} else if (source.knockedItem) {
+					const item = source.knockedItem;
+					source.knockedItem = '';
+				} else return;
+				this.add('-item', source, this.dex.items.get(item), '[from] move: Recycle');
+				source.setItem(item, source, move);
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	badapple: {
+		name: "Bad Apple!!",
+		type: "Grass",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Supereffective against Fairy. 20% chance to poison.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Apple Acid", target);
+		},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+	},
+	nervegas: {
+		name: "Nerve Gas",
+		type: "Poison",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "30% chance to paralyze the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Poison Gas", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+	},
+	powersap: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Power Sap",
+		shortDesc: "User heals HP=target's SpA stat. Lowers Atk by 1. Cures target's paralysis.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, heal: 1, metronome: 1 },
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Strength Sap", target);
+		},
+		onHit(target, source) {
+			if (target.status === 'par') target.cureStatus();
+			if (target.boosts.spa === -6) return false;
+			const spa = target.getStat('spa', false, true);
+			const success = this.boost({ spa: -1 }, target, source, null, false, true);
+			return !!(this.heal(spa, source, target) || success);
+		},
+		target: "normal",
+		type: "Electric",
+		zMove: { boost: { def: 1 } },
+		contestType: "Cute",
+	},
+	livewire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Livewire",
+		shortDesc: "Protects from damaging attacks. Contact: para.",
+		pp: 5,
+		priority: 4,
+		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
+		stallingMove: true,
+		volatileStatus: 'livewire',
+		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Charge", target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.checkMoveBypassesProtect(move, source, target, false)) return;
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+			},
+		},
+		target: "self",
+		type: "Electric",
+	},
 	
 	//vanilla moves
 	meteorbeam: {
@@ -805,34 +1044,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		inherit: true,
-		shortDesc: "User on terrain: 1.3x power, type varies.",
+		shortDesc: "User's Def +1 in Grassy/Electric Terrain, SpD +1 in Psychic/Misty Terrain.",
 		type: "Steel",
 		basePower: 90,
 		accuracy: 100,
 		pp: 10,
 		volatileStatus: null,
-		onModifyType(move, pokemon) {
-			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				move.type = 'Electric';
-				break;
-			case 'grassyterrain':
-				move.type = 'Grass';
-				break;
-			case 'mistyterrain':
-				move.type = 'Fairy';
-				break;
-			case 'psychicterrain':
-				move.type = 'Psychic';
-				break;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.field.terrain && pokemon.isGrounded()) {
-				move.basePower *= 1.3;
-				this.debug('BP doubled in Terrain');
-			}
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('electricterrain')) this.boost({ def: 1 }, pokemon, pokemon, move);
+			if (this.field.isTerrain('psychicterrain') || this.field.isTerrain('mistyterrain')) this.boost({ spd: 1 }, pokemon, pokemon, move);
 		},
 	},
 	attackorder: {
@@ -1153,5 +1373,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
+	},
+	knockoff: {
+		inherit: true,
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Knock Off', `[of] ${source}`);
+			}
+			target.knockedItem = item;
+		},
+	},
+	corrosivegas: {
+		inherit: true,
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Corrosive Gas', `[of] ${source}`);
+				target.knockedItem = item;
+			} else {
+				this.add('-fail', target, 'move: Corrosive Gas');
+			}
+		},
 	},
 };
