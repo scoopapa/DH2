@@ -3,7 +3,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Worn Bangle",
 		shortDesc: "Holder's Strength is +20, but their Speed is -10.",
 		desc: "Holder's Strength is increased by 20 points, but their Speed is reduced by 10 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -18,7 +17,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Rocker Wrist",
 		shortDesc: "Holder's Strength is +36, but their Speed is -20.",
 		desc: "Holder's Strength is increased by 36 points, but their Speed is reduced by 20 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -33,7 +31,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Brute Bracer",
 		shortDesc: "Holder's Strength is +50, but their Speed is -30.",
 		desc: "Holder's Strength is increased by 50 points, but their Speed is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -48,7 +45,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Sun Bracelet",
 		shortDesc: "Holder's Strength is +70, but their Speed is -40.",
 		desc: "Holder's Strength is increased by 70 points, but their Speed is reduced by 40 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -63,7 +59,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Fiend Band",
 		shortDesc: "Holder's Strength is +100, but their Speed is -100.",
 		desc: "Holder's Strength is increased by 100 points, but their Speed is reduced by 100 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -78,7 +73,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Rusty Ring",
 		shortDesc: "Holder's Spirit is +20, but their Speed is -10.",
 		desc: "Holder's Spirit is increased by 20 points, but their Speed is reduced by 10 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -93,7 +87,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Pretty Ring",
 		shortDesc: "Holder's Spirit is +36, but their Speed is -20.",
 		desc: "Holder's Spirit is increased by 36 points, but their Speed is reduced by 20 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -108,7 +101,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Illusion Ring",
 		shortDesc: "Holder's Spirit is +50, but their Speed is -30.",
 		desc: "Holder's Spirit is increased by 50 points, but their Speed is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -123,7 +115,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Lunar Ring",
 		shortDesc: "Holder's Spirit is +70, but their Speed is -40.",
 		desc: "Holder's Spirit is increased by 70 points, but their Speed is reduced by 40 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -138,7 +129,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Fiend Ring",
 		shortDesc: "Holder's Spirit is +100, but their Speed is -100.",
 		desc: "Holder's Spirit is increased by 100 points, but their Speed is reduced by 100 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -153,7 +143,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Fire Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Fire attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Fire attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -173,7 +162,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Water Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Water attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Water attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -193,7 +181,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Lightning Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Electric attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Electric attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -213,7 +200,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Earth Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Rock attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Rock attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -233,7 +219,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Ice Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Ice attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Ice attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -253,7 +238,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Wind Ring",
 		shortDesc: "Holder deals 1.3x damage with and receives 1.5x damage from Flying attacks.",
 		desc: "Holder deals 1.3x damage with and receives 1.5x damage from Flying attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -273,7 +257,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Aged Charm",
 		shortDesc: "Holder's Defense is +20, but their Spirit is -10.",
 		desc: "Holder's Defense is increased by 20 points, but their Spirit is reduced by 10 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -288,7 +271,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Runic Charm",
 		shortDesc: "Holder's Defense is +36, but their Spirit is -20.",
 		desc: "Holder's Defense is increased by 36 points, but their Spirit is reduced by 20 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -303,7 +285,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Armor Charm",
 		shortDesc: "Holder's Defense is +50, but their Spirit is -30.",
 		desc: "Holder's Defense is increased by 50 points, but their Spirit is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -318,7 +299,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Galaxy Charm",
 		shortDesc: "Holder's Defense is +70, but their Spirit is -40.",
 		desc: "Holder's Defense is increased by 70 points, but their Spirit is reduced by 40 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -333,7 +313,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Fiend Charm",
 		shortDesc: "Holder's Defense is +100, but their Spirit is -100.",
 		desc: "Holder's Defense is increased by 100 points, but their Spirit is reduced by 100 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -348,7 +327,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Blaze Charm",
 		shortDesc: "Holder takes 0.5x damage from Fire attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Fire attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -365,7 +343,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Flood Charm",
 		shortDesc: "Holder takes 0.5x damage from Water attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Water attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -382,7 +359,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Bolt Charm",
 		shortDesc: "Holder takes 0.5x damage from Electric attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Electric attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -399,7 +375,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Quake Charm",
 		shortDesc: "Holder takes 0.5x damage from Rock attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Rock attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -416,7 +391,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Frost Charm",
 		shortDesc: "Holder takes 0.5x damage from Ice attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Ice attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -433,7 +407,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Storm Charm",
 		shortDesc: "Holder takes 0.5x damage from Flying attacks but their Defense is -30.",
 		desc: "Holder takes 0.5x damage from Flying attacks but their Defense is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -450,7 +423,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Simple Badge",
 		shortDesc: "Holder's Speed is +20, but their Strength is -10.",
 		desc: "Holder's Speed is increased by 20 points, but their Strength is reduced by 10 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -465,7 +437,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Shiny Badge",
 		shortDesc: "Holder's Speed is +36, but their Strength is -20.",
 		desc: "Holder's Speed is increased by 36 points, but their Strength is reduced by 20 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -480,7 +451,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Hermes Badge",
 		shortDesc: "Holder's Speed is +50, but their Strength is -30.",
 		desc: "Holder's Speed is increased by 50 points, but their Strength is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -495,7 +465,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Meteor Badge",
 		shortDesc: "Holder's Speed is +70, but their Strength is -40.",
 		desc: "Holder's Speed is increased by 70 points, but their Strength is reduced by 40 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -510,7 +479,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Fiend Badge",
 		shortDesc: "Holder's Speed is +100, but their Strength is -100.",
 		desc: "Holder's Speed is increased by 100 points, but their Strength is reduced by 100 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -525,7 +493,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Cicada Sword",
 		shortDesc: "Holder's Strength is +60 and their Speed is +40. Only usable by Cadin, Cadable, and Singcada.",
 		desc: "Holder's Strength is increased by 60 points and their Speed is increased by 40 points. Only usable by Cadin, Cadable, and Singcada.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -541,7 +508,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Beefy Bell",
 		shortDesc: "Holder's Strength is increased by 60 points. Only usable by cat Yo-kai.",
 		desc: "Holder's Strength is increased by 60 points. Only usable by cat Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -554,7 +520,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Spell Bell",
 		shortDesc: "Holder's Spirit is increased by 100 points. Only usable by cat Yo-kai.",
 		desc: "Holder's Spirit is increased by 100 points. Only usable by cat Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -567,7 +532,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Tough Bell",
 		shortDesc: "Holder's Defense is increased by 100 points. Only usable by cat Yo-kai.",
 		desc: "Holder's Defense is increased by 100 points. Only usable by cat Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -580,7 +544,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Speed Bell",
 		shortDesc: "Holder's Speed is increased by 60 points. Only usable by cat Yo-kai.",
 		desc: "Holder's Speed is increased by 60 points. Only usable by cat Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -593,7 +556,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Big Bottle",
 		shortDesc: "Holder deals 1.2x damage with Water attacks.",
 		desc: "Holder deals 1.2x damage with Water attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -608,7 +570,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Tengu Fan",
 		shortDesc: "Holder's Spirit and Speed are +200. Only usable by Tengu and Flengu.",
 		desc: "Holder's Spirit is increased by 200 points and their Speed is increased by 200 points. Only usable by Tengu and Flengu.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -624,7 +585,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Cheery Coat",
 		shortDesc: "Holder's Speed is +100. Only usable by Wiglin, Steppa, and Rhyth.",
 		desc: "Holder's Speed is increased by 100 points. Only usable by Wiglin, Steppa, and Rhyth.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -637,7 +597,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Nail Bat",
 		shortDesc: "Holder's Strength is +100, but their Speed is -100. Only usable by Badude and Bruff.",
 		desc: "Holder's Strength is increased by 100 points, but their Speed is reduced by 100 points. Only usable by Badude and Bruff.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -653,7 +612,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Reversword",
 		shortDesc: "Holder's Strength and Spirit are +60. Only usable by D and E-rank Yo-kai.",
 		desc: "Holder's Strength and Spirit are increased by 60 points. Only usable by D and E-rank Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -675,7 +633,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Turnabeads",
 		shortDesc: "Holder's Spirit and Defense are +60. Only usable by D and E-rank Yo-kai.",
 		desc: "Holder's Spirit and Defense are increased by 60 points. Only usable by D and E-rank Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -697,7 +654,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Reflector",
 		shortDesc: "Holder's Defense and Speed are +60. Only usable by D and E-rank Yo-kai.",
 		desc: "Holder's Defense and Speed are increased by 60 points. Only usable by D and E-rank Yo-kai.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -719,7 +675,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Ritzy Studs",
 		shortDesc: "Increases the holder's critical hit ratio by 1 stage.",
 		desc: "Increases the holder's critical hit ratio by 1 stage.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -731,7 +686,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Sleep 'n' Study",
 		shortDesc: "Holder has a 33% chance of Loafing each turn, but Loafing increases all of its stats by 1 stage.",
 		desc: "Holder has a 33% chance of Loafing each turn, but Loafing increases all of its stats by 1 stage.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -749,7 +703,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Die of Fate",
 		shortDesc: "Increases the holder's crit rate 2 stages, but attacks targeting them are guaranteed to crit.",
 		desc: "Increases the holder's critical hit ratio 2 stages, but attacks targeting them are guaranteed to crit.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -764,7 +717,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Iron Plates",
 		shortDesc: "Holder's Defense is +30 and they cannot be crit, but their Speed is -30.",
 		desc: "Holder's Defense is increased by 30 points and they cannot be critical hit, but their Speed is reduced by 30 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -782,7 +734,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Thick Specs",
 		shortDesc: "Holder's physical attacks cannot miss, but their Strength is 0.8x.",
 		desc: "Holder's physical attacks cannot miss, but the holder's Strength is 0.8x.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -798,7 +749,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Ancient Scale",
 		shortDesc: "Holder has a 50% chance to dodge negative Inspirits.",
 		desc: "Holder has a 50% chance to dodge negative Inspirits.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -813,7 +763,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Venoct Gauntlet",
 		shortDesc: "Holder's Soultimate gains an additional charge at the end of each turn, but they have a 33% chance of Loafing each turn.",
 		desc: "Holder's Soultimate gains an additional charge at the end of each turn, but they have a 33% chance of Loafing each turn.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -844,7 +793,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Heavenly Sash",
 		shortDesc: "Holder restores 1/16 of their max HP at the end of each turn.",
 		desc: "Holder restores 1/16 of their max HP at the end of each turn.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -858,7 +806,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Ski Mask",
 		shortDesc: "Holder has a 33% chance to dodge attacks.",
 		desc: "Holder has a 33% chance to dodge attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -871,7 +818,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Sticker of Hate",
 		shortDesc: "Foes targeting an ally of the holder will target the holder instead, but the holder takes 1.5x damage from all attacks.",
 		desc: "Foes targeting an ally of the holder will target the holder instead, but the holder takes 1.5x damage from all attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -894,19 +840,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Vampiric Fangs",
 		shortDesc: "Holder restores HP equal to 25% of the damage dealt by its attacks.",
 		desc: "Holder restores HP equal to 25% of the damage dealt by its attacks.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
 		onDamagingHit(damage, target, source, move) {
-			this.heal(damage / 4);
+			this.heal(Math.floor(damage * 0.25), source);
 		},
 	},
 	crystalball: {
 		name: "Crystal Ball",
 		shortDesc: "Prevents other Yo-kai from lowering the holder's stats.",
 		desc: "Prevents other Yo-kai from lowering the holder's stats.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -929,7 +873,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Sleepillow",
 		shortDesc: "Holder restores 1/8 of their max HP at the end of each turn, but has a 33% chance to Loaf each turn.",
 		desc: "Holder restores 1/8 of their max HP at the end of each turn, but has a 33% chance to Loaf each turn.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -952,7 +895,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Restraint Belt",
 		shortDesc: "All of the holder's stats are lowered by 100 points.",
 		desc: "All of the holder's stats are lowered by 100 points.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -973,7 +915,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Guard Gem",
 		shortDesc: "The holder takes 1/6 damage while Guarding instead of 1/4.",
 		desc: "The holder takes 1/6 damage while Guarding instead of 1/4.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -983,7 +924,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Monkey Circlet",
 		shortDesc: "No competitive effect.",
 		desc: "No competitive effect.",
-		isNonstandard: "Custom",
 		fling: {
 			basePower: 10,
 		},
@@ -1230,6 +1170,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	medichamite: null,
 	mentalherb: null,
 	metagrossite: null,
+	metalalloy: null,
 	metalcoat: null,
 	metalpowder: null,
 	metronome: null,

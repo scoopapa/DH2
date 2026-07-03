@@ -11,7 +11,7 @@ declare module '../../../sim/pokemon' {
         soultimateMove?: string;
         soultimateCharge?: number;
         loafedThisTurn?: boolean;
-        dodgedThisTurn?: number;
+        dodgedOnTurn?: number;
     }
 }
 
