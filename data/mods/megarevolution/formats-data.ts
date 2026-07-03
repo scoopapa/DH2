@@ -4948,4 +4948,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	libreagle: {
 		tier: "OU",
 	},
+	shazakazam: {
+		tier: "OU",
+	},
+	slowbrosheltered: {
+		tier: "OU",
+	},
+	druidevoir: {
+		tier: "OU",
+	},
+	valianoble: {
+		tier: "OU",
+	},
 };
