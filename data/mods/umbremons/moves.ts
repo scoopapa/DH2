@@ -33,6 +33,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Rapid Fire",
 		shortDesc: "Hits 2-5 times. Usually goes first.",
 		pp: 20,
+		noPPBoosts: true,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit(target, source, move) {
@@ -52,6 +53,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Sunken Lunge",
 		shortDesc: "Hits first. First turn out only. Target's Speed -1.",
 		pp: 16,
+		noPPBoosts: true,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		onPrepareHit(target, source, move) {
@@ -82,6 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Starburst",
 		shortDesc: "Applies spotlight on target. Usually goes first.",
 		pp: 16,
+		noPPBoosts: true,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
