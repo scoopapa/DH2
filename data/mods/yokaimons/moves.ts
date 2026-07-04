@@ -149,6 +149,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 50,
 			status: 'brn',
 		},
+		rating: 3,
 		target: "any",
 		type: "Fire",
 	},
@@ -203,6 +204,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, 'Water Gun', target);
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Water",
 	},
@@ -378,6 +380,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				spe: -1,
 			},
 		},
+		rating: 3,
 		target: "allFoes",
 		type: "Flying",
 	},
@@ -492,6 +495,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, 'Absorb', target);
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Drain",
 	},
@@ -794,6 +798,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return target.addVolatile('trapped', source, move, 'trapper');
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Normal",
 	},
@@ -889,6 +894,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				atk: -1,
 			},
 		},
+		rating: 3,
 		target: "allFoes",
 		type: "Dragon",
 	},
@@ -908,6 +914,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				def: -1,
 			},
 		},
+		rating: 3,
 		target: "allFoes",
 		type: "Dark",
 	},
@@ -930,6 +937,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Fire",
 	},
@@ -1491,6 +1499,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {head: 1, protect: 1},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Normal",
 	},
@@ -2309,6 +2318,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.addVolatile('charge');
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Electric",
 	},
@@ -2462,6 +2472,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Normal",
 	},
@@ -2604,6 +2615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "self",
 		type: "Fighting",
 	},
@@ -2691,6 +2703,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "adjacentAlly",
 		type: "Normal",
 	},
@@ -2782,6 +2795,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			atk: -1,
 		},
 		secondary: null,
+		rating: 3,
 		target: "allFoes",
 		type: "Fairy",
 	},
@@ -2804,6 +2818,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-activate', target, 'move: Quash');
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Dark",
 	},
@@ -2851,6 +2866,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "allySide",
 		type: "Fighting",
 	},
@@ -2875,6 +2891,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				const ragePowderUser = this.effectState.target;
 				if (ragePowderUser.isSkyDropped()) return;
 
@@ -2886,6 +2903,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "self",
 		type: "Bug",
 	},
@@ -2916,6 +2934,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "allySide",
 		type: "Restoration",
 	},
@@ -2939,6 +2958,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', target, 'typechange', 'Water');
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Water",
 	},
@@ -3063,6 +3083,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "all",
 		type: "Psychic",
 	},
@@ -3121,6 +3142,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "allySide",
 		type: "Rock",
 	},
@@ -3153,6 +3175,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
+		rating: 3,
 		target: "any",
 		type: "Normal",
 	},
@@ -3809,6 +3832,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Bossiness redirected target of move");
@@ -6548,6 +6572,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Guide redirected target of move");
@@ -7804,6 +7829,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Makeover redirected target of move");
@@ -8920,6 +8946,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Popularize redirected target of move");
@@ -10467,6 +10494,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Tengu'd redirected target of move");
@@ -11383,6 +11411,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Barricade Block redirected target of move");
@@ -11731,6 +11760,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("C'mon, This Way! redirected target of move");
@@ -12762,6 +12792,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Guard Meowde redirected target of move");
@@ -13351,6 +13382,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Insurmountable redirected target of move");
@@ -13438,6 +13470,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Just For You redirected target of move");
@@ -13831,6 +13864,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Midnight Stomp redirected target of move");
@@ -14062,6 +14096,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("No Way Through redirected target of move");
@@ -14426,6 +14461,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Refined Guard redirected target of move");
@@ -14671,6 +14707,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Sharkskin Shield redirected target of move");
@@ -15443,6 +15480,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Tidal Guard redirected target of move");
@@ -15700,6 +15738,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onFoeRedirectTargetPriority: 3,
 			onFoeRedirectTarget(target, source, source2, move) {
+				if (target.isAlly(source)) return;
 				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Ultra Sumo Stomp redirected target of move");
