@@ -71,6 +71,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	// Adjusted Abilities
 	moldbreaker: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Mold Breaker');
 		},
@@ -85,6 +86,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	stalwart: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Stalwart');
 		},
@@ -99,6 +101,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	propellertail: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Propeller Tail');
 		},
@@ -113,6 +116,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	thickfat: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn' || pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Thick Fat');
@@ -131,6 +135,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	healer: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
