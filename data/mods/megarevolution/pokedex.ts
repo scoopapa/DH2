@@ -373,7 +373,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	floette: {
 		inherit: true,
 		otherFormes: ["Floette-Eternal", "Floette-Ange"],
-		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal", "Floette-Ange"],
+		cosmeticFormes: null,
+		formeOrder: ["Floette", "Floette-Eternal", "Floette-Ange"],
 	},
 	floetteeternal: {
 		inherit: true,
