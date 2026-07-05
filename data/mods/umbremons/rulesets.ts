@@ -9,23 +9,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		}, */
 		onTeamPreview() {
 			for (const side of this.sides) {
-				let showFakemon = false;
 				let hideBox = `raw|<div class="infobox" open><details class ="details"><summary>Modded Pokémon on ${side.name}'s team</summary>`;
 				for (const pokemon of side.pokemon) {
 					let species = this.dex.species.get(pokemon.species.name);
-
-					// Let's check if the Pokémon is modded first
-					let modded = false;
-					const baseSpecies = Dex.species.get(pokemon.species.name);
-					for (const type in [0, 1]) if (species.types[type] !== baseSpecies.types[type]) modded = true;
-					for (const ability in [0, 1, 'H', 'S']) {
-						if (species.abilities[ability] !== baseSpecies.abilities[ability]) modded = true;
-						// Even if the Ability list is vanilla, see if any of the Abilities are modded
-						let abilityDex = this.dex.abilities.get(species.abilities[ability]);
-						if (abilityDex && (!abilityDex.num || abilityDex.num < 0 || abilityDex.modded)) modded = true;
-					}
-					// We don't need a base stat check since Umbremons doesn't allow changes to those!
-					if (species.movepoolAdditions || species.movepoolDeletions) modded = true;
 
 					// Since Umbremons changes some in-battle forms (like Mega Evolutions), we also need to know if any of those are modded
 					let formDisplay = ``;
@@ -39,15 +25,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						let listForm = false;
 						
 						for (const type in [0, 1]) if (umbremonsForm.types[type] !== vanillaForm.types[type]) listForm = true;
-						for (const ability in [0, 1, 'H', 'S']) {
+						for (const ability of [0, 1, 'H', 'S']) {
 							if (umbremonsForm.abilities[ability] !== vanillaForm.abilities[ability]) listForm = true;
-							// Even if the Ability list is vanilla, see if any of the Abilities are modded:
-							let abilityDex = this.dex.abilities.get(umbremonsForm.abilities[ability]);
-							if (abilityDex && (!abilityDex.num || abilityDex.num < 0 || abilityDex.modded)) modded = true;
 						}
 
 						if (listForm) {
-							modded = true;
 							let abilities = umbremonsForm.abilities[0];
 							if (umbremonsForm.abilities[1]) abilities += ` / ${umbremonsForm.abilities[1]}`;
 							if (umbremonsForm.abilities['H']) abilities += ` // ${umbremonsForm.abilities['H']}`;
@@ -60,14 +42,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						}
 					}
 					
-					// Finally, we need to check if there are any modded moves we might need to report - even ones that were already in the Pokémon's learnset!
-					if (this.dex.data.Learnsets[this.toID(pokemon.species)].learnset) for (const moveid in this.dex.data.Learnsets[this.toID(pokemon.species)].learnset) {
-						let move = this.dex.moves.get(moveid);
-						if (move && (!move.num || move.num < 0 || move.modded)) modded = true;
-					}
-					
-					if (species && modded) {
-						showFakemon = true; // This lets us know that at least one modded Pokémon exists on the team; if not, we won't want to print anything!
+					if (species) {
 						
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) abilities += ` / ${species.abilities[1]}`;
@@ -125,7 +100,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						
 						let abilitiesCovered = [];
 						// custom Abilities
-						for (const num in [0, 1, 'H', 'S']) if (species.abilities[num]) {
+						for (const num of [0, 1, 'H', 'S']) if (species.abilities[num]) {
 							let ability = this.dex.abilities.get(species.abilities[num]);
 							if (ability && !abilitiesCovered.includes(ability) && (!ability.num || ability.num < 0 || ability.modded)) { // report custom Abilities only
 								displayCustoms = true;
@@ -136,7 +111,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							}
 							abilitiesCovered.push(ability);
 						}
-						if (formList.length) for (const form of formList) for (const num in [0, 1, 'H', 'S']) if (this.dex.species.get(form).abilities[num]) {
+						if (formList.length) for (const form of formList) for (const num of [0, 1, 'H', 'S']) if (this.dex.species.get(form).abilities[num]) {
 							let ability = this.dex.abilities.get(this.dex.species.get(form).abilities[num]);
 							if (ability && !abilitiesCovered.includes(ability) && (!ability.num || ability.num < 0 || ability.modded)) { // report custom Abilities only
 								displayCustoms = true;
@@ -176,7 +151,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 				
 				hideBox += 	`</details></div>`;
-				if (showFakemon) this.add(`${hideBox}`);
+				this.add(`${hideBox}`);
 			}
 		},
 		onUpdate(pokemon) {
