@@ -10,7 +10,7 @@ export const Formats: FormatData[] = [
 		mod: 'umbremons',
 		gameType: 'doubles',
 		bestOfDefault: true,
-		ruleset: ['Flat Rules', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
+		ruleset: ['Flat Rules', 'Open Team Sheets', 'Data Mod'], // Bye Bye vgc timer
 		// teambuilderFormat: "National Dex",
 	},
 ];
