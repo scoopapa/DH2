@@ -40,6 +40,7 @@ import { Formats as Beaftopia                   } from '../data/mods/beaftopia/f
 import { Formats as BearticPhone                } from '../data/mods/bearticphone/formats';
 import { Formats as BlackMarket                 } from '../data/mods/blackmarket/formats';
 import { Formats as BlankCanvas                 } from '../data/mods/blankcanvas/formats';
+import { Formats as BoboliefFakemon             } from '../data/mods/bobolieffakemon/formats';
 import { Formats as BookOfEnigmas               } from '../data/mods/bookofenigmas/formats';
 import { Formats as BreedingVariants            } from '../data/mods/breedingvariants/formats';
 import { Formats as BreedingVariantsNatDex      } from '../data/mods/breedingvariantsnatdex/formats';
@@ -403,6 +404,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1JumpStarted,
 	...KaensDex,
 	...gen1KantoExpansionPack,
+	...BoboliefFakemon,
 	...Lovelymod,
 	...LucklessPlay,
 	...Maadowr,
