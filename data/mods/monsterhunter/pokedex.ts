@@ -1446,9 +1446,18 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	najarala: {
 		num: 73,
 		name: "Najarala",
-		types: ["Psychic", "Normal"],
+		types: ["Normal", "Psychic"],
 		baseStats: {hp: 97, atk: 73, def: 99, spa: 111, spd: 106, spe: 75},
-		abilities: {0: "Soundproof", 1: "Rattled"},
+		abilities: {0: "Soundproof", H: "Rattled"},
+		weightkg: 100.0,
+		tags: ["Snake Wyvern"],
+	},
+	tidarala: {
+		num: 73,
+		name: "Tidarala",
+		types: ["Water", "Psychic"],
+		baseStats: {hp: 97, atk: 73, def: 75, spa: 111, spd: 99, spe: 75},
+		abilities: {0: "Liquid Voice", 1: "Storm Drain", H: "Rattled"},
 		weightkg: 100.0,
 		tags: ["Snake Wyvern"],
 	},
@@ -1909,6 +1918,15 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 50.0,
 		tags: ["Fanged Wyvern"],
 	},
+	invadogaron: {
+		num: 105,
+		name: "Invadogaron",
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 95, atk: 125, def: 125, spa: 70, spd: 65, spe: 90},
+		abilities: {0: "Thermal Exchange", H: "Burn Heal"},
+		weightkg: 50.0,
+		tags: ["Fanged Wyvern"],
+	},
 	paolumu: {
 		num: 106,
 		name: "Paolumu",
@@ -2009,6 +2027,15 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Electric"],
 		baseStats: {hp: 60, atk: 105, def: 70, spa: 108, spd: 72, spe: 115},
 		abilities: {0: "Prankster", H: "Static"},
+		weightkg: 42.4,
+		tags: ["Fanged Wyvern"],
+	},
+	viperkadachi: {
+		num: 112,
+		name: "Viper-Kadachi",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 60, atk: 105, def: 70, spa: 108, spd: 72, spe: 115},
+		abilities: {0: "Perforating", 1: "Wind Power", H: "Static"},
 		weightkg: 42.4,
 		tags: ["Fanged Wyvern"],
 	},
@@ -2413,6 +2440,24 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 150.0,
 		tags: ["Elder Dragon"],
 	},
+	garubadaora: {
+		num: 189,
+		name: "Garuba Daora",
+		types: ["Electric", "Ice"],
+		baseStats: {hp: 90, atk: 99, def: 100, spa: 120, spd: 93, spe: 103},
+		abilities: {0: "Levitate", H: "Golden Gale"},
+		weightkg: 100,
+		tags: ["Elder Dragon"],
+	},
+	guanzoromu: {
+		num: 190,
+		name: "Guanzorumu",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 112, atk: 80, def: 120, spa: 113, spd: 90, spe: 100},
+		abilities: {0: "Dragon Eater", H: "Kingly Majesty"},
+		weightkg: 130,
+		tags: ["Elder Dragon"],
+	},
 	harudomerugu: {
 		num: 191,
 		name: "Harudomerugu",
@@ -2496,6 +2541,33 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	/*
 	Generation Online
 	*/
+	jielung: {
+		num: 201,
+		name: "Jie Lung",
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 84, atk: 112, def: 99, spa: 60, spd: 99, spe: 114},
+		abilities: {0: "Piercing Drill", H: "Steam Engine"},
+		weightkg: 97.0,
+		tags: ["Brute Wyvern"],
+	},
+	baelidae: {
+		num: 202,
+		name: "Baelidae",
+		types: ["Bug", "Ghost"],
+		baseStats: {hp: 114, atk: 94, def: 106, spa: 75, spd: 91, spe: 86},
+		abilities: {0: "Web Trap", H: "Intimidate"},
+		weightkg: 80,
+		tags: ["Carapaceon"],
+	},
+	dreadlidae: {
+		num: 202,
+		name: "Great Apypos",
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 106, atk: 114, def: 94, spa: 75, spd: 91, spe: 86},
+		abilities: {0: "Tinted Lens", H: "Intimidate"},
+		weightkg: 80,
+		tags: ["Carapaceon"],
+	},
 	tartaronis: {
 		num: 207,
 		name: "Tartaronis",
@@ -2598,6 +2670,24 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	/*
 	Generation Explore
 	*/
+	greatapypos: {
+		num: 211,
+		name: "Great Apypos",
+		types: ["Normal", "Fairy"],
+		baseStats: {hp: 90, atk: 65, def: 50, spa: 123, spd: 90, spe: 107},
+		abilities: {0: "Sand Force", 1: "Pixilate", H: "Centrifuge"},
+		weightkg: 60,
+		tags: ["Bird Wyvern"],
+	},
+	eogarudia: {
+		num: 212,
+		name: "Eo Garudia",
+		types: ["Flying", "Fairy"],
+		baseStats: {hp: 97, atk: 121, def: 100, spa: 79, spd: 100, spe: 109},
+		abilities: {0: "Thermal Exchange", H: "Drought"},
+		weightkg: 110,
+		tags: ["Bird Wyvern"],
+	},
 	nefgarmat: {
 		num: 214,
 		name: "Nef-Garmat",
@@ -2674,7 +2764,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	Endemic Life
 	*/
 	spiribird: {
-		num: 500,
+		num: 601,
 		name: "Spiribird",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 100, atk: 5, def: 10, spa: 60, spd: 225, spe: 50},
@@ -2686,7 +2776,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Amorphous"],
 	},
 	spiribirdred: {
-		num: 500,
+		num: 601,
 		name: "Spiribird-Red",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 100, atk: 5, def: 10, spa: 60, spd: 225, spe: 50},
@@ -2698,7 +2788,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Amorphous"],
 	},
 	spiribirdyellow: {
-		num: 500,
+		num: 601,
 		name: "Spiribird-Yellow",
 		types: ["Electric", "Fairy"],
 		baseStats: {hp: 100, atk: 5, def: 10, spa: 60, spd: 225, spe: 50},
@@ -2710,7 +2800,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		eggGroups: ["Amorphous"],
 	},
 	spiribirdorange: {
-		num: 500,
+		num: 601,
 		name: "Spiribird-Orange",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 100, atk: 5, def: 10, spa: 60, spd: 225, spe: 50},
@@ -2720,7 +2810,16 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		tags: ["Endemic"],
 		color: "Red",
 		eggGroups: ["Amorphous"],
-	}
+	},
+	monksnail: {
+		num: 602,
+		name: "Monksnail",
+		types: ["Water"],
+		baseStats: {hp: 105, atk: 45, def: 105, spa: 65, spd: 150, spe: 30},
+		abilities: {0: "Gooey", H: "Night Light"},
+		weightkg: 300.0,
+		tags: ["Canyne"],
+	},
 	/*
 	Small Monsters
 	*/

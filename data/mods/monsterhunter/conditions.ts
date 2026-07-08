@@ -335,6 +335,24 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			}
 		},
 	},
+	webbed: {
+		name: "Webbed",
+		noCopy: true,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Webbed');
+			this.add('-message', `${pokemon.name} is tangled in webs! Pivoting moves will fail!`);
+		},
+		onModifyMove(move, pokemon) {
+			// If the move is a pivot move, remove its switching effect
+			if (move.selfSwitch) {
+				delete move.selfSwitch;
+				this.add('-message', `${pokemon.name} is stuck and cannot pivot!`);
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Webbed');
+		},
+	},
 	/* Weather */
 	dustdevil: {
         name: 'Dust Devil',

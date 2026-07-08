@@ -1,4 +1,88 @@
 export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
+	nightlight: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' || move.type === 'Dark') {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Night Light",
+		shortDesc: "Damage from Ghost- and Dark-type moves against this Pokemon is halved.",
+	},
+	webtrap: {
+		name: "Web Trap",
+		shortDesc: "Contact with this Pokémon inflicts Webbed.",
+		onDamagingHit(damage, target, source, move) {
+			if (!move.flags['contact']) return;
+			if (source.volatiles['webbed']) return;
+
+			source.addVolatile('webbed');
+			this.add('-ability', target, 'Web Trap', '[silent]');
+			this.add('-message', `${source.name} was caught in sticky webs!`);
+		},
+	},
+	goldengale: {
+		name: "Golden Gale",
+		shortDesc: "This Pokémon takes 1/2 damage from wind moves; its own wind moves have 1.3x power.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['wind']) {
+				this.debug('Golden Gale damage halved');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['wind']) {
+				this.debug('Golden Gale power boost');
+				move.basePower = this.modify(move.basePower, 0.3);
+			}
+		},
+	},
+	kinglymajesty: {
+		onDamage(damage, target, source, effect) {
+			if (target.hp - damage <= target.maxhp / 2 && target.hp > target.maxhp / 2) {
+				target.abilityState.activated = false;
+			} else {
+				target.abilityState.activated = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.abilityState.activated === false) {
+				pokemon.abilityState.activated = true;
+				pokemon.abilityState.priorityBoost = true;
+				this.add('-ability', pokemon, 'Kingly Majesty');
+			}
+		},
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (pokemon.abilityState.priorityBoost) {
+				pokemon.abilityState.priorityBoost = false;
+				return 0.1;
+			}
+		},
+		onResidualOrder: 29,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.abilityState.priorityBoost) {
+				pokemon.abilityState.priorityBoost = false;
+			}
+		},
+		flags: {},
+		name: "Kingly Majesty",
+		shortDesc: "If this Pokemon falls to 1/2 or less of its max HP, its next move goes first in its priority bracket.",
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP/Atk loss.",
+		rating: 4,
+		num: -1002, // placeholder ID for custom content
+	},
 	soothingsong: {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
