@@ -97,7 +97,7 @@ export const Formats: FormatData[] = [
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang'],
 		unbanlist: [
-			'Armie', 'Boreetle', 'Centaghoul', 'Craggon', 'Deadward', 'Geoporka', 'Hyakutari', 'Martorse', 'Parfae', 'Wizhazard',
+			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinatubo',
 		],
 		/* onValidateTeam(team, format) {
 			let speciesTable = {};
