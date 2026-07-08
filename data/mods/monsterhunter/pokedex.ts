@@ -2449,7 +2449,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		weightkg: 100,
 		tags: ["Elder Dragon"],
 	},
-	guanzoromu: {
+	guanzorumu: {
 		num: 190,
 		name: "Guanzorumu",
 		types: ["Normal", "Dragon"],
@@ -2561,7 +2561,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	dreadlidae: {
 		num: 202,
-		name: "Great Apypos",
+		name: "Dreadlidae",
 		types: ["Bug", "Dark"],
 		baseStats: {hp: 106, atk: 114, def: 94, spa: 75, spd: 91, spe: 86},
 		abilities: {0: "Tinted Lens", H: "Intimidate"},

@@ -11,7 +11,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	webtrap: {
 		name: "Web Trap",
-		shortDesc: "Contact with this Pokémon inflicts Webbed.",
+		shortDesc: "Contact with this Pokémon inflicts Webbed. (Webbed Pokemon cannot pivot out.)",
 		onDamagingHit(damage, target, source, move) {
 			if (!move.flags['contact']) return;
 			if (source.volatiles['webbed']) return;
@@ -19,22 +19,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			source.addVolatile('webbed');
 			this.add('-ability', target, 'Web Trap', '[silent]');
 			this.add('-message', `${source.name} was caught in sticky webs!`);
-		},
-	},
-	goldengale: {
-		name: "Golden Gale",
-		shortDesc: "This Pokémon takes 1/2 damage from wind moves; its own wind moves have 1.3x power.",
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.flags['wind']) {
-				this.debug('Golden Gale damage halved');
-				return this.chainModify(0.5);
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (move.flags['wind']) {
-				this.debug('Golden Gale power boost');
-				move.basePower = this.modify(move.basePower, 0.3);
-			}
 		},
 	},
 	kinglymajesty: {
@@ -79,7 +63,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Burn Heal",
-		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP/Atk loss.",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no Atk loss.",
 		rating: 4,
 		num: -1002, // placeholder ID for custom content
 	},
@@ -883,6 +867,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Duke's Bayonet",
+		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
+	},
+	piercingdrill: {
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			// If the move was marked armorPiercer and the target is under Protect
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Duke\'s Bayonet: reduced damage to 25% through Protect');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Piercing Drill",
 		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
 	},
 	dulledblades: {
