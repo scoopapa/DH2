@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: -1,
 		accuracy: 100,
 		basePower: 15,
-		category: "Physical",
+		category: "Special",
 		name: "Rapid Fire",
 		shortDesc: "Hits 2-5 times. Usually goes first.",
 		pp: 20,
@@ -100,6 +100,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
+	lasercut: {
+		num: -4,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Laser Cut",
+		shortDesc: "Physical if it would be stronger. Target has screen; crit.",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.random(2) === 0)) {
+				move.category = 'Physical';
+			}
+			if (target.side.getSideCondition('reflect') || target.side.getSideCondition('lightscreen') || target.side.getSideCondition('auroraveil')) move.willCrit = true;
+
+			
+		},
+		onHit(target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Laser Cut");
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (move.category === 'Physical') {
+				this.add('-anim', source, "Tachyon Cutter", target);
+				return;
+			}
+			this.add('-anim', source, "Flash Cannon", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	prevailingwind: {
+		num: -5,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Prevailing Wind",
+		pp: 16,
+		noPPBoosts: true,
+		priority: 3,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tailwind", target);
+			this.add('-anim', target, "Aeroblast", target);
+		},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || !move.flags['wind']) {
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Flying",
+		shortDesc: "100% flinch. Fails unless target using a wind move.",
+	},
 	// Adjusted Moves
 	rockslide: {
 		inherit: true,
@@ -127,5 +198,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tidyup: {
 		inherit: true,
 		flags: {snatch: 1},
+	},
+	astonish: {
+		inherit: true,
+		basePower: 20,
+		category: "Special",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 2,
+		flags: {contact: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		breaksProtect: true,
+		// Breaking protection implemented in scripts.js
+		secondary: null,
+		shortDesc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
+	},
+	return: {
+		inherit: true,
+		pp: 20,
+		noPPBoosts: true,
+		isNonstandard: null,
 	},
 };
