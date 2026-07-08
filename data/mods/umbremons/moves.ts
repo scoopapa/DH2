@@ -218,4 +218,64 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		isNonstandard: null,
 	},
+	// sandclock interactions
+	solarbeam: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
+			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	solarblade: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	// magic warp altered duration
+	magicroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (effect?.name === "Magic Warp") {
+					this.add('-activate', source, 'ability: Magic Warp', '[move] Magic Room');
+					return 0;
+				}
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Magic Room');
+					return 7;
+				}
+				return 5;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Magic Room', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Magic Room', '[of] ' + source);
+				}
+				for (const mon of this.getAllActive()) {
+					this.singleEvent('End', mon.getItem(), mon.itemState, mon);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('magicroom');
+			},
+			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 6,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
+			},
+		},
+	},
 };
