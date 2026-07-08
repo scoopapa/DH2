@@ -507,6 +507,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onAfterMoveSecondarySelf(pokemon, target, move) {
 				if (move.category === 'Status' && move.id !== 'selfrepairing') {
 					this.heal(pokemon.baseMaxhp / 4);
+					pokemon.removeVolatile('selfrepairing');
 				}
 			},
 		},
