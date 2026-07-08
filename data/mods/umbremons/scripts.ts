@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'champions',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE'],
+		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE', '(OU)'],
 	},
 	gen: 9,
 	battle: {
