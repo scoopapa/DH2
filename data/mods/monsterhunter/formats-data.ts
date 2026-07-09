@@ -5,6 +5,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	agnaktorex: {
 		tier: "MHUU",
 	},
+	scorchian: {
+		tier: "MHOU",
+	},
+	greatapypos: {
+		tier: "MHRU",
+	},
+	eogarudia: {
+		tier: "MHOU",
+	},
+	baelidae: {
+		tier: "MHRU",
+	},
+	dreadlidae: {
+		tier: "MHRU",
+	},
+	garubadaora: {
+		tier: "MHOU",
+	},
+	guanzorumu: {
+		tier: "MHOU",
+	},
+	invadogaron: {
+		tier: "MHOU",
+	},
+	jielung: {
+		tier: "MHUU",
+	},
+	viperkadachi: {
+		tier: "MHRU",
+	},
+	tidarala: {
+		tier: "MHRU",
+	},
+	monksnail: {
+		tier: "MHNU",
+	},
 	ahtalka: {
 		tier: "MHUU",
 	},
