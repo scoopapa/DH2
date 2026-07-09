@@ -2826,7 +2826,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Monksnail",
 		types: ["Water"],
 		baseStats: {hp: 105, atk: 45, def: 105, spa: 65, spd: 150, spe: 30},
-		abilities: {0: "Gooey", H: "Night Light"},
+		abilities: {0: "Gooey", 1: "Volt Absorb", H: "Night Light"},
 		weightkg: 300.0,
 		tags: ["Canyne"],
 	},
