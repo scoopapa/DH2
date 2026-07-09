@@ -10,7 +10,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (['allAdjacentFoes', 'allAdjacent'].includes(move.target)) {
 				for (const allyActive of target.adjacentAllies()) {
 					// Announcing the ability when it procs
-                			if (allyActive.ability === 'massive' && allyActive != source) {
+                	if (allyActive.ability === 'massive' && allyActive != source) {
 						this.add('-ability', allyActive, 'Massive');
 						return null;
 					}
