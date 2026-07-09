@@ -24,13 +24,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -2,
 		name: "Voice Amplifier",
 		onModifyMove(move, attacker, defender) {
-			if (move.flags['sound'] && !['allAdjacent', 'allAdjacentFoes'].includes(move.target) && !attacker.isAlly(defender)) {
+			if (move.flags['sound'] && !['allAdjacent', 'allAdjacentFoes'].includes(move.target) && defender && !attacker.isAlly(defender)) {
 				this.debug('Voice Amplifier modify target');
 				this.add('-item', attacker, 'Voice Amplifier');
 				move.target = 'allAdjacentFoes';
 			}
 		},
-		onAfterHit(source, target, move) {
+		onAfterHit(target, source, move) {
 			if (move.flags['sound'] && target.status === 'slp') {
 				this.add('-item', source, 'Voice Amplifier');
 				target.cureStatus();
