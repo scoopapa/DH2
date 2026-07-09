@@ -3120,6 +3120,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'pikachuunova').learnset.terrainpulse = ['9L1'];
 		this.modData('Learnsets', 'pikachukalos').learnset.terrainpulse = ['9L1'];
 		this.modData('Learnsets', 'pikachualola').learnset.terrainpulse = ['9L1'];
+		delete this.modData('Learnsets', 'pikachu').learnset.extremespeed;
 
 	}
 };
