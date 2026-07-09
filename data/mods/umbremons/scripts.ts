@@ -178,7 +178,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'toucannon', 'manectric', 'decidueye', 'decidueyehisui', 'chandelure'
 		]);
 		addMove('sunkenlunge', [
-			'feraligatr', 'samurott', 'samurotthisui', 'gyarados', 'sharpedo', 'qwilfish', 'overqwil', 'araquanid', 'clawitzer', 'basculegionf', 'hippowdon'
+			'feraligatr', 'samurott', 'samurotthisui', 'gyarados', 'sharpedo', 'qwilfish', 'overqwil', 'araquanid', 'clawitzer', 'hippowdon'
 		]);
 		addMove('rockslide', 'glalie');
 		addMove('snatch', [
