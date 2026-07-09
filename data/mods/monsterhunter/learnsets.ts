@@ -8156,6 +8156,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			curse: ["9L1"],
 			bulkup: ["9L1"],
+			rockwrecker: ["9L1"],
 			acidspray: ["9L1"],
 			amnesia: ["9L1"],
 			phlegmshot: ["9L1"],

@@ -2293,6 +2293,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+	},
 	mudbomb: {
 		inherit: true,
 		viable: true,
@@ -2524,9 +2528,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 10,
 			status: 'brn',
-			desc: "10% chance to burn.",
-			shortDesc: "10% chance to burn.",
 		},
+		desc: "10% chance to burn.",
+		shortDesc: "10% chance to burn.",
 	},
 	/*
 	DROWSY EDITS

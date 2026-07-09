@@ -42,16 +42,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return 0.1;
 			}
 		},
-		onResidualOrder: 29,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (pokemon.abilityState.priorityBoost) {
-				pokemon.abilityState.priorityBoost = false;
-			}
+		onStart(pokemon) {
+			// Explicitly clear any leftover boost when the ability (re)activates,
+			// e.g. on switch-in — ensures the boost never carries over between stints on the field.
+			pokemon.abilityState.priorityBoost = false;
 		},
 		flags: {},
 		name: "Kingly Majesty",
-		shortDesc: "If this Pokemon falls to 1/2 or less of its max HP, its next move goes first in its priority bracket.",
+		shortDesc: "When this Pokemon falls to 50%≤ of its max HP, its next move is first in its priority bracket.",
+
 	},
 	burnheal: {
 		onDamagePriority: 1,
@@ -2477,6 +2476,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	/*
 	Edits
 	*/
+	firemane: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ironfist: {
 		inherit: true,
 		onModifyMove(move) {

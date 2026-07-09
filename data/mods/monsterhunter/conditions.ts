@@ -343,9 +343,17 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			this.add('-message', `${pokemon.name} is tangled in webs! Pivoting moves will fail!`);
 		},
 		onModifyMove(move, pokemon) {
-			// If the move is a pivot move, remove its switching effect
 			if (move.selfSwitch) {
 				delete move.selfSwitch;
+				this.add('-message', `${pokemon.name} is stuck and cannot pivot!`);
+			}
+		},
+		onAfterMove(pokemon, target, move) {
+			// Catches cases where Webbed is applied mid-move (e.g. from a contact-punish
+			// effect triggered by the move itself), after onModifyMove already ran and
+			// missed it. This directly cancels the pending self-switch.
+			if (pokemon.switchFlag) {
+				pokemon.switchFlag = false;
 				this.add('-message', `${pokemon.name} is stuck and cannot pivot!`);
 			}
 		},
