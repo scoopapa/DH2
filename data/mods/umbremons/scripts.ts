@@ -197,5 +197,22 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['howl', 'trickroom', 'lunarblessing'], 'umbreon');
 		addMove(['hypervoice', 'weatherball', 'electroshot'], 'ampharos');
 		addMove(['bellydrum', 'stompingtantrum', 'overheat', 'encore', 'disable', 'howl', 'finalgambit', 'healpulse', 'stuffcheeks', 'electroball'], 'slurpuff');
+
+		// move adjustments
+		addMove('astonish', [
+			'absol', 'arbok', 'ariados', 'banette', 'beedrill', 'chandelure', 'chimecho', 'clawitzer', 'cofagrigus', 'decidueye', 'dragapult', 'forretress', 'glalie', 'golurk', 'gourgeist', 'greninja', 'hatterene', 'houndoom', 
+			'klefki', 'liepard', 'luxray', 'lycanrocmidnight', 'malamar', 'meowstic', 'meowsticf', 'mimikyu', 'noivern', 'oranguru', 'overqwil', 'qwilfish', 'rotom', 'runerigus', 'scrafty', 'sharpedo', 'spiritomb', 'stunfisk',
+			'stunfiskgalar', 'tinkaton', 'typhlosionhisui', 'umbreon', 'watchog', 'zoroark', 'zoroarkhisui'
+		]);
+		addMove('lasercut', [
+			'aegislash', 'alakazam', 'aggron', 'beedrill', 'bastiodon', 'ceruledge', 'chimecho', 'empoleon', 'espeon', 'excadrill', 'forretress', 'gallade', 'gardevoir', 'garganacl', 'glimmora', 'klefki', 'kleavor', 'lucario',
+			'malamar', 'manectric', 'mawile', 'meowstic', 'meowsticf', 'metagross', 'rhyperior', 'rotom', 'samurott', 'samurotthisui', 'scizor', 'skarmory', 'starmie', 'stunfisk', 'stunfiskgalar', 'tinkaton', 'goodrahisui',
+			'meowscarada'
+		]);
+		addMove('return', universalTM);
+		addMove('prevailingwind', [
+			'aerodactyl', 'altaria', 'aromatisse', 'blaziken', 'castform', 'chimecho', 'clefable', 'corviknight', 'decidueye', 'decidueyehisui', 'dragonite', 'drampa', 'emolga', 'empoleon', 'espathra', 'flapple', 'gallade',
+			'gliscor', 'hawlucha', 'hydreigon', 'kleavor', 'noivern', 'pidgeot', 'pinsir', 'pelipper', 'quaquaval', 'sandaconda', 'scizor', 'skarmory', 'staraptor', 'talonflame', 'toucannon', 'vivillon', 'volcarona', 'gyarados'
+		]);
 	},
 };
