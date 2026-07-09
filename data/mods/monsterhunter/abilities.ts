@@ -18,7 +18,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 			source.addVolatile('webbed');
 			this.add('-ability', target, 'Web Trap', '[silent]');
-			this.add('-message', `${source.name} was caught in sticky webs!`);
 		},
 	},
 	kinglymajesty: {
@@ -34,6 +33,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.abilityState.activated = true;
 				pokemon.abilityState.priorityBoost = true;
 				this.add('-ability', pokemon, 'Kingly Majesty');
+            	this.add('-message', `${pokemon.name} demands reverence!`);
 			}
 		},
 		onFractionalPriority(priority, pokemon, target, move) {

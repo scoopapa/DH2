@@ -2101,7 +2101,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Primozeno",
 		types: ["Steel", "Fairy"],
 		baseStats: {hp: 90, atk: 130, def: 120, spa: 110, spd: 85, spe: 80},
-		abilities: {0: "Duke's Bayonet", 1: "Justified", H: "Multiscale"},
+		abilities: {0: "Duke's Bayonet", 1: "Fairy Aura", H: "Multiscale"},
 		weightkg: 85.0,
 		tags: ["Elder Dragon"],
 	},
