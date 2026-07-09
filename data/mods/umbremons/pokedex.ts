@@ -123,4 +123,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Overgrow", H: "Healer"},
 	},
+	trevenant: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Grassy Surge", H: "Harvest"},
+	},
+	basculegion: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Reckless", H: "Mold Breaker"},
+	},
+	ampharosmega: {
+		inherit: true,
+		abilities: {0: "Dragonize"},
+	},
 };

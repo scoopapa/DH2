@@ -152,6 +152,15 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+
+		const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug', 
+			  'silcoon', 'spewpa', 'tynamo', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
+		const universalTM = [];
+		for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !noLearn.includes(id)) {
+				universalTM.push(id);
+			}
+		}
 		
 		// // SLATE 1
 		
@@ -181,5 +190,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove('starburst', [
 			'azumarill', 'clefable', 'hatterene', 'primarina', 'altaria', 'slurpuff', 'tinkaton', 'starmie', 'watchog', 'gardevoir', 'gallade'
 		]);
+
+		// // SLATE 2
+		
+		// species adjustments
+		addMove(['howl', 'trickroom', 'lunarblessing'], 'umbreon');
+		addMove(['hypervoice', 'weatherball', 'electroshot'], 'ampharos');
+		addMove(['bellydrum', 'stompingtantrum', 'overheat', 'encore', 'disable', 'howl', 'finalgambit', 'healpulse', 'stuffcheeks', 'electroball'], 'slurpuff');
 	},
 };
