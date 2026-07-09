@@ -55,147 +55,56 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 	},
 	init() {
-		// Slate 1
-		this.modData('Learnsets', 'meowstic').learnset.taunt = ['9M'];
-		this.modData('Learnsets', 'meowstic').learnset.toxicspikes = ['9M'];
-		this.modData('Learnsets', 'meowstic').learnset.disable = ['9M'];
-		this.modData('Learnsets', 'meowstic').learnset.encore = ['9M'];
+		// Hematite note: I added a new function for this so it would be easier to list movepool additions in Data Mod!
+		// You can add multiple moves to the same Pokémon and/or add the same move to multiple Pokémon in one line;
+		// if you want that, just put ['brackets'] around the list - see the slate 1 examples below!
+		const addMove = (movelist, pokemonlist) => {
+			if (!movelist || !pokemonlist) return;
+			const moves = [];
+			const pokemon = [];
+			if (Array.isArray(movelist)) for (const move of movelist) if (!moves.includes(move)) moves.push(move);
+			if (typeof movelist === 'string') moves.push(movelist);
+			if (Array.isArray(pokemonlist)) for (const mon of pokemonlist) if (!pokemon.includes(mon)) pokemon.push(mon);
+			if (typeof pokemonlist === 'string') pokemon.push(pokemonlist);
 
-		this.modData('Learnsets', 'meowsticf').learnset.earthpower = ['9M'];
-		this.modData('Learnsets', 'meowsticf').learnset.moonblast = ['9M'];
-
-		this.modData('Learnsets', 'gallade').learnset.fakeout = ['9M'];
-
-		this.modData('Learnsets', 'krookodile').learnset.fakeout = ['9M'];
-		this.modData('Learnsets', 'krookodile').learnset.suckerpunch = ['9M'];
-		this.modData('Learnsets', 'krookodile').learnset.partingshot = ['9M'];
-
-		this.modData('Learnsets', 'musharna').learnset.mysticalfire = ['9M'];
-		this.modData('Learnsets', 'musharna').learnset.psychicnoise = ['9M'];
-		this.modData('Learnsets', 'musharna').learnset.tickle = ['9M'];
-
-		this.modData('Learnsets', 'scolipede').learnset.bulkup = ['9M'];
-		this.modData('Learnsets', 'scolipede').learnset.coil = ['9M'];
-		this.modData('Learnsets', 'scolipede').learnset.bodypress = ['9M'];
-		this.modData('Learnsets', 'scolipede').learnset.powertrip = ['9M'];
-		this.modData('Learnsets', 'scolipede').learnset.stringshot = ['9M'];
-
-		this.modData("Learnsets", "armarouge").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "blastoise").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "blaziken").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "camerupt").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "clawitzer").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "dragapult").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "drampa").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "flareon").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "houndoom").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "ninetales").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "rhyperior").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "sandaconda").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "scovillain").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "simisear").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "skeledirge").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "slowbro").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "talonflame").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "toucannon").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "manectric").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "decidueye").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "decidueyehisui").learnset.rapidfire = ["9L1"];
-		this.modData("Learnsets", "chandelure").learnset.rapidfire = ["9L1"];
-
-		this.modData("Learnsets", "feraligatr").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "samurott").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "samurotthisui").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "sharpedo").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "qwilfish").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "overqwil").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "toxapex").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "araquanid").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "clawitzer").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "basculegionf").learnset.sunkenlunge = ["9L1"];
-		this.modData("Learnsets", "hippowdon").learnset.sunkenlunge = ["9L1"];
-
-		this.modData("Learnsets", "glalie").learnset.rockslide = ["9L1"];
-
-		this.modData("Learnsets", "weavile").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "banette").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "snorlax").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "liepard").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "reuniclus").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "arbok").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "clefable").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "alakazam").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "gengar").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "umbreon").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "houndoom").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "gardevoir").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "gallade").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "sableye").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "mawile").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "chimecho").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "absol").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "spiritomb").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "froslass").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "rotom").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "serperior").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "audino").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "scolipede").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "krookodile").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "scrafty").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "cofagrigus").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "zoroark").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "kingambit").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "delphox").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "greninja").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "diggersby").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "talonflame").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "pyroar").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "pangoro").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "meowstic").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "malamar").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "noivern").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "incineroar").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "toxapex").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "salazzle").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "oranguru").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "mimikyu").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "sneasler").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "qwilfish").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "overqwil").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "wyrdeer").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "runerigus").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "castform").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "corviknight").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "barbaracle").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "sandaconda").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "hatterene").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "grimmsnarl").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "mrrime").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "falinks").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "morpeko").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "dragapult").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "meowscarada").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "maushold").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "scovillain").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "espathra").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "tinkaton").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "farigiraf").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "gholdengo").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "sinistcha").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "polteageist").learnset.snatch = ["9L1"];
-		this.modData("Learnsets", "zoroarkhisui").learnset.snatch = ["9L1"];
-
-		this.modData("Learnsets", "azumarill").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "clefable").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "hatterene").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "primarina").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "altaria").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "slurpuff").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "tinkaton").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "starmie").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "watchog").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "gardevoir").learnset.starburst = ["9L1"];
-		this.modData("Learnsets", "gallade").learnset.starburst = ["9L1"];
+			for (const move of moves) {
+				for (const mon of pokemon) {
+					this.modData('Learnsets', mon).learnset[move] = ['9M'];
+					if (this.dataCache.Pokedex[mon] && this.dataCache.Moves[move]) {
+						if (!this.dataCache.Pokedex[mon].movepoolAdditions) this.dataCache.Pokedex[mon].movepoolAdditions = [];
+						this.dataCache.Pokedex[mon].movepoolAdditions.push(this.dataCache.Moves[move].name);
+					}
+				}
+			}
+		}
+		
+		// // SLATE 1
+		
+		// species adjustments
+		addMove(['taunt', 'toxicspikes', 'disable', 'encore'], 'meowstic');
+		addMove(['earthpower', 'moonblast'], 'meowsticf');
+		addMove('fakeout', 'gallade');
+		addMove(['fakeout', 'suckerpunch', 'partingshot'], 'krookodile');
+		addMove(['mysticalfire', 'psychicnoise', 'tickle'], 'musharna');
+		addMove(['bulkup', 'coil', 'bodypress', 'powertrip', 'stringshot'], 'scolipede');
+		
+		// move adjustments
+		addMove('rapidfire', [
+			'armarouge', 'blastoise', 'blaziken', 'camerupt', 'clawitzer', 'dragapult', 'drampa', 'flareon', 'houndoom', 'ninetales', 'rhyperior', 'sandaconda', 'scovillain', 'simisear', 'skeledirge', 'slowbrogalar', 'talonflame',
+			'toucannon', 'manectric', 'decidueye', 'decidueyehisui', 'chandelure'
+		]);
+		addMove('sunkenlunge', [
+			'feraligatr', 'samurott', 'samurotthisui', 'gyarados', 'sharpedo', 'qwilfish', 'overqwil', 'araquanid', 'clawitzer', 'basculegionf', 'hippowdon'
+		]);
+		addMove('rockslide', 'glalie');
+		addMove('snatch', [
+			'weavile', 'banette', 'snorlax', 'liepard', 'reuniclus', 'arbok', 'clefable', 'alakazam', 'gengar', 'umbreon', 'houndoom', 'gardevoir', 'gallade', 'sableye', 'mawile', 'chimecho', 'absol', 'spiritomb', 'froslass',
+			'rotom', 'serperior', 'audino', 'scolipede', 'krookodile', 'scrafty', 'cofagrigus', 'zoroark', 'kingambit', 'delphox', 'greninja', 'diggersby', 'talonflame', 'pyroar', 'pangoro', 'meowstic', 'malamar', 'noivern',
+			'incineroar', 'toxapex', 'salazzle', 'oranguru', 'mimikyu', 'sneasler', 'qwilfish', 'overqwil', 'wyrdeer', 'runerigus', 'castform', 'corviknight', 'barbaracle', 'sandaconda', 'hatterene', 'grimmsnarl', 'mrrime',
+			'falinks', 'morpeko', 'dragapult', 'meowscarada', 'maushold', 'scovillain', 'espathra', 'tinkaton', 'farigiraf', 'gholdengo', 'sinistcha', 'polteageist', 'zoroarkhisui'
+		]);
+		addMove('starburst', [
+			'azumarill', 'clefable', 'hatterene', 'primarina', 'altaria', 'slurpuff', 'tinkaton', 'starmie', 'watchog', 'gardevoir', 'gallade'
+		]);
 	},
 };

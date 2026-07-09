@@ -485,6 +485,110 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Clever",
 	},
+	solarwind: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		shortDesc: "Usually moves first. Sets Aurora Veil for 3 turns in Sun.",
+		name: "Solar Wind",
+		pp: 10,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Polish", source);
+			this.add('-anim', source, "Heat Wave", target);
+		},
+		onAfterHit(target, source, move) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				source.side.addSideCondition('auroraveil');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				source.side.addSideCondition('auroraveil');
+			}
+		},
+		secondary: {},
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	hardrock: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User survives attacks this turn with at least 1 HP. Sets Stealth Rock if activated.",
+		name: "Hard Rock",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'hardrock',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Endure');
+			},
+			onDamagePriority: -10,
+			onDamage(damage, target, source, effect) {
+				if (effect?.effectType === 'Move' && damage >= target.hp) {
+					this.add('-activate', target, 'move: Endure');
+					return target.hp - 1;
+					for (const side of target.side.foeSidesWithConditions()) {
+						side.addSideCondition('stealthrock');
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Tough",
+	},
+	auroraveil: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay') && effect?.name !== "Solar Wind") {
+					return 8;
+				}
+				if (effect?.name === "Solar Wind") {
+					return 3;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target)) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Aurora Veil weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Aurora Veil');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Aurora Veil');
+			},
+		},
+	},
 	stealthrock: {
 		inherit: true,
 		condition: {

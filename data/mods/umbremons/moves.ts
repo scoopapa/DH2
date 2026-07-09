@@ -33,6 +33,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Rapid Fire",
 		shortDesc: "Hits 2-5 times. Usually goes first.",
 		pp: 20,
+		noPPBoosts: true,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit(target, source, move) {
@@ -51,7 +52,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Sunken Lunge",
 		shortDesc: "Hits first. First turn out only. Target's Speed -1.",
-		pp: 15,
+		pp: 16,
+		noPPBoosts: true,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		onPrepareHit(target, source, move) {
@@ -81,7 +83,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Starburst",
 		shortDesc: "Applies spotlight on target. Usually goes first.",
-		pp: 15,
+		pp: 16,
+		noPPBoosts: true,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
@@ -100,6 +103,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// Adjusted Moves
 	rockslide: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		shortDesc: "20% chance to make the foe(s) flinch.",
 		desc: "20% chance to make the foe(s) flinch.",
 		secondary: {
@@ -108,6 +112,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	// Snatch got buffed, but in reality the changes are applied to the moves it now affects
+	snatch: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	revivalblessing: {
 		inherit: true,
 		flags: {heal: 1, nosketch: 1, snatch: 1},

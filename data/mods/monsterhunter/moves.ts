@@ -116,7 +116,7 @@ export const Moves: {[moveid: string]: MoveData} = {
     	},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "normal",
 		contestType: "Beautiful",
 	},
 	wretchedwater: {
@@ -1069,7 +1069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'defensedown',
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
-		target: "Normal",
+		target: "normal",
 		type: "Water",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
@@ -2293,6 +2293,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+	},
 	mudbomb: {
 		inherit: true,
 		viable: true,
@@ -2519,12 +2523,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "30% chance to inflict bleed.",
 		shortDesc: "30% chance to inflict bleed.",
 	},
-	fierydance: {
+	fierywrath: {
 		inherit: true,
 		secondary: {
-			chance: 30,
+			chance: 10,
 			status: 'brn',
 		},
+		desc: "10% chance to burn.",
+		shortDesc: "10% chance to burn.",
 	},
 	/*
 	DROWSY EDITS

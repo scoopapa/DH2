@@ -323,7 +323,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "GNCS1",
 		doublesTier: "GNCS1",
 	},
-	belioisk: {
+	beliolisk: {
 		tier: "GNCS1",
 		doublesTier: "GNCS1",
 	},

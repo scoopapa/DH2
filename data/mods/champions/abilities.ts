@@ -26,7 +26,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
-			if (!target.runImmunity(move)) return;
+			if (!target.runImmunity(move.type)) return;
 			this.effectState.neutral = true;
 			return 0;
 		},
