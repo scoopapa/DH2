@@ -5,6 +5,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	agnaktorex: {
 		tier: "MHUU",
 	},
+	scorchian: {
+		tier: "MHOU",
+	},
 	greatapypos: {
 		tier: "MHRU",
 	},
