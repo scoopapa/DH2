@@ -241,6 +241,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	lunarblessing: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	// magic warp altered duration
 	magicroom: {
 		inherit: true,
