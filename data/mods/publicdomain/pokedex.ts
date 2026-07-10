@@ -472,7 +472,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	necrozmalightningbeak: {
 		num: 45,
-		name: "Necrozma-Lightning-Beak",
+		name: "Necrozma-Lightning Beak",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 89, atk: 83, def: 103, spa: 131, spd: 107, spe: 67},
 		abilities: {0: "Prism Armor"},
