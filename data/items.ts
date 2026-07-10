@@ -2237,7 +2237,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		megaEvolves: "Floette-Eternal",
 		itemUser: ["Floette-Eternal"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.name) return false;
+			if (item.megaEvolves === source.species.name) return false;
 			return true;
 		},
 		num: 2579,

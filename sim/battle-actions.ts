@@ -1870,6 +1870,9 @@ export class BattleActions {
 		if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 			return item.megaStone;
 		}
+		if (pokemon.species.name === 'Floette-Eternal') {
+			return item.megaStone;
+		}
 		return null;
 	}
 
