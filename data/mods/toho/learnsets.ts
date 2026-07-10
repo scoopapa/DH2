@@ -885,6 +885,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lunasaprismriver: {
 		learnset: {
+			moonlight: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
 			nightshade: ["9L1"],
@@ -1205,6 +1206,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	yukariyakumo: {
 		learnset: {
+			spacialrend: ["9L1"],
 			futuresight: ["9L1"],
 			hyperspacehole: ["9L1"],
 			extrasensory: ["9L1"],
@@ -1268,6 +1270,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	suikaibuki: {
 		learnset: {
+			hiddenpower: ["9L1"],
 			earthpower: ["9L1"],
 			scorchingsands: ["9L1"],
 			mudbomb: ["9L1"],
@@ -1462,6 +1465,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	keine: {
 		learnset: {
+			wideguard: ["9L1"],
+			roar: ["9L1"],
 			hypervoice: ["9L1"],
 			steelbeam: ["9L1"],
 			flashcannon: ["9L1"],
@@ -3602,6 +3607,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	sunnymilk: {
 		learnset: {
+			photongeyser: ["9L1"],
 			uturn: ["9L1"],
 			overheat: ["9L1"],
 			fireblast: ["9L1"],
@@ -3654,6 +3660,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lunachild: {
 		learnset: {
+			lunardance: ["9L1"],
 			nightdaze: ["9L1"],
 			moonblast: ["9L1"],
 			fairywind: ["9L1"],
@@ -3732,7 +3739,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			cosmicpower: ["9L1"],
 			skillswap: ["9L1"],
 			speedswap: ["9L1"],
-			trickroom: ["9L1"],
 			trick: ["9L1"],
 			psychicterrain: ["9L1"],
 			teleport: ["9L1"],
@@ -3891,6 +3897,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	soganotojiko: {
 		learnset: {
+			memento: ["9L1"],
 			zapcannon: ["9L1"],
 			thunder: ["9L1"],
 			thunderbolt: ["9L1"],
@@ -3986,7 +3993,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			tailwind: ["9L1"],
 			defog: ["9L1"],
 			aromatherapy: ["9L1"],
-			trickroom: ["9L1"],
 			haze: ["9L1"],
 			whirlwind: ["9L1"],
 			acupressure: ["9L1"],
@@ -4587,7 +4593,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			spikes: ["9L1"],
 			meditate: ["9L1"],
 			disable: ["9L1"],
-			encore: ["9L1"],
 			wish: ["9L1"],
 			confide: ["9L1"],
 			substitute: ["9L1"],
@@ -4743,6 +4748,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	ringo: {
 		learnset: {
+			stuffcheeks: ["9L1"],
 			energyball: ["9L1"],
 			gigadrain: ["9L1"],
 			megadrain: ["9L1"],
@@ -5194,6 +5200,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	eternitylarva: {
 		learnset: {
+			eternabeam: ["9L1"],
 			bugbuzz: ["9L1"],
 			pollenpuff: ["9L1"],
 			silverwind: ["9L1"],
@@ -5771,6 +5778,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	keikihaniyasushin: {
 		learnset: {
+			hiddenpower: ["9L1"],
 			earthpower: ["9L1"],
 			mudbomb: ["9L1"],
 			mudshot: ["9L1"],
@@ -5801,7 +5809,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			electricterrain: ["9L1"],
 			stealthrock: ["9L1"],
 			agility: ["9L1"],
-			trickroom: ["9L1"],
 			cosmicpower: ["9L1"],
 			guardswap: ["9L1"],
 			irondefense: ["9L1"],
@@ -5862,6 +5869,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	yuumatoutetsu: {
 		learnset: {
+			liquidation: ["9L1"],
 			hydropump: ["9L1"],
 			muddywater: ["9L1"],
 			scald: ["9L1"],
@@ -6893,6 +6901,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	watatsukinoyorihime: {
 		learnset: {
+			leafblade: ["9L1"],
 			focusblast: ["9L1"],
 			secretsword: ["9L1"],
 			aurasphere: ["9L1"],
