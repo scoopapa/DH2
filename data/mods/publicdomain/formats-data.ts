@@ -215,5 +215,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PD",
 		doublesTier: "DOU",
 	},
+	gaybowser: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	questioningstatue: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
+	subzerofrommortalkombat: {
+		tier: "PD",
+		doublesTier: "DOU",
+	},
 
 };

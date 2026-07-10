@@ -291,7 +291,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 30,
 		name: "Mewtwo-Mega-XY",
 		types: ["Psychic", "Fighting"],
-		baseStats: {hp: 96, atk: 100, def: 75, spa: 94, spd: 80, spe: 105},
+		baseStats: {hp: 96, atk: 110, def: 75, spa: 104, spd: 80, spe: 105},
 		abilities: {0: "Neuroforce", H: "Man"},
 		weightkg: 50.2,
 	},
@@ -350,7 +350,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	assistakyuu: {
 		num: 37,
 		name: "Assist Akyuu",
-		types: ["Grass", "Psychic"],
+		types: ["Grass", "Fairy"],
 		baseStats: {hp: 1, atk: 90, def: 45, spa: 90, spd: 45, spe: 40},
 		abilities: {0: "Wonder Guard", H: "Magic Bounce"},
 		weightkg: 20,
@@ -366,8 +366,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	pimento: {
 		num: 39,
 		name: "Pimento",
-		types: ["Fire"],
-		baseStats: {hp: 85, atk: 80, def: 100, spa: 80, spd: 100, spe: 65},
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 85, atk: 100, def: 80, spa: 60, spd: 80, spe: 100},
 		abilities: {0: "Sharpness", H: "Retain Spice"},
 		weightkg: 120,
 	},
@@ -444,7 +444,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 130.4,
 	},
 	espinaszenith: {
-		num: 48,
+		num: 47,
 		name: "Espinas-Zenith",
 		baseSpecies: "Espinas",
 		forme: "Zenith",
@@ -455,7 +455,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredItem: "Espinasite",
 	},
 	wirescruel: {
-		num: 43,
+		num: 48,
 		name: "Wirescruel",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 80, atk: 70, def: 65, spa: 80, spd: 120, spe: 100},
@@ -463,7 +463,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 55,
 	},
 	theringer: {
-		num: 44,
+		num: 49,
 		name: "The Ringer",
 		types: ["Dark"],
 		baseStats: {hp: 90, atk: 80, def: 105, spa: 105, spd: 85, spe: 65},
@@ -471,12 +471,36 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 241,
 	},
 	necrozmalightningbeak: {
-		num: 45,
+		num: 50,
 		name: "Necrozma-Lightning Beak",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 89, atk: 83, def: 103, spa: 131, spd: 107, spe: 67},
 		abilities: {0: "Prism Armor"},
 		weightkg: 282,
+	},
+	gaybowser: {
+		num: 51,
+		name: "Gay Bowser",
+		types: ["Dragon"],
+		baseStats: {hp: 80, atk: 127, def: 85, spa: 83, spd: 70, spe: 90},
+		abilities: {0: "Shell Armor", 1: "Rough Skin", H: "Tough Claws"},
+		weightkg: 100,
+	},
+	questioningstatue: {
+		num: 52,
+		name: "Questioning Statue",
+		types: ["Flying"],
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 50},
+		abilities: {0: "Serene Grace"},
+		weightkg: 520,
+	},
+	subzerofrommortalkombat: {
+		num: 53,
+		name: "Subzero from Mortal Kombat",
+		types: ["Normal", "Ice"],
+		baseStats: {hp: 80, atk: 115, def: 75, spa: 110, spd: 70, spe: 100},
+		abilities: {0: "Infiltrator", 1: "Technician", H: "Refrigerate"},
+		weightkg: 95,
 	},
 
 };
