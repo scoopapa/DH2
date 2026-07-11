@@ -106,7 +106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Special",
 		name: "Laser Cut",
-		shortDesc: "Physical if it would be stronger. Target has screen; crit.",
+		shortDesc: "Physical if stronger. Target has screen; crit.",
 		pp: 12,
 		noPPBoosts: true,
 		priority: 0,
