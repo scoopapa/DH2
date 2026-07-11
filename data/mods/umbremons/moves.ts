@@ -224,7 +224,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
 			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
-			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather()) && pokemon.hasAbility('sandclock'))) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -235,7 +235,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, pokemon, target) {
 			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather()) && pokemon.hasAbility('sandclock'))) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
