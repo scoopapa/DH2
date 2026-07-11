@@ -72,6 +72,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -3,
 		desc: "Under Sandstorm, user skips Charge and Recharge turns. Immunity to Sandstorm damage. (note: this also ignores sand's damage reduction to moves like Solar Beam)",
 		shortDesc: "Under sandstorm, skips charge and recharge.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
 		onChargeMove(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
 				this.add('-ability', pokemon, 'Sandclock');
