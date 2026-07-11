@@ -2532,6 +2532,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "10% chance to burn.",
 		shortDesc: "10% chance to burn.",
 	},
+	triplekick: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+	},
 	/*
 	DROWSY EDITS
 	*/
