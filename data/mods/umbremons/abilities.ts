@@ -74,6 +74,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Under sandstorm, skips charge and recharge.",
 		onChargeMove(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
+				this.add('-ability', pokemon, 'Sandclock');
 				this.debug('sandclock - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', pokemon, move.name, target);
@@ -83,6 +84,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
 				if (pokemon.getVolatile('mustrecharge')) {
+					this.add('-ability', pokemon, 'Sandclock');
 					pokemon.removeVolatile('mustrecharge');
 					this.add('-end', pokemon, 'mustrecharge');
 				}
