@@ -201,6 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astonish: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		basePower: 20,
 		category: "Special",
 		pp: 12,
@@ -211,12 +212,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// Breaking protection implemented in scripts.js
 		secondary: null,
 		shortDesc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
+		desc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
 	},
 	return: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
+		basePower: 102,
+		basePowerCallback(pokemon) {
+			return;
+		},
 		pp: 20,
 		noPPBoosts: true,
 		isNonstandard: null,
+		shortDesc: "No additional effect.",
+		desc: "No additional effect.",
 	},
 	// sandclock interactions
 	solarbeam: {
