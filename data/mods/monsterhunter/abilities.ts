@@ -396,6 +396,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Mega Sol",
 		rating: 3,
 		num: 315,
+		shortDesc: "This Pokémon can use its moves as if the weather were harsh sunlight."
 		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
 	},
 	absolutezero: {
@@ -492,9 +493,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.8);
 			}
 		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['slp'].includes(target.status)) return 5;
+		},
 		flags: {},
 		name: "Bewitching Tail",
-		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage.",
+		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage. | Attacks are critical hits.",
 	},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
@@ -1121,12 +1125,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.adjacentFoes().some(foe => foe?.status === 'brn' || foe?.volatiles['blastblight'])) {
 				this.debug('Gravedrum Speed boost');
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['brn', 'blastblight'].includes(target.status)) return 5;
 		},
 		flags: {},
 		name: "Gravedrum",
-		shortDesc: "Speed doubled if any adjacent foe has BRN or Blast.",
+		shortDesc: "Speed is 1.5x if any adjacent foe has BRN/Blast. Attacks are criticial hits.",
 	},
 	heatsink: {
 		onTryHit(target, source, move) {
@@ -1532,7 +1539,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Perforating",
-		shortDesc: "When using Poison moves: Ignore Steel-type immunities.",
+		shortDesc: "When using Poison moves: Ignore Steel-type immunities. Steel-type can be poisoned.",
 	},
 	permafrost: {
 		onStart(pokemon) {
