@@ -930,6 +930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 63, def: 70, spa: 133, spd: 120, spe: 104},
 		abilities: {0: "Split Personality"},
 		weightkg: 0.1,
+		battleOnly: "Pink",
 	},
 	flowery: {
 		num: -92,
@@ -1532,6 +1533,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stellar Guard"},
 		weightkg: 900,
 		requiredItem: "Soul Collective",
+		battleOnly: ["Asriel"],
 	},
 
 

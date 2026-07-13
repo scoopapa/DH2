@@ -500,6 +500,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
+	starblazing: {
+		name: "Star Blazing",
+		type: "Normal",
+		category: "Special",
+		basePower: 130,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Ignores the target's stat changes.",
+		longDesc: "The user drops a barrage of prismatic stars at the target. This move ignores the target's stat changes.",
+		priority: 0,
+		flags: {protect: 1, failcopycat: 1, failmimic: 1},
+		ignoreDefensive: true,
+		ignoreEvasion: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tera Starstorm", target);
+		},
+		target: "normal",
+	},
+	
 	//Pollen Puff and Sharpshooter
 	pollenpuff: {
 		inherit: true,

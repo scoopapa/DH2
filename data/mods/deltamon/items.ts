@@ -17,6 +17,33 @@ boosterenergy: {
 		},
 	},
 	
+	jestersshadowcrystal: {
+		name: "Jester's Shadow Crystal",
+		onTakeItem: false,
+		shortDesc: "A pitch black crystal, if held by Jevil with Chaos Bomb, he can use Neo Chaos",
+		zMove: "Neo Chaos",
+		zMoveFrom: "Chaos Bomb",
+		itemUser: ["Jevil"],
+	},
+	
+	puppetsshadowcrystal: {
+		name: "Puppet's Shadow Crystal",
+		onTakeItem: false,
+		shortDesc: "A pitch black crystal, if held by Spamton with Make It Rain, he can use TRANSMIT KROMER",
+		zMove: "TRANSMIT KROMER",
+		zMoveFrom: "Make It Rain",
+		itemUser: ["Spamton"],
+	},
+	
+	knightsshadowcrystal: {
+		name: "Knight's Shadow Crystal",
+		onTakeItem: false,
+		shortDesc: "A pitch black crystal, if held by The Roaring Knight with Black Knife, they can use Bellowing Starburst Slice",
+		zMove: "Bellowing Starburst Slice",
+		zMoveFrom: "Black Knife",
+		itemUser: ["Roaring Knight"],
+	},
+	
 	cyanomegapetal: {
 		name: "Cyan Omega Petal",
 		onTakeItem: false,
@@ -193,4 +220,13 @@ boosterenergy: {
 			}
 		},
 	},
-}
+	
+	soulcollective: {
+		name: "Soul Collective",
+		onTakeItem: false,
+		shortDesc: "A group of many dormant Monster Souls. If held by Asriel, this item allows him to Ultra Burst and use the Z-Move Hyper Goner from the move Star Blazing.",
+		zMove: "Hyper Goner",
+		zMoveFrom: "Star Blazing",
+		itemUser: ["Asriel-Hyperdeath"],
+	},
+};

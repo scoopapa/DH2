@@ -79,9 +79,11 @@ export const Formats: FormatData[] = [
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [
-			'ND Uber', 'ND AG', 'DM Ubers', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 		],
+		unbanlist: ['Jester\'s Shadow Crystal', 'Puppet\'s Shadow Crystal', 'Knight\'s Shadow Crystal', 'Cyan Omega Petal', 'Violet Omega Petal', 'Amber Omega Petal', 'Verdant Omega Petal', 
+					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite'],
 		teambuilderFormat: 'National Dex',
 	},
 ];
