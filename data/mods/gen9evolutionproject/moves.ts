@@ -29,6 +29,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+		longDesc: `The user restores its own HP by up to half its max HP.<br>It regains more HP in snow.`,
 		shortDesc: "Recovers half of max HP, or 2/3 in snow/hail.",
 	},
 	freezetag: {
@@ -53,6 +54,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
+		longDesc: `This also adds the Ice type to the target's type.`,
 		shortDesc: "Does damage and adds Ice to the target's type.",
 	},
 	auroraburst: {
@@ -81,6 +83,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		longDesc: `The user charges up aurora energy and boosts its Sp. Def stat on the first turn, then attacks the opposing Pokémon on the next turn. <i>(spread)</i>`,
 		shortDesc: "Charges and raises Sp. Def, then attacks all adjacent foes.",
 	},
 	banefulbayonet: {
@@ -103,6 +106,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Poison",
+		longDesc: `The user's HP is restored by up to half the damage taken by the target.<br>This may also poison the target. <i>(20% chance)</i>`,
 		shortDesc: "Drains for 50% of the damage dealt; 20% poison chance.",
 	},
 	renewingring: {
@@ -138,7 +142,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = target.heal(this.effectState.hp);
+					const damage = this.heal(this.effectState.hp, target, target);
 					if (damage) {
 						this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name); // I do want it to look like Wish
 					}
@@ -154,6 +158,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		longDesc: `One turn after this move is used, the user's or its replacement's HP is restored by up to half the damage taken by the target.<br>After using this move, the user will no longer be Ice type. <i>(Fails if the user is not Ice-type.)</i><br><i>(sound-based)</i>`,
 		shortDesc: "Sheds the Ice type; two turns later, heals for 50% damage dealt.",
 	},
 	snowroller: {
@@ -183,6 +188,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
+		longDesc: `The user packs snow and ice onto its body to boost its Defense stat and accuracy.<br><i>(doubles the BP of Ice Ball, Rollout)</i>`,
 		shortDesc: "Boosts Defense, accuracy, Rollout and Ice Ball.",
 	},
 	blownfuse: {
@@ -203,7 +209,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (move.category === 'Physical' && source.isGrounded() && !source.hasType('Electric') && move.id !== 'rapidspin' && move.id !== 'mortalspin') {
-					source.setStatus('brn', source, move);
+					if (source.setStatus('brn', source, move) && source.statusState && this.effectState.source) {
+						// recording for this.funStats
+						source.statusState.realCredit = this.effectState.source;
+						source.statusState.realEffect = 'Blown Fuse';
+					}
 				}
 			},
 			onStart(target) {
@@ -225,6 +235,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		longDesc: `For 4 turns after this move is used, the target or its replacement is burned if it uses a physical move while on the ground.<br><i>(+4 priority; targets an individual slot; doesn't affect Electric-types; cleared by hazard-removing moves and doesn't burn the Pokémon that uses them)</i>"								`,
 		shortDesc: "4 turns: grounded Pokémon in target slot burned after using physical moves, except Electric-types.",
 	},
 	shadowbox: {
@@ -250,6 +261,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Ghost",
+		longDesc: `Hits all adjacent opponents and lowers the Attack and Sp. Atk stats of opposing Pokémon.<br>(punching move)`,
 		shortDesc: "Hits adjacent foes and lowers their Attack, Sp. Atk.",
 	},
 	rekindle: {
@@ -278,6 +290,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		longDesc: `The user rekindles a held item that has been used in battle so it can be used again.`,
 		shortDesc: "Restores the user's item.",
 	},
 	entanglement: {
@@ -331,7 +344,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		shortDesc: "Traps user + target; pseudo Leech Seed.",
+		longDesc: `This move prevents the user and the target from switching out until either of them faints, and it steals some HP from the target every turn. <i>(1/8 of the target's HP; affected by Binding Band)</i><br>The effect goes away if either of the Pokémon leaves the field.`,
+		shortDesc: "Traps user + target; pseudo-Leech Seed.",
 	},
 	myceliate: {
 		num: -11,
@@ -358,6 +372,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+		longDesc: `This move's power is doubled if the target has a status condition.`,
 		shortDesc: "Doubles BP if the target is statused.",
 	},
 	dispersion: {
@@ -380,6 +395,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Beautiful",
+		longDesc: `Frosmoth's Scale Shift determines the type of this move.<br><i>(Hits all adjacent opponents; does not change to match Tera Type when Terastallized, but will continue to update to match ally Pokémon as long as the Pokémon still has Scale Shift.)</i>`,
 		shortDesc: "Spread + changes type to match Scale Shift.",
 	},
 
@@ -410,6 +426,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Water",
+		longDesc: `The higher the user's Sp. Def stat, the greater the damage this move deals.<br>Hitting a target raises the Sp. Def stat.`,
 		shortDesc: "Damage based on Sp. Def. Boosts Sp. Def after use.",
 	},
 	pranceandpierce: {
@@ -452,6 +469,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						type: 'Ghost',
 					},
 				});
+				console.log(`Prance and Pierce source position: ` + source.position);
 				for (const side of this.sides) {
 					for (const active of side.active) {
 						active.switchFlag = false;
@@ -482,39 +500,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 				if (source && !source.isActive && source.hp && this.canSwitch(source.side)) {
-					this.actions.switchIn(source, data.sourcePosition);
-					this.add('-message', `${source.illusion ? source.illusion.name : source.name} pranced back onto the field!`);
+					this.add('-message', `${source.illusion ? source.illusion.name : source.name} is ready to prance back onto the field!`);
+					this.actions.switchIn(source, data.sourcePosition, "Prance and Pierce");
 				}
-				this.add('-message', `${target.illusion ? target.illusion.name : target.name} was pierced by the Prance and Pierce attack!`);
-				this.attrLastMove('[still]');
-				if (source.isActive) {
-					this.add('-anim', source, "Super Fang", target);
-				} else {
-					this.add('-anim', target, "Super Fang", target);
+				if (source && source.isActive && source.hp) { // don't resolve the move if Lopunny faints to hazards
+					this.add('-message', `${target.illusion ? target.illusion.name : target.name} was pierced by the Prance and Pierce attack!`);
+					this.attrLastMove('[still]');
+					if (source.isActive) {
+						this.add('-anim', source, "Super Fang", target);
+					} else {
+						this.add('-anim', target, "Super Fang", target);
+					}
+					target.removeVolatile('Protect');
+					target.removeVolatile('Endure');
+		
+					if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+						data.moveData.infiltrates = true;
+					}
+					if (data.source.hasAbility('normalize') && this.gen >= 6) {
+						data.moveData.type = 'Normal';
+					}
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+		
+					this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
+					if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
+						this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
+					}
+					this.activeMove = null;
+		
+					this.checkWin();
 				}
-				target.removeVolatile('Protect');
-				target.removeVolatile('Endure');
-	
-				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-					data.moveData.infiltrates = true;
-				}
-				if (data.source.hasAbility('normalize') && this.gen >= 6) {
-					data.moveData.type = 'Normal';
-				}
-				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-	
-				this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
-				if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
-					this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
-				}
-				this.activeMove = null;
-	
-				this.checkWin();
 			},
 		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		longDesc: `Before attacking, the user switches places with a party Pokémon in waiting, if any.<br>Two turns after this move is used, it finally returns to the field to attack a random active opponent.<br>This also poisons the target.<br><i>(biting, contact)</i>`,
 		shortDesc: "User pivots out, then comes back in to attack two turns later. Poisons target.",
 	},
 	grandfinale: {
@@ -522,7 +543,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 25,
 		basePowerCallback(pokemon, target, move) {
-			if (move.hit === 3) move.selfSwitch = true; // I hope this works
+			if (move.hit === 3) move.selfSwitch = true;
 			return 25 * move.hit;
 		},
 		onTryMove(pokemon, target, move) {
@@ -534,6 +555,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterMove(pokemon) {
 			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up'); // I think this still needs Burn Up's message
+		},
+		onDamagePriority: -101,
+		onDamage(damage, target, source, move) {
+			if (damage >= target.hp) move.selfSwitch = true;
 		},
 		category: "Physical",
 		name: "Grand Finale",
@@ -552,6 +577,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 120},
 		maxMove: {basePower: 140},
+		longDesc: `A consecutive three-strike attack that becomes more powerful with each successful hit. <i>(25 -> 50 -> 75)</i><br>After using this move, the user will no longer be Fire type. <i>(Fails if the user is not Fire-type.)</i><br>If it lands all three hits or knocks out the target, the user rushes back to switch places with a party Pokémon in waiting.`,
 		shortDesc: "Hits up to 3 times (25 -> 50 -> 75). Removes Fire type; if hits all 3, pivots out.",
 	},
 	slimecannon: {
@@ -588,6 +614,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		longDesc: `A slimy, somewhat befuddling all-out attack.<br>When the user knocks out a target with this move, all remaining Pokémon adjacent to the target have their Attack and Sp. Atk lowered (including the user and its allies).<br><i>(blocked by Bulletproof)</i>`,
 		shortDesc: "If target is KOed, -1 to everyone's Attack and Sp. Atk.",
 	},
 	totaleclipse: {
@@ -597,7 +624,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Total Eclipse",
 		pp: 10,
-		priority: 3,
+		priority: 0,
 		flags: {bypasssub: 1, noassist: 1, failcopycat: 1, allyanim: 1, cantusetwice: 1},
 		onHit(target, source) {
 			const stolenBoosts: Partial<BoostsTable> = {};
@@ -629,6 +656,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
+		longDesc: `The user steals its ally's stat changes.<br>For the rest of the turn, any damage taken by the ally is instead taken by the user.<br>This move can't be used twice in a row.`,
 		shortDesc: "Steals ally's boosts, then takes damage for the ally. Can't use consecutively.",
 	},
 	flowingflare: {
@@ -660,6 +688,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
+		longDesc: `This move inflicts damage using the Attack or Sp. Atk stat - whichever is higher for the user.<br>The faster the user is than the target, the greater the move's power.<br><i>(scales the same as Electro Ball, except that the max BP is 180 instead of 150)</i>`,
 		shortDesc: "Atk > SpA: physical. Stronger the faster the user is than the target (180 max).",
 	},
 	paranoia: {
@@ -689,6 +718,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Clever",
+		longDesc: `An attack that reduces each target's current HP by a quarter.<br>This also lowers each target's most proficient stat.<br><i>(spread)</i>`,
 		shortDesc: "Damage is 1/4 of target's HP. Lowers target's best stat.",
 	},
 	psykick: {
@@ -712,6 +742,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		longDesc: `This also leaves the target incapable of using the same move twice in a row.`,
 		shortDesc: "Inflicts Torment.",
 	},
 	empathicpulse: {
@@ -742,10 +773,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
+		longDesc: `The user transfers its status conditions to adjacent opponents. <i>(spread)</i><br>This also raises the user's most proficient stat.`,
 		shortDesc: "Passes status to adjacent foes, then raises most proficient stat.",
 	},
 
 // modded canon moves
+	
+	// for Blown Fuse
 
 	defog: {
 		inherit: true,
@@ -904,6 +938,114 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
 			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+	},
+
+	// for this.funStats
+	
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					if (pokemon.trySetStatus('tox', pokemon.side.foe.active[0])) {
+						// recording for this.funStats
+						pokemon.statusState.realCredit = this.effectState.source;
+						pokemon.statusState.realEffect = 'Toxic Spikes';
+					}
+				} else {
+					if (pokemon.trySetStatus('psn', pokemon.side.foe.active[0])) {
+						// recording for this.funStats
+						pokemon.statusState.realCredit = this.effectState.source;
+						pokemon.statusState.realEffect = 'Toxic Spikes';
+					}
+				}
+			},
+		},
+	},
+	painsplit: {
+		inherit: true,
+		onHit(target, pokemon) {
+			const targetHP = target.getUndynamaxedHP();
+			const averagehp = Math.floor((targetHP + pokemon.hp) / 2) || 1;
+			const targetChange = targetHP - averagehp;
+			
+			// MODDED PART STARTS HERE
+			let credit = [`${pokemon.side.name}'s <strong>${pokemon.name}</strong>`];
+			let targetChangePercent = (targetChange / target.maxhp * 100);
+			let userChange = pokemon.hp - averagehp;
+			if (averagehp > pokemon.maxhp) userChange = pokemon.hp - pokemon.maxhp; // overheal
+			let userChangePercent = (userChange / pokemon.maxhp * 100);
+			let sameSide = false;
+			if (target.isAlly(pokemon)) sameSide = true;
+			this.runEvent('PainSplit', credit, targetChangePercent, userChangePercent, sameSide);
+			// MODDED PART ENDS HERE
+			
+			target.sethp(target.hp - targetChange);
+			this.add('-sethp', target, target.getHealth, '[from] move: Pain Split', '[silent]');
+			pokemon.sethp(averagehp);
+			this.add('-sethp', pokemon, pokemon.getHealth, '[from] move: Pain Split');
+		},
+	},
+	perishsong: {
+		inherit: true,
+		condition: {
+			duration: 4,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				if (this.effectState.source && this.effectState.source !== target) this.runEvent('PerishSongForceKO', target, this.effectState.source); // only modded line
+				target.faint();
+			},
+			onResidualOrder: 24,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['perishsong'].duration;
+				this.add('-start', pokemon, 'perish' + duration);
+			},
+		},
+	},
+	destinybond: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.isAlly(source)) return;
+				if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+					if (source.volatiles['dynamax']) {
+						this.add('-hint', "Dynamaxed Pokémon are immune to Destiny Bond.");
+						return;
+					}
+					this.add('-activate', target, 'move: Destiny Bond');
+					this.runEvent('DestinyBondForceKO', source, target); // only modded line
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
 		},
 	},
 };

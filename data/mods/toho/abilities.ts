@@ -441,28 +441,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Consuming a berry increases Atk. by one stage.",
 	},
 	lunatictorch: {
-		onModifyDamage(damage, source, target, move) {
-			if (!this.field.isTerrain('psychicterrain') || source.hasItem('utilityumbrella')) return;
-			if (move.type === 'Fire') {
-				return this.chainModify(1.5);
-			}
-			if (move.type === 'Water') {
-				return this.chainModify(0.5);
-			}
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (!this.field.isTerrain('psychicterrain') || target.hasItem('utilityumbrella')) return;
-			if (move.type === 'Fire' && !source.hasAbility('lunatictorch')) {
-				return this.chainModify(1.5);
-			}
-			if (move.type === 'Water' && !source.hasAbility('lunatictorch')) {
-				return this.chainModify(0.5);
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (!this.field.isTerrain('psychicterrain') || pokemon.hasItem('utilityumbrella')) return;
-			if (type === 'frz') return false;
-		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+            		if (this.field.weather !== 'sunnyday' && this.field.isTerrain('psychicterrain')) {
+                	(this.dex.conditions.getByID('sunnyday' as ID) as any).onWeatherModifyDamage.call(this, damage, attacker, defender, move);
+            		}
+        	},
 		flags: {},
 		name: "Lunatic Torch",
 		shortDesc: "Gain the effects of Sun while in Psychic Terrain.",
@@ -491,7 +474,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	winterhearth: {
 		onBasePower(basePower, attacker, defender, move) {
-			if (['snowscape'].includes(pokemon.effectiveWeather())) {
+			if (this.field.isWeather(['hail', 'snow']) && move.type === 'Fire') {
 				return this.chainModify(2);
 			}
 		},
@@ -691,7 +674,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Grassy Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	corruptdata: {
-		onDamagingHit(damage, target, source, move) {
+		onDamagingHit(damage, target, source, move, pokemon) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				source.setType("???");
 				this.add('-start', source, 'typechange', "???", '[from] ability: Corrupt Data');

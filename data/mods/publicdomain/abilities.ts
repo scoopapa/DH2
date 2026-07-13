@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.isWeather('raindance')) {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 16, target, target);
 			}
 		},
 		flags: {},
@@ -376,7 +376,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMove(pokemon, target, move) {
 			if(move.id === 'chillyreception') {
 				const reaction = this.dex.getActiveMove('futuresight');
-				this.actions.useMove(reaction, source, target);
+				this.actions.useMove(reaction, pokemon, pokemon.side.foe.active[pokemon.position]);
 			}
 		},
 		flags: {},
@@ -420,8 +420,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	divineright: {
 		onSwitchIn(pokemon) {
-			if (this.field.isWeather('meteorshower')) pokemon.divineright = 2;
-			else pokemon.divineright = 1;
+			this.add('-ability', pokemon, 'Mold Breaker');
+			if (this.field.isWeather('meteorshower')) {
+				pokemon.divineright = 2;
+				this.add('-message', pokemon.name + " exerts their Divine Destiny!");
+			}
+			else {
+				pokemon.divineright = 1;
+				this.add('-message', pokemon.name + " exerts their Divine Right!");
+			}
 		},
 		onModifyMove(move, attacker) {
 			if (attacker.divineright > 0 && move.secondaries) {
@@ -476,14 +483,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ice') {
-				this.debug('Thick Fat weaken');
+				this.debug('Frost Bell weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Ice') {
-				this.debug('Thick Fat weaken');
+				this.debug('Frost Bell weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -502,11 +509,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			noCopy: true,
-			onStart(pokemon, source, effect) {
+			onStart(pokemon) {
 				this.add('-start', pokemon, 'Frost');
+				pokemon.moveUnended = true;
 			},
-			onSourceDamagingHit(damage, target, source, move) {
-				source.removeVolatile('frostbell');
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (target !== source && move.category !== 'Status') {
+					if (source.moveUnended) {
+						source.moveUnended = false;
+						return;
+					}
+					source.removeVolatile('frostbell');
+				}
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Frost', '[silent]');

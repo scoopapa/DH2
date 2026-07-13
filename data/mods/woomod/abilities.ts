@@ -1,32 +1,29 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
-	/*
-	placeholder: {
-		
-		flags: {},
-		name: "",
-		shortDesc: "",
-	},
-	*/
-	
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	vesselofsigma: {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Vessel of Sigma');
 		},
-		onAnyModifySpe(spe, source, target, move) {
-			const abilityHolder = this.effectState.target;
+		// @ts-expect-error
+		onAnyModifySpe(spe, source, target) {
 			if (source.hasAbility('Vessel of Sigma')) return;
-			this.debug('Vessel of Sigma Spe drop');
+			// @ts-expect-error
 			return this.chainModify(0.75);
 		},
 		flags: {},
 		name: "Vessel of Sigma",
-		shortDesc: "Active Pokemon without this Ability have their Speed multiplied by 0.75."
+		shortDesc: "Active Pokemon without this Ability have their Speed multiplied by 0.75.",
 	},
 	tacticalretreat: {
 		onAfterMove(source, target, move) {
 			if (!source || !target.hp || !move.totalDamage) return;
-			if (Object.values(move.self.boosts).some(boost => boost < 0)) source.switchFlag = true;
+			// @ts-expect-error
+			if (!move.self.boosts) return;
+			// @ts-expect-error
+			if (Object.values(move.self.boosts).some(boost => boost < 0)) {
+				source.switchFlag = true;
+				this.add('-ability', source, 'Tactical Retreat');
+			};
 		},
 		flags: {},
 		name: "Tactical Retreat",
@@ -35,15 +32,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	forbiddenjuice: {
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['toxicspikes']) {
-				this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+				this.add('-sideend', pokemon.side, 'move: Toxic Spikes', `[of] ${pokemon}`);
 				pokemon.side.removeSideCondition('toxicspikes');
-				this.boost({def: 1});
+				this.boost({ def: 1 });
 			}
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Poison') {
-				if (!this.boost({def: 1})) {
+				if (!this.boost({ def: 1 })) {
 					this.add('-immune', target, '[from] ability: Forbidden Juice');
 				}
 				return null;
@@ -60,7 +57,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (move.category === 'Special') {
 				if (!target.hasType('Flying')) return;
-				let newType = target.getTypes().filter(t => t !== 'Flying');
+				const newType = target.getTypes().filter(t => t !== 'Flying');
 				if (target.setType(newType)) {
 					this.add('-start', target, 'typechange', newType.join('/'), '[silent]');
 				}
@@ -94,9 +91,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Protective Aura",
-		shortDesc: "This Pokemon takes halved damage from Ghost/Dark attacks. Immune to confusion, Taunt, Heal Block, and Torment.",
+		shortDesc: "This Pokemon takes 0.5x damage from Ghost/Dark attacks. Immune to confusion/Taunt/Heal Block/Torment.",
 	},
 	asoneklang: {
 		onStart(pokemon) {
@@ -133,7 +130,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	spicycream: {
 		onUpdate(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Vanillite') return;
-			if (pokemon.status === 'brn' && pokemon.species.forme !== 'Melted') pokemon.formeChange('Vanillite-Melted', this.effect, true);
+			if (pokemon.status === 'brn' && pokemon.species.forme !== 'Melted') {
+				pokemon.formeChange('Vanillite-Melted', this.effect, true);
+			}
 		},
 		flags: {},
 		name: "Spicy Cream",
@@ -142,7 +141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	pyromorphosis: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			target.addVolatile('pyromorphosis');
+			if (!target.getVolatile('pyromorphosis')) target.addVolatile('pyromorphosis');
 		},
 		condition: {
 			onStart(pokemon, source, effect) {
@@ -189,18 +188,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
-			// Imposter does not activate when Skill Swapped or when Neutralizing Gas leaves the field
 			if (!this.effectState.switchingIn) return;
-			// copies across in doubles/triples
-			// (also copies across in multibattle and diagonally in free-for-all,
-			// but side.foe already takes care of those)
 			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target) {
 				target.transformInto(pokemon, this.dex.abilities.get('narcissus'));
 			}
 			this.effectState.switchingIn = false;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Narcissus",
 		shortDesc: "On switchin, the opponent transforms into this Pokemon.",
 	},
@@ -209,11 +204,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			const flingable = this.dex.items.all().filter(item => item.fling);
-			pokemon.currentItem = pokemon.item;
+			const currentItem = pokemon.item;
 			const newItem = this.sample(flingable);
 			pokemon.setItem(newItem);
 			this.actions.useMove('fling', pokemon);
-			pokemon.setItem(pokemon.currentItem);
+			pokemon.setItem(currentItem);
 		},
 		flags: {},
 		name: "Magic Bag",
@@ -235,6 +230,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	phantomchute: {
 		onSwitchOut(pokemon) {
 			pokemon.side.addSlotCondition(pokemon, 'phantomchute');
+			this.add('-ability', pokemon, 'Phantom Chute');
 		},
 		condition: {
 			duration: 1,
@@ -250,26 +246,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let newType = '';
 			switch (pokemon.item) {
-				case 'hearthflamemask':
-					newType = 'Fire';
-					break;
-				case 'wellspringmask':
-					newType = 'Water';
-					break;
-				case 'cornerstonemask':
-					newType = 'Rock';
-					break;
-				case 'stormbringermask':
-					newType = 'Electric';
-					break;
-				case 'leek':
-					newType = 'Grass';
-					break;
+			case 'hearthflamemask':
+				newType = 'Fire';
+				break;
+			case 'wellspringmask':
+				newType = 'Water';
+				break;
+			case 'cornerstonemask':
+				newType = 'Rock';
+				break;
+			case 'stormbringermask':
+				newType = 'Electric';
+				break;
+			case 'leek':
+				newType = 'Grass';
+				break;
 			}
 			this.add('-ability', pokemon, 'Masquerade');
-			if(pokemon.addType(newType)) this.add('-start', pokemon, 'typeadd', newType);
+			if (pokemon.addType(newType)) this.add('-start', pokemon, 'typeadd', newType);
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Masquerade",
 		shortDesc: "Farfetch'd gains a secondary typing according to its held Ogerpon mask/Leek.",
 	},
@@ -277,8 +273,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, this Pokemon lowers the Special Attack of adjacent opponents.",
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Debilitate', 'boost');
 					activated = true;
@@ -286,7 +281,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({spa: -1}, target, pokemon, null, true);
+					this.boost({ spa: -1 }, target, pokemon, null, true);
 				}
 			}
 		},
@@ -336,13 +331,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isNonstandard: "CAP",
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Alpinist",
 	},
 	honeygather: {
 		inherit: true,
-		shortDesc: "Heals 1/6 max HP at the end of every turn.",
+		shortDesc: "Heals 1/16 max HP at the end of every turn.",
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
@@ -352,11 +346,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
-				this.debug('Poison Puppeteer activated on ' + target);
 				target.addVolatile('confusion');
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Poison Puppeteer",
 	},
 	seismicsensor: {
@@ -373,16 +366,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.actions.useMove(newMove, target, source);
+				this.actions.useMove(newMove, target, { target: source });
 				return null;
 			},
 		},
-		flags: {protect: 1, mirror: 1},
+		flags: {},
 		name: "Seismic Sensor",
 		shortDesc: "On switch: if targeted by a Ground-type attack, take no damage and use the move on the opponent.",
 	},
 	soothingpresence: {
+		// I don't know how this works, but it does
 		onStart(pokemon) {
+			// @ts-expect-error
 			const last = pokemon.side.lastSwitchedOut;
 			if (last && last !== pokemon && !last.fainted && last.status) {
 				const status = last.status;
@@ -390,6 +385,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-activate', pokemon, 'ability: Soothing Presence');
 				this.add('-curestatus', last, status, '[from] ability: Soothing Presence');
 			}
+			// @ts-expect-error
 			pokemon.side.lastSwitchedOut = null;
 		},
 		onTryHit(target, source, move) {
@@ -406,52 +402,72 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
-		flags: {protect: 1},
+		flags: {},
 		name: "Soothing Presence",
-		shortDesc: "Immune to poison. On switch-in, cures the status of the Pokemon it replaced."
+		shortDesc: "Immune to poison. On switch-in, cures the status of the Pokemon it replaced.",
 	},
-
-	// Unfinished / idk how to
 
 	hoothootability: {
 		onStart(pokemon) {
-			pokemon.addVolatile('ability:normalize');
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasType('Normal') || !pokemon.addType('Normal')) continue;
-				this.add('-start', pokemon, 'typeadd', 'Normal', '[from] ability: Hoothoot Ability');
+			for (const allMons of this.getAllActive()) {
+				if (allMons.hasType('Normal') || !allMons.addType('Normal')) continue;
+				this.add('-start', allMons, 'typeadd', 'Normal', '[from] ability: Hoothoot Ability');
 			}
 		},
 		onUpdate(pokemon) {
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasType('Normal') || !pokemon.addType('Normal')) continue;
-				this.add('-start', pokemon, 'typeadd', 'Normal', '[from] ability: Hoothoot Ability');
+			for (const allMons of this.getAllActive()) {
+				if (allMons.hasType('Normal') || !allMons.addType('Normal')) continue;
+				this.add('-start', allMons, 'typeadd', 'Normal', '[from] ability: Hoothoot Ability');
 			}
+		},
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (!(move.isZ && move.category !== 'Status') &&
+				// TODO: Figure out actual interaction
+				(!noModifyType.includes(move.id) || this.activeMove?.isMax) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Normal';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		flags: {},
 		name: "Hoothoot Ability",
-		shortDesc: "Adds the Normal type to all Pokemon on the field. This Pokemon has Normalize.",
+		shortDesc: "Effects of Normalize + On switch, adds the Normal type to all Pokemon on the field.",
 	},
 	mitosis: {
-		onDamagingHit(damage, target, source, move) {
-			if (!move || move.effectType !== 'Move' || source === target) return;
-			const stats: BoostID[] = [];
-			let stat: BoostID;
-			//console.log(target);
-			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
-					stats.push(stat);
-				}
-			}
-			if (stats.length) {
-				const randomStat = this.sample(stats);
-				const boost: SparseBoostsTable = {};
-				boost[randomStat] = 1;
-				this.boost(boost);
-			}
+		onAfterMove(source, target, move) {
+			if (!source.hp || !move.multihit) return;
+			// this is a horrible implementation, but it works
+			this.add('-ability', source, 'Mitosis');
+			source.baseStoredStats.atk = Math.min(255, source.baseStoredStats.atk + 4);
+			source.baseStoredStats.def = Math.min(255, source.baseStoredStats.def + 4);
+			source.baseStoredStats.spa = Math.min(255, source.baseStoredStats.spa + 4);
+			source.baseStoredStats.spd = Math.min(255, source.baseStoredStats.spd + 4);
+			source.baseStoredStats.spe = Math.min(255, source.baseStoredStats.spe + 4);
+
+			// Recalculate new stats
+			source.storedStats.atk = source.baseStoredStats.atk;
+			source.storedStats.def = source.baseStoredStats.def;
+			source.storedStats.spa = source.baseStoredStats.spa;
+			source.storedStats.spd = source.baseStoredStats.spd;
+			source.storedStats.spe = source.baseStoredStats.spe;
+			source.speed = source.storedStats.spe;
+
+			// Apply new stats
+			this.add('-setboost', source, 'basestats', 'atk', source.baseStoredStats.atk, '[silent]');
+			this.add('-setboost', source, 'basestats', 'def', source.baseStoredStats.def, '[silent]');
+			this.add('-setboost', source, 'basestats', 'spa', source.baseStoredStats.spa, '[silent]');
+			this.add('-setboost', source, 'basestats', 'spd', source.baseStoredStats.spd, '[silent]');
+			this.add('-setboost', source, 'basestats', 'spe', source.baseStoredStats.spe, '[silent]');
 		},
 		flags: {},
 		name: "Mitosis",
-		shortDesc: "Raises a random stat stage when hit.",
-		// Not the preferred implementation
+		shortDesc: "When this Pokemon uses a multi-hit move, its stats increase by 4.",
 	},
 };

@@ -391,6 +391,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 					if (secondary.volatileStatus && target.volatiles[secondary.volatileStatus]) continue; //volatile on mon already having volatile
 					if (secondary.volatileStatus === 'flinch' && (!this.battle.queue.willMove(target) || target.newlySwitched)) continue; //flinch on target who switched or already moved
+					if (this.battle.field.isTerrain('mistyterrain') && target.isGrounded() && (secondary.status || secondary.volatileStatus === 'confusion')) continue; //Misty Terrain blocking status or confusion
 					if (typeof secondary.chance === 'undefined' || secondary.chance >= 100) {
 						this.moveHit(target, source, move, secondary, true, isSelf);
 					}

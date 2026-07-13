@@ -195,7 +195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1025,
 		name: "Sailmara",
 		types: ["Grass", "Flying"],
-		baseStats: {hp: 80, atk: 90, def: 85, spa: 70, spd: 90, spe: 83},
+		baseStats: {hp: 80, atk: 90, def: 85, spa: 70, spd: 90, spe: 81},
 		abilities: {0: "Wind Rider", H: "Chlorophyll"},
 		weightkg: 3.0,
 	},

@@ -31,7 +31,6 @@ After that, find the right section within the formats list that describes your m
 
 // Imports
 import { Formats as Abilitypos                  } from '../data/mods/abilitypos/formats';
-import { Formats as AGoldenExperience           } from '../data/mods/agoldenexperience/formats';
 import { Formats as Alternatium                 } from '../data/mods/alternatium/formats';
 import { Formats as AlternatiumEX               } from '../data/mods/alternatiumex/formats';
 import { Formats as BackToSinnoh                } from '../data/mods/backtosinnoh/formats';
@@ -41,6 +40,7 @@ import { Formats as Beaftopia                   } from '../data/mods/beaftopia/f
 import { Formats as BearticPhone                } from '../data/mods/bearticphone/formats';
 import { Formats as BlackMarket                 } from '../data/mods/blackmarket/formats';
 import { Formats as BlankCanvas                 } from '../data/mods/blankcanvas/formats';
+import { Formats as BoboliefFakemon             } from '../data/mods/bobolieffakemon/formats';
 import { Formats as BookOfEnigmas               } from '../data/mods/bookofenigmas/formats';
 import { Formats as BreedingVariants            } from '../data/mods/breedingvariants/formats';
 import { Formats as BreedingVariantsNatDex      } from '../data/mods/breedingvariantsnatdex/formats';
@@ -77,6 +77,7 @@ import { Formats as FusionEvoCorruptCouncil     } from '../data/mods/fecc/format
 import { Formats as ForgottenMons               } from '../data/mods/forgottenmons/formats';
 import { Formats as FurfrOU                     } from '../data/mods/furfrou/formats';
 import { Formats as Blindsided                  } from '../data/mods/g9blindsided/formats';
+import { Formats as GamenightCAP                } from '../data/mods/gamenightcap/formats';
 import { Formats as gen9Duomod                  } from '../data/mods/g9duomod/formats';
 import { Formats as gen1Azure                   } from '../data/mods/gen1azure/formats';
 import { Formats as gen1BacktothePast           } from '../data/mods/gen1backtothepast/formats';
@@ -123,7 +124,6 @@ import { Formats as gen9FusionEvolutionR        } from '../data/mods/gen9ferestr
 import { Formats as gen9FusionEvolutionVGC      } from '../data/mods/gen9fevgc/formats';
 import { Formats as gen9Multiverse              } from '../data/mods/gen9multiverse/formats';
 //import { Formats as gen9SSB                     } from '../data/mods/gen9ssb/formats';
-import { Formats as gen9Strong                  } from '../data/mods/gen9strong/formats';
 import { Formats as gen9Ubermons                } from '../data/mods/gen9ubermons/formats';
 import { Formats as VaporeMons                  } from '../data/mods/gen9vaporemons/formats';
 import { Formats as gen9VGC20XX                 } from '../data/mods/gen9vgc20xx/formats';
@@ -180,7 +180,6 @@ import { Formats as PokemonThrone               } from '../data/mods/pokemonthro
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
-import { Formats as NukeButtons                 } from '../data/mods/nukebuttons/formats';
 import { Formats as OUTheorymons                } from '../data/mods/outheorymons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
 import { Formats as Patratdex                   } from '../data/mods/patratdex/formats';
@@ -194,6 +193,7 @@ import { Formats as PonymonShowdown             } from '../data/mods/ponymonshow
 import { Formats as PublicDomain                } from '../data/mods/publicdomain/formats';
 import { Formats as RandomTandem                } from '../data/mods/randomtandem/formats';
 import { Formats as ReGeneration                } from '../data/mods/regeneration/formats';
+import { Formats as ResetMons                   } from '../data/mods/resetmons/formats';
 import { Formats as RegionalEvolutions          } from '../data/mods/regionalevolutions/formats';
 import { Formats as Restrictions                } from '../data/mods/restrictions/formats';
 import { Formats as ReturnToOrreTercera         } from '../data/mods/returntoorretercera/formats';
@@ -201,6 +201,7 @@ import { Formats as RockBottom                  } from '../data/mods/rockbottom/
 import { Formats as Roulettemons                } from '../data/mods/roulettemons/formats';
 import { Formats as Roulettemons2               } from '../data/mods/roulettemons2/formats';
 import { Formats as Roulettemons2Ubers          } from '../data/mods/roulettemons2/formats';
+import { Formats as Rpgmod                      } from '../data/mods/rpgmod/formats';
 import { Formats as Scootopia                   } from '../data/mods/scootopia/formats';
 import { Formats as ScootopiaV4                 } from '../data/mods/scootopiav4/formats';
 import { Formats as SecretSanta                 } from '../data/mods/secretsanta/formats';
@@ -219,6 +220,7 @@ import { Formats as SpookyMod                   } from '../data/mods/spookymod/f
 //import { Formats as Stadium                     } from '../data/mods/stadium/formats';
 import { Formats as StadiumYB                   } from '../data/mods/stadiumyb/formats';
 import { Formats as Stereotypes                 } from '../data/mods/stereotypes/formats';
+import { Formats as SU                 			} from '../data/mods/subzeroused/formats';
 import { Formats as SuperSmashOMs               } from '../data/mods/supersmashoms/formats';
 //import { Formats as SuperTypesOU                } from '../data/mods/supertypesou/formats';
 //import { Formats as SylveMonsTest               } from '../data/mods/sylvemonstest/formats';
@@ -227,7 +229,6 @@ import { Formats as TeraForming                 } from '../data/mods/teraforming
 import { Formats as TeraMax                     } from '../data/mods/teramax/formats';
 import { Formats as Terrariamons                } from '../data/mods/terrariamons/formats';
 import { Formats as The331TypeChart             } from '../data/mods/the331typechartg9/formats';
-import { Formats as TheBore                     } from '../data/mods/thebore/formats';
 import { Formats as TierSovereign               } from '../data/mods/tiersovereign/formats';
 import { Formats as Touhou                      } from '../data/mods/toho/formats';
 import { Formats as TPDP                        } from '../data/mods/tpdp/formats';
@@ -235,6 +236,7 @@ import { Formats as TradingPost                 } from '../data/mods/tradingpost
 import { Formats as TrainerSupport              } from '../data/mods/trainersupport/formats';
 import { Formats as TripleThreat                } from '../data/mods/triplethreat/formats';
 import { Formats as TwoStepMonsV3               } from '../data/mods/twostepmonsv3/formats';
+import { Formats as UmbreMons                   } from '../data/mods/umbremons/formats';
 import { Formats as UpsideDown                  } from '../data/mods/upsidedown/formats';
 import { Formats as WeatherWar                  } from '../data/mods/weatherwar/formats';
 import { Formats as Weedmons                    } from '../data/mods/weedmons/formats';
@@ -242,8 +244,10 @@ import { Formats as WhiteTusk                   } from '../data/mods/whitetusk/f
 import { Formats as Woomod                      } from '../data/mods/woomod/formats';
 import { Formats as Worldbuilding               } from '../data/mods/worldbuilding/formats';
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
+import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
+import { Formats as ZAOU						} from '../data/mods/gen9legendsou/formats';
 
-export const Formats: FormatList = [
+export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 9 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -309,6 +313,7 @@ export const Formats: FormatList = [
 	...gen1RBYCAP,
 	...ReGeneration,
 	...RegionalEvolutions,
+	...ResetMons,
 	...ReturnToOrreTercera,
 	...Roulettemons2,
 	...SecretSanta,
@@ -326,9 +331,11 @@ export const Formats: FormatList = [
 	...TripleThreat,
 	...TwoStepMonsV3,
 	...gen9Ubermons,
+	...UmbreMons,
 	...VaporeMons,
 	...Worldbuilding,
 	...gen9VGC20XX,
+	...ZAOU,
 	
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -360,7 +367,6 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	...gen533Valuemons,
-	...AGoldenExperience,
     //...gen3AdvPlus,
 	...gen3AdvDeluxe,
 	...gen3Tradebacks,
@@ -385,10 +391,11 @@ export const Formats: FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
 	...gen2GSCDoubles,
-	...gen8HaxMeters,
+	...HaxMeters,
 	//...gen3Hoennification, 
 	//...iforgor,
 	...gen1JohtoMons,
@@ -397,25 +404,24 @@ export const Formats: FormatList = [
 	...gen1JumpStarted,
 	...KaensDex,
 	...gen1KantoExpansionPack,
+	...BoboliefFakemon,
 	...Lovelymod,
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
 	...MegaMania,
 	...gen1Metronome,
-	...NukeButtons,
 	...Solopet,
 	...gen1Moonside,
-	...TheBore,
 	...Patratdex,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
 	...PonymonShowdown,
-	...gen9Strong,
 	...Pokemorty,
 	...gen1Recolored,
 	...RockBottom,
 	//...RoulettemonsSolomod,
+	...Rpgmod,
 	...Scootopia,
 	...ScootopiaV4,
 	...Shinymons,
@@ -434,6 +440,7 @@ export const Formats: FormatList = [
 	...Weedmons,
 	...Woomod,
 	//...YayaMons
+	...Yokaimons,
 
 	/*{
 		section: "Randbats",
@@ -491,6 +498,7 @@ export const Formats: FormatList = [
 	...FurfrOU,
 	...LittlestCup,
 	...PLZA,
+	...SU,
 	...TPDP,
 	...WhiteTusk,
 	

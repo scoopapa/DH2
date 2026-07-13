@@ -1,4 +1,403 @@
 export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
+	nightlight: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' || move.type === 'Dark') {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Night Light",
+		shortDesc: "Damage from Ghost- and Dark-type moves against this Pokemon is halved.",
+	},
+	webtrap: {
+		name: "Web Trap",
+		shortDesc: "Contact with this Pokémon inflicts Webbed. (Webbed Pokemon cannot pivot out.)",
+		onDamagingHit(damage, target, source, move) {
+			if (!move.flags['contact']) return;
+			if (source.volatiles['webbed']) return;
+
+			source.addVolatile('webbed');
+			this.add('-ability', target, 'Web Trap', '[silent]');
+		},
+	},
+	kinglymajesty: {
+		onDamage(damage, target, source, effect) {
+			if (target.hp - damage <= target.maxhp / 2 && target.hp > target.maxhp / 2) {
+				target.abilityState.activated = false;
+			} else {
+				target.abilityState.activated = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.abilityState.activated === false) {
+				pokemon.abilityState.activated = true;
+				pokemon.abilityState.priorityBoost = true;
+				this.add('-ability', pokemon, 'Kingly Majesty');
+            	this.add('-message', `${pokemon.name} demands reverence!`);
+			}
+		},
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (pokemon.abilityState.priorityBoost) {
+				pokemon.abilityState.priorityBoost = false;
+				return 0.1;
+			}
+		},
+		onStart(pokemon) {
+			// Explicitly clear any leftover boost when the ability (re)activates,
+			// e.g. on switch-in — ensures the boost never carries over between stints on the field.
+			pokemon.abilityState.priorityBoost = false;
+		},
+		flags: {},
+		name: "Kingly Majesty",
+		shortDesc: "When this Pokemon falls to 50%≤ of its max HP, its next move is first in its priority bracket.",
+
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no Atk loss.",
+		rating: 4,
+		num: -1002, // placeholder ID for custom content
+	},
+	soothingsong: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.flags['sound']) {
+				for (const ally of pokemon.alliesAndSelf()) {
+					this.heal(ally.baseMaxhp / 8, ally);
+				}
+			}
+		},
+		flags: {},
+		name: "Soothing Song",
+		shortDesc: "When this Pokémon uses a sound move, it and its allies heal 12.5% of their max HP.",
+	},
+	sunkissed: {
+		desc: "This Pokémon's Fairy-type attacks cause the target to become Sunkissed. Fire-type attacks deal 1.5× damage to Sunkissed Pokémon and remove the condition.",
+		shortDesc: "Fairy attacks Sunkiss the target; Fire attacks: 50% more damage to Sunkissed Pokémon.",
+		onSourceHit(target, source, move) {
+			if (move.category !== 'Status' && move.type === 'Fairy') {
+				target.addVolatile('sunkissed');
+			}
+		},
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'Sunkissed', '[from] ability: Sunkissed', '[of] ' + source);
+			},
+			onAnyDamage(damage, target, source, effect) {
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectState.target) {
+					this.effectState.trigger = true;
+					return this.chainModify(1.5);
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.trigger) {
+					pokemon.removeVolatile('sunkissed');
+					this.add('-end', pokemon, 'Sunkissed', '[silent]');
+					this.hint("The Sunkissed glow faded!");
+				}
+			},
+		},
+		name: "Sunkissed",
+		rating: 3,
+		num: -56,
+	},
+	lithosynthesis: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				pokemon.addVolatile('lithosynthesis');
+			} else if (!pokemon.volatiles['lithosynthesis']?.fromBooster && pokemon.hp > pokemon.maxhp / 3) {
+				pokemon.removeVolatile('lithosynthesis');
+			}
+		},
+		onUpdate(pokemon) {
+			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isWeather('sandstorm')) {
+				pokemon.addVolatile('lithosynthesis');
+			} else if (!pokemon.volatiles['lithosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('lithosynthesis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['lithosynthesis'];
+			this.add('-end', pokemon, 'lithosynthesis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Lithosynthesis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Lithosynthesis');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosynthesis');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Lithosynthesis",
+		shortDesc: "Under Sandstorm/Red HP/Booster Energy: Highest stat 1.3x (1.5x if Speed).",
+	},
+	consumption: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move?.effectType === 'Move' && target?.hp === 0) {
+				this.add('-ability', source, 'Consumption');
+				this.heal(source.baseMaxhp / 3, source);
+			}
+		},
+		name: "Consumption",
+		shortDesc: "Heals 33% HP on KO.",
+	},
+	redsoul: {
+		onModifyAtk(atk, pokemon) {
+			let boost = 1.2;
+			for (const ally of pokemon.alliesAndSelf()) {
+				if (ally.hasAbility('bluesoul')) {
+					boost = 1.5;
+					break;
+				}
+			}
+			return this.chainModify(boost);
+		},
+		name: "Red Soul",
+		shortDesc: "Attack x1.2; x1.5 if an ally has Blue Soul.",
+	},
+	bluesoul: {
+		onModifyDef(def, pokemon) {
+			let boost = 1.2;
+			for (const ally of pokemon.alliesAndSelf()) {
+				if (ally.hasAbility('redsoul')) {
+					boost = 1.5;
+					break;
+				}
+			}
+			return this.chainModify(boost);
+		},
+		name: "Blue Soul",
+		shortDesc: "Defense x1.2; x1.5 if an ally has Red Soul.",
+	},
+	flashfreeze: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfreeze')) {
+					this.add('-immune', target, '[from] ability: Flash Freeze');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfreeze');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Flash Freeze');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Ice' && attacker.hasAbility('flashfreeze')) {
+					this.debug('Flash Freeze boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Ice' && attacker.hasAbility('flashfreeze')) {
+					this.debug('Flash Freeze boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Flash Freeze', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Flash Freeze",
+		rating: 3.5,
+		num: 18,
+	},
+	scorching: {
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
+				if (move.type !== 'Fire') {
+					return this.chainModify(1.3);
+				}
+			}
+		},
+		name: "Scorching",
+		shortDesc: "In sun, this Pokémon's non-Fire moves have 1.3x power.",
+	},
+	magnetic: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Steel') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Magnetic');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Steel' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magnetic",
+		shortDesc: "This Pokemon draws Steel moves to itself to raise it's Atk by 1; Steel Immunity.",
+	},
+	flicker: {
+		onStart(pokemon) {
+			if (pokemon.outFlickered) return;
+			pokemon.addVolatile('flicker');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+            this.add('-start', target, 'ability: Flicker');
+            this.add('-message', `${target.name} is flickering!`);
+            this.add('-anim', target, 'Double Team', target);
+			},
+			onTryHit(target, source, move) {
+				if (move.category !== 'Status' && target !== source) {
+					this.add('-immune', target, '[from] ability: Flicker');
+					return null;
+				}
+			},
+			onEnd(target) {
+				target.outFlickered = true;
+				this.add('-end', target, 'Flicker');
+            	this.add('-message', `${target.name} has stopped flickering!`);
+			},
+		},
+		flags: {breakable: 1},
+		name: "Flicker",
+		shortDesc: "Once per battle, this Pokemon dodges any attacking move on it's first active turn.",
+	},
+	aimassist: {
+		onStart(source) {
+			const target = source.side.foe.active[0];
+			target.addVolatile('lockon', source);
+			this.add('-activate', target, 'move: Lock-On', '[of] ' + source);
+		},
+		name: "Aim Assist",
+		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
+	},
+	honeygather: {
+		name: "Honey Gather",
+		shortDesc: "If itemless: 50% chance to get Honey; 100% in Misty Terrain. Heals 1/8th max HP if holding Honey. Honey cannot be removed.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.hp && !pokemon.item) {
+				if (this.field.isTerrain('mistyterrain')) {
+					pokemon.setItem('honey');
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
+				} else if (this.randomChance(5, 10)) {
+					pokemon.setItem('honey');
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
+				}
+			}
+			if (pokemon.hasItem('honey')) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
+	goldengale: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['wind']) {
+				return this.chainModify(0.5);
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['wind']) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Golden Gale",
+		shortDesc: "This Pokemon takes halved damage from wind moves; its own have 1.3x power.",
+	},
+	calamitycore: {
+		name: "Calamity Core",
+		shortDesc: "If an opposing Pokémon inflicts a status on this Pokémon, it is cured and adjacent Pokémon lose 1/8 max HP.",
+		onSetStatus(status, target, source, effect) {
+			if (!source || source.isAlly(target)) return;
+			this.add('-ability', target, 'Calamity Core');
+			this.add('-message', `${target.name}'s core erupted!`);
+			target.cureStatus();
+			for (const mon of target.adjacentAlliesAndFoes()) {
+				if (mon === target) continue;
+				this.damage(mon.baseMaxhp / 8, mon, target);
+			}
+		},
+	},
+	whitegale: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (
+				move?.type === 'Flying' &&
+				(pokemon.hp === pokemon.maxhp || pokemon.hp <= pokemon.maxhp / 2)
+			) {
+				return priority + 1;
+			}
+		},
+		shortDesc: "Flying moves get +1 priority at full HP or at 50% HP or less.",
+		flags: {},
+		name: "White Gale",
+	},
+	megasol: {
+		isNonstandard: null,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (this.field.weather !== 'sunnyday') {
+				(this.dex.conditions.getByID('sunnyday' as ID) as any).onWeatherModifyDamage
+					.call(this, damage, attacker, defender, move);
+			}
+		},
+		flags: {},
+		name: "Mega Sol",
+		rating: 3,
+		num: 315,
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+	},
 	absolutezero: {
 		onStart(source) {
 			this.field.setWeather('absolutezero');
@@ -83,30 +482,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less.",
 	},
 	bewitchingtail: {
-    onModifyAtk(atk, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1333); // 1.2x
-        }
-    },
-    onModifySpA(spa, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1333); // 1.2x
-        }
-    },
-    onModifySpe(spe, pokemon, target, move) {
-        if (target && target.status === 'slp') {
-            return this.chainModify(0x1800); // 1.5x
-        }
-    },
-    onSourceModifyDamage(damage, source, target, move) {
-        if (source.status === 'slp') {
-            return this.chainModify(0.8);
-        }
-    },
-    flags: {},
-    name: "Bewitching Tail",
-    shortDesc: "Targeting drowsy foes: Offenses 1.2x, Spe 1.5x | From drowsy foes: 0.8x Damage.",
-},
+		onModifySpe(spe, pokemon, target, move) {
+			if (target && target.status === 'slp') {
+				return this.chainModify(0x1800); // 1.5x
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.status === 'slp') {
+				return this.chainModify(0.8);
+			}
+		},
+		flags: {},
+		name: "Bewitching Tail",
+		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage.",
+	},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
 			const terrain = this.field.terrain;
@@ -188,11 +577,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onModifySpA(spa, pokemon, defender, move) {
 			if (pokemon.status === 'brn' || pokemon.status === 'dragonblight') {
-				return this.chainModify(1.3);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Black Flame",
-		shortDesc: "If BRN/DRGB: Drawbacks ignored, Offenses 1.3x.",
+		shortDesc: "If BRN/DRGB: Drawbacks ignored, Offenses 1.5x.",
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -224,7 +613,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Big Pecks",
-		shortDesc: "Holder's Speed is raised by 2 for each of its stats that is lowered by a Foe.",
+		shortDesc: "Holder's Attack is raised by 2 for each of its stats that is lowered by a Foe.",
 	},
 	butterflystar: {
 		onModifyMovePriority: 1,
@@ -461,16 +850,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Dragon Point",
 		shortDesc: "Using contact moves: 30% chance to inflict Dragonblight on the target.",
 	},
-	dragonvein: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.heal(source.baseMaxhp / 4);
-			}
-		},
-		name: "Dragonvein",
-		desc: "When it KOs an opponent with a direct move, it recovers 25% of its max HP.",
-		shortDesc: "Heals 25% HP on KO.",
-	},
 	dukesbayonet: {
 		onModifyMove(move) {
 			if (move.flags['contact']) {
@@ -487,6 +866,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Duke's Bayonet",
+		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
+	},
+	piercingdrill: {
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			// If the move was marked armorPiercer and the target is under Protect
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Duke\'s Bayonet: reduced damage to 25% through Protect');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Piercing Drill",
 		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
 	},
 	dulledblades: {
@@ -1144,7 +1541,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
-				this.add('-activate', target, 'ability: Permafrost');
 				this.boost({def: 1}, target);
 			}
 		},
@@ -1156,7 +1552,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			onModifyTypePriority: -1,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
-					this.add('-activate', pokemon, 'ability: Permafrost');
 					move.type = 'Ice';
 				}
 			},
@@ -1166,7 +1561,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Permafrost",
-		shortDesc: "Targeted by Water moves: They become Ice | Hit by Ice Moves: 1+ Def.",
+		shortDesc: "Targeted by Water-type moves: They become Ice-type | Hit by Ice-type Moves: 1+ Def.",
 	},
 	plow: {
 		onTryHit(target, source, move) {
@@ -1359,11 +1754,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Hit by Contact moves: 30% chance of inflicting Stench.",
 		name: "Pungency",
 	},
-	ragingrebel: {
-		onAllyBasePowerPriority: 22,
-		onAllyBasePower(basePower, attacker, defender, move) {
+		ragingrebel: {
+		onModifyAtk(atk, attacker, defender, move) {
+			// Check if user or any ally has stat drops
 			let rebel = false;
-			for (const pokemon of this.getAllActive()) {
+			for (const pokemon of attacker.side.active) {
+				if (!pokemon) continue;
 				for (const stat in pokemon.boosts) {
 					if (pokemon.boosts[stat as BoostName] < 0) {
 						rebel = true;
@@ -1373,13 +1769,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (rebel) break;
 			}
 			if (rebel) {
-				this.debug('Raging Rebel boost');
-				this.add('-activate', attacker, 'ability: Raging Rebel');
+				this.debug('Raging Rebel Attack boost');
 				return this.chainModify(1.3);
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			// Prevent Attack drops from applying to this Pokémon
+			// Prevent Attack drops from applying
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
 				if (!(effect as ActiveMove)?.secondaries) {
@@ -1388,32 +1783,35 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onUpdate(pokemon) {
+			// Cure burn if somehow applied
 			if (pokemon.status === 'brn') {
 				this.add('-immune', pokemon, '[from] ability: Raging Rebel');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
+			// Prevent burn from being applied
 			if (status === 'brn') {
 				this.add('-immune', target, '[from] ability: Raging Rebel');
 				return false;
 			}
 		},
+
 		flags: {},
 		name: "Raging Rebel",
-		shortDesc: "This Pokémon & allies: 1.3x damage when any foe has stat drops; Attack can't be lowered. BRN Immune.",
+		shortDesc: "1.3x Atk if it or allies have stat drops. Ignores Atk drops. BRN immune.",
 	},
 	razoredge: {
 		onSourceDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(5, 10)) {
+				{
 					target.addVolatile('bleeding', source);
 				}
 			}
 		},
 		flags: {},
-		shortDesc: "Contact moves have a 50% chance to inflict bleed on the target.",
+		shortDesc: "Contact moves inflict bleed on the target.",
 		name: "Razor Edge",
 	},
 	reactivecore: {
@@ -1590,7 +1988,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.actions.useMove(reaction, target, source);
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
+		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Dark') {
 				return this.chainModify(0.5);
 			}
@@ -2078,6 +2476,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	/*
 	Edits
 	*/
+	firemane: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ironfist: {
 		inherit: true,
 		onModifyMove(move) {

@@ -7,6 +7,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Eruptive",
+		longDesc: `When attacking the Pokémon while it's charging a two-turn move, the attacker is burned.`,
 		shortDesc: "While charging a two-turn move, burns attackers.",
 		rating: 3,
 		num: -1,
@@ -30,6 +31,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Berserk Awakening",
+		longDesc: `Changes to Berserk Forme when awake and Hibernating Forme when asleep.`,
 		shortDesc: "Hibearlax: Berserk while awake, Hibernating while asleep.",
 		rating: 3,
 		num: -2,
@@ -44,6 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Awakening",
+		longDesc: `Fighting-type moves used by the Pokémon's side are boosted by 50%.`,
 		shortDesc: "Boosts team's Fighting moves by 50%.",
 		rating: 3,
 		num: -3,
@@ -66,6 +69,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Permafrost",
+		longDesc: `All the Pokémon's moves become Ice type. The power of those moves is boosted a little. <i>(20% boost)</i>`,
 		shortDesc: "Most moves become Ice-type; 20% boost.",
 		rating: 3,
 		num: -4,
@@ -77,6 +81,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Mindful",
+		longDesc: `When the Pokémon is hit by a status move, its Sp. Atk stat is boosted.`,
 		shortDesc: "Raises Sp. Atk when hit by a status move.",
 		rating: 3,
 		num: -5,
@@ -102,6 +107,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Snowball Effect",
+		longDesc: `When the Pokémon uses Ice Ball or Snow Roller, its Attack stat is boosted and its Speed stat is sharply boosted.<br>When its Speed can't go up any more, its Speed is reset and it flies off the field...`,
 		shortDesc: "Ice Ball, Snow Roller: +1 Atk, +2 Spe; already max Spe -> pivot out.",
 		rating: 3,
 		num: -6,
@@ -128,6 +134,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Storm Chaser",
+		longDesc: `Halves the damage taken from Water-, Electric- and Flying-type moves.<br>When the Pokémon is hit by an attack of one of those types, it makes it rain.`,
 		shortDesc: "Hit by Water, Flying, Electric moves: halves damage, sets rain.",
 		rating: 3,
 		num: -7,
@@ -138,6 +145,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Spiritual",
+		longDesc: `Halves the damage taken from Ghost-type moves.`,
 		shortDesc: "Halves damage from Ghost moves.",
 		rating: 3,
 		num: -8,
@@ -150,6 +158,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Martial Master",
+		longDesc: `Halves the damage taken from Fighting-type moves by the Pokémon and its allies (students).`,
 		shortDesc: "Halves damage from Fighting moves; also affects allies.",
 		rating: 3,
 		num: -9,
@@ -165,6 +174,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Pollen Basket",
+		longDesc: `Halves the damage taken from Bug-type moves.<br>When the Pokémon is hit by a Bug-type attack, its Defense stat is boosted.`,
 		shortDesc: "Hit by Bug moves: halves damage, +1 Def.",
 		rating: 3,
 		num: -10,
@@ -177,6 +187,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Patch Note",
+		longDesc: `Halves the damage taken from moves whose types are hit super effectively by the Pokémon's primary type.`,
 		shortDesc: "Halves damage if primary type is SE on attack type.",
 		rating: 3,
 		num: -11,
@@ -209,6 +220,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Rust Control",
+		longDesc: `Halves the damage taken from Poison- and Ground-type moves and prevents the Pokémon from being poisoned.`,
 		shortDesc: "Halves damage from Poison, Ground moves; immune to poison, Toxic.",
 		rating: 3,
 		num: -12,
@@ -222,6 +234,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Directing Traffic",
+		longDesc: `Halves the damage taken from Normal-type moves and prevents the Pokémon from flinching.`,
 		shortDesc: "Halves damage from Normal moves; immune to flinching.",
 		rating: 3,
 		num: -13,
@@ -247,6 +260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "High Climber",
+		longDesc: `Halves the damage taken from Rock-type moves.<br>It also protects the Pokémon from the additional effects of Rock-type moves and from being affected by Intimidate.`,
 		shortDesc: "Halves damage: Rock moves, Stealth Rock; immune to: Rock secondary effects, Intimidate.",
 		rating: 3,
 		num: -14,
@@ -265,6 +279,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Divinated Protection",
+		longDesc: `The Pokémon takes no damage when hit by Ghost-type moves.<br>This also halves the damage taken from special moves when the Pokémon's HP is full.`,
 		shortDesc: "Ghost-immune; at full HP, halves damage from special moves.",
 		rating: 3,
 		num: -15,
@@ -285,6 +300,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Shattering Clay",
+		longDesc: `When the Pokémon is hit by a physical attack, it scatters stone splinters that damage all Pokémon adjacent to it.<br><i>(The damage is the same as Stealth Rock.)</i>`,
 		shortDesc: "Rocks damage surrounding Pokémon when hit with a physical move.",
 		rating: 3,
 		num: -16,
@@ -347,6 +363,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 		name: "Chain Link",
+		longDesc: `When the Pokémon is on the field alongside a Steel-type ally, the Pokémon gains the Steel type and its ally loses the Steel type.`,
 		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
 		rating: 3,
 		num: -17,
@@ -374,6 +391,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Withering Glare",
+		longDesc: `Prevents moves and Abilities from raising or lowering any Pokémon's stats.`,
 		shortDesc: "Pokémon's stats can't be raised or lowered.",
 		rating: 3,
 		num: -18,
@@ -395,6 +413,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Calcify",
+		longDesc: `Powers up Rock-type moves. <i>(30% boost)</i>`,
 		shortDesc: "Boosts Rock-type moves by 1.3x.",
 		rating: 3,
 		num: -19,
@@ -416,6 +435,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Frigid Focus",
+		longDesc: `In snow or hail, the Pokémon's Sp. Atk stat is boosted, but its HP decreases every turn.<br>The Pokémon also doesn't take damage from hail.`,
 		shortDesc: "Snow/hail: 1.5x SpA, but the user loses 1/8 HP each turn.",
 		rating: 3,
 		num: -20,
@@ -448,6 +468,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Scale Shift",
+		longDesc: `The Pokémon copies its partner's primary type, unless that type is already one of the Pokémon's types.`,
 		shortDesc: "In a double battle, the Pokémon copies its partner's first type.",
 		rating: 3,
 		num: -21,
@@ -472,6 +493,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.effectState.target;
 			}
 		},
+		longDesc: `The Pokémon draws in all Ground-type moves.<br>Instead of taking damage from them, its Attack stat is boosted.`,
 		shortDesc: "Draws in Ground-type moves to raise Attack.",
 		flags: {breakable: 1},
 		name: "Centrifuge",
@@ -519,6 +541,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Cheap Tricks",
+		longDesc: `Halves the damage taken from Dark-type moves.<br>Before a Dark-type move hits the Pokémon, it quickly trades held items with the attacker.`,
 		shortDesc: "Hit by Dark moves: halves damage, swaps items before hit.",
 		rating: 3,
 		num: -23,
@@ -527,6 +550,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// Slate 2
 
 	fendente: { // for Hisuian Kabutops
+		longDesc: `Gives priority to the Pokémon's slicing moves while its HP is full.<br>When the Pokémon's HP is low, its slicing moves always result in a critical hit. <i>(1/3 HP or less)</i><br>Using a slicing move at any other HP range boosts the Pokémon's Defense.`,
 		shortDesc: "Slicing moves: +1 priority at full HP, always crit at 1/3 HP or less, +1 Defense otherwise.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move.flags['slicing'] && pokemon.hp === pokemon.maxhp) return priority + 1;
@@ -569,6 +593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Canopy",
+		longDesc: `Powers up Grass-type moves. <i>(30% boost)</i>`,
 		shortDesc: "Boosts Grass-type moves by 1.3x.",
 		rating: 3,
 		num: -25,
@@ -602,6 +627,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 		name: "Power Surge",
+		longDesc: `The Pokémon instantly eliminates all effects of terrain.<br>Eliminating the effects of a terrain also powers up the next move used by the Pokémon and its partner. <i>(1.3x; each one gets one boost)</i>`,
+		shortDesc: "Eliminates terrain on entry -> 1.3x each ally's next move.",
 		rating: 3,
 		num: -26,
 	},
@@ -622,10 +649,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Slime Time",
+		longDesc: `When the Pokémon enters a battle, it covers its team in silly slime, harshly lowering their Speed stats.​`,
+		shortDesc: "Harshly lowers own side's Speed on entry.",
 		rating: -1,
 		num: -27,
 	},
 	inspirit: { // for Johtonian Shiftry
+		longDesc: `When the Pokémon enters a battle, it attempts to switch types with its ally.<br>If successful, it also raises one of its stats based on the ally's most proficient stat.​`,
 		shortDesc: "On switch-in: swaps type with ally, boosts a stat based on ally's best.",
 		onStart(pokemon) {
 			if (pokemon.species && (pokemon.species.num === 493 || pokemon.species.num === 773)) return;
@@ -686,6 +716,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -28,
 	},
 	noblepotential: { // for Zavender
+		longDesc: `Boosts the Pokémon’s most proficient stat the first time the Pokémon enters a battle.`,
 		shortDesc: "On switch-in, this Pokémon's highest stat is raised by 1 stage. Once per battle.",
 		onStart(pokemon) {
 			if (pokemon.nobleBoost) return;
@@ -699,6 +730,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -29,
 	},
 	batteryleak: { // for Chained Charjabug and Charjouleak
+		longDesc: `Contact with the Pokémon may badly poison the attacker. <i>(30% chance)</i>`,
 		shortDesc: "30% chance a Pokémon making contact with this Pokémon will be badly poisoned.",
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -714,6 +746,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	twominded: { // copied from M4A; for the Riboxys family
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
+		longDesc: `When the Pokémon's Attack stat or Sp. Atk stat is raised or lowered, the other stat is affected in the opposite way.<br>Also, when the Pokémon's Defense stat or Sp. Def stat is raised or lowered, the other stat is affected in the opposite way.`,
 		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'twominded') return;
@@ -745,6 +778,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -31,
 	},
 	archetype: { // for Spirited Away
+		longDesc: `Each time the Pokémon lowers the stats of another Pokémon, its own stats will be boosted by the same amount.`,
 		shortDesc: "Lowering a target's stat boosts this Pokémon the same amount.",
 		onAnyAfterBoost(boost, target, source, effect) {
 			const pokemon = this.effectState.target;
@@ -764,6 +798,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -32,
 	},
+	disengage: { // for Narcissopod
+		longDesc: `The Pokémon, avoiding conflict, switches out when its HP drops to half or less.`,
+		shortDesc: "This Pokémon switches out when it reaches 1/2 or less of its maximum HP.",
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.switchFlag = true;
+			this.add('-activate', target, 'ability: Disengage');
+		},
+		name: "Disengage",
+		rating: 1,
+		num: -33,
+	},
+	
 
 // modded canon Abilities
 

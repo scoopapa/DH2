@@ -425,6 +425,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 			shortDesc: "10% chance of poison/paralysis/sleep on others making contact with this Pokemon.",
 		},
 	},
+	eelevate: {
+		name: "Eelevate",
+		desc: "This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity. Thousand Arrows can hit this Pokemon as if it did not have this Ability. This Pokemon's highest stat is raised by 1 stage if it attacks and knocks out another Pokemon. Stat stage changes are not considered. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order.",
+		shortDesc: "This Pokemon is immune to Ground; +1 to highest stat if it KOes another Pokemon.",
+	},
 	electricsurge: {
 		name: "Electric Surge",
 		shortDesc: "On switch-in, this Pokemon summons Electric Terrain.",
@@ -474,6 +479,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	filter: {
 		name: "Filter",
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
+	},
+	firemane: {
+		name: "Fire Mane",
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Fire-type attack.",
 	},
 	flamebody: {
 		name: "Flame Body",

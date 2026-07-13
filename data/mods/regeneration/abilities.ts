@@ -78,23 +78,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['spikes', 'stealthrock']) {
-				if (pokemon.side.getSideCondition(sideCondition)) {
+				if (pokemon.side.getSideCondition(sideCondition) && !pokemon.side.getSideCondition('excavate')) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Excavate');
-		            activated = true;
+						activated = true;
 					}
-					pokemon.side.removeSideCondition(sideCondition);
 				}
-			   if (pokemon.side.getSideCondition('spikes')) {
-			      this.boost({def: 1}, pokemon);
+				if (pokemon.side.getSideCondition('spikes') && !pokemon.side.getSideCondition('excavate')) {
+					this.add('-sideend', pokemon.side, 'move: Spikes', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('spikes');
+					this.boost({ def: 1 }, pokemon);
+					pokemon.side.addSideCondition('excavate');
 				}
-			   if (pokemon.side.getSideCondition('stealthrock')) {
-			      this.boost({def: 1}, pokemon);
+				if (pokemon.side.getSideCondition('stealthrock') && !pokemon.side.getSideCondition('excavate')) {
+					this.add('-sideend', pokemon.side, 'move: Stealth Rock', `[of] ${pokemon}`);
+					pokemon.side.removeSideCondition('stealthrock');
+					this.boost({ def: 1 }, pokemon);
+					pokemon.side.addSideCondition('excavate');
 				}
 			}
 		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Excavate Used');
+			},
+		},
 		name: "Excavate",
-		shortDesc: "Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
+		shortDesc: "Once per game. Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
 		rating: 4,
 	},
 	lifeguard: {
@@ -141,7 +151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
 				this.boost({atk: 1, spa: 1, spe: 1}, target, target);
-				pokemon.addVolatile('perishsong');
+				target.addVolatile('perishsong');
 			}
 		},
 		name: "Ballooning",
@@ -223,5 +233,135 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon restored 1/8 of its max HP per turn if it's burned. Ignores burn attack drop.",
 		rating: 4,
 		num: 90,
+	},
+	bullspirit: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || source.switchFlag === true || !move.hitTargets || move.type !== 'Normal') return;
+			this.add('-ability', source, 'Bull Spirit');
+			this.add('-message', `${source.name}'s next attack will be physical!`)
+			source.addVolatile('bullspirit');
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'ability: Bull Spirit');
+			},
+			duration: 2,
+			onModifyMovePriority: 8,
+			onModifyMove(move, pokemon) {
+				if (move.category !== "Status") {
+					move.category = "Physical";
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Bull Spirit', '[silent]');
+			},
+		},
+		flags: {},
+		name: "Bull Spirit",
+		rating: 1,
+		shortDesc: "After using a Normal-type move, the user's next attack will always be physical.",
+	},
+	vineyard: {
+		onTryHit(target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (target !== source && move.flags['wind'] && (!spikes || spikes.layers < 3)) {
+				this.add('-activate', target, 'ability: Vine Yard');
+				side.addSideCondition('spikes', target);
+			}
+		},
+		onTerrainChange(pokemon) {
+			const side = pokemon.side.foe;
+			const spikes = side.sideConditions['spikes'];
+			if (this.field.isTerrain('grassyterrain') && (!spikes || spikes.layers < 3)) {
+				this.add('-activate', pokemon, 'ability: Vine Yard');
+				side.addSideCondition('spikes', pokemon);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Vine Yard",
+		rating: 3.5,
+		shortDesc: "If hit by a Wind move or Grassy Terrain set, sets Spikes on foe's side; Wind immunity.",
+	},
+    bloodbank: {
+        onAfterMoveSecondarySelf(source, target, move) {
+            if (!move || !move.flags['bite'] ||!target) return;
+            this.add('-ability', source, 'Blood Bank');
+            this.add('-message', `${source.name} stored some of ${target.illusion ? target.illusion.name : target.name}'s HP in its blood bank!`);
+            if (!this.effectState.hp) this.effectState.hp = 0;
+            this.effectState.hp += move.multihit ? move.totalDamage : target.getLastAttackedBy().damage;
+        },
+        onSwitchOut(pokemon) {
+            if (this.effectState.hp) {
+                this.add('-ability', pokemon, 'Blood Bank');
+                if (pokemon.hp < pokemon.maxhp) {
+                    pokemon.heal(this.effectState.hp / 2);
+                    this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+                    this.add('-message', `${pokemon.name} restored its HP with its blood bank!`);
+                } else {
+                    this.add('-message', `${pokemon.name} is ready to share its blood bank!`);
+                }
+                if (pokemon.side.addSlotCondition(pokemon, 'bloodbank')) pokemon.side.slotConditions[pokemon.position]['bloodbank'].hp = this.effectState.hp / 2;
+                this.effectState.hp = 0;
+            }
+        },
+        condition: {
+            onSwap(target) {
+                if (!target.fainted && (target.hp < target.maxhp)) {
+                    target.heal(this.effectState.hp);
+                    this.add('-heal', target, target.getHealth, '[silent]');
+                    this.add('-message', `${target.illusion ? target.illusion.name : target.name} had its HP restored by ${this.effectState.source.name}'s blood bank!`);
+                }
+                target.side.removeSlotCondition(target, 'bloodbank');
+            },
+        },
+        flags: {},
+        name: "Blood Bank",
+        rating: 3,
+        shortDesc: "Stores HP when biting, then heals self and ally on switch.",
+    },
+	jurassicdust: {
+		// both effects coded elsewhere
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Jurassic Dust",
+		rating: 3.5,
+		shortDesc: "Sandstorm does 2x damage while this Pokemon is active. Held Booster Energy will set up Sandstorm once for 8 turns.",
+	},
+	shortfuse: {
+		onModifyAtk(atk, attacker, defender, move) {
+			if (['explosion','selfdestruct','bravebird','headcharge','volttackle','doubleedge','flareblitz',
+				  'headsmash','submission','takedown','woodhammer','wavecrash','wildcharge'].includes(move.id)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (['mistyexplosion','steelbeam','mindblown','chloroblast','lightofruin'].includes(move.id)) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Short Fuse",
+		rating: 4.5,
+		shortDesc: "Moves that damage the user halve the target(s)'s Defense in calculation.",
+	},
+	rollingstone: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				target.addVolatile('rollingstone');
+				this.add('-ability', target, 'Rolling Stone');
+				this.add('-message', `${target.name} is about to to roll away!`);
+			}
+		},
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				this.add('-ability', pokemon, 'Rolling Stone');
+				this.add('-message', `${pokemon.name} rolled away!`);
+				pokemon.switchFlag = true;
+			},
+		},
+		name: "Rolling Stone",
+		rating: 4.5,
+		shortDesc: "Switches out at end the turn if hit by a contact move.",
 	},
 };

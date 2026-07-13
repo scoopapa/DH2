@@ -532,6 +532,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			case 'primordialsea':
 				if (this.hasItem('utilityumbrella')) return '';
 			}
+        		if (this.hasAbility('lunatictorch') && this.battle.activePokemon === this && weather !== 'sunnyday' && this.battle.field.isTerrain('psychicterrain')) {
+           			 return 'sunnyday' as ID;
+        		}
 			return weather;
 		},
 		setType(newType: string | string[], enforce = false) {

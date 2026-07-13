@@ -274,7 +274,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "If the target is Steel-type, lowers its Sp. Def by 1.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, wind: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Steel Beam", target);
@@ -286,6 +286,50 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+	},
+	chishift: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Chi Shift",
+		shortDesc: "Swaps all changes between the target's Atk and SpA.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source) {
+			const targetBoosts: SparseBoostsTable = {};
+			const atkSpa: BoostID[] = ['atk', 'spa'];
+
+			for (const stat of atkSpa) {
+				targetBoosts[stat] = target.boosts[stat];
+			}
+
+			target.setBoost({atk: targetBoosts.spa, spa: targetBoosts.atk});
+
+			this.add('-setboost', target, 'atk', targetBoosts.spa ?? 0);
+			this.add('-setboost', target, 'spa', targetBoosts.atk ?? 0);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	scathingswarm: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Scathing Swarm",
+		shortDesc: "Lower's the user's Special Attack by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
 	},
 	
 	//edited vanilla moves
@@ -318,6 +362,68 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shadowbone: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	bleakwindstorm: {
+		inherit: true,
+		isNonStandard: null,
+		pp: 5,
+		shortDesc: "1.5x power and can't miss in Snow. Sets target's ability to Delta Stream.",
+		secondary: null,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['snow'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+				move.basePower *= 1.5;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('deltastream');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Delta Stream', '[from] move: Bleakwind Storm');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+	},
+	wildboltstorm: {
+		inherit: true,
+		isNonStandard: null,
+		pp: 5,
+		shortDesc: "Can't miss in Rain; sets Rain.",
+		secondary: null,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			this.field.setWeather('raindance');
+		}
+	},
+	sandsearstorm: {
+		inherit: true,
+		isNonStandard: null,
+		basePower: 110,
+		shortDesc: "30% chance to Burn the target. Can't miss in Sandstorm or Sun.",
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		type: "Rock",
+	},
+	springtidestorm: {
+		inherit: true,
+		isNonStandard: null,
+		accuracy: 100,
+		category: "Physical",
+		pp: 10,
+		shortDesc: "Resets Trick Room if this KOes the target.",
+		secondary: null,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if ((!target || target.fainted || target.hp <= 0) && this.field.pseudoWeather.trickroom) {
+				this.field.removePseudoWeather('trickroom');
+        		this.field.addPseudoWeather('trickroom', pokemon, pokemon, move);
+			}
+		},
 	},
 	
 	//vanilla moves affected by other customs

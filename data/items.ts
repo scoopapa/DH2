@@ -961,6 +961,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
+	chimechite: {
+		name: "Chimechite",
+		spritenum: 0,
+		megaStone: "Chimecho-Mega",
+		megaEvolves: "Chimecho",
+		itemUser: ["Chimecho"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2587,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	chippedpot: {
 		name: "Chipped Pot",
 		spritenum: 720,
@@ -1233,6 +1247,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1885,
 		gen: 9,
+	},
+	crabominite: {
+		name: "Crabominite",
+		spritenum: 0,
+		megaStone: "Crabominable-Mega",
+		megaEvolves: "Crabominable",
+		itemUser: ["Crabominable"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2595,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 	crackedpot: {
 		name: "Cracked Pot",
@@ -2209,7 +2237,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		megaEvolves: "Floette-Eternal",
 		itemUser: ["Floette-Eternal"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.name) return false;
+			if (item.megaEvolves === source.species.name) return false;
 			return true;
 		},
 		num: 2579,
@@ -2521,6 +2549,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
+	glimmoranite: {
+		name: "Glimmoranite",
+		spritenum: 0,
+		megaStone: "Glimmora-Mega",
+		megaEvolves: "Glimmora",
+		itemUser: ["Glimmora"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2600,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	goldbottlecap: {
 		name: "Gold Bottle Cap",
 		spritenum: 697,
@@ -2530,6 +2572,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 796,
 		gen: 7,
 		rating: 0,
+	},
+	golurkite: {
+		name: "Golurkite",
+		spritenum: 0,
+		megaStone: "Golurk-Mega",
+		megaEvolves: "Golurk",
+		itemUser: ["Golurk"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2594,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 	grassgem: {
 		name: "Grass Gem",
@@ -5006,6 +5062,34 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		isNonstandard: "Past",
 		rating: 0,
 	},
+	raichunitex: {
+		name: "Raichunite X",
+		spritenum: 0,
+		megaStone: "Raichu-Mega-X",
+		megaEvolves: "Raichu",
+		itemUser: ["Raichu"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2635,
+		gen: 9,
+		isNonstandard: "Future",
+	},
+	raichunitey: {
+		name: "Raichunite Y",
+		spritenum: 0,
+		megaStone: "Raichu-Mega-Y",
+		megaEvolves: "Raichu",
+		itemUser: ["Raichu"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2636,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	rarebone: {
 		name: "Rare Bone",
 		spritenum: 379,
@@ -5534,6 +5618,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 232,
 		gen: 2,
 	},
+	scovillainite: {
+		name: "Scovillainite",
+		spritenum: 0,
+		megaStone: "Scovillain-Mega",
+		megaEvolves: "Scovillain",
+		itemUser: ["Scovillain"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2599,
+		gen: 9,
+		isNonstandard: "Future",
+	},
 	scraftinite: {
 		name: "Scraftinite",
 		spritenum: 0,
@@ -5939,6 +6037,20 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 499,
 		gen: 2,
 		isPokeball: true,
+	},
+	staraptite: {
+		name: "Staraptite",
+		spritenum: 0,
+		megaStone: "Staraptor-Mega",
+		megaEvolves: "Staraptor",
+		itemUser: ["Staraptor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2639,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 	starfberry: {
 		name: "Starf Berry",

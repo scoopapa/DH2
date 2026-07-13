@@ -462,7 +462,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
-			this.field.setWeather('sandstorm');
+			this.actions.useMove("Sandstorm", pokemon);
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "", target);
 		},
@@ -493,10 +493,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(pokemon){
 				pokemon.setType("Fire");
 				this.add('-start', pokemon, 'typechange', 'Fire');
+				pokemon.removeVolatile('invokehonoikazuchi');
+				pokemon.removeVolatile('invokeishikoridome');
 			},
 			onRestart(pokemon){
 				pokemon.setType("Fire");
 				this.add('-start', pokemon, 'typechange', 'Fire');
+				pokemon.removeVolatile('invokehonoikazuchi');
+				pokemon.removeVolatile('invokeishikoridome');
 			},
 			onModifyType(move, pokemon){
 				if (move.flags["slicing"]) {
@@ -530,11 +534,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.setType("Electric");
 				this.add('-start', pokemon, 'typechange', 'Electric');
 				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokeishikoridome');
 			},
 			onRestart(pokemon){
 				pokemon.setType("Electric");
 				this.add('-start', pokemon, 'typechange', 'Electric');
 				pokemon.removeVolatile('invokeamaterasu');
+				pokemon.removeVolatile('invokeishikoridome');
 			},
 			onModifyType(move, pokemon){
 				if (move.flags["slicing"]) {

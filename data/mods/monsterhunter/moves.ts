@@ -116,7 +116,7 @@ export const Moves: {[moveid: string]: MoveData} = {
     	},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "normal",
 		contestType: "Beautiful",
 	},
 	wretchedwater: {
@@ -124,7 +124,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Wretched Water",
-		shortDesc: "30% chance to paralyze the target.",
+		shortDesc: "Hits adjacent pokemon. 30% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -132,7 +132,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Water",
 		contestType: "Cool",
 		onPrepareHit(target, source, move) {
@@ -1046,9 +1046,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		volatileStatus: 'defensedown',
-		shortDesc: "Hits adjacent pokemon. Inflicts defense down.",
+		shortDesc: "Hits adjacent foes. Inflicts defense down.",
 		secondary: null,
-		target: "allAdjacent",
+		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Beautiful",
 		onPrepareHit(target, source, move) {
@@ -1069,7 +1069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'defensedown',
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Water",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
@@ -1746,7 +1746,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	flyingpress: {
 		num: 560,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 100,
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
@@ -1898,6 +1898,70 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.add('-anim', target, "Thunderclap", target);
         },
 	},
+	elenova: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Elenova",
+		shortDesc: "This move's type depends on the secondary type of the user.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			const secondary = types[1];
+			move.type = secondary || 'Normal';
+		},
+		onPrepareHit(target, source, move) {
+			const types = source.getTypes();
+			const secondary = types[1];
+			this.attrLastMove('[still]');
+			switch (secondary) {
+				case 'Dragon':
+					this.add('-anim', source, "Dragon Pulse", target);
+					break;
+				case 'Fire':
+					this.add('-anim', source, "Mystical Fire", target);
+					break;
+				case 'Ice':
+					this.add('-anim', source, "Ice Beam", target);
+					break;
+				case 'Electric':
+					this.add('-anim', source, "Thunderbolt", target);
+					break;
+				case 'Water':
+					this.add('-anim', source, "Hydro Pump", target);
+					break;
+				default:
+					// No secondary type → Normal animation
+					this.add('-anim', source, "Hyper Voice", target);
+					break;
+			}
+		},
+	},
+	lashingtongue: {
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		name: "Lashing Tongue",
+		shortDesc: "Deals 2x damage if target is inflicted with a non-volatile status condition.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('Lashing Tongue BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+	},
 	/*
 	Edits
 	*/
@@ -1984,8 +2048,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		desc: "30% chance to inflict bleed.",
 		shortDesc: "30% chance to inflict bleed.",
+		flags: {slicing: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 10,
+			chance: 30,
+			volatileStatus: 'bleeding',
+		},
+	},
+	growth: {
+		inherit: true,
+		type: "Grass",
+	},
+	snaptrap: {
+		inherit: true,
+		type: "Steel",
+	},
+	metalclaw: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+		pp: 15,
+		flags: {slicing: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
+		desc: "30% chance to inflict bleed.",
+		shortDesc: "30% chance to inflict bleed.",
+		secondary: {
+			chance: 30,
 			volatileStatus: 'bleeding',
 		},
 	},
@@ -2014,6 +2100,55 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		basePower: 90,
 	},
+	appleacid: {
+		inherit: true,
+		basePower: 90,
+	},
+	beakblast: {
+		inherit: true,
+		basePower: 120,
+	},
+	psyshieldbash: {
+		inherit: true,
+		basePower: 90,
+	},
+	infernalparade: {
+		inherit: true,
+		basePower: 65,
+	},
+	toxicthread: {
+		inherit: true,
+		boosts: {
+			spe: -2,
+		},
+		desc: "Lowers the target's Speed by 2 stage and poisons it.",
+		shortDesc: "Lowers the target's Speed by 2 and poisons it.",
+	},
+	crabhammer: {
+		inherit: true,
+		accuracy: 95,
+	},
+	moonblast: {
+		inherit: true,
+		basePower: 90,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		desc: "Has a 10% chance to lower the target's Special Attack by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Atk by 1.",
+	},
+	ironhead: {
+		inherit: true,
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch.",
+	},
 	spectralthief: {
 		inherit: true,
 		viable: true,
@@ -2039,6 +2174,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shadowclaw: {
 		inherit: true,
 		viable: true,
+		flags: {slicing: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		basePower: 85,
 	},
 	tailslap: {
@@ -2048,6 +2184,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	crushclaw: {
 		inherit: true,
 		viable: true,
+		flags: {slicing: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		accuracy: 100,
 		basePower: 85,
 	},
@@ -2117,6 +2254,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 	},
+	gigatonhammer: {
+		inherit: true,
+		basePower: 150,
+	},
 	paraboliccharge: {
 		inherit: true,
 		viable: true,
@@ -2125,10 +2266,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	seedbomb: {
 		inherit: true,
 		basePower: 85,
-	},
-	moonblast: {
-		inherit: true,
-		basePower: 90,
 	},
 	tropkick: {
 		inherit: true,
@@ -2155,6 +2292,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 100,
 		basePower: 100,
+	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
 	},
 	mudbomb: {
 		inherit: true,
@@ -2227,6 +2368,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		accuracy: 100,
 	},
+	ominouswind: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 90,
+		pp: 10,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		secondary: null,
+		shortDesc: "No additional effect.",
+	},
 	steamroller: {
 		inherit: true,
 		viable: true,
@@ -2290,6 +2440,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		basePower: 110,
 		accuracy: 100,
+	},
+	magnetbomb: {
+		inherit: true,
+		viable: true,
+		accuracy: 100,
+		basePower: 70, 
+		isNonstandard: null,
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		shortDesc: "Super effective on Steel.",
 	},
 	steelwing: {
 		inherit: true,
@@ -2362,14 +2523,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "30% chance to inflict bleed.",
 		shortDesc: "30% chance to inflict bleed.",
 	},
+	fierywrath: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		desc: "10% chance to burn.",
+		shortDesc: "10% chance to burn.",
+	},
 	/*
 	DROWSY EDITS
 	*/
 	darkvoid: {
 		inherit: true,
-		shortDesc: "Makes the foe(s) drowsy",
+		shortDesc: "Restores the user's HP by 50% of damage dealt. Damage doubled on drowsy foes.",
 		viable: true,
-		accuracy: 80,
+		accuracy: 100,
+		category: "Special",
+		flags: {protect: 1, mirror: 1, metronome: 1, nosketch: 1},
+		target: "normal",
+		status: null,
+		drain: [1, 2],
+		basePower: 60,
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'slp') {
+				return this.chainModify(2);
+			}
+		},
 		onTry(source, target, move) {},
 	},
 	direclaw: {
@@ -2673,14 +2854,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	bittermalice: {
 		inherit: true,
-		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		basePower: 65,
 		pp: 15,
 		secondary: {
 			chance: 30,
 			status: 'frz',
 		},
 		desc: "30% chance to frostbite the target.",
-		shortDesc: "30% chance to frostbite the target.",
+		shortDesc: "30% frostbite. 2x power if target is already statused.",
 	},
 	bleakwindstorm: {
 		inherit: true,

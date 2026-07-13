@@ -191,12 +191,17 @@ export const Conditions: { [k: string]: ConditionData; } = {
 	fatigue: {
 		name: 'Fatigue',
 		duration: 5,
-		onStart(pokemon, source) {
+		onStart(pokemon) {
 			this.add('-start', pokemon, 'Fatigue');
 			this.add('-message', `${pokemon.name} is Fatigued! Moves use more PP!`);
 		},
-		onDeductPP(pokemon) {
-			return 1;
+		onDeductPP(target, source, move) {
+			// Only drain PP if the fatigued Pokémon is the one USING the move
+			if (source !== this.effectState.target) return 0;
+
+			const drain = 1;
+			this.add('-message', `${source.name}'s Fatigue drained ${drain} extra PP!`);
+			return drain;
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Fatigue');
@@ -328,6 +333,32 @@ export const Conditions: { [k: string]: ConditionData; } = {
 				this.add('cant', attacker, 'move: Enraged', move);
 				return false;
 			}
+		},
+	},
+	webbed: {
+		name: "Webbed",
+		noCopy: true,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Webbed');
+			this.add('-message', `${pokemon.name} is tangled in webs! Pivoting moves will fail!`);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.selfSwitch) {
+				delete move.selfSwitch;
+				this.add('-message', `${pokemon.name} is stuck and cannot pivot!`);
+			}
+		},
+		onAfterMove(pokemon, target, move) {
+			// Catches cases where Webbed is applied mid-move (e.g. from a contact-punish
+			// effect triggered by the move itself), after onModifyMove already ran and
+			// missed it. This directly cancels the pending self-switch.
+			if (pokemon.switchFlag) {
+				pokemon.switchFlag = false;
+				this.add('-message', `${pokemon.name} is stuck and cannot pivot!`);
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Webbed');
 		},
 	},
 	/* Weather */

@@ -553,7 +553,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["acidspray", "paraboliccharge", "muddywater", "voltswitch"]
 	},
 	taillow: {
-		tier: "DoNU",
+		tier: "OU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["facade", "pursuit", "uturn", "bravebird", "boomburst", "hurricane", "heatwave"]

@@ -18,65 +18,113 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	perrserkermegabusted: {},
 	miniormega: {},
 	miniormegameteor: {},
-	// manual tiering for Hisui mons
-	growlithehisui: {
-		tier: "Heat!",
+	// Champions
+	raichumegax: {
+		isNonstandard: null,
 	},
-	arcaninehisui: {
-		tier: "Heat!",
+	raichumegay: {
+		isNonstandard: null,
 	},
-	voltorbhisui: {
-		tier: "Heat!",
+	clefablemega: {
+		isNonstandard: null,
 	},
-	electrodehisui: {
-		tier: "Heat!",
+	victreebelmega: {
+		isNonstandard: null,
 	},
-	typhlosionhisui: {
-		tier: "Heat!",
+	starmiemega: {
+		isNonstandard: null,
 	},
-	sneaselhisui: {
-		tier: "Heat!",
+	dragonitemega: {
+		isNonstandard: null,
 	},
-	samurotthisui: {
-		tier: "Heat!",
+	meganiummega: {
+		isNonstandard: null,
 	},
-	braviaryhisui: {
-		tier: "Heat!",
+	feraligatrmega: {
+		isNonstandard: null,
 	},
-	sliggoohisui: {
-		tier: "Heat!",
+	skarmorymega: {
+		isNonstandard: null,
 	},
-	goodrahisui: {
-		tier: "Heat!",
+	chimechomega: {
+		isNonstandard: null,
 	},
-	decidueyehisui: {
-		tier: "Heat!",
+	staraptormega: {
+		isNonstandard: null,
 	},
-	wyrdeer: {
-		tier: "Heat!",
+	froslassmega: {
+		isNonstandard: null,
 	},
-	kleavor: {
-		tier: "Heat!",
+	emboarmega: {
+		isNonstandard: null,
 	},
-	ursaluna: {
-		tier: "Heat!",
+	excadrillmega: {
+		isNonstandard: null,
 	},
-	basculegion: {
-		tier: "Heat!",
+	scolipedemega: {
+		isNonstandard: null,
 	},
-	basculegionf: {
-		tier: "Heat!",
+	scraftymega: {
+		isNonstandard: null,
 	},
-	sneasler: {
-		tier: "Heat!",
+	chandeluremega: {
+		isNonstandard: null,
 	},
-	overqwil: {
-		tier: "Heat!",
+	eelektrossmega: {
+		isNonstandard: null,
 	},
-	enamorus: {
-		tier: "Heat!",
+	golurkmega: {
+		isNonstandard: null,
 	},
-	enamorustherian: {
-		tier: "Heat!",
+	chesnaughtmega: {
+		isNonstandard: null,
+	},
+	delphoxmega: {
+		isNonstandard: null,
+	},
+	greninjamega: {
+		isNonstandard: null,
+	},
+	pyroarmega: {
+		isNonstandard: null,
+	},
+	floetteeternal: {
+		isNonstandard: null,
+	},
+	floettemega: {
+		isNonstandard: null,
+	},
+	/**meowsticmmega: {
+		isNonstandard: null,
+	},
+	meowsticfmega: {
+		isNonstandard: null,
+	},*/
+	hawluchamega: {
+		isNonstandard: null,
+	},
+	malamarmega: {
+		isNonstandard: null,
+	},
+	barbaraclemega: {
+		isNonstandard: null,
+	},
+	dragalgemega: {
+		isNonstandard: null,
+	},
+	crabominablemega: {
+		isNonstandard: null,
+	},
+	drampamega: {
+		isNonstandard: null,
+	},
+	falinksmega: {
+		isNonstandard: null,
+	},
+	scovillainmega: {
+		isNonstandard: null,
+	},
+	glimmoramega: {
+		isNonstandard: null,
 	},
 };

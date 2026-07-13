@@ -122,17 +122,90 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 65, spa: 100, spd: 120, spe: 100},
 	   abilities: {0: "Tropical Current"},
 	},
+	raticate: {
+		inherit: true,
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 75, atk: 90, def: 70, spa: 40, spd: 75, spe: 125},
+		abilities: {0: "Poison Touch", 1: "Hustle", H: "Guts"},
+	},
+	kangaskhan: {
+		inherit: true,
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 115, atk: 110, def: 70, spa: 60, spd: 60, spe: 85},
+		abilities: {0: "Early Bird", 1: "Bulletproof", H: "Skill Link"},
+	},
+	farfetchd: {
+		inherit: true,
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 75, atk: 100, def: 80, spa: 60, spd: 75, spe: 90},
+		abilities: {0: "Hustle", 1: "Scrappy", H: "Defiant"},
+	},
+	lapras: {
+		inherit: true,
+		types: ["Ice", "Water"],
+		baseStats: {hp: 130, atk: 85, def: 80, spa: 85, spd: 95, spe: 60},
+		abilities: {0: "Storm Drain", 1: "Shell Armor", H: "Hydration"},
+	},
+	tauros: {
+		inherit: true,
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 85, atk: 110, def: 105, spa: 30, spd: 70, spe: 110},
+		abilities: {0: "Intimidate", 1: "Bull Spirit", H: "Sheer Force"},
+	},
+	marowak: {
+		inherit: true,
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 80, atk: 80, def: 105, spa: 50, spd: 95, spe: 100},
+		abilities: {0: "Battle Armor", 1: "Sand Force", H: "Justified"},
+	},
+	omastar: { // "Savage Spines"
+		inherit: true,
+		types: ["Rock", "Water"],
+		baseStats: {hp: 73, atk: 73, def: 151, spa: 95, spd: 77, spe: 101},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
+	kabutops: { // "Dwelling Dome"
+		inherit: true,
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 69, atk: 117, def: 125, spa: 75, spd: 93, spe: 91},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
+	aerodactyl: { // "Roaring Moon"
+		inherit: true,
+		types: ["Rock", "Dragon"],
+		baseStats: {hp: 93, atk: 109, def: 69, spa: 67, spd: 105, spe: 147},
+		abilities: {0: "Jurassic Dust"},
+		tags: ["Paradox"],
+	},
+	electrode: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 65, def: 70, spa: 80, spd: 80, spe: 140},
+		abilities: {0: "Short Fuse", 1: "Static", H: "Aftermath"},
+	},
+	golem: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 130, def: 120, spa: 45, spd: 65, spe: 55},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Rolling Stone"},
+	},
 	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 70, spa: 55, spd: 70, spe: 115},
+		abilities: {0: "Blood Bank", H: "Infiltrator"},
 		evos: [],
 	},
 	magneton: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 55, def: 110, spa: 100, spd: 85, spe: 70},
+		abilities: {0: "Magnet Pull", 1: "Solar Power", H: "Drought"},
 		evos: [],
 	},
 	lickitung: {
 		inherit: true,
+		baseStats: {hp: 110, atk: 90, def: 75, spa: 80, spd: 75, spe: 55},
+		abilities: {0: "Analytic", 1: "Oblivious", H: "Immunity"},
 		evos: [],
 	},
 	rhydon: {
@@ -145,6 +218,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	tangela: {
 		inherit: true,
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 75, atk: 55, def: 115, spa: 90, spd: 100, spe: 45},
+		abilities: {0: "Vine Yard", H: "Tangling Hair"},
 		evos: [],
 	},
 	electabuzz: {
@@ -156,6 +232,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: [],
 	},
 	porygon: {
+		inherit: true,
+		evos: [],
+	},
+	primeape: {
 		inherit: true,
 		evos: [],
 	},

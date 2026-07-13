@@ -23,5 +23,5 @@ export const Formats: FormatData[] = [
             }
         },
         mod: 'mmm4',
-	},
+	}
 ];

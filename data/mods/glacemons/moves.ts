@@ -507,6 +507,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onAfterMoveSecondarySelf(pokemon, target, move) {
 				if (move.category === 'Status' && move.id !== 'selfrepairing') {
 					this.heal(pokemon.baseMaxhp / 4);
+					pokemon.removeVolatile('selfrepairing');
 				}
 			},
 		},
@@ -990,7 +991,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	wildboltstorm: {
 		inherit: true,
 		basePower: 110,
-		category: "Physical",
+		category: "Special",
 		onModifyMove(move, pokemon, target) {
 			if (target && ['raindance', 'primordialsea', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
 				move.accuracy = true;
@@ -1588,6 +1589,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		pp: 5,
 		onTryImmunity(target, source) {},
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			let type = types[0];
+			if (type === 'Bird') type = '???';
+			if (type === '???' && types[1]) type = types[1];
+			move.type = type;
+		},
 		onHit(target, source) {
 			const types = target.getTypes();
 			var type1 = types[0];
@@ -1737,7 +1745,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	dragonrend: {
 		num: -27,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 70,
 		category: "Physical",
 		name: "Dragon Rend",
 		pp: 15,
@@ -1745,8 +1753,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		secondaries: [
 			{
-				chance: 30,
-				volatileStatus: 'flinch',
+				chance: 100,
+				boosts: {
+					def: -1,
+				},
 			},
 		],
 		onPrepareHit(target, source, move) {
@@ -1756,7 +1766,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
-		shortDesc: "30% chance to flinch the target.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 	imprison: { // WIP
 		inherit: true,
@@ -2022,6 +2032,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			volatileStatus: 'confusion',
 		},
 		isViable: true,
+		flags: {contact: 0},
 		type: "Rock",
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",
@@ -2029,12 +2040,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	bonfire: {
 		num: -36,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 65,
 		category: 'Special',
 		name: 'Bonfire',
 		pp: 10,
 		priority: 0,
-		shortDesc: "+20 BP for each ally with this move.",
+		shortDesc: "Physical if user's Atk > SpA. 15 BP for each ally with this move.",
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
@@ -2042,11 +2053,11 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 		},
 		basePowerCallback(attacker, defender, move) {
-			let bonfireBP = 40;
+			let bonfireBP = 50;
 			for (const ally of attacker.side.pokemon) {
 				for (const moveSlot of ally.moveSlots) {
 					if (moveSlot.id === 'bonfire') {
-						bonfireBP += 20;
+						bonfireBP += 15;
 					}
 				}
 			}
@@ -2208,5 +2219,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
+	},
+	catastropika: {
+		inherit: true,
+		basePower: 195,
 	},
 };

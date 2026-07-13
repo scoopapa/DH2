@@ -347,6 +347,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
+		shortDesc: "Super effective on Water.",
 		name: "Freeze-Dry",
 		pp: 20,
 		priority: 0,

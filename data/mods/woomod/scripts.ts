@@ -1,13 +1,103 @@
-import {Dex} from '../../../sim/dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+
 	teambuilderConfig: {
-		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
-		// only to specify the order of custom tiers
-		customTiers: ['WM','woober'],
-	},	
-	
+		customTiers: ["woo", "woober", "dwoo"],
+	},
+	// soothing prescence is fun and easy to code
+	actions: {
+		switchIn(pokemon, pos, sourceEffect, isDrag) {
+			if (!pokemon || pokemon.isActive) {
+				this.battle.hint("A switch failed because the Pokémon trying to switch in is already in.");
+				return false;
+			}
+
+			const side = pokemon.side;
+			if (pos >= side.active.length) {
+				throw new Error(`Invalid switch position ${pos} / ${side.active.length}`);
+			}
+			const oldActive = side.active[pos];
+			const unfaintedActive = oldActive?.hp ? oldActive : null;
+			if (unfaintedActive) {
+				oldActive.beingCalledBack = true;
+				let switchCopyFlag: 'copyvolatile' | 'shedtail' | boolean = false;
+				if (sourceEffect && typeof (sourceEffect as Move).selfSwitch === 'string') {
+					switchCopyFlag = (sourceEffect as Move).selfSwitch!;
+				}
+				if (!oldActive.skipBeforeSwitchOutEventFlag && !isDrag) {
+					this.battle.runEvent('BeforeSwitchOut', oldActive);
+					if (this.battle.gen >= 5) {
+						this.battle.eachEvent('Update');
+					}
+				}
+				oldActive.skipBeforeSwitchOutEventFlag = false;
+				if (!this.battle.runEvent('SwitchOut', oldActive)) {
+					return false;
+				}
+				if (!oldActive.hp) {
+					return 'pursuitfaint';
+				}
+
+				(side as any).lastSwitchedOut = oldActive;
+
+				this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
+
+				this.battle.queue.cancelAction(oldActive);
+
+				let newMove = null;
+				if (this.battle.gen === 4 && sourceEffect) {
+					newMove = oldActive.lastMove;
+				}
+				if (switchCopyFlag) {
+					pokemon.copyVolatileFrom(oldActive, switchCopyFlag);
+				}
+				if (newMove) pokemon.lastMove = newMove;
+				oldActive.clearVolatile();
+			}
+			if (oldActive) {
+				oldActive.isActive = false;
+				oldActive.isStarted = false;
+				oldActive.usedItemThisTurn = false;
+				oldActive.statsRaisedThisTurn = false;
+				oldActive.statsLoweredThisTurn = false;
+				oldActive.position = pokemon.position;
+				if (oldActive.fainted) oldActive.status = '';
+				if (this.battle.gen <= 4) {
+					pokemon.lastItem = oldActive.lastItem;
+					oldActive.lastItem = '';
+				}
+				pokemon.position = pos;
+				side.pokemon[pokemon.position] = pokemon;
+				side.pokemon[oldActive.position] = oldActive;
+			}
+			pokemon.isActive = true;
+			side.active[pos] = pokemon;
+			pokemon.activeTurns = 0;
+			pokemon.activeMoveActions = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				moveSlot.used = false;
+			}
+			pokemon.abilityState = this.battle.initEffectState({ id: pokemon.ability, target: pokemon });
+			pokemon.itemState = this.battle.initEffectState({ id: pokemon.item, target: pokemon });
+			this.battle.runEvent('BeforeSwitchIn', pokemon);
+			if (sourceEffect) {
+				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails, `[from] ${sourceEffect}`);
+			} else {
+				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails);
+			}
+			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
+			pokemon.previouslySwitchedIn++;
+
+			if (isDrag && this.battle.gen >= 5) {
+				this.runSwitch(pokemon);
+			} else {
+				this.battle.queue.insertChoice({ choice: 'runSwitch', pokemon });
+			}
+
+			return true;
+		},
+	},
 	init() {
 		// Krokorok
 		this.modData("Learnsets", "krokorok").learnset.ceaselessedge = ["9L1"];
@@ -121,9 +211,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "morelull").learnset.nightmare = ["9L1"];
 		this.modData("Learnsets", "morelull").learnset.scorchingsands = ["9L1"];
 		delete this.modData('Learnsets', 'morelull').learnset.spore;
-	
-	// Slate 2
 
+		// Slate 2
 		// Houndour
 		this.modData("Learnsets", "houndour").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "houndour").learnset.slackoff = ["9L1"];
@@ -232,6 +321,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "wooperpaldea").learnset.woopout = ["9L1"];
 		// Hoothoot
 		delete this.modData('Learnsets', 'hoothoot').learnset.hurricane;
+		this.modData("Learnsets", "hoothoot").learnset.synchronoise = ["9L1"];
 		// Raboot-Sinnoh
 		this.modData("Learnsets", "rabootsinnoh").learnset.frigidlyslide = ["9L1"];
 		this.modData("Learnsets", "rabootsinnoh").learnset.chillyreception = ["9L1"];
@@ -319,7 +409,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "honedge").learnset.tackle = ["9L1"];
 		this.modData("Learnsets", "honedge").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "honedge").learnset.wideguard = ["9L1"];
-//		this.modData("Learnsets", "honedge").learnset.aegislash = ["9L1"];
+		this.modData("Learnsets", "honedge").learnset.aegislash = ["9L1"];
 		// Roselia
 		this.modData("Learnsets", "roselia").learnset.absorb = ["9L1"];
 		this.modData("Learnsets", "roselia").learnset.aromatherapy = ["9L1"];
@@ -550,8 +640,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "helioptile").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "helioptile").learnset.earthpower = ["9L1"];
 	},
-	
 	pokemon: {
+		inherit: true,
 		hasAbility(ability) {
 			if (this.ignoringAbility()) return false;
 			if (Array.isArray(ability)) return ability.some(abil => this.hasAbility(abil));

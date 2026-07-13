@@ -1033,6 +1033,28 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 88,
 	},
+	dragonize: {
+		isNonstandard: "Future",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Dragon';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Dragonize",
+		rating: 4,
+		num: 312,
+	},
 	dragonsmaw: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -1127,6 +1149,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Earth Eater",
 		rating: 3.5,
 		num: 297,
+	},
+	eelevate: {
+		isNonstandard: "Future",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				const bestStat = source.getBestStat(true, true);
+				this.boost({ [bestStat]: length }, source);
+			}
+		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		flags: { breakable: 1 },
+		name: "Eelevate",
+		rating: 4,
+		num: 313,
 	},
 	effectspore: {
 		onDamagingHit(damage, target, source, move) {
@@ -1269,6 +1305,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Filter",
 		rating: 3,
 		num: 111,
+	},
+	firemane: {
+		isNonstandard: "Future",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Fire Mane boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Fire Mane boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Fire Mane",
+		rating: 3.5,
+		num: 316,
 	},
 	flamebody: {
 		onDamagingHit(damage, target, source, move) {
@@ -2512,6 +2569,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 178,
 	},
+	megasol: {
+		isNonstandard: "Future",
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (this.field.weather !== 'sunnyday') {
+				(this.dex.conditions.getByID('sunnyday' as ID) as any).onWeatherModifyDamage
+					.call(this, damage, attacker, defender, move);
+			}
+		},
+		flags: {},
+		name: "Mega Sol",
+		rating: 3,
+		num: 315,
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+	},
 	merciless: {
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && ['psn', 'tox'].includes(target.status)) return 5;
@@ -3204,6 +3275,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Pickup",
 		rating: 0.5,
 		num: 53,
+	},
+	piercingdrill: {
+		isNonstandard: "Future",
+		onHitProtect(source, target, move) {
+			if (move.flags['contact']) {
+				target.getMoveHitData(move).bypassProtect = this.effect;
+				return false;
+			}
+		},
+		// breaking protect handled in Battle#checkMoveBypassesProtect()
+		flags: {},
+		name: "Piercing Drill",
+		rating: 1,
+		num: 311,
 	},
 	pixilate: {
 		onModifyTypePriority: -1,
@@ -4383,6 +4468,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Speed Boost",
 		rating: 4.5,
 		num: 3,
+	},
+	spicyspray: {
+		isNonstandard: "Future",
+		onDamagingHit(damage, target, source, move) {
+			source.trySetStatus('brn', target);
+		},
+		flags: {},
+		name: "Spicy Spray",
+		rating: 3,
+		num: 318,
 	},
 	stakeout: {
 		onModifyAtkPriority: 5,

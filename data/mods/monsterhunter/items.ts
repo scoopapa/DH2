@@ -460,6 +460,61 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 586,
 	},
 	/*
+	New Stones
+	*/
+	nargacugite: {
+		name: "Nargacugite",
+		gen: 9,
+		shortDesc: "If held by Narcuga, allows it to transform into Silverwind. (Mega-Evolution)",
+		megaStone: "Nargacuga-Silverwind",
+		megaEvolves: "Nargacuga",
+		itemUser: ["Nargacuga", "Nargacuga-Silverwind"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 578,
+	},
+	vashimite: {
+		name: "Vashimite",
+		gen: 9,
+		shortDesc: "If held by A. Vashimu, allows it to enter it's Zenith Form. (Mega-Evolution)",
+		megaStone: "Akura Vashimu-Z",
+		megaEvolves: "Akura Vashimu",
+		itemUser: ["Akura Vashimu", "Akura Vashimu-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 627,
+	},
+	khezite: {
+		name: "Khezite",
+		gen: 9,
+		shortDesc: "If held by Khezu, allows it to enter it's Zenith Form. (Mega-Evolution)",
+		megaStone: "Khezu-Z",
+		megaEvolves: "Khezu",
+		itemUser: ["Khezu", "Khezu-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 579,
+	},
+	riseniteg: {
+		name: "Risenite-G",
+		gen: 9,
+		shortDesc: "If held by Glowstrax, allows it to enter it's Risen Form. (Mega-Evolution)",
+		megaStone: "Glowstrax-Risen",
+		megaEvolves: "Glowstrax",
+		itemUser: ["Glowstrax", "Glowstrax-Risen"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		spritenum: 590,
+	},
+	/*
 	Fatalis Orbs
 	*/
 	crimsongem: {
@@ -495,6 +550,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Fatalis') return false;
+			return true;
+		},
+	},
+	/*
+	Fatalis Orbs
+	*/
+	honey: {
+		name: "Honey",
+		fling: { basePower: 30 },
+		num: -5,
+		gen: 9,
+		rating: 3,
+		shortDesc: "Restores 1/3 max HP at 25% HP or less once. -1 Spe if hit by Knock Off.",
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				if (pokemon.useItem()) {
+					this.heal(pokemon.baseMaxhp / 3);
+				}
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!pokemon.hp) return false;
+			if (source && source.hasAbility('honeygather')) {
+				return false;
+			}
+			if (this.activeMove && ['knockoff', 'thief', 'switcheroo', 'trick'].includes(this.activeMove.id)) {
+				this.boost({ spe: -1 }, pokemon);
+				this.add('-activate', pokemon, 'item: Honey');
+				return true;
+			}
 			return true;
 		},
 	},

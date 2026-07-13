@@ -344,8 +344,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 3) {
-				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2) && pokemon.useItem()) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3) && pokemon.useItem()) {
 					this.heal(pokemon.baseMaxhp / 3);
 				}
 			}
@@ -593,6 +593,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Absorb Bulb');
+				this.add('-message', `${target.name} is holding an Absorb Bulb!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -606,15 +607,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.boost({ spa: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Absorb Bulb broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+			
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Absorb Bulb');
-				this.boost({ atk: 1 });
+				this.boost({ spa: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Absorb Bulb broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
 			}
 		},
@@ -632,6 +636,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Cell Battery');
+				this.add('-message', `${target.name} is holding a Cell Battery!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -645,6 +650,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Cell Battery broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
@@ -654,6 +660,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Cell Battery broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
 			}
 		},
@@ -671,6 +678,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Snowball');
+				this.add('-message', `${target.name} is holding a Snowball!`);
 			}
 		},
 		onTryHit(target, source, move){
@@ -684,6 +692,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
+			this.add('-message', `${target.name}'s Snowball broke!`);
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
@@ -693,6 +702,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
+				this.add('-message', `${target.name}'s Snowball broke!`);
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
 			}
 		},
@@ -787,7 +797,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				volatileStatus: 'mustrecharge',
 			},
 		},
-		onTakeItem: false,
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		rating: 3,
@@ -807,6 +816,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe) {
 			return this.chainModify(0.5);
 		},
+		onFractionalPriority: -0.1,
 	},
 
 
@@ -986,7 +996,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
+		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-World"],
 	},
 	pikashuniumz: {
 		inherit: true,
@@ -1069,7 +1079,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
+		itemUser: ["Pikachu", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-World"],
 	},
 	friedrice: {
 		name: "Fried Rice",
@@ -1234,15 +1244,19 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 20,
 		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			if (!target.runImmunity(move.type)) return;
-			if (this.dex.getEffectiveness(move, target) === -1) return;
-			return 0;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Neutralizer neutralize');
+				return this.chainModify([2731, 4096]);
+			}
 		},
-		// Implemented in scripts.js
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([2731, 4096]);
+			}
+		},
 		name: "Neutralizer",
-		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
+		shortDesc: "User takes 2/3 from super effective damage, and deals 2/3 super effective damage.",
 		num: -19,
 		spritenum: 119,
 		rating: 3,
@@ -1715,7 +1729,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -23,
 		gen: 9,
-		shortDesc: "Holder's moves ignore abilities once.",
+		shortDesc: "Moves that would've had their damage reduced or negated by an ability, item, or move ignore it and deal neutral damage.",
 		rating: 3,
 	},
 	redlicorice: {
@@ -2050,10 +2064,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -33,
 		gen: 9,
 		rating: 3,
-		onStart(pokemon) {
-			this.actions.useMove("surprise", pokemon)
-			this.add('-enditem', pokemon, "Surprise Bomb");
-			pokemon.useItem();
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.actions.useMove("surprise", pokemon)
+				this.add('-enditem', pokemon, "Surprise Bomb");
+				pokemon.useItem();
+			}
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

@@ -31,4 +31,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	gearup: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
