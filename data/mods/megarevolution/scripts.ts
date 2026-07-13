@@ -60,10 +60,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "mawile").learnset.psychicnoise = ["9L1"];
 		this.modData("Learnsets", "mawile").learnset.pounce = ["9L1"];
 		this.modData("Learnsets", "mawile").learnset.hypervoice = ["9L1"];
-		this.modData("Learnsets", "medicham").learnset.machpunch = ["9L1"];
+		//this.modData("Learnsets", "medicham").learnset.machpunch = ["9L1"];
 		
 		this.modData("Learnsets", "houndoom").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "houndoom").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.bulletseed = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.energyball = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.grassknot = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.grassyterrain = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.stunspore = ["9L1"];
+		this.modData("Learnsets", "manectric").learnset.trailblaze = ["9L1"];
 		
 		this.modData("Learnsets", "skarmory").learnset.aquacutter = ["9L1"];
 		this.modData("Learnsets", "skarmory").learnset.uturn = ["9L1"];

@@ -2,9 +2,84 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'champions',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE'],
+		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE', '(OU)'],
 	},
 	gen: 9,
+	pokemon: {
+		getMoveTargets(move: ActiveMove, target: Pokemon): {targets: Pokemon[], pressureTargets: Pokemon[]} {
+			let targets: Pokemon[] = [];
+
+			switch (move.target) {
+			case 'all':
+			case 'foeSide':
+			case 'allySide':
+			case 'allyTeam':
+				if (!move.target.startsWith('foe')) {
+					targets.push(...this.alliesAndSelf());
+				}
+				if (!move.target.startsWith('ally')) {
+					targets.push(...this.foes(true));
+				}
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allAdjacent':
+				targets.push(...this.adjacentAllies());
+				// falls through
+			case 'allAdjacentFoes':
+				targets.push(...this.adjacentFoes());
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allies':
+				targets = this.alliesAndSelf();
+				break;
+			default:
+				const selectedTarget = target;
+				if (!target || (target.fainted && !target.isAlly(this)) && this.battle.gameType !== 'freeforall') {
+					// If a targeted foe faints, the move is retargeted
+					const possibleTarget = this.battle.getRandomTarget(this, move);
+					if (!possibleTarget) return {targets: [], pressureTargets: []};
+					target = possibleTarget;
+				}
+				if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
+					const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
+						!(move.id.startsWith('solarb') && ['sunnyday', 'desolateland'].includes(this.effectiveWeather())) &&
+						!(move.id === 'electroshot' && ['raindance', 'primordialsea'].includes(this.effectiveWeather())) &&
+						!(this.hasAbility('sandclock') && ['sandstorm'].includes(this.effectiveWeather())) &&
+						!(this.hasItem('powerherb') && move.id !== 'skydrop');
+					if (!isCharging) {
+						target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
+					}
+				}
+				if (move.smartTarget) {
+					targets = this.getSmartTargets(target, move);
+					target = targets[0];
+				} else {
+					targets.push(target);
+				}
+				if (target.fainted && !move.flags['futuremove']) {
+					return {targets: [], pressureTargets: []};
+				}
+				if (selectedTarget !== target) {
+					this.battle.retargetLastMove(target);
+				}
+			}
+
+			// Resolve apparent targets for Pressure.
+			let pressureTargets = targets;
+			if (move.target === 'foeSide') {
+				pressureTargets = [];
+			}
+			if (move.flags['mustpressure']) {
+				pressureTargets = this.foes();
+			}
+
+			return {targets, pressureTargets};
+		}
+	},
 	battle: {
 		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) {
 			move = this.dex.moves.get(move);
@@ -77,6 +152,15 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+
+		const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug', 
+			  'silcoon', 'spewpa', 'tynamo', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
+		const universalTM = [];
+		for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && !noLearn.includes(id)) {
+				universalTM.push(id);
+			}
+		}
 		
 		// // SLATE 1
 		
@@ -94,7 +178,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'toucannon', 'manectric', 'decidueye', 'decidueyehisui', 'chandelure'
 		]);
 		addMove('sunkenlunge', [
-			'feraligatr', 'samurott', 'samurotthisui', 'gyarados', 'sharpedo', 'qwilfish', 'overqwil', 'araquanid', 'clawitzer', 'basculegionf', 'hippowdon'
+			'feraligatr', 'samurott', 'samurotthisui', 'gyarados', 'sharpedo', 'qwilfish', 'overqwil', 'araquanid', 'clawitzer', 'hippowdon'
 		]);
 		addMove('rockslide', 'glalie');
 		addMove('snatch', [
@@ -105,6 +189,30 @@ export const Scripts: ModdedBattleScriptsData = {
 		]);
 		addMove('starburst', [
 			'azumarill', 'clefable', 'hatterene', 'primarina', 'altaria', 'slurpuff', 'tinkaton', 'starmie', 'watchog', 'gardevoir', 'gallade'
+		]);
+
+		// // SLATE 2
+		
+		// species adjustments
+		addMove(['howl', 'trickroom', 'lunarblessing'], 'umbreon');
+		addMove(['hypervoice', 'weatherball', 'electroshot'], 'ampharos');
+		addMove(['bellydrum', 'stompingtantrum', 'overheat', 'encore', 'disable', 'howl', 'finalgambit', 'healpulse', 'stuffcheeks', 'electroball'], 'slurpuff');
+
+		// move adjustments
+		addMove('astonish', [
+			'absol', 'arbok', 'ariados', 'banette', 'beedrill', 'chandelure', 'chimecho', 'clawitzer', 'cofagrigus', 'decidueye', 'dragapult', 'forretress', 'glalie', 'golurk', 'gourgeist', 'greninja', 'hatterene', 'houndoom', 
+			'klefki', 'liepard', 'luxray', 'lycanrocmidnight', 'malamar', 'meowstic', 'meowsticf', 'mimikyu', 'noivern', 'oranguru', 'overqwil', 'qwilfish', 'rotom', 'runerigus', 'scrafty', 'sharpedo', 'spiritomb', 'stunfisk',
+			'stunfiskgalar', 'tinkaton', 'typhlosionhisui', 'umbreon', 'watchog', 'zoroark', 'zoroarkhisui'
+		]);
+		addMove('lasercut', [
+			'aegislash', 'alakazam', 'aggron', 'beedrill', 'bastiodon', 'ceruledge', 'chimecho', 'empoleon', 'espeon', 'excadrill', 'forretress', 'gallade', 'gardevoir', 'garganacl', 'glimmora', 'klefki', 'kleavor', 'lucario',
+			'malamar', 'manectric', 'mawile', 'meowstic', 'meowsticf', 'metagross', 'rhyperior', 'rotom', 'samurott', 'samurotthisui', 'scizor', 'skarmory', 'starmie', 'stunfisk', 'stunfiskgalar', 'tinkaton', 'goodrahisui',
+			'meowscarada'
+		]);
+		addMove('return', universalTM);
+		addMove('prevailingwind', [
+			'aerodactyl', 'altaria', 'aromatisse', 'blaziken', 'castform', 'chimecho', 'clefable', 'corviknight', 'decidueye', 'decidueyehisui', 'dragonite', 'drampa', 'emolga', 'empoleon', 'espathra', 'flapple', 'gallade',
+			'gliscor', 'hawlucha', 'hydreigon', 'kleavor', 'noivern', 'pidgeot', 'pinsir', 'pelipper', 'quaquaval', 'sandaconda', 'scizor', 'skarmory', 'staraptor', 'talonflame', 'toucannon', 'vivillon', 'volcarona', 'gyarados'
 		]);
 	},
 };
