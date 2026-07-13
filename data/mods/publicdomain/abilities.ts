@@ -523,19 +523,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Frost');
-				let statName: BoostID;
-				const nanoStats: BoostID[] = ['atk', 'spa']
-				for (const statName of nanoStats) {
-					if ((pokemon.boosts[statName]) < 0) {
-						pokemon.boosts[statName] = 0;
-						this.add('-setboost', pokemon, statName, pokemon.boosts[statName], '[silent]');
+				this.add('-end', pokemon, 'Frost', '[silent]');
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					if ((i === 'atk' || i === 'spa') && pokemon.boosts[i] < 0) {
+						activate = true;
+						boosts[i] = 0;
 					}
+				}
+				if (activate) {
+					pokemon.setBoost(boosts);
+					this.add('-clearnegativeboost', pokemon, '[silent]');
 				}
 			},
 		},
 		flags: {},
 		name: "Frost Bell",
 		shortDesc: "Ice resist + When hit, attacker's next attack has its corresponding Attack stat -2.",
+	},
+
+	//vanilla abilities
+	wonderguard: {
+		inherit: true,
+		shortDesc: "Wonder Guard + This Pokemon has 1 max HP."
 	},
 };
