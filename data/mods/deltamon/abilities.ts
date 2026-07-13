@@ -206,7 +206,7 @@ blossomboost: {
 	
 	swordplay: {
 		onHitProtect(source, target, move) {
-			if (move.flags['slicing'] {
+			if (move.flags['slicing']) {
 				target.getMoveHitData(move).bypassProtect = this.effect;
 				return false;
 			}
@@ -221,9 +221,7 @@ blossomboost: {
 		flags: {},
 		name: "Swordplay",
 		shortDesc: "This Pokemon's slicing moves do 1.3x their normal damage and partially bypass Protect.",
-	},
-		
-	}
+	},		
 	
 	antivirus: {
 		onTryHit(target, source, move) {

@@ -489,11 +489,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user lowers its guard, harshly depleting its Defense and Special Defense stats to fire off a massive black laser using all its might.",
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
-		onPrepareHit(move) {
+	
+		onPrepareHit(target, pokemon, move) {
 			this.add('-message', '${pokemon.name} lowers its guard!'),
 			move.boosts = {def: -2, spd: -2};
-		}
-		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Scale Shot", target);
 			this.add('-anim', pokemon, "Doom Desire", target);
