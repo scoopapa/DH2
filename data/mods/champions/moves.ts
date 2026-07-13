@@ -704,6 +704,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	nightslash: {
 		inherit: true,
 		pp: 20,
+		noPPBoosts: true,
 	},
 	nihillight: {
 		inherit: true,

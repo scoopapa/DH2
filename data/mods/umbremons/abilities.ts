@@ -72,8 +72,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -3,
 		desc: "Under Sandstorm, user skips Charge and Recharge turns. Immunity to Sandstorm damage. (note: this also ignores sand's damage reduction to moves like Solar Beam)",
 		shortDesc: "Under sandstorm, skips charge and recharge.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
 		onChargeMove(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
+				this.add('-ability', pokemon, 'Sandclock');
 				this.debug('sandclock - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', pokemon, move.name, target);
@@ -83,6 +87,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
 				if (pokemon.getVolatile('mustrecharge')) {
+					this.add('-ability', pokemon, 'Sandclock');
 					pokemon.removeVolatile('mustrecharge');
 					this.add('-end', pokemon, 'mustrecharge');
 				}
@@ -231,6 +236,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	screencleaner: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
@@ -250,6 +256,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "On Switch-in, remove all screen effects from both sides of the field. If a screen gets removed, gain +1 Special Attack (does not stack)."
 	},
 	snowcloak: {
+		modded: true, // this makes its description display in Data Mod
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
@@ -282,6 +289,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 81,
 	},
 	sandveil: {
+		modded: true, // this makes its description display in Data Mod
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
@@ -315,6 +323,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	rattled: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) {
 				return;
