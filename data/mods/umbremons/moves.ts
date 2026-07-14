@@ -218,8 +218,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		modded: true, // this makes its description display in Data Mod
 		basePower: 102,
-		basePowerCallback(pokemon) {
-			return;
+		// Overwriting this function so it no longer inherits return's old bp calc formula
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower;
 		},
 		pp: 20,
 		noPPBoosts: true,

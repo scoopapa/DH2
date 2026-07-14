@@ -71,7 +71,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	sandclock: {
 		num: -3,
 		desc: "Under Sandstorm, user skips Charge and Recharge turns. Immunity to Sandstorm damage. (note: this also ignores sand's damage reduction to moves like Solar Beam)",
-		shortDesc: "Under sandstorm, skips charge and recharge.",
+		shortDesc: "Under sandstorm, skips charge and recharge. Sand Immunity.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
@@ -284,7 +284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {breakable: 1},
 		name: "Snow Cloak",
-		shortDesc: "This Pokemon and its allies are eligible for Snow's Def boost.",
+		shortDesc: "Self and allies may gain Snow's Def boost.",
 		desc: "While Snow is active, grants the defensive benefits of the Snow (Def) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. While hail does not exist, to parallel Sand Veil this would grant hail immunity to self and allies if it could.",
 		num: 81,
 	},
@@ -317,7 +317,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {breakable: 1},
 		name: "Sand Veil",
-		shortDesc: "This Pokemon and its allies are eligible for Sandstorm's SpD boost. Sandstorm Immunity to self and ally.",
+		shortDesc: "Self and allies may gain Sandstorm's SpD boost. Sandstorm Immunity to self and ally.",
 		desc: "While Sand is active, grants the defensive benefits of the Sandstorm (SpD) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. Also grants immunity to sand chip to self and allies",
 		num: 8,
 	},
