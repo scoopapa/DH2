@@ -98,6 +98,7 @@ export const Formats: FormatData[] = [
 		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang'],
 		unbanlist: [
 			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinaturbo',
+			'Mediocjur', 'Plushimander', 'Orchrefait', 'Eighremophas', 'Snaellcaster',
 		],
 		/* onValidateTeam(team, format) {
 			let speciesTable = {};
