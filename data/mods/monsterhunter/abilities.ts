@@ -1539,7 +1539,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		name: "Perforating",
-		shortDesc: "When using Poison moves: Ignore Steel-type immunities. Steel-type can be poisoned.",
+		shortDesc: "When using Poison moves: Ignore Steel-type immunities.",
 	},
 	permafrost: {
 		onStart(pokemon) {
