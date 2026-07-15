@@ -240,11 +240,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},*/
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
-			for (const poke of this.getAllActive()) {
-				if (poke.hasAbility('counteract') && poke.side.id !== pokemon.side.id && !poke.abilityState.ending) {
-					return;
-				}
-			}
 			if (move?.type === 'Flying' && pokemon.hp >= pokemon.maxhp / 2) return priority + 1;
 		},
 		flags: {},
