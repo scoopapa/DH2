@@ -439,6 +439,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						secondary.chance = 100;
 					}
 				}
+				if (move.self?.chance < 100) {
+					success = true;
+					move.self.chance = 100;
+				}
 				if (success) attacker.divineright --;
 			}
 		},
