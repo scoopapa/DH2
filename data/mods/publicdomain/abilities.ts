@@ -420,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	divineright: {
 		onSwitchIn(pokemon) {
-			this.add('-ability', pokemon, 'Mold Breaker');
+			this.add('-ability', pokemon, 'Divine Right');
 			if (this.field.isWeather('meteorshower')) {
 				pokemon.divineright = 2;
 				this.add('-message', pokemon.name + " exerts their Divine Destiny!");
