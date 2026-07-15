@@ -510,7 +510,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					species: 'Oricorio-Sensu',
 					item: 'heavydutyboots',
 					ability: ['Shadow Shield', 'Adaptability'],
-					teraType: 'fighting',
+					teraType: 'Fighting',
 				},
 				['quiverdance', 'revelationdance'], ['hurricane', 'roost', 'taunt', 'storedpower'],
 			],
