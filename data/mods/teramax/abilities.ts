@@ -475,7 +475,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
 		flags: {},
