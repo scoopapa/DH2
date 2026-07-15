@@ -107,7 +107,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-message', `${pokemon.name} is being powered up by the Power Spot!`);
 			},
 			onModifyDamage(damage, source, target, move) {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify([5325, 4096]);
 			},
 		},
 		name: "Power Spot",
