@@ -369,7 +369,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		/*condition: {
+		condition: {
 			noCopy: true,
 			duration: 4,
 			onStart(pokemon) {
@@ -387,7 +387,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
 			},
-		},*/
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
