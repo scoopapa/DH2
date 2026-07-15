@@ -134,7 +134,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!isFinite(ratio)) ratio = 0;
 			if (ratio > 0) {
 				if (target.hasType('Water') || target.hasType('Dragon')) {
-					return this.chainModify([5324, 4096]);
+					return this.chainModify([5325, 4096]);
 				} else {
 					return this.chainModify([4915, 4096]);
 				}
