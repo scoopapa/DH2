@@ -2167,7 +2167,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	schooling: {
 		onStart(pokemon) {
-			let fish = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.species.fish.length);
+			let fish = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.species.fish).length;
 			if (fish) {
 				this.add('-activate', pokemon, 'ability: Schooling');
 				fish = Math.min(fish, 5);
