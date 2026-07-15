@@ -338,7 +338,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				this.actions.useMove("Haze", pokemon);
+				for (const target of this.getAllActive()) {
+					target.clearBoosts();
+					this.add('-clearboost', target, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
 			}
 		},
 		flags: {},
@@ -398,7 +401,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onStart(pokemon) {
 				this.add('-ability', pokemon, 'Quick Draw');
 				this.add('-message', `${pokemon.name}'s next move will have +1 priority!`);
