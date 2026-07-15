@@ -433,21 +433,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, attacker) {
 			if (attacker.divineright > 0 && move.secondaries) {
 				let success = false;
-				this.add('-message', 'secondaries ' + move.secondaries);
 				for (const secondary of move.secondaries) {
-					this.add('-message', 'secondary ' + secondary);
 					if (secondary.chance < 100) {
 						success = true;
 						secondary.chance = 100;
 					}
 				}
 				if (success) attacker.divineright --;
-				else {
-					this.add('-message', 'divine right failed on inner layer');
-				}
-			}
-			else {
-				this.add('-message', 'divine right failed on outer layer');
 			}
 		},
 		name: "Divine Right",
