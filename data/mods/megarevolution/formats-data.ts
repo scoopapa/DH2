@@ -4960,4 +4960,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	valianoble: {
 		tier: "OU",
 	},
+	steelixcrystalshards: {
+		tier: "OU",
+	},
+	aggrondreadnought: {
+		tier: "OU",
+	},
+	auranegade: {
+		tier: "OU",
+	},
 };

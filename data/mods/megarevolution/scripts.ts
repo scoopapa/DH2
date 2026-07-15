@@ -91,5 +91,26 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "slowbro").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "gardevoir").learnset.recover = ["9L1"];
 		this.modData("Learnsets", "gallade").learnset.recover = ["9L1"];
+		
+		this.modData("Learnsets", "onix").learnset.coil = ["9L1"];
+		this.modData("Learnsets", "onix").learnset.diamondstorm = ["9L1"];
+		this.modData("Learnsets", "onix").learnset.hardpress = ["9L1"];
+		this.modData("Learnsets", "onix").learnset.powergem = ["9L1"];
+		this.modData("Learnsets", "onix").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "aron").learnset.dive = ["9L1"];
+		this.modData("Learnsets", "aron").learnset.gyroball = ["9L1"];
+		this.modData("Learnsets", "aron").learnset.hardpress = ["9L1"];
+		this.modData("Learnsets", "aron").learnset.headcharge = ["9L1"];
+		this.modData("Learnsets", "aron").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.aquaring = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.drainpunch = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.lifedew = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.liquidation = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.soak = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.waterfall = ["9L1"];
+		this.modData("Learnsets", "aggron").learnset.wavecrash = ["9L1"];
 	},
 };
