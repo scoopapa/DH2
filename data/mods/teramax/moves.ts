@@ -755,6 +755,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 				}
 			},
+			/*onAfterMoveSecondarySelf(source, target, move) {
+				for (const pokemon of source.foes()) {
+					let movePP = 0;
+					for (const moveSlot of pokemon.moveSlots) {
+						movePP += moveSlot.pp;
+					}
+					if (!target || target.fainted || target.hp <= 0) this.heal(movePP * 2, source, source);
+				}
+			},*/
 		},
 		secondary: null,
 		target: "adjacentFoe",
