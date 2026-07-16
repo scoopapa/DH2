@@ -246,6 +246,7 @@ import { Formats as Worldbuilding               } from '../data/mods/worldbuildi
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
 import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
 import { Formats as ZAOU						} from '../data/mods/gen9legendsou/formats';
+import { Formats as NatDexZa					} from '../data/mods/natdexza/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -336,6 +337,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Worldbuilding,
 	...gen9VGC20XX,
 	...ZAOU,
+	...NatDexZa,
 	
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
