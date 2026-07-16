@@ -33,6 +33,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Crazy Smoke"},
 		weightkg: 1,
 		requiredItem: "Jokerite",
+		battleOnly: "Hamburger",
 	},
 	rotomcarbonmonoxidedetector: {
 		num: 4,
@@ -70,6 +71,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ligma Aura"},
 		weightkg: 150.5,
 		requiredItem: "Sligma Ball",
+		battleOnly: "Sligma",
 	},
 	evilregisteel: {
 		num: 7,
@@ -252,6 +254,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mimicry"},
 		weightkg: 60,
     	requiredItem: "Stunfiskite",
+		battleOnly: "Stunfisk-Galar",
 	},
 	burningfeet: {
 		num: 26,
@@ -410,6 +413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mac Tonight"},
 		weightkg: 17,
 		requiredItem: "Tynarite",
+		battleOnly: "Tynar",
 	},
 	theregent: {
 		num: 44,
@@ -453,6 +457,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Punishing Pierce"},
 		weightkg: 260.8,
 		requiredItem: "Espinasite",
+		battleOnly: "Espinas",
 	},
 	wirescruel: {
 		num: 48,

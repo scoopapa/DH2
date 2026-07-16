@@ -420,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	divineright: {
 		onSwitchIn(pokemon) {
-			this.add('-ability', pokemon, 'Mold Breaker');
+			this.add('-ability', pokemon, 'Divine Right');
 			if (this.field.isWeather('meteorshower')) {
 				pokemon.divineright = 2;
 				this.add('-message', pokemon.name + " exerts their Divine Destiny!");
@@ -433,13 +433,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, attacker) {
 			if (attacker.divineright > 0 && move.secondaries) {
 				let success = false;
-				for (const secondary in move.secondaries) {
+				for (const secondary of move.secondaries) {
 					if (secondary.chance < 100) {
 						success = true;
 						secondary.chance = 100;
 					}
 				}
-				if (success) pokemon.divineright --;
+				if (move.self?.chance < 100) {
+					success = true;
+					move.self.chance = 100;
+				}
+				if (success) attacker.divineright --;
 			}
 		},
 		name: "Divine Right",
