@@ -1,10 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	teambuilderConfig: {
+	/*teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 		customDoublesTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
-	},
+	},*/
 	init() {
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
