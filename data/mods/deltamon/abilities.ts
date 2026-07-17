@@ -184,22 +184,23 @@ blossomboost: {
 				return this.chainModify(1.5);
 			}
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Sharpshooter",
 		shortDesc: "This Pokemon's bullet moves do 1.5x their normal damage. Pollen Puff heals 3/4 of the target's max HP.",
 	},
 	
 	tacticaldodge: {
-		onInvulnerability(target, source, move) {
-			if (target.getMoveHitData(move).typeMod > 0 && (target.dodged) !== true) {
-				this.add ('-activate', target, 'ability: Tactical Dodge');
+		onTryHit(pokemon, target, move) {
+			if (pokemon.dodged) return;
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.add ('-activate', pokemon, 'ability: Tactical Dodge');
 				this.add('-anim', pokemon, "Nasty Plot", target);
 				this.add('-message', '${pokemon.name} evaded the attack!'),
-				target.dodged = true;
+				pokemon.dodged = true;
 				return false;
 			}
 		},
-		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1,},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Tactical Dodge",
 		shortDesc: "Once per battle, this Pokemon uses its tactical know-how to evade an incoming super-effective attack.",
 	},
@@ -215,13 +216,74 @@ blossomboost: {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
 				this.debug('Swordplay boost');
-				return this.chainModify(1.3);
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Swordplay",
+		shortDesc: "This Pokemon's slicing moves do 1.3x their normal damage and partially bypass Protect.",
+	},
+	
+	fullbelly: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.ateBerry) {
+				return this.chainModify(1.5);
+			}
+			else {
+				return this.chainModify(0.7);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Full Belly",
+		shortDesc: "This Pokemon's Attack stat is multiplied by 0.7x until it eats a Berry. Once it eats a Berry, its Attack is multiplied by 1.5x for the rest of the battle.",
+	},
+	
+	reverberate: {
+			// Copied from Parental Bond
+			onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+				move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !move.flags['sound']) return;
+			move.multihit = 2;
+			move.multihitType = 'reverberate';
+		},
+
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'reverberate' && move.id === 'secretpower' && move.hit < 2) 
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			},
+			
+		onHit(source, target, move) {
+			if (move.multihitType === 'reverberate' && move.hit > 1) {
+				this.battle.debug('Reverberate modifier');
+				baseDamage = this.battle.modify(baseDamage, 0.5);
+			}
+		},
+		
+		flags: {},
+		name: "Reverberate",
+		shortDesc: "This Pokemon's sound moves hit twice. The second hit does 50% of its normal damage.",
+	},
+	
+	ghostlygroove: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound']) { 
+				move.type = 'Ghost';
+			}
+		},
+		
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if(move.flags['sounds']) {
+				this.debug('Ghostly Groove boost');
+				return this.chainModify(1.1);
 			}
 		},
 		flags: {},
-		name: "Swordplay",
-		shortDesc: "This Pokemon's slicing moves do 1.3x their normal damage and partially bypass Protect.",
-	},		
+		name: "Ghostly Groove",
+		shortDesc: "This Pokemon's sound-based moves become Ghost-Type and have 1.1x Power.",
+	},
 	
 	antivirus: {
 		onTryHit(target, source, move) {
@@ -235,6 +297,18 @@ blossomboost: {
 		flags: {breakable: 1,},
 		name: "Antivirus",
 		shortDesc: "This Pokemon is immune to Bug-Type moves. Getting hit by a Bug-Type move boosts its Attack by 1 stage.",
+	},
+	
+	splitpersonality: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Pink') return;
+			const targetForme = pokemon.species.name === 'Pink' ? 'Pink-Ghost' : 'Pink';
+			pokemon.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Split Personality",
+		shortDesc: "At the end of every turn, this Pokemon switches between its Corporeal Forme and Ghost Forme.",
 	},
 	
 	stellarguard: {
@@ -260,6 +334,7 @@ blossomboost: {
 	},
 	
 	scrappy: {
+		inherit: true,
 		onTryBoost(boost, target, source, effect) {
 			if (['Intimidate', 'Savage Roar'].includes(effect.name) && boost.atk) {
 				delete boost.atk;

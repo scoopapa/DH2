@@ -1160,7 +1160,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 110, atk: 120, def: 80, spa: 60, spd: 90, spe: 75},
-		abilities: {0: "Guard Dog", H: "Dog Marriage Dogamy"},
+		abilities: {0: "Guard Dog", H: "Dog Marriage (Dogamy)"},
 		weightkg: 75,
 	},
 	dogaressa: {
@@ -1169,7 +1169,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fighting"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 85, spa: 85, spd: 70, spe: 110},
-		abilities: {0: "Guard Dog", H: "Dog Marriage Dogaressa"},
+		abilities: {0: "Guard Dog", H: "Dog Marriage (Dogaressa)"},
 		weightkg: 75,
 	},
 	gyftrot: {
