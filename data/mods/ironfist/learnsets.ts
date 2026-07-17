@@ -10450,6 +10450,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	solarbean: {
 		learnset: {
+			ancientpower: ["9L1"],
 			absorb: ["9L1"],
 			afteryou: ["9L1"],
 			attract: ["9L1"],
