@@ -217,7 +217,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	return: {
 		num: 216,
 		accuracy: 100,
-		basePower: 0,
 		modded: true, // this makes its description display in Data Mod
 		basePower: 102,
 		category: "Physical",
