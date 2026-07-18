@@ -4868,7 +4868,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			faketears: ["9L1"],
 			confide: ["9L1"],
 			bestow: ["9L1"],
-			snore: ["9L1"],
 			workup: ["9L1"],
 			bite: ["9L1"],
 			mudslap: ["9L1"],
