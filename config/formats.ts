@@ -160,6 +160,7 @@ import { Formats as MegasForAllPaldea           } from '../data/mods/m4apaldea/f
 import { Formats as gen8MegasForAllv6           } from '../data/mods/m4av6/formats';
 import { Formats as Maadowr                     } from '../data/mods/maadowr/formats';
 import { Formats as MaadowrLostZone             } from '../data/mods/maadowrlostzone/formats';
+import { Formats as Macrometa                   } from '../data/mods/macrometa/formats';
 import { Formats as Masquerade                  } from '../data/mods/masquerade/formats';
 import { Formats as MegaMania                   } from '../data/mods/megamania/formats';
 import { Formats as MegaRevolution              } from '../data/mods/megarevolution/formats';
@@ -291,6 +292,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SharedPowerIronFist,
 	...Ironmons,
 	...LittleColosseum,
+	...Macrometa,
 	...Masquerade,
 	...MegaRevolution,
 	...MegasForAllPaldea,
