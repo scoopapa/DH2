@@ -576,7 +576,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		flags: {breakable: 1,},
+		flags: {breakable: 1},
 		name: "Antivirus",
 		shortDesc: "This Pokemon is immune to Bug-Type moves. Getting hit by a Bug-Type move boosts its Attack by 1 stage.",
 	},

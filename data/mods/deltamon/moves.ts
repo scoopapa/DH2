@@ -931,6 +931,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 1}},
 	},
 	
+	//copied from Knock Off
 	expelspell: {
 		name: "Expel Spell",
 		type: "Psychic",
@@ -984,7 +985,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(target) {
 			if (target.status === 'slp') {
 				target.cureStatus();
-				target.Volatile('confusion');
+				target.addVolatile('confusion');
 			}
 		},
 		onPrepareHit(target, pokemon, move) {
