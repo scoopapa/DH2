@@ -215,18 +215,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
 	},
 	return: {
-		inherit: true,
+		num: 216,
+		accuracy: 100,
 		modded: true, // this makes its description display in Data Mod
 		basePower: 102,
-		// Overwriting this function so it no longer inherits return's old bp calc formula
-		basePowerCallback(pokemon, target, move) {
-			return move.basePower;
-		},
+		category: "Physical",
+		name: "Return",
 		pp: 20,
 		noPPBoosts: true,
-		isNonstandard: null,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
 		shortDesc: "No additional effect.",
-		desc: "No additional effect.",
 	},
 	// sandclock interactions
 	solarbeam: {
