@@ -2409,8 +2409,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "shadowmantle").learnset.rest = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.shadowball = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.sleeptalk = ["9L1"];
-		this.modData("Learnsets", "shadowmantle").learnset.sludgebomb = ["9L1"];
-		this.modData("Learnsets", "shadowmantle").learnset.sludgewave = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.spite = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.substitute = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.suckerpunch = ["9L1"];
@@ -2418,7 +2416,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "shadowmantle").learnset.torment = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.trick = ["9L1"];
-		this.modData("Learnsets", "shadowmantle").learnset.venoshock = ["9L1"];
 		this.modData("Learnsets", "shadowmantle").learnset.willowisp = ["9L1"];
 		// Tenna
 		this.modData("Learnsets", "tenna").learnset.closecombat = ["9L1"];

@@ -1324,8 +1324,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Vulkin",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 75, atk: 104, def: 64, spa: 120, spd: 92, spe: 55},
-		abilities: {0: "Magma Armor", H: "Solid Rock"},
-		weightkg: 78,
+		abilities: {0: "Magma Armor", 1: "Solar Power", H: "Solid Rock"},
+		weightkg: 98,
 	},
 	tsunderplane: {
 		num: -135,

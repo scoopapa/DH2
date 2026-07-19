@@ -91,12 +91,12 @@ rudinn: {
 	},
 	rouxlskaard: {
 		tier: "DM OU",
-		doublesTier: "DM DOU",
+		doublesTier: "DM DUbers",
 		natDexTier: "OU",
 	},
 	rouxlskaardmega: {
 		tier: "DM OU",
-		doublesTier: "DM DOU",
+		doublesTier: "DM DUbers",
 		natDexTier: "OU",
 	},
 	lancer: {

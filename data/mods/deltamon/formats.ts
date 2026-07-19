@@ -71,7 +71,7 @@ export const Formats: FormatData[] = [
 			}
 		},
 	},
-	{	name: "[Gen 9] National Dex Dark World",
+	{	name: "[Gen 9] Deltamon: National Dex Dark World",
 		mod: 'deltamon',
 		desc: "National Dex Dark World is a format where you can use Deltamon Recruits with any Pokemon available in the Generation 9 National Dex format!",
 		threads: [

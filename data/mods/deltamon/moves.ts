@@ -447,7 +447,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Mind Blown", target);
+			this.add('-anim', pokemon, "Nature's Madness", target);
+			this.add('-anim', pokemon, "Ruination", target);
+			this.add('-anim', pokemon, "Hex", target);
 		},
 		secondary: {
 			chance: 100,
@@ -666,13 +668,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 215,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Hits four turns after being used. Ignores stat changes.",
-		longDesc: "The user launches a giant knife-like projectile into the air, and must patiently wait for it to come down and hit the target. This move hits four turns after being used, and ignores the target's stat changes.",
+		shortDesc: "Hits four turns after being used. Ignores stat changes. Fails if another Future Move is active.",
+		longDesc: "The user launches a giant knife-like projectile into the air, and must patiently wait for it to come down and hit the target. This move hits four turns after being used, and ignores the target's stat changes. This move will fail if another Future Move is active.",
 		priority: 0,
 		flags: {allyanim: 1, futuremove: 1, slicing: 1},
 		ignoreDefensive: true,
 		isZ: 'cyanomegapetal',
 		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 5,
 				move: 'omegapatience',
@@ -691,7 +694,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					type: 'Fairy',
 				},
 			});
-			this.add('-start', source, 'Omega Patience');
+			this.add('-start', source, 'move: Omega Patience');
 			return this.NOT_FAIL;
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -708,7 +711,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Psychic-Type in Corporeal Forme, Ghost-Type in Ghost Forme. 50% chance to lower target's Sp. Atk in Corporeal Forme, 50% Chance to lower target's Atk in Ghost Forme.",
+		shortDesc: "Pink only: Psychic-Type in Corporeal Forme, Ghost-Type in Ghost Forme. 50% chance to lower target's Sp. Atk in Corporeal Forme, 50% Chance to lower target's Atk in Ghost Forme.",
 		longDesc: "The user fires a blast from its magical wand. This move is Psychic-Type with a 50% chance to lower the target's Special Attack in Pink's Corporeal Forme, and Ghost-Type with a 50% chance to lower the target's Attack in Pink's Ghost Forme.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
