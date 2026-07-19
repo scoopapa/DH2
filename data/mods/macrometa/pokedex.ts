@@ -817,6 +817,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 132, def: 105, spa: 132, spd: 105, spe: 30},
 		abilities: {0: "Snow Warning", H: "Ice Scales"},
 		weightkg: 185,
+		forme: null,
+		requiredItem: null,
 	},
 	buzzwole: {
 		inherit: true,
@@ -835,6 +837,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 100, def: 100, spa: 110, spd: 100, spe: 80},
 		abilities: {0: "Toxic Debris"},
 		weightkg: 850,
+		requiredItem: null,
 	},
 	empoleon: {
 		inherit: true,
@@ -907,6 +910,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 106, atk: 95, def: 70, spa: 99, spd: 90, spe: 110},
 		abilities: {0: "Protean", H: "Magic Guard"},
 		weightkg: 33,
+		forme: null,
+		requiredItem: null,
 	},
 	nihilego: {
 		inherit: true,
@@ -962,6 +967,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 120, def: 100, spa: 70, spd: 100, spe: 110},
 		abilities: {0: "Tough Claws"},
 		weightkg: 40.4,
+		forme: null,
+		requiredItem: null,
 	},
 	tinkaton: {
 		inherit: true,
@@ -989,6 +996,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 80, def: 118, spa: 122, spd: 115, spe: 60},
 		abilities: {0: "Thick Fat"},
 		weightkg: 155.5,
+		forme: null,
+		requiredItem: null,
 	},
 	wyrdeer: {
 		inherit: true,
@@ -1025,6 +1034,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 128, atk: 100, def: 81, spa: 101, spd: 65, spe: 35},
 		abilities: {0: "Intimidate", 1: "Sturdy", H: "Sand Spit"},
 		weightkg: 610,
+		forme: null,
+		requiredAbility: null,
+		battleOnly: null,
 	},
 	wingnut: {
 		num: 1125,
