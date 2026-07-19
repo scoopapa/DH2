@@ -33,6 +33,7 @@ After that, find the right section within the formats list that describes your m
 import { Formats as Abilitypos                  } from '../data/mods/abilitypos/formats';
 import { Formats as Alternatium                 } from '../data/mods/alternatium/formats';
 import { Formats as AlternatiumEX               } from '../data/mods/alternatiumex/formats';
+import { Formats as NationalDexExpanded			} from '../data/mods/natdexexpanded/formats';
 import { Formats as BackToSinnoh                } from '../data/mods/backtosinnoh/formats';
 import { Formats as Balls                       } from '../data/mods/balls/formats';
 import { Formats as BanHammersC3                } from '../data/mods/banhammersc3/formats';
@@ -415,6 +416,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...MaadowrLostZone,
 	...MegaMania,
 	...gen1Metronome,
+	...NationalDexExpanded,
 	...Solopet,
 	...gen1Moonside,
 	...Patratdex,
