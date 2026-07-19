@@ -1,4 +1,4 @@
-export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ferroluna: {
 		num: 1001,
 		name: "Ferroluna",
