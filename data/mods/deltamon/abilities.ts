@@ -8,6 +8,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	*/
 	
+	//There is no chance that this all works properly, it is quite literally held up by Hopes and Dreams as I have very little coding experience.
+	
 	coldgaze: {
 		onStart(pokemon) {
 			let activated = false;
@@ -115,6 +117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.effectState.counter--;
 				
 				if(!this.effectState.counter) {
+					delete this.effectState.counter;
 					this.add('-message', "YOUR TAKING TOO LONG!");
 					for (const target of this.getAllActive()) {
 						if (target === pokemon) continue;
