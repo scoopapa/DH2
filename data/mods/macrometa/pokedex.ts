@@ -57,9 +57,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	petertosh: {
 		num: 1008,
-		name: "Peter-Tosh",
-		baseSpecies: "Peter",
-		forme: "Tosh",
+		name: "Peter Tosh",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 80, atk: 80, def: 100, spa: 130, spd: 100, spe: 80},
 		abilities: {0: "White Smoke", 1: "Flash Fire", H: "Grassy Surge"},
@@ -424,8 +422,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	f00: {
 		num: 1053,
 		name: "F-00",
-		baseSpecies: "F",
-		forme: "00",
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 110, spd: 90, spe: 105},
 		abilities: {0: "Normalize"},
@@ -434,8 +430,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	f002: {
 		num: 1054,
 		name: "F-002",
-		baseSpecies: "F",
-		forme: "002",
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 80, atk: 110, def: 110, spa: 90, spd: 130, spe: 25},
 		abilities: {0: "Cursed Body"},
@@ -500,8 +494,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	klinklangklangorous: {
 		num: 1062,
 		name: "Klinklang-Klangorous",
-		baseSpecies: "Klinklang",
-		forme: "Klangorous",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 60, atk: 100, def: 115, spa: 70, spd: 85, spe: 90},
 		abilities: {0: "Simple"},
@@ -582,8 +574,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	unpatrollmelted: {
 		num: 1072,
 		name: "Unpatroll-Melted",
-		baseSpecies: "Unpatroll",
-		forme: "Melted",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 10, atk: 75, def: 235, spa: 80, spd: 215, spe: 135},
 		abilities: {0: "Water Bubble"},
@@ -634,8 +624,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	golisopodhero: {
 		num: 1078,
 		name: "Golisopod-Hero",
-		baseSpecies: "Golisopod",
-		forme: "Hero",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 90, spe: 40},
 		abilities: {0: "Long Reach", H: "Regenerator"},
@@ -652,8 +640,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	permiplanetaex: {
 		num: 1080,
 		name: "Permiplaneta-EX",
-		baseSpecies: "Permiplaneta",
-		forme: "EX",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 113, atk: 94, def: 93, spa: 64, spd: 91, spe: 30},
 		abilities: {0: "Poison Heal", H: "Thick Fat"},
@@ -686,8 +672,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	strawbaphantex: {
 		num: 1084,
 		name: "Strawbaphant-EX",
-		baseSpecies: "Strawbaphant",
-		forme: "EX",
 		types: ["Grass", "Water"],
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 110, spd: 90, spe: 90},
 		abilities: {0: "Chlorophyll", H: "Sand Rush"},
@@ -770,8 +754,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pirroteex: {
 		num: 1094,
 		name: "Pirrote-EX",
-		baseSpecies: "Pirrote",
-		forme: "EX",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 98, atk: 80, def: 82, spa: 52, spd: 121, spe: 92},
 		abilities: {0: "Steelworker", H: "Magic Bounce"},
@@ -1223,8 +1205,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cyromescribe: {
 		num: 1147,
 		name: "Cyrome-Scribe",
-		baseSpecies: "Cyrome",
-		forme: "Scribe",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 180, atk: 110, def: 55, spa: 105, spd: 55, spe: 95},
 		abilities: {0: "Minds Eye"},
@@ -1233,8 +1213,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	arbrellanorth: {
 		num: 1148,
 		name: "Arbrella-North",
-		baseSpecies: "Arbrella",
-		forme: "North",
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 90, atk: 135, def: 110, spa: 65, spd: 80, spe: 65},
 		abilities: {0: "Overgrow", H: "Shadow Shield"},
@@ -1372,8 +1350,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	touchtone: {
 		num: 1165,
 		name: "Touch-Tone",
-		baseSpecies: "Touch",
-		forme: "Tone",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 67, atk: 70, def: 134, spa: 95, spd: 134, spe: 50},
 		abilities: {0: "Wandering Spirit"},
@@ -1789,8 +1765,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	embry0: {
 		num: 1215,
 		name: "Embry-0",
-		baseSpecies: "Embry",
-		forme: "0",
 		types: ["Normal"],
 		baseStats: {hp: 64, atk: 146, def: 64, spa: 146, spd: 64, spe: 146},
 		abilities: {0: "Neuroforce", H: "Protean"},
