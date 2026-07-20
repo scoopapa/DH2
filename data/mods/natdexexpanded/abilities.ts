@@ -213,31 +213,36 @@ export const Abilities: import("../../../sim/dex-abilities").ModdedAbilityDataTa
 		shortDesc: "Grants a 1.5x boost to the highest stat of active ally Regis.",
 		onAllyModifyAtk(atk, pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.species.regiClass && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
+				const regiClass = ['regidrago', 'regieleki', 'registeel', 'regirock', 'regice'] as ID[];
+				if (regiClass.includes(allyActive.species.id) && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
 				return this.chainModify(1.5);
 			};
 		},
 		onAllyModifyDef(def, pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.species.regiClass && allyActive.getBestStat(false, true) === 'def' && !pokemon.ignoringAbility())
+				const regiClass = ['regidrago', 'regieleki', 'registeel', 'regirock', 'regice'] as ID[];
+				if (regiClass.includes(allyActive.species.id) && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
 				return this.chainModify(1.5);
 			};
 		},
 		onAllyModifySpA(spa, pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.species.regiClass && allyActive.getBestStat(false, true) === 'spa' && !pokemon.ignoringAbility())
+				const regiClass = ['regidrago', 'regieleki', 'registeel', 'regirock', 'regice'] as ID[];
+				if (regiClass.includes(allyActive.species.id) && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
 				return this.chainModify(1.5);
 			};
 		},
 		onAllyModifySpD(spd, pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.species.regiClass && allyActive.getBestStat(false, true) === 'spd' && !pokemon.ignoringAbility())
+				const regiClass = ['regidrago', 'regieleki', 'registeel', 'regirock', 'regice'] as ID[];
+				if (regiClass.includes(allyActive.species.id) && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
 				return this.chainModify(1.5);
 			};
 		},
 		onAllyModifySpe(spe, pokemon) {
 			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.species.regiClass && allyActive.getBestStat(false, true) === 'spe' && !pokemon.ignoringAbility())
+				const regiClass = ['regidrago', 'regieleki', 'registeel', 'regirock', 'regice'] as ID[];
+				if (regiClass.includes(allyActive.species.id) && allyActive.getBestStat(false, true) === 'atk' && !pokemon.ignoringAbility())
 				return this.chainModify(1.5);
 			};
 		},

@@ -1,11 +1,3 @@
-import '../../../sim/pokemon';
-
-declare module '../../../sim/dex-species' {
-	interface Species {
-		regiClass?: true | null;
-	}
-};
-
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	actions: {

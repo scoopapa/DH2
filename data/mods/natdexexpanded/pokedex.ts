@@ -489,30 +489,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		battleOnly: "Archaludon",
 		gen: 9,
 	},
-	regigigas: {
-		inherit: true,
-		regiClass: true,
-	},
-	registeel: {
-		inherit: true,
-		regiClass: true,
-	},
-	regirock: {
-		inherit: true,
-		regiClass: true,
-	},
-	regice: {
-		inherit: true,
-		regiClass: true,
-	},
-	regieleki: {
-		inherit: true,
-		regiClass: true,
-	},
-	regidrago: {
-		inherit: true,
-		regiClass: true,
-	},
 	audinomega: {
 		inherit: true,
 		abilities: { 0: "Regenerator" },
