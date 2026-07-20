@@ -288,6 +288,8 @@ export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	bodyofwaterBoosted?: boolean,
 	longWhipBoost?: boolean,
 	gen?: number,
+	/** If the teambuilder should show a move as being Useful. */
+	viable?: boolean | null;
 };
 
 export interface MoveDataTable {[moveid: IDEntry]: MoveData}

@@ -254,6 +254,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "charizard").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "gengar").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "gengar").learnset.chillyreception = ["9L1"];
+		delete this.modData('Learnsets', 'gengar').learnset.gigadrain;
+		delete this.modData('Learnsets', 'gengar').learnset.energyball;
 		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
 		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
 		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];

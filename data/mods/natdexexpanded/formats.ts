@@ -31,6 +31,7 @@ export const Formats: FormatData[] = [
 		name: "[Gen 9] National Dex Expanded VGC",
 		mod: 'natdexexpanded',
 		desc: `Coded by iforgetwhyimhere`,
+		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit One Restricted', 'Terastal Clause', 'Mega Data Mod'],
 		unbanlist: ['All Pokemon'],
 		restricted: ['Restricted Legendary'],
