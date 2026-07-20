@@ -120,7 +120,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					delete this.effectState.counter;
 					this.add('-message', "YOUR TAKING TOO LONG!");
 					for (const target of this.getAllActive()) {
-						if (target === pokemon) continue;
+						if (target === pokemon || pokemon.fainted) continue;
 						this.damage(target.baseMaxhp / 4);
 					}
 				}
