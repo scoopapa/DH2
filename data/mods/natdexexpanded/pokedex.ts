@@ -549,7 +549,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { H: "Levitate", 0: "Hustle" },
 	},
-	c0imec0o: {
+	chimecho: {
 		inherit: true,
 		abilities: { H: "Levitate", 0: "Wind Rider" },
 	},
