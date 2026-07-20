@@ -237,7 +237,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, pokemon, move) {
 			if(pokemon.pyroBoost >= 2) return;
 			
 			if(move.type === 'Fire') {
