@@ -458,7 +458,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('ability:swiftswim');
 			pokemon.removeVolatile('ability:hydration');
 			pokemon.removeVolatile('ability:waterabsorb');
-		}
+		},
 		flags: {},
 		name: "champion",
 		shortDesc: "Swift Swim + Hydration + Water Absorb",
@@ -799,7 +799,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			pokemon.removeVolatile('ability:comatose');
-		}
+		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Bramblin Mentality",
@@ -1394,7 +1394,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('ability:bulletproof');
 			pokemon.removeVolatile('ability:gluttony');
 			pokemon.removeVolatile('ability:quickfeet');
-		}
+		},
 		flags: {breakable: 1},
 		name: "Snakewood",
 		shortDesc: "Bulletproof + Gluttony + Quick Feet",
@@ -1438,7 +1438,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			pokemon.removeVolatile('ability:aromaveil');
-		}
+		},
 		flags: {breakable: 1},
 		name: "Disgusting, Repulsive Dessert",
 		shortDesc: "Aroma Veil",
@@ -1582,7 +1582,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			pokemon.removeVolatile('ability:unaware');
 			pokemon.removeVolatile('ability:oblivious');
-		}
+		},
 		flags: {breakable: 1},
 		name: "Socially Unaware",
 		shortDesc: "Unaware + Oblivious",
@@ -1630,7 +1630,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('ability:adaptability');
 			pokemon.removeVolatile('ability:moxie');
 			pokemon.removeVolatile('ability:scrappy');
-		}
+		},
 		//tera steel in scripts.ts
 		flags: {},
 		name: "Racer's Spirit",
@@ -1792,7 +1792,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('ability:madscientist');
 			pokemon.removeVolatile('ability:whatthesigma');
 			pokemon.removeVolatile('ability:steadfast');
-		}
+		},
 		flags: {breakable: 1},
 		name: "Miracle Student",
 		shortDesc: "Mad Scientist + What the Sigma + Steadfast",
@@ -1842,7 +1842,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			pokemon.removeVolatile('ability:pressure');
 			pokemon.removeVolatile('ability:justthebirds');
-		}
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				if (this.randomChance(3, 10)) {
@@ -2141,7 +2141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			pokemon.removeVolatile('ability:levitate');
-		}
+		},
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
 			if (attacker.species.baseSpecies !== 'Minior-Meteor' || attacker.transformed) return;
