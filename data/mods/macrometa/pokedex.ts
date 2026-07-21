@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Enormous Eye",
 		types: ["Psychic"],
 		baseStats: {hp: 200, atk: 50, def: 60, spa: 150, spd: 60, spe: 50},
-		abilities: {0: "Keen Eye", 1: "Compound Eye", H: "Mind's Eye"},
+		abilities: {0: "Keen Eye", 1: "Compound Eyes", H: "Mind's Eye"},
 		weightkg: 100,
 	},
 	joemamalol: {
