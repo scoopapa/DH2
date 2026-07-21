@@ -3,7 +3,7 @@ import { FormatData } from '../../../sim/dex-formats';
 export const Formats: FormatData[] = [
 	{
 		name: "[Gen 9] Macrometa",
-		desc: "The cult classic mod by DuoM2 where everyone gets to add a bunch of mons to each slate.",
+		desc: "The cult classic solomod by DuoM2 where everyone gets to add a bunch of mons to each slate.",
 		mod: "macrometa",
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'OHKO Clause', 'Sleep Clause Mod'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 
