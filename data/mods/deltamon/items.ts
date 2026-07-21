@@ -100,105 +100,121 @@ boosterenergy: {
 
 	queenite: {
 		name: "Queenite",
-		megaStone: {"Queen": "Queen-Mega"},
+		megaStone: "Queen-Mega",
+		megaEvolves: "Queen",
 		shortDesc: "If held by Queen, this item allows her to Mega Evolve in battle.",
 		itemUser: ["Queen"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	spamtonite: {
 		name: "Spamtonite",
-		megaStone: {"Spamton": "Spamton-Mega"},
+		megaStone: "Spamton-Mega",
+		megaEvolves: "Spamton",
 		shortDesc: "If held by Spamton, this item allows him to Mega Evolve in battle.",
 		itemUser: ["Spamton"],
 		fling: {
 			basePower: 97,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	gersonite: {
 		name: "Gersonite",
-		megaStone: {"Gerson": "Gerson-Mega"},
+		megaStone: "Gerson-Mega",
+		megaEvolves: "Gerson",
 		shortDesc: "If held by Gerson, this item allows him to Mega Evolve in battle.",
 		itemUser: ["Gerson"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	kaardite: {
 		name: "Kaardite",
-		megaStone: {"Rouxls Kaard": "Rouxls Kaard-Mega"},
+		megaStone: "Rouxls Kaard-Mega",
+		megaEvolves: "Rouxls Kaard",
 		shortDesc: "If held by Rouxls Kaard, this item allows him to Mega Evolve in battle.",
 		itemUser: ["Rouxls Kaard"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	undynite: {
 		name: "Undynite",
-		megaStone: {"Undyne": "Undyne-Mega"},
+		megaStone: "Undyne-Mega",
+		megaEvolves: "Undyne",
 		shortDesc: "If held by Undyne, this item allows her to Mega Evolve in battle.",
 		itemUser: ["Undyne"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	mettatonitex: {
 		name: "Mettatonite X",
-		megaStone: {"Mettaton": "Mettaton-Mega-X"},
+		megaStone: "Mettaton-Mega-X",
+		megaEvolves: "Mettaton",
 		shortDesc: "If held by Mettaton, this item allows him to Mega Evolve into his X form in battle.",
 		itemUser: ["Mettaton"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	mettatonitey: {
 		name: "Mettatonite Y",
-		megaStone: {"Mettaton": "Mettaton-Mega-Y"},
+		megaStone: "Mettaton-Mega-Y",
+		megaEvolves: "Mettaton",
 		shortDesc: "If held by Mettaton, this item allows him to Mega Evolve into his Y form in battle.",
 		itemUser: ["Mettaton"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	
 	floweyite: {
 		name: "Floweyite",
-		megaStone: {"Flowey": "Flowey-Mega"},
+		megaStone: "Flowey-Mega",
+		megaEvolves: "Flowey",
 		shortDesc: "If held by Flowey, this item allows him to Mega Evolve in battle.",
 		itemUser: ["Flowey"],
 		fling: {
 			basePower: 80,
 		},
 		onTakeItem(item, source) {
-			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 	

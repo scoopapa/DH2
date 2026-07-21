@@ -326,7 +326,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Dragon Pulse", target);
-				this.add('-anim', pokemon, "Psyshock", target);
+			this.add('-anim', pokemon, "Psyshock", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -346,7 +346,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Metronome", target);
-				this.add('-anim', pokemon, "Lovely Kiss", target);
+			this.add('-anim', pokemon, "Lovely Kiss", target);
 		},
 		onHit(target, source, move) {
 			if(target.isAlly(source)) {
