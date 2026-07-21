@@ -3171,7 +3171,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	f00: {
+	pokestarf00: {
 		learnset: {
 			aerialace: ["9L1"],
 			bodyslam: ["9L1"],
@@ -3234,7 +3234,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	f002: {
+	pokestarf002: {
 		learnset: {
 			aerialace: ["9L1"],
 			bodyslam: ["9L1"],

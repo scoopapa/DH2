@@ -7,7 +7,7 @@ export const Formats: FormatData[] = [
 		mod: "macrometa",
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'OHKO Clause', 'Sleep Clause Mod'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 
-				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil','Last Respects',
+				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil','Last Respects', 'Overflow Stat Mod'
 		],
 		unbanlist: ["Ferroluna", "Forjur", "Guzzuluck", "Gobblin", "Tardinaut", "Chilalien", "Eternahand", "Peter-Tosh", "Caskoon", 
 					"Boulderdash", "Baleenie", "Megemboar", "Ficklefern", "Murkdepp", "Pythononja", "Vealzealot", "Citrusipop", 

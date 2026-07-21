@@ -172,7 +172,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Goltoof",
 		types: ["Steel"],
 		baseStats: {hp: 90, atk: 135, def: 90, spa: 40, spd: 100, spe: 100},
-		abilities: {0: "Good As Gold"},
+		abilities: {0: "Good as Gold"},
 		weightkg: 87,
 	},
 	anchorshark: {
@@ -419,17 +419,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Psychic Surge"},
 		weightkg: 84.5,
 	},
-	f00: {
+	pokestarf00: {
 		num: 1053,
-		name: "F-00",
+		name: "Pokestar F-00",
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 110, spd: 90, spe: 105},
 		abilities: {0: "Normalize"},
 		weightkg: 65.5,
 	},
-	f002: {
+	pokestarf002: {
 		num: 1054,
-		name: "F-002",
+		name: "Pokestar F-002",
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 80, atk: 110, def: 110, spa: 90, spd: 130, spe: 25},
 		abilities: {0: "Cursed Body"},
