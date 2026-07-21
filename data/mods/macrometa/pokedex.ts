@@ -592,6 +592,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Weedemon",
 		types: ["Electric", "Grass"],
 		baseStats: {hp: 1, atk: 101, def: 60, spa: 90, spd: 60, spe: 108},
+		maxHP: 1,
 		abilities: {0: "Wonder Guard"},
 		weightkg: 66.6,
 	},
