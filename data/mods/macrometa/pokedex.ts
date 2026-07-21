@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Enormous Eye",
 		types: ["Psychic"],
 		baseStats: {hp: 200, atk: 50, def: 60, spa: 150, spd: 60, spe: 50},
-		abilities: {0: "Keen Eye", 1: "Compound Eye", H: "Minds Eye"},
+		abilities: {0: "Keen Eye", 1: "Compound Eye", H: "Mind's Eye"},
 		weightkg: 100,
 	},
 	joemamalol: {
@@ -1220,7 +1220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cyrome-Scribe",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 180, atk: 110, def: 55, spa: 105, spd: 55, spe: 95},
-		abilities: {0: "Minds Eye"},
+		abilities: {0: "Mind's Eye"},
 		weightkg: 168,
 	},
 	arbrellanorth: {
@@ -1844,7 +1844,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Thunjust",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 104, atk: 103, def: 124, spa: 111, spd: 81, spe: 47},
-		abilities: {0: "Minds Eye", 1: "Plus", H: "Hadron Engine"},
+		abilities: {0: "Mind's Eye", 1: "Plus", H: "Hadron Engine"},
 		weightkg: 48.5,
 	},
 	zephyllin: {
