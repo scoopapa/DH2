@@ -1,27 +1,27 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	dragonize: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 	eelevate: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 	firemane: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 	spicyspray: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 	megasol: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 	piercingdrill: {
 		inherit: true,
-		isNonstandard: null;
+		isNonstandard: null,
 	},
 };
 
