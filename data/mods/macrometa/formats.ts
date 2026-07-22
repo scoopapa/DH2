@@ -5,9 +5,9 @@ export const Formats: FormatData[] = [
 		name: "[Gen 9] Macrometa",
 		desc: "The cult classic solomod by DuoM2 where everyone gets to add a bunch of mons to each slate.",
 		mod: "macrometa",
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'OHKO Clause', 'Sleep Clause Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'OHKO Clause', 'Sleep Clause Mod', 'Overflow Stat Mod'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 
-				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil','Last Respects', 'Overflow Stat Mod'
+				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil','Last Respects', 
 		],
 		unbanlist: ["Ferroluna", "Forjur", "Guzzuluck", "Gobblin", "Tardinaut", "Chilalien", "Eternahand", "Peter-Tosh", "Caskoon", 
 					"Boulderdash", "Baleenie", "Megemboar", "Ficklefern", "Murkdepp", "Pythononja", "Vealzealot", "Citrusipop", 
