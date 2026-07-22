@@ -4969,4 +4969,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	auranegade: {
 		tier: "OU",
 	},
+	marronaut: {
+		tier: "OU",
+	},
+	elphablast: {
+		tier: "OU",
+	},
+	grenegade : {
+		tier: "OU",
+	},
 };

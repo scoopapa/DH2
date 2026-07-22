@@ -112,5 +112,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "aggron").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "aggron").learnset.waterfall = ["9L1"];
 		this.modData("Learnsets", "aggron").learnset.wavecrash = ["9L1"];
+		
+		this.modData("Learnsets", "fennekin").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.eeriespell = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.extrasensory = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.flameburst = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.inferno = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.mistyterrain = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.moonlight = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.mysticalpower = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.strangesteam = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "greninja").learnset.aurasphere = ["9L1"];
+		this.modData("Learnsets", "greninja").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "greninja").learnset.trailblaze = ["9L1"];
 	},
 };
