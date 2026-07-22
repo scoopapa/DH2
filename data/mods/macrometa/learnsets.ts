@@ -9567,7 +9567,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			pursuit: ["9L1"],
 		},
 	},
-	zygardecomplete: {
+	zygarde420: {
 		learnset: {
 			inherit: true,
 			allyswitch: ["9L1"],

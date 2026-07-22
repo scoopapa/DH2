@@ -491,7 +491,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Macrometa",
 		doublesTier: "Macrometa_Doubles",
 	},
-	zygardecomplete: {
+	zygarde420: {
 		tier: "Macrometa",
 		doublesTier: "Macrometa_Doubles",
 	},
