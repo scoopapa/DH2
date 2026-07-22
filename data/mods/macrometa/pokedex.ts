@@ -172,7 +172,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Goltoof",
 		types: ["Steel"],
 		baseStats: {hp: 90, atk: 135, def: 90, spa: 40, spd: 100, spe: 100},
-		abilities: {0: "Good As Gold"},
+		abilities: {0: "Good as Gold"},
 		weightkg: 87,
 	},
 	anchorshark: {
@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Enormous Eye",
 		types: ["Psychic"],
 		baseStats: {hp: 200, atk: 50, def: 60, spa: 150, spd: 60, spe: 50},
-		abilities: {0: "Keen Eye", 1: "Compound Eye", H: "Minds Eye"},
+		abilities: {0: "Keen Eye", 1: "Compound Eyes", H: "Mind's Eye"},
 		weightkg: 100,
 	},
 	joemamalol: {
@@ -419,17 +419,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Psychic Surge"},
 		weightkg: 84.5,
 	},
-	f00: {
+	pokestarf00: {
 		num: 1053,
-		name: "F-00",
+		name: "Pokestar F-00",
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 110, spd: 90, spe: 105},
 		abilities: {0: "Normalize"},
 		weightkg: 65.5,
 	},
-	f002: {
+	pokestarf002: {
 		num: 1054,
-		name: "F-002",
+		name: "Pokestar F-002",
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 80, atk: 110, def: 110, spa: 90, spd: 130, spe: 25},
 		abilities: {0: "Cursed Body"},
@@ -592,6 +592,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Weedemon",
 		types: ["Electric", "Grass"],
 		baseStats: {hp: 1, atk: 101, def: 60, spa: 90, spd: 60, spe: 108},
+		maxHP: 1,
 		abilities: {0: "Wonder Guard"},
 		weightkg: 66.6,
 	},
@@ -1219,7 +1220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cyrome-Scribe",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 180, atk: 110, def: 55, spa: 105, spd: 55, spe: 95},
-		abilities: {0: "Minds Eye"},
+		abilities: {0: "Mind's Eye"},
 		weightkg: 168,
 	},
 	arbrellanorth: {
@@ -1843,7 +1844,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Thunjust",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 104, atk: 103, def: 124, spa: 111, spd: 81, spe: 47},
-		abilities: {0: "Minds Eye", 1: "Plus", H: "Hadron Engine"},
+		abilities: {0: "Mind's Eye", 1: "Plus", H: "Hadron Engine"},
 		weightkg: 48.5,
 	},
 	zephyllin: {

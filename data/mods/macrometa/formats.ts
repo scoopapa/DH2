@@ -3,11 +3,11 @@ import { FormatData } from '../../../sim/dex-formats';
 export const Formats: FormatData[] = [
 	{
 		name: "[Gen 9] Macrometa",
-		desc: "The cult classic mod by DuoM2 where everyone gets to add a bunch of mons to each slate.",
+		desc: "The cult classic solomod by DuoM2 where everyone gets to add a bunch of mons to each slate.",
 		mod: "macrometa",
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'OHKO Clause', 'Sleep Clause Mod'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 
-				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil',
+				  'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil','Last Respects', 'Overflow Stat Mod'
 		],
 		unbanlist: ["Ferroluna", "Forjur", "Guzzuluck", "Gobblin", "Tardinaut", "Chilalien", "Eternahand", "Peter-Tosh", "Caskoon", 
 					"Boulderdash", "Baleenie", "Megemboar", "Ficklefern", "Murkdepp", "Pythononja", "Vealzealot", "Citrusipop", 
@@ -24,7 +24,7 @@ export const Formats: FormatData[] = [
 					"Wlissey", "Dragondeez", "Featuring Raidou Kuzunoha from Raidou Kuzunoha", "Featuring Dante from Devil May Cry", 
 					"Abomasnow-Mega", "Buzzwole", "Dialga-Origin", "Empoleon", "Flutter Mane", "Genesect", "Ho-Oh", "Incineroar", 
 					"Kartana", "Lanturn", "Mewtwo-Mega-Y", "Nihilego", "Octillery", "Pokestar Spirit", "Quagsire", "Regigigas", 
-					"Skarmory-Mega", "Tinkaton", "Ursaluna", "Venusaur-Mega", "Wyrdeer", "Xerneas", "Yveltal", "Zygarde-Complete", 
+					"Skarmory-Mega", "Tinkaton", "Ursaluna", "Venusaur-Mega", "Wyrdeer", "Xerneas", "Yveltal", "Zygarde-420%", 
 					"Wingnut", "Halbeetle", "Silvuna", "Barbolt", "Pinkeet", "Sentinel", "Smeltoise", "Corsegeist", "Echologos", 
 					"Zephyrmine", "Boreasel", "Xiphoil", "Skawamud", "Zygola", "Noxon", "Himalao", "Caliguar", "Spiris", "Psychooka", 
 					"Duratreme", "Stone Husk", "Kasappa", "Cyrome-Scribe", "Arbrella-North", "Velocipasta", "Wonderace", "Neil", 
