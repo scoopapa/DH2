@@ -1054,4 +1054,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Barbs", H: "Magic Guard"},
 		weightkg: 6.1,
 	},
+	marultan: {
+		num: 9131,
+		name: "Marultan",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 75, atk: 40, def: 70, spa: 110, spd: 100, spe: 110},
+		abilities: {0: "Analytic"},
+		weightkg: 350,
+	},
+	vertabrea: {
+		num: 9132,
+		name: "Vertabrea",
+		types: ["Rock", "Ghost"],
+		baseStats: {hp: 73, atk: 31, def: 87, spa: 118, spd: 70, spe: 103},
+		abilities: {0: "Levitate"},
+		weightkg: 126.1,
+	},
+	flingangel: {
+		num: 9133,
+		name: "Flingangel",
+		types: ["Fairy", "Steel"],
+		baseStats: {hp: 70, atk: 103, def: 70, spa: 31, spd: 65, spe: 103},
+		abilities: {0: "Defiant"},
+		weightkg: 3.5,
+	},
 };
