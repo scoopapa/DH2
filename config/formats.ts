@@ -54,6 +54,7 @@ import { Formats as CommunityUsed2              } from '../data/mods/communityus
 import { Formats as ConquestDex                 } from '../data/mods/conquestdex/formats';
 import { Formats as CleanSlateMicro2            } from '../data/mods/csm2/formats';
 import { Formats as DeadCells                   } from '../data/mods/deadcells/formats';
+import { Formats as Deltamon					} from '../data/mods/deltamon/formats';
 import { Formats as DenseAF                     } from '../data/mods/denseaf/formats';
 import { Formats as DLCmons                     } from '../data/mods/dlcmons/formats';
 import { Formats as Dollhouse                   } from '../data/mods/dollhouse/formats';
@@ -386,6 +387,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ConquestDex,
 	...gen2CrystalLegacy,
   ...DeadCells,
+	...Deltamon,
 	...DenseAF,
 	//...DexReversal,
 	...DoNotUse,
