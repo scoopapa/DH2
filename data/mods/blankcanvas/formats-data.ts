@@ -394,4 +394,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	snaellcaster: {
 		tier: "BC D",
 	},
+	marultan: {
+		tier: "BC D",
+	},
+	vertabrea: {
+		tier: "BC D",
+	},
+	flingangel: {
+		tier: "BC D",
+	},
 };
