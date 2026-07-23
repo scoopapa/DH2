@@ -10,7 +10,8 @@ export const Formats: FormatData[] = [
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [
-			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass',
+			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 
+			'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {

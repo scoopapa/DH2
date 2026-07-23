@@ -421,12 +421,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		pp: 1,
 		shortDesc: "The target is given a random status effect, sets a random Terrain and Weather, and then the user switches out.",
-		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting. This move has no type and hits every Pokemon for neutral damage.",
+		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting. This move hits every Pokemon for neutral damage.",
 		priority: 0,
 		flags: {},
 		selfSwitch: true,
 		isZ: "jestersshadowcrystal",
-		onModifyMove(move, pokemon) {
+		onHit(move, pokemon) {
 			const randTerrain = this.random(100);
 			const randWeather = this.random(100);
 			if (randTerrain < 26) {

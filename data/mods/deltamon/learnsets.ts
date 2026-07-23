@@ -1279,7 +1279,7 @@ rudinn: {
 			wildcharge: ["9L1"],
 		},
 	},
-	k_k: {
+	kk: {
 		learnset: {
 			aurasphere: ["9L1"],
 			brickbreak: ["9L1"],
@@ -3562,6 +3562,7 @@ rudinn: {
 			sleeptalk: ["9L1"],
 			sludgebomb: ["9L1"],
 			spikes: ["9L1"],
+			stealthrock: ["9L1"],
 			stockpile: ["9L1"],
 			substitute: ["9L1"],
 			toxic: ["9L1"],

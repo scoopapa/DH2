@@ -149,7 +149,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	k_k: {
+	kk: {
 		tier: "DM OU",
 		doublesTier: "DM DOU",
 		natDexTier: "OU",

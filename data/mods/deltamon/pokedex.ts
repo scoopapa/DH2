@@ -293,7 +293,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Galvanize", 1: "Soundproof", H: "Surge Surfer"},
 		weightkg: 40,
 	},
-	k_k: {
+	kk: {
 		num: -30,
 		name: "K_K",
 		types: ["Electric"],
@@ -963,6 +963,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -95,
 		name: "Ralsei",
 		types: ["Dark", "Fairy"],
+		gender: "F",
 		baseStats: {hp: 70, atk: 92, def: 115, spa: 98, spd: 130, spe: 75},
 		abilities: {0: "Hospitality", H: "Dark Aura"},
 		weightkg: 65,
