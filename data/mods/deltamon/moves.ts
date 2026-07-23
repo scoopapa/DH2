@@ -1163,4 +1163,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 		}
 	},
+	
+	//Torque Moves
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
+	}
 };
