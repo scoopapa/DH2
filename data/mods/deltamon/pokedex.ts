@@ -963,7 +963,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -95,
 		name: "Ralsei",
 		types: ["Dark", "Fairy"],
-		gender: "F",
+		gender: "M",
 		baseStats: {hp: 70, atk: 92, def: 115, spa: 98, spd: 130, spe: 75},
 		abilities: {0: "Hospitality", H: "Dark Aura"},
 		weightkg: 65,
