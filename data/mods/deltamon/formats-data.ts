@@ -55,8 +55,8 @@ rudinn: {
 		natDexTier: "OU",
 	},
 	cround: {
-		tier: "DM OU",
-		doublesTier: "DM DOU",
+		tier: "DM NFE",
+		doublesTier: "DM DNFE",
 		natDexTier: "NFE",
 	},
 	kround: {
@@ -485,11 +485,6 @@ rudinn: {
 		natDexTier: "OU",
 	},
 	pink: {
-		tier: "DM OU",
-		doublesTier: "DM DOU",
-		natDexTier: "OU",
-	},
-	pinkghost: {
 		tier: "DM OU",
 		doublesTier: "DM DOU",
 		natDexTier: "OU",

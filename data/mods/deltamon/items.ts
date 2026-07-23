@@ -20,7 +20,7 @@ boosterenergy: {
 	jestersshadowcrystal: {
 		name: "Jester's Shadow Crystal",
 		onTakeItem: false,
-		shortDesc: "A pitch black crystal, if held by Jevil with Chaos Bomb, he can use Neo Chaos",
+		shortDesc: "If held by Jevil with Chaos Bomb, he can use Neo Chaos",
 		zMove: "Neo Chaos",
 		zMoveFrom: "Chaos Bomb",
 		itemUser: ["Jevil"],
@@ -29,7 +29,7 @@ boosterenergy: {
 	puppetsshadowcrystal: {
 		name: "Puppet's Shadow Crystal",
 		onTakeItem: false,
-		shortDesc: "A pitch black crystal, if held by Spamton with Make It Rain, he can use TRANSMIT KROMER",
+		shortDesc: "If held by Spamton with Make It Rain, he can use TRANSMIT KROMER",
 		zMove: "TRANSMIT KROMER",
 		zMoveFrom: "Make It Rain",
 		itemUser: ["Spamton"],
@@ -38,7 +38,7 @@ boosterenergy: {
 	knightsshadowcrystal: {
 		name: "Knight's Shadow Crystal",
 		onTakeItem: false,
-		shortDesc: "A pitch black crystal, if held by The Roaring Knight with Black Knife, they can use Bellowing Starburst Slice",
+		shortDesc: "If held by The Roaring Knight with Black Knife, they can use Bellowing Starburst Slice",
 		zMove: "Bellowing Starburst Slice",
 		zMoveFrom: "Black Knife",
 		itemUser: ["Roaring Knight"],
@@ -47,7 +47,7 @@ boosterenergy: {
 	cyanomegapetal: {
 		name: "Cyan Omega Petal",
 		onTakeItem: false,
-		shortDesc: "A mysterious heart-shaped petal. If held by Aqua with Petal Dance, she can use Omega Patience.",
+		shortDesc: "If held by Aqua with Petal Dance, she can use Omega Patience.",
 		zMove: "Omega Patience",
 		zMoveFrom: "Petal Dance",
 		itemUser: ["Aqua"],
@@ -56,7 +56,7 @@ boosterenergy: {
 	violetomegapetal: {
 	name: "Violet Omega Petal",
 	onTakeItem: false,
-	shortDesc: "A mysterious heart-shaped petal. If held by Seth with Petal Dance, they can use Omega Perseverance.",
+	shortDesc: "If held by Seth with Petal Dance, they can use Omega Perseverance.",
 	zMove: "Omega Perseverance",
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Seth"],
@@ -65,7 +65,7 @@ boosterenergy: {
 	amberomegapetal: {
 	name: "Amber Omega Petal",
 	onTakeItem: false,
-	shortDesc: "A mysterious heart-shaped petal. If held by Orange with Petal Dance, she can use Omega Bravery.",
+	shortDesc: "If held by Orange with Petal Dance, she can use Omega Bravery.",
 	zMove: "Omega Bravery",
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Orange"],
@@ -74,7 +74,7 @@ boosterenergy: {
 	verdantomegapetal: {
 	name: "Verdant Omega Petal",
 	onTakeItem: false,
-	shortDesc: "A mysterious heart-shaped petal. If held by Green with Petal Dance, they can use Omega Kindness.",
+	shortDesc: "If held by Green with Petal Dance, they can use Omega Kindness.",
 	zMove: "Omega Kindness",
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Green"],
@@ -83,7 +83,7 @@ boosterenergy: {
 	azureomegapetal: {
 	name: "Azure Omega Petal",
 	onTakeItem: false,
-	shortDesc: "A mysterious heart-shaped petal. If held by Blue with Petal Dance, he can use Omega Integrity.",
+	shortDesc: "If held by Blue with Petal Dance, he can use Omega Integrity.",
 	zMove: "Omega Integrity",
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Blue"],
@@ -92,7 +92,7 @@ boosterenergy: {
 	goldenomegapetal: {
 	name: "Golden Omega Petal",
 	onTakeItem: false,
-	shortDesc: "A mysterious heart-shaped petal. If held by Yellow with Petal Dance, he can use Omega Justice.",
+	shortDesc: "If held by Yellow with Petal Dance, he can use Omega Justice.",
 	zMove: "Omega Justice",
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Yellow"],
@@ -220,9 +220,9 @@ boosterenergy: {
 	
 	thornring: {
 		name: "Thorn Ring",
-		shortDesc: "Damages the holder for 1/8 of their HP every turn. If held by Noelle, increases her Special Attack by 50%.",
+		shortDesc: "Damages the holder for 1/8 of their HP every turn. Noelle: Special Attack 1.5x.",
 		fling: {
-			basepower: 135,
+			basePower: 135,
 		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 3,
@@ -240,7 +240,7 @@ boosterenergy: {
 	soulcollective: {
 		name: "Soul Collective",
 		onTakeItem: false,
-		shortDesc: "A group of many dormant Monster Souls. If held by Asriel, this item allows him to Ultra Burst and use the Z-Move Hyper Goner from the move Star Blazing.",
+		shortDesc: "If held by Asriel, this item allows him to Ultra Burst and use the Z-Move Hyper Goner from the move Star Blazing.",
 		zMove: "Hyper Goner",
 		zMoveFrom: "Star Blazing",
 		itemUser: ["Asriel-Hyperdeath"],
