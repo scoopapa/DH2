@@ -214,7 +214,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.undyingRecover) return;
 			if (pokemon.hp <= pokemon.maxhp / 4 || !pokemon.fainted) {
 				this.add('-activate', pokemon, 'ability: Undying Spirit'),
-				pokemon.heal(pokemon.baseMaxHp / 2);
+				this.heal(pokemon.baseMaxHp / 2);
 				pokemon.undyingRecover = true;
 			}
 		},
@@ -296,7 +296,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 		flags: {},
 		name: "Soul Drain",
-		shortDesc: "Upon entering the field, this Pokemon drains 2 PP of the last move used by each opposing Pokemon.",
+		shortDesc: "Upon entering the field, this Pokemon drains 2 PP of opponent's last move.",
 	},
 	
 	// copied from Purifying Salt and Clear Body
