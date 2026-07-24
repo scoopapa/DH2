@@ -1135,7 +1135,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
 		onTryMove(attacker, defender, move) {
-			this.add('-message', `${pokemon.name} lowers its guard!`);
+			this.add('-message', `${attacker.name} lowers its guard!`);
 			this.boost({spd: -2, def: -2}, attacker, attacker, move);
 		},
 		onPrepareHit(target, pokemon, move) {
