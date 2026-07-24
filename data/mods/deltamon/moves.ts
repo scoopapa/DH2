@@ -1134,7 +1134,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user lowers its guard, harshly depleting its Defense and Special Defense stats to fire off a massive black laser using all its might.",
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
-		onTryMove(attacker, defender, move) {
+		onTryMove(attacker, pokemon, defender, move) {
 			this.add('-message', `${pokemon.name} lowers its guard!`);
 			this.boost({spd: -2, def: -2}, attacker, attacker, move);
 		},

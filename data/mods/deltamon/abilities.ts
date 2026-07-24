@@ -430,23 +430,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	tacticaldodge: {
-		onSourceModifyDamage(damage, source, target, move) {
+		onModifyAccuracy(accuracy, source, target, move) {
 			if (target.dodged) return;
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.add ('-activate', target, 'ability: Tactical Dodge');
 				this.add('-anim', target, "Nasty Plot", target);
 				this.add('-message', `${target.name} evaded the attack!`);
 				target.dodged = true;
-				return null;
+				return false;
 			}
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Tactical Dodge",
-		shortDesc: "Once per battle, ignore a super-effective attack.",
+		shortDesc: "Once per battle, dodge a super-effective attack.",
 	},
 	
 	lovingdances: {
-		onTryMove(pokemon, move) {
+		onPrepareMove(pokemon, move) {
 			const danceMove = ["aquastep", "clangoroussoul", "dragondance", "featherdance", "fierydance", "lunardance", "petaldance", "quiverdance", "revelationdance", "swordsdance", "teeterdance", "victorydance"]
 			if (this.randomChance(1, 2) && danceMove.includes(move.id)) {
 				for (const ally of pokemon.alliesAndSelf()) {
