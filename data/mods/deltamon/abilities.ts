@@ -132,7 +132,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "YOUR TAKING TOO LONG",
-		shortDesc: "Once this Pokemon has been on the field for 5 turns, all active Pokemon lose 25% of their HP per turn until it switches out.",
+		shortDesc: "Once this Pokemon has survived 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
 	},
 		
 	//copied from Berserk
@@ -334,7 +334,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "Tem Outta Tem",
-		shortDesc: "This Pokemon is immune to stat drops from other Pokemon and all non-volatile status conditions.",
+		shortDesc: "Immunity to stat drops from other Pokemon and all non-volatile status conditions.",
 	},
 	
 	amalgamation: {
