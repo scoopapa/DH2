@@ -3193,8 +3193,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Baking Blast",
-		desc: "+2 SpD on contact with user before it moves.",
-		shortDesc: "+2 SpD on contact with user before it moves.",
+		desc: "+2 Def/+1 Acc on contact with user before it moves.",
+		shortDesc: "+2 Def/+1 Acc on contact with user before it moves.",
 		pp: 15,
 		priority: -3,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1},
@@ -3274,7 +3274,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					bp = 250;
 					break;
 				case 1:
-					bp = 120;
+					bp = 150;
 					break;
 				case 2:
 					bp = 90;
@@ -3294,13 +3294,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
-			console.log(source.name + " " + source.side.trumpcard);
 		},
 		onTryHit(target, source, move) {
 			if (!move.multihit) return;
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
-			console.log(source.name + " " + source.side.trumpcard);
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
@@ -3388,8 +3386,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		basePower: 0,
 		damageCallback(pokemon, target) {
-			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Boogerpon-CLOWNerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator", "Bart", "Upvybones", "Ludicolo", "T'La'Ágh", "Regibloom", "Old Duke", "Iron Fist", "Lucario-Calm-Mega", "awesome possum", "Tired of it Owl", "Caracal", "Solar Bean-Primal", "Circall", "Kyogre-Original", "Lawset", "Daiyakuza-Origin", "Princirang-Mega", "Ratstagoon-NewYorkian", "Spewpa-Mega", "Zapmolcuno", "Girafarig-Mega", "fat fuck", "Flygon-Plus", "VishZolt", "murcow :D", "Green Guillotina", "Burmy-Sand", "1000-THR \"Earthmover\"", "PRONOUNS", "Lemonganium-Lemonga", "Kanon", "Kanon-Blue-Sea", "Marlboro", "Dip", "Flushmaster", "Bluminion", "BIG ANVIL-MEGA", "melmetal 3", "birbevil bot"];
-			return nonVanilla.includes(target.baseSpecies.name) ? 200 : 150;
+			return !this.dex.mod('gen9').species.get(target.baseSpecies.id).exists ? 200 : 150;
 		},
 		accuracy: 90,
 		pp: 5,
@@ -3462,7 +3459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			source.side.addFishingTokens(3);
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacent",
 	},
 	fuckaroundandfindout: {
 		name: "Fuck Around and Find Out",
@@ -3589,6 +3586,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Rock Blast", target);
 		},
+		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
 	},
@@ -3820,7 +3818,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Liquidation", target);
 		},
 		onModifyMove(move, pokemon) {
-			move.critRatio = pokemon.side.fishingTokens;
+			move.critRatio += pokemon.side.fishingTokens;
 		},
 		secondary: null,
 		target: "normal",
@@ -3924,14 +3922,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Wish", target);
 		},
 		condition: {
+			duration: 2,
 			onStart(pokemon, source) {
 				this.effectState.hp = source.maxhp * 2/3;
-				this.effectState.turns = 2;
-			},
-			onResidualOrder: 4,
-			onResidual(side) {
-				if (this.effectState.turns === 0) side.removeSlotCondition(this.getAtSlot(this.effectState.sourceSlot), 'bloomdesire');
-				else this.effectState.turns --;
 			},
 			onEnd(target) {
 				if (target && !target.fainted) {
@@ -3982,7 +3975,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveWeather(undefined, true)) {
 				case 'acidrain':
 					factor = 0.667;
 					break;
@@ -4112,7 +4105,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		multihit: [2, 5],
 		onModifyMove(move, pokemon) {
-			if (pokemon.flurry >= 5) move.multihit = 5;
+			if (pokemon.flurry >= 4) move.multihit = 5;
 		},
 		onAfterMove(pokemon) {
 			if (!pokemon.flurry) pokemon.flurry = 0;
@@ -4327,7 +4320,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Rolls a d20. Damage is the result of the roll’s square root cubed which is then multiplied by 2; for example, a roll of 10 would result in a base power of 63.24. Rolls above 10 add an additional 10 BP. Rolling a 1 lowers the user's Speed by 1. Rolling a 20 always results in a critical hit.",
 		shortDesc: "Rolls a d20 for damage.",
 		onModifyMove(move, pokemon) {
-			const i = this.random(1, 20);
+			const i = this.random(1, 21);
 			const a = (i == 8 || i == 18) ? 'an' : 'a';
 			this.add('-message', `${pokemon.name} rolled ${a} ${i}!`);
 			
@@ -4411,7 +4404,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return null;
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) target.set.name += " (dead)";
+			if (!target || target.fainted || target.hp <= 0) {
+				if (!target.set.name.endsWith(" (dead)")) {
+					target.set.name += " (dead)";
+				}
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -4552,7 +4549,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Spirit Break", target);
 		},
 		onAfterHit(target, source, move) {
-			if (target.volatiles['big']) this.boost({ def: -1 }, target, source, move);
+			if (target.volatiles['bigbutton']) this.boost({ def: -1 }, target, source, move);
 			else this.boost({ atk: -1 }, target, source, move);
 		},
 		secondary: null,
@@ -4574,7 +4571,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Snipe Shot", target);
 		},
 		onModifyMove(move, pokemon, target) {
-			if (target?.effectiveWeather() === 'acidrain') {
+			if (pokemon?.effectiveWeather() === 'acidrain') {
 				move.accuracy = true;
 				move.willCrit = true;
 			}
@@ -4593,6 +4590,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "User faints. Removes hazards from the user's side.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfdestruct: 'always',
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Wave Crash", target);
@@ -4639,7 +4637,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyType(move, pokemon) {
 			if (pokemon.species.baseSpecies !== 'Minior-Meteor' || pokemon.transformed) return;
-			console.log(pokemon.set);
 			switch (pokemon.set.teraType) {
 				case 'Fire':
 					pokemon.formeChange('Minior');
@@ -4737,43 +4734,43 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterHit(target, source) {
 			const targetSide = source.side.foe;
 			if (targetSide.getSideCondition('stealthrock')) {
-				if (target.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
+				if (target.hasItem('heavydutyboots') || target.hasAbility('divininghorn')) return;
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
 				this.add('-message', `Pointed stones dug into ${target.name}!`);
 			}
 			if (targetSide.getSideCondition('spikes')) {
-				if (!target.isGrounded() || pokemon.hasAbility('divininghorn')) return;
+				if (!target.isGrounded() || target.hasAbility('divininghorn')) return;
 				if (target.hasItem('heavydutyboots')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				const damageAmounts = [0, 3, 4, 6];
 				this.damage(damageAmounts[this.effectState.layers] * target.maxhp / 24);
 				this.add('-message', `${target.name} was hurt by the spikes!`);
 			}
 			if (targetSide.getSideCondition('toxicspikes')) {
-				if (!target.isGrounded() || pokemon.hasAbility('divininghorn')) return;
+				if (!target.isGrounded() || target.hasAbility('divininghorn')) return;
 				if (target.hasType('Poison')) {
 					this.add('-sideend', target.side, 'move: Toxic Spikes', `[of] ${target}`);
 					target.side.removeSideCondition('toxicspikes');
 				} else if (target.hasType('Steel') || target.hasItem('heavydutyboots')) {
 					// do nothing
 				} else if (this.effectState.layers >= 2) {
-					target.trySetStatus('tox', target.side.foe.active[0]);
+					target.trySetStatus('tox', source);
 				} else {
-					target.trySetStatus('psn', target.side.foe.active[0]);
+					target.trySetStatus('psn', source);
 				}
 			}
 			if (targetSide.getSideCondition('stickyweb')) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({ spe: -1 }, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+				if (!target.isGrounded() || target.hasItem('heavydutyboots') || target.hasAbility('divininghorn')) return;
+				this.add('-activate', target, 'move: Sticky Web');
+				this.boost({ spe: -1 }, target, source, this.dex.getActiveMove('stickyweb'));
 			}
 			if (targetSide.getSideCondition('fertilesoil')) {
-				if (pokemon.hasType('Grass') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('divininghorn')) return;
-				if(pokemon.adjacentFoes().length == 0) return;
-				const target = this.sample(pokemon.adjacentFoes());
-				pokemon.addVolatile('leechseed', target);
-				pokemon.side.removeSideCondition('fertilesoil');
-				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
+				if (target.hasType('Grass') || target.hasItem('heavydutyboots') || target.hasAbility('divininghorn')) return;
+				if (target.adjacentFoes().length === 0) return;
+				const seedSource = this.sample(target.adjacentFoes());
+				target.addVolatile('leechseed', seedSource);
+				target.side.removeSideCondition('fertilesoil');
+				this.add('-sideend', target.side, 'move: Fertile Soil', '[of] ' + target);
 			}
 		},
 		secondary: null,
@@ -4795,7 +4792,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Electro Ball", target);
 		},
-		onModifyType(move, pokemon) {
+		onModifyMove(move, pokemon) {
 			if (pokemon.side.fishingTokens >= 5) move.multihit = 3;
 		},
 		secondary: null,
@@ -4846,7 +4843,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(source) {
-				const diamondHand = pokemon.side.pokemon.filter(p => p != pokemon && p.baseSpecies.diamondHand);
+				const diamondHand = source.side.pokemon.filter(p => p !== source && p.baseSpecies.diamondHand);
 				if (diamondHand.length === 6) this.heal(source.baseMaxhp);
 			},
 		},

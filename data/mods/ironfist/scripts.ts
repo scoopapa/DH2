@@ -1321,7 +1321,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.hasItem('utilityumbrella')) return '';
 			}
 			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
-			if (this.hasAbility('lemonga') && this.battle.activePokemon === this && weather !== 'acidrain') {
+			if (this.hasAbility('lemongasour') && this.battle.activePokemon === this && weather !== 'acidrain') {
 				if (message) this.battle.add('-activate', this, 'ability: Lemonga Sour');
 				return 'acidrain' as ID;
 			}
