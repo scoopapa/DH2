@@ -697,8 +697,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				const removeSource = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist'];
 				for (const targetCondition of removeTarget) {
 					if (target.side.removeSideCondition(targetCondition)) {
-						if (!removeAll.includes(targetCondition)) continue;
-						this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+						if (!removeTarget.includes(targetCondition)) continue;
+						this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Omega Integrity', '[of] ' + source);
 						success = true;
 					}
 				}
