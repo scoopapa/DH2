@@ -128,7 +128,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 140,
 		accuracy: true,
 		pp: 5,
-		shortDesc: "User loses 50% of their max HP. 15% chance to freeze.",
+		shortDesc: "50% of your max HP is used up. 15% chance to freeze.",
 		longDesc: "The user unleashes a fatally chilling spell, using up 50% of their max HP in the process. This move cannot miss, and also has a 15% chance to leave targets frozen.",
 		priority: 0,
 		flags: {protect: 1},
