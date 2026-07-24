@@ -31,7 +31,7 @@ export const Formats: FormatData[] = [
 		gameType: 'doubles',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
 		threads: [
-			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0" Deltamon Spreadsheet </a>`,
+			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [
@@ -54,7 +54,7 @@ export const Formats: FormatData[] = [
 		mod: 'deltamon',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
 		threads: [
-			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0" Deltamon Spreadsheet </a>`,
+			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [
@@ -76,7 +76,7 @@ export const Formats: FormatData[] = [
 		mod: 'deltamon',
 		desc: "National Dex Dark World is a format where you can use Deltamon Recruits with any Pokemon available in the Generation 9 National Dex format!",
 		threads: [
-			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0" Deltamon Spreadsheet </a>`,
+			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [

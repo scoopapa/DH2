@@ -218,7 +218,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.undyingRecover) return;
 			if (pokemon.hp <= pokemon.maxhp / 4 || !pokemon.fainted) {
 				this.add('-activate', pokemon, 'ability: Undying Spirit'),
-				this.heal(pokemon.baseMaxHp / 2);
+				this.heal(pokemon.baseMaxhp / 2);
 				pokemon.undyingRecover = true;
 			}
 		},
@@ -244,9 +244,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(pokemon.pyroBoost >= 2) return;
 			
 			if(move.type === 'Fire') {
-			this.add('-activate', pokemon, 'ability: Pyromancy'),
-			this.add('-anim', pokemon, "Burning Bulwark", target);
-			this.add('-message', `The power of ${pokemon.name}'s Fire-Type moves increased!`);
+			this.add('-activate', target, 'ability: Pyromancy'),
+			this.add('-anim', target, "Burning Bulwark", target);
+			this.add('-message', `The power of ${target.name}'s Fire-Type moves increased!`);
 			pokemon.pyroBoost++;
 			}
 		},
@@ -267,10 +267,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add ('-ability', pokemon, 'Maketh the Rules');
 			this.add ('-message', `${pokemon.name} is bending the rules! Type matchups are inversed!`);
 		},
-		
+		onAnyModifyMove(move) {
+			move.ignoreImmunity = true;
+		},
 		onAnyEffectivenessPriority: 1,
 		onAnyEffectiveness(typeMod, target, type, move) {
-			onAnyNegateImmunity == 'false';
 			if (move && !this.dex.getImmunity(move, type)) return 1;
 			return typeMod * -1;
 		},
@@ -341,14 +342,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'ability: Amalgamation');
 			pokemon.addVolatile('amalgamation');
-		},
-		
-		condition: {
-			onAnyFaint(target) {
-				const ability = target.getAbility();
-				if(ability.flags['noreceiver'] || ability.flags['notrace'] || ability.id === 'noability') return;
-				this.effectState.target.setAbility(ability, target);
-			}
 		},
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
@@ -438,12 +431,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	tacticaldodge: {
 		onModifyDamage(pokemon, target, move) {
-			if (pokemon.dodged) return;
-			if (pokemon.getMoveHitData(move).typeMod > 0) {
-				this.add ('-activate', pokemon, 'ability: Tactical Dodge');
-				this.add('-anim', pokemon, "Nasty Plot", target);
-				this.add('-message', `${pokemon.name} evaded the attack!`);
-				pokemon.dodged = true;
+			if (target.dodged) return;
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.add ('-activate', target, 'ability: Tactical Dodge');
+				this.add('-anim', target, "Nasty Plot", target);
+				this.add('-message', `${target.name} evaded the attack!`);
+				target.dodged = true;
 				return null;
 			}
 		},
@@ -453,7 +446,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onTryMove(pokemon, move) {
+		onPrepareHit(pokemon, move) {
 			if (this.randomChance(1, 2) && move.flags['dance']) {
 				for (const ally of pokemon.alliesAndSelf()) {
 					if (ally.status) {
@@ -553,7 +546,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyDamage(damage, source, target, move) {
 			if (move.multihitType === 'reverberate' && move.hit > 1) {
 				this.battle.debug('Reverberate modifier');
-				return this.modify(0.5);
+				return this.chainModify(0.5);
 			}
 		},
 		

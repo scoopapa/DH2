@@ -81,9 +81,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		beforeTurnCallback(pokemon) {
-			for (const target of pokemon.foes()) {
-				target.addVolatile('pursuit');
-				const data = target.volatiles['pursuit'];
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('shockingsnare', pokemon);
+				const data = side.getSideConditionData('shockingsnare');
 				if (!data.sources) {
 					data.sources = [];
 				}
@@ -93,10 +94,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
 		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('shockingsnare');
+		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Thunder Cage", target);
 			this.add('-anim', pokemon, "Sucker Punch", target);
+		},
+		//Copied from Pursuit
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Shocking Snare start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Shocking Snare');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('shockingsnare', source, source.getLocOf(pokemon));
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -128,7 +160,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 140,
 		accuracy: true,
 		pp: 5,
-		shortDesc: "50% of your max HP is used up. 15% chance to freeze.",
+		shortDesc: "50% of your max HP is used up. 15% freeze.",
 		longDesc: "The user unleashes a fatally chilling spell, using up 50% of their max HP in the process. This move cannot miss, and also has a 15% chance to leave targets frozen.",
 		priority: 0,
 		flags: {protect: 1},
@@ -230,11 +262,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Partially hits through Protect.",
 		longDesc: "THE [Valued Customer!] USES ALL ITS [[Hyperlink Blocked]] TO FIRE A [[BIG SHOT!!!]]. THE OPPONENT'S DEFENSES [[Cannot say no to this hot new sale!]]. THIS MOVE IS A [One and done deal].",
 		priority: 0,
-		flags: {metronome: 1, bullet: 1, pulse: 1},
-
-			onModifyDamage(damage, source, target, move) {
-			if (target.volatiles['protect']) {
-				this.debug('Big Shot Partial Bypass');
+		flags: {metronome: 1, bullet: 1, pulse: 1, protect: 1},
+		onModifyMove(move) {
+			delete move.flags['protect'];
+			(move as any).pierce = true;
+		},
+		
+		onModifyDamage(damage, source, target, move) {
+			if ((move as any).pierce && move.flags?.slicing && target.volatiles['protect']) {
+				this.debug('Big Shot Bypass');
 				return this.chainModify(0.25);
 			}
 		},
@@ -258,15 +294,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user swiftly strikes by using a blackened sword. Instantly KOs targets with a third of their HP or less.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onModifyMove(move, target, pokemon) {
+			if (target.hp * 3 <= target.maxhp)
+				move.ohko = true;
+		},
+		onTryHit(pokemon, target, move) {
+			if (target.hp * 3 <= target.maxhp)
+				this.add('-message', "SWOON!");
+		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Ceaseless Edge", target);
-		},
-		onTryHit(target, move) {
-			if (target.hp * 3 <= target.maxhp) {
-				this.add('-message', "SWOON!"),
-				move.ohko = true;
-			}
 		},
 		secondary: null,
 		target: "normal",
@@ -416,13 +454,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	neochaos: {
 		name: "Neo Chaos",
-		type: "Stellar",
+		type: "Ghost",
 		category: "Special",
 		basePower: 160,
 		accuracy: true,
 		pp: 1,
 		shortDesc: "The target is given a random status effect, sets a random Terrain and Weather, and then the user switches out.",
-		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting. This move hits every Pokemon for neutral damage.",
+		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting.",
 		priority: 0,
 		flags: {},
 		selfSwitch: true,
@@ -500,24 +538,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 180,
 		accuracy: true,
 		pp: 1,
-		ohko: false,
 		shortDesc: "Targets with 45% of their HP or lower are instantly KOed.",
 		longDesc: "The user assaults the targets by unleashing a barrage of star-shaped crystals, then delivers a savage thrust of its sword at blinding speed. Instantly KOs targets with 45% of their HP or less.",
 		priority: 0,
 		flags: {slicing: 1},
 		isZ: "knightsshadowcrystal",
+		onModifyMove(move, target, pokemon) {
+			if (target.hp * 100/45 <= target.maxhp)
+				move.ohko = true;
+		},
+		onTryHit(pokemon, target, move) {
+			if (target.hp * 100/45 <= target.maxhp)
+				this.add('-message', "SWOON!");
+		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Snarl", target);
 			this.add('-anim', pokemon, "Swift", target);
 			this.add('-anim', pokemon, "Spacial Rend", target);
 		},
-		onTryHit(target, move) {
-			if (target.hp * 100/45 <= target.maxhp) {
-				this.add('-message', "SWOON!"),
-				move.ohko = true;
-			}
-		},
+
 		secondary: null,
 		target: "allAdjacentFoes",
 	},
@@ -585,12 +625,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 18,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Hits 10 times. Priority +2. Tries to hit each available foe equally. Prevents user from switching out.",
-		longDesc: "The user rushes fists-first into the target, hitting them up to ten times. If there are multiple targets, this move attempts to hit them equally. This move nearly always goes first. After the move is complete, the user is prevented from switching out.",
+		shortDesc: "Hits 10 times. Priority +2. Prevents user from switching out.",
+		longDesc: "The user rushes fists-first into the target, hitting them up to ten times. This move nearly always goes first. After the move is complete, the user is prevented from switching out.",
 		priority: 2,
 		flags: {fist: 1},
 		multihit: 10,
-		smartTarget: true,
 		self: {
 		volatileStatus: 'noretreat',
 		},
@@ -764,12 +803,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onModifyMove(pokemon, move) {
 				if (pokemon.species.name === 'Pink-Ghost') {
 					{
-					move.boosts; {atk: -1};
+					move.boosts = {atk: -1};
 					}
 				}
 					else {
 					{
-					move.boosts; {spa: -1};
+					move.boosts = {spa: -1};
 					}
 				}
 			},
@@ -1021,8 +1060,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 25,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Hits 4-5 times. Targets random opponents if there are multiple.",
-		longDesc: "The user rains down a barrage of magical spears directed at the target. If there are multiple targets, this move hits them at random. This move hits four to five times.",
+		shortDesc: "Hits 4-5 times. Targets a random opponent.",
+		longDesc: "The user rains down a barrage of magical spears directed at the target. This move hits four to five times.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		multihit: [4, 5],
@@ -1073,7 +1112,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(target, pokemon, source) {
 			if (pokemon.side.faintedLastTurn) {
-				source.trySetStatus('psn', target);
+				target.trySetStatus('psn', source);
 			}
 		},
 		secondary: null,
@@ -1091,9 +1130,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user lowers its guard, harshly depleting its Defense and Special Defense stats to fire off a massive black laser using all its might.",
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
-		onPrepareMove(target, pokemon, move) {
+		onTryMove(attacker, defender, move) {
 			this.add('-message', `${pokemon.name} lowers its guard!`);
-			move.self = {boosts: {def: -2, spd: -2}};
+			this.boost({spd: -2, def: -2}, attacker, attacker, move);
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -1158,13 +1197,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (source.hasAbility('sharpshooter')) {
 					(!this.heal(Math.floor(target.baseMaxhp * 0.75))) 
 						return this.NOT_FAIL;
-					}
 				} else {
 					(!this.heal(Math.floor(target.baseMaxhp * 0.5))) 
 						return this.NOT_FAIL;
 					}
-		}
-	},
+				}
+			}
+		}, 
 	
 	//Torque Moves
 	blazingtorque: {
