@@ -1279,7 +1279,7 @@ rudinn: {
 			wildcharge: ["9L1"],
 		},
 	},
-	k_k: {
+	kk: {
 		learnset: {
 			aurasphere: ["9L1"],
 			brickbreak: ["9L1"],
@@ -2683,7 +2683,7 @@ rudinn: {
 			slash: ["9L1"],
 			sleeptalk: ["9L1"],
 			solarblade: ["9L1"],
-			spatialrend: ["9L1"],
+			spacialrend: ["9L1"],
 			substitute: ["9L1"],
 			swagger: ["9L1"],
 			swift: ["9L1"],
@@ -3562,6 +3562,7 @@ rudinn: {
 			sleeptalk: ["9L1"],
 			sludgebomb: ["9L1"],
 			spikes: ["9L1"],
+			stealthrock: ["9L1"],
 			stockpile: ["9L1"],
 			substitute: ["9L1"],
 			toxic: ["9L1"],
@@ -4037,6 +4038,7 @@ rudinn: {
 			petalblizzard: ["9L1"],
 			petaldance: ["9L1"],
 			protect: ["9L1"],
+			pyroball: ["9L1"],
 			quash: ["9L1"],
 			quickguard: ["9L1"],
 			raindance: ["9L1"],

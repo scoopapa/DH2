@@ -6,11 +6,12 @@ export const Formats: FormatData[] = [
 		mod: 'deltamon',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
 		threads: [
-			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0" Deltamon Spreadsheet </a>`,
+			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',],
 		banlist: [
-			'Arena Trap', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass',
+			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 
+			'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -42,7 +43,7 @@ export const Formats: FormatData[] = [
 			let allowedTiers = ['DM DOU', 'DM NFE'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
+				if (!allowedTiers.includes(template.doublesTier)) {
 					return [set.species + ' is not a legal Recruit in Deltamon Doubles OU!'];
 				}
 			}

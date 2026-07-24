@@ -55,8 +55,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add (-'anim', pokemon, "Snarl", target);
 					this.add('-ability', pokemon, 'Savage Roar', 'boost');
+					this.add (-'anim', pokemon, "Snarl", target);
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
@@ -116,8 +116,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.activeTurns && this.effectState.counter) {
 				this.effectState.counter--;
 				
-				if(!this.effectState.counter) {
-					delete this.effectState.counter;
+				if(this.effectState.counter <= 0) {
 					this.add('-message', "YOUR TAKING TOO LONG!");
 					for (const target of this.getAllActive()) {
 						if (target === pokemon || pokemon.fainted) continue;
@@ -125,6 +124,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.beingCalledBack) return;
+			this.add('-end', pokemon, 'YOUR TAKING TOO LONG', '[silent]');
 		},
 		
 		flags: {},
@@ -161,7 +164,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Fury",
-		shortDesc: "This Pokemon's Attack is raised by 1 stage when it takes a hit that drops its HP to 1/2 or less.",
+		shortDesc: "This Pokemon's Attack is raised by 1 stage when it drops to 1/2 HP or less.",
 	},
 	
 	dogmarriagedogamy: {		
@@ -213,9 +216,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	undyingspirit: {	
 		onUpdate(pokemon) {
 			if (pokemon.undyingRecover) return;
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || !pokemon.fainted) {
 				this.add('-activate', pokemon, 'ability: Undying Spirit'),
-				pokemon.heal(pokemon.baseMaxHp / 2);
+				this.heal(pokemon.baseMaxHp / 2);
 				pokemon.undyingRecover = true;
 			}
 		},
@@ -237,17 +240,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onTryHit(target, pokemon, move) {
+		onDamagingHit(target, pokemon, move) {
 			if(pokemon.pyroBoost >= 2) return;
 			
 			if(move.type === 'Fire') {
 			this.add('-activate', pokemon, 'ability: Pyromancy'),
 			this.add('-anim', pokemon, "Burning Bulwark", target);
-			this.add('-message', "The power of ${pokemon.name}'s Fire-Type moves increased!"),
-			pokemon.pyroboost++;
+			this.add('-message', `The power of ${pokemon.name}'s Fire-Type moves increased!`);
+			pokemon.pyroBoost++;
 			}
 		},
-		basePowerCallback(basePower, pokemon, move) {
+		onBasePowerCallback(basePower, pokemon, move) {
 			if (move.type === 'Fire' && move.category !== 'Status')	{
 				this.debug('Pyromancy boost');
 				return move.basePower + (10 * pokemon.pyroBoost);
@@ -256,21 +259,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "This Pokemon takes 1/2 damage from Fire-Type moves. Upon being hit by a Fire-Type move, this Pokemon's Fire-Type moves gain +10 Base Power (max 2 times).",
+		shortDesc: "1/2 damage from Fire-Type moves. If hit by a Fire-Type move: Fire-Type moves gain +10 Base Power (max 2 times).",
 	},
 	
 	makeththerules: {
 		onSwitchIn(pokemon) {
 			this.add ('-ability', pokemon, 'Maketh the Rules');
-			this.add ('-message', '{pokemon.name} is bending the rules! Type matchups are inversed!')
+			this.add ('-message', `${pokemon.name} is bending the rules! Type matchups are inversed!`);
 		},
 		
 		onAnyEffectivenessPriority: 1,
 		onAnyEffectiveness(typeMod, target, type, move) {
-				if (move && !this.dex.getImmunity(move, type)) return 1;
-				return typeMod * -1;
-			},
-		
+			onAnyNegateImmunity == 'false';
+			if (move && !this.dex.getImmunity(move, type)) return 1;
+			return typeMod * -1;
+		},
+
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Maketh the Rules",
 		shortDesc: "Allst Pokemon Type matchups art Inversed whilst this Pokemon is on the Fielde.",
@@ -283,6 +287,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Soul Drain',);
 					activated = true;
+					this.add ('-message', `${pokemon.name} drained the PP of the opponent's last used move!`);
 				}
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move || move.isZ) return false;
@@ -295,7 +300,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 		flags: {},
 		name: "Soul Drain",
-		shortDesc: "Upon entering the field, this Pokemon drains 2 PP of the last move used by each opposing Pokemon.",
+		shortDesc: "Upon entering the field, this Pokemon drains 2 PP of opponent's last move.",
 	},
 	
 	// copied from Purifying Salt and Clear Body
@@ -334,7 +339,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	amalgamation: {
 		onStart(pokemon) {
-			this.add('-activate', pokemon, 'ability: Amalgamation');
+			this.add('-start', pokemon, 'ability: Amalgamation');
 			pokemon.addVolatile('amalgamation');
 		},
 		
@@ -348,7 +353,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Amalgamation",
-		shortDesc: "Gain the Amalgamation effect: Constantly attempt to copy the ability of the last Pokemon to faint in battle. Resets once this Pokemon leaves the field.",
+		shortDesc: "Gain the Amalgamation effect: Copy the ability of the last Pokemon to faint in battle.",
 	},
 	
 	// copied from Quark Drive
@@ -415,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Blossom Boost",
-		shortDesc: "This Pokemon's highest stat is multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or if a Booster Energy is consumed."
+		shortDesc: "Highest stat is multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or if holding Booster Energy."
 	},
 	
 	sharpshooter: {
@@ -432,24 +437,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	tacticaldodge: {
-		onTryHit(pokemon, target, move) {
+		onModifyDamage(pokemon, target, move) {
 			if (pokemon.dodged) return;
-			if (target.getMoveHitData(move).typeMod > 0) {
+			if (pokemon.getMoveHitData(move).typeMod > 0) {
 				this.add ('-activate', pokemon, 'ability: Tactical Dodge');
 				this.add('-anim', pokemon, "Nasty Plot", target);
-				this.add('-message', '${pokemon.name} evaded the attack!'),
+				this.add('-message', `${pokemon.name} evaded the attack!`);
 				pokemon.dodged = true;
 				return null;
 			}
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Tactical Dodge",
-		shortDesc: "Once per battle, this Pokemon uses its tactical know-how to evade an incoming super-effective attack.",
+		shortDesc: "Once per battle, ignore a super-effective attack.",
 	},
 	
 	lovingdances: {
-		onPrepareHit(pokemon, move) {
-			if (this.randomChance(1, 2)) {
+		onTryMove(pokemon, move) {
+			if (this.randomChance(1, 2) && move.flags['dance']) {
 				for (const ally of pokemon.alliesAndSelf()) {
 					if (ally.status) {
 						this.add('-activate', pokemon, 'ability: Loving Dances');
@@ -461,7 +466,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Loving Dances",
-		shortDesc: "This Pokemon's Dance moves have a 50% chance to cure it and its ally's status conditions.",
+		shortDesc: "Dance moves have a 50% chance to cure this Pokemon and its ally's status conditions.",
 	},
 	
 	fastfood: {	
@@ -472,7 +477,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.foodCount = 0;
 			}
 			this.add('-activate', pokemon, 'ability: Fast Food'),
-			this.add('-message', '${pokemon.name} whipped up some Fast Food!')
+			this.add('-message', `${pokemon.name} whipped up some Fast Food!`);
 			
 			for (const ally of pokemon.alliesAndSelf()) {
 				this.heal(ally.baseMaxhp * 0.15, ally, pokemon);
@@ -484,14 +489,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fast Food",
-		shortDesc: "Twice per battle, on switch-in, the user and their allies restore 15% of their max HP. User's Speed is boosted by 1 stage. Being affected by this ability counts as having eaten a berry.",
+		shortDesc: "Twice per battle, user and allies heal 15% of their max HP. Counts as eating a berry. User's Speed is boosted by 1.",
 	},
 	
 	swordplay: {
-		onHitProtect(source, target, move) {
+		//Thanks to KnivesMK for letting me borrow their code!
+		onModifyMove(move) {
 			if (move.flags['slicing']) {
-				target.getMoveHitData(move).bypassProtect = this.effect;
-				return false;
+				delete move.flags['protect'];
+				(move as any).pierce = true;
+			}
+		},
+		
+		onModifyDamage(damage, source, target, move) {
+			if ((move as any).pierce && move.flags?.slicing && target.volatiles['protect']) {
+				this.debug('Swordplay Bypass');
+				return this.chainModify(0.25);
 			}
 		},
 		onBasePowerPriority: 19,
@@ -510,15 +523,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.ateBerry) {
+				this.debug('Full Belly Active');
 				return this.chainModify(1.5);
 			}
 			else {
+				this.debug('Full Belly Inactive');
 				return this.chainModify(0.7);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Full Belly",
-		shortDesc: "This Pokemon's Attack stat is multiplied by 0.7x until it eats a Berry. Once it eats a Berry, its Attack is multiplied by 1.5x for the rest of the battle.",
+		shortDesc: "0.7x Attack if no berry eaten, 1.5x Attack if berry has been eaten.",
 	},
 	
 	reverberate: {
@@ -535,10 +550,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 			},
 			
-		onHit(source, target, move) {
+		onModifyDamage(damage, source, target, move) {
 			if (move.multihitType === 'reverberate' && move.hit > 1) {
 				this.battle.debug('Reverberate modifier');
-				baseDamage = this.battle.modify(baseDamage, 0.5);
+				return this.modify(0.5);
 			}
 		},
 		
@@ -557,7 +572,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {
-			if(move.flags['sounds']) {
+			if(move.flags['sound']) {
 				this.debug('Ghostly Groove boost');
 				return this.chainModify(1.1);
 			}

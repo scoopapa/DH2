@@ -128,8 +128,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 140,
 		accuracy: true,
 		pp: 5,
-		shortDesc: "",
-		longDesc: "",
+		shortDesc: "User loses 50% of their max HP. 15% chance to freeze.",
+		longDesc: "The user unleashes a fatally chilling spell, using up 50% of their max HP in the process. This move cannot miss, and also has a 15% chance to leave targets frozen.",
 		priority: 0,
 		flags: {protect: 1},
 		mindBlownRecoil: true,
@@ -159,7 +159,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Smart Zephyr",
 		type: "Flying",
 		category: "Special",
-		basePower: 0,
+		basePower: 60,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Low Priority (Priority -6). Forces the target to switch to a random ally.",
@@ -189,7 +189,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {metronome: 1},
 		selfSwitch: true,
-		onHit() {
+		onModifyMove(move, pokemon) {
 			const randTerrain = this.random(100);
 			const randWeather = this.random(100);
 			if (randTerrain < 26) {
@@ -230,11 +230,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Partially hits through Protect.",
 		longDesc: "THE [Valued Customer!] USES ALL ITS [[Hyperlink Blocked]] TO FIRE A [[BIG SHOT!!!]]. THE OPPONENT'S DEFENSES [[Cannot say no to this hot new sale!]]. THIS MOVE IS A [One and done deal].",
 		priority: 0,
-		flags: {protect: 1, metronome: 1, bullet: 1, pulse: 1},
-		onHitProtect(source, target, move) {
-				target.getMoveHitData(move).bypassProtect = this.effect;
-				return false;
-			},
+		flags: {metronome: 1, bullet: 1, pulse: 1},
+
+			onModifyDamage(damage, source, target, move) {
+			if (target.volatiles['protect']) {
+				this.debug('Big Shot Partial Bypass');
+				return this.chainModify(0.25);
+			}
+		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Gigavolt Havoc", target);
@@ -250,7 +253,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 5,
-		ohko: false,
 		shortDesc: "Targets with 1/3 of their HP or lower are instantly KOed.",
 		longDesc: "The user swiftly strikes by using a blackened sword. Instantly KOs targets with a third of their HP or less.",
 		priority: 0,
@@ -259,10 +261,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Ceaseless Edge", target);
 		},
-		onTryHit(target) {
-			if (target.hp * 3 <= target.maxhp)
+		onTryHit(target, move) {
+			if (target.hp * 3 <= target.maxhp) {
 				this.add('-message', "SWOON!"),
 				move.ohko = true;
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -319,7 +322,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Deals damage based on Special Defense rather than Defense.",
+		shortDesc: "Hits target's Special Defense rather than Defense.",
 		longDesc: "The user unleashes a wave of energy consisting of their own rude thoughts. This move deals Special damage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -339,7 +342,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 10,
-		shortDesc: "-1 Sp. Def and Def for opponents, +1 Sp. Atk and Atk for allies. Usually goes first (Priority +1). Bypasses Substitute.",
+		shortDesc: "-1 Sp. Def and Def for opponents, +1 Sp. Atk and Atk for allies. Priority +1. Bypasses Substitute.",
 		longDesc: "The user encourages the opponent to stop fighting, lowering their Defense and Special Defense by 1 stage. If used on an ally, the user urges them to keep fighting, boosting their Attack and Special Attack by 1 stage. This move bypasses Substitute and usually goes first.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1, reflectable: 1, bypasssub: 1, allyanim: 1},
@@ -348,7 +351,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Metronome", target);
 			this.add('-anim', pokemon, "Lovely Kiss", target);
 		},
-		onHit(target, source, move) {
+		onModifyMove(move, source, target) {
 			if(target.isAlly(source)) {
 				move.boosts = {atk: 1, spa: 1};
 			}
@@ -368,7 +371,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Opposing Pokemon with less than 100% of their HP left gain the Drowsy status. Cannot be used twice in a row.",
+		shortDesc: "Opposing Pokemon with less than 100% of their HP gain Drowsy. Cannot be used twice in a row.",
 		longDesc: "The user casts a spell which makes exhausted opponents Drowsy. This move only works on Pokemon who are under 100% of their HP. This move cannot be used twice in a row.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1, cantusetwice: 1},
@@ -412,18 +415,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	neochaos: {
 		name: "Neo Chaos",
-		type: "???",
+		type: "Stellar",
 		category: "Special",
 		basePower: 160,
 		accuracy: true,
 		pp: 1,
 		shortDesc: "The target is given a random status effect, sets a random Terrain and Weather, and then the user switches out.",
-		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting. This move has no type and hits every Pokemon for neutral damage.",
+		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting. This move hits every Pokemon for neutral damage.",
 		priority: 0,
 		flags: {},
 		selfSwitch: true,
 		isZ: "jestersshadowcrystal",
-		onHit() {
+		onHit(move, pokemon) {
 			const randTerrain = this.random(100);
 			const randWeather = this.random(100);
 			if (randTerrain < 26) {
@@ -474,8 +477,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {heal: 1},
 		drain: [1, 2],
-		boosts: {
+		selfBoost: {
+			boosts: {
 			spe: 1,
+			},
 		},
 		isZ: "puppetsshadowcrystal",
 		onPrepareHit(target, pokemon, move) {
@@ -494,7 +499,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 180,
 		accuracy: true,
 		pp: 1,
-		ohko: false,
 		shortDesc: "Targets with 45% of their HP or lower are instantly KOed.",
 		longDesc: "The user assaults the targets by unleashing a barrage of star-shaped crystals, then delivers a savage thrust of its sword at blinding speed. Instantly KOs targets with 45% of their HP or less.",
 		priority: 0,
@@ -506,10 +510,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Swift", target);
 			this.add('-anim', pokemon, "Spacial Rend", target);
 		},
-		onTryHit(target) {
-			if (target.hp * 100/45 <= target.maxhp)
+		onTryHit(target, move) {
+			if (target.hp * 100/45 <= target.maxhp) {
 				this.add('-message', "SWOON!"),
 				move.ohko = true;
+			}
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -522,7 +527,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 190,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Dispels target's stat changes. 50% chance to confuse the target. Disables the target's ability before doing damage.",
+		shortDesc: "Dispels target's stat changes. Disables target's ability before damage. 50% confuse chance.",
 		longDesc: "The user dazes the target and cleverly nullifies their ability and stat changes in the process. This move has a 50% chance to leave the target confused. The target's ability is nullified before damage is dealt.",
 		priority: 0,
 		flags: {},
@@ -551,12 +556,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	omegajustice: {
 		name: "Omega Justice",
-		type: "Psychic",
+		type: "Fighting",
 		category: "Special",
 		basePower: 120,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Always results in a critical hit, bypasses Substitute, and ignores abilities.",
+		shortDesc: "Always critical hits, bypasses Substitute, ignores abilities.",
 		longDesc: "The user launches a powerful blast from its gun. This move bypasses Substitute, ignores the target's ability, and always results in a critical hit.",
 		priority: 0,
 		flags: {bullet: 1, bypasssub: 1},
@@ -578,13 +583,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 18,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Hits 10 times. Nearly always goes first (Priority +2). Attempts to hit each available foe equally. Prevents user from switching out.",
+		shortDesc: "Hits 10 times. Priority +2. Tries to hit each available foe equally. Prevents user from switching out.",
 		longDesc: "The user rushes fists-first into the target, hitting them up to ten times. If there are multiple targets, this move attempts to hit them equally. This move nearly always goes first. After the move is complete, the user is prevented from switching out.",
 		priority: 2,
 		flags: {fist: 1},
 		multihit: 10,
 		smartTarget: true,
+		self: {
 		volatileStatus: 'noretreat',
+		},
 		isZ: "amberomegapetal",
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -601,7 +608,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Heals 100% of target's HP. Restores negative stat changes, restores all missing PP, and cures non-volatile status conditions along with confusion.",
+		shortDesc: "Heals 100% of target's HP, clears negative stat changes, restores missing PP, cures status + confusion.",
 		longDesc: "The user whips up a delectable meal that heals an ally or itself to maximum HP, removes all negative stat changes, fully restores PP, and cures any non-volatile status conditions as well as confusion.",
 		priority: 0,
 		flags: {heal: 1},
@@ -626,12 +633,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	omegaintegrity: {
 		name: "Omega Integrity",
-		type: "Psychic",
+		type: "Water",
 		category: "Special",
-		basePower: 120,
+		basePower: 190,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Removes all hazards, terrain, and screens on both sides. Sets a rainbow on your team's field for 4 turns (doubles chances for secondary effects).",
+		shortDesc: "Defog effect for both sides. Sets a rainbow on your team's field for 4 turns.",
 		longDesc: "The user performs a truly elegant dance, brushing away all clutter on the battlefield, leaving a rainbow to emerge on the user's side of the field, doubling all secondary effect chances for 4 turns.",
 		priority: 0,
 		flags: {},
@@ -642,8 +649,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		//Copied from Defog
 		onHit(target, source, move) {
 				let success = false;
-				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist'];
-				for (const sideCondition of removeAll) {
+				const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist',
+			];
+				const removeSource = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist'];
+				for (const targetCondition of removeTarget) {
+					if (target.side.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeSource) {
 					if (source.side.removeSideCondition(sideCondition)) {
 						this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Omega Integrity', `[of] ${source}`);
 						success = true;
@@ -711,7 +728,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Pink only: Psychic-Type in Corporeal Forme, Ghost-Type in Ghost Forme. 50% chance to lower target's Sp. Atk in Corporeal Forme, 50% Chance to lower target's Atk in Ghost Forme.",
+		shortDesc: "Pink only: Psychic-Type, 50% -Sp. Atk, in Corporeal Forme, Ghost-Type, 50% -Atk, in Ghost Forme.",
 		longDesc: "The user fires a blast from its magical wand. This move is Psychic-Type with a 50% chance to lower the target's Special Attack in Pink's Corporeal Forme, and Ghost-Type with a 50% chance to lower the target's Attack in Pink's Ghost Forme.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
@@ -741,16 +758,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: {
-			onHit(pokemon, move) {
+			chance: 50,
+			onModifyMove(pokemon, move) {
 				if (pokemon.species.name === 'Pink-Ghost') {
 					{
-					chance: 50,
 					move.boosts; {atk: -1};
 					}
 				}
 					else {
 					{
-					chance: 50,
 					move.boosts; {spa: -1};
 					}
 				}
@@ -763,20 +779,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Tainted Vines",
 		type: "Grass",
 		category: "Physical",
-		basePower: 60,
+		basePower: 80,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
-			return bp;
 			if (bp >= 140) {
 				move.drain [1, 4];
 				move.flags.heal = 1;
 				this.add('-anim', pokemon, "Giga Drain", target);
+				return bp;
 			}
 		},
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "For every stat boost the target has, this move gains +20 power. At 140 Base Power or more, the user heals 25% of the damage dealt.",
+		shortDesc: "Each enemy stat boost: +20 power.140 Base Power or more: heal 25% of the damage dealt.",
 		longDesc: "The user catches the opponent with energy-draining vines. The more the target's stats are raised, the greater the power of the move. At 140 power or higher, the user heals a quarter of the damage dealt.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -796,7 +812,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "50% chance to lower the target's Defense by 1. High critical hit ratio.",
+		shortDesc: "50% chance to lower Defense by 1. High critical hit ratio.",
 		longDesc: "The user unleashes a special punch directed at the target. This move has a 50% chance to lower the target's Defense by one stage. This move has a heightened chance of landing a critical hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
@@ -822,7 +838,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 65,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "30% Chance to paralyze, 2x power on paralyzed opponents.",
+		shortDesc: "30% par. chance, 2x power on paralyzed target.",
 		longDesc: "The user strikes a mythical glare at the target which may paralyze them. This move's power is doubled if used on a target who is already paralyzed.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -911,7 +927,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Gives an ally Pokemon +1 Speed and cures Sleep or Drowsy. Bypasses Substitute",
+		shortDesc: "Ally Pokemon gets +1 Speed, cures Sleep or Drowsy. Bypasses Substitute",
 		longDesc: "The user lets loose a rousing song for an ally Pokemon, curing them of Sleep and boosting their Speed by 1 stage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1, sound: 1, bypasssub: 1},
@@ -939,7 +955,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		accuracy: 100,
 		pp: 20,
-		shortDesc: "1.5x damage if target is holding an item. Removes target's item.",
+		shortDesc: "1.5x damage if target is holding an item. Removes item.",
 		longDesc: "The user casts a spell that sends the target's item right out of their hand. This move's power is boosted by 50% if the target is holding an item.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -999,11 +1015,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	spearbarrage: {
 		name: "Spear Barrage",
 		type: "Water",
-		category: "",
+		category: "Physical",
 		basePower: 25,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Hits 4-5 times. Each hit targets a random opponent if there are multiple.",
+		shortDesc: "Hits 4-5 times. Targets random opponents if there are multiple.",
 		longDesc: "The user rains down a barrage of magical spears directed at the target. If there are multiple targets, this move hits them at random. This move hits four to five times.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -1020,7 +1036,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Flaming Trident",
 		type: "Fire",
 		category: "Physical",
-		basePower: 100,
+		basePower: 90,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "30% chance to Taunt the target for 3 turns.",
@@ -1053,7 +1069,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Hyper Beam", target);
 		},
-		onHit(target, pokemon) {
+		onHit(target, pokemon, source) {
 			if (pokemon.side.faintedLastTurn) {
 				source.trySetStatus('psn', target);
 			}
@@ -1073,10 +1089,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user lowers its guard, harshly depleting its Defense and Special Defense stats to fire off a massive black laser using all its might.",
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
-	
-		onPrepareHit(target, pokemon, move) {
-			this.add('-message', '${pokemon.name} lowers its guard!'),
+		onPrepareMove(target, pokemon, move) {
+			this.add('-message', `${pokemon.name} lowers its guard!`);
 			move.self = {boosts: {def: -2, spd: -2}};
+		},
+		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Scale Shot", target);
 			this.add('-anim', pokemon, "Doom Desire", target);
@@ -1117,6 +1134,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user drags the target into a malevolent vortex that soon collapses in on them. This move will always leave the target at 1 HP.",
 		priority: 0,
 		flags: {},
+		isZ: "soulcollective",
 		ignoreImmunity: true,
 		damageCallback(pokemon, target) {
 			const hp1 = Math.floor(target.getUndynamaxedHP() - 1);
@@ -1144,5 +1162,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						return this.NOT_FAIL;
 					}
 		}
+	},
+	
+	//Torque Moves
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
