@@ -22,6 +22,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return null;
 		},
 		
+		if (move.spreadHit) {
+			// multi-target modifier (doubles only)
+			const spreadModifier = move.spreadModifier || (this.battle.gameType === 'freeforall' ? 0.5 : 0.75);
+			this.battle.debug('Spread modifier: ' + spreadModifier);
+			baseDamage = this.battle.modify(baseDamage, spreadModifier);
+		} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
+			// Parental Bond modifier
+			const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
+			this.battle.debug(`Parental Bond modifier: ${bondModifier}`);
+			baseDamage = this.battle.modify(baseDamage, bondModifier);
+		} else if (move.multihitType === 'reverberate' && move.hit > 1) {
+			//Reverberate
+			this.battle.debug('Reverberate Modifier');
+			baseDamage = this.battle.modify(baseDamage, 0.5);
+		}
 	},
 
 	datamod: {

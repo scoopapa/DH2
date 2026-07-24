@@ -543,13 +543,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.multihitType === 'reverberate' && move.id === 'secretpower' && move.hit < 2) 
 				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 			},
-			
-		onModifyDamage(damage, source, target, move) {
-			if (move.multihitType === 'reverberate' && move.hit > 1) {
-				this.battle.debug('Reverberate modifier');
-				return this.chainModify(0.5);
-			}
-		},
 		
 		flags: {},
 		name: "Reverberate",
