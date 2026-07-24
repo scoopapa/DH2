@@ -1,9 +1,6 @@
 export const Aliases: import('../sim/dex').AliasesTable = {
-	//Attempting to fix Queen and Maus getting overwritten in the Deltamon Dex, not sure if this will work.
 	
 	// pokemon
-	queen: "Queen",
-	maus: "Maus",
 	aboma: "Abomasnow",
 	ace: "Cinderace",
 	aegi: "Aegislash",

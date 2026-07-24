@@ -1483,7 +1483,7 @@ rudinn: {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	maus: {
+	mausdelta: {
 		learnset: {
 			bite: ["9L1"],
 			bugbite: ["9L1"],
@@ -1880,7 +1880,7 @@ rudinn: {
 			wonderroom: ["9L1"],
 		},
 	},
-	queen: {
+	queendelta: {
 		learnset: {
 			acidarmor: ["9L1"],
 			acidspray: ["9L1"],
