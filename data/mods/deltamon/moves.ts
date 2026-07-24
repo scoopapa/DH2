@@ -419,11 +419,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Mist", target);
 		},
-		onTryHit(target) {
+		onHit(target) {
 			if (target.status || !target.runStatusImmunity('slp') || target.hp >= target.maxhp) {
 				return false;
 			}
 		},
+
 		secondary: null,
 		target: "allAdjacentFoes",
 		zMove: {boost: {def: 1}},
