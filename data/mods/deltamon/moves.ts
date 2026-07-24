@@ -826,12 +826,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
 			if (bp >= 140) {
-				onModifyMove(move) {
 					move.drain = [1, 4];
 					move.flags.heal = 1;
 					this.add('-anim', pokemon, "Giga Drain", target);
 				}
-			},
 			return bp;
 		},
 		accuracy: 100,
