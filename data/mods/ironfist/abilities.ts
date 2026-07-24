@@ -1276,7 +1276,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Blight of the Fallen",
-		shortDesc: "This Pokemon's Ghost-type moves faint targets under 25% HP in Graveyard.",
+		shortDesc: "This Pokemon's Ghost-type moves faint targets under 30% HP in Graveyard.",
 	},
 	timefrozenbody: {
 		onResidualOrder: 28,
