@@ -113,14 +113,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onAnyResidual(pokemon) {
-			if (pokemon.activeTurns && this.effectState.counter) {
+			if (pokemon.activeTurns) {
 				this.effectState.counter--;
 				
 				if(this.effectState.counter <= 0) {
 					this.add('-message', "YOUR TAKING TOO LONG!");
-					for (const target of this.getAllActive()) {
+					for (const pokemon of this.getAllActive()) {
 						if (target === pokemon || pokemon.fainted) continue;
-						this.damage(target.baseMaxhp / 4);
+						this.damage(pokemon.baseMaxhp / 4);
 					}
 				}
 			}

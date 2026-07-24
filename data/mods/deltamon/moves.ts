@@ -297,10 +297,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, target, pokemon) {
 			if (target.hp * 3 <= target.maxhp)
 				move.ohko = true;
+			else return move.ohko = false;
 		},
 		onTryHit(pokemon, target, move) {
-			if (target.hp * 3 <= target.maxhp)
+			if (target.hp * 3 <= target.maxhp && !target.volatiles['substitute']) {
 				this.add('-message', "SWOON!");
+			}
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -410,19 +412,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Opposing Pokemon with less than 100% of their HP gain Drowsy. Cannot be used twice in a row.",
+		shortDesc: "Enemies with less than 100% of their HP gain Drowsy. Can't be used twice.",
 		longDesc: "The user casts a spell which makes exhausted opponents Drowsy. This move only works on Pokemon who are under 100% of their HP. This move cannot be used twice in a row.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1, cantusetwice: 1},
-		volatileStatus: 'yawn',
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Mist", target);
 		},
 		onHit(target) {
-			if (target.status || !target.runStatusImmunity('slp') || target.hp >= target.maxhp) {
-				return false;
-			}
+			if (target.status || !target.runStatusImmunity('slp') || target.hp >= target.maxhp) return;
+			target.addVolatile('yawn');
 		},
 
 		secondary: null,
@@ -547,10 +547,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, target, pokemon) {
 			if (target.hp * 100/45 <= target.maxhp)
 				move.ohko = true;
+			else return move.ohko = false;
 		},
 		onTryHit(pokemon, target, move) {
-			if (target.hp * 100/45 <= target.maxhp)
+			if (target.hp * 100/45 <= target.maxhp && !target.volatiles['substitute']) {
 				this.add('-message', "SWOON!");
+			}
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -825,12 +827,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
-			if (bp >= 140) {
-					move.drain = [1, 4];
-					move.flags.heal = 1;
-					this.add('-anim', pokemon, "Giga Drain", target);
-				}
 			return bp;
+		},
+		onModifyMove(move) {
+			if (move.basePower >= 140) {
+				move.drain = [1, 4];
+				move.flags.heal = 1;
+			}
 		},
 		accuracy: 100,
 		pp: 5,
