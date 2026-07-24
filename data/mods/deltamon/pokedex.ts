@@ -1534,7 +1534,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stellar Guard"},
 		weightkg: 900,
 		requiredItem: "Soul Collective",
-		battleOnly: ["Asriel"],
+		battleOnly: "Asriel",
 	},
 
 

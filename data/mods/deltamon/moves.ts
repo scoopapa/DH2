@@ -206,7 +206,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			} else if (randWeather < 51) {
 				this.field.setWeather('raindance');
 			}  else if (randWeather < 76) {
-				this.field.setWeather('snowscape');
+				this.field.setWeather('snow');
 			} else {
 				this.field.setWeather('sandstorm');
 			}
@@ -253,6 +253,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 5,
+		ohko: false,
 		shortDesc: "Targets with 1/3 of their HP or lower are instantly KOed.",
 		longDesc: "The user swiftly strikes by using a blackened sword. Instantly KOs targets with a third of their HP or less.",
 		priority: 0,
@@ -443,7 +444,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			} else if (randWeather < 51) {
 				this.field.setWeather('raindance');
 			}  else if (randWeather < 76) {
-				this.field.setWeather('snowscape');
+				this.field.setWeather('snow');
 			} else {
 				this.field.setWeather('sandstorm');
 			}
@@ -499,6 +500,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 180,
 		accuracy: true,
 		pp: 1,
+		ohko: false,
 		shortDesc: "Targets with 45% of their HP or lower are instantly KOed.",
 		longDesc: "The user assaults the targets by unleashing a barrage of star-shaped crystals, then delivers a savage thrust of its sword at blinding speed. Instantly KOs targets with 45% of their HP or less.",
 		priority: 0,
@@ -784,7 +786,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
 			if (bp >= 140) {
-				move.drain [1, 4];
+				move.drain = [1, 4];
 				move.flags.heal = 1;
 				this.add('-anim', pokemon, "Giga Drain", target);
 				return bp;
