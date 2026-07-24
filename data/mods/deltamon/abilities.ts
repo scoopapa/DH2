@@ -446,7 +446,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onPrepareHit(pokemon, move) {
+		onTryMove(pokemon, move) {
 			const danceMove = ["aquastep", "clangoroussoul", "dragondance", "featherdance", "fierydance", "lunardance", "petaldance", "quiverdance", "revelationdance", "swordsdance", "teeterdance", "victorydance"]
 			if (this.randomChance(1, 2) && danceMove.includes(move.id)) {
 				for (const ally of pokemon.alliesAndSelf()) {

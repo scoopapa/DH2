@@ -9,6 +9,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['DM DOU', 'DM DUbers', 'DM NFE']
 	},
 	
+	actions: {
+		inherit: true,
+		canUltraBurst(pokemon: Pokemon) {
+		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'ultranecroziumz') {
+			return "Necrozma-Ultra";
+			//Asriel Ultra Burst
+		} else if (pokemon.baseSpecies.name === 'Asriel' && pokemon.getItem().id === 'soulcollective') {
+			return "Asriel-Hyperdeath";
+		}
+			return null;
+		},
+		
+	},
+
 	datamod: {
 		effectType: 'Rule',
 		name: 'Data Mod',
