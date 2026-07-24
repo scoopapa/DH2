@@ -3982,7 +3982,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveWeather(undefined, true)) {
 				case 'acidrain':
 					factor = 0.667;
 					break;

@@ -22,6 +22,11 @@ export function getName(name: string): string {
 	return group + name;
 }
 
+const HAZARDS = [
+	'stealthrock', 'spikes', 'toxicspikes', 'stickyweb',
+	'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge',
+];
+
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	/*
 	placeholder: {
@@ -717,8 +722,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Supreme Overlord + This Pokemon's moves have STAB.",
 	},
 	skillissue: {
-		onFlinch(pokemon) {
-			this.boost({spe: 1});
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') {
+				this.boost({spe: 1});
+				return null;
+			}
 		},
 		onStart(pokemon) {
 			// n.b. only affects Hackmons
@@ -1043,17 +1051,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's moves hit twice at 0.33x power.",
 	},
 	honorstudent: {
-		onStart(pokemon) {
-			let activated = false;
-			const diamondHand = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.baseSpecies.diamondHand);
-			for (const target of pokemon.adjacentFoes()) {
-				if (diamondHand.length > 0) {
-					this.add('-ability', pokemon, 'Honor Student');
-					activated = true;
-					this.damage(0.12 * target.baseMaxhp, target, pokemon);
-				}
-			}
-		},
+		//effects in rulesets/conditions
 		flags: {},
 		name: "Honor Student",
 		shortDesc: "Foes lose 12% max HP if the user switched in for a Diamond Hand.",
@@ -1360,30 +1358,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Necrodancer",
 		shortDesc: "If Graveyard is active, foes lose 1/16 of their max HP at the end of each turn.",
 	},
-	conversionz: {
-		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
-		onSwitchIn(pokemon) {
-			if (pokemon.species.id !== 'porygonzmega') return;
-			const type = this.dex.species.get(pokemon.species).types[0];
-			if (pokemon.hasType(type) || !pokemon.setType(type)) return;
-			this.add('-start', pokemon, 'typechange', type);
-		},
-		onSourceHit(target, source, move) {
-			if (source.species.id !== 'porygonzmega') return;
-			if (move.id === 'conversion' || move.id === 'conversion2') {
-				this.add('-ability', source, 'Conversion-Z');
-				const pokemon = this.dex.species.get(source.species);
-				pokemon.types[0] = source.types[0];
-			}
-		},
-		onModifyMove(move) {
-			delete move.stab;
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Conversion-Z",
-		rating: 5,
-		num: -5000,
-	},
 	snakewood: {
 		onStart(pokemon) {
 			pokemon.addVolatile('ability:bulletproof');
@@ -1456,9 +1430,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(target, source) {
 				this.add('-start', target, 'Carcinization', '[silent]');
 			},
-			onResidualOrder: 23,
 			onEnd(target) {
-				this.add('-start', target, 'Carcinization', '[silent]');
+				this.add('-end', target, 'Carcinization', '[silent]');
 				target.formeChange('Kingler');
 			},
 		},
@@ -1477,7 +1450,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (target.isAlly(source)) return;
 			if (move.type === 'Lemon') {
 				this.boost({atk: 1}, this.effectState.target);
 			}
@@ -1545,13 +1518,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	slayerofbeasts: {
 		onBasePower(basePower, pokemon, target, move) {
-			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Boogerpon-CLOWNerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator", "Bart", "Upvybones", "Ludicolo", "T'La'Ágh", "Regibloom", "Old Duke", "Iron Fist", "Lucario-Calm-Mega", "awesome possum", "Tired of it Owl", "Caracal", "Solar Bean-Primal", "Circall", "Kyogre-Original", "Lawset", "Daiyakuza-Origin", "Princirang-Mega", "Ratstagoon-NewYorkian", "Spewpa-Mega", "Zapmolcuno", "Girafarig-Mega", "fat fuck", "Flygon-Plus", "VishZolt", "murcow :D", "Green Guillotina", "Burmy-Sand", "1000-THR \"Earthmover\"", "PRONOUNS", "Lemonganium-Lemonga", "Kanon", "Kanon-Blue-Sea", "Marlboro", "Dip", "Flushmaster", "Bluminion", "BIG ANVIL-MEGA", "melmetal 3", "birbevil bot"];
-			if (nonVanilla.includes(target.baseSpecies.name)) return this.chainModify([4915, 4096]);
+			if (!this.dex.mod('gen9').species.get(target.baseSpecies.id).exists) {
+				return this.chainModify([4915, 4096]);
+			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
-			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Boogerpon-CLOWNerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyakuza",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator", "Bart", "Upvybones", "Ludicolo", "T'La'Ágh", "Regibloom", "Old Duke", "Iron Fist", "Lucario-Calm-Mega", "awesome possum", "Tired of it Owl", "Caracal", "Solar Bean-Primal", "Circall", "Kyogre-Original", "Lawset", "Daiyakuza-Origin", "Princirang-Mega", "Ratstagoon-NewYorkian", "Spewpa-Mega", "Zapmolcuno", "Girafarig-Mega", "fat fuck", "Flygon-Plus", "VishZolt", "murcow :D", "Green Guillotina", "Burmy-Sand", "1000-THR \"Earthmover\"", "PRONOUNS", "Lemonganium-Lemonga", "Kanon", "Kanon-Blue-Sea", "Marlboro", "Dip", "Flushmaster", "Bluminion", "BIG ANVIL-MEGA", "melmetal 3", "birbevil bot"];
-			if (nonVanilla.includes(defender.baseSpecies.name)) move.accuracy = true;
+			if (!this.dex.mod('gen9').species.get(defender.baseSpecies.id).exists) {
+				move.accuracy = true;
+			}
 		},
 		flags: {},
 		name: "Slayer of Beasts",
@@ -1574,20 +1549,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fruity Bars",
 		shortDesc: "This Pokemon's sound moves are Lemon-type.",
 	},
-	sociallyunaware: {
-		onStart(pokemon) {
-			pokemon.addVolatile('ability:unaware');
-			pokemon.addVolatile('ability:oblivious');
-		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('ability:unaware');
-			pokemon.removeVolatile('ability:oblivious');
-		},
-		flags: {breakable: 1},
-		name: "Socially Unaware",
-		shortDesc: "Unaware + Oblivious",
-	},
-	
+
 	//slate 10
 	fashionicon: {
 		onModifySpAPriority: 5,
@@ -1639,7 +1601,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	hoennlover: {
 		onStart(pokemon) {
 			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.baseSpecies.gen === 3).length;
-			if (hoenn) {
+			if (this.effectState.hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Lover');
 				hoenn = Math.min(hoenn, 5);
 				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
@@ -1647,7 +1609,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, `fallen${this.effectState.hoenn}`, '[silent]');
+			this.add('-end', pokemon, `hoenn${this.effectState.hoenn}`, '[silent]');
 		},
 		onModifySpe(spe) {
 			return this.chainModify(1 + 0.15 * this.effectState.hoenn);
@@ -1834,30 +1796,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "If Snow is active, this Pokemon heals 1/8 of its max HP each turn.",
 	},
-	'buy1get2free': {
-		onStart(pokemon) {
-			pokemon.addVolatile('ability:pressure');
-			pokemon.addVolatile('ability:justthebirds');
-		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('ability:pressure');
-			pokemon.removeVolatile('ability:justthebirds');
-		},
-		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('confusion');
-				}
-			}
-		},
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.id === 'triattack') return 123;
-		},
-		flags: {},
-		name: "Buy 1 get 2 free",
-		shortDesc: "Pressure + JtB + 30% confusion on contact + Tri Attack has 123 BP.",
-	},
 	greatestvideogameofalltime: {
 		//do i have to bother
 		flags: {},
@@ -1883,7 +1821,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			
 			if (!warnMoves.length) return;
-			for (const warnMove in warnMoves) {
+			for (const warnMove of warnMoves) {
 				this.add('-activate', pokemon, 'ability: Forewarn', warnMove[0], `[of] ${warnMove[1]}`);
 			}
 		},
@@ -1935,29 +1873,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, `Zinzolin's Resolve`, '[silent]');
 			},
 			onDisableMove(pokemon) {
-				const hazardMoves = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge'];
-				for (const moveSlot of pokemon.moveSlots) {
-					for (const move of hazardMoves) {
-						if (moveSlot.id === 'struggle') continue;
-						pokemon.disableMove(move, true);
-					}
+				for (const move of HAZARDS) {
+					pokemon.disableMove(move, true);
 				}
 				pokemon.maybeDisabled = true;
 			},
 			onFoeDisableMove(pokemon) {
-				const hazardMoves = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge'];
-				for (const moveSlot of pokemon.moveSlots) {
-					for (const move of hazardMoves) {
-						if (moveSlot.id === 'struggle') continue;
-						pokemon.disableMove(move, true);
-					}
+				for (const move of HAZARDS) {
+					pokemon.disableMove(move, true);
 				}
 				pokemon.maybeDisabled = true;
 			},
 			onFoeBeforeMovePriority: 4,
 			onFoeBeforeMove(attacker, defender, move) {
-				const hazardMoves = ['stealthrock', 'spikes', 'toxicspikes', 'stickyweb', 'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge'];
-				if (move.id !== 'struggle' && hazardMoves.includes(move.id) && !move.isZOrMaxPowered) {
+				if (move.id !== 'struggle' && HAZARDS.includes(move.id) && !move.isZOrMaxPowered) {
 					this.add('cant', attacker, 'ability: Zinzolin\'s Resolve', move);
 					return false;
 				}
@@ -2047,7 +1976,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
-		onFractionalPriority(priority, pokemon, target, move) {
+		onFractionalPriority(priority, source, target, move) {
 			if (source.side.fishingTokens < source.side.foe.fishingTokens) return 0.1;
 		},
 		flags: {},
@@ -2057,13 +1986,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	genderambiguity: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (attacker.species.trans) {
+			if (attacker.baseSpecies.trans) {
 				return this.chainModify(2);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
-			if (attacker.species.trans) {
+			if (attacker.baseSpecies.trans) {
 				return this.chainModify(2);
 			}
 		},
@@ -2091,19 +2020,34 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onModifyAtk(atk, pokemon) {
-			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['atk'] + pokemon.set.ivs['atk'] + Math.trunc(pokemon.set.evs['atk'] / 4)) * pokemon.set.level / 100 + 5);
+			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['atk'] + pokemon.set.ivs['atk'] + Math.trunc(pokemon.set.evs['atk'] / 4)) * pokemon.set.level / 100 + 5);
+			if (this.dex.natures.get(pokemon.set.nature).plus === 'atk') value = Math.trunc(value * 1.1);
+			else if (this.dex.natures.get(pokemon.set.nature).minus === 'atk') value = Math.trunc(value * 0.9);
+			return value;
 		},
 		onModifyDef(def, pokemon) {
-			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['def'] + pokemon.set.ivs['def'] + Math.trunc(pokemon.set.evs['def'] / 4)) * pokemon.set.level / 100 + 5);
+			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['def'] + pokemon.set.ivs['def'] + Math.trunc(pokemon.set.evs['def'] / 4)) * pokemon.set.level / 100 + 5);
+			if (this.dex.natures.get(pokemon.set.nature).plus === 'def') value = Math.trunc(value * 1.1);
+			else if (this.dex.natures.get(pokemon.set.nature).minus === 'def') value = Math.trunc(value * 0.9);
+			return value;
 		},
 		onModifySpA(spa, pokemon) {
-			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spa'] + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
+			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spa'] + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
+			if (this.dex.natures.get(pokemon.set.nature).plus === 'spa') value = Math.trunc(value * 1.1);
+			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spa') value = Math.trunc(value * 0.9);
+			return value;
 		},
 		onModifySpD(spd, pokemon) {
-			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spd'] + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
+			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spd'] + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
+			if (this.dex.natures.get(pokemon.set.nature).plus === 'spd') value = Math.trunc(value * 1.1);
+			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spd') value = Math.trunc(value * 0.9);
+			return value;
 		},
 		onModifySpe(spe, pokemon) {
-			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spe'] + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
+			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spe'] + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
+			if (this.dex.natures.get(pokemon.set.nature).plus === 'spe') value = Math.trunc(value * 1.1);
+			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spe') value = Math.trunc(value * 0.9);
+			return value;
 		},
 		flags: {},
 		name: "Embody Aspect (CLOWN)",
@@ -2217,7 +2161,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.fallen) {
+			if (this.effectState.fish) {
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Schooling boost: ${powMod[this.effectState.fish]}/4096`);
 				return this.chainModify([powMod[this.effectState.fish], 4096]);
