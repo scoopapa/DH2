@@ -225,7 +225,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Undying Spirit",
-		shortDesc: "Once per battle, if this Pokemon drops to 1/4 of its max HP or less, it will restore 1/2 of its max HP.",
+		shortDesc: "Once per battle, if this Pokemon drops to less than 1/4 HP, restore 1/2 of its HP.",
 	},
 	
 	pyromancy: {
@@ -430,7 +430,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	tacticaldodge: {
-		onModifyDamage(pokemon, target, move) {
+		onSourceModifyDamage(damage, source, target, move) {
 			if (target.dodged) return;
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.add ('-activate', target, 'ability: Tactical Dodge');
