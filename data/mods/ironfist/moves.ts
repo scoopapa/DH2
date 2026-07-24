@@ -4405,10 +4405,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) {
-				target.set.name += " (dead)";
-				const details = target.species.name + (target.level === 100 ? '' : ', L' + target.level) +
-					(target.gender === '' ? '' : ', ' + target.gender) + (target.set.shiny ? ', shiny' : '');
-				this.add('replace', target, details, '[silent]');
+				if (!target.set.name.endsWith(" (dead)")) {
+					target.set.name += " (dead)";
+				}
 			}
 		},
 		secondary: null,

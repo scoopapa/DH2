@@ -962,8 +962,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	skarmorymega: {
 		num: 1117,
 		name: "Skarmory-Mega",
-		baseSpecies: "Skarmory",
-		forme: "Mega",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 65, atk: 120, def: 100, spa: 70, spd: 100, spe: 110},
 		abilities: {0: "Tough Claws"},
