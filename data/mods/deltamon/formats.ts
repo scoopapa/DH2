@@ -1,6 +1,8 @@
 import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
+	// temporarily disabling, remind me to undisable it like sunday night
+	/*
 	{
 		name: "[Gen 9] Deltamon OU",
 		mod: 'deltamon',
@@ -87,4 +89,5 @@ export const Formats: FormatData[] = [
 					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite'],
 		teambuilderFormat: 'National Dex',
 	},
+	*/
 ];
