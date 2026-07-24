@@ -980,7 +980,7 @@ rudinn: {
 			gigadrain: ["9L1"],
 			helpinghand: ["9L1"],
 			honeclaws: ["9L1"],
-			hypebeam: ["9L1"],
+			hyperbeam: ["9L1"],
 			iondeluge: ["9L1"],
 			irondefense: ["9L1"],
 			ironhead: ["9L1"],
