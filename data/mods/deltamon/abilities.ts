@@ -112,7 +112,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
-		onResidual(pokemon) {
+		onAnyResidual(pokemon) {
 			if (pokemon.activeTurns && this.effectState.counter) {
 				this.effectState.counter--;
 				
@@ -447,7 +447,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	lovingdances: {
 		onPrepareHit(pokemon, move) {
-			if (this.randomChance(1, 2) && move.flags['dance']) {
+			const danceMove = ["aquastep", "clangoroussoul", "dragondance", "featherdance", "fierydance", "lunardance", "petaldance", "quiverdance", "revelationdance", "swordsdance", "teeterdance", "victorydance"]
+			if (this.randomChance(1, 2) && danceMove.includes(move.id)) {
 				for (const ally of pokemon.alliesAndSelf()) {
 					if (ally.status) {
 						this.add('-activate', pokemon, 'ability: Loving Dances');

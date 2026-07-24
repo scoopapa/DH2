@@ -459,7 +459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 160,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "The target is given a random status effect, sets a random Terrain and Weather, and then the user switches out.",
+		shortDesc: "Random status, weather, and terrain. User switches out.",
 		longDesc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting.",
 		priority: 0,
 		flags: {},
@@ -825,15 +825,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
 			if (bp >= 140) {
-				move.drain = [1, 4];
-				move.flags.heal = 1;
-				this.add('-anim', pokemon, "Giga Drain", target);
-				return bp;
-			}
+				onModifyMove(move) {
+					move.drain = [1, 4];
+					move.flags.heal = 1;
+					this.add('-anim', pokemon, "Giga Drain", target);
+				}
+			},
+			return bp;
 		},
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Each enemy stat boost: +20 power.140 Base Power or more: heal 25% of the damage dealt.",
+		shortDesc: "+20 power per enemy boost. 140 Power: heal 25% of the damage dealt.",
 		longDesc: "The user catches the opponent with energy-draining vines. The more the target's stats are raised, the greater the power of the move. At 140 power or higher, the user heals a quarter of the damage dealt.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -853,7 +855,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "50% chance to lower Defense by 1. High critical hit ratio.",
+		shortDesc: "50% chance to lower Defense by 1. High critical ratio.",
 		longDesc: "The user unleashes a special punch directed at the target. This move has a 50% chance to lower the target's Defense by one stage. This move has a heightened chance of landing a critical hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
@@ -931,7 +933,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Grounds target. Usually goes first (Priority +1). Fails if target is not attacking.",
+		shortDesc: "Grounds target. Priority +1. Fails if target is not attacking.",
 		longDesc: "The user sends a blue attack at the target that weighs down their Soul, grounding them. This move can hit aerial Pokemon. This move fails if the target is not using an attacking move.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -996,7 +998,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		accuracy: 100,
 		pp: 20,
-		shortDesc: "1.5x damage if target is holding an item. Removes item.",
+		shortDesc: "1.5x damage if target holds an item. Removes item.",
 		longDesc: "The user casts a spell that sends the target's item right out of their hand. This move's power is boosted by 50% if the target is holding an item.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
