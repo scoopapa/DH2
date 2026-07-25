@@ -216,6 +216,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	return: {
 		inherit: true,
+		isNonstandard: null,
 		basePower: 102,
 		basePowerCallback(pokemon) {
 			// this section looks redundant, but there is hard-coding around Return in the unmodded /sim/pokemon.ts that expects it
@@ -224,6 +225,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		noPPBoosts: true,
 		modded: true, // this makes its description display in Data Mod
+		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
 	},
 	
