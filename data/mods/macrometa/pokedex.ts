@@ -1027,10 +1027,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Adaptability", H: "Triage"},
 		weightkg: 203,
 	},
-	zygardecomplete: {
+	zygarde420: {
 		inherit: true,
 		num: 1124,
-		name: "Zygarde-Complete",
+		name: "Zygarde-420%",
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 128, atk: 100, def: 81, spa: 101, spd: 65, spe: 35},
 		abilities: {0: "Intimidate", 1: "Sturdy", H: "Sand Spit"},
