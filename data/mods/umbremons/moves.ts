@@ -215,22 +215,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
 	},
 	return: {
-		num: 216,
-		accuracy: 100,
-		modded: true, // this makes its description display in Data Mod
+		inherit: true,
 		basePower: 102,
-		category: "Physical",
-		name: "Return",
+		basePowerCallback(pokemon) {
+			// this section looks redundant, but there is hard-coding around Return in the unmodded /sim/pokemon.ts that expects it
+			return 102;
+		},
 		pp: 20,
 		noPPBoosts: true,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Cute",
+		modded: true, // this makes its description display in Data Mod
 		shortDesc: "No additional effect.",
 	},
+	
 	// sandclock interactions
 	solarbeam: {
 		inherit: true,
