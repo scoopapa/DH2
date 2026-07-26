@@ -221,7 +221,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {metronome: 1},
 		selfSwitch: true,
-		onModifyMove(move, pokemon) {
+		onHit(move, pokemon) {
 			const randTerrain = this.random(100);
 			const randWeather = this.random(100);
 			if (randTerrain < 26) {
@@ -248,7 +248,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Mind Blown", target);
 		},
 		secondary: null,
-		target: "all",
+		target: "normal",
 	},
 	
 	bigshot: {
@@ -265,13 +265,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {metronome: 1, bullet: 1, pulse: 1, protect: 1},
 		onModifyMove(move) {
 			delete move.flags['protect'];
-			(move as any).pierce = true;
 		},
 		
-		onModifyDamage(damage, source, target, move) {
-			if ((move as any).pierce && move.flags?.slicing && target.volatiles['protect']) {
+		onBasePower(basePower, source, target) {
+			if (target.volatiles['protect']) {
 				this.debug('Big Shot Bypass');
-				return this.chainModify(0.25);
+				this.chainModify(0.25);
 			}
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -287,21 +286,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		category: "Physical",
 		basePower: 100,
-		accuracy: 100,
 		pp: 5,
 		ohko: false,
 		shortDesc: "Targets with 1/3 of their HP or lower are instantly KOed.",
 		longDesc: "The user swiftly strikes by using a blackened sword. Instantly KOs targets with a third of their HP or less.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		onModifyMove(move, target, pokemon) {
-			if (target.hp * 3 <= target.maxhp)
-				move.ohko = true;
-			else return move.ohko = false;
-		},
-		onTryHit(pokemon, target, move) {
-			if (target.hp * 3 <= target.maxhp && !target.volatiles['substitute']) {
+		onTryHit(target, pokemon, move) {
+			if (target.hp * 3 <= target.maxhp) {
 				this.add('-message', "SWOON!");
+				move.ohko = true;
 			}
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -455,7 +449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	neochaos: {
 		name: "Neo Chaos",
-		type: "Ghost",
+		type: "Stellar",
 		category: "Special",
 		basePower: 160,
 		accuracy: true,
@@ -466,41 +460,44 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		selfSwitch: true,
 		isZ: "jestersshadowcrystal",
-		onHit(move, pokemon) {
-			const randTerrain = this.random(100);
-			const randWeather = this.random(100);
-			if (randTerrain < 26) {
-				this.field.setTerrain('electricterrain');
-			} else if (randTerrain < 51) {
-				this.field.setTerrain('psychicterrain');
-			}  else if (randTerrain < 76) {
-				this.field.setTerrain('grassyterrain');
-			} else {
-				this.field.setTerrain('mistyterrain');
-			}
-			if (randWeather < 26) {
-				this.field.setWeather('sunnyday');
-			} else if (randWeather < 51) {
-				this.field.setWeather('raindance');
-			}  else if (randWeather < 76) {
-				this.field.setWeather('snow');
-			} else {
-				this.field.setWeather('sandstorm');
-			}
-		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Nature's Madness", target);
 			this.add('-anim', pokemon, "Ruination", target);
 			this.add('-anim', pokemon, "Hex", target);
 		},
-		secondary: {
+		secondary:
+		{
 			chance: 100,
-			//Neo Chaos will attempt to inflict a status before the field effects to avoid clashing with Misty Terrain.
-			onTryHit(target, source) {
-				const randStatus = this.sample(['psn', 'tox', 'par', 'slp', 'frz', 'brn']);
-				target.trySetStatus(randStatus, source);
+			onHit(target, source) {
+			const randStatus = this.sample(['psn', 'tox', 'par', 'slp', 'frz', 'brn']);
+					//Neo Chaos will attempt to inflict a status before the field effects to avoid clashing with Misty Terrain.
+					target.trySetStatus(randStatus, source);
 			},
+			self: { 
+				onHit(pokemon, target, source) {
+					const randTerrain = this.random(100);
+					const randWeather = this.random(100);
+					if (randTerrain < 26) {
+					this.field.setTerrain('electricterrain');
+					} else if (randTerrain < 51) {
+						this.field.setTerrain('psychicterrain');
+					}  else if (randTerrain < 76) {
+						this.field.setTerrain('grassyterrain');
+					} else {
+						this.field.setTerrain('mistyterrain');
+					}
+					if (randWeather < 26) {
+						this.field.setWeather('sunnyday');
+					} else if (randWeather < 51) {
+						this.field.setWeather('raindance');
+					}  else if (randWeather < 76) {
+						this.field.setWeather('snow');
+					} else {
+						this.field.setWeather('sandstorm');
+					}
+				}
+			}
 		},
 		target: "normal",
 	},
@@ -539,20 +536,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 180,
 		accuracy: true,
 		pp: 1,
+		ohko: false,
 		shortDesc: "Targets with 45% of their HP or lower are instantly KOed.",
 		longDesc: "The user assaults the targets by unleashing a barrage of star-shaped crystals, then delivers a savage thrust of its sword at blinding speed. Instantly KOs targets with 45% of their HP or less.",
 		priority: 0,
 		flags: {slicing: 1},
 		isZ: "knightsshadowcrystal",
-		onModifyMove(move, target, pokemon) {
-			if (target.hp * 100/45 <= target.maxhp)
-				move.ohko = true;
-			else return move.ohko = false;
-		},
-		onTryHit(pokemon, target, move) {
-			if (target.hp * 100/45 <= target.maxhp && !target.volatiles['substitute']) {
-				this.add('-message', "SWOON!");
-			}
+		// This might be needlessly complicated but I needed a slightly different formula for this move. Unlike Black Knife, this must check both targets so the move doesn't swoon an adjacent enemy Pokemon above 45% HP just because their ally is in range.
+		onDamagingHit(target, pokemon, move) {
+			target.hpBeforeHit = target.hp;
+			if (target.hpBeforeHit > target.maxhp * 0.45 || target.volatiles['substitute']) return;
+			this.add('-message', `SWOON! On ${target.name}!`);
+			target.faint();
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -772,7 +767,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Pink only: Psychic-Type, 50% -Sp. Atk, in Corporeal Forme, Ghost-Type, 50% -Atk, in Ghost Forme.",
+		shortDesc: "Pink: Psychic-Type, 50% -Sp. Atk, Corporeal. Ghost-Type, 50% -Atk, Ghost.",
 		longDesc: "The user fires a blast from its magical wand. This move is Psychic-Type with a 50% chance to lower the target's Special Attack in Pink's Corporeal Forme, and Ghost-Type with a 50% chance to lower the target's Attack in Pink's Ghost Forme.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
@@ -791,6 +786,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.type = 'Psychic';
 			}
 		},
+
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.name === 'Pink-Ghost') {
+				move.secondaries = [{
+					chance: 50,
+					boosts: {atk: -1},
+				}];
+			} else {
+				move.secondaries = [{
+					chance: 50,
+					boosts: {spa: -1},
+				}];
+			}
+		},
 		
 		onPrepareHit(target, pokemon, move) {
 			if (pokemon.species.name === 'Pink') {
@@ -801,21 +810,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Infernal Parade", target);
 			}
 		},
-		secondary: {
-			chance: 50,
-			onModifyMove(pokemon, move) {
-				if (pokemon.species.name === 'Pink-Ghost') {
-					{
-					move.boosts = {atk: -1};
-					}
-				}
-					else {
-					{
-					move.boosts = {spa: -1};
-					}
-				}
-			},
-		},
+		secondary: null,
 		target: "normal",
 	},
 	
@@ -827,14 +822,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
-			return bp;
-		},
-		onModifyMove(move) {
-			if (move.basePower >= 140) {
-				move.drain = [1, 4];
-				move.flags.heal = 1;
-			}
-		},
+				if (bp >= 140) {
+					move.drain = [1, 4];
+					move.flags.heal = 1;
+					this.add('-anim', pokemon, "Giga Drain", target);
+				}
+				return bp;
+			},
+
 		accuracy: 100,
 		pp: 5,
 		shortDesc: "+20 power per enemy boost. 140 Power: heal 25% of the damage dealt.",
@@ -1114,9 +1109,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Hyper Beam", target);
 		},
-		onHit(target, pokemon, source) {
+		onModifyMove(move, pokemon, source) {
 			if (pokemon.side.faintedLastTurn) {
-				target.trySetStatus('psn', source);
+				move.status = 'psn';
 			}
 		},
 		secondary: null,
@@ -1134,8 +1129,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		longDesc: "The user lowers its guard, harshly depleting its Defense and Special Defense stats to fire off a massive black laser using all its might.",
 		priority: 0,
 		flags: {protect: 1, failcopycat: 1, failmimic: 1},
-		onTryMove(attacker, pokemon, defender, move) {
-			this.add('-message', `${pokemon.name} lowers its guard!`);
+		onTryMove(attacker, defender, move) {
+			this.add('-message', `${attacker.name} lowers its guard!`);
 			this.boost({spd: -2, def: -2}, attacker, attacker, move);
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -1182,8 +1177,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isZ: "soulcollective",
 		ignoreImmunity: true,
 		damageCallback(pokemon, target) {
-			const hp1 = Math.floor(target.getUndynamaxedHP() - 1);
-			return target.getUndynamaxedHP() - hp1;
+			const hp1 = target.getUndynamaxedHP() - 1;
+			return Math.floor(hp1);
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');

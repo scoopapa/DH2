@@ -336,9 +336,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Antivirus", 1: "Regenerator", H: "Immunity"},
 		weightkg: 40.1,
 	},
-	maus: {
+	mausdelta: {
 		num: -35,
-		name: "Maus",
+		name: "Maus-Delta",
 		types: ["Ground", "Electric"],
 		baseStats: {hp: 65, atk: 75, def: 60, spa: 50, spd: 60, spe: 80},
 		abilities: {0: "Rattled", 1: "Electric Surge", H: "Trace"},
@@ -352,7 +352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 80, spa: 65, spd: 80, spe: 115},
 		abilities: {0: "Speed Boost", 1: "Electric Surge", H: "Trace"},
 		weightkg: 6.6,
-		prevo: "Maus",
+		prevo: "Maus-Delta",
 		evoLevel: "32",
 	},
 	swatchling: {
@@ -424,16 +424,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", 1: "Refrigerate", H: "Rattled"},
 		weightkg: 50,
 	},
-	queen: {
+	queendelta: {
 		num: -43,
-		name: "Queen",
+		name: "Queen-Delta",
 		types: ["Electric", "Poison"],
 		gender: "F",
 		baseStats: {hp: 96, atk: 64, def: 96, spa: 128, spd: 72, spe: 104},
 		abilities: {0: "Download", 1: "Levitate", H: "Queenly Majesty"},
 		weightkg: 64,
 		otherFormes: ["Queen-Mega"],
-		formeOrder: ["Queen", "Queen-Mega"],
+		formeOrder: ["Queen-Delta", "Queen-Mega"],
 	},
 	queenmega: {
 		num: -43,

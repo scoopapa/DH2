@@ -1,5 +1,5 @@
 export const Conditions: { [k: string]: ModdedConditionData; } = {
-	amalgamation: {
+	amalgam: {
 		onAnyFaint(target) {
 				const ability = target.getAbility();
 				if(ability.flags['noreceiver'] || ability.flags['notrace'] || ability.id === 'noability') return;
