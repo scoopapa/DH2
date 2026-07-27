@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
-		spadeblast: {
+	spadeblast: {
 		name: "Spade Blast",
 		type: "Dark",
 		category: "Physical",
@@ -216,7 +216,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 10,
-		shortDesc: "Sets a random Terrain and Weather, the user then switches out.",
+		shortDesc: "Sets a random terrain and weather, the user then switches out.",
 		longDesc: "The user throws a bomb that explodes and causes a random Weather and Terrain effect, then switches places with a party Pokemon in waiting.",
 		priority: 0,
 		flags: {metronome: 1},
@@ -542,12 +542,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {slicing: 1},
 		isZ: "knightsshadowcrystal",
-		// This might be needlessly complicated but I needed a slightly different formula for this move. Unlike Black Knife, this must check both targets so the move doesn't swoon an adjacent enemy Pokemon above 45% HP just because their ally is in range.
-		onDamagingHit(target, pokemon, move) {
-			target.hpBeforeHit = target.hp;
-			if (target.hpBeforeHit > target.maxhp * 0.45 || target.volatiles['substitute']) return;
-			this.add('-message', `SWOON! On ${target.name}!`);
-			target.faint();
+		// I originally wanted this to be a spread move. I'm Disabling it for now because I'm not sure if this individual OHKO mechanic is even possible to implement. Until I find a solution that works, Bellowing Starburst Slice will be single-target.
+		//onHit(damage, target, pokemon, move) {
+			//const hpBeforeHit = target.hp + damage;
+			//if (target.hpBeforeHit * 0.45 <= target.maxhp && !target.volatiles ['substitute']) {
+				//this.add('-message', `SWOON! On ${target.name}!`);
+				//target.faint();
+			//}
+		//},
+		onTryHit(target, pokemon, move) {
+			if (target.hp * 100/45 <= target.maxhp) {
+				this.add('-message', "SWOON!");
+				move.ohko = true;
+			}
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -557,7 +564,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 	},
 	
 	omegaperseverance: {
