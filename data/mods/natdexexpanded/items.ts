@@ -22,7 +22,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -2,
 		gen: 9,
 	},
 	raikounite: {
@@ -35,7 +35,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -3,
 		gen: 9,
 	},
 	enteinite: {
@@ -48,7 +48,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -4,
 		gen: 9,
 	},
 	suicunenite: {
@@ -61,7 +61,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -5,
 		gen: 9,
 	},
 	celebite: {
@@ -74,7 +74,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -6,
 		gen: 9,
 	},
 	octillerite: {
@@ -87,7 +87,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -7,
 		gen: 9,
 	},
 	tyranitaritei: {
@@ -100,7 +100,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -8,
 		gen: 9,
 	},
 	flygonite: {
@@ -113,7 +113,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -9,
 		gen: 9,
 	},
 	salamenceitez: {
@@ -126,7 +126,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -10,
 		gen: 9,
 	},
 	metagrossitez: {
@@ -139,7 +139,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -11,
 		gen: 9,
 	},
 	infernite: {
@@ -152,7 +152,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -12,
 		gen: 9,
 	},
 	empoleonite: {
@@ -165,7 +165,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -13,
 		gen: 9,
 	},
 	torterratite: {
@@ -178,7 +178,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -14,
 		gen: 9,
 	},
 	magnezoneite: {
@@ -191,7 +191,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -15,
 		gen: 9,
 	},
 	regigigasite: {
@@ -204,7 +204,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -16,
 		gen: 9,
 	},
 	hydreigonite: {
@@ -217,7 +217,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -17,
 		gen: 9,
 	},
 	volcaronanite: {
@@ -230,7 +230,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -18,
 		gen: 9,
 	},
 	keldeonite: {
@@ -243,7 +243,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -19,
 		gen: 9,
 	},
 	haxorusite: {
@@ -256,7 +256,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -20,
 		gen: 9,
 	},
 	braviarinite: {
@@ -269,7 +269,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -21,
 		gen: 9,
 	},
 	ferrothornite: {
@@ -282,7 +282,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -22,
 		gen: 9,
 	},
 	victorystar: {
@@ -295,7 +295,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -23,
 		gen: 9,
 	},
 	tyrantrumite: {
@@ -308,7 +308,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -24,
 		gen: 9,
 	},
 	aurorusite: {
@@ -321,7 +321,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -25,
 		gen: 9,
 	},
 	goodratite: {
@@ -334,7 +334,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -26,
 		gen: 9,
 	},
 	wishiwashinite: {
@@ -347,7 +347,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -27,
 		gen: 9,
 	},
 	kommoonite: {
@@ -360,7 +360,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -28,
 		gen: 9,
 	},
 	cinderaceite: {
@@ -373,7 +373,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -29,
 		gen: 9,
 	},
 	inteleonite: {
@@ -386,7 +386,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -30,
 		gen: 9,
 	},
 	rillaboomite: {
@@ -399,7 +399,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -31,
 		gen: 9,
 	},
 	dragapultite: {
@@ -412,7 +412,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -32,
 		gen: 9,
 	},
 	kingambitite: {
@@ -425,7 +425,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -33,
 		gen: 9,
 	},
 	gholdengoite: {
@@ -438,7 +438,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -34,
 		gen: 9,
 	},
 	archaludonite: {
@@ -451,7 +451,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -35,
 		gen: 9,
 	},
 	hardhat: {
@@ -463,6 +463,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
+		num: -36,
 	},
 	ancientsouldew: {
 		name: "Ancient Soul Dew",
@@ -482,7 +483,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			}
 		},
 		itemUser: ["Latios", "Latias"],
-		num: -1,
+		num: -37,
 		gen: 9,
 		shortDesc: "If held by a Latias or a Latios, its Sp. Atk and Sp. Def are 1.5x.",
 	},
