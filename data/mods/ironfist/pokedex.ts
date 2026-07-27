@@ -1940,6 +1940,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shields Up"},
 		weightkg: 40.0,
 		cosmeticFormes: null,
+		otherFormes: ["Minior", "Minior-Orange", "Minior-Yellow", "Minior-Green", "Minior-Blue", "Minior-Indigo", "Minior-Violet"],
 	},
 	minior: {
 		num: -190,

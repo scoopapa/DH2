@@ -2275,11 +2275,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				delete targetSideConditions[id];
 				success = true;
 			}
-			if (target.side.fishingTokens > 0 || source.side.fishingTokens > 0) {
-				const tempT = target.side.fishingTokens;
+			if (source.side.foe.fishingTokens > 0 || source.side.fishingTokens > 0) {
+				const tempT = source.side.foe.fishingTokens;
 				const tempS = source.side.fishingTokens;
-				target.side.removeFishingTokens(tempT);
-				target.side.addFishingTokens(tempS);
+				source.side.foe.removeFishingTokens(tempT);
+				source.side.foe.addFishingTokens(tempS);
 				source.side.removeFishingTokens(tempS);
 				source.side.addFishingTokens(tempT);
 			}
