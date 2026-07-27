@@ -1791,6 +1791,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: -181,
 		name: "Nosepass",
+		gen: 3,
+		hoenn: true,
 		types: ["Water", "Bug"],
 		baseStats: {hp: 78, atk: 78, def: 133, spa: 78, spd: 133, spe: 33},
 		abilities: {0: "Hoenn Sniffer"},

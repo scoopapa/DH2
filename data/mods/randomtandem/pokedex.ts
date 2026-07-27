@@ -55,7 +55,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					gender: 'N',
 					teraType: 'Fire',
 				},
-				['discharge', 'flashcannon', 'voltswitch', 'flamethrower'],
+				['thunderbolt', 'flashcannon', 'voltswitch', 'flamethrower'],
 			],
 			[
 				{
@@ -303,7 +303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					species: 'gyarados',
 					item: 'lumberry',
 					ability: ['Moxie', 'Intimidate'],
-					teraType: ['Flying', 'Grass', 'Ice'],
+					teraType: ['Flying'],
 				},
 				['dragondance', 'dragonascent'], ['earthquake', 'stoneedge', 'waterfall'],
 			],
@@ -426,7 +426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					ability: ['Neutralizing Gas', 'Levitate'],
 					teraType: ['Ghost', 'Grass'],
 				},
-				['sludgebomb', 'moonlight'], ['strangesteam', 'defog', 'willowisp'],
+				['sludgebomb', 'moonlight'], ['strangesteam', 'defog', 'willowisp', 'toxic'],
 			],
 			[
 				{
@@ -981,7 +981,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					ability: 'waterabsorb',
 					teraType: 'Water',
 				},
-				['ivycudgel', 'powerwhip'], ['knockoff', 'playrough', 'spikes'],
+				['ivycudgel', 'powerwhip'], ['uturn', 'knockoff', 'playrough', 'spikes'],
 			],
 			[
 				{

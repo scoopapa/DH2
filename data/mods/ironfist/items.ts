@@ -916,7 +916,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed) return;
-			if (['pyroar', 'luxray', 'entei', 'gougingfire', 'solgaleo', 'necrozmaduskmane'].includes(pokemon.id)) pokemon.useItem();
+			if (['pyroar', 'luxray', 'entei', 'gougingfire', 'solgaleo', 'necrozmaduskmane'].includes(pokemon.species.id)) pokemon.useItem();
 		},
 		condition: {
 			onStart(pokemon) {
@@ -1048,7 +1048,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'bigbutton',
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp && pokemon.volatiles['bigbutton']) {
+			if (pokemon.hp < pokemon.maxhp && pokemon.volatiles['bigbutton']) {
 				pokemon.eatItem();
 			}
 		},
@@ -1114,7 +1114,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Daiyakuza"],
 		onTryBoostPriority: 1,
 		onTryBoost(boost, target, source, effect) {
-			if (source.baseSpecies.baseSpecies !== "Daiyakuza" || (source && target === source)) return;
+			if (target.baseSpecies.baseSpecies !== "Daiyakuza" || (source && target === source)) return;
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -1146,6 +1146,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lucarionite: {
 		name: "Lucarionite",
 		spritenum: 594,
+		shortDesc: "If held by a Lucario-Calm, this item allows it to Mega Evolve in battle.",
 		megaStone: "Lucario-Calm-Mega",
 		megaEvolves: "Lucario-Calm",
 		itemUser: ["Lucario-Calm"],
@@ -1347,7 +1348,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: "partiallytrapped",
 		},
 		onSourceModifyDamage(relayVar, target, source, move) {
-			this.chainModify(1 - (0.2 * target.moveSlots.length));
+			return this.chainModify(1 - (0.2 * (4 - target.moveSlots.length)));
 		},
 	},
 	lemonomicsindustryconnectionscard: {
@@ -1364,7 +1365,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			if (pokemon.effectiveWeather === 'acidrain') {
-				target.useItem();
+				pokemon.useItem();
 				this.actions.useMove("Fish Processing", pokemon);
 			}
 		},
@@ -1375,9 +1376,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 			effect(target, source, move) {
-				if (target.species !== 'Zacian-Crowned') {
+				if (target.species.name !== 'Zacian-Crowned') {
 					target.formeChange('Zacian-Crowned');
-					if (target.ability === target.species.abilities['H'] || target.set.ability === pokemon.species.abilities['S']) target.setAbility('stall');
+					if (target.ability === target.species.abilities['H'] || target.set.ability === target.species.abilities['S']) target.setAbility('stall');
 					else target.setAbility('identitycrisis');
 				}
 			},
@@ -1385,7 +1386,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.species !== 'Zacian-Crowned') {
+			if (pokemon.species.name !== 'Zacian-Crowned') {
 				pokemon.formeChange('Zacian-Crowned');
 				if (pokemon.ability === pokemon.species.abilities['H'] || pokemon.set.ability === pokemon.species.abilities['S']) pokemon.setAbility('stall');
 				else pokemon.setAbility('identitycrisis');
@@ -1408,7 +1409,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					disabled: false,
 					used: false,
 				};
-				pokemon.moveSlots[pokemon.moveSlots.length] = learnedMove;
+				source.moveSlots[source.moveSlots.length] = learnedMove;
 			},
 		},
 		name: "IP Grabber Link",
