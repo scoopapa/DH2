@@ -431,7 +431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 		baseStats: {hp: 96, atk: 64, def: 96, spa: 128, spd: 72, spe: 104},
 		abilities: {0: "Download", 1: "Levitate", H: "Queenly Majesty"},
-		weightkg: 64,
+		weightkg: 255,
 		otherFormes: ["Queen-Mega"],
 		formeOrder: ["Queen-Delta", "Queen-Mega"],
 	},
