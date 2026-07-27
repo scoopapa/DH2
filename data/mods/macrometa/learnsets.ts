@@ -1390,6 +1390,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			superpower: ["9L1"],
 			surf: ["9L1"],
+			liquidation: ["9L1"],
 			taunt: ["9L1"],
 			thunderfang: ["9L1"],
 		},
