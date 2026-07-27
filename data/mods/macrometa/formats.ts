@@ -37,7 +37,7 @@ export const Formats: FormatData[] = [
 					"Reginami", "Regiseed", "Reginerator", "Regintellect", "Regicicle", "Regyvern", "Reginight", "Regifae", 
 					"Miner & Minor", "Festus", "Embry-0", "Breettle", "Desprit", "Land Mine", "Rolling Hand", "Nightmite", 
 					"Albatruss", "Tundread", "Thunjust", "Zephyllin", "Crysynth", "Obstinian", "Apoclasp", "Amalgony", "Mechana", 
-					"Sanpapear", "Crustation", "Bunimaid", "Harbringer", "Hydrangea", "Pestil",
+					"Sanpapear", "Crustation", "Bunimaid", "Harbringer", "Hydrangea", "Pestil","Light of Ruin"
 		],
 	},
 ];
