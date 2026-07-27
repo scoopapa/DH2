@@ -542,7 +542,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {slicing: 1},
 		isZ: "knightsshadowcrystal",
-		// I originally wanted this to be a spread move. I'm Disabling it for now because I'm not sure if this individual OHKO mechanic is even possible to implement. Until I find a solution that works, Bellowing Starburst Slice will be single-target.
+		// I originally wanted this to be a spread move. I'm disabling it for now because I'm not sure if this individual OHKO mechanic is even possible to implement. Until I find a solution that works, Bellowing Starburst Slice will be single-target.
 		//onHit(damage, target, pokemon, move) {
 			//const hpBeforeHit = target.hp + damage;
 			//if (target.hpBeforeHit * 0.45 <= target.maxhp && !target.volatiles ['substitute']) {

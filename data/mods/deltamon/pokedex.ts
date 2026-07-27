@@ -438,7 +438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	queenmega: {
 		num: -43,
 		name: "Queen-Mega",
-		baseSpecies: "Queen",
+		baseSpecies: "Queen-Delta",
 		forme: "Mega",
 		types: ["Electric", "Fighting"],
 		gender: "F",
