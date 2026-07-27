@@ -759,4 +759,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
+	},
 }
