@@ -2390,6 +2390,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (!pokemon.side.trumpcard) pokemon.side.trumpcard = 0;
 			const bp = move.basePower + 20 * pokemon.side.trumpcard;
 			this.debug('BP: ' + bp);
+			this.add('-message', `${move.name} has ${bp} BP!`);
 			return bp;
 		},
 		accuracy: 100,
@@ -3292,6 +3293,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return bp;
 		},
 		onPrepareHit(target, source, move) {
+			if (move.multihit) return;
 			if (!source.side.trumpcard) source.side.trumpcard = 0;
 			source.side.trumpcard ++;
 		},
@@ -3975,7 +3977,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather(undefined, true)) {
+			switch (pokemon.effectiveWeather()) {
 				case 'acidrain':
 					factor = 0.667;
 					break;
