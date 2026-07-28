@@ -1601,7 +1601,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	hoennlover: {
 		onStart(pokemon) {
 			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.baseSpecies.gen === 3).length;
-			if (this.effectState.hoenn) {
+			if (hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Lover');
 				hoenn = Math.min(hoenn, 5);
 				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
