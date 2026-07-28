@@ -1348,7 +1348,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: "partiallytrapped",
 		},
 		onSourceModifyDamage(relayVar, target, source, move) {
-			return this.chainModify(1 - (0.2 * (4 - target.moveSlots.length)));
+			return this.chainModify(1 - (0.2 * (4 - source.moveSlots.length)));
 		},
 	},
 	lemonomicsindustryconnectionscard: {

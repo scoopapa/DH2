@@ -1970,9 +1970,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	classdynamics: {
 		onDamage(damage, target, source, effect) {
-			if (source.side.fishingTokens <= source.side.foe.fishingTokens) return;
+			if (target.side.fishingTokens <= target.side.foe.fishingTokens) return;
 			if (effect.effectType !== 'Move') {
-				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				if (effect.effectType === 'Ability') this.add('-activate', target, 'ability: ' + effect.name);
 				return false;
 			}
 		},
