@@ -40,11 +40,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
 			this.battle.debug(`Parental Bond modifier: ${bondModifier}`);
 			baseDamage = this.battle.modify(baseDamage, bondModifier);
+			// Reverberate modifier
 		} else if (move.multihitType === 'reverberate' && move.hit > 1) {
 			this.battle.debug('Reverberate Modifier: 0.5')
 			baseDamage = this.battle.modify(baseDamage, 0.5);
 		}
-
 		// weather modifier
 		baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
 

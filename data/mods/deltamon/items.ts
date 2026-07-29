@@ -101,9 +101,9 @@ boosterenergy: {
 	queenite: {
 		name: "Queenite",
 		megaStone: "Queen-Mega",
-		megaEvolves: "Queen",
+		megaEvolves: "Queen-Delta",
 		shortDesc: "If held by Queen, this item allows her to Mega Evolve in battle.",
-		itemUser: ["Queen"],
+		itemUser: ["Queen-Delta"],
 		fling: {
 			basePower: 80,
 		},
