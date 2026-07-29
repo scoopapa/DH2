@@ -794,7 +794,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 90, atk: 105, def: 110, spa: 60, spd: 70, spe: 75},
 		abilities: {0: "Flower Veil", H: "Iron Barbs"},
-		weightkg: 0,
+		weightkg: 15,
 	},
 	sheary: {
 		num: -78,
