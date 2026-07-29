@@ -7,13 +7,9 @@ export const Formats: FormatData[] = [
 		desc: `Coded by iforgetwhyimhere`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
 		unbanlist: ['All Pokemon'],
-		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Levitate',
 					'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Ancient Soul Dew'],
 		teambuilderFormat: 'National Dex',
-		onValidateSet(set, format, setHas, teamHas) {
-			const species = this.dex.species.get(set.species);
-			if (set.ability === 'Levitate') return [`Levitate is on ${species} already! Pick [one of] its other Ability[s].`];
-		},
 	},
 	{
 		name: "[Gen 9] NatDex Expanded AG",
@@ -21,11 +17,8 @@ export const Formats: FormatData[] = [
 		desc: `Coded by iforgetwhyimhere`,
 		ruleset: ['Standard NatDex', 'Mega Data Mod'],
 		unbanlist: ['All Pokemon'],
+		banlist: ['Levitate'],
 		teambuilderFormat: 'National Dex',
-		onValidateSet(set, format, setHas, teamHas) {
-			const species = this.dex.species.get(set.species);
-			if (set.ability === 'Levitate') return [`Levitate is on ${species} already! Pick [one of] its other Ability[s].`];
-		},
 	},
 	{
 		name: "[Gen 9] National Dex Expanded VGC",
@@ -35,11 +28,7 @@ export const Formats: FormatData[] = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit One Restricted', 'Terastal Clause', 'Mega Data Mod'],
 		unbanlist: ['All Pokemon'],
 		restricted: ['Restricted Legendary'],
-		banlist: ['Ancient Soul Dew'],
+		banlist: ['Ancient Soul Dew', 'Levitate'],
 		teambuilderFormat: 'National Dex',
-		onValidateSet(set, format, setHas, teamHas) {
-			const species = this.dex.species.get(set.species);
-			if (set.ability === 'Levitate') return [`Levitate is on ${species} already! Pick [one of] its other Ability[s].`];
-		},
 	},
 ];
