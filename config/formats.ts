@@ -240,6 +240,7 @@ import { Formats as TrainerSupport              } from '../data/mods/trainersupp
 import { Formats as TripleThreat                } from '../data/mods/triplethreat/formats';
 import { Formats as TwoStepMonsV3               } from '../data/mods/twostepmonsv3/formats';
 import { Formats as UmbreMons                   } from '../data/mods/umbremons/formats';
+import { Formats as Underdogs                   } from '../data/mods/underdogs/formats';
 import { Formats as UpsideDown                  } from '../data/mods/upsidedown/formats';
 import { Formats as WeatherWar                  } from '../data/mods/weatherwar/formats';
 import { Formats as Weedmons                    } from '../data/mods/weedmons/formats';
@@ -442,6 +443,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...The331TypeChart,
 	...Touhou,
 	...gen1TradebacksExpanded,
+	...Underdogs,
 	...UpsideDown,
 	...gen1VioletVersion,
 	...WeatherWar,
