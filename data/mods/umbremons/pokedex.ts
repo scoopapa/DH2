@@ -252,6 +252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		abilities: {0: "Overgrow", H: "Unbothered"},
 	},
 	camerupt: {
+		inherit: true,
 		abilities: {0: "Magma Armor", 1: "Solid Rock", H: "Unbothered"},
 	},
 	alakazam: {

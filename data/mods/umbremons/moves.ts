@@ -106,7 +106,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Special",
 		name: "Laser Cut",
-		shortDesc: "Physical if it would be stronger. Target has screen; crit.",
+		shortDesc: "Physical if stronger. Target has screen; crit.",
 		pp: 12,
 		noPPBoosts: true,
 		priority: 0,
@@ -201,6 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astonish: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		basePower: 20,
 		category: "Special",
 		pp: 12,
@@ -211,20 +212,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// Breaking protection implemented in scripts.js
 		secondary: null,
 		shortDesc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
+		desc: "Nullifies Detect, Protect, and Quick/Wide Guard.",
 	},
 	return: {
 		inherit: true,
+		isNonstandard: null,
+		basePower: 102,
+		basePowerCallback(pokemon) {
+			// this section looks redundant, but there is hard-coding around Return in the unmodded /sim/pokemon.ts that expects it
+			return 102;
+		},
 		pp: 20,
 		noPPBoosts: true,
-		isNonstandard: null,
+		modded: true, // this makes its description display in Data Mod
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
+	
 	// sandclock interactions
 	solarbeam: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
 			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
-			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather()) && pokemon.hasAbility('sandclock'))) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -235,11 +246,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, pokemon, target) {
 			// updating conditional to return false if both sandstorm is active and the user has the ability sandclock active at the same time
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather && pokemon.hasAbility('sandclock')))) {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !(['sandstorm'].includes(pokemon.effectiveWeather()) && pokemon.hasAbility('sandclock'))) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
 		},
+	},
+	lunarblessing: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	// magic warp altered duration
 	magicroom: {

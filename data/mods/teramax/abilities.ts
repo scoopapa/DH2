@@ -107,7 +107,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-message', `${pokemon.name} is being powered up by the Power Spot!`);
 			},
 			onModifyDamage(damage, source, target, move) {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify([5325, 4096]);
 			},
 		},
 		name: "Power Spot",
@@ -134,7 +134,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!isFinite(ratio)) ratio = 0;
 			if (ratio > 0) {
 				if (target.hasType('Water') || target.hasType('Dragon')) {
-					return this.chainModify([5324, 4096]);
+					return this.chainModify([5325, 4096]);
 				} else {
 					return this.chainModify([4915, 4096]);
 				}
@@ -240,11 +240,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},*/
 	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
-			for (const poke of this.getAllActive()) {
-				if (poke.hasAbility('counteract') && poke.side.id !== pokemon.side.id && !poke.abilityState.ending) {
-					return;
-				}
-			}
 			if (move?.type === 'Flying' && pokemon.hp >= pokemon.maxhp / 2) return priority + 1;
 		},
 		flags: {},
@@ -325,7 +320,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category === 'Status') {
-				this.heal(pokemon.baseMaxhp / 4);
+				this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
 			}
 		},
 		flags: {},
@@ -338,7 +333,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				this.actions.useMove("Haze", pokemon);
+				for (const target of this.getAllActive()) {
+					target.clearBoosts();
+					this.add('-clearboost', target, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
 			}
 		},
 		flags: {},
@@ -398,7 +396,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onStart(pokemon) {
 				this.add('-ability', pokemon, 'Quick Draw');
 				this.add('-message', `${pokemon.name}'s next move will have +1 priority!`);
@@ -475,7 +473,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon);
 			}
 		},
 		flags: {},

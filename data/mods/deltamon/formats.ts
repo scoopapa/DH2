@@ -1,6 +1,8 @@
 import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
+	// temporarily disabling, remind me to undisable it like sunday night
+	/*
 	{
 		name: "[Gen 9] Deltamon OU",
 		mod: 'deltamon',
@@ -10,8 +12,8 @@ export const Formats: FormatData[] = [
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [
-			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 
-			'Shed Tail', 'Assist', 'Last Respects', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
+			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
+			'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -87,4 +89,5 @@ export const Formats: FormatData[] = [
 					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice'],
 		teambuilderFormat: 'National Dex',
 	},
+	*/
 ];

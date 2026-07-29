@@ -21,5 +21,11 @@ export const Formats: FormatData[] = [
 				}
 			}
 		},
+		//set akyuu hp to 1 if wonder guard
+		onModifySpecies(species, target, source, effect) {
+			const pokemon = this.dex.deepClone(species);
+			pokemon.maxHP = (this.dex.abilities.get(target.set.ability).id as string) === 'wonderguard' ? 1 : undefined;
+			return pokemon;
+		},
 	}
 ];

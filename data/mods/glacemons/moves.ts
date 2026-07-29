@@ -1156,7 +1156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				let i: BoostID;
 				if (!target) return;
 				for (i in target.boosts) {
-					if (target.boosts[i] !== 0) hasBoost = true;
+					if (target.boosts[i] > 0) hasBoost = true;
 				}
 				if (hasBoost) {
 					target.trySetStatus('brn', source, move);

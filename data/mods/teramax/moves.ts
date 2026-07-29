@@ -725,7 +725,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute. This Pokemon heals the total PP of the target's moves * 2 in HP.",
-		shortDesc: "'-2 PP for target. Heals total PP of target * 2 in HP.",
+		shortDesc: "-2 PP for target. Heals total PP of target * 2 in HP.",
 		name: "G-Max Depletion",
 		pp: 5,
 		priority: 0,
@@ -755,6 +755,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 				}
 			},
+			/*onAfterMoveSecondarySelf(source, target, move) {
+				for (const pokemon of source.foes()) {
+					let movePP = 0;
+					for (const moveSlot of pokemon.moveSlots) {
+						movePP += moveSlot.pp;
+					}
+					if (!target || target.fainted || target.hp <= 0) this.heal(movePP * 2, source, source);
+				}
+			},*/
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -1340,8 +1349,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					const item = pokemon.takeItem(source);
 					if (item) {
 						this.add('-enditem', pokemon, item.name, '[from] move: G-Max Tartness', '[of] ' + source);
-					} else {
-						this.add('-fail', pokemon, 'move: G-Max Tartness');
 					}
 				}
 			},
