@@ -1300,7 +1300,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 			if ('smackdown' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
-			if (item === 'ironball' || item === 'itemfist') return true;
+			if (item === 'ironball' || item === 'ironfist') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
@@ -1321,7 +1321,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.hasItem('utilityumbrella')) return '';
 			}
 			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
-			if (this.hasAbility('lemonga') && this.battle.activePokemon === this && weather !== 'acidrain') {
+			this.battle.add('-message', `weather=${weather} hasAbility=${this.hasAbility('lemongasour')} ignoring=${this.ignoringAbility()}`);
+			if (this.hasAbility('lemongasour') && weather !== 'acidrain') {
 				if (message) this.battle.add('-activate', this, 'ability: Lemonga Sour');
 				return 'acidrain' as ID;
 			}

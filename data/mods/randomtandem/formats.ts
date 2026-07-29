@@ -11,7 +11,7 @@ export const Formats: FormatData[] = [
 		desc: "A format where you bring 3 Pokemon, who generate up to 6 more Pokemon at Team Preview.",
 		mod: 'randomtandem',
 		bestOfDefault: true,
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Species Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Species Clause'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
 			'Last Respects', 'Shed Tail', 'Ceruledge', 'Raging Bolt'],
 		unbanlist: ['All Pokemon', 'Regieleki'],

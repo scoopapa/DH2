@@ -379,4 +379,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wyldemoer: {
 		tier: "BC C",
 	},
+	mediocjur: {
+		tier: "BC D",
+	},
+	plushimander: {
+		tier: "BC D",
+	},
+	orchrefait: {
+		tier: "BC D",
+	},
+	eighremophas: {
+		tier: "BC D",
+	},
+	snaellcaster: {
+		tier: "BC D",
+	},
+	marultan: {
+		tier: "BC D",
+	},
+	vertabrea: {
+		tier: "BC D",
+	},
+	flingangel: {
+		tier: "BC D",
+	},
 };

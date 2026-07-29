@@ -1307,14 +1307,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Psystrike",
-		shortDesc: "Lowers the user's Atk & Sp. Atk by 1.",
+		shortDesc: "Lowers the user's Atk & Sp. Def by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
 			boosts: {
 				atk: -1,
-				spa: -1,
+				spd: -1,
 			},
 		},
 		secondary: null,

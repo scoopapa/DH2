@@ -159,4 +159,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 	},
+	honorstudenthelper: {
+		effectType: 'Rule',
+		name: 'honor student helper',
+		desc: `helper function to properly trigger honor student`,
+		onSwitchOut(pokemon) {
+			if ((pokemon.baseSpecies as any).diamondHand) {
+				pokemon.side.addSlotCondition(pokemon, 'diamondhand');
+			}
+		},
+	},
 };

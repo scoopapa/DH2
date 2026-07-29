@@ -88,4 +88,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "DOU",
 	},
+	tinkerer: {
+		tier: "Rpgmod",
+		doublesTier: "DOU",
+	},
 };

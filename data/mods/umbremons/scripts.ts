@@ -195,7 +195,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		// species adjustments
 		addMove(['howl', 'trickroom', 'lunarblessing'], 'umbreon');
-		addMove(['hypervoice', 'weatherball', 'electroshot'], 'ampharos');
+		addMove(['hypervoice', 'weatherball'], 'ampharos');
 		addMove(['bellydrum', 'stompingtantrum', 'overheat', 'encore', 'disable', 'howl', 'finalgambit', 'healpulse', 'stuffcheeks', 'electroball'], 'slurpuff');
 
 		// move adjustments

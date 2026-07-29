@@ -153,4 +153,11 @@ cloudstrife: {
 		baseStats: {hp: 98, atk: 76, def: 97, spa: 125, spd: 99, spe: 83},
 		abilities: {0: "Telepathy", H: "Neuroforce"},
 	},
+	tinkerer: {
+		num: -979,
+		name: "Tinkerer",
+		types: ["Steel", "Electric"],
+		baseStats: {hp: 88, atk: 60, def: 101, spa: 114, spd: 96, spe: 80},
+		abilities: {0: "Steely Spirit", 1: "Lightning Rod", H: "Galvanize"},
+	},
 };

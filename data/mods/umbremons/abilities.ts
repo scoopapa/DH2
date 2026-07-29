@@ -71,9 +71,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	sandclock: {
 		num: -3,
 		desc: "Under Sandstorm, user skips Charge and Recharge turns. Immunity to Sandstorm damage. (note: this also ignores sand's damage reduction to moves like Solar Beam)",
-		shortDesc: "Under sandstorm, skips charge and recharge.",
+		shortDesc: "Under sandstorm, skips charge and recharge. Sand Immunity.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
 		onChargeMove(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
+				this.add('-ability', pokemon, 'Sandclock');
 				this.debug('sandclock - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', pokemon, move.name, target);
@@ -83,6 +87,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.field.isWeather('sandstorm')) {
 				if (pokemon.getVolatile('mustrecharge')) {
+					this.add('-ability', pokemon, 'Sandclock');
 					pokemon.removeVolatile('mustrecharge');
 					this.add('-end', pokemon, 'mustrecharge');
 				}
@@ -231,6 +236,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	screencleaner: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
@@ -250,6 +256,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "On Switch-in, remove all screen effects from both sides of the field. If a screen gets removed, gain +1 Special Attack (does not stack)."
 	},
 	snowcloak: {
+		modded: true, // this makes its description display in Data Mod
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
@@ -277,11 +284,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {breakable: 1},
 		name: "Snow Cloak",
-		shortDesc: "This Pokemon and its allies are eligible for Snow's Def boost.",
+		shortDesc: "Self and allies may gain Snow's Def boost.",
 		desc: "While Snow is active, grants the defensive benefits of the Snow (Def) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. While hail does not exist, to parallel Sand Veil this would grant hail immunity to self and allies if it could.",
 		num: 81,
 	},
 	sandveil: {
+		modded: true, // this makes its description display in Data Mod
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
@@ -309,12 +317,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {breakable: 1},
 		name: "Sand Veil",
-		shortDesc: "This Pokemon and its allies are eligible for Sandstorm's SpD boost. Sandstorm Immunity to self and ally.",
+		shortDesc: "Self and allies may gain Sandstorm's SpD boost. Sandstorm Immunity to self and ally.",
 		desc: "While Sand is active, grants the defensive benefits of the Sandstorm (SpD) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. Also grants immunity to sand chip to self and allies",
 		num: 8,
 	},
 	rattled: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) {
 				return;

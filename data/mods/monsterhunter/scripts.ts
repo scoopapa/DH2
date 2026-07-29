@@ -57,9 +57,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return 'sunnyday';
 			}
 			return weather;
-		}
+		},
 	},
-	
+
 	actions: {
 		modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
