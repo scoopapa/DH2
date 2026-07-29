@@ -1601,7 +1601,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	hoennlover: {
 		onStart(pokemon) {
 			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.baseSpecies.gen === 3).length;
-			if (this.effectState.hoenn) {
+			if (hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Lover');
 				hoenn = Math.min(hoenn, 5);
 				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
@@ -1970,9 +1970,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	classdynamics: {
 		onDamage(damage, target, source, effect) {
-			if (source.side.fishingTokens <= source.side.foe.fishingTokens) return;
+			if (target.side.fishingTokens <= target.side.foe.fishingTokens) return;
 			if (effect.effectType !== 'Move') {
-				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				if (effect.effectType === 'Ability') this.add('-activate', target, 'ability: ' + effect.name);
 				return false;
 			}
 		},

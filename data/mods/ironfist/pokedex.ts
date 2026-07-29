@@ -1743,6 +1743,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Daiyakuza",
 		forme: "Origin",
 		types: ["Normal"],
+		diamondHand: true,
 		baseStats: {hp: 125, atk: 110, def: 60, spa: 110, spd: 60, spe: 110},
 		abilities: {0: "Intimidate"},
 		requiredItem: "Diamond Heart",
@@ -1940,6 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shields Up"},
 		weightkg: 40.0,
 		cosmeticFormes: null,
+		otherFormes: ["Minior", "Minior-Orange", "Minior-Yellow", "Minior-Green", "Minior-Blue", "Minior-Indigo", "Minior-Violet"],
 	},
 	minior: {
 		num: -190,

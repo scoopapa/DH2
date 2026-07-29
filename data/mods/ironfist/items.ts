@@ -1292,8 +1292,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 				source.lastItem = '';
-				this.add('-item', source, this.dex.items.get(item), '[from] move: Fling');
-				source.setItem(item, source, move);
+				this.add('-item', source, this.dex.items.get(this.effect.id), '[from] move: Fling');
+				source.setItem(this.effect, source, move);
 			},
 		},
 		onBasePowerPriority: 15,
@@ -1348,7 +1348,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: "partiallytrapped",
 		},
 		onSourceModifyDamage(relayVar, target, source, move) {
-			return this.chainModify(1 - (0.2 * (4 - target.moveSlots.length)));
+			return this.chainModify(1 - (0.2 * (4 - source.moveSlots.length)));
 		},
 	},
 	lemonomicsindustryconnectionscard: {
