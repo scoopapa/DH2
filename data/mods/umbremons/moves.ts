@@ -171,6 +171,111 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		shortDesc: "100% flinch. Fails unless target using a wind move.",
 	},
+	cardiotoxin: {
+		num: -6,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Cardiotoxin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				const recoilMult = pokemon.hasType('Poison') ? 1 : 2;
+				const hpBeforeRecoil = pokemon.hp;
+				this.damage(Math.round(pokemon.maxhp * recoilMult / 2), pokemon, pokemon, this.dex.conditions.get('Cardiotoxin'), true);
+				if (pokemon.hp <= pokemon.maxhp * recoilMult / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", source);
+			this.add('-anim', source, "Sludge Wave", target);
+		},
+		mindBlownRecoil: true,
+		secondary: {
+			chance: 100,
+			status: 'tox',
+		},
+		target: "allAdjacent",
+		type: "Poison",
+		shortDesc: "Badly Poisons all adjacent. User loses 100% max hp; 50% if Poison type.",
+		desc: "User loses 100% of its max HP to deal damage to all adjacent Pokemon, inflicting Toxic poison if applicable. If the user is Poison-type, lose 50% of its max HP instead.",
+	},
+	mistystep: {
+		num: -7,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Misty Step",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Haze", source);
+			this.add('-anim', source, "Teleport", source);
+		},
+		// TODO show prepare message before the "POKEMON used MOVE!" message
+		// This happens even before sleep shows its "POKEMON is fast asleep." message
+		terrain: 'mistyterrain',
+		selfSwitch: true,
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		shortDesc: "Starts Misty Terrain. User switches out.",
+	},
+	fistbump: {
+		num: -8,
+		accuracy: 100,
+		basePower: 10,
+		category: "Physical",
+		name: "Fist Bump",
+		pp: 16,
+		noPPBoosts: true,
+		priority: 2,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, punch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mach Punch", target);
+			this.add('-anim', source, "Mega Punch", source);
+		},
+		volatileStatus: 'helpinghand',
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {basePower: 70},
+		shortDesc: "Usually moves first. Grants helping hand to target.",
+		desc: "+2 priority. Grants the effect of helping hand to the target.",
+	},
+	reflexjolt: {
+		num: -9,
+		accuracy: 100,
+		basePower: 10,
+		category: "Special",
+		name: "Reflex Jolt",
+		pp: 16,
+		noPPBoosts: true,
+		priority: 2,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thunderclap", target);
+			this.add('-anim', source, "Nasty Plot", source);
+		},
+		volatileStatus: 'helpinghand',
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {basePower: 70},
+		shortDesc: "Usually moves first. Grants helping hand to target.",
+		desc: "+2 priority. Grants the effect of helping hand to the target.",
+	},
+
 	// Adjusted Moves
 	rockslide: {
 		inherit: true,
@@ -253,6 +358,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	lunarblessing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	skydrop: {
+		inherit: true,
+		pp: 12,
+		noPPBoosts: true,
+		isNonstandard: null,
+	},
+	thunderclap: {
 		inherit: true,
 		isNonstandard: null,
 	},
