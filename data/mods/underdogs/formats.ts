@@ -8,7 +8,7 @@ export const Formats: FormatData[] = [
 		ruleset: ['Standard NatDex', 'Data Mod', 'Sleep Moves Clause', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause'],
 		banlist: ['Baton Pass', 
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 
-			'Golurkite', 'Houndoomite', 'Swampertite', 'Staraptite'],
+			'Golurkite', 'Houndoominite', 'Swampertite', 'Staraptite'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
