@@ -185,7 +185,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const recoilMult = pokemon.hasType('Poison') ? 1 : 2;
 				const hpBeforeRecoil = pokemon.hp;
 				this.damage(Math.round(pokemon.maxhp * recoilMult / 2), pokemon, pokemon, this.dex.conditions.get('Cardiotoxin'), true);
-				if (pokemon.hp <= pokemon.maxhp * recoilMult / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+				if (pokemon.hp <= pokemon.maxhp * recoilMult / 2 && hpBeforeRecoil > pokemon.maxhp * recoilMult / 2) {
 					this.runEvent('EmergencyExit', pokemon, pokemon);
 				}
 			}
