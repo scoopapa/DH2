@@ -1,3 +1,5 @@
+import {toID} from '../../../sim/dex'; // needed for field: {},
+
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'champions',
 	teambuilderConfig: {
@@ -128,6 +130,27 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return this.getRandomTarget(pokemon, move);
 		}
+	},
+	field: {
+		suppressingTerrain() { // new function for Down-to-Earth
+			for (const side of this.battle.sides) {
+				for (const pokemon of side.active) {
+					if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+						pokemon.hasAbility('downtoearth') && !pokemon.abilityState.ending) {
+						return true;
+					}
+				}
+			}
+			return false;
+		},
+		isTerrain(terrain: string | string[], target?: Pokemon | Side | Battle) {
+			if (this.suppressingTerrain()) return false; // modded for Down-to-Earth
+			const ourTerrain = this.effectiveTerrain(target);
+			if (!Array.isArray(terrain)) {
+				return ourTerrain === toID(terrain);
+			}
+			return terrain.map(toID).includes(ourTerrain);
+		},
 	},
 	actions: {
 		hitStepMoveHitLoop(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) { // Temporary name
