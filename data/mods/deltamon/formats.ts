@@ -1,9 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
-	// temporarily disabling, remind me to undisable it like sunday night
-	/*
-	{
+	{ // Reminder to re-enable Deltamon when you are ready to.
 		name: "[Gen 9] Deltamon OU",
 		mod: 'deltamon',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
@@ -89,5 +87,4 @@ export const Formats: FormatData[] = [
 					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice'],
 		teambuilderFormat: 'National Dex',
 	},
-	*/
 ];
