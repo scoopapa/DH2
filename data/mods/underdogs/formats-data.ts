@@ -27,4 +27,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	decidueye: {tier: "underdogs"},
 
 	houndoom: {tier: "underdogs"},
+
+	camothflage: {tier: "underdogs"},
 };
