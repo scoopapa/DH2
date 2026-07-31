@@ -152,6 +152,37 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		num: -6,
 	},
+	downtoearth: {
+		// Hematite note:
+		// This *mostly* just handles  *messages* related to Down-to-Earth, while the actual effect is handled elsewhere:
+		// a section in scripts.ts handling field.isTerrain() for most purposes,
+		// plus additional hard-coding for Mimicry (here in abilities.ts), Terrain Pulse (moves.ts), and each terrain effect (moves.ts)
+		// because for sOME REASON none of those actually check field.isTerrain
+		onStart(pokemon) {
+			pokemon.abilityState.ending = false; // clear the ending flag
+			if (!this.field.isTerrain('')) {
+				this.add('-ability', pokemon, 'Down-to-Earth');
+				this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect);
+			}
+		},
+		onAnyTerrainStart(target, source, terrain) {
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.ending = true;
+			if (!this.field.isTerrain('')) {
+				this.add('-message', `${pokemon.name} is no longer suppressing the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect); // this gives stuff like terrain seeds and Mimicry an opportunity to activate if nothing
+			}
+		},
+		flags: {},
+		name: "Down-to-Earth",
+		shortDesc: "Suppresses terrains.",
+		desc: "While this Pokémon is active, the effects of terrains are disabled.",
+		num: -7,
+	},
 
 	// Adjusted Abilities
 	moldbreaker: {
@@ -345,5 +376,46 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or lowered stat.",
 		desc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or when a stat is lowered by a foe.",
+	},
+	mimicry: {
+		inherit: true,
+		modded: true,
+		onTerrainChange(pokemon) {
+			let terrainType;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				terrainType = 'Electric';
+				break;
+			case 'grassyterrain':
+				terrainType = 'Grass';
+				break;
+			case 'mistyterrain':
+				terrainType = 'Fairy';
+				break;
+			case 'psychicterrain':
+				terrainType = 'Psychic';
+				break;
+			default:
+				terrainType = null;
+			}
+			if (this.field.terrain && !this.field.suppressingTerrain()) {
+				// there is a terrain *and* Down-to-Earth isn't suppressing it
+				if (terrainType && !pokemon.hasType(terrainType)) {
+					if (pokemon.setType(pokemon.baseSpecies.types)) {
+						this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[silent]');
+						if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
+					if (pokemon.addType(terrainType)) this.add('-start', pokemon, 'typeadd', terrainType, '[from] ability: Mimicry');
+				}
+			} else {
+				// there is no terrain at all, or Down-to-Earth is suppressing it
+				if (pokemon.types !== pokemon.baseSpecies.types && pokemon.setType(pokemon.baseSpecies.types)) {
+					if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[from] ability: Mimicry');
+				}
+			}
+		},
+		shortDesc: "Adds a type to the Pokémon based on the terrain.",
+		desc: "Adds an additional type to the Pokémon based on the terrain.",
 	},
 };
