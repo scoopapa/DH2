@@ -59,6 +59,7 @@ import { Formats as DenseAF                     } from '../data/mods/denseaf/for
 import { Formats as DLCmons                     } from '../data/mods/dlcmons/formats';
 import { Formats as Dollhouse                   } from '../data/mods/dollhouse/formats';
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
+import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
 import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
@@ -398,6 +399,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...Geekssandbox,
 	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
