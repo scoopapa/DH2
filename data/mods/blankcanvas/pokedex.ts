@@ -1078,4 +1078,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Defiant"},
 		weightkg: 3.5,
 	},
+	honeydue: {
+		num: 9134,
+		name: "Honeydue",
+		types: ["Water", "Bug"],
+		baseStats: {hp: 70, atk: 105, def: 70, spa: 105, spd: 70, spe: 105},
+		abilities: {0: "Queenly Majesty"},
+		weightkg: 15,
+	},
+	drug: {
+		num: 9135,
+		name: "Drug",
+		types: ["Dragon", "Bug"],
+		baseStats: {hp: 70, atk: 90, def: 60, spa: 90, spd: 60, spe: 130},
+		abilities: {0: "Supreme Overlord"},
+		weightkg: 0.67,
+	},
+	nekolepsy: {
+		num: 9136,
+		name: "Nekolepsy",
+		types: ["Fire", "Fairy"],
+		baseStats: {hp: 95, atk: 30, def: 80, spa: 105, spd: 95, spe: 65},
+		abilities: {0: "Storm Drain", H: "Unaware"},
+		weightkg: 7,
+	},
 };
