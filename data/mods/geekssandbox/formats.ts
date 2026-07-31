@@ -6,6 +6,7 @@ export const Formats: FormatData[] = [
 		mod: 'geekssandbox',
 		desc: `My personal solomod for all my whacky ideas.`,
 		ruleset: ['Standard NatDex', 'Data Mod'],
+		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['Idiom'];

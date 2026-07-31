@@ -51,7 +51,6 @@ import { Formats as CCaPM2024                   } from '../data/mods/ccapm2024/f
 import { Formats as ChatBats                    } from '../data/mods/chatbats/formats';
 import { Formats as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/formats';
 import { Formats as CommunityUsed2              } from '../data/mods/communityused2/formats';
-import { Formats as ConquestDex                 } from '../data/mods/conquestdex/formats';
 import { Formats as CleanSlateMicro2            } from '../data/mods/csm2/formats';
 import { Formats as DeadCells                   } from '../data/mods/deadcells/formats';
 import { Formats as Deltamon					} from '../data/mods/deltamon/formats';
@@ -385,7 +384,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ChatBats,
 	...ClubmonsRequiem,
 	...CommunityUsed2,
-	...ConquestDex,
 	...gen2CrystalLegacy,
   ...DeadCells,
 	...Deltamon,
