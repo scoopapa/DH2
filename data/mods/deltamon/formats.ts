@@ -1,7 +1,7 @@
 import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
-	{ // Reminder to re-enable Deltamon when you are ready to.
+	{
 		name: "[Gen 9] Deltamon OU",
 		mod: 'deltamon',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
