@@ -454,9 +454,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lovingdances: {
 		onTryMove(pokemon, attacker, move) {
 			if (move.flags['dance'] && this.randomChance(1, 2)) {
-				for (const ally of pokemon.alliesAndSelf()) {
+				for (const ally of attacker.alliesAndSelf()) {
 					if (ally.status) {
-						this.add('-activate', pokemon, 'ability: Loving Dances');
+						this.add('-activate', attacker, 'ability: Loving Dances');
 						ally.cureStatus();
 					}
 				}	
@@ -488,7 +488,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fast Food",
-		shortDesc: "Twice per battle, user and allies heal 15% of their max HP. Counts as eating a berry. User's Speed is boosted by 1.",
+		shortDesc: "Twice per battle, user + ally heal 15% of their max HP. Counts as eating a berry. User's Speed +1.",
 	},
 	
 	swordplay: {
