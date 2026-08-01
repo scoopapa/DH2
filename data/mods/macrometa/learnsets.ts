@@ -1372,6 +1372,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			bodypress: ["9L1"],
 			crunch: ["9L1"],
 			dive: ["9L1"],
+			liquidation: ["9L1"],
 			explosion: ["9L1"],
 			flashcannon: ["9L1"],
 			flipturn: ["9L1"],
