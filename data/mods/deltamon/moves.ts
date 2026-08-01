@@ -830,7 +830,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
 				if (bp >= 140) {
-					move.drain = [1, 4];
+					move.drain = [1, 3];
 					move.flags.heal = 1;
 					this.add('-anim', pokemon, "Giga Drain", target);
 				}
@@ -839,8 +839,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "+20 BP per enemy boost. 140 Power: heal 25% dmg.",
-		longDesc: "The user catches the opponent with energy-draining vines. The more the target's stats are raised, the greater the power of the move. At 140 power or higher, the user heals a quarter of the damage dealt.",
+		shortDesc: "+20 BP per enemy boost. 140 Power: heal 33% dmg.",
+		longDesc: "The user catches the opponent with energy-draining vines. The more the target's stats are raised, the greater the power of the move. At 140 power or higher, the user heals a third of the damage dealt.",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {

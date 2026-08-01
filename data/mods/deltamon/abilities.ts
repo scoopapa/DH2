@@ -131,7 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "YOUR TAKING TOO LONG",
-		shortDesc: "Once this Pokemon has survived 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
+		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
 	},
 		
 	//copied from Berserk
@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves +10 Power (max 2 times).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 Power (max 2 times).",
 	},
 	
 	makeththerules: {

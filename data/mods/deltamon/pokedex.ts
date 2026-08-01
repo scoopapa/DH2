@@ -718,7 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gerson",
 		types: ["Ground"],
 		gender: "M",
-		baseStats: {hp: 90, atk: 90, def: 105, spa: 60, spd: 90, spe: 35},
+		baseStats: {hp: 80, atk: 85, def: 105, spa: 60, spd: 90, spe: 35},
 		abilities: {0: "Shell Armor", H: "Justified"},
 		weightkg: 150,
 		otherFormes: ["Gerson-Mega"],
@@ -731,7 +731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Ground", "Steel"],
 		gender: "M",
-		baseStats: {hp: 90, atk: 95, def: 105, spa: 75, spd: 95, spe: 110},
+		baseStats: {hp: 80, atk: 90, def: 105, spa: 75, spd: 95, spe: 110},
 		abilities: {0: "Mold Breaker"},
 		weightkg: 250,
 		requiredItem: "Gersonite"
