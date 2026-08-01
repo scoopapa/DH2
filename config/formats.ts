@@ -59,6 +59,7 @@ import { Formats as DenseAF                     } from '../data/mods/denseaf/for
 import { Formats as DLCmons                     } from '../data/mods/dlcmons/formats';
 import { Formats as Dollhouse                   } from '../data/mods/dollhouse/formats';
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
+import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
 import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
@@ -240,6 +241,7 @@ import { Formats as TrainerSupport              } from '../data/mods/trainersupp
 import { Formats as TripleThreat                } from '../data/mods/triplethreat/formats';
 import { Formats as TwoStepMonsV3               } from '../data/mods/twostepmonsv3/formats';
 import { Formats as UmbreMons                   } from '../data/mods/umbremons/formats';
+import { Formats as Underdogs                   } from '../data/mods/underdogs/formats';
 import { Formats as UpsideDown                  } from '../data/mods/upsidedown/formats';
 import { Formats as WeatherWar                  } from '../data/mods/weatherwar/formats';
 import { Formats as Weedmons                    } from '../data/mods/weedmons/formats';
@@ -398,6 +400,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...Geekssandbox,
 	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
@@ -442,6 +445,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...The331TypeChart,
 	...Touhou,
 	...gen1TradebacksExpanded,
+	...Underdogs,
 	...UpsideDown,
 	...gen1VioletVersion,
 	...WeatherWar,
