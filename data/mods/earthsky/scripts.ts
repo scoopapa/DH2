@@ -13007,6 +13007,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','varoom').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','varoom').learnset.spite = ["9M"];
 		this.modData('Learnsets','varoom').learnset.torment = ["9M"];
+		this.modData('Learnsets','varoom').learnset.uturn = ["9M"];
 		this.modData('Learnsets','varoom').learnset.highhorsepower = ["9E"];
 		this.modData('Learnsets','varoom').learnset.metalsound = ["9E"];
 		delete this.modData('Learnsets','varoom').learnset.partingshot;
@@ -13023,6 +13024,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroom').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroom').learnset.strength = ["9M"];
 		this.modData('Learnsets','revavroom').learnset.torment = ["9M"];
+		this.modData('Learnsets','revavroom').learnset.uturn = ["9M"];
 		// Revavroom Segin Mod
 		this.modData('Learnsets','revavroomsegin').learnset.wickedtorque = ["9R"];
 		this.modData('Learnsets','revavroomsegin').learnset.partingshot = ["9L1"];

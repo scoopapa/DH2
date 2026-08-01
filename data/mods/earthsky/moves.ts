@@ -4357,8 +4357,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return false;
 				}
 				//Sets sleep duration to 3 turns without resetting turns spent.
-				pokemon.statusData.time = 4 + pokemon.statusData.time - pokemon.statusData.startTime;
-				pokemon.statusData.startTime = 4;
+				pokemon.statusState.time = 4 + pokemon.statusState.time - pokemon.statusState.startTime;
+				pokemon.statusState.startTime = 4;
 				this.add('-start', pokemon, 'Nightmare');
 			},
 			onResidualOrder: 9,
@@ -4367,8 +4367,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		isNonstandard: null,
-		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep. This move does not affect the target unless it is asleep. The effect ends when the target wakes up, even if it falls asleep again in the same turn. The target is forced to sleep for three turns.",
-		shortDesc: "SLP target: -25% max HP each turn, sleeps 3 turns.",
+		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep. This move does not affect the target unless it is asleep. The effect ends when the target wakes up, even if it falls asleep again in the same turn..",
+		shortDesc: "SLP target: -25% max HP each turn, +1 slp turn.",
 	},
 	nightdaze: {
 		inherit: true,
@@ -6622,7 +6622,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon, source, effect) {
-				if (!(source.hasAbility('irresistable') || (pokemon.gender === 'M' && source.gender === 'F') || (pokemon.gender === 'F' && source.gender === 'M'))) {
+				if (!(source.hasAbility('irresistible') || (pokemon.gender === 'M' && source.gender === 'F') || (pokemon.gender === 'F' && source.gender === 'M'))) {
 					this.debug('incompatible gender');
 					return false;
 				}
@@ -6659,7 +6659,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		onTryImmunity(target, source) {
-			return (source.hasAbility('irresistable') || (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M'));
+			return (source.hasAbility('irresistible') || (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M'));
 		},
 	},
 	bunkerdown: {
