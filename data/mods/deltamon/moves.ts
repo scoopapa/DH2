@@ -326,7 +326,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
-		target: "allAdjacentFoes",
+		target: "normal",
 	},
 	
 	miccheck: {
@@ -377,7 +377,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 10,
-		shortDesc: "-1 Sp. Def and Def for opponents, +1 Sp. Atk and Atk for allies. Priority +1. Bypasses Substitute.",
+		shortDesc: "Opponents: -1 SpD & Def, Allies: +1 SpA & Atk. Priority +1. Bypasses Substitute.",
 		longDesc: "The user encourages the opponent to stop fighting, lowering their Defense and Special Defense by 1 stage. If used on an ally, the user urges them to keep fighting, boosting their Attack and Special Attack by 1 stage. This move bypasses Substitute and usually goes first.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1, reflectable: 1, bypasssub: 1, allyanim: 1},
@@ -937,7 +937,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Grounds target. Priority +1. Fails if target is not attacking.",
+		shortDesc: "Grounds target. Priority +1. Fails if target isn't attacking.",
 		longDesc: "The user sends a blue attack at the target that weighs down their Soul, grounding them. This move can hit aerial Pokemon. This move fails if the target is not using an attacking move.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},

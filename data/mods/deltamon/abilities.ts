@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by a Fire move: Fire moves get +10 Power (max 2 times).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves +10 Power (max 2 times).",
 	},
 	
 	makeththerules: {
@@ -436,27 +436,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	//Many Seths were harmed in the making of this ability.
 	tacticaldodge: {
+		//The original code for this move was so much more convoluted than it ever needed to be, this should be a more elegant answer.
 		onInvulnerability(pokemon, target, move, source) {
 			if (pokemon.dodged) return;
-			const yourType =  pokemon.getTypes();
-			const moveType = move.type;
-			for (const type of yourType) {
-				//Special check for Maketh the Rules due to its type inversion.
-				for (const any of this.getAllActive()) {
-					const ability = any.getAbility();
-					if (this.dex.getEffectiveness(moveType, type) > 0 && move.category !== 'Status' && ability.id !== 'makeththerules') {
-						this.add('-anim', pokemon, "Nasty Plot", target);
-						this.add ('-activate', pokemon, 'ability: Tactical Dodge');
-						pokemon.dodged = true;
-						return false;
-					}
-					else if (this.dex.getEffectiveness(moveType, type) < 0 && move.category !== 'Status' && ability.id === 'makeththerules') {
-						this.add('-anim', pokemon, "Nasty Plot", target);
-						this.add ('-activate', pokemon, 'ability: Tactical Dodge');
-						pokemon.dodged = true;
-						return false;
-					}
-				}
+			if (pokemon.runEffectiveness(move) > 0 && move.category !== 'Status') {
+				this.add('-anim', pokemon, "Nasty Plot", target);
+				this.add ('-activate', pokemon, 'ability: Tactical Dodge');
+				pokemon.dodged = true;
+				return false;
 			}
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
@@ -465,11 +452,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onModifyMove(move, target, source) {
-			if (move.flags?.dance && this.randomChance(1, 2)) {
-				for (const ally of source.alliesAndSelf()) {
+		onTryMove(pokemon, attacker, move) {
+			if (move.flags['dance'] && this.randomChance(1, 2)) {
+				for (const ally of pokemon.alliesAndSelf()) {
 					if (ally.status) {
-						this.add('-activate', source, 'ability: Loving Dances');
+						this.add('-activate', pokemon, 'ability: Loving Dances');
 						ally.cureStatus();
 					}
 				}	

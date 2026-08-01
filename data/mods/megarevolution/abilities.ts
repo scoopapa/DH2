@@ -1,13 +1,7 @@
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	piercingdrill: {
-		onModifyMove(move) {
-			if (move.flags['contact']) delete move.flags['protect'];
-		},
-		flags: {},
-		name: "Piercing Drill",
+		inherit: true,
 		shortDesc: "This Pokemon's contact moves ignore the target's protection, except Max Guard.",
-		rating: 2,
-		num: 311,
 	},
 	parentalbond: {
 		inherit: true,
@@ -17,5 +11,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.multihit = 2;
 			move.multihitType = 'parentalbond';
 		},
+	},
+	spicyspray: {
+		inherit: true,
+		shortDesc: "If this Pokemon is hit by an attack, the attacker becomes burned.",
 	},
 };
