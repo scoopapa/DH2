@@ -174,7 +174,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	maus: {
+	mausdelta: {
 		tier: "DM NFE",
 		doublesTier: "DM NFE",
 		natDexTier: "NFE",
@@ -219,7 +219,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	queen: {
+	queendelta: {
 		tier: "DM OU",
 		doublesTier: "DM DOU",
 		natDexTier: "OU",

@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by a Fire move: Fire moves get +10 Power (max 2 times).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves +10 Power (max 2 times).",
 	},
 	
 	makeththerules: {
@@ -452,11 +452,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onModifyMove(move, target, source) {
-			if (move.flags?.dance && this.randomChance(1, 2)) {
-				for (const ally of source.alliesAndSelf()) {
+		onTryMove(pokemon, attacker, move) {
+			if (move.flags['dance'] && this.randomChance(1, 2)) {
+				for (const ally of pokemon.alliesAndSelf()) {
 					if (ally.status) {
-						this.add('-activate', source, 'ability: Loving Dances');
+						this.add('-activate', pokemon, 'ability: Loving Dances');
 						ally.cureStatus();
 					}
 				}	
