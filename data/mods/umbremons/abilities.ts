@@ -152,6 +152,44 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		num: -6,
 	},
+	dualwield: {
+		num: -7,
+		name: "Dual Wield",
+		shortDesc: "Slicing moves hit twice and smart target, but have 3/4 damage.",
+		onModifyMove(move, pokemon) {
+			if (move.flags['slicing']) {
+				if(!move.multihit) {
+					move.multihit = 1;
+				}
+				move.multihit = move.multihit * 2;
+				move.smartTarget = true;
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Dual Wield debuff');
+				return this.chainModify(0.75);
+		},
+	},
+	asonefalinks: {
+		num: -8,
+		name: "As One (Falinks)",
+		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield Abilities.",
+		onStart(pokemon) {
+			if (!pokemon.swordBoost) {
+				this.add('-ability', target, 'As One');
+				this.add('-ability', target, 'Intrepid Sword');
+				pokemon.swordBoost = true;
+				this.boost({atk: 1}, pokemon);
+			}
+			if (!pokemon.shieldBoost) {
+				this.add('-ability', target, 'As One');
+				this.add('-ability', target, 'Dauntless Shield');
+				pokemon.shieldBoost = true;
+				this.boost({def: 1}, pokemon);
+			}
+		},
+	},
 	downtoearth: {
 		// Hematite note:
 		// This *mostly* just handles  *messages* related to Down-to-Earth, while the actual effect is handled elsewhere:
@@ -181,7 +219,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Down-to-Earth",
 		shortDesc: "Suppresses terrains.",
 		desc: "While this Pokémon is active, the effects of terrains are disabled.",
-		num: -7,
+		num: -9,
 	},
 
 	// Adjusted Abilities
