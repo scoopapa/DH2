@@ -2503,9 +2503,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Relentless", 1: "Ice Body", H: "Moody"},
 	},
+	spheal: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Cute Charm"},
+		isNonstandard: null,
+	},
+	sealeo: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Cute Charm"},
+		isNonstandard: null,
+		isNonstandard: null,
+	},
 	walrein: {
 		inherit: true,
-		abilities: {0: "Thick Fat", 1: "Ice Breaker", H: "Oblivious"},
+		abilities: {0: "Thick Fat", 1: "Ice Breaker", H: "Unnerve"},
 		baseStats: {hp: 110, atk: 90, def: 90, spa: 95, spd: 90, spe: 65},
 		isNonstandard: null,
 	},
@@ -5845,14 +5856,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		isNonstandard: null,
 	},
 	glaliemega: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	spheal: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	sealeo: {
 		inherit: true,
 		isNonstandard: null,
 	},
