@@ -296,41 +296,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Growth Veil",
 		shortDesc: "Regenerator + Flower Veil",
 		desc: "Restores 1/3 max HP on switch-out; ally Grass-types can't have stats lowered or status inflicted.",
-		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
+		onStart(pokemon) {
+			pokemon.addVolatile('ability:regenerator');
+			pokemon.addVolatile('ability:flowerveil');
 		},
-		onAllyBoost(boost, target, source, effect) {
-			if ((source && target === source) || !target.hasType('Grass')) return;
-			let showMsg = false;
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries) {
-				const effectHolder = this.effectState.target;
-				this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
-			}
-		},
-		onAllySetStatus(status, target, source, effect) {
-			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
-				this.debug('interrupting setStatus with Growth Veil');
-				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
-					const effectHolder = this.effectState.target;
-					this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
-				}
-				return null;
-			}
-		},
-		onAllyTryAddVolatile(status, target) {
-			if (target.hasType('Grass') && status.id === 'yawn') {
-				this.debug('Growth Veil blocking yawn');
-				const effectHolder = this.effectState.target;
-				this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
-				return null;
-			}
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:regenerator');
+			pokemon.removeVolatile('ability:flowerveil');
 		},
 	},
 	bravery: {
@@ -2002,52 +1974,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	embodyaspectclown: {
 		onStart(pokemon) {
-			pokemon.level ++;
-			pokemon.set.level ++;
+			pokemon.level++;
+			pokemon.set.level++;
 			pokemon.baseMaxhp = Math.floor(Math.floor(
-			2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 			) * pokemon.level / 100 + 10);
 			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
 			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
 			pokemon.maxhp = newMaxHP;
+			pokemon.recalcStats();
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 				(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 			this.add('replace', pokemon, details, '[silent]');
-			this.boost({accuracy: 1}, pokemon);
+			this.boost({ accuracy: 1 }, pokemon);
 		},
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
-		},
-		onModifyAtk(atk, pokemon) {
-			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['atk'] + pokemon.set.ivs['atk'] + Math.trunc(pokemon.set.evs['atk'] / 4)) * pokemon.set.level / 100 + 5);
-			if (this.dex.natures.get(pokemon.set.nature).plus === 'atk') value = Math.trunc(value * 1.1);
-			else if (this.dex.natures.get(pokemon.set.nature).minus === 'atk') value = Math.trunc(value * 0.9);
-			return value;
-		},
-		onModifyDef(def, pokemon) {
-			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['def'] + pokemon.set.ivs['def'] + Math.trunc(pokemon.set.evs['def'] / 4)) * pokemon.set.level / 100 + 5);
-			if (this.dex.natures.get(pokemon.set.nature).plus === 'def') value = Math.trunc(value * 1.1);
-			else if (this.dex.natures.get(pokemon.set.nature).minus === 'def') value = Math.trunc(value * 0.9);
-			return value;
-		},
-		onModifySpA(spa, pokemon) {
-			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spa'] + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
-			if (this.dex.natures.get(pokemon.set.nature).plus === 'spa') value = Math.trunc(value * 1.1);
-			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spa') value = Math.trunc(value * 0.9);
-			return value;
-		},
-		onModifySpD(spd, pokemon) {
-			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spd'] + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
-			if (this.dex.natures.get(pokemon.set.nature).plus === 'spd') value = Math.trunc(value * 1.1);
-			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spd') value = Math.trunc(value * 0.9);
-			return value;
-		},
-		onModifySpe(spe, pokemon) {
-			let value = Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spe'] + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
-			if (this.dex.natures.get(pokemon.set.nature).plus === 'spe') value = Math.trunc(value * 1.1);
-			else if (this.dex.natures.get(pokemon.set.nature).minus === 'spe') value = Math.trunc(value * 0.9);
-			return value;
 		},
 		flags: {},
 		name: "Embody Aspect (CLOWN)",
