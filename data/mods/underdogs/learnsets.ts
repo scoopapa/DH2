@@ -1,3 +1,45 @@
 export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
-
+	camothflage: {
+		learnset: {
+			firstimpression: ["9L1"],
+			uturn: ["9L1"],
+			skittersmack: ["9L1"],
+			leechlife: ["9L1"],
+			aerialace: ["9L1"],
+			poisonjab: ["9L1"],
+			strugglebug: ["9L1"],
+			airslash: ["9L1"],
+			aircutter: ["9L1"],
+			sludgebomb: ["9L1"],
+			clearsmog: ["9L1"],
+			gigadrain: ["9L1"],
+			quiverdance: ["9L1"],
+			defog: ["9L1"],
+			tailwind: ["9L1"],
+			toxic: ["9L1"],
+			toxicspikes: ["9L1"],
+			stunspore: ["9L1"],
+			roost: ["9L1"],
+			
+			return: ["9L1"],
+			attract: ["9L1"],
+			frustration: ["9L1"],
+			camouflage: ["9L1"],
+			doubleteam: ["9L1"],
+			flash: ["9L1"],
+			gust: ["9L1"],
+			hiddenpower: ["9L1"],
+			hyperbeam: ["9L1"],
+			infestation: ["9L1"],
+			round: ["9L1"],
+			bide: ["9L1"],
+			captivate: ["9L1"],
+			confide: ["9L1"],
+			foresight: ["9L1"],
+			gigaimpact: ["9L1"],
+			megadrain: ["9L1"],
+			absorb: ["9L1"],
+			poisonpowder: ["9L1"],
+		}
+	}
 };
