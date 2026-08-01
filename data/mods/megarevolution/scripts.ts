@@ -127,5 +127,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "greninja").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "greninja").learnset.focusblast = ["9L1"];
 		this.modData("Learnsets", "greninja").learnset.trailblaze = ["9L1"];
+		
+		this.modData("Learnsets", "banette").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "banette").learnset.brickbreak = ["9L1"];
+		this.modData("Learnsets", "banette").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "banette").learnset.thunderpunch = ["9L1"];
+		this.modData("Learnsets", "banette").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "banette").learnset.quickattack = ["9L1"];
 	},
 };
