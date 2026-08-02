@@ -4,7 +4,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Magcargo",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 90, atk: 50, def: 120, spa: 90, spd: 80, spe: 30},
-		abilities: {0: "Oblivious", 1: "Flame Body", H: "Neutralizing Gas"},
+		abilities: {0: "Oblivious", 1: "Gooey", H: "Neutralizing Gas"},
 	},
 	sableye: {
 		inherit: true,
@@ -253,7 +253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Clodsire",
 		types: ["Ground", "Poison"],
 		baseStats: {hp: 130, atk: 95, def: 60, spa: 45, spd: 100, spe: 20},
-		abilities: {0: "Corrosion", 1: "Water Absorb", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Gooey", H: "Oblivious"},
 	},
 	pecharunt: {
 		name: "Pecharunt",
@@ -659,7 +659,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Slugma",
 		types: ["Fire"],
 		baseStats: {hp: 40, atk: 40, def: 40, spa: 70, spd: 40, spe: 20},
-		abilities: {0: "Magma Armor", 1: "Flame Body", H: "Neutralizing Gas"},
+		abilities: {0: "Magma Armor", 1: "Gooey", H: "Neutralizing Gas"},
 	},
 	ralts: {
 		inherit: true,
@@ -827,7 +827,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wooper-Paldea",
 		types: ["Ground", "Poison"],
 		baseStats: {hp: 55, atk: 45, def: 45, spa: 25, spd: 25, spe: 15},
-		abilities: {0: "Poison Point", 1: "Water Absorb", H: "Oblivious"},
+		abilities: {0: "Poison Point", 1: "Gooey", H: "Oblivious"},
 	},
 	dratini: {
 		inherit: true,
@@ -890,7 +890,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Scatterbug",
 		types: ["Bug"],
 		baseStats: {hp: 38, atk: 35, def: 40, spa: 27, spd: 25, spe: 35},
-		abilities: {0: "Frisk", 1: "Compound Eyes", H: "Levitate"},
+		abilities: {0: "Frisk", 1: "Gooey", H: "Levitate"},
 	},
 	dottler: {
 		inherit: true,
@@ -911,7 +911,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wurmple",
 		types: ["Bug"],
 		baseStats: {hp: 45, atk: 45, def: 35, spa: 20, spd: 30, spe: 20},
-		abilities: {0: "Shed Skin"},
+		abilities: {0: "Shed Skin", H: "Gooey"},
 	},
 	cascoon: {
 		inherit: true,
