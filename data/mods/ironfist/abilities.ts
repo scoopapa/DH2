@@ -1886,14 +1886,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	illgetamegathistimeiswear: {
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'flygon') {
-				if (pokemon.species.forme !== 'Plus' && pokemon.item && pokemon.item.megaStone) {
-					this.add('-ability', pokemon, "i'll get a mega this time i swear");
-					pokemon.formeChange('flygonplus', this.effect, false);
-				} else if (pokemon.species.forme === 'Plus' && (!pokemon.item || !pokemon.item.megaStone)) {
-					this.add('-ability', pokemon, "i'll get a mega this time i swear");
-					pokemon.formeChange('flygon', this.effect, false);
-				}
+			if (pokemon.species.id !== 'flygon' && pokemon.species.id !== 'flygonplus') return;
+			const item = pokemon.getItem();
+			if (pokemon.species.forme !== 'Plus' && item.megaStone) {
+				this.add('-ability', pokemon, "i'll get a mega this time i swear");
+				pokemon.formeChange('flygonplus', this.effect, false);
+			} else if (pokemon.species.forme === 'Plus' && !item.megaStone) {
+				this.add('-ability', pokemon, "i'll get a mega this time i swear");
+				pokemon.formeChange('flygon', this.effect, false);
 			}
 		},
 		flags: {},
