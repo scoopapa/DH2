@@ -169,6 +169,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.flags['slicing']) {
 				this.debug('Dual Wield debuff');
 				return this.chainModify(0.75);
+			}
 		},
 	},
 	asonefalinks: {
@@ -176,14 +177,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "As One (Falinks)",
 		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield Abilities.",
 		onStart(pokemon) {
+			if (!pokemon.swordBoost || !pokemon.shieldBoost) this.add('-ability', target, 'As One');
 			if (!pokemon.swordBoost) {
-				this.add('-ability', target, 'As One');
 				this.add('-ability', target, 'Intrepid Sword');
 				pokemon.swordBoost = true;
 				this.boost({atk: 1}, pokemon);
 			}
 			if (!pokemon.shieldBoost) {
-				this.add('-ability', target, 'As One');
 				this.add('-ability', target, 'Dauntless Shield');
 				pokemon.shieldBoost = true;
 				this.boost({def: 1}, pokemon);
