@@ -177,17 +177,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -8,
 		name: "As One (Falinks)",
 		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield Abilities.",
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
 		onStart(pokemon) {
-			if (!pokemon.swordBoost || !pokemon.shieldBoost) this.add('-ability', target, 'As One');
 			if (!pokemon.swordBoost) {
-				this.add('-ability', target, 'Intrepid Sword');
 				pokemon.swordBoost = true;
-				this.boost({atk: 1}, pokemon);
+				this.boost({atk: 1}, pokemon, pokemon, this.dex.abilities.get('intrepidsword'));
 			}
 			if (!pokemon.shieldBoost) {
-				this.add('-ability', target, 'Dauntless Shield');
 				pokemon.shieldBoost = true;
-				this.boost({def: 1}, pokemon);
+				this.boost({def: 1}, pokemon, pokemon, this.dex.abilities.get('dauntlessshield'));
 			}
 		},
 		flags: {},
@@ -228,12 +228,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Unfolding",
 		shortDesc: "When targeting a Pokemon with 50% hp or less, moves first in its priority bracket.",
 		desc: "The user of the ability moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
-		onFractionalPriorityPriority: -1,
-		onFractionalPriority(priority, pokemon, target, move) {
-			if (move.target != 'allAdjacentFoes' && move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2 && pokemon != target) {
-				this.add('-activate', pokemon, 'ability: Unfolding');
-				return 0.1;
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			if (action.move.target != 'allAdjacentFoes' && action.move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2 && pokemon != action.move.target) {
+				pokemon.addVolatile('unfolding');
 			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Unfolding');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
 		},
 		flags: {},
 	},
@@ -432,10 +447,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or when a stat is lowered by a foe.",
 	},
 	illuminate: {
+		onStart(pokemon) {
+			pokemon.addVolatile('illuminate');
+		},
+
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.type === 'Normal' && !pokemon.volatiles['illuminate']) {
-				pokemon.addVolatile('illuminate');
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
 				return priority + 3;
+			}
+		},
+
+		onAfterMove(pokemon, target, move) {
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
+				pokemon.removeVolatile('illuminate');
 			}
 		},
 		flags: {},

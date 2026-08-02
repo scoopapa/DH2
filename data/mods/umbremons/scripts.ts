@@ -80,7 +80,42 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			return {targets, pressureTargets};
-		}
+		},
+		useItem(source?: Pokemon, sourceEffect?: Effect) {
+			if ((!this.hp && !this.getItem().isGem && this.getItem().id !== 'wishbone') || !this.isActive) return false;
+			if (!this.item || this.itemState.knockedOff) return false;
+
+			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			const item = this.getItem();
+			if (this.battle.runEvent('UseItem', this, null, null, item)) {
+				switch (item.id) {
+				case 'redcard':
+					this.battle.add('-enditem', this, item, '[of] ' + source);
+					break;
+				default:
+					if (item.isGem) {
+						this.battle.add('-enditem', this, item, '[from] gem');
+					} else {
+						this.battle.add('-enditem', this, item);
+					}
+					break;
+				}
+				if (item.boosts) {
+					this.battle.boost(item.boosts, this, source, item);
+				}
+
+				this.battle.singleEvent('Use', item, this.itemState, this, source, sourceEffect);
+
+				this.lastItem = this.item;
+				this.item = '';
+				this.itemState = {id: '', target: this};
+				this.usedItemThisTurn = true;
+				this.battle.runEvent('AfterUseItem', this, null, null, item);
+				return true;
+			}
+			return false;
+		},
 	},
 	battle: {
 		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) {

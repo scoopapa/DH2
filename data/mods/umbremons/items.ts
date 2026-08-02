@@ -82,7 +82,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 		},
 		onFaint(pokemon) {
-			if (pokemon.useItem()) pokemon.side.addSlotCondition(pokemon, 'wish');
+			if (pokemon.useItem()) {
+				this.add('-message', pokemon.name + " made a wish!");
+				pokemon.side.addSlotCondition(pokemon, 'wish');
+			}
 		},
 	},
 	// Item Adjustments
@@ -154,6 +157,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					for (const pokemon of this.getAllActive()) {
 						if (pokemon.switchFlag === true) return;
 					}
+					this.add('-activate', target, 'Eject Pack');
+					this.add('-item', target, 'Eject Pack');
 					target.switchFlag = true;
 				}
 			}
