@@ -640,7 +640,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			];
 			const removeAll = [
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
