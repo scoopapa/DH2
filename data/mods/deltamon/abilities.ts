@@ -334,12 +334,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	amalgamation: {
-		onStart(pokemon, target) {
-			this.add('-start', pokemon, 'ability: Amalgamation');
+		onStart(pokemon) {
 			pokemon.addVolatile('amalgamation');
 		},
 		condition: {
 			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'ability: Amalgamation');
+			},
 			onAnyFaint(target) {
 				if (!this.effectState.target.hp) return;
 				const ability = target.getAbility();
