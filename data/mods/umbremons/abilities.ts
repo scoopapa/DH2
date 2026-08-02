@@ -171,6 +171,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(0.75);
 			}
 		},
+		flags: {},
 	},
 	asonefalinks: {
 		num: -8,
@@ -189,6 +190,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.boost({def: 1}, pokemon);
 			}
 		},
+		flags: {},
 	},
 	downtoearth: {
 		// Hematite note:
@@ -220,6 +222,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Suppresses terrains.",
 		desc: "While this Pokémon is active, the effects of terrains are disabled.",
 		num: -9,
+	},
+	unfolding: {
+		num: -10,
+		name: "Unfolding",
+		shortDesc: "When targeting a Pokemon with 50% hp or less, moves first in its priority bracket.",
+		desc: "The user of the ability moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.target != 'allAdjacentFoes' && move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2 && pokemon != target) {
+				this.add('-activate', pokemon, 'ability: Unfolding');
+				return 0.1;
+			}
+		},
+		flags: {},
 	},
 
 	// Adjusted Abilities
@@ -414,6 +430,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or lowered stat.",
 		desc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or when a stat is lowered by a foe.",
+	},
+	illuminate: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Normal' && !pokemon.volatiles['illuminate']) {
+				pokemon.addVolatile('illuminate');
+				return priority + 3;
+			}
+		},
+		flags: {},
+		name: "Illuminate",
+		num: 35,
+		shortDesc: "This Pokemon's first Normal move on entry gets +3 priority.",
 	},
 	mimicry: {
 		inherit: true,
