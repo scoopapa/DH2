@@ -136,7 +136,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	ejectpack: {
 		inherit: true,
-		isNonstadnard: null,
+		isNonstandard: null,
 		rating: 3,
 		onAfterBoost(boost, target, source, effect) {
 			if (this.activeMove?.id === 'partingshot') return;
