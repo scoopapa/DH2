@@ -177,10 +177,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -8,
 		name: "As One (Falinks)",
 		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield Abilities.",
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'As One');
-		},
 		onStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
 			if (!pokemon.swordBoost) {
 				pokemon.swordBoost = true;
 				this.boost({atk: 1}, pokemon, pokemon, this.dex.abilities.get('intrepidsword'));
