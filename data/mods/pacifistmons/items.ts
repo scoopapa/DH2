@@ -99,6 +99,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 
+	//Good
+	airballoon: {
+		inherit: true,
+		rating: 3,
+	},
+
 	//Bad
 	berryjuice: {
 		inherit: true,

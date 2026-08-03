@@ -5,6 +5,7 @@ export const Formats: FormatData[] = [
 		name: "[Gen 9] Pacifistmons 2",
 		mod: 'pacifistmons',
 		desc: `Micrometa where all Pokemon have no attacks.`,
+		banlist: ['Quick Claw', 'Lax Incense', 'Bright Powder'],
 		ruleset: ['Standard Natdex', 'Data Mod', 'Terapagos Clause'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
