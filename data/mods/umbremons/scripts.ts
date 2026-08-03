@@ -478,7 +478,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['flipturn', 'risingvoltage', 'snatch'], 'stunfisk');
 
 		// move adjustments
-		addMove('skydrop', ['aerodactyl', 'charizard', 'dragonite', 'hawlucha', 'pelipper', 'skarmory', 'corviknight', 'gliscor', 'pidgeot', 'toucannon', 'talonflame', 'decidueye', 'hisuian decidueye', 'gyarados']);
+		addMove('skydrop', ['aerodactyl', 'charizard', 'dragonite', 'hawlucha', 'pelipper', 'skarmory', 'corviknight', 'gliscor', 'pidgeot', 'toucannon', 'talonflame', 'decidueye', 'decidueyehisui', 'gyarados']);
 		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon', 'castform', 'drampa']);
 		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak', 'sceptile']);
 		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbro-galar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
