@@ -318,6 +318,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	sheercold: {
 		inherit: true,
+		shortDesc: "Freezes the target.",
 		accuracy: 100,
 		pp: 15,
 		status: 'frz',

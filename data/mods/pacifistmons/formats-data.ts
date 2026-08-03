@@ -363,7 +363,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wurmple: { tier: "PM LC", doublesTier: "DPM" },
 	cascoon: { tier: "PM NFE", doublesTier: "DPM" },
 	nincada: { tier: "PM LC", doublesTier: "DPM" },
-	karrablast: { tier: "PM LC", doublesTier: "DPM" },
+	shelmet: { tier: "PM LC", doublesTier: "DPM" },
 	houndour: { tier: "PM LC", doublesTier: "DPM" },
 	lileep: { tier: "PM LC", doublesTier: "DPM" },
 	scraggy: { tier: "PM LC", doublesTier: "DPM" },

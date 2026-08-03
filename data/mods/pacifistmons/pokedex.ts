@@ -452,6 +452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Absol",
 		types: ["Dark"],
 		baseStats: {hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 75},
+		abilities: {0: "Forewarn", H: "Cloud Nine"},
 	},
 	absolmega: {
 		inherit: true,
@@ -538,6 +539,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 150, atk: 120, def: 100, spa: 120, spd: 100, spe: 90},
 		abilities: {0: "Levitate"},
+		requiredItem: null,
 	},
 	annihilape: {
 		inherit: true,
@@ -927,11 +929,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 31, atk: 45, def: 90, spa: 30, spd: 30, spe: 40},
 		abilities: {0: "Run Away", H: "Shed Skin"},
 	},
-	karrablast: {
+	shelmet: {
 		inherit: true,
-		name: "Karrablast",
+		name: "Shelmet",
 		types: ["Bug"],
-		baseStats: {hp: 50, atk: 75, def: 45, spa: 40, spd: 45, spe: 60},
+		baseStats: {hp: 50, atk: 40, def: 85, spa: 40, spd: 65, spe: 25},
 		abilities: {0: "Shed Skin", H: "No Guard"},
 	},
 	houndour: {
