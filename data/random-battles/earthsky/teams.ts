@@ -86,7 +86,7 @@ const SPEED_CONTROL = [
 // Moves that shouldn't be the only STAB moves:
 const NO_STAB = [
 	'accelerock', 'aerate', 'aquajet', 'bounce', 'breakingswipe', 'bulletpunch', 'chatter', 'chloroblast', 'clearsmog', 'covet',
-	'dragontail', 'doomdesire', 'electroweb', 'eruption', 'explosion', 'fakeout', 'feint', 'flamecharge', 'futuresight',
+	'dragontail', 'doomdesire', 'electroweb', 'eruption', 'explosion', 'fakeout', 'feint', 'flamecharge', 'flipturn', 'futuresight',
 	'iceshard', 'icywind', 'incinerate', 'infestation', 'machpunch', 'meteorbeam', 'nuzzle', 'pelletshot', 'pluck', 'pursuit',
 	'quickattack', 'rapidspin', 'reversal', 'selfdestruct', 'shadowsneak', 'skydrop', 'snarl', 'strugglebug', 'suckerpunch', 'uturn',
 	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout',
@@ -1366,7 +1366,7 @@ export class RandomTeams {
 			ability === 'Imposter' || moves.has('transform') || 
 			(species.id === 'magnezone' && moves.has('bodypress') && !isDoubles)
 		) return 'Choice Scarf';
-		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
+		if ((species.id === 'rampardos' || species.id === 'lopunny') && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
 		if (species.id === 'indeedeehassrim') return 'Adrenaline Orb';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
@@ -2268,7 +2268,7 @@ export class RandomTeams {
 			}
 
 			// Random happiness
-			const happiness = this.random(256);
+			const happiness = moves.includes('frustration') ? 0 : 160;
 
 			// Random shininess
 			const shiny = this.randomChance(1, 1024);
