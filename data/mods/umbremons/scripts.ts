@@ -466,5 +466,24 @@ export const Scripts: ModdedBattleScriptsData = {
 			'aerodactyl', 'altaria', 'aromatisse', 'blaziken', 'castform', 'chimecho', 'clefable', 'corviknight', 'decidueye', 'decidueyehisui', 'dragonite', 'drampa', 'emolga', 'empoleon', 'espathra', 'flapple', 'gallade',
 			'gliscor', 'hawlucha', 'hydreigon', 'kleavor', 'noivern', 'pidgeot', 'pinsir', 'pelipper', 'quaquaval', 'sandaconda', 'scizor', 'skarmory', 'staraptor', 'talonflame', 'toucannon', 'vivillon', 'volcarona', 'gyarados'
 		]);
+
+		// // SLATE 3
+
+		// species adjustments
+		addMove(['encore', 'grasspledge', 'uturn'], 'simisage');
+		addMove(['encore', 'firepledge', 'partingshot'], 'simisear');
+		addMove(['encore', 'waterpledge'], 'simipour');
+		addMove('terrainpulse', 'chandelure');
+		addMove('fakeout', 'luxray');
+		addMove(['flipturn', 'risingvoltage', 'snatch'], 'stunfisk');
+
+		// move adjustments
+		addMove('skydrop', ['aerodactyl', 'charizard', 'dragonite', 'hawlucha', 'pelipper', 'skarmory', 'corviknight', 'gliscor', 'pidgeot', 'toucannon', 'talonflame', 'decidueye', 'hisuian decidueye', 'gyarados']);
+		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon']);
+		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak']);
+		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbro-galar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
+		addMove('mistystep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
+		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommo-o', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
+		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichu-alola']);
 	},
 };
