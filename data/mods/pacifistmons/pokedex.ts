@@ -396,7 +396,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Orbeetle",
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 60, atk: 45, def: 110, spa: 80, spd: 120, spe: 90},
-		abilities: {0: "Swarm", 1: "Frisk", H: "Levitate"},
+		abilities: {0: "Overcoat", 1: "Frisk", H: "Levitate"},
 	},
 	parasect: {
 		inherit: true,
@@ -438,7 +438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Houndoom",
 		types: ["Dark", "Fire"],
 		baseStats: {hp: 75, atk: 90, def: 50, spa: 110, spd: 80, spe: 95},
-		abilities: {0: "Vital Spirit", H: "Drought"},
+		abilities: {0: "Infiltrator", H: "Drought"},
 	},
 	houndoommega: {
 		inherit: true,
@@ -941,7 +941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Houndour",
 		types: ["Dark", "Fire"],
 		baseStats: {hp: 45, atk: 60, def: 30, spa: 80, spd: 50, spe: 65},
-		abilities: {0: "Vital Spirit", H: "Drought"},
+		abilities: {0: "Infiltrator", H: "Drought"},
 	},
 	lileep: {
 		inherit: true,
