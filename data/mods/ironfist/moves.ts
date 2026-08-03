@@ -2319,7 +2319,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Brainrot Cudgel",
 		type: "Silly",
 		category: "Physical",
-		basePower: 80,
+		basePower: 70,
 		accuracy: 100,
 		pp: 10,
 		desc: "Always results in a critical hit.",
