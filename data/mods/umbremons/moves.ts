@@ -205,12 +205,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Badly Poisons all adjacent. User loses 100% max hp; 50% if Poison type.",
 		desc: "User loses 100% of its max HP to deal damage to all adjacent Pokemon, inflicting Toxic poison if applicable. If the user is Poison-type, lose 50% of its max HP instead.",
 	},
-	mistystep: {
+	miststep: {
 		num: -7,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Misty Step",
+		name: "Mist Step",
 		pp: 12,
 		noPPBoosts: true,
 		priority: 0,
