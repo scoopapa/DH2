@@ -155,7 +155,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion ? pokemon.illusion.getTypes(true) : pokemon.getTypes(true)).join('/'), '[silent]');
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion ? pokemon.illusion.getTypes() : pokemon.getTypes()).join('/'), '[silent]');
 		},
 	},
 };
