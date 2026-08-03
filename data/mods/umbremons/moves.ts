@@ -623,4 +623,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	firepledge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	waterpledge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grasspledge: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
