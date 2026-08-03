@@ -371,6 +371,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	matblock: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	// magic warp altered duration
 	magicroom: {
 		inherit: true,
