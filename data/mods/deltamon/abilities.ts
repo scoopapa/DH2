@@ -131,7 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "YOUR TAKING TOO LONG",
-		shortDesc: "Once this Pokemon has survived 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
+		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
 	},
 		
 	//copied from Berserk
@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves +10 Power (max 2 times).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 Power (max 2 times).",
 	},
 	
 	makeththerules: {
@@ -334,12 +334,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	amalgamation: {
-		onStart(pokemon, target) {
-			this.add('-start', pokemon, 'ability: Amalgamation');
+		onStart(pokemon) {
 			pokemon.addVolatile('amalgamation');
 		},
 		condition: {
 			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'ability: Amalgamation');
+			},
 			onAnyFaint(target) {
 				if (!this.effectState.target.hp) return;
 				const ability = target.getAbility();
@@ -454,9 +456,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lovingdances: {
 		onTryMove(pokemon, attacker, move) {
 			if (move.flags['dance'] && this.randomChance(1, 2)) {
-				for (const ally of pokemon.alliesAndSelf()) {
+				for (const ally of attacker.alliesAndSelf()) {
 					if (ally.status) {
-						this.add('-activate', pokemon, 'ability: Loving Dances');
+						this.add('-activate', attacker, 'ability: Loving Dances');
 						ally.cureStatus();
 					}
 				}	
@@ -488,7 +490,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fast Food",
-		shortDesc: "Twice per battle, user and allies heal 15% of their max HP. Counts as eating a berry. User's Speed is boosted by 1.",
+		shortDesc: "Twice per battle, user + ally heal 15% of their max HP. Counts as eating a berry. User's Speed +1.",
 	},
 	
 	swordplay: {
