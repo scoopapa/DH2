@@ -1310,8 +1310,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 120,
 			effect(target, source, move) {
-				source.side.removeFishingTokens(1);
-				target.side.removeFishingTokens(1);
+				source.side.removeFishingTokens(3);
+				target.side.removeFishingTokens(3);
 			},
 		},
 		onModifySpAPriority: 1,
