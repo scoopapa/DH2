@@ -356,6 +356,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 0,
 	},
+	laxincense: {
+		inherit: true,
+		rating: 0,
+	},	
+	liechiberry: {
+		inherit: true,
+		rating: 0,
+	},
 	lightclay: {
 		inherit: true,
 		rating: 0,
