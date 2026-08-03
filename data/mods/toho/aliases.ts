@@ -41,6 +41,7 @@ export const Aliases: {[alias: string]: string} = {
 	yukarin: "Yukari Yakumo",
 	gap: "Yukari Yakumo",
 	sukima: "Yukari Yakumo",
+	"17": "Yukari Yakumo",
 	//iamp
 	suika: "Suika Ibuki",
 	ibuki: "Suika Ibuki",
@@ -85,6 +86,12 @@ export const Aliases: {[alias: string]: string} = {
 	shikieiki: "Eiki Shiki",
 	yama: "Eiki Shiki",
 	yamaxanadu: "Eiki Shiki",
+	//ssib
+	toyo: "Watatsuki no Toyohime",
+	toyohime: "Watatsuki no Toyohime",
+	yori: "Watatsuki no Yorihime",
+	yorihime: "Watatsuki no Yorihime",
+	
 	//mof
 	shizuha: "Shizuha Aki",
 	minoriko: "Minoriko Aki",
@@ -146,6 +153,55 @@ export const Aliases: {[alias: string]: string} = {
 	lunar: "Luna Child",
 	star: "Star Sapphire",
 	//td
+	kyouko: "Kyouko Kasodani",
+	yoshika: "Yoshika Miyako",
+	seiga: "Seiga Kaku",
+	sega: "Seiga Kaku",
+	nyannyan: "Seiga Kaku",
+	tojiko: "Soga no Tojiko",
+	soga: "Soga no Tojiko",
+	mononobe: "Mononobe no Futo",
+	futo: "Mononobe no Futo",
+	miko: "Toyosatomimi no Miko",
+	taishi: "Toyosatomimi no Miko",
+	shotoku: "Toyosatomimi no Miko",
+	mami: "Mamizou Futatsuiwa",
+	mamizou: "Mamizou Futatsuiwa",
+	//hm
+	kasen: "Kasen Ibaraki",
+	hata: "Hata no Kokoro",
+	kokoro: "Hata no Kokoro",
+	//ddc
+	wakasagi: "Wakasagihime",
+	fish: "Wakasagihime",
+	banki: "Sekibanki",
+	kagerou: "Kagerou Imaizumi",
+	benben: "Benben Tsukumo",
+	yatsuhashi: "Yatsuhashi Tsukumo",
+	notbenben: "Yatsuhashi Tsukumo",
+	seija: "Seija Kijin",
+	shinmy: "Shinmyoumaru Sukuna",
+	shinmyoumaru: "Shinmyoumaru Sukuna",
+	sukuna: "Shinmyoumaru Sukuna",
+	raiko: "Raiko Horikawa",
+	//ulil
+	sumi: "Sumireko Usami",
+	sumireko: "Sumireko Usami",
+	//lolk
+	doremy: "Doremy Sweet",
+	sagume: "Sagume Kishin",
+	clown: "Clownpiece",
+	clownpin: "Clownpiece",
+	piece: "Clownpiece",
+	hecatia: "Hecatia-Otherworld",
+	hecate: "Hecatia-Otherworld",
+	otherworld: "Hecatia-Otherworld",
+	earth: "Hecatia-Earth",
+	moon: "Hecatia-Moon",
+	//aocf
+	joon: "Joon Yorigami",
+	shion: "Shion Yorigami",
+	//hsifs
 	
 	
 };
