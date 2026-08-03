@@ -310,8 +310,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		modded: true, // this makes its description display in Data Mod
 		basePower: 20,
 		category: "Special",
-		pp: 12,
-		noPPBoosts: true,
+		pp: 7.5, // noPPBoosts is getting ignored fsr, so this is working with standard rules
+		// noPPBoosts: true,
 		priority: 2,
 		flags: {contact: 1, mirror: 1, noassist: 1, failcopycat: 1},
 		breaksProtect: true,
@@ -366,7 +366,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		modded: true,
 		pp: 7.5, // noPPBoosts is getting ignored fsr, so this is working with standard rules
-		noPPBoosts: true,
+		// noPPBoosts: true,
 		isNonstandard: null,
 	},
 	thunderclap: {
