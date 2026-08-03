@@ -718,7 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gerson",
 		types: ["Ground"],
 		gender: "M",
-		baseStats: {hp: 90, atk: 90, def: 105, spa: 60, spd: 90, spe: 35},
+		baseStats: {hp: 80, atk: 85, def: 105, spa: 60, spd: 90, spe: 35},
 		abilities: {0: "Shell Armor", H: "Justified"},
 		weightkg: 150,
 		otherFormes: ["Gerson-Mega"],
@@ -731,7 +731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Ground", "Steel"],
 		gender: "M",
-		baseStats: {hp: 90, atk: 95, def: 105, spa: 75, spd: 95, spe: 110},
+		baseStats: {hp: 80, atk: 90, def: 105, spa: 75, spd: 95, spe: 110},
 		abilities: {0: "Mold Breaker"},
 		weightkg: 250,
 		requiredItem: "Gersonite"
@@ -1043,6 +1043,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 40, spa: 45, spd: 30, spe: 75},
 		abilities: {0: "Defiant", H: "Minds Eye"},
 		weightkg: 35,
+		evos: ["Astigmatism"],
 	},
 	astigmatism: {
 		num: -104,
@@ -1051,6 +1052,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 60, spa: 85, spd: 70, spe: 100},
 		abilities: {0: "Defiant", H: "Minds Eye"},
 		weightkg: 54,
+		prevo: "Loox",
+		evoLevel: 36,
 	},
 	migosp: {
 		num: -105,
@@ -1059,6 +1062,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 65, def: 40, spa: 50, spd: 45, spe: 50},
 		abilities: {0: "Swarm", H: "Prankster"},
 		weightkg: 12,
+		evos: ["Migospel"],
 	},
 	migospel: {
 		num: -106,
@@ -1067,6 +1071,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 60, spa: 85, spd: 70, spe: 95},
 		abilities: {0: "Swarm", H: "Prankster"},
 		weightkg: 35,
+		prevo: "Migosp",
+		evoLevel: 32,
 	},
 	vegetoid: {
 		num: -107,
@@ -1075,6 +1081,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 45, def: 50, spa: 65, spd: 60, spe: 50},
 		abilities: {0: "Chlorophyll", 1: "Harvest", H: "Leaf Guard"},
 		weightkg: 13.6,
+		evos: ["Parsnik"],
 	},
 	parsnik: {
 		num: -108,
@@ -1083,6 +1090,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 65, def: 73, spa: 115, spd: 87, spe: 80},
 		abilities: {0: "Chlorophyll", 1: "Harvest", H: "Unnerve"},
 		weightkg: 81.3,
+		prevo: "Vegetoid",
+		evoLevel: 36,
 	},
 	napstablook: {
 		num: -109,

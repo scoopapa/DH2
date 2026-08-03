@@ -13,7 +13,7 @@ export const Formats: FormatData[] = [
 		bestOfDefault: true,
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Moves Clause', '!Species Clause'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
-			'Last Respects', 'Shed Tail', 'Ceruledge', 'Raging Bolt'],
+			'Last Respects', 'Shed Tail', 'Ceruledge', 'Raging Bolt', 'Kingambit'],
 		unbanlist: ['All Pokemon', 'Regieleki'],
 		onValidateTeam(team, format, teamHas) {
 			if (team.length > 3) return [`You cannot bring more than 3 Pokemon.`];

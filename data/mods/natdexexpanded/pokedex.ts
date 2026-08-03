@@ -130,10 +130,10 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		otherFormes: ["Tyranitar-Mega", "Tyranitar-Mega-I"],
 		formeOrder: ["Tyranitar", "Tyranitar-Mega", "Tyranitar-Mega-I"],
 	},
-	tyrantitarmegai: {
+	tyranitarmegai: {
 		num: 248,
-		name: "Tyrantitar-Mega-I",
-		baseSpecies: "Tyrantitar",
+		name: "Tyranitar-Mega-I",
+		baseSpecies: "Tyranitar",
 		forme: "Mega-I",
 		types: ["Ice", "Dark"],
 		baseStats: { hp: 100, atk: 95, def: 120, spa: 164, spd: 150, spe: 71 },
@@ -141,7 +141,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 202,
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Tyranitarite I",
-		battleOnly: "Tyrantitar",
+		battleOnly: "Tyranitar",
 	},
 	flygon: {
 		inherit: true,
@@ -399,8 +399,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	},
 	victini: {
 		inherit: true,
-		otherFormes: ["Victini-Mega"],
-		formeOrder: ["Victini", "Victini-Mega"],
+		otherFormes: ["Victini-Perfected"],
+		formeOrder: ["Victini", "Victini-Perfected"],
 	},
 	victiniperfected: {
 		num: 494,
