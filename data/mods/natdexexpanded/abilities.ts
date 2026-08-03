@@ -70,6 +70,20 @@ export const Abilities: import("../../../sim/dex-abilities").ModdedAbilityDataTa
 			}
 		},
 	},
+	purifyingwater: {
+		name: "Purifying Water",
+		shortDesc: "On switch-in, heals party's status conditions.",
+		onSwitchIn(pokemon) {
+			this.add('-activate', pokemon, 'ability: Purifying Water');
+			let success = false;
+			const allies = [...pokemon.side.pokemon, ...pokemon.side.allySide?.pokemon || []];
+			for (const ally of allies) {
+				if (ally !== pokemon) continue;
+				if (ally.cureStatus()) success = true;
+			}
+			return success;
+		},
+	},
 	naturalmedicine: {
 		name: "Natural Medicine",
 		shortDesc: "Regenerator + This Pokemon's ally: +25% max HP on switch-in.",
@@ -190,14 +204,14 @@ export const Abilities: import("../../../sim/dex-abilities").ModdedAbilityDataTa
 		name: "Magnet Attraction",
 		shortDesc: "Magnet Pull + +1 Priority against Steel types.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.types.includes('Steel') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
 			if (!source || !pokemon.isAdjacent(source)) return;
-			if (!pokemon.knownType || pokemon.hasType('Steel')) {
+			if (!pokemon.knownType || pokemon.types.includes('Steel')) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -400,8 +414,8 @@ export const Abilities: import("../../../sim/dex-abilities").ModdedAbilityDataTa
 	multirole: {
 		name: "Multirole",
 		shortDesc: "Attacks by this Pokemon use the Pokemon's highest stat to attack.",
-		onTryMove(source, target, move) {
-			move.overrideOffensiveStat === source.getBestStat(false, false);
+		onModifyMove(move, pokemon, target) {
+			move.overrideOffensiveStat === pokemon.getBestStat(false, false);
 		},
 	},
 	goldfinger: {
