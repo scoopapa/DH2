@@ -242,7 +242,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mach Punch", target);
-			this.add('-anim', source, "Mega Punch", source);
+			this.add('-anim', target, "Mega Punch", target);
 		},
 		volatileStatus: 'helpinghand',
 		secondary: null,
@@ -265,7 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunderclap", target);
-			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', target, "Nasty Plot", target);
 		},
 		volatileStatus: 'helpinghand',
 		secondary: null,
