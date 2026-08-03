@@ -87,6 +87,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.side.addSlotCondition(pokemon, 'wish');
 			}
 		},
+		rating: 3,
 	},
 	// Item Adjustments
 	assaultvest: {
