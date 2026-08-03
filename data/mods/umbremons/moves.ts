@@ -306,6 +306,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astonish: {
 		inherit: true,
+		isNonstandard: null,
 		modded: true, // this makes its description display in Data Mod
 		basePower: 20,
 		category: "Special",
@@ -363,7 +364,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	skydrop: {
 		inherit: true,
-		pp: 12,
+		modded: true,
+		pp: 7.5, // noPPBoosts is getting ignored fsr, so this is working with standard rules
 		noPPBoosts: true,
 		isNonstandard: null,
 	},
