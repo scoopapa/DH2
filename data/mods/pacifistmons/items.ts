@@ -15,6 +15,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	gripclaw: {
 		inherit: true,
+		rating: 3,
 		shortDesc: "Holder's trapping moves last 4 turns instead of 2.",
 		fling: {
 			effect(target, source, move) {
@@ -26,6 +27,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	spelltag: {
 		inherit: true,
+		rating: 3,
 		shortDesc: "Holder is treated as a Ghost-type when using Curse.",
 		onBasePower: null,
 		fling: {
@@ -37,6 +39,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	stunseed: {
 		name: "Stun Seed",
+		rating: 3,
 		shortDesc: "Opponent is inflicted with Stun if the holder faints.",
 		fling: {
 			volatileStatus: "stun",
@@ -49,12 +52,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	fullincense: {
 		inherit: true,
+		rating: 2,
 		fling: {
 			status: 'slp',
 		},
 	},
 	nevermeltice: {
 		inherit: true,
+		rating: 3,
 		shortDesc: "Holder is immune to Taunt if it is Ice-type.",
 		fling: {
 			status: 'frz',
@@ -65,6 +70,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	energyroot: {
 		name: "Energy Root",
+		rating: 2,
 		shortDesc: "Restores 1/2 max HP if at 1/2 max HP or less, but purifies the user.",
 		fling: {
 			status: 'pur',
@@ -91,5 +97,39 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem(item, source) {
 			return source.baseSpecies.baseSpecies !== 'Zygarde';
 		},
+	},
+
+	//Bad
+	berryjuice: {
+		inherit: true,
+		rating: 0,
+	},
+	choicescarf: {
+		inherit: true,
+		rating: 0,
+	},
+	choicespecs: {
+		inherit: true,
+		rating: 0,
+	},
+	flyinggem: {
+		inherit: true,
+		rating: 0,
+	},
+	focussash: {
+		inherit: true,
+		rating: 0,
+	},
+	lifeorb: {
+		inherit: true,
+		rating: 0,
+	},
+	powerherb: {
+		inherit: true,
+		rating: 0,
+	},
+	rockyhelmet: {
+		inherit: true,
+		rating: 2,
 	},
 }
