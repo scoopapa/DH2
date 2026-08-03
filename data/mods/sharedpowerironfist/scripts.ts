@@ -75,6 +75,18 @@ export const Scripts: ModdedBattleScriptsData = {
 				return 'acidrain' as ID;
 			}
 			return weather;
-		}
+		},
+		recalcStats(this: Pokemon) {
+			const set = this.set;
+			const nature = this.battle.dex.natures.get(set.nature);
+			for (const statName of ['atk', 'def', 'spa', 'spd', 'spe'] as const) {
+				let value = Math.trunc(Math.trunc(
+					2 * this.baseSpecies.baseStats[statName] + set.ivs[statName] + Math.trunc(set.evs[statName] / 4)
+				) * this.level / 100 + 5);
+				if (nature.plus === statName) value = Math.trunc(value * 1.1);
+				else if (nature.minus === statName) value = Math.trunc(value * 0.9);
+				this.storedStats[statName] = value;
+			}
+		},
 	},
 };
