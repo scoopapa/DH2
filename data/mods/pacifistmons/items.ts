@@ -276,10 +276,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 0,
 	},
-	fightinggem: {
-		inherit: true,
-		rating: 0,
-	},
 	flameplate: {
 		inherit: true,
 		rating: 0,
@@ -301,10 +297,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 0,
 	},
 	goldberry: {
-		inherit: true,
-		rating: 0,
-	},
-	grassgem: {
 		inherit: true,
 		rating: 0,
 	},
