@@ -116,6 +116,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//Bad
+	assaultvest: {
+		inherit: true,
+		rating: 1,
+	},
 	berryjuice: {
 		inherit: true,
 		rating: 0,
