@@ -470,8 +470,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		// // SLATE 3
 
 		// species adjustments
-		addMove(['encore', 'grasspledge', 'uturn'], 'simisage');
-		addMove(['encore', 'firepledge', 'partingshot'], 'simisear');
+		addMove(['encore', 'grasspledge', 'partingshot'], 'simisage');
+		addMove(['encore', 'firepledge', 'uturn'], 'simisear');
 		addMove(['encore', 'waterpledge'], 'simipour');
 		addMove('terrainpulse', 'chandelure');
 		addMove('fakeout', 'luxray');
@@ -479,8 +479,8 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// move adjustments
 		addMove('skydrop', ['aerodactyl', 'charizard', 'dragonite', 'hawlucha', 'pelipper', 'skarmory', 'corviknight', 'gliscor', 'pidgeot', 'toucannon', 'talonflame', 'decidueye', 'hisuian decidueye', 'gyarados']);
-		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon']);
-		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak']);
+		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon', 'castform', 'drampa']);
+		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak', 'sceptile']);
 		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbro-galar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
 		addMove('mistystep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
 		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommo-o', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
