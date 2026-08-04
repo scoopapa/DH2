@@ -465,7 +465,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wrap: ["9L1"],
 			acidspray: ["9L1"],
 			chillingwater: ["9L1"],
-			earthquake: ["9L1"],
 			leechlife: ["9L1"],
 			muddywater: ["9L1"],
 			stickyweb: ["9L1"],
