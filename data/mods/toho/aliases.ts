@@ -91,7 +91,6 @@ export const Aliases: {[alias: string]: string} = {
 	toyohime: "Watatsuki no Toyohime",
 	yori: "Watatsuki no Yorihime",
 	yorihime: "Watatsuki no Yorihime",
-	
 	//mof
 	shizuha: "Shizuha Aki",
 	minoriko: "Minoriko Aki",
@@ -202,6 +201,55 @@ export const Aliases: {[alias: string]: string} = {
 	joon: "Joon Yorigami",
 	shion: "Shion Yorigami",
 	//hsifs
-	
-	
+	eternity: "Eternity Larva",
+	etarnity: "Eternity Larva",
+	larva: "Eternity Larva",
+	narumi: "Narumi Yatadera",
+	naruko: "Narumi Yatadera",
+	aunn: "Aunn Komano",
+	nemuno: "Nemuno Sakata",
+	mai: "Mai Teireida",
+	satono: "Satono Nishida",
+	okina: "Okina Matara",
+	//wbawc
+	eika: "Eika Ebisu",
+	ebisu: "Eika Ebisu",
+	urumi: "Urumi Ushizaki",
+	kutaka: "Kutaka Niwatari",
+	chicken: "Kutaka Niwatari",
+	yachie: "Yachie Kicchou",
+	mayumi: "Mayumi Joutouguu",
+	keiki: "Keiki Hinayasushin",
+	saki: "Saki Kurokuma",
+	//sfw
+	yuuma: "Yuuma Toutetsu",
+	//um
+	mike: "Mike Gotoukuji",
+	michael: "Mike Gotoukuji",
+	takane: "Takane Yamashiro",
+	sannyo: "Sannyo Komakusa",
+	sanyo: "Sannyo Komakusa",
+	misumaru: "Misumaru Tamatsukuri",
+	tsukasa: "Tsukasa Kudamaki",
+	fox: "Tsukasa Kudamaki",
+	megumu: "Megumu Iizunamaru",
+	megu: "Megumu Iizunamaru",
+	chimata: "Chimata Tenkyuu",
+	tenkyuu: "Chimata Tenkyuu",
+	tenkyu: "Chimata Tenkyuu",
+	momoyo: "Momoyo Himemushi",
+	//udoalg
+	biten: "Son Biten",
+	goku: "Son Biten",
+	enoko: "Enoko Mitsugashira",
+	chiyari: "Chiyari Tenkajin",
+	hisami: "Hisami Yomotsu",
+	zanmu: "Zanmu Nippaku",
+	//fw
+	ubame: "Ubame Chirizuka",
+	chimi: "Chimi Houjuu",
+	nareko: "Nareko Michigami",
+	yuiman: "Yuiman Asama",
+	ariya: "Ariya Iwanaga",
+	nina: "Nina Watari",
 };
