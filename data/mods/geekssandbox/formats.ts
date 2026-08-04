@@ -2,7 +2,7 @@ import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
-	name: "[Gen 9} Geek's Sandbox",
+	name: "[Gen 9] Geek's Sandbox",
 		mod: 'geekssandbox',
 		desc: `My personal solomod for all my whacky ideas.`,
 		ruleset: ['Standard NatDex', 'Data Mod'],

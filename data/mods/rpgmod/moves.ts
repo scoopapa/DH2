@@ -280,7 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		shortDesc: "Moves used on user's side is 1.1x power.",
+		shortDesc: "For 4 Turns, moves used on user's side have 1.1x power.",
 	},
 	crescentarc: {
 		num: 2011,
@@ -487,7 +487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Poison",
 		contestType: "Cute",
 		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
