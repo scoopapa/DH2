@@ -1261,21 +1261,32 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		spritenum: 119,
 		rating: 3,
 	},
-	dreamcatcher: { // WIP, doesn't work currently
-		name: "Dream Catcher",
-		fling: {
-			basePower: 60,
-		},
-		onOverrideAction(pokemon, target, move) {
-			if (pokemon.status === 'slp') {
-				this.add('-activate', pokemon, 'item: Dream Catcher');
-				return this.dex.getActiveMove('sleeptalk');
-			}
-		},
-		num: -20,
-		gen: 9,
-		shortDesc: "Bugged; do not use in PMPL!",
-	},
+	dreamcatcher: { 
+        	name: "Dream Catcher",
+        	fling: {
+            	basePower: 60,
+        	},
+        	onOverrideAction(pokemon, target, move) {
+            		if (pokemon.status !== 'slp' || pokemon.statusState.time <= (pokemon.hasAbility('earlybird') ? 2 : 1)) return;
+           	 	if (!move || move.sleepUsable || !pokemon || !pokemon.hp) return; 
+            		const moves = [];
+            		for (const moveSlot of pokemon.moveSlots) {
+                		const moveid = moveSlot.id;
+               			const move = this.dex.moves.get(moveid);
+                		const cantUse = ['dragontail', 'whirlwind', 'circlethrow', 'roar', 'mountaingale', 'fairywind', 'rockthrow'];
+                		if (move.flags['nosleeptalk'] || move.flags['charge'] || (move.isZ && move.basePower !== 1) || move.isMax 					|| cantUse.includes(moveid)) continue;
+                    		moves.push(moveid);
+            		}
+           	 let randomMove = '';
+           	 if (moves.length) randomMove = this.sample(moves);
+           	 if (!randomMove) return false;
+           	 this.add('-message', `${pokemon.name} used a random move with its Dream Catcher!`);
+           	 this.actions.useMove(randomMove, this.effectState.target);
+        	},
+        	num: -20,
+        	gen: 9,
+        	shortDesc: "Holder uses random known move when asleep, not including phazing.",
+    	}, 
 	greniniumz: {
 		name: "Greninium Z",
 		spritenum: 652,
