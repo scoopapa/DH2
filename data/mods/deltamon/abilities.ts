@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "Constricting Darkness",
-		shortDesc: "Pokemon without this ability have 0.75x Special Attack. User's Dark-type attacks: 1.3x Power.",
+		shortDesc: "Pokemon without this ability have 0.75x Sp. Attack. User's Dark-type attacks: 1.3x Power.",
 	},
 	
 	yourtakingtoolong: {
