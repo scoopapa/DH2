@@ -280,7 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		shortDesc: "Moves used on user's side is 1.1x power.",
+		shortDesc: "For 4 Turns, moves used on user's side have 1.1x power.",
 	},
 	crescentarc: {
 		num: 2011,
@@ -487,9 +487,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Poison",
 		contestType: "Cute",
 		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
+	},
+	selfrepairing: {
+		num: -6,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Self-Repairing",
+		pp: 10,
+		priority: 0,
+		flags: { snatch: 1, heal: 1, bypasssub: 1 },
+		heal: [1, 3],
+		self: {
+			volatileStatus: 'selfrepairing',
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Self-Repairing');
+			},
+			onAfterMoveSecondarySelfPriority: -1,
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (move.category === 'Status' && move.id !== 'selfrepairing') {
+					this.heal(pokemon.baseMaxhp / 4);
+					pokemon.removeVolatile('selfrepairing');
+				}
+			},
+		},
+		onBeforeMovePriority: 100,
+		onBeforeMove(pokemon) {
+			this.debug('removing Self Repairing before attack');
+			pokemon.removeVolatile('selfrepairing');
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Shift Gear", source);
+			this.add('-anim', source, "Recover", source);
+		},
+		rating: 3,
+		desc: "Heals 33% of HP. When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
+		shortDesc: "Heals 1/3 max HP; 1/4 extra after status move.",
+		secondary: null,
+		target: "allies",
+		type: "Steel",
 	},
 };

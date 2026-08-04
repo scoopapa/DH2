@@ -1039,7 +1039,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		types: ["Fairy", "Flying"],
 		genderRatio: { M: 0.25, F: 0.75 },
 		baseStats: { hp: 95, atk: 80, def: 93, spa: 135, spd: 110, spe: 70 },
-		abilities: { 0: "Cute Charm", 1: "Magic Guard", H: "Unaware" },
+		abilities: {0: "Magic Bounce"},
 		heightm: 1.7,
 		weightkg: 42.3,
 		color: "Pink",

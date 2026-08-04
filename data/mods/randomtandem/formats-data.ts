@@ -1,96 +1,102 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+// @ts-expect-error resolved on build
+export const FormatsData: {[speciesid: IDEntry]: ModdedSpeciesFormatsData} = {
 	garchomp: {
-		tier: "Random",
+		tier: "Head",
 	},
 	slitherwing: {
-		tier: "Random",
+		tier: "Head",
 	},
 	slowking: {
-		tier: "Random",
+		tier: "Head",
 	},
 	cobalion: {
-		tier: "Random",
+		tier: "Head",
 	},
 	keldeo: {
-		tier: "Random",
+		tier: "Head",
 	},
 	tsareena: {
-		tier: "Random",
+		tier: "Head",
 	},
 	zapdos: {
-		tier: "Random",
+		tier: "Head",
 	},
 	landorustherian: {
-		tier: "Random",
+		tier: "Head",
 	},
 	ironjugulis: {
-		tier: "Random",
+		tier: "Head",
 	},
 	sinistcha: {
-		tier: "Random",
+		tier: "Head",
 	},
 	azumarill: {
-		tier: "Random",
+		tier: "Head",
 	},
 	revavroom: {
-		tier: "Random",
+		tier: "Head",
 	},
 	heatran: {
-		tier: "Random",
+		tier: "Head",
 	},
 	indeedee: {
-		tier: "Random",
+		tier: "Head",
 	},
 	weavile: {
-		tier: "Random",
+		tier: "Head",
 	},
 	fezandipiti: {
-		tier: "Random",
+		tier: "Head",
 	},
 	skarmory: {
-		tier: "Random",
+		tier: "Head",
 	},
 	clefable: {
-		tier: "Random",
+		tier: "Head",
 	},
 	ogerpon: {
-		tier: "Random",
+		tier: "Head",
 	},
 	pecharunt: {
-		tier: "Random",
+		tier: "Head",
 	},
 	moltres: {
-		tier: "Random",
+		tier: "Head",
 	},
 	arcaninehisui: {
-		tier: "Random",
+		tier: "Head",
 	},
 	ironboulder: {
-		tier: "Random",
+		tier: "Head",
 	},
 	tinglu: {
-		tier: "Random",
+		tier: "Head",
 	},
 	dondozo: {
-		tier: "Random",
+		tier: "Head",
 	},
 	hoopaunbound: {
-		tier: "Random",
+		tier: "Head",
 	},
 	kingambit: {
-		tier: "Random",
+		tier: "Head",
 	},
 	quaquaval: {
-		tier: "Random",
+		tier: "Head",
 	},
 	corviknight: {
-		tier: "Random",
+		tier: "Head",
 	},
 	brambleghast: {
-		tier: "Random",
+		tier: "Head",
 	},
 	hatterene: {
-		tier: "Random",
+		tier: "Head",
 	},
-
+	cyclizar: {
+		tier: "Head",
+	},
+	excadrill: {
+		tier: "Head",
+	},
 };

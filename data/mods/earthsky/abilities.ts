@@ -199,9 +199,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 1004,
 	},
-	irresistable: {
+	irresistible: {
 		// Implemented in moves.ts as edit to the attract condition
-		name: "Irresistable",
+		name: "Irresistible",
 		desc: "This Pokemon can cause other Pokemon to become attracted to it even if they are the same gender as it or are genderless. Pokemon with the Ability Oblivious are still immune to attraction.",
 		shortDesc: "Attraction works regardless of gender. Oblivious is unaffected.",
         flags: {},
