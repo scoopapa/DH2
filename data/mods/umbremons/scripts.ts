@@ -481,9 +481,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove('skydrop', ['aerodactyl', 'charizard', 'dragonite', 'hawlucha', 'pelipper', 'skarmory', 'corviknight', 'gliscor', 'pidgeot', 'toucannon', 'talonflame', 'decidueye', 'decidueyehisui', 'gyarados']);
 		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon', 'castform', 'drampa']);
 		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak', 'sceptile']);
-		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbro-galar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
+		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbrogalar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
 		addMove('mistystep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
-		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommo-o', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
-		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichu-alola']);
+		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommoo', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
+		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichualola']);
 	},
 };
