@@ -1328,7 +1328,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	lunchly: {
 		name: "Lunchly",
-		shortDesc: "Holder heals 15% at turn end for first 3 turns, then attempts to poison.",
+		shortDesc: "Holder heals 10% at turn end for first 3 turns, then attempts to poison.",
 		fling: {
 			basePower: 30,
 			status: 'psn',
@@ -1336,7 +1336,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.activeTurns < 3) this.heal(pokemon.baseMaxhp * 0.15);
+			if (pokemon.activeTurns < 3) this.heal(pokemon.baseMaxhp * 0.1);
 			else pokemon.trySetStatus('psn', pokemon);
 		},
 	},
@@ -1445,7 +1445,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	'ironfistslate13': {
 		name: "Iron Fist Slate 13",
-		shortDesc: "On switch-in, starts Slate 13. Also boosts damage by x1.3. Announces itself when used.",
+		shortDesc: "On switch-in, starts Slate 13. Also boosts damage by x1.1. Announces itself when used.",
 		fling: {
 			basePower: 13,
 			effect(target, source, move) {
@@ -1456,7 +1456,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.add('-message', `${pokemon.name} started slate 13 or something idfk`);
 		},
 		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([5324, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 	},
 	lemonganite: {

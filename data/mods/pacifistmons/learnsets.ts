@@ -2029,7 +2029,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			willowisp: ["9L1"],
 		},
 	},
-	karrablast: {
+	shelmet: {
 		learnset: {
 			batonpass: ["9L1"],
 			curse: ["9L1"],
@@ -2203,7 +2203,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			snowscape: ["9L1"],
 			spikes: ["9L1"],
 			substitute: ["9L1"],
-			toxic: ["9L1"],
 			yawn: ["9L1"],
 		},
 	},

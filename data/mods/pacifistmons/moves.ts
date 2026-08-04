@@ -318,6 +318,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	sheercold: {
 		inherit: true,
+		shortDesc: "Freezes the target.",
 		accuracy: 100,
 		pp: 15,
 		status: 'frz',
@@ -347,7 +348,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		status: null,
 		volatileStatus: 'yawn',
 	},
-	
+	lovelykiss: {
+		inherit: true,
+		accuracy: 100,
+	},
+
 	toxic: {
 		inherit: true,
 		pp: 5,
@@ -565,6 +570,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "Stuns the target.",
 		basePower: 0,
+		accuracy: 100,
 		category: "Status",
 		volatileStatus: "stun",
 		flags: { protect: 1, mirror: 1},
