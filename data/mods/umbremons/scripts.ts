@@ -482,7 +482,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove('thunderclap', ['bellibolt', 'eelektross', 'luxray', 'jolteon', 'castform', 'drampa']);
 		addMove('matblock', ['greninja', 'blaziken', 'beedrill', 'arbok', 'conkeldurr', 'palafin', 'medicham', 'malamar', 'toxicroak', 'sceptile']);
 		addMove('cardiotoxin', ['victreebel', 'vivillon', 'scolipede', 'ariados', 'slowbrogalar', 'arbok', 'dragalge', 'houndoom', 'umbreon', 'spiritomb', 'beedrill', 'zoroark', 'alcremie']);
-		addMove('mistystep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
+		addMove('miststep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
 		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommoo', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
 		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichualola']);
 	},

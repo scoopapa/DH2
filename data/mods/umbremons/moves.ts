@@ -205,12 +205,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Badly Poisons all adjacent. User loses 100% max hp; 50% if Poison type.",
 		desc: "User loses 100% of its max HP to deal damage to all adjacent Pokemon, inflicting Toxic poison if applicable. If the user is Poison-type, lose 50% of its max HP instead.",
 	},
-	mistystep: {
+	miststep: {
 		num: -7,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Misty Step",
+		name: "Mist Step",
 		pp: 12,
 		noPPBoosts: true,
 		priority: 0,
@@ -242,7 +242,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mach Punch", target);
-			this.add('-anim', source, "Mega Punch", source);
+			this.add('-anim', target, "Mega Punch", target);
 		},
 		volatileStatus: 'helpinghand',
 		secondary: null,
@@ -265,7 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunderclap", target);
-			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', target, "Nasty Plot", target);
 		},
 		volatileStatus: 'helpinghand',
 		secondary: null,
@@ -306,11 +306,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	astonish: {
 		inherit: true,
+		isNonstandard: null,
 		modded: true, // this makes its description display in Data Mod
 		basePower: 20,
 		category: "Special",
-		pp: 12,
-		noPPBoosts: true,
+		pp: 7.5, // noPPBoosts is getting ignored fsr, so this is working with standard rules
+		// noPPBoosts: true,
 		priority: 2,
 		flags: {contact: 1, mirror: 1, noassist: 1, failcopycat: 1},
 		breaksProtect: true,
@@ -363,11 +364,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	skydrop: {
 		inherit: true,
-		pp: 12,
-		noPPBoosts: true,
+		modded: true,
+		pp: 7.5, // noPPBoosts is getting ignored fsr, so this is working with standard rules
+		// noPPBoosts: true,
 		isNonstandard: null,
 	},
 	thunderclap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	matblock: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -622,5 +628,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'Misty Terrain');
 			},
 		},
+	},
+	firepledge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	waterpledge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grasspledge: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

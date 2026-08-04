@@ -77,7 +77,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	wishbone: {
 		name: "Wishbone",
-		shortDesc: "When holder faints, sets a wish on its position. Single use.",
+		shortDesc: "When the holder faints, sets a wish on their position. Single use.",
 		fling: {
 			basePower: 80,
 		},
@@ -87,6 +87,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.side.addSlotCondition(pokemon, 'wish');
 			}
 		},
+		rating: 3,
 	},
 	// Item Adjustments
 	assaultvest: {
