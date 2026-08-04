@@ -690,5 +690,13 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	dusknoir: {
 		inherit: true,
 		abilities: { H: "Levitate", 0: "Frisk" },
+	},
+	latios: {
+		inherit: true,
+		abilities: { 0: "Magic Bounce", H: "Levitate"},
+	},
+	latias: {
+		inherit: true,
+		abilities: { 0: "Magic Guard", H: "Levitate"},
 	}
 };
