@@ -1157,6 +1157,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			pokemon.removeVolatile('gastroacid');
 			this.add('-item', pokemon, 'Parallel Mega Orb');
 			this.add('-message', `${pokemon.name} has kept it's original ability!`);
+			this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 		},
 		//onPreStart(pokemon) {
 		//	pokemon.addVolatile('gastroacid');
