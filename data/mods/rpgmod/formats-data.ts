@@ -2,90 +2,94 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	cloudstrife: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	ness: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	vivian: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	therion: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	docker: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	blossomaw: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	valere: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	crono: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	violet: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	spectraltoad: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	memmeth: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	frostfireefreet: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	alpha: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	eclyptor: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	nessla: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	felix: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	bronya: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	feifongwong: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	danheng: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	erik: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	floramancer: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
 	},
 	akira: {
 		tier: "Rpgmod",
-		doublesTier: "DOU",
+		doublesTier: "Rpgmod",
+	},
+	tinkerer: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
 	},
 };

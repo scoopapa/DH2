@@ -373,6 +373,12 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	readonly unbanlist: string[];
 	/** List of ruleset and banlist changes in a custom format. */
 	readonly customRules: string[] | null;
+	/**
+	* The teambuilder slice the client should respect.
+	* Can honor "OU", "Ubers", "AG", or "National Dex" for Natdex based mods,
+	* but is not typechecked nor server validated.
+	* */
+	readonly teambuilderFormat: string | null;
 	/** Table of rule names and banned effects. */
 	ruleTable: RuleTable | null;
 	/** An optional function that runs at the start of a battle. */
@@ -445,6 +451,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this.restricted = data.restricted || [];
 		this.unbanlist = data.unbanlist || [];
 		this.customRules = data.customRules || null;
+		this.teambuilderFormat = data.teambuilderFormat || null;
 		this.ruleTable = null;
 		this.onBegin = data.onBegin || undefined;
 		this.noLog = !!data.noLog;

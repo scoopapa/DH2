@@ -319,7 +319,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	excavate: {
 		accuracy: 90,
-		basePower: 55,
+		basePower: 65,
 		basePowerCallback(pokemon, target, move) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
@@ -349,7 +349,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Rock",
+		type: "Ground",
 		contestType: "Tough",
 	},
 	ironchomp: {

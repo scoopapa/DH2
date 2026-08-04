@@ -412,5 +412,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "aerodactyl").learnset.scaleshot = ["9L1"];
 		delete this.modData('Learnsets', 'aerodactyl').learnset.hurricane;
 		delete this.modData('Learnsets', 'aerodactyl').learnset.dragondance;
+		this.modData("Learnsets", "electrode").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.hardrock = ["9L1"];
+		delete this.modData('Learnsets', 'golem').learnset.toxic;
+		delete this.modData('Learnsets', 'geodude').learnset.toxic;
+		delete this.modData('Learnsets', 'graveler').learnset.toxic;
+		this.modData("Learnsets", "magneton").learnset.solarwind = ["9L1"];
+		this.modData("Learnsets", "magneton").learnset.aurorabeam = ["9L1"];
+		this.modData("Learnsets", "magneton").learnset.paraboliccharge = ["9L1"];
+		this.modData("Learnsets", "magneton").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "magneton").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "magneton").learnset.weatherball = ["9L1"];
 	},
 };

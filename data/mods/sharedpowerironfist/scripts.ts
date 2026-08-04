@@ -44,5 +44,49 @@ export const Scripts: ModdedBattleScriptsData = {
 				)
 			);
 		},
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball' || item === 'ironfist') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if (
+				(this.hasAbility('levitate') || 
+				this.hasAbility('impalpable')) && 
+				!this.battle.suppressingAbility(this)) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+		effectiveWeather(message?: string | boolean) {
+			const weather = this.battle.field.effectiveWeather();
+			switch (weather) {
+			case 'sunnyday':
+			case 'raindance':
+			case 'desolateland':
+			case 'primordialsea':
+				if (this.hasItem('utilityumbrella')) return '';
+			}
+			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
+			if (this.hasAbility('lemongasour') && weather !== 'acidrain') {
+				if (message) this.battle.add('-activate', this, 'ability: Lemonga Sour');
+				return 'acidrain' as ID;
+			}
+			return weather;
+		},
+		recalcStats(this: Pokemon) {
+			const set = this.set;
+			const nature = this.battle.dex.natures.get(set.nature);
+			for (const statName of ['atk', 'def', 'spa', 'spd', 'spe'] as const) {
+				let value = Math.trunc(Math.trunc(
+					2 * this.baseSpecies.baseStats[statName] + set.ivs[statName] + Math.trunc(set.evs[statName] / 4)
+				) * this.level / 100 + 5);
+				if (nature.plus === statName) value = Math.trunc(value * 1.1);
+				else if (nature.minus === statName) value = Math.trunc(value * 0.9);
+				this.storedStats[statName] = value;
+			}
+		},
 	},
 };

@@ -2673,6 +2673,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hydreigon').learnset.dragonrend = ['9M'];
 		this.modData('Learnsets', 'kommoo').learnset.dragonrend = ['9M'];
 		this.modData('Learnsets', 'kyurem').learnset.dragonrend = ['9M'];
+		this.modData('Learnsets', 'kyuremblack').learnset.dragonrend = ['9M'];
+		this.modData('Learnsets', 'kyuremwhite').learnset.dragonrend = ['9M'];
 		this.modData('Learnsets', 'latias').learnset.dragonrend = ['9M'];
 		this.modData('Learnsets', 'latios').learnset.dragonrend = ['9M'];
 		this.modData('Learnsets', 'necrozma').learnset.dragonrend = ['9M'];
@@ -3120,6 +3122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'pikachuunova').learnset.terrainpulse = ['9L1'];
 		this.modData('Learnsets', 'pikachukalos').learnset.terrainpulse = ['9L1'];
 		this.modData('Learnsets', 'pikachualola').learnset.terrainpulse = ['9L1'];
+		delete this.modData('Learnsets', 'pikachu').learnset.extremespeed;
 
 	}
 };

@@ -179,6 +179,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Jurassic Dust"},
 		tags: ["Paradox"],
 	},
+	electrode: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 65, def: 70, spa: 80, spd: 80, spe: 140},
+		abilities: {0: "Short Fuse", 1: "Static", H: "Aftermath"},
+	},
+	golem: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 130, def: 120, spa: 45, spd: 65, spe: 55},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Rolling Stone"},
+	},
 	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,
@@ -188,6 +198,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	magneton: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 55, def: 110, spa: 100, spd: 85, spe: 70},
+		abilities: {0: "Magnet Pull", 1: "Solar Power", H: "Drought"},
 		evos: [],
 	},
 	lickitung: {

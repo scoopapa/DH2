@@ -1,4 +1,71 @@
 export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
+	nightlight: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' || move.type === 'Dark') {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Night Light",
+		shortDesc: "Damage from Ghost- and Dark-type moves against this Pokemon is halved.",
+	},
+	webtrap: {
+		name: "Web Trap",
+		shortDesc: "Contact with this Pokémon inflicts Webbed. (Webbed Pokemon cannot pivot out.)",
+		onDamagingHit(damage, target, source, move) {
+			if (!move.flags['contact']) return;
+			if (source.volatiles['webbed']) return;
+
+			source.addVolatile('webbed');
+			this.add('-ability', target, 'Web Trap', '[silent]');
+		},
+	},
+	kinglymajesty: {
+		onDamage(damage, target, source, effect) {
+			if (target.hp - damage <= target.maxhp / 2 && target.hp > target.maxhp / 2) {
+				target.abilityState.activated = false;
+			} else {
+				target.abilityState.activated = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.abilityState.activated === false) {
+				pokemon.abilityState.activated = true;
+				pokemon.abilityState.priorityBoost = true;
+				this.add('-ability', pokemon, 'Kingly Majesty');
+            	this.add('-message', `${pokemon.name} demands reverence!`);
+			}
+		},
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (pokemon.abilityState.priorityBoost) {
+				pokemon.abilityState.priorityBoost = false;
+				return 0.1;
+			}
+		},
+		onStart(pokemon) {
+			// Explicitly clear any leftover boost when the ability (re)activates,
+			// e.g. on switch-in — ensures the boost never carries over between stints on the field.
+			pokemon.abilityState.priorityBoost = false;
+		},
+		flags: {},
+		name: "Kingly Majesty",
+		shortDesc: "When this Pokemon falls to 50%≤ of its max HP, its next move is first in its priority bracket.",
+
+	},
+	burnheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Burn Heal",
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no Atk loss.",
+		rating: 4,
+		num: -1002, // placeholder ID for custom content
+	},
 	soothingsong: {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
@@ -329,6 +396,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Mega Sol",
 		rating: 3,
 		num: 315,
+		shortDesc: "This Pokémon can use its moves as if the weather were harsh sunlight."
 		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
 	},
 	absolutezero: {
@@ -425,9 +493,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return this.chainModify(0.8);
 			}
 		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['slp'].includes(target.status)) return 5;
+		},
 		flags: {},
 		name: "Bewitching Tail",
-		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage.",
+		shortDesc: "Targeting drowsy foes: Spe 1.5x | From drowsy foes: 20% Less Damage. | Attacks are critical hits.",
 	},
 	biosynthesis: {
 		onSwitchIn(pokemon) {
@@ -801,6 +872,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Duke's Bayonet",
 		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
 	},
+	piercingdrill: {
+		onModifyMove(move) {
+			if (move.flags['contact']) {
+				delete move.flags['protect'];
+				(move as any).armorPiercer = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			// If the move was marked armorPiercer and the target is under Protect
+			if ((move as any).armorPiercer && move.flags?.contact && target.volatiles['protect']) {
+				this.debug('Duke\'s Bayonet: reduced damage to 25% through Protect');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {},
+		name: "Piercing Drill",
+		shortDesc: "Contact moves: Bypass Protect, deal 50% damage",
+	},
 	dulledblades: {
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
@@ -1036,12 +1125,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.adjacentFoes().some(foe => foe?.status === 'brn' || foe?.volatiles['blastblight'])) {
 				this.debug('Gravedrum Speed boost');
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['brn', 'blastblight'].includes(target.status)) return 5;
 		},
 		flags: {},
 		name: "Gravedrum",
-		shortDesc: "Speed doubled if any adjacent foe has BRN or Blast.",
+		shortDesc: "Speed is 1.5x if any adjacent foe has BRN/Blast. Attacks are criticial hits.",
 	},
 	heatsink: {
 		onTryHit(target, source, move) {
@@ -2391,6 +2483,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	/*
 	Edits
 	*/
+	firemane: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ironfist: {
 		inherit: true,
 		onModifyMove(move) {

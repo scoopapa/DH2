@@ -3485,7 +3485,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zygardecomplete: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	diancie: {
 		inherit: true,

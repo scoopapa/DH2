@@ -507,6 +507,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onAfterMoveSecondarySelf(pokemon, target, move) {
 				if (move.category === 'Status' && move.id !== 'selfrepairing') {
 					this.heal(pokemon.baseMaxhp / 4);
+					pokemon.removeVolatile('selfrepairing');
 				}
 			},
 		},
@@ -635,10 +636,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -1155,7 +1156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				let i: BoostID;
 				if (!target) return;
 				for (i in target.boosts) {
-					if (target.boosts[i] !== 0) hasBoost = true;
+					if (target.boosts[i] > 0) hasBoost = true;
 				}
 				if (hasBoost) {
 					target.trySetStatus('brn', source, move);
