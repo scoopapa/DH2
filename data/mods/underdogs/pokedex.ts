@@ -16,4 +16,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overgrow", H: "Stakeout"},
 		weightkg: 63,
 	},
+
+	iggloosby: {
+		num: 9002,
+		name: "Iggloosby",
+		types: ["Normal", "Ice"],
+		baseStats: {hp:95, atk:50, def:82, spa:101, spd:77, spe:78},
+		abilities: {0: "Snow Warning", 1: "Thick Fat", H: "Huge Power"},
+		weightkg: 45.8,
+	},
 };
