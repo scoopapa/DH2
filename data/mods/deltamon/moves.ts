@@ -717,7 +717,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Lunar Blessing", target);
+			this.add('-anim', pokemon, "Lunar Blessing", pokemon);
 			this.add('-anim', pokemon, "Hydro Pump", target);
 		},
 		secondary: null,
