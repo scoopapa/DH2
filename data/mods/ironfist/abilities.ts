@@ -2046,6 +2046,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.species.name !== 'Kanon' || pokemon.transformed) return;
 			if (pokemon.side.fishingTokens >= 19) {
+				pokemon.side.removeFishingTokens(pokemon.side.fishingTokens);
 				pokemon.formeChange('Kanon-Blue-Sea', this.effect, true);
 				this.boost({ atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
 			} else if (pokemon.side.fishingTokens >= 8) {
