@@ -295,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Beautiful",
-		shortDesc: "Hits all adjacennt opponents",
+		shortDesc: "Hits all adjacent opponents",
 	},
 	brinebucket: {
 		num: 2012,
@@ -539,5 +539,62 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allies",
 		type: "Steel",
+	},
+	strongvigor: {
+		num: 2018,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Strong Vigor",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		heal: [1, 3],
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+		shortDesc: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
+	},
+	elementalbreak: {
+		num: 2019,
+		accuracy: 85,
+		basePower: 90,
+		category: "Special",
+		name: "Elemental Break",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		condition: {
+			noCopy: true,
+			duration: 3,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Elemental Break');
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive) {
+					pokemon.removeVolatile('elementalbreak');
+				}
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({spd: -1}, pokemon, this.effectState.source);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Elemental Break', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'elementalbreak',
+		},
+		target: "normal",
+		type: "Normal",
+		shortDesc: "Target's Spd is lowered by 1 stage for 2 turns.",
 	},
 };

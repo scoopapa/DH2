@@ -115,7 +115,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "35% Chance to unleash a Meggido at 3x power after an Attack. ",
 		name: "Sol Blade",
 		rating: 4,
-		num:1006
+		num: 1006,
 	},
 	floramancy: {
 		onResidualOrder: 28,
@@ -139,5 +139,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 1008,
 		desc: "Heals 25% max HP when Floraconda is active.",
+	},
+	elementalaid: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Elemental Aid');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon) {
+			pokemon.deductPP(move.id, 1);
+			this.add('-activate', pokemon, 'ability: Elemental Aid');
+			}
+		},
+		flags: {},
+		name: "Elemental Aid",
+		rating: 2.5,
+		num: 1007,
+		desc: "Moves use one additional pp but have 1.3x power.",
+	},
+	resolute: {
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+            if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Resolute",
+		rating: 4,
+		num: 1009,
+		desc: "Defenses increase by 1.5x when max HP is reduced to 50% or lower.",
 	},
 };
