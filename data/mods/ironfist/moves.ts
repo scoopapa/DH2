@@ -4455,7 +4455,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onEnd(pokemon) {
-				pokemon.forceSwitch = true;
+				pokemon.forceSwitchFlag = true;
 			},
 		},
 		secondary: null,

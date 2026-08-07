@@ -454,7 +454,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onTryMove(pokemon, attacker, move) {
+		onTryMove(attacker, pokemon, move) {
 			if (move.flags['dance'] && this.randomChance(1, 2)) {
 				for (const ally of attacker.alliesAndSelf()) {
 					if (ally.status) {
