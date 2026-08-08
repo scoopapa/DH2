@@ -115,6 +115,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 2,
 	},
 
+	/*
 	//Bad
 	assaultvest: {
 		inherit: true,
@@ -652,4 +653,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 0,
 	},
-}
+	*/
+};
