@@ -2029,10 +2029,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			boosts: {
+				atk: -1,
+			},
 		},
 		isViable: true,
-		flags: {contact: 0},
+		flags: {contact: 1},
 		type: "Rock",
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",

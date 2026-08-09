@@ -418,7 +418,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
-	...MegaMania,
+	//...MegaMania,
 	...gen1Metronome,
 	...NationalDexExpanded,
 	...Solopet,
