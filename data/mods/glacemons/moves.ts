@@ -2036,8 +2036,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		isViable: true,
 		flags: {contact: 1},
 		type: "Rock",
-		desc: "Has a 10% chance to confuse the target.",
-		shortDesc: "10% chance to confuse the target.",
+		desc: "Has a 10% chance to lower target's Atk by 1.",
+		shortDesc: "10% chance to lower target's Atk by 1.",
 	},
 	bonfire: {
 		num: -36,
