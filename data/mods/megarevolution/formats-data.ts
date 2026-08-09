@@ -4987,4 +4987,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	karaiju: {
 		tier: "OU",
 	},
+	dragonitecupid: {
+		tier: "OU",
+	},
+	mechatar: {
+		tier: "OU",
+	},
+	salamencemoonchild: {
+		tier: "OU",
+	},
+	metagrosspaldea: {
+		tier: "OU",
+	},
+	gark: {
+		tier: "OU",
+	},
 };
