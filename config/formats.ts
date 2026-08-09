@@ -164,7 +164,7 @@ import { Formats as Maadowr                     } from '../data/mods/maadowr/for
 import { Formats as MaadowrLostZone             } from '../data/mods/maadowrlostzone/formats';
 import { Formats as Macrometa                   } from '../data/mods/macrometa/formats';
 import { Formats as Masquerade                  } from '../data/mods/masquerade/formats';
-import { Formats as MegaMania                   } from '../data/mods/megamania/formats';
+//import { Formats as MegaMania                   } from '../data/mods/megamania/formats';
 import { Formats as MegaRevolution              } from '../data/mods/megarevolution/formats';
 import { Formats as MetaMons                    } from '../data/mods/metamons/formats';
 import { Formats as MixAndMega                  } from '../data/mods/mixandmega/formats';
