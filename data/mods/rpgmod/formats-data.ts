@@ -92,4 +92,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "Rpgmod",
 	},
+	mythrilgolem: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	fettman: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	sorcerer: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	muffet: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+
 };
