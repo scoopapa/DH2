@@ -304,8 +304,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				targetBoosts[stat] = target.boosts[stat];
 			}
 
-			target.setBoost({atk: targetBoosts.spa, spa: targetBoosts.atk});
+			if (!targetBoosts.atk && !targetBoosts.spa) return;
 
+			target.setBoost({atk: targetBoosts.spa, spa: targetBoosts.atk});
 			this.add('-setboost', target, 'atk', targetBoosts.spa ?? 0);
 			this.add('-setboost', target, 'spa', targetBoosts.atk ?? 0);
 		},

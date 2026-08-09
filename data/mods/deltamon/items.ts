@@ -101,9 +101,9 @@ boosterenergy: {
 	queenite: {
 		name: "Queenite",
 		megaStone: "Queen-Mega",
-		megaEvolves: "Queen",
-		shortDesc: "If held by Queen, this item allows her to Mega Evolve in battle.",
-		itemUser: ["Queen"],
+		megaEvolves: "Queen-Delta",
+		shortDesc: "If Held By Queen This Item Allows Her To: Mega Evolve In Battle.",
+		itemUser: ["Queen-Delta"],
 		fling: {
 			basePower: 80,
 		},
@@ -221,6 +221,7 @@ boosterenergy: {
 	thornring: {
 		name: "Thorn Ring",
 		shortDesc: "Damages the holder for 1/8 of their HP every turn. Noelle: Special Attack 1.5x.",
+		itemUser: ["Noelle"],
 		fling: {
 			basePower: 135,
 		},

@@ -1,4 +1,9 @@
 export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable = {
+	hooh: {
+		inherit: true,
+		otherFormes: ["Ho-Oh-Mega"],
+		formeOrder: ["Ho-Oh", "Ho-Oh-Mega"],
+	},
 	hoohmega: {
 		num: 250,
 		name: "Ho-Oh-Mega",
@@ -11,7 +16,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ho-ohite",
 		battleOnly: "Ho-Oh",
-		gen: 9,
+	},
+	lugia: {
+		inherit: true,
+		otherFormes: ["Lugia-Mega"],
+		formeOrder: ["Lugia", "Lugia-Mega"],
 	},
 	lugiamega: {
 		num: 249,
@@ -25,7 +34,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Lugiaite",
 		battleOnly: "Lugia",
-		gen: 9,
+	},
+	raikou: {
+		inherit: true,
+		otherFormes: ["Raikou-Mega"],
+		formeOrder: ["Raikou", "Raikou-Mega"],
 	},
 	raikoumega: {
 		num: 243,
@@ -39,7 +52,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Raikounite",
 		battleOnly: "Raikou",
-		gen: 9,
+	},
+	entei: {
+		inherit: true,
+		otherFormes: ["Entei-Mega"],
+		formeOrder: ["Entei", "Entei-Mega"],
 	},
 	enteimega: {
 		num: 244,
@@ -53,7 +70,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Enteinite",
 		battleOnly: "Entei",
-		gen: 9,
+	},
+	suicune: {
+		inherit: true,
+		otherFormes: ["Suicune-Mega"],
+		formeOrder: ["Suicune", "Suicune-Mega"],
 	},
 	suicunemega: {
 		num: 245,
@@ -67,7 +88,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Suicunenite",
 		battleOnly: "Suicune",
-		gen: 9,
+	},
+	celebi: {
+		inherit: true,
+		otherFormes: ["Celebi-Mega"],
+		formeOrder: ["Celebi", "Celebi-Mega"],
 	},
 	celebimega: {
 		num: 251,
@@ -81,7 +106,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Celebite",
 		battleOnly: "Celebi",
-		gen: 9,
+	},
+	octillery: {
+		inherit: true,
+		otherFormes: ["Octillery-Mega"],
+		formeOrder: ["Octillery", "Octillery-Mega"],
 	},
 	octillerymega: {
 		num: 224,
@@ -95,12 +124,16 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Octillerite",
 		battleOnly: "Octillery",
-		gen: 9,
 	},
-	tyrantitarmegai: {
+	tyranitar: {
+		inherit: true,
+		otherFormes: ["Tyranitar-Mega", "Tyranitar-Mega-I"],
+		formeOrder: ["Tyranitar", "Tyranitar-Mega", "Tyranitar-Mega-I"],
+	},
+	tyranitarmegai: {
 		num: 248,
-		name: "Tyrantitar-Mega-I",
-		baseSpecies: "Tyrantitar",
+		name: "Tyranitar-Mega-I",
+		baseSpecies: "Tyranitar",
 		forme: "Mega-I",
 		types: ["Ice", "Dark"],
 		baseStats: { hp: 100, atk: 95, def: 120, spa: 164, spd: 150, spe: 71 },
@@ -108,8 +141,13 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 202,
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Tyranitarite I",
-		battleOnly: "Tyrantitar",
-		gen: 9,
+		battleOnly: "Tyranitar",
+	},
+	flygon: {
+		inherit: true,
+		abilities: { H: "Levitate", 1: "Hyper Cutter", 0: "Sheer Force" },
+		otherFormes: ["Flygon-Mega"],
+		formeOrder: ["Flygon", "Flygon-Mega"],
 	},
 	flygonmega: {
 		num: 330,
@@ -123,7 +161,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Flygonte",
 		battleOnly: "Flygon",
-		gen: 9,
+	},
+	salamence: {
+		inherit: true,
+		otherFormes: ["Salamence-Mega", "Salamence-Mega-Z"],
+		formeOrder: ["Salamence", "Salamence-Mega", "Salamence-Mega-Z"],
 	},
 	salamencemegaz: {
 		num: 373,
@@ -137,7 +179,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Salamencite Z",
 		battleOnly: "Salamence",
-		gen: 9,
+	},
+	metagross: {
+		inherit: true,
+		otherFormes: ["Metagross-Mega", "Metagross-Mega-Z"],
+		formeOrder: ["Metagross", "Metagross-Mega", "Metagross-Mega-Z"],
 	},
 	metagrossmegaz: {
 		num: 376,
@@ -151,7 +197,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Metagrossite Z",
 		battleOnly: "Metagross",
-		gen: 9,
+	},
+	infernape: {
+		inherit: true,
+		otherFormes: ["Infernape-Mega"],
+		formeOrder: ["Infernape", "Infernape-Mega"],
 	},
 	infernapemega: {
 		num: 392,
@@ -165,7 +215,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Infernite",
 		battleOnly: "Infernape",
-		gen: 9,
+	},
+	empoleon: {
+		inherit: true,
+		otherFormes: ["Empoleon-Mega"],
+		formeOrder: ["Empoleon", "Empoleon-Mega"],
 	},
 	empoleonmega: {
 		num: 395,
@@ -179,7 +233,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Empoleonite",
 		battleOnly: "Empoleon",
-		gen: 9,
+	},
+	torterra: {
+		inherit: true,
+		otherFormes: ["Torterra-Mega"],
+		formeOrder: ["Torterra", "Torterra-Mega"],
 	},
 	torterramega: {
 		num: 389,
@@ -193,7 +251,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Torterratite",
 		battleOnly: "Torterra",
-		gen: 9,
+	},
+	magnezone: {
+		inherit: true,
+		otherFormes: ["Magnezone-Mega"],
+		formeOrder: ["Magnezone", "Magnezone-Mega"],
 	},
 	magnezonemega: {
 		num: 462,
@@ -207,7 +269,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Magnezoneite",
 		battleOnly: "Magnezone",
-		gen: 9,
+	},
+	regigigas: {
+		inherit: true,
+		otherFormes: ["Regigigas-Mega"],
+		formeOrder: ["Regigigas", "Regigigas-Mega"],
 	},
 	regigigasmega: {
 		num: 486,
@@ -221,7 +287,12 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Regigigasite",
 		battleOnly: "Regigigas",
-		gen: 9,
+	},
+	hydreigon: {
+		inherit: true,
+		abilities: { H: "Levitate", 0: "Hustle" },
+		otherFormes: ["Hydreigon-Mega"],
+		formeOrder: ["Hydreigon", "Hydreigon-Mega"],
 	},
 	hydreigonmega: {
 		num: 632,
@@ -235,7 +306,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Hydreigonite",
 		battleOnly: "Hydreigon",
-		gen: 9,
+	},
+	volcarona: {
+		inherit: true,
+		otherFormes: ["Volcarona-Mega"],
+		formeOrder: ["Volcarona", "Volcarona-Mega"],
 	},
 	volcaronamega: {
 		num: 637,
@@ -249,7 +324,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Volcaronanite",
 		battleOnly: "Volcarona",
-		gen: 9,
+	},
+	keldeo: {
+		inherit: true,
+		otherFormes: ["Keldeo-Resolute", "Keldeo-Mega"],
+		formeOrder: ["Keldeo", "Keldeo-Resolute", "Keldeo-Mega"],
 	},
 	keldeomega: {
 		num: 647,
@@ -263,7 +342,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Keldeonite",
 		battleOnly: "Keldeo",
-		gen: 9,
+	},
+	haxorus: {
+		inherit: true,
+		otherFormes: ["Haxorus-Mega"],
+		formeOrder: ["Haxorus", "Haxorus-Mega"],
 	},
 	haxorusmega: {
 		num: 612,
@@ -277,7 +360,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Haxorusite",
 		battleOnly: "Haxorus",
-		gen: 9,
+	},
+	braviary: {
+		inherit: true,
+		otherFormes: ["Braviary-Mega", "Braviary-Hisui"],
+		formeOrder: ["Braviary", "Braviary-Mega", "Braviary-Hisui"],
 	},
 	braviarymega: {
 		num: 628,
@@ -291,7 +378,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Braviarinite",
 		battleOnly: "Braviary",
-		gen: 9,
+	},
+	ferrothorn: {
+		inherit: true,
+		otherFormes: ["Ferrothorn-Mega"],
+		formeOrder: ["Ferrothorn", "Ferrothorn-Mega"],
 	},
 	ferrothornmega: {
 		num: 598,
@@ -305,7 +396,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ferrothornite",
 		battleOnly: "Ferrothorn",
-		gen: 9,
+	},
+	victini: {
+		inherit: true,
+		otherFormes: ["Victini-Perfected"],
+		formeOrder: ["Victini", "Victini-Perfected"],
 	},
 	victiniperfected: {
 		num: 494,
@@ -319,7 +414,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Victory Star",
 		battleOnly: "Victini",
-		gen: 9,
+	},
+	tyrantrum: {
+		inherit: true,
+		otherFormes: ["Tyrantrum-Mega"],
+		formeOrder: ["Tyrantrum", "Tyrantrum-Mega"],
 	},
 	tyrantrummega: {
 		num: 697,
@@ -333,7 +432,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Tyrantrumite",
 		battleOnly: "Tyrantrum",
-		gen: 9,
+	},
+	aurorus: {
+		inherit: true,
+		otherFormes: ["Aurorus-Mega"],
+		formeOrder: ["Aurorus", "Aurorus-Mega"],
 	},
 	aurorusmega: {
 		num: 699,
@@ -347,7 +450,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Aurorusite",
 		battleOnly: "Aurorus",
-		gen: 9,
+	},
+	goodra: {
+		inherit: true,
+		otherFormes: ["Goodra-Mega", "Goodra-Hisui"],
+		formeOrder: ["Goodra", "Goodra-Mega", "Goodra-Hisui"],
 	},
 	goodramega: {
 		num: 706,
@@ -361,7 +468,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Goodratite",
 		battleOnly: "Goodra",
-		gen: 9,
+	},
+	wishiwashi: {
+		inherit: true,
+		otherFormes: ["Wishiwashi-School", "Wishiwashi-Mega"],
+		formeOrder: ["Wishiwashi", "Wishiwashi-School", "Wishiwashi-Mega"],
 	},
 	wishiwashimega: {
 		num: 746,
@@ -375,7 +486,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Wishiwashinite",
 		battleOnly: "Wishiwashi",
-		gen: 9,
+	},
+	kommoo: {
+		inherit: true,
+		otherFormes: ["Kommo-o-Mega"],
+		formeOrder: ["Kommo-o", "Kommo-o-Mega"],
 	},
 	kommoomega: {
 		num: 784,
@@ -389,7 +504,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Kommo-onite",
 		battleOnly: "Kommo-o",
-		gen: 9,
+	},
+	cinderace: {
+		inherit: true,
+		otherFormes: ["Cinderace-Mega"],
+		formeOrder: ["Cinderace", "Cinderace-Mega"],
 	},
 	cinderacemega: {
 		num: 815,
@@ -403,7 +522,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Cinderacite",
 		battleOnly: "Cinderace",
-		gen: 9,
+	},
+	inteleon: {
+		inherit: true,
+		otherFormes: ["Inteleon-Mega"],
+		formeOrder: ["Inteleon", "Inteleon-Mega"],
 	},
 	inteleonmega: {
 		num: 818,
@@ -417,7 +540,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Inteleonite",
 		battleOnly: "Inteleon",
-		gen: 9,
+	},
+	rillaboom: {
+		inherit: true,
+		otherFormes: ["Rillaboom-Mega"],
+		formeOrder: ["Rillaboom", "Rillaboom-Mega"],
 	},
 	rillaboommega: {
 		num: 812,
@@ -431,7 +558,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rillaboomite",
 		battleOnly: "Rillaboom",
-		gen: 9,
+	},
+	dragapult: {
+		inherit: true,
+		otherFormes: ["Dragapult-Mega"],
+		formeOrder: ["Dragapult", "Dragapult-Mega"],
 	},
 	dragapultmega: {
 		num: 887,
@@ -445,7 +576,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Dragapultite",
 		battleOnly: "Dragapult",
-		gen: 9,
+	},
+	kingambit: {
+		inherit: true,
+		otherFormes: ["Kingambit-Mega"],
+		formeOrder: ["Kingambit", "Kingambit-Mega"],
 	},
 	kingambitmega: {
 		num: 983,
@@ -459,7 +594,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Kingambitite",
 		battleOnly: "Kingambit",
-		gen: 9,
+	},
+	gholdengo: {
+		inherit: true,
+		otherFormes: ["Gholdengo-Mega"],
+		formeOrder: ["Gholdengo", "Gholdengo-Mega"],
 	},
 	gholdengomega: {
 		num: 1000,
@@ -473,7 +612,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Gholdengoite",
 		battleOnly: "Gholdengo",
-		gen: 9,
+	},
+	archaludon: {
+		inherit: true,
+		otherFormes: ["Archaludon-Mega"],
+		formeOrder: ["Archaludon", "Archaludon-Mega"],
 	},
 	archaludonmega: {
 		num: 1018,
@@ -487,7 +630,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Archaludonite",
 		battleOnly: "Archaludon",
-		gen: 9,
 	},
 	audinomega: {
 		inherit: true,
@@ -500,10 +642,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	gengarmega: {
 		inherit: true,
 		abilities: { 0: "Cursed Body" },
-	},
-	flygon: {
-		inherit: true,
-		abilities: { H: "Levitate", 1: "Hyper Cutter", 0: "Sheer Force" },
 	},
 	carnivine: {
 		inherit: true,
@@ -520,10 +658,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	lunatone: {
 		inherit: true,
 		abilities: { H: "Levitate", 0: "Shadow Shield" },
-	},
-	hydreigon: {
-		inherit: true,
-		abilities: { H: "Levitate", 0: "Hustle" },
 	},
 	chimecho: {
 		inherit: true,
@@ -556,5 +690,13 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	dusknoir: {
 		inherit: true,
 		abilities: { H: "Levitate", 0: "Frisk" },
+	},
+	latios: {
+		inherit: true,
+		abilities: { 0: "Magic Bounce", H: "Levitate"},
+	},
+	latias: {
+		inherit: true,
+		abilities: { 0: "Magic Guard", H: "Levitate"},
 	}
 };

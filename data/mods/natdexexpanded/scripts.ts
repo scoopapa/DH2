@@ -1,5 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	teambuilderConfig: {
+		customTiers: ['Mega'],
+		customDoublesTiers: ['Mega'],
+	},
 	actions: {
 		inherit: true,
 		modifyDamage(

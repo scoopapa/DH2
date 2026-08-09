@@ -454,7 +454,6 @@ export const Learnsets: import ('../../../sim/dex-species').ModdedLearnsetDataTa
 			wrap: ["9L1"],
 			acidspray: ["9L1"],
 			chillingwater: ["9L1"],
-			earthquake: ["9L1"],
 			leechlife: ["9L1"],
 			muddywater: ["9L1"],
 			stickyweb: ["9L1"],
