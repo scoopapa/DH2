@@ -41,6 +41,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Stun Seed",
 		rating: 3,
 		shortDesc: "Opponent is inflicted with Stun if the holder faints.",
+		desc: "Opponent is inflicted with Stun if the holder faints.",
 		fling: {
 			volatileStatus: "stun",
 		},
@@ -72,6 +73,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Energy Root",
 		rating: 2,
 		shortDesc: "Restores 1/2 max HP if at 1/2 max HP or less, but purifies the user.",
+		desc: "Restores 1/2 max HP if at 1/2 max HP or less, but purifies the user.",
 		fling: {
 			status: 'pur',
 		},
@@ -94,11 +96,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Zygarde-Complete",
 		megaStone: "Zygarde-Mega",
 		itemUser: ["Zygarde-Complete"],
+		shortDesc: "If held by a Zygarde-Complete, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Zygarde-Complete, this item allows it to Mega Evolve in battle.",
 		onTakeItem(item, source) {
 			return source.baseSpecies.baseSpecies !== 'Zygarde';
 		},
 	},
 
+	/*
 	//Good
 	airballoon: {
 		inherit: true,
@@ -115,7 +120,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 2,
 	},
 
-	/*
 	//Bad
 	assaultvest: {
 		inherit: true,
@@ -652,6 +656,5 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	zoomlens: {
 		inherit: true,
 		rating: 0,
-	},
-	*/
+	},*/
 };
