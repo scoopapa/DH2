@@ -657,4 +657,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 0,
 	},*/
-}
+};

@@ -839,7 +839,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyMovePriority: 8,
 		onModifyMove(move, pokemon) {
 			if (move.category === "Status") return;
-			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy'].includes(move.type)) {
+			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy', 'Ice'].includes(move.type)) {
 				move.category = "Special";
 			} else {
 				move.category = "Physical";
@@ -847,7 +847,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onSourceModifyMove(move, attacker, defender) {
 			if (move.category === "Status") return;
-			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy'].includes(move.type)) {
+			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy', 'Ice'].includes(move.type)) {
 				move.category = "Special";
 			} else {
 				move.category = "Physical";

@@ -1157,6 +1157,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			pokemon.removeVolatile('gastroacid');
 			this.add('-item', pokemon, 'Parallel Mega Orb');
 			this.add('-message', `${pokemon.name} has kept it's original ability!`);
+			this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 		},
 		//onPreStart(pokemon) {
 		//	pokemon.addVolatile('gastroacid');
@@ -1261,21 +1262,32 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		spritenum: 119,
 		rating: 3,
 	},
-	dreamcatcher: { // WIP, doesn't work currently
-		name: "Dream Catcher",
-		fling: {
-			basePower: 60,
-		},
-		onOverrideAction(pokemon, target, move) {
-			if (pokemon.status === 'slp') {
-				this.add('-activate', pokemon, 'item: Dream Catcher');
-				return this.dex.getActiveMove('sleeptalk');
-			}
-		},
-		num: -20,
-		gen: 9,
-		shortDesc: "Bugged; do not use in PMPL!",
-	},
+	dreamcatcher: { 
+        	name: "Dream Catcher",
+        	fling: {
+            	basePower: 60,
+        	},
+        	onOverrideAction(pokemon, target, move) {
+            		if (pokemon.status !== 'slp' || pokemon.statusState.time <= (pokemon.hasAbility('earlybird') ? 2 : 1)) return;
+           	 	if (!move || move.sleepUsable || !pokemon || !pokemon.hp) return; 
+            		const moves = [];
+            		for (const moveSlot of pokemon.moveSlots) {
+                		const moveid = moveSlot.id;
+               			const move = this.dex.moves.get(moveid);
+                		const cantUse = ['dragontail', 'whirlwind', 'circlethrow', 'roar', 'mountaingale', 'fairywind', 'rockthrow'];
+                		if (move.flags['nosleeptalk'] || move.flags['charge'] || (move.isZ && move.basePower !== 1) || move.isMax 					|| cantUse.includes(moveid)) continue;
+                    		moves.push(moveid);
+            		}
+           	 let randomMove = '';
+           	 if (moves.length) randomMove = this.sample(moves);
+           	 if (!randomMove) return false;
+           	 this.add('-message', `${pokemon.name} used a random move with its Dream Catcher!`);
+           	 this.actions.useMove(randomMove, this.effectState.target);
+        	},
+        	num: -20,
+        	gen: 9,
+        	shortDesc: "Holder uses random known move when asleep, not including phazing.",
+    	}, 
 	greniniumz: {
 		name: "Greninium Z",
 		spritenum: 652,
@@ -2043,16 +2055,16 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "All abilities active at once.",
 		onTakeItem: false,
-		onStart(target) {
-			this.add('-item', target, 'Dungeon\'s Looplet');
-			this.add('-message', `${target.name} is holding a Dungeon's Looplet!`);
-			target.m.innates = Object.keys(target.species.abilities)
-					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
-					.filter(ability => ability !== target.ability);
-			if (target.m.innates) {
-				for (const innate of target.m.innates) {
-					if (target.hasAbility(innate)) continue;
-					target.addVolatile("ability:" + innate, target);
+		onSwitchIn(pokemon) {
+			this.add('-item', pokemon, 'Dungeon\'s Looplet');
+			this.add('-message', `${pokemon.name} is holding a Dungeon's Looplet!`);
+			pokemon.m.innates = Object.keys(pokemon.species.abilities)
+					.map(key => this.toID(pokemon.species.abilities[key as "0" | "1" | "H" | "S"]))
+					.filter(ability => ability !== pokemon.ability);
+			if (pokemon.m.innates) {
+				for (const innate of pokemon.m.innates) {
+					if (pokemon.hasAbility(innate)) continue;
+					pokemon.addVolatile("ability:" + innate, pokemon);
 				}
 			}
 		},

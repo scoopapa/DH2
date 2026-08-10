@@ -280,7 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		shortDesc: "Moves used on user's side is 1.1x power.",
+		shortDesc: "For 4 Turns, moves used on user's side have 1.1x power.",
 	},
 	crescentarc: {
 		num: 2011,
@@ -459,7 +459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Force-Of-Nature",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryHit(target, source, move) {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
@@ -467,9 +467,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		onTryMove(source, target, move) {
-			if (source.isAlly(target) && source.volatiles['Heal Block']) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Force-Of-Nature', move);
+				this.add('cant', source, 'move: Heal Block', move);
 				return false;
 			}
 		},
@@ -478,7 +478,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.25))) {
 					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
 						this.attrLastMove('[still]');
-						this.add('cant', source, 'move: Force-Of-Nature', move);
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
 					} else {
 						this.add('-immune', target);
 					}
@@ -486,11 +487,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 		},
+		onModifyMove(move, source, target) {
+			if (!source.isAlly(target)) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
-		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
+		shortDesc: "Heals target for 1/4 max HP if ally. If foe, Hits all adjacent opponents.",
 	},
 	selfrepairing: {
 		num: -6,

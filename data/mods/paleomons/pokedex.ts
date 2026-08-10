@@ -561,6 +561,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mudkipancient: {
 		num: 64,
 		name: "Mudkip-Ancient",
+		baseSpecies: "Mudkip",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 50, atk: 70, def: 50, spa: 50, spd: 50, spe: 40},
 		abilities: {0: "Torrent", H: "Gooey"},
@@ -570,6 +571,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	marshtompancient: {
 		num: 65,
 		name: "Marshtomp-Ancient",
+		baseSpecies: "Marshtomp",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 70, atk: 85, def: 70, spa: 60, spd: 70, spe: 50},
 		abilities: {0: "Torrent", H: "Gooey"},
@@ -580,6 +582,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	swampertancient: {
 		num: 66,
 		name: "Swampert-Ancient",
+		baseSpecies: "Swampert",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 90, atk: 91, def: 102, spa: 99, spd: 88, spe: 65},
 		abilities: {0: "Torrent", H: "Gooey"},
@@ -589,6 +592,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	tadbulbtwisted: {
 		num: 67,
 		name: "Tadbulb-Twisted",
+		baseSpecies: "Tadbulb",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 61, atk: 31, def: 41, spa: 59, spd: 35, spe: 45},
 		abilities: {0: "Electromorphosis", 1: "Static", H: "Water Absorb"},
@@ -598,6 +602,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	bellibolttwisted: {
 		num: 68,
 		name: "Bellibolt-Twisted",
+		baseSpecies: "Bellibolt",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 109, atk: 45, def: 91, spa: 113, spd: 83, spe: 54},
 		abilities: {0: "Electromorphosis", 1: "Static", H: "Water Absorb"},
@@ -607,6 +612,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	salanditancient: {
 		num: 69,
 		name: "Salandit-Ancient",
+		baseSpecies: "Salandit",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 48, atk: 44, def: 40, spa: 71, spd: 40, spe: 77},
 		abilities: {0: "Oblivious", H: "Intimidate"},
@@ -616,6 +622,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	salazzleancient: {
 		num: 70,
 		name: "Salazzle-Ancient",
+		baseSpecies: "Salazzle",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 60, atk: 60, def: 64, spa: 114, spd: 68, spe: 114},
 		abilities: {0: "Oblivious", H: "Intimidate"},
@@ -691,6 +698,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	chewtleabyss: {
 		num: 79,
 		name: "Chewtle-Abyss",
+		baseSpecies: "Chewtle",
 		types: ["Water"],
 		baseStats: {hp: 64, atk: 34, def: 50, spa: 44, spd: 73, spe: 19},
 		abilities: {0: "Shell Armor", 1: "Heatproof", H: "Regenerator"},
@@ -700,6 +708,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	drednawabyss: {
 		num: 80,
 		name: "Drednaw-Abyss",
+		baseSpecies: "Drednaw",
 		types: ["Water", "Steel"],
 		baseStats: {hp: 90, atk: 78, def: 74, spa: 100, spd: 112, spe: 31},
 		abilities: {0: "Shell Armor", 1: "Heatproof", H: "Regenerator"},
@@ -709,6 +718,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	flittlenasir: {
 		num: 81,
 		name: "Flittle-Nasir",
+		baseSpecies: "Flittle",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 30, atk: 30, def: 40, spa: 30, spd: 45, spe: 80},
 		abilities: {0: "Anticipation", 1: "Frisk", H: "Filter"},
@@ -718,6 +728,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	espathranasir: {
 		num: 82,
 		name: "Espathra-Nasir",
+		baseSpecies: "Espathra",
 		types: ["Psychic", "Steel"],
 		baseStats: {hp: 95, atk: 54, def: 70, spa: 70, spd: 80, spe: 113},
 		abilities: {0: "Opportunist", 1: "Frisk", H: "Filter"},
@@ -727,6 +738,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	rhyhorngenerator: {
 		num: 83,
 		name: "Rhyhorn-Generator",
+		baseSpecies: "Rhyhorn",
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 80, atk: 75, def: 85, spa: 30, spd: 50, spe: 25},
 		abilities: {0: "Teravolt", 1: "Motor Drive", H: "No Guard"},
@@ -736,6 +748,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	rhydongenerator: {
 		num: 84,
 		name: "Rhydon-Generator",
+		baseSpecies: "Rhydon",
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 105, atk: 115, def: 110, spa: 45, spd: 65, spe: 45},
 		abilities: {0: "Teravolt", 1: "Motor Drive", H: "No Guard"},
@@ -746,6 +759,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	rhyperiorgenerator: {
 		num: 85,
 		name: "Rhyperior-Generator",
+		baseSpecies: "Rhyperior",
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 115, atk: 125, def: 115, spa: 55, spd: 80, spe: 45},
 		abilities: {0: "Teravolt", 1: "Motor Drive", H: "No Guard"},
@@ -803,6 +817,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	thundurusestival: {
 		num: 92,
 		name: "Thundurus-Estival",
+		baseSpecies: "Thundurus",
 		types: ["Electric"],
 		baseStats: {hp: 101, atk: 105, def: 80, spa: 135, spd: 80, spe: 79},
 		abilities: {0: "Mold Breaker"},
@@ -811,6 +826,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	tornadushibernal: {
 		num: 93,
 		name: "Tornadus-Hibernal",
+		baseSpecies: "Tornadus",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 100, atk: 79, def: 121, spa: 110, spd: 80, spe: 90},
 		abilities: {0: "Sticky Hold"},
@@ -819,6 +835,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	landorushourglass: {
 		num: 94,
 		name: "Landorus-Hourglass",
+		baseSpecies: "Landorus",
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 109, atk: 100, def: 120, spa: 105, spd: 75, spe: 91},
 		abilities: {0: "Sand Stream", H: "Solar Power"},
@@ -827,6 +844,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	enamorusgenbu: {
 		num: 95,
 		name: "Enamorus-Genbu",
+		baseSpecies: "Enamorus",
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 99, atk: 135, def: 100, spa: 100, spd: 100, spe: 46},
 		abilities: {0: "Gentei's Protection"},
