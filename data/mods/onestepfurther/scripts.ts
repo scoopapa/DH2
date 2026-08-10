@@ -126,7 +126,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Learnsets', this.toID(id)).learnset.originpulse = ["9M"];
 			}
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.hypervoice) {
-				this.modData('Learnsets', this.toID(id)).learnset.judgement = ["9M"];
+				this.modData('Learnsets', this.toID(id)).learnset.judgment = ["9M"];
 				this.modData('Learnsets', this.toID(id)).learnset.technoblast = ["9M"];
 				this.modData('Learnsets', this.toID(id)).learnset.terastarstorm = ["9M"];
 				this.modData('Learnsets', this.toID(id)).learnset.boomburst = ["9M"];
