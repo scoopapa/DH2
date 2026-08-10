@@ -27,7 +27,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "OU",
 	},
+	regieleki: {
+		inherit: true,
+		tier: "OU",
+	},
 	ursalunabloodmoon: {
+		inherit: true,
+		tier: "OU",
+	},
+	sneasler: {
 		inherit: true,
 		tier: "OU",
 	},
