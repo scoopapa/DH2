@@ -234,7 +234,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.wildcharge) {
 				this.modData('Learnsets', this.toID(id)).learnset.aurawheel = ["9M"];
 				this.modData('Learnsets', this.toID(id)).learnset.fusionbolt = ["9M"];
-				this.modData('Learnsets', this.toID(id)).learnset.plasmafist = ["9M"];
+				this.modData('Learnsets', this.toID(id)).learnset.plasmafists = ["9M"];
 			}
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.wingattack) {
 				this.modData('Learnsets', this.toID(id)).learnset.drillpeck = ["9M"];
