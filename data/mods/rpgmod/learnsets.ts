@@ -611,7 +611,6 @@ cloudstrife: {
 			dragondarts: ["9L1"],
 			dualchop: ["9L1"],
 			dragonpulse: ["9L1"],
-			dragonenergy: ["9L1"],
 			dragoncheer: ["9L1"],
 			dragondance: ["9L1"],
 			dragonrush: ["9L1"],
@@ -630,6 +629,7 @@ cloudstrife: {
 			dragonbreath: ["9L1"],
 			dragonrage: ["9L1"],
 			agility: ["9L1"],
+			dracometeor: ["9L1"],
 		},
 	},
 	erik: {

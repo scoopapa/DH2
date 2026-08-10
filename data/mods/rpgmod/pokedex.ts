@@ -178,7 +178,7 @@ cloudstrife: {
 		num: -976,
 		name: "Sorcerer",
 		types: ["Ice", "Dark"],
-		baseStats: {hp: 85, atk: 60, def: 80, spa: 115, spd: 95, spe: 105},
+		baseStats: {hp: 85, atk: 60, def: 80, spa: 95, spd: 95, spe: 105},
 		abilities: {0: "Elemental Aid", H: "Neuroforce"},
 	},
 	muffet: {
