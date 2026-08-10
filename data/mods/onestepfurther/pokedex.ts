@@ -247,7 +247,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	dragonite: {
 		inherit: true,
 		num: 149,
-		abilities: {0: "Inner Focus", H: "Shadow Tag"},
+		abilities: {0: "Inner Focus", H: "Shadow Shield"},
 	},
 	mewtwo: {
 		inherit: true,
@@ -457,7 +457,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	lugia: {
 		inherit: true,
 		num: 249,
-		abilities: {0: "Pressure", H: "Shadow Tag"},
+		abilities: {0: "Pressure", H: "Shadow Shield"},
 	},
 	torchic: {
 		inherit: true,
