@@ -2,6 +2,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	bouncybubble: {
 		inherit: true,
 		isNonstandard: null,
+		drain: [1, 1],
+		desc: "The user recovers the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 100% of the damage dealt.",
 	},
 	buzzybuzz: {
 		inherit: true,
