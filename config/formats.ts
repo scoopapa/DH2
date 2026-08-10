@@ -183,6 +183,7 @@ import { Formats as PokemonThrone               } from '../data/mods/pokemonthro
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
+import { Formats as OneStepFurther                } from '../data/mods/onestepfurther/formats';
 import { Formats as OUTheorymons                } from '../data/mods/outheorymons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
 import { Formats as Patratdex                   } from '../data/mods/patratdex/formats';
@@ -421,6 +422,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...NationalDexExpanded,
 	...Solopet,
 	...gen1Moonside,
+	...OneStepFurther,
 	...Patratdex,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
