@@ -192,7 +192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 87, atk: 117, def: 117, spa: 67, spd: 75, spe: 67},
-		abilities: {0: "Justified", 1: "Iron Fist", H: "Unseen Fist"},
+		abilities: {0: "Anger Shell", 1: "Iron Fist", H: "Unseen Fist"},
 		weightkg: 180.0,
 	},
 	samurottsinnoh: {
