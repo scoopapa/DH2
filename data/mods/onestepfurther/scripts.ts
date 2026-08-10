@@ -243,6 +243,21 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Learnsets', this.toID(id)).learnset.leechlife = ["9M"];
 				this.modData('Learnsets', this.toID(id)).learnset.lunge = ["9M"];
 			}
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.irondefense) {
+				this.modData('Learnsets', this.toID(id)).learnset.cottonguard = ["9M"];
+			}
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.acidarmor) {
+				this.modData('Learnsets', this.toID(id)).learnset.cottonguard = ["9M"];
+			}
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.shelter) {
+				this.modData('Learnsets', this.toID(id)).learnset.cottonguard = ["9M"];
+			}
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset && this.dataCache.Learnsets[id].learnset.withdraw) {
+				this.modData('Learnsets', this.toID(id)).learnset.irondefense = ["9M"];
+				this.modData('Learnsets', this.toID(id)).learnset.acidarmor = ["9M"];
+				this.modData('Learnsets', this.toID(id)).learnset.shelter = ["9M"];
+				this.modData('Learnsets', this.toID(id)).learnset.cottonguard = ["9M"];
+			}
 		}
 	},
 };
