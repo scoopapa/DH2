@@ -9,7 +9,7 @@ export const Formats: FormatData[] = [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-11040293">RPGMod</a>',
 		],
 		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
-		banlist: ['Arena Trap'],
+		banlist: ['Arena Trap', 'Revival Blessing'],
 		unbanlist: ['Mega Sol'],
 		teambuilderFormat: 'National Dex',  
 		onValidateTeam(team, format) {

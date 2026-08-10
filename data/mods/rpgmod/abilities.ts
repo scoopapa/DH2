@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					if (side.getSideCondition(sideCondition)) {
 						if (!activated) {
 							this.add('-activate', pokemon, 'ability: Floramancy');
-							this.heal(pokemon.baseMaxhp / 4);
+							this.heal(pokemon.baseMaxhp / 16);
 							activated = true;
 						}
 					}
@@ -138,7 +138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Floramancy",
 		rating: 2,
 		num: 1008,
-		desc: "Heals 25% max HP when Floraconda is active.",
+		desc: "Heals 1/16 max HP when Floraconda is active.",
 	},
 	elementalaid: {
 		onStart(pokemon) {
