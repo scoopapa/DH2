@@ -565,7 +565,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	covertcloak: {
 		inherit: true,
 		shortDesc: "Holder nullifies all secondary effects of another Pokemon's attack.",
-		onTakeItem: false,
 		onModifySecondaries(secondaries) {
 			return secondaries.filter(effect => !!effect.cloak);
 		},
