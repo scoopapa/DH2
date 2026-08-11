@@ -2277,8 +2277,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				success = true;
 			}
 			if (source.side.foe.fishingTokens > 0 || source.side.fishingTokens > 0) {
-				const tempT = source.side.foe.fishingTokens;
-				const tempS = source.side.fishingTokens;
+				const tempT = source.side.foe.fishingTokens || 0;
+				const tempS = source.side.fishingTokens || 0;
 				source.side.foe.removeFishingTokens(tempT);
 				source.side.foe.addFishingTokens(tempS);
 				source.side.removeFishingTokens(tempS);
