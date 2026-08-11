@@ -99,7 +99,7 @@ export const Formats: FormatData[] = [
 		unbanlist: [
 			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinaturbo',
 			'Mediocjur', 'Plushimander', 'Orchrefait', 'Eighremophas', 'Snaellcaster', 'Marultan', 'Vertabrea', 'Flingangel', 'Nekolepsy',
-			'Honeydue', 'Drug',
+			'Honeydue', 'Drug', 'Aberrockin', 'Tartzacoatl', 'Iusperare',
 		],
 		/* onValidateTeam(team, format) {
 			let speciesTable = {};
