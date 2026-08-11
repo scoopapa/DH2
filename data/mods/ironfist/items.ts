@@ -1285,14 +1285,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bassjpg: {
 		name: "bass.jpg",
 		shortDesc: "Holder's Fishing attacks have 1.2x power.",
+		desc: "Holder's Fishing attacks have 1.2x power. When flung, returns the item to the holder and adds 1 fishing token to its side.",
 		rating: 2,
 		fling: {
 			basePower: 100,
 			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 				source.lastItem = '';
-				this.add('-item', source, this.dex.items.get(this.effect.id), '[from] move: Fling');
-				source.setItem(this.effect, source, move);
+				const item = this.dex.items.get('bassjpg');
+				this.add('-item', source, item, '[from] move: Fling');
+				source.setItem(item, source, move);
 			},
 		},
 		onBasePowerPriority: 15,
