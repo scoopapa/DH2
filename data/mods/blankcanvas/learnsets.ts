@@ -5155,6 +5155,17 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	honeydue: {
 		learnset: {
+			bugbite: ["9L1"],
+			chillingwater: ["9L1"],
+			muddywater: ["9L1"],
+			aurorabeam: ["9L1"],
+			mist: ["9L1"],
+			aquacutter: ["9L1"],
+			pollenpuff: ["9L1"],
+			pounce: ["9L1"],
+			strugglebug: ["9L1"],
+			megadrain: ["9L1"],
+			absorb: ["9L1"],
 			liquidation: ["9L1"],
 			surf: ["9L1"],
 			lunge: ["9L1"],
