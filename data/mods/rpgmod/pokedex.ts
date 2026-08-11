@@ -188,4 +188,11 @@ cloudstrife: {
 		baseStats: {hp: 80, atk: 90, def: 85, spa: 110, spd: 100, spe: 76},
 		abilities: {0: "Parental Bond", 1: "Queenly Majesty", H: "Aroma Veil"},
 	},
+	reanschwarzer: {
+		num: -974,
+		name: "Rean Schwarzer",
+		types: ["Fire", "Steel"],
+		baseStats: {hp: 95, atk: 105, def: 76, spa: 68, spd: 74, spe: 115},
+		abilities: {0: "Divine Blade"},
+	},
 };

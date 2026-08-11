@@ -108,5 +108,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "Rpgmod",
 	},
-
+	reanschwarzer: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
 };

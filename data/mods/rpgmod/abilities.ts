@@ -181,4 +181,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1009,
 		desc: "Defenses increase by 1.5x when max HP is reduced to 50% or lower.",
 	},
+	divineblade: {
+		onModifyMove(move, source, target) {
+			if (move.flags['slicing']) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['slicing']) {
+				if (this.randomChance(3, 10)) {
+					this.boost({spe: -1}, target, source, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Divine Blade",
+		rating: 4,
+		num: 1010,
+		desc: "Slicing moves hit all adjacent opponents. 30% chance to lower Spe by 1.",
+	},
 };
