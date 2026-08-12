@@ -41,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jigsawry: {
 		num: -5,
-		name: "jigsawry",
+		name: "Jigsawry",
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 55, spd: 50, spe: 70},

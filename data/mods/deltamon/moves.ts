@@ -286,6 +286,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		category: "Physical",
 		basePower: 100,
+		accuracy: true,
 		pp: 5,
 		ohko: false,
 		shortDesc: "Targets with 1/3 HP or lower are instantly KOed.",
@@ -406,7 +407,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Enemies with less than 100% of their HP gain Drowsy. Can't be used twice.",
+		shortDesc: "Enemies with <100% HP: Drowsy. Can't be used twice.",
 		longDesc: "The user casts a spell which makes exhausted opponents Drowsy. This move only works on Pokemon who are under 100% of their HP. This move cannot be used twice in a row.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1, cantusetwice: 1},
@@ -574,7 +575,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 190,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Clears stat changes. Disables target's ability before damage. 50% confuse.",
+		shortDesc: "Clears stats. Disables ability before damage. 50% confuse.",
 		longDesc: "The user dazes the target and cleverly nullifies their ability and stat changes in the process. This move has a 50% chance to leave the target confused. The target's ability is nullified before damage is dealt.",
 		priority: 0,
 		flags: {},
@@ -774,7 +775,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Pink: PSY, 50% -Sp. Atk, Corporeal. GHST, 50% -Atk, Ghost.",
+		shortDesc: "Pink: PSY, 50% -SpA, Corporeal. GHST, 50% -Atk, Ghost.",
 		longDesc: "The user fires a blast from its magical wand. This move is Psychic-Type with a 50% chance to lower the target's Special Attack in Pink's Corporeal Forme, and Ghost-Type with a 50% chance to lower the target's Attack in Pink's Ghost Forme.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
@@ -924,12 +925,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		
 		onTryHit(target) {
+			if (!target.volatiles['substitute']) {
 			target.clearBoosts();
 			this.add('-clearboost', target);
+			}
 		},
 		secondary: null,
 		target: "normal",
 	},
+
 	blueattack: {
 		name: "Blue Attack",
 		type: "Ground",
