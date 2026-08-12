@@ -1,21 +1,38 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-	/*
-	placeholder: {
-		name: "",
-		type: "",
-		category: "",
-		basePower: 0,
-		accuracy: 100,
-		pp: 10,
-		shortDesc: "",
+	fierystabs: {
+		num: 3000,
+		accuracy: 90,
+		basePower: 45,
+		category: "Physical",
+		name: "Fiery Stabs",
+		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "", target);
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 2,
+		self: {
+			volatileStatus: 'laserfocus',
 		},
 		secondary: null,
 		target: "normal",
+		type: "Fire",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+		desc: "Hits 2 times. User gains Laser Focus on each hit",
 	},
-	*/
+	physic: {
+		num: 3001,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Physic",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
 };

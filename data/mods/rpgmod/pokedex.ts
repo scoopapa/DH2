@@ -195,4 +195,18 @@ cloudstrife: {
 		baseStats: {hp: 95, atk: 105, def: 76, spa: 68, spd: 74, spe: 115},
 		abilities: {0: "Divine Blade"},
 	},
+	hapi: {
+		num: -973,
+		name: "Hapi",
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 98, atk: 75, def: 70, spa: 95, spd: 120, spe: 83},
+		abilities: {0: "Magic Guard"},
+	},
+	nagaofaether: {
+		num: -972,
+		name: "Naga of Aether",
+		types: ["Fire", "Water"],
+		baseStats: {hp: 95, atk: 100, def: 110, spa: 65, spd: 105, spe: 70},
+		abilities: {0: "Fearless", H: "Mirror Armor"},
+	},
 };
