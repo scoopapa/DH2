@@ -112,4 +112,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "Rpgmod",
 	},
+	hapi: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	nagaofaether: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
 };

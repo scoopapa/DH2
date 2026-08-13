@@ -200,4 +200,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 1010,
 		desc: "Slicing moves hit all adjacent opponents. 30% chance to lower Spe by 1.",
 	},
+	fearless: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target.hp && target.volatiles['laserfocus']) {
+				this.actions.useMove('retaliate', this.effectState.target); 
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id === 'retaliate') { 
+				move.type = 'Water';
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.id === 'retaliate') { 
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+			}
+		},
+		flags: {},
+		name: "Fearless",
+		rating: 5,
+		num: 2001,
+		desc: "When damaged with Laser Focus active, Uses Retaliate with fire and water effectiveness.",
+	},
 };
