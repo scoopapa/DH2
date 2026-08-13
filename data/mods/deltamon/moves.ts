@@ -407,7 +407,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Enemies with <100% HP: Drowsy. Can't be used twice.",
+		shortDesc: "Enemies below 100% HP: Drowsy. Can't be used twice.",
 		longDesc: "The user casts a spell which makes exhausted opponents Drowsy. This move only works on Pokemon who are under 100% of their HP. This move cannot be used twice in a row.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1, cantusetwice: 1},
