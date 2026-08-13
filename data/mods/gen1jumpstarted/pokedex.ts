@@ -1,4 +1,4 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	torterra: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 109, def: 105, spa: 85, spd: 85, spe: 56},

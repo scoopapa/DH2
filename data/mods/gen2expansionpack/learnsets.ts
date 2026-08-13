@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// Procedurally generated using https://github.com/Rezzo64/JepJsonTransformer
 	"aercrow": {
 		"learnset": {

@@ -1,7 +1,7 @@
 	// Tradeback content by Ema Skye; currently a WIP. Takes a lot to go through Egg Moves.
 // Some Tradeback moves come from prototype versions of GSC (SW97 etc).
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	//All new LCs will have Encounter Levels of 5, allowing them to be used in a theoretically cart-accurate LC.
 	/*Follow this template, which includes all of RBY's mandatory TMs for easier importing.
 	MONSTERNAME: {

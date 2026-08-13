@@ -1,4 +1,4 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// Paradoxes here
 
 	// https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9433439

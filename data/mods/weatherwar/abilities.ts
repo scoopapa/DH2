@@ -21,7 +21,7 @@ export function getName(name: string): string {
 	return group + name;
 }
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	//setting abilities
 	swarm: {
 		onStart(source) {

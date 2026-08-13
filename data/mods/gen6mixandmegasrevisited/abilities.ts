@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	merciless: {
 		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
 		onModifyCritRatio(critRatio, source, target) {

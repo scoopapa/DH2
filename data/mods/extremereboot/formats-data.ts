@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// ToDo: Random Battle Rules:
 	// - No Guard Up without Floral Breeze or Withering Breeze
 	// - No Field or Weather moves unless something on the team can abuse it

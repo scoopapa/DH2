@@ -1,6 +1,6 @@
 import { TARGET_HP_BASED_MOVES } from "../../cg-team-data";
 
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cacturnite: {
 		name: "Cacturnite",
 		spritenum: 613,

@@ -1,4 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	wornbangle: {
 		name: "Worn Bangle",
 		shortDesc: "Holder's Strength is +20, but their Speed is -10.",

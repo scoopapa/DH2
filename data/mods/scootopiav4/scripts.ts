@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	inherit: "scootopia",
 	teambuilderConfig: { excludeStandardTiers: true },
 	init(){

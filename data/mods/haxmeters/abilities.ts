@@ -10,7 +10,7 @@ export function addAbilityEffect(abilityUser: Pokemon, abilityChance: number, hi
 	abilityUser.side.addEffect(effectValue);
 }
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	/*
 	placeholder: {
 		flags: {},

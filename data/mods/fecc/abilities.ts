@@ -66,7 +66,7 @@ export function deepCopyInto(obj1: any, obj2: any): void {
   }
 }
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	/*
 	placeholder: {
 		

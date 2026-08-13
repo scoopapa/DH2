@@ -1,5 +1,5 @@
 import {Pokemon} from '../../../sim/pokemon';
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	imterrifiedofdondozo: {
 		onDamagingHit(damage, target, source, move) {
 			if (source.species.dondozo) {

@@ -1,6 +1,6 @@
 import computeSourceMap from "sucrase/dist/types/computeSourceMap";
 
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	dedefog: {
 		num: -1000,
 		accuracy: 100,

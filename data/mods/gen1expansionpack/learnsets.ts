@@ -1,7 +1,7 @@
 // Tradeback content by Ema Skye; currently a WIP. Takes a lot to go through Egg Moves.
 // Some Tradeback moves come from prototype versions of GSC (SW97 etc). 
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = { 
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = { 
 	///.d8888.  .o88b. d8888b.  .d8b.  d8888b. d8888b. d88888b d8888b.   d8888b.  .d88b.  db   dD d88888b .88b  d88.  .d88b.  d8b   db 
 	///88'  YP d8P  Y8 88  `8D d8' `8b 88  `8D 88  `8D 88'     88  `8D   88  `8D .8P  Y8. 88 ,8P' 88'     88'YbdP`88 .8P  Y8. 888o  88 
 	///`8bo.   8P      88oobY' 88ooo88 88oodD' 88oodD' 88ooooo 88   88   88oodD' 88    88 88,8P   88ooooo 88  88  88 88    88 88V8o 88 

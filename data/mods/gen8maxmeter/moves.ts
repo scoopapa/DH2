@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// coding the max meter side conditions (AKA I really should've worked off of Stockpile)
 	maxmeter1: {
 		shortDesc: "The first level of Max Meter.",

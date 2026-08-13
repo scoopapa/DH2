@@ -1,5 +1,5 @@
 import {Dex} from '../../../sim/dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	gen: 8,
 	inherit: 'gen8haxmeters',
 	actions: {

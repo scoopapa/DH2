@@ -1,6 +1,6 @@
 import { ModdedSpeciesFormatsData } from "../../../sim/dex-species";
 
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	aegislash: {
 		tier: "SM",
 		doublesTier: "DOU",

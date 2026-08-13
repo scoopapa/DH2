@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	beyondadoubt: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {

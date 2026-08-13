@@ -23,7 +23,7 @@ snatch: Can be stolen from the original user and instead used by another Pokemon
 sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	dededehammerthrow: {
 		num: -1,
 		accuracy: 90,

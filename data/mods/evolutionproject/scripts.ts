@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Evo!', 'Evo NFE!', 'Evo (NFE)'],//Adding a new tier for NFEs that I don't want buried in the lower section [like Michu :(]

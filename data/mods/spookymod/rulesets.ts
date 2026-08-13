@@ -21,7 +21,7 @@ export function getName(name: string): string {
 	return group + name;
 }
 
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	spokymod: {
 		effectType: 'Rule',
 		name: 'Spokymod',

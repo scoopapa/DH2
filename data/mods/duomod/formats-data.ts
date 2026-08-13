@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	abysseil: {
 		randomBattleMoves: ["flipturn", "scald", "moonblast", "hydropump"],
 		randomBattleLevel: 100,

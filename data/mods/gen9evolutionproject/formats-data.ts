@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// bans are handled separately so the tiers can be consistent between singles and VGC
 
 	// SLATE 1 PROMPT 1

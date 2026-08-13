@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 
 	koatric: {
 		randomBattleMoves: ["fusionbolt", "superpower", "boomburst", "dragondance", "crunch", "toxicspikes"],

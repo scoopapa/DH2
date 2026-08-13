@@ -3,7 +3,7 @@
  * Some moves have had major changes, such as Bite's typing.
  */
 
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	/**
  * NEW MOVES START HERE.
  * Oh, Lucas. What are you doing here. Are you lost? Oh, there's nothing wrong with being lost.

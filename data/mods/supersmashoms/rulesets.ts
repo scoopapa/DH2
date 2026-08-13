@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = { // WIP
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = { // WIP
 	movelegality: {
 		effectType: 'ValidatorRule',
 		name: 'Move Legality',

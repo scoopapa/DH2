@@ -1,7 +1,7 @@
 import {Streams} from "pokemon-showdown";
 import {TriumvirateModeTrivia} from "../../../server/chat-plugins/trivia";
 
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	altaria: {
 		inherit: true,
 		abilities: {0: "Cloud Nine"},

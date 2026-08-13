@@ -1,6 +1,6 @@
 import { Teams } from '../../../sim/teams';
 
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	datamod: {
 		effectType: 'Rule',
 		name: 'Data Mod',
