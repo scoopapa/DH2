@@ -615,7 +615,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		desc: "Hits 2 times. User gains Laser Focus on each hit.",
+		shortDesc: "Hits 2 times. User gains Laser Focus on each hit.",
 	},
 	physic: {
 		num: 3001,
@@ -632,6 +632,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		desc: "Heals target for 50% of their max HP.",
+		shortDesc: "Heals target for 50% of their max HP.",
 	},
 };
