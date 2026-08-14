@@ -808,7 +808,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe) {
 			return this.chainModify(0.5);
 		},
-		onFractionalPriority: -0.1,
+		onFractionalPriority: 0,
 	},
 
 
