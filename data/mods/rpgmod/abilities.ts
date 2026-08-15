@@ -203,6 +203,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	fearless: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'retaliate') return;
 			if (target.hp && target.volatiles['laserfocus']) {
 				this.actions.useMove('retaliate', this.effectState.target); 
 			}
