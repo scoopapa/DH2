@@ -679,7 +679,7 @@ exports.grouplist = [
 		inherit: '%',
 		jurisdiction: 'u',
 
-		addhtml: true,
+		root: true,
 		tournaments: true,
 		declare: true,
 		bypassafktimer: true,
