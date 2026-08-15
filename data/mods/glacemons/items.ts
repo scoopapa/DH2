@@ -808,7 +808,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe) {
 			return this.chainModify(0.5);
 		},
-		onFractionalPriority: -0.1,
+		onFractionalPriority: 0,
 	},
 
 
@@ -1753,12 +1753,15 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onModifyMove(move, pokemon) {
 			if (move.flags['contact'] && pokemon.useItem()) {
-				move.secondaries.push({
-					chance: 100,
-					onHit(target, source, move) {
-						if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-					},
-				});
+				if(!move.secondaries){
+					move.secondaries = [];
+				} 
+					move.secondaries.push({
+						chance: 100,
+						onHit(target, source, move) {
+							if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+						},
+					});
 			}
 		},
 		num: -24,
