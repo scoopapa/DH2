@@ -1102,4 +1102,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Storm Drain", H: "Unaware"},
 		weightkg: 7,
 	},
+	aberrockin: {
+		num: 9137,
+		name: "Aberrockin",
+		types: ["Psychic", "Normal"],
+		baseStats: {hp: 100, atk: 32, def: 78, spa: 107, spd: 95, spe: 72},
+		abilities: {0: "Punk Rock"},
+		weightkg: 52,
+	},
+	tartzacoatl: {
+		num: 9138,
+		name: "Tartzacoatl",
+		types: ["Flying", "Rock"],
+		baseStats: {hp: 100, atk: 120, def: 70, spa: 30, spd: 100, spe: 20},
+		abilities: {0: "Aroma Veil", H: "Natural Cure"},
+		weightkg: 44,
+	},
+	iusperare: {
+		num: 9139,
+		name: "Iusperare",
+		types: ["Fighting", "Rock"],
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 40, spd: 85, spe: 110},
+		abilities: {0: "Compound Eyes", 1: "Super Luck", H: "Sand Stream"},
+		weightkg: 200,
+	},
 };

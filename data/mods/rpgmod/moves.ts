@@ -280,7 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		shortDesc: "Moves used on user's side is 1.1x power.",
+		shortDesc: "For 4 Turns, moves used on user's side have 1.1x power.",
 	},
 	crescentarc: {
 		num: 2011,
@@ -295,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Beautiful",
-		shortDesc: "Hits all adjacennt opponents",
+		shortDesc: "Hits all adjacent opponents",
 	},
 	brinebucket: {
 		num: 2012,
@@ -459,7 +459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Force-Of-Nature",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryHit(target, source, move) {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
@@ -467,9 +467,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		onTryMove(source, target, move) {
-			if (source.isAlly(target) && source.volatiles['Heal Block']) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Force-Of-Nature', move);
+				this.add('cant', source, 'move: Heal Block', move);
 				return false;
 			}
 		},
@@ -478,7 +478,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.25))) {
 					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
 						this.attrLastMove('[still]');
-						this.add('cant', source, 'move: Force-Of-Nature', move);
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
 					} else {
 						this.add('-immune', target);
 					}
@@ -486,11 +487,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 		},
+		onModifyMove(move, source, target) {
+			if (!source.isAlly(target)) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
-		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
+		shortDesc: "Heals target for 1/4 max HP if ally. If foe, Hits all adjacent opponents.",
 	},
 	selfrepairing: {
 		num: -6,
@@ -533,5 +539,99 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allies",
 		type: "Steel",
+	},
+	strongvigor: {
+		num: 2018,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Strong Vigor",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		heal: [1, 3],
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+		shortDesc: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
+	},
+	elementalbreak: {
+		num: 2019,
+		accuracy: 85,
+		basePower: 90,
+		category: "Special",
+		name: "Elemental Break",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		condition: {
+			noCopy: true,
+			duration: 3,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Elemental Break');
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive) {
+					pokemon.removeVolatile('elementalbreak');
+				}
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({spd: -1}, pokemon, this.effectState.source);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Elemental Break', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'elementalbreak',
+		},
+		target: "normal",
+		type: "Normal",
+		shortDesc: "Target's Spd is lowered by 1 stage for 2 turns.",
+	},
+	fierystabs: {
+		num: 3000,
+		accuracy: 90,
+		basePower: 45,
+		category: "Physical",
+		name: "Fiery Stabs",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 2,
+		self: {
+			volatileStatus: 'laserfocus',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+		shortDesc: "Hits 2 times. User gains Laser Focus on each hit.",
+	},
+	physic: {
+		num: 3001,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Physic",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		shortDesc: "Heals target for 50% of their max HP.",
 	},
 };

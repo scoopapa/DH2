@@ -41,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jigsawry: {
 		num: -5,
-		name: "jigsawry",
+		name: "Jigsawry",
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 55, spd: 50, spe: 70},
@@ -1506,7 +1506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Grass", "Dark"],
 		gender: "M",
-		baseStats: {hp: 110, atk: 125, def: 136, spa: 125, spd: 108, spe: 66},
+		baseStats: {hp: 110, atk: 139, def: 136, spa: 111, spd: 108, spe: 66},
 		abilities: {0: "Soul Drain"},
 		weightkg: 999.9,
 		requiredItem: "Floweyite"

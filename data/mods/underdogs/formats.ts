@@ -6,7 +6,7 @@ export const Formats: FormatData[] = [
 		mod: 'underdogs',
 		desc: `A metagame dedicated to exploring weak design features in Pokemon (poor typings, awful abilities, restricted movepools and low stats) and attempts to make them Work.`,
 		ruleset: ['Standard NatDex', 'Data Mod', 'Sleep Moves Clause', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause'],
-		banlist: ['Baton Pass', 
+		banlist: ['Baton Pass', 'Hidden Power', 
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 
 			'Golurkite', 'Houndoominite', 'Swampertite', 'Staraptite'],
 		teambuilderFormat: 'National Dex',

@@ -565,7 +565,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	covertcloak: {
 		inherit: true,
 		shortDesc: "Holder nullifies all secondary effects of another Pokemon's attack.",
-		onTakeItem: false,
 		onModifySecondaries(secondaries) {
 			return secondaries.filter(effect => !!effect.cloak);
 		},
@@ -1286,14 +1285,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bassjpg: {
 		name: "bass.jpg",
 		shortDesc: "Holder's Fishing attacks have 1.2x power.",
+		desc: "Holder's Fishing attacks have 1.2x power. When flung, returns the item to the holder and adds 1 fishing token to its side.",
 		rating: 2,
 		fling: {
 			basePower: 100,
 			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 				source.lastItem = '';
-				this.add('-item', source, this.dex.items.get(this.effect.id), '[from] move: Fling');
-				source.setItem(this.effect, source, move);
+				const item = this.dex.items.get('bassjpg');
+				this.add('-item', source, item, '[from] move: Fling');
+				source.setItem(item, source, move);
 			},
 		},
 		onBasePowerPriority: 15,
@@ -1328,7 +1329,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	lunchly: {
 		name: "Lunchly",
-		shortDesc: "Holder heals 15% at turn end for first 3 turns, then attempts to poison.",
+		shortDesc: "Holder heals 10% at turn end for first 3 turns, then attempts to poison.",
 		fling: {
 			basePower: 30,
 			status: 'psn',
@@ -1336,7 +1337,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.activeTurns < 3) this.heal(pokemon.baseMaxhp * 0.15);
+			if (pokemon.activeTurns < 3) this.heal(pokemon.baseMaxhp * 0.1);
 			else pokemon.trySetStatus('psn', pokemon);
 		},
 	},
@@ -1445,7 +1446,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	'ironfistslate13': {
 		name: "Iron Fist Slate 13",
-		shortDesc: "On switch-in, starts Slate 13. Also boosts damage by x1.3. Announces itself when used.",
+		shortDesc: "On switch-in, starts Slate 13. Also boosts damage by x1.1. Announces itself when used.",
 		fling: {
 			basePower: 13,
 			effect(target, source, move) {
@@ -1456,7 +1457,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.add('-message', `${pokemon.name} started slate 13 or something idfk`);
 		},
 		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([5324, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 	},
 	lemonganite: {

@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "Constricting Darkness",
-		shortDesc: "Pokemon without this ability have 0.75x Special Attack. User's Dark-type attacks: 1.3x Power.",
+		shortDesc: "Pokemon without this ability have 0.75x Sp. Attack. User's Dark-type attacks: 1.3x Power.",
 	},
 	
 	yourtakingtoolong: {
@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 Power (max 2 times).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 BP (max 2).",
 	},
 	
 	makeththerules: {
@@ -420,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Blossom Boost",
-		shortDesc: "Highest stat is multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or if holding Booster Energy."
+		shortDesc: "Highest stat multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or using Booster Energy."
 	},
 	
 	sharpshooter: {
@@ -433,7 +433,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Sharpshooter",
-		shortDesc: "This Pokemon's bullet moves do 1.5x their normal damage. Pollen Puff heals 3/4 of the target's max HP.",
+		shortDesc: "This Pokemon's bullet moves do 1.5x damage. Pollen Puff heals 3/4 of the target's max HP.",
 	},
 	
 	//Many Seths were harmed in the making of this ability.
@@ -454,7 +454,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	lovingdances: {
-		onTryMove(pokemon, attacker, move) {
+		onTryMove(attacker, pokemon, move) {
 			if (move.flags['dance'] && this.randomChance(1, 2)) {
 				for (const ally of attacker.alliesAndSelf()) {
 					if (ally.status) {
@@ -490,7 +490,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fast Food",
-		shortDesc: "Twice per battle, user + ally heal 15% of their max HP. Counts as eating a berry. User's Speed +1.",
+		shortDesc: "Twice per battle, user + ally heal 15% max HP. Counts as eating a berry. User's Speed +1.",
 	},
 	
 	swordplay: {

@@ -69,7 +69,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 		gen: 9,
 	},
 	celebite: {
-		name: "Celebiite",
+		name: "Celebite",
 		spritenum: 1005,
 		megaStone: "Celebi-Mega",
 		megaEvolves: "Celebi",
@@ -124,7 +124,7 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 		gen: 9,
 		rating: 3,
 	},
-	salamenceitez: {
+	salamencitez: {
 		name: "Salamencite Z",
 		spritenum: 1009,
 		megaStone: "Salamence-Mega-Z",

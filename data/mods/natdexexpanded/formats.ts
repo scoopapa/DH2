@@ -9,7 +9,7 @@ export const Formats: FormatData[] = [
 		unbanlist: ['Gengar-Mega'],
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Levitate',
 					'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Ancient Soul Dew', 'Raikou-Mega', 'Suicune-Mega', 'Salamence-Mega-Z', 'Empoleon-Mega', 'Regigigas-Mega', 'Hydreigon-Mega', 'Volcarona-Mega', 'Keldeo-Mega', 'Victini-Perfected', 'Goodra-Mega', 'Dragapult-Mega', 'Kingambit-Mega', 'Gholdengo-Mega', 'Archaludon-Mega'],
-					teambuilderFormat: 'National Dex',
+		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 9] NatDex Expanded AG",

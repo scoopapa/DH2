@@ -115,7 +115,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "35% Chance to unleash a Meggido at 3x power after an Attack. ",
 		name: "Sol Blade",
 		rating: 4,
-		num:1006
+		num: 1006,
 	},
 	floramancy: {
 		onResidualOrder: 28,
@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					if (side.getSideCondition(sideCondition)) {
 						if (!activated) {
 							this.add('-activate', pokemon, 'ability: Floramancy');
-							this.heal(pokemon.baseMaxhp / 4);
+							this.heal(pokemon.baseMaxhp / 16);
 							activated = true;
 						}
 					}
@@ -138,6 +138,91 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Floramancy",
 		rating: 2,
 		num: 1008,
-		desc: "Heals 25% max HP when Floraconda is active.",
+		desc: "Heals 1/16 max HP when Floraconda is active.",
+	},
+	elementalaid: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Elemental Aid');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon) {
+			pokemon.deductPP(move.id, 1);
+			this.add('-activate', pokemon, 'ability: Elemental Aid');
+			}
+		},
+		flags: {},
+		name: "Elemental Aid",
+		rating: 2.5,
+		num: 1007,
+		desc: "Moves use one additional pp but have 1.3x power.",
+	},
+	resolute: {
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+            if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Resolute",
+		rating: 4,
+		num: 1009,
+		desc: "Defenses increase by 1.5x when max HP is reduced to 50% or lower.",
+	},
+	divineblade: {
+		onModifyMove(move, source, target) {
+			if (move.flags['slicing']) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['slicing']) {
+				if (this.randomChance(3, 10)) {
+					this.boost({spe: -1}, target, source, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Divine Blade",
+		rating: 4,
+		num: 1010,
+		desc: "Slicing moves hit all adjacent opponents. 30% chance to lower Spe by 1.",
+	},
+	fearless: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'retaliate') return;
+			if (target.hp && target.volatiles['laserfocus']) {
+				this.actions.useMove('retaliate', this.effectState.target); 
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id === 'retaliate') { 
+				move.type = 'Water';
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.id === 'retaliate') { 
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+			}
+		},
+		flags: {},
+		name: "Fearless",
+		rating: 5,
+		num: 2001,
+		desc: "When damaged with Laser Focus active, Uses Retaliate with fire and water effectiveness.",
 	},
 };

@@ -29,4 +29,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	houndoom: {tier: "underdogs"},
 
 	camothflage: {tier: "underdogs"},
+	serperiormaadowr: {tier: "underdogs"},
+	iggloosby: {tier: "underdogs"},
+	alguinice: {tier: "underdogs"},
 };
