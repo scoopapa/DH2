@@ -110,7 +110,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 12,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {slicing: 1, protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
 			const atk = pokemon.getStat('atk', false, true);
