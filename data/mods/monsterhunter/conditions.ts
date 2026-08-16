@@ -190,20 +190,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	fatigue: {
 		name: 'Fatigue',
-		duration: 5,
+		durationCallback(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.id === 'crystalblight') return 0;
+			return 5;
+		},
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Fatigue');
 			this.add('-message', `${pokemon.name} is Fatigued! Moves use more PP!`);
 		},
-		onDeductPP(target, source) {
-			// Self-targeting moves: pressureTargets = [self], so target === source === the Fatigued mon
-			if (target !== this.effectState.target || source !== this.effectState.target) return 0;
-			const drain = 1;
-			this.add('-message', `${source.name}'s Fatigue drained ${drain} extra PP!`);
-			return drain;
-		},
 		onSourceDeductPP(target, source, move) {
-			// Foe-targeting moves: the Fatigued mon is the runEvent "source"
 			const drain = 1;
 			this.add('-message', `${source.name}'s Fatigue drained ${drain} extra PP!`);
 			return drain;
