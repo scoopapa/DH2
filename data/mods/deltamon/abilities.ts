@@ -433,7 +433,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Sharpshooter",
-		shortDesc: "This Pokemon's bullet moves do 1.5x damage. Pollen Puff heals 3/4 of the target's max HP.",
+		shortDesc: "Bullet moves: 1.5x dmg. Pollen Puff heals 3/4.",
 	},
 	
 	//Many Seths were harmed in the making of this ability.
