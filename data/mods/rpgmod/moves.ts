@@ -634,4 +634,81 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		shortDesc: "Heals target for 50% of their max HP.",
 	},
+	lighthurricane: {
+		num: 3002,
+		accuracy: 80,
+		basePower: 40,
+		category: "Special",
+		name: "Light Hurricane",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1,  wind: 1},
+		multihit: 3,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(2, 10)) {
+				this.boost({atk: -1}, target);
+				this.boost({spe: -1}, target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		shortDesc: "Hits 3 times. 20% chance -1 Atk and Spe.",
+	},
+	purification: {
+		num: 3003,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Purification",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target) return false;
+			const spatk = source.getStat('spa', false, true);
+			target.cureStatus();
+			return !!(this.heal(spatk / 2, target, source));
+		},
+		secondary: null,
+		target: "adjacentAlly",
+		type: "Fairy",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+		shortDesc: "Removes status from ally. Heals = User's Spatk / 2.",
+	},
+	fairyblessing: {
+		num: 3004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fairy Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'mist',
+		self: {
+			sideCondition: 'safeguard',
+		},
+		onHit(target, source) {
+			if (!target) return false;
+			const spatk = source.getStat('spa', false, true);
+			target.cureStatus();
+			return !!(this.heal(spatk, target, source));
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Lunar Dance", pokemon);
+		},
+		secondary: null,
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
+		target: "adjacentAlly",
+		type: "Fairy",
+		contestType: "Clever",
+		shortDesc: "Heals = User's Spatk. Sets Safeguard and Mist. +1 Atk and Spatk.",
+	},
 };
