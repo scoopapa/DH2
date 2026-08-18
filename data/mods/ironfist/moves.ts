@@ -2311,7 +2311,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Body Slam", target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 6, pokemon, target, move);
+			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 8, pokemon, target, move);
 		},
 		secondary: null,
 		target: "normal",
@@ -4847,7 +4847,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				const diamondHand = source.side.pokemon.filter(p => p !== source && p.baseSpecies.diamondHand);
-				if (diamondHand.length === 6) this.heal(source.baseMaxhp);
+				if (diamondHand.length === 5) this.heal(source.baseMaxhp);
 			},
 		},
 		secondary: null,

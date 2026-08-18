@@ -231,6 +231,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+	rustedsword: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === -26) || pokemon.baseSpecies.num === -26) {
+				return false;
+			}
+			return true;
+		},
+	},
 
 	//slate 2
 	boosterenergy: {
@@ -1124,6 +1133,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add('-fail', target, 'unboost', '[from] item: Diamond Heart', `[of] ${target}`);
+			}
+		},
+		onSwitchInPriority: -1,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Daiyakuza' && !pokemon.transformed) {
+				pokemon.formeChange('Daiyakuza-Origin', this.effect, true);
 			}
 		},
 		onTakeItem(item, source) {
