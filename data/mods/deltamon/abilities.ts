@@ -431,9 +431,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onModifyMove(move) {
+			if (move.flags['bullet']) move.tracksTarget = true;
+		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Sharpshooter",
-		shortDesc: "Bullet moves: 1.5x dmg. Pollen Puff heals 3/4.",
+		shortDesc: "Bullet moves: 1.5x dmg, cannot be redirected. Pollen Puff heals 3/4.",
 	},
 	
 	//Many Seths were harmed in the making of this ability.
