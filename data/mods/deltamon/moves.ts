@@ -631,10 +631,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 18,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Hits 10 times. Priority +2. User can't switch.",
-		longDesc: "The user rushes fists-first into the target, hitting them up to ten times. This move nearly always goes first. After the move is complete, the user is prevented from switching out.",
+		shortDesc: "Hits 10 times. Priority +1. User can't switch.",
+		longDesc: "The user rushes fists-first into the target, hitting them up to ten times. This move usually goes first. After the move is complete, the user is prevented from switching out.",
 		priority: 1,
-		flags: {fist: 1},
+		flags: {fist: 1, contact: 1},
 		multihit: 10,
 		self: {
 		volatileStatus: 'noretreat',
