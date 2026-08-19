@@ -711,4 +711,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		shortDesc: "Heals = User's Spatk. Sets Safeguard and Mist. +1 Atk and Spatk.",
 	},
+	furiouspursuit: {
+		num: 3005,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Furious Pursuit",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterMove(pokemon, target, move) {
+			if (move.totalDamage) {
+				this.damage(move.totalDamage / 8, target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+		shortDesc: "Deals extra damage = 1/8 total move damage.",
+	},
 };
