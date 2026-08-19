@@ -225,4 +225,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 2001,
 		desc: "When damaged with Laser Focus active, Uses Retaliate with fire and water effectiveness.",
 	},
+	soulreaping: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Soul Reaping');
+				this.heal(source.baseMaxhp / 4, source, source, effect);
+			}
+		},
+		flags: {},
+		name: "Soul Reaping",
+		rating: 4,
+		num: 2002,
+		desc: "Heals 25% max HP when it KOes another pokemon with an attack",
+	},
 };

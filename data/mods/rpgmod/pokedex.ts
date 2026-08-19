@@ -209,4 +209,18 @@ cloudstrife: {
 		baseStats: {hp: 95, atk: 100, def: 110, spa: 65, spd: 105, spe: 70},
 		abilities: {0: "Fearless", H: "Mirror Armor"},
 	},
+	fran: {
+		num: -971,
+		name: "Fran",
+		types: ["Fairy"],
+		baseStats: {hp: 99, atk: 65, def: 90, spa: 100, spd: 95, spe: 91},
+		abilities: {0: "Gale Wings", 1: "Healer", H: "Levitate"},
+	},
+	guzman: {
+		num: -970,
+		name: "Guzman",
+		types: ["Ghost", "Fighting"],
+		baseStats: {hp: 102, atk: 130, def: 85, spa: 85, spd: 60, spe: 95},
+		abilities: {0: "Soul Reaping"},
+	},
 };
