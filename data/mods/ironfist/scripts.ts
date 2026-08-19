@@ -53,15 +53,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				this.add('start');
 
-				// Change Circall into Wario
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
-					console.log(`${pokemon.species.id}\n
-								${pokemon.baseMoves.indexOf('stankyleg')}\n
-								${pokemon.baseMoves.indexOf('youwantfun')}\n
-								${pokemon.baseMoves.indexOf('wariopicrosspuzzle4g')}\n
-								${pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh')}\n
-								${pokemon.hasAbility('bloodlinegreatestachievement')}\n`);
+					
+					// Change Circall into Wario
 					if (pokemon.species.id === 'circall' && 
 						pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
 						pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
@@ -70,6 +65,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						pokemon.hasAbility('bloodlinegreatestachievement')) {
 						rawSpecies = this.dex.species.get('Wario-Forbidden-One');
 					}
+					
+					// change ogre to ogre-o
+					if (pokemon.species.id === 'kyogre' && pokemon.item === 'originalitem') {
+						rawSpecies = this.dex.species.get('Kyogre-Original');
+					} 
+					// change daiyakuza to daiyakuza-o
+					else if (pokemon.species.id === 'daiyakuza' && pokemon.item === 'diamondheart') {
+						rawSpecies = this.dex.species.get('Daiyakuza-Origin');
+					}
+					
 					if (!rawSpecies) continue;
 					const species = pokemon.setSpecies(rawSpecies);
 					if (!species) continue;
