@@ -527,11 +527,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let type = pokemon.teraType;
 			let canTera = false;
-			if (pokemon.set.ability === 'I Love Fishing') {
+			if (pokemon.hasAbility('ilovefishing') {
 				canTera = true;
 				type = 'Water';
 			}
-			if (pokemon.set.ability === 'Racer\'s Spirit') {
+			if (pokemon.hasAbility('racersspirit')) {
 				canTera = true;
 				type = 'Steel';
 			}
