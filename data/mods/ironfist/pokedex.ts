@@ -1936,6 +1936,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	miniormeteor: {
 		num: -190,
 		name: "Minior-Meteor",
+		baseSpecies: null,
+		forme: null,
 		types: ["Rock"],
 		baseStats: {hp: 80, atk: 80, def: 120, spa: 80, spd: 120, spe: 100},
 		abilities: {0: "Shields Up"},
