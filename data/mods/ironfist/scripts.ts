@@ -527,7 +527,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let type = pokemon.teraType;
 			let canTera = false;
-			if (pokemon.hasAbility('ilovefishing') {
+			if (pokemon.hasAbility('ilovefishing')) {
 				canTera = true;
 				type = 'Water';
 			}
