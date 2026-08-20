@@ -421,4 +421,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	iusperare: {
 		tier: "BC D",
 	},
+	wyrmwaren: {
+		tier: "BC D",
+	},
+	irdonerkeb: {
+		tier: "BC D",
+	},
+	kappaqua: {
+		tier: "BC D",
+	},
 };
