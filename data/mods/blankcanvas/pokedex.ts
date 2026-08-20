@@ -1129,8 +1129,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	wyrmwaren: {
 		num: 9140,
 		name: "Wyrmware-N",
-		baseSpecies: "Wyrmware",
-		forme: "N",
 		types: ["Dragon", "Electric"],
 		baseStats: {hp: 90, atk: 90, def: 75, spa: 100, spd: 75, spe: 101},
 		abilities: {0: "Magic Bounce", 1: "Trace", H: "Light Metal"},
