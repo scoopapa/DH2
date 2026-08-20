@@ -731,4 +731,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		shortDesc: "Deals extra damage = 1/8 total move damage.",
 	},
+	azuremight: {
+		num: 3006,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Azure Might",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.getStat('def') > target.getStat('def')) {
+				this.debug("BP boost for higher defense");
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+		shortDesc: "Def > target's Def: Power 1.3x",
+	},
 };

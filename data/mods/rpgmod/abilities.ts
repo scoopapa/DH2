@@ -238,4 +238,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 2002,
 		desc: "Heals 25% max HP when it KOes another pokemon with an attack",
 	},
+	levinflight: {
+		onModifyMove(move) {
+			if (move) {
+				move.overrideOffensiveStat = 'def';
+			}
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.getStat('def') > target.getStat('def')) {
+				this.add('-ability', pokemon, 'Levin Flight')
+				target.addVolatile('levinflight');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Levin Flight');
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def) {
+			return this.chainModify(0.75);
+			},
+			onEnd(pokemon) {
+			this.add('-end', pokemon, 'Levin Flight');
+			},
+		},
+		flags: {},
+		name: "Levin Flight",
+		desc: "Attacks use defense as attacking stat. Before Move, If Def > Foe's Def is .75x 1 turn.",
+		shortDesc: "Attacks use defense as attacking stat. Before Move, If Def > Foe's Def is .75x 1 turn.",
+		rating: 3.5,
+		num: 2003,
+	},
 };
