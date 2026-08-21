@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	//v1.1 learnsets
 	defaultdance: {
 		learnset: {

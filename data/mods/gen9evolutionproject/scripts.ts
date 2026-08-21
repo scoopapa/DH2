@@ -1,7 +1,7 @@
 import { Pokemon, EffectState } from '../../../sim/pokemon';
 import { Teams } from '../../../sim/teams';
 
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		// sorting the teambuilder by slate / prompt

@@ -21,7 +21,7 @@ export function getName(name: string): string {
 	const group = usergroups[userid] || ' ';
 	return group + name;
 }
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	speciesclause: {
 		inherit: true,
 		onValidateTeam(team, format) {

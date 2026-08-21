@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		/*
 		for (const id in this.dataCache.Pokedex) {

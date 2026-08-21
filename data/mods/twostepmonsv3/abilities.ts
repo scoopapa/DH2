@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	miracleremedy: {
 		name: "Miracle Remedy",
 		shortDesc: "Heals the status of the ally switching in.",

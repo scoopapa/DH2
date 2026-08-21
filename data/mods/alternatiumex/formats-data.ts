@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	decidueyehermit: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",

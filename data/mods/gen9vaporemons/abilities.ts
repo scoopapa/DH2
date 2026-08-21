@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	zerotohero: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move' || source.species.id !== 'palafin' || !source.hp || source.transformed || !source.side.foe.pokemonLeft) {

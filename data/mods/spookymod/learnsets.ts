@@ -1,6 +1,6 @@
 import { ModdedLearnsetData } from "../../../sim/dex-species";
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	aegislash: {
 		learnset: {
 			defog: ["9M"],

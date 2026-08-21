@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	corupcake: {
 		learnset: {
 			ember: ["1L1"],

@@ -3,7 +3,7 @@ export function roundNum(n: number): number {
 }
 
 import {Dex} from '../../../sim/dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	side: {
 		addMiss(amount) {

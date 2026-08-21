@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// think we learned this was necessary as a bugfix
 	darmanitanzen: {},
 	mimikyubusted: {},

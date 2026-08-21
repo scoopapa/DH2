@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	shadownightmare: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {

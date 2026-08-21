@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		this.modData("Learnsets", "landorus").learnset.airslash = ["9L1"];
 		delete this.modData('Learnsets', 'landorus').learnset.sludgebomb;

@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	sylvemonsintromod: {
 		effectType: 'Rule',
 		name: 'SylveMons Intro Mod',

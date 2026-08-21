@@ -1,6 +1,6 @@
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'lowkick', 'rollingkick', 'triplekick', 'stomp'];
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	striker: {
 		shortDesc: "Boosts the power of kicking moves by 1.2x, and boost the Accuracy by 10%.",
 		onBasePowerPriority: 8,

@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	absorbent: {
 		name: "Absorbent",
 		shortDesc: "When hit by a Light-type skill, damage is nullified and SpAtk is raised.",

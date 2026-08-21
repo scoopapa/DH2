@@ -1,6 +1,6 @@
 // Level-specific changes are omitted due to the sheer amount that exist.
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	missingno: {
 		learnset: {
 			blizzard: ["1M"],

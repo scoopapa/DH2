@@ -2,7 +2,7 @@
  * Gen 2 moves
  */
 
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	barrage: {
 		inherit: true,
 		basePower: 20,

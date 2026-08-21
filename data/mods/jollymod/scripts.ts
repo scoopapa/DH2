@@ -1,6 +1,6 @@
 import {Pokemon} from '../../../sim/pokemon';
 import {Dex} from '../../../sim/dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers

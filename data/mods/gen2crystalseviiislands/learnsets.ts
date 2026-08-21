@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	horatekku: {
 		learnset: {
 			attract: ["2M"],

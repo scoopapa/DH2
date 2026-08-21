@@ -27,7 +27,7 @@ const HAZARDS = [
 	'gmaxsteelsurge', 'fertilesoil', 'stoneaxe', 'ceaselessedge',
 ];
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	/*
 	placeholder: {
 		

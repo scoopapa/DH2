@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	koatric: {
 		learnset: {
 			barrage: ["8L1"],

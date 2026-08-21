@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	cutecharm: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.randomChance(3, 10)) {

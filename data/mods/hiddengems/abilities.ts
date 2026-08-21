@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
   amorphous: {
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;

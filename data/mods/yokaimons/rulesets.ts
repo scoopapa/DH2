@@ -11,7 +11,7 @@ function getTribeBonus(side: any): {bonus: 0 | 1 | 2, tribe: string | null} {
     return {bonus: 0, tribe: null};
 }
 
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	shiftclause: {
 		effectType: 'Rule',
 		name: 'Shift Clause',

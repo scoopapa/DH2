@@ -22,7 +22,7 @@ export function getName(name: string): string {
 	return group + name;
 }
 
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	//physical ghost
 	poltergeist: {
 		inherit: true,

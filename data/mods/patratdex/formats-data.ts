@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	berribat: {
 		tier: "Patratdex Gen 1 LC",
 		doublesTier: "Patratdex Doubles Gen 1 NFE",

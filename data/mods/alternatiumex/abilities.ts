@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	soulreap: {
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender.volatiles['partiallytrapped'] || defender.volatiles['trapped']) {

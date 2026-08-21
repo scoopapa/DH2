@@ -10,7 +10,7 @@ export function randomCritMeterValue(): number {
 	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
 }
 
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	haxmeterrule: {
         effectType: 'Rule',
         name: 'Hax Meter Rule',

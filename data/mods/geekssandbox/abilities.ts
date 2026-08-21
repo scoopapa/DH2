@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	jackofalltrades: {
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' && target !== source) {

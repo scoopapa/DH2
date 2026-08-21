@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// ////// THE POKEMON BELOW ARE TEMPORARY FOR THE DUOMOD TOURNAMENT. THEY WILL BE REMOVED AFTERWARDS. ////////

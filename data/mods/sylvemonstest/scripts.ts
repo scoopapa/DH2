@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	init() {
 	  this.modData('Pokedex', 'sawsbuckwinter').types = ['Grass', 'Ice'];
 		// Flame Bullet
