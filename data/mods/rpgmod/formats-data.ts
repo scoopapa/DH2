@@ -128,5 +128,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "Rpgmod",
 	},
-
+	xuanchi: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
 };

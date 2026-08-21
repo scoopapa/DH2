@@ -223,4 +223,11 @@ cloudstrife: {
 		baseStats: {hp: 102, atk: 130, def: 85, spa: 85, spd: 60, spe: 95},
 		abilities: {0: "Soul Reaping"},
 	},
+	xuanchi: {
+		num: -969,
+		name: "Xuan Chi",
+		types: ["Electric", "Dragon"],
+		baseStats: {hp: 100, atk: 85, def: 105, spa: 85, spd: 90, spe: 100},
+		abilities: {0: "Levin Flight"},
+	},
 };
