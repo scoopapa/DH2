@@ -131,7 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "YOUR TAKING TOO LONG",
-		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
+		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until user switches.",
 	},
 		
 	//copied from Berserk
@@ -215,7 +215,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	undyingspirit: {	
 		onUpdate(pokemon) {
 			if (pokemon.undyingRecover) return;
-			if (pokemon.hp <= pokemon.maxhp / 4 && !pokemon.fainted) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && !pokemon.fainted && !pokemon.volatiles['healblock']) {
 				this.heal(pokemon.baseMaxhp / 2);
 				pokemon.undyingRecover = true;
 			}
