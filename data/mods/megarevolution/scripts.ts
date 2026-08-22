@@ -147,5 +147,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "salamence").learnset.bloodmoon = ["9L1"];
 		this.modData("Learnsets", "salamence").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "salamence").learnset.moonlight = ["9L1"];
+		
+		this.modData("Learnsets", "sableye").learnset.poltergeist = ["9L1"];
+		this.modData("Learnsets", "sableye").learnset.suckerpunch = ["9L1"];
 	},
 };

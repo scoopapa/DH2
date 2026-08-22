@@ -5002,4 +5002,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gark: {
 		tier: "OU",
 	},
+	gemilin: {
+		tier: "OU",
+	},
+	scroundrel: {
+		tier: "OU",
+	},
+	eldropath: {
+		tier: "OU",
+	},
 };
