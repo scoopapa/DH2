@@ -270,4 +270,58 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 2003,
 	},
+	happyspace: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (!pokemon.hp && !pokemon.status) return false;
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			const status = pokemon.status;
+			for (const target of pokemon.foes()) {
+				target.trySetStatus(status, pokemon);
+				this.add('-activate', pokemon, 'ability: Happy Space');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Happy Space",
+		rating: 4,
+		num: 2004,
+		desc: "At the end of the turn, Transfers Brn/para/Tox/psn to an adjacent opponent.",
+	},
+	warmharmonics: {
+		onAllySideConditionStart(target, source, sideCondition) {
+			const ally = source.allies()[0];
+			if (sideCondition.id === 'worldstage' && source.hp && target.hp) {
+				this.add('-ability', source, 'Warm Harmonics')
+				ally.addVolatile('supportingsong');
+				source.addVolatile('supportingsong');	
+			}
+		},
+		onUpdate(pokemon) {
+			const ally = pokemon.allies()[0];
+			if (!pokemon.side.sideConditions['worldstage']) return false;
+			if (ally.volatiles['supportingsong'] && pokemon.volatiles['supportingsong']) return false;
+				this.add('-activate', pokemon, 'ability: Warm Harmonics');
+				ally.addVolatile('supportingsong');
+				pokemon.addVolatile('supportingsong');;
+		},
+		flags: {},
+		name: "Warm Harmonics",
+		rating: 4.5,
+		num: 2005,
+		desc: "If active, when world stage active, ally is granted the supporting song volatile.",
+	},
+	snakesden: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.volatiles['hiss']) {
+				target.trySetStatus('par', source);
+			}
+		},
+		flags: {},
+		name: "Snakes Den",
+		rating: 4,
+		num: 2006,
+		desc: "When attacking a target with Hiss!, paralyzes the target.",
+	},
 };
