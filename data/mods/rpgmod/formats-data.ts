@@ -132,4 +132,32 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Rpgmod",
 		doublesTier: "Rpgmod",
 	},
+	hissabeth: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	omori: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	ahmed: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	potarcher: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	deeraia: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	shanshan: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
+	heliventus: {
+		tier: "Rpgmod",
+		doublesTier: "Rpgmod",
+	},
 };

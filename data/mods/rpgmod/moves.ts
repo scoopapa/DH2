@@ -653,7 +653,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
-		shortDesc: "Hits 3 times. 20% chance -1 Atk and Spe.",
+		shortDesc: "Hits 3 times. 20% for -1 Atk and Spe after last hit.",
 	},
 	purification: {
 		num: 3003,
@@ -751,5 +751,149 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Clever",
 		shortDesc: "Def > target's Def: Power 1.3x",
+	},
+	exploit: {
+		num: 3007,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Exploit",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] Assurance ' + move.category);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.random(2) === 0)) {
+				move.category = 'Physical';
+				move.flags.contact = 1;
+			}
+		},
+		onHit(target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Exploit");
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Exploit");
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		shortDesc: "Phys+Contact if stronger. Power 2x if target statused. ",	
+	},
+	finalstrike: {
+		num: 3008,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Final Strike",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Cute",
+		shortDesc: "Power doubles if user is statused. hts adjacent opponents.",
+	},	
+	worldstage: {
+		num: 3009,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "World Stage",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'worldstage',
+		condition: {
+			duration: 10,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: World Stage');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: World Stage');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Ground",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+		shortDesc: "10 turns. Heals 1/8 of target's max HP for user's side.",
+	},
+	hiss: {
+		num: 3010,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Hiss!",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'hiss',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Hiss!');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				if (pokemon) this.damage(pokemon.baseMaxhp / 8);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Hiss!');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		shortDesc: "Hiss!: Deals 1/8 max HP each turn.",
+	},
+	ouroboros: {
+		num: 3011,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Ouroboros",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.volatiles['hiss']) {
+				this.debug('Hiss! buff');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		shortDesc: "1.5x power against targets with Hiss!.",
 	},
 };
