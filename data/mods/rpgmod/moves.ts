@@ -848,7 +848,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		shortDesc: "10 turns. Heals 1/8 of target's max HP for user's side.",
+		shortDesc: "10 turns. Heals 1/16 of target's max HP for user's side.",
 	},
 	hiss: {
 		num: 3010,
