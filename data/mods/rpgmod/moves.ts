@@ -829,14 +829,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sideCondition: 'worldstage',
 		condition: {
 			duration: 10,
-			onResidual(pokemon) {
-				this.heal(pokemon.baseMaxhp / 8);
-			},
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: World Stage');
 			},
+			onResidual(pokemon) {
+				const duration = pokemon.side.sideConditions['worldstage'].duration;
+				this.heal(pokemon.baseMaxhp / 16);
+				this.add('-message', `World Stage has ${duration} turns left`);
+			},
 			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 10,
+			onSideResidualSubOrder: 6,
 			onSideEnd(side) {
 				this.add('-sideend', side, 'move: World Stage');
 			},
@@ -846,7 +848,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		shortDesc: "10 turns. Heals 1/8 of target's max HP for user's side.",
+		shortDesc: "10 turns. Heals 1/16 of target's max HP for user's side.",
 	},
 	hiss: {
 		num: 3010,

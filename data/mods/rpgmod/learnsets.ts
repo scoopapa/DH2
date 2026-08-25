@@ -135,6 +135,7 @@ cloudstrife: {
 			bitterblade: ["9L1"],
 			fireblast: ["9L1"],
 			aebersreckoning: ["9L1"],
+			protect: ["9L1"],
 		},
 	},
 	docker: {
@@ -874,6 +875,7 @@ cloudstrife: {
 			teeterdance: ["9L1"],
 			raindance: ["9L1"],
 			powdersnow: ["9L1"],
+			protect: ["9L1"],
 		},
 	},
 	muffet: {
@@ -907,6 +909,7 @@ cloudstrife: {
 			return: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
+			protect: ["9L1"],
 		},
 	},
 	reanschwarzer: {
