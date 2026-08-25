@@ -292,8 +292,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zygarde10: {
 		name: "Zygarde-10%",
-		baseSpecies: null,
-		forme: null,
+		baseSpecies: undefined,
+		forme: undefined,
 		types: ["Dragon", "Ground"],
 		gender: "N",
 		baseStats: {hp: 54, atk: 50, def: 71, spa: 60, spd: 70, spe: 115},
