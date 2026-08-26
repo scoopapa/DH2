@@ -1059,7 +1059,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Marultan",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 75, atk: 40, def: 70, spa: 110, spd: 100, spe: 110},
-		abilities: {0: "Analytic"},
+		abilities: {0: "Clear Body"},
 		weightkg: 350,
 	},
 	vertabrea: {
