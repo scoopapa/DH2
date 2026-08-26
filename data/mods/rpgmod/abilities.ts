@@ -194,11 +194,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Divine Blade debuff');
+				return this.chainModify(0.75);
+			}
+		},
 		flags: {},
 		name: "Divine Blade",
 		rating: 4,
 		num: 1010,
-		desc: "Slicing moves hit all adjacent opponents. 30% chance to lower Spe by 1.",
+		desc: "Slicing moves hit all adjacent opponents but have 3/4 power. 30% chance: -1 Spe",
 	},
 	fearless: {
 		onDamagingHitOrder: 1,
