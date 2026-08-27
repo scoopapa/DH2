@@ -6997,7 +6997,28 @@ rudinn: {
 			trickroom: ["9L1"],
 		},
 	},
-
-
+	
+	friend: {
+		learnset: {
+			crunch: ["9L1"],
+			tailofhell: ["9L1"],
+			psychicfangs: ["9L1"],
+			taunt: ["9L1"],
+			pursuit: ["9L1"],
+			icefang: ["9L1"],
+			firefang: ["9L1"],
+			thunderfang: ["9L1"],
+			egg: ["9L1"],
+		},
+	},
+	normalnpc: {
+		learnset: {
+			bravebird: ["9L1"],
+			doubleedge: ["9L1"],
+			closecombat: ["9L1"],
+			uturn: ["9L1"],
+			chatter: ["9L1"],
+		},
+	},
 
 };

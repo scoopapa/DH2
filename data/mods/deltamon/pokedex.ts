@@ -1546,8 +1546,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Asriel",
 	},
 
+	//Randoms Exclusives
+	
+	friend: {
+		num: -1000,
+		name: "Friend",
+		types: ["Dark", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 144, def: 74, spa: 74, spd: 64, spe: 114},
+		abilities: {0: "Darkspawn"},
+		weightkg: 66.6,
+	},
 
-
-
+	normalnpc: {
+		num: -1001,
+		name: "Normal NPC",
+		types: ["Normal", "Flying"],
+		gender: "M",
+		baseStats: {hp: 75, atk: 122, def: 75, spa: 66, spd: 72, spe: 130},
+		abilities: {0: "Normal Ability"},
+		weightkg: 30,
+	},
 };
 	
