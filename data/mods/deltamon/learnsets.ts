@@ -1869,7 +1869,7 @@ rudinn: {
 			safeguard: ["9L1"],
 			sheercold: ["9L1"],
 			sleeptalk: ["9L1"],
-			snowgrave: ["9L55"],
+			snowgrave: ["9L1"],
 			snowscape: ["9L1"],
 			storedpower: ["9L1"],
 			substitute: ["9L1"],
