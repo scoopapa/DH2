@@ -267,6 +267,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyEffectivenessPriority: 1,
 		onAnyEffectiveness(typeMod, target, type, move) {
+			if (move && move.id === 'freezedry' && type === 'Water') return;
 			if (move && !this.dex.getImmunity(move, type)) return 1;
 			return typeMod * -1;
 		},
