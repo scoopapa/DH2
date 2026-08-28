@@ -833,9 +833,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: World Stage');
 			},
 			onResidual(pokemon) {
-				const duration = pokemon.side.sideConditions['worldstage'].duration;
 				this.heal(pokemon.baseMaxhp / 16);
-				this.add('-message', `World Stage has ${duration} turns left`);
+				if (pokemon.side.sideConditions['worldstage']) {
+				this.add('-message', `World Stage has ${pokemon.side.sideConditions['worldstage'].duration} turns left!`);
+				} else {
+				this.add('-message', `World Stage ended!`);
+				}
 			},
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 6,
