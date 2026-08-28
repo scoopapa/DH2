@@ -320,7 +320,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	magmasurge: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 20,
 		category: "Physical",
 		name: "Magma Surge",
 		shortDesc: "100% chance to burn the foe.",

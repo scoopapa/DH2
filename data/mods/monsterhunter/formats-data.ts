@@ -30,7 +30,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	jielung: {
-		tier: "MHUU",
+		tier: "MHOU",
 	},
 	viperkadachi: {
 		tier: "MHRU",
@@ -264,7 +264,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	lagiacrus: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	ivogiacrus: {
 		tier: "MHRU",
@@ -573,7 +573,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	astalosboltreaver: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	diablosmassacre: {
 		tier: "MHOU",
@@ -642,7 +642,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUUBL",
 	},
 	xuwu: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	oroshirin: {
 		tier: "MHUU",
@@ -666,7 +666,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	inferonis: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	hallowedmohran: {
 		tier: "MHRU",
@@ -771,7 +771,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	lagiacrusabyssal: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	fataliscrimson: {
 		tier: "MHUU",
