@@ -1150,4 +1150,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thermal Exchange", H: "Dry Skin"},
 		weightkg: 300,
 	},
+	lactoxic: {
+		num: 9143,
+		name: "Lactoxic",
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 90, atk: 41, def: 70, spa: 20, spd: 100, spe: 106},
+		abilities: {0: "Thick Fat"},
+		weightkg: 208,
+	},
+	horronimbus: {
+		num: 9144,
+		name: "Horronimbus",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 100, atk: 55, def: 80, spa: 100, spd: 95, spe: 85},
+		abilities: {0: "Motor Drive", H: "Electric Surge"},
+		weightkg: 0.1,
+	},
+	woollycrawler: {
+		num: 9145,
+		name: "Woolly Crawler",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 67, atk: 113, def: 65, spa: 111, spd: 63, spe: 101},
+		abilities: {0: "Protosynthesis"},
+		weightkg: 9.9,
+	},
 };
