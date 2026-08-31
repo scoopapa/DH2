@@ -1162,7 +1162,7 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	roughhouse: {
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
 		name: "Roughhouse",
@@ -2294,6 +2294,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 	},
 	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	playrough: {
 		inherit: true,
 		accuracy: 100,
 	},
