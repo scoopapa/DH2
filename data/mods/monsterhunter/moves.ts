@@ -1163,7 +1163,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	roughhouse: {
 		accuracy: 100,
-		basePower: 95,
+		basePower: 85,
 		category: "Physical",
 		name: "Roughhouse",
 		pp: 10,
