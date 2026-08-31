@@ -294,7 +294,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	malzeno: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	mizutsune: {
 		tier: "MHRU",
