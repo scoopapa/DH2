@@ -430,4 +430,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kappaqua: {
 		tier: "BC D",
 	},
+	lactoxic: {
+		tier: "BC D",
+	},
+	horronimbus: {
+		tier: "BC D",
+	},
+	woollycrawler: {
+		tier: "BC D",
+	},
 };
