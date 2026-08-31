@@ -9914,6 +9914,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			honeclaws: ["9L1"],
 			trailblaze: ["9L1"],
 			rest: ["9L1"],
+			stoneaxe: ["9L1"],
 			substitute: ["9L1"],
 			headcharge: ["9L1"],
 			terablast: ["9L1"],
