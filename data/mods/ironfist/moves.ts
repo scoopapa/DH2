@@ -298,7 +298,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const target of pokemon.foes()) {
 				if (target.baseSpecies == "Goomba") {
 					if (target.volatiles['bigbutton']) {
-						basePower = 0;
+						move.basePower = 0;
 						damageCallback = function (target) {
 							return this.clampIntRange(target.getUndynamaxedHP() / 3, 1);
 						}
@@ -4379,8 +4379,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tera Starstorm", target);
 		},
-		onModifyType(move, pokemon) {
-			if (pokemon.lastMove) move.type = pokemon.lastMove.type;
+		onModifyMove(move, pokemon) {
+			if (pokemon.previousMove) move.type = pokemon.previousMove.type;
 		},
 		secondary: null,
 		target: "normal",
