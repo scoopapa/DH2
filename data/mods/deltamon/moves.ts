@@ -763,7 +763,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Tachyon Cutter", target);
+			this.add('-anim', pokemon, "Swords Dance", pokemon);
+			this.add('-anim', pokemon, "Aqua Ring", pokemon);
 		},
 		secondary: null,
 		target: "normal",
@@ -826,7 +827,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Tainted Vines",
 		type: "Grass",
 		category: "Physical",
-		basePower: 80,
+		basePower: 100,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * target.positiveBoosts();
 			this.debug(`BP: ${bp}`);
@@ -839,7 +840,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 
 		accuracy: 100,
-		pp: 5,
+		pp: 10,
 		shortDesc: "+20 BP per enemy boost. 140 Power: heal 33% dmg.",
 		desc: "The user catches the opponent with energy-draining vines. The more the target's stats are raised, the greater the power of the move. At 140 power or higher, the user heals a third of the damage dealt.",
 		priority: 0,
