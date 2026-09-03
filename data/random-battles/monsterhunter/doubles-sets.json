@@ -118,7 +118,7 @@
             }
         ]
     },
-"akura vashimu": {
+"akuravashimu": {
         "level": 80,
         "sets": [
             {
@@ -467,7 +467,7 @@
             }
         ]
     },
-"blackveil hazak": {
+"blackveilhazak": {
         "level": 74,
         "sets": [
             {
@@ -523,7 +523,7 @@
             }
         ]
     },
-"blue kutku": {
+"bluekutku": {
         "level": 80,
         "sets": [
             {
@@ -858,17 +858,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Blaze Kick", "Graceful Sweep", "Triple Kick", "U-turn"],
-                "abilities": ["Disaster Star"],
-                "teraTypes": ["Normal"]
-            }
-        ]
-    },
-"doomtrelian": {
-        "level": 79,
-        "sets": [
-            {
-                "role": "Fast Support",
-                "movepool": ["Blaze Kick", "Spirit Break", "Rapid Spin", "U-turn"],
                 "abilities": ["Disaster Star"],
                 "teraTypes": ["Normal"]
             }
@@ -2320,7 +2309,7 @@
             }
         ]
     },
-"oltura-larval": {
+"olturalarval": {
         "level": 84,
         "sets": [
             {

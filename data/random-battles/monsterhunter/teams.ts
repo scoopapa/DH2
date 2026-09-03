@@ -1382,9 +1382,6 @@ export class RandomTeams {
 		if (species.id === 'doomtrellian' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
 		}
-		if (species.id === 'doomtrelian' && role === 'Fast Support') {
-    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
-		}
 		if (species.id === 'doshaguma' && role === 'Wallbreaker') return 'Frost Orb';
 		if (species.id === 'dreadlidae' && role === 'Fast Attacker') return 'Silver Powder';
 		if (species.id === 'dreadlidae' && role === 'Setup Sweeper') return 'Life Orb';
