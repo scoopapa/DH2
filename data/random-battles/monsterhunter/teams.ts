@@ -1222,6 +1222,624 @@ export class RandomTeams {
 			species.id !== 'yanmega' &&
 			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
 		) return 'Heavy-Duty Boots';
+		// Monster Hunter Stuff
+		if (species.id === 'acidinus' && role === 'Setup Sweeper') return 'Sitrus Berry';
+		if (species.id === 'agnaktor' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'agnaktor' && role === 'Setup Sweeper') return 'Leftovers';
+		if (species.id === 'agnaktorex' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'agnaktorex' && role === 'Setup Sweeper') return 'Booster Energy';
+		if (species.id === 'ahtalka' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'ahtalka' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'ahtalka' && role === 'Setup Sweeper') return 'Leftovers';
+		if (species.id === 'ajarakan' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'ajarakan' && role === 'Setup Sweeper') return 'Sitrus Berry';
+		if (species.id === 'akantor' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'akantor' && role === 'Bulky Attacker') {
+    		return this.sample(['Life Orb', 'Leftovers']);
+		}
+		if (species.id === 'akantor' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'aknosom' && role === 'Setup Sweeper') return 'Heavy-Duty Boots';
+		if (species.id === 'akuravashimu' && role === 'Bulky Setup') {
+    		return this.sample(['Life Orb', 'Leftovers']);
+		}
+		if (species.id === 'alatreon' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'alatreon' && role === 'Wallbreaker') return 'Ice Memory';
+		if (species.id === 'alatreon' && role === 'Setup Sweeper') return 'Pixie Plate';
+		if (species.id === 'almudron' && role === 'Bulky Support') {
+    		return this.sample(['Rocky Helmet', 'Leftovers']);
+		}
+		if (species.id === 'almudron' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'amatsu' && role === 'Bulky Support') {
+    		return this.sample(['Heavy-Duty Boots', 'Leftovers']);
+		}
+		if (species.id === 'amatsu' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'amatsu' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'anjanath' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'anjanath' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'arbitrellian' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'arbitrellian' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'arkveld' && role === 'Setup Sweeper') return 'Frost Orb';
+		if (species.id === 'arzuros' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'arzuros' && role === 'Bulky Setup') return 'Honey';
+		if (species.id === 'arzuros' && role === 'Mega') return 'Arzurite';
+		if (species.id === 'ashshanlung' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'astalos' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'astalos' && role === 'Mega') return 'Astalite';
+		if (species.id === 'auroracanth' && role === 'Fast Support') {
+    		return this.sample(['Life Orb', 'Focus Sash']);
+		}
+		if (species.id === 'auroracanth' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Focus Sash']);
+		}
+		if (species.id === 'azurelos' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'baelidae' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'balahara' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'balenox' && role === 'Wallbreaker') return 'Leftovers';
+		if (species.id === 'banbaro' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'barioth' && role === 'Setup Sweeper') return 'Heavy-Duty Boots';
+		if (species.id === 'barioth' && role === 'Mega') return 'Bariothite';
+		if (species.id === 'barroth' && role === 'Bulky Support') return 'Stealth Rock';
+		if (species.id === 'basarios' && role === 'Bulky Support') return 'Eviolite';
+		if (species.id === 'bazelgeuse' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'bazelgeuse' && role === 'Fast Support') return 'Heavy-Duty Boots';
+		if (species.id === 'bazelgeuse' && role === 'Mega') return 'Bazelnite';
+		if (species.id === 'beotodus' && role === 'Setup Sweeper') return 'Sitrus Berry';
+		if (species.id === 'bishaten' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'bishaten' && role === 'Setup Sweeper') return 'Sitrus Berry';
+		if (species.id === 'blackblos' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'blackblos' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf']);
+		}
+		if (species.id === 'blackveilhazak' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Rocky Helmet']);
+		}
+		if (species.id === 'blackvios' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'blackvios' && role === 'Bulky Attacker') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'blangonga' && role === 'Fast Attacker') return 'Choice Scarf';
+		if (species.id === 'blangonga' && role === 'Setup Sweeper') return 'Never-Melt Ice';
+		if (species.id === 'blinkacuga' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'bluekutku' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'bluekutku' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'brachydios' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'brachydios' && role === 'Bulky Attacker') {
+    		return this.sample(['Black Sludge', 'Punching Glove']);
+		}
+		if (species.id === 'brachydios' && role === 'Mega') return 'Brachylite';
+		if (species.id === 'bulldrome' && role === 'Wallbreaker') {
+    		return this.sample(['Wide Lens', 'Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'ceadeus' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'ceadeus' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'ceadeus' && role === 'Wallbreaker') return 'Choice Specs';
+		if (species.id === 'cephadrome' && role === 'Fast Attacker') {
+    		return this.sample(['Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'chameleos' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Black Sludge']);
+		}
+		if (species.id === 'chameleos' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'chameleos' && role === 'Mega') return 'Risenite-C';
+		if (species.id === 'chaoticgore' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Assault Vest']);
+		}
+		if (species.id === 'chaoticgore' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'chatacabra' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'congalala' && role === 'Bulky Setup') return 'Starf Berry';
+		if (species.id === 'coral pukei' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'crysarios' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'dahrenmohran' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'dahrenmohran' && role === 'Bulky Support') {
+    		return this.sample(['Rocky Helmet', 'Leftovers']);
+		}
+		if (species.id === 'daimyohermitaur' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'daimyohermitaur' && role === 'Setup Sweeper') return 'White Herb';
+		if (species.id === 'daimyohermitaur' && role === 'Mega') return 'Daimyite';
+		if (species.id === 'dalamadur' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'dalamadur' && role === 'Bulky Attacker') {
+    		return this.sample(['Life Orb', 'Leftovers']);
+		}
+		if (species.id === 'dalamadur' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'deviljho' && role === 'Wallbreaker') {
+    		return this.sample(['Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'deviljho' && role === 'Mega') return 'Devilite';
+		if (species.id === 'diablos' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'diablos' && role === 'Fast Attacker') return 'Choice Scarf';
+		if (species.id === 'diablos' && role === 'Mega') return 'Diablite';
+		if (species.id === 'diremiralis' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'diremiralis' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'disufiroa' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'disufiroa' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'dodogama' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'dodogama' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'doomtrellian' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'doomtrellian' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'doomtrelian' && role === 'Fast Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'doshaguma' && role === 'Wallbreaker') return 'Frost Orb';
+		if (species.id === 'dreadlidae' && role === 'Fast Attacker') return 'Silver Powder';
+		if (species.id === 'dreadlidae' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'duramboros' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'duramboros' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'duramboros' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'duremudira' && role === 'Setup Sweeper') return 'Loaded Dice';
+		if (species.id === 'duremudira' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'ebogaron' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'emgalala' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'eruzerion' && role === 'Fast Attacker') return 'Heavy-Duty Boots';
+		if (species.id === 'eruzerion' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'espinas' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'espinas' && role === 'Bulky Setup') return 'Black Sludge';
+		if (species.id === 'estrellian' && role === 'Fast Support') return 'Heavy-Duty Boots';
+		if (species.id === 'estrellian' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'estrellian' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'eogarudia' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'eogarudia' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'eogarudia' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'fatalis' && role === 'Bulky Attacker') return 'Flame Orb';
+		if (species.id === 'fatalis' && role === 'Wallbreaker') return 'Crimson Gem';
+		if (species.id === 'fatalis' && role === 'Bulky Setup') return 'White Gem';
+		if (species.id === 'flaminas' && role === 'Bulky Support') return 'Toxic Orb';
+		if (species.id === 'fuljanath' && role === 'Fast Attacker') return 'Choice Scarf';
+		if (species.id === 'fuljanath' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'gaismagorm' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'gaismagorm' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'gammoth' && role === 'Bulky Attacker') return 'Light Clay';
+		if (species.id === 'gammoth' && role === 'Mega') return 'Gammothite';
+		if (species.id === 'garangolm' && role === 'Wallbreaker') {
+    		return this.sample(['Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'garubadaora' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'garubadaora' && role === 'Fast Support') return 'Sitrus Berry';
+		if (species.id === 'gendrome' && role === 'Fast Support') return 'Focus Sash';
+		if (species.id === 'giadrome' && role === 'Fast Support') return 'Heavy-Duty Boots';
+		if (species.id === 'gigginox' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'glaciaktor' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'glavenus' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'glavenus' && role === 'Mega') return 'Glavenite';
+		if (species.id === 'glowstrax' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'glowstrax' && role === 'Mega') return 'Risenite-G';
+		if (species.id === 'gobul' && role === 'Bulky Setup') {
+    		return this.sample(['Leftovers', 'Loaded Dice']);
+		}
+		if (species.id === 'gogmazios' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'gogmazios' && role === 'Bulky Attacker') return 'Life Orb';
+		if (species.id === 'goldeus' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'goldeus' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'goremagala' && role === 'Fast Support') return 'Eviolite';
+		if (species.id === 'gossharag' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'gravios' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'gravios' && role === 'Bulky Attacker') return 'Life Orb';
+		if (species.id === 'greatapypos' && role === 'Wallbreaker') {
+    		return this.sample(['Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'greatapypos' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'greatbaggi' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'greatbaggi' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'greatgirros' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'greatizuchi' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'greatjaggi' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'greatjagras' && role === 'Bulky Attacker') return 'Choice Band';
+		if (species.id === 'greatmaccao' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'greatwroggi' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'greencuga' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'greencuga' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'greensioth' && role === 'Wallbreaker') return 'Scope Lens';
+		if (species.id === 'guanzorumu' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'guanzorumu' && role === 'Setup Sweeper') {
+    		return this.sample(['Leftovers', 'Life Orb']);
+		}
+		if (species.id === 'gureadomosu' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'gypceros' && role === 'Fast Support') return 'Black Sludge';
+		if (species.id === 'hallowedmohran' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'harudomerugu' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'harudomerugu' && role === 'Mega') return 'Harudomerite';
+		if (species.id === 'hirabami' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'hirabami' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'howlinogre' && role === 'Fast Attacker') return 'Choice Scarf';
+		if (species.id === 'howlinogre' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'hypnocatrice' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'ibushi' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'ibushi' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'inagami' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'inagami' && role === 'Mega') return 'Inagamite';
+		if (species.id === 'inferonis' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'invadogaron' && role === 'Bulky Setup') return 'Flame Orb';
+		if (species.id === 'invadogaron' && role === 'Bulky Support') return 'Flame Orb';
+		if (species.id === 'iodrome' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'ivogiacrus' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'ivogiacrus' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'jhenmohran' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'jielung' && role === 'Wallbreaker') return 'Punching Glove';
+		if (species.id === 'jielung' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'jindahaad' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'jindahaad' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'jyuratodus' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'kechawacha' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'khezu' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'khezu' && role === 'Mega') return 'Khezite';
+		if (species.id === 'kingshakalaka' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'kirin' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'kirin' && role === 'Mega') return 'Kirinite';
+		if (species.id === 'kuluyaku' && role === 'Setup Sweeper') return 'Liechi Berry';
+		if (species.id === 'kulvetaroth' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'kulvetaroth' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'kushaladaora' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'kushaladaora' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'kushaladaora' && role === 'Mega') return 'Risenite-K';
+		if (species.id === 'lagiacrus' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'lagiacrus' && role === 'Mega') return 'Lagialite';
+		if (species.id === 'lagombi' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'lagombi' && role === 'Mega') return 'Lagombite';
+		if (species.id === 'lalabarina' && role === 'Bulky Attacker') return 'Silver Powder';
+		if (species.id === 'lalabarina' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'lalabarina' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'landgiacrus' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'landgiacrus' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'laoshanlung' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'lavasioth' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'legiana' && role === 'Fast Attacker') return 'Heavy-Duty Boots';
+		if (species.id === 'legiana' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'lucacuga' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf']);
+		}
+		if (species.id === 'lunagaron' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'lunastra' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'lunastra' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'lunastra' && role === 'Bulky Attacker') {
+    		return this.sample(['Life Orb', 'Assault Vest']);
+		}
+		if (species.id === 'magmadron' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'magnamalo' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'magnamalo' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'magnamalo' && role === 'Mega') return 'Swords Dance';
+		if (species.id === 'malfestio' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'malfestio' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'malfestio' && role === 'Mega') return 'Malfestite';
+		if (species.id === 'malzeno' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'malzeno' && role === 'Fast Attacker') return 'Leftovers';
+		if (species.id === 'mizutsune' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'mizutsune' && role === 'Mega') return 'Mizutsunite';
+		if (species.id === 'molgrex' && role === 'Setup Sweeper') return 'Liechi Berry';
+		if (species.id === 'monksnail' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'monoblos' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf']);
+		}
+		if (species.id === 'monoblos' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'najarala' && role === 'Setup Sweeper') {
+    		return this.sample(['Leftovers', 'Throat Spray']);
+		}
+		if (species.id === 'najarala' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'nakarkos' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'nakarkos' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'nakarkos' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'namielle' && role === 'Bulky Attacker') return 'Recover';
+		if (species.id === 'namielle' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'namielle' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'nargacuga' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'nargacuga' && role === 'Mega') return 'Nargacugite';
+		if (species.id === 'narwa' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'narwa' && role === 'Mega') return 'Narwanite';
+		if (species.id === 'nefgarmat' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'nefgarmat' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'nergigante' && role === 'Wallbreaker') return 'Frost Orb';
+		if (species.id === 'nerscylla' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'nibelsnarf' && role === 'Bulky Attacker') {
+    		return this.sample(['Leftovers', 'Assault Vest']);
+		}
+		if (species.id === 'nightlumu' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'nuudra' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'nuudra' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'odibatorasu' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'odogaron' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'odogaron' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'oltura' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'oltura' && role === 'Fast Support') return 'Expert Belt';
+		if (species.id === 'olturalarval' && role === 'Bulky Attacker') return 'Eviolite';
+		if (species.id === 'orangaten' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Rocky Helmet']);
+		}
+		if (species.id === 'orangaten' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'oroshirin' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'palamute' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'palico' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'paolumu' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'pariapuria' && role === 'Bulky Support') return 'Sitrus Berry';
+		if (species.id === 'pariapuria' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'pariapuria' && role === 'Bulky Setup') return 'Black Sludge';
+		if (species.id === 'pearlinas' && role === 'Fast Support') {
+    		return this.sample(['Black Sludge', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'pinkian' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'pinkian' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'plesioth' && role === 'Fast Attacker') return 'Choice Scarf';
+		if (species.id === 'plesioth' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'plesioth' && role === 'Mega') return 'Plesite';
+		if (species.id === 'poborubarumu' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'pokaradon' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'pokaradon' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'primozeno' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'primozeno' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'pukei-pukei' && role === 'Bulky Support') {
+    		return this.sample(['Black Sludge', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'purpleludroth' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'pyrekadaki' && role === 'Bulky Support') return 'Heavy-Duty Boots';
+		if (species.id === 'pyrekadaki' && role === 'Bulky Setup') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'quematrice' && role === 'Setup Sweeper') return 'Salac Berry';
+		if (species.id === 'qurupeco' && role === 'Setup Sweeper') {
+    		return this.sample(['Leftovers', 'Life Orb']);
+		}
+		if (species.id === 'radobaan' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'radobaan' && role === 'Setup Sweeper') return 'Sitrus Berry';
+		if (species.id === 'rajang' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'rajang' && role === 'Mega') return 'Rajanite';
+		if (species.id === 'raknakadaki' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'raknakadaki' && role === 'Setup Sweeper') return 'Leftovers';
+		if (species.id === 'rathalos' && role === 'Fast Support') return 'Heavy-Duty Boots';
+		if (species.id === 'rathalos' && role === 'Setup Sweeper') return 'Heavy-Duty Boots';
+		if (species.id === 'rathalos' && role === 'Mega') return 'Rathalosite';
+		if (species.id === 'rathian' && role === 'Bulky Support') {
+    		return this.sample(['Black Sludge', 'Rocky Helmet']);
+		}
+		if (species.id === 'rathian' && role === 'Mega') return 'Rathianite';
+		if (species.id === 'rebidiora' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'rukodiora' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'rukodiora' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'redsioth' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'redzu' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'reydau' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'reydau' && role === 'Fast Attacker') {
+    		return this.sample(['Heavy-Duty Boots', 'Life Orb']);
+		}
+		if (species.id === 'rompopolo' && role === 'Bulky Setup') return 'Black Sludge';
+		if (species.id === 'rompopolo' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'royalludroth' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'royalludroth' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'rushaladaora' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'rushaladaora' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'rushaladaora' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'rustramboros' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'safijiiva' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'safijiiva' && role === 'Bulky Attacker') return 'Life Orb';
+		if (species.id === 'sandarios' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'sandrioth' && role === 'Bulky Support') return 'Rocky Helmet';
+		if (species.id === 'sandrioth' && role === 'Bulky Attacker') {
+    		return this.sample(['Leftovers', 'Rocky Helmet']);
+		}
+		if (species.id === 'scorchian' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'scorchian' && role === 'Bulky Support') {
+    		return this.sample(['Heavy-Duty Boots', 'Leftovers']);
+		}
+		if (species.id === 'seltas' && role === 'Fast Attacker') return 'Heavy-Duty Boots';
+		if (species.id === 'seltas' && role === 'Wallbreaker') return 'Heavy-Duty Boots';
+		if (species.id === 'seltasqueen' && role === 'Bulky Support') {
+    		return this.sample(['Heavy-Duty Boots', 'Leftovers']);
+		}
+		if (species.id === 'seltasqueen' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'seltasqueen' && role === 'Setup Sweeper') return 'Loaded Dice';
+		if (species.id === 'seregios' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf']);
+		}
+		if (species.id === 'seregios' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'seregios' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Rocky Helmet']);
+		}
+		if (species.id === 'shagarumagala' && role === 'Bulky Attacker') {
+    		return this.sample(['Leftovers', 'Life Orb']);
+		}
+		if (species.id === 'shagarumagala' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'shagarumagala' && role === 'Mega') return 'Risenite-S';
+		if (species.id === 'shahmadur' && role === 'Setup Sweeper') return 'Flame Orb';
+		if (species.id === 'shahmadur' && role === 'Bulky Setup') return 'Frost Orb';
+		if (species.id === 'shantien' && role === 'Fast Attacker') {
+    		return this.sample(['Heavy-Duty Boots', 'Life Orb']);
+		}
+		if (species.id === 'shantien' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'sharaishvalda' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'sharaishvalda' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'shengaoren' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'shogunceanataur' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'shroudcylla' && role === 'Bulky Support') {
+    		return this.sample(['Heavy-Duty Boots', 'Leftovers']);
+		}
+		if (species.id === 'silverlos' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'silverlos' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'somnacanth' && role === 'Setup Sweeper') {
+    		return this.sample(['Life Orb', 'Focus Sash']);
+		}
+		if (species.id === 'somnacanth' && role === 'Fast Support') return 'Focus Sash';
+		if (species.id === 'somnacanth' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Focus Sash']);
+		}
+		if (species.id === 'spiribird' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'spiribirdorange' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'spiribirdred' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'spiribirdyellow' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'starvinjho' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'starvinjho' && role === 'Bulky Support') return 'Sitrus Berry';
+		if (species.id === 'stygiogre' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'tartaronis' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'tartaronis' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'teostra' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'teostra' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'teostra' && role === 'Mega') return 'Risenite-T';
+		if (species.id === 'terrataur' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'terrataur' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Assault Vest']);
+		}
+		if (species.id === 'tetranodon' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'tetranodon' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'tetsucabra' && role === 'Bulky Attacker') return 'Leftovers';
+		if (species.id === 'tetsucabra' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'tidarala' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'tidarala' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'tigrex' && role === 'Setup Sweeper') return 'Throat Spray';
+		if (species.id === 'tigrex' && role === 'Mega') return 'Tigrexite';
+		if (species.id === 'tobikadachi' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'tzitziyaku' && role === 'Setup Sweeper') return 'Power Herb';
+		if (species.id === 'unknown' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'unknown' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'ukanlos' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'ukanlos' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'ukanlos' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'uragaan' && role === 'Fast Attacker') {
+    		return this.sample(['Earth Plate', 'Choice Band']);
+		}
+		if (species.id === 'uragaan' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'uragaan' && role === 'Mega') return 'Uragaanite';
+		if (species.id === 'uthduna' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'vaalhazak' && role === 'Bulky Support') return 'Black Sludge';
+		if (species.id === 'valstrax' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'valstrax' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'velkhana' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Specs']);
+		}
+		if (species.id === 'velocidrome' && role === 'Setup Sweeper') return 'Expert Belt';
+		if (species.id === 'velocidrome' && role === 'Fast Attacker') {
+    		return this.sample(['Choice Scarf', 'Choice Band']);
+		}
+		if (species.id === 'vespoid queen' && role === 'Bulky Setup') return 'Heavy-Duty Boots';
+		if (species.id === 'viperkadachi' && role === 'Fast Support') return 'Black Sludge';
+		if (species.id === 'viperkadachi' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'vizutsune' && role === 'Fast Attacker') {
+    		return this.sample(['Heavy-Duty Boots', 'Life Orb']);
+		}
+		if (species.id === 'volvidon' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'whiteblos' && role === 'Wallbreaker') {
+    		return this.sample(['Life Orb', 'Choice Band']);
+		}
+		if (species.id === 'whiteblos' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'xenojiiva' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
+		}
+		if (species.id === 'xenojiiva' && role === 'Bulky Setup') return 'Eviolite';
+		if (species.id === 'xenojiiva' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'xuwu' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'xuwu' && role === 'Fast Support') return 'Black Glasses';
+		if (species.id === 'yamakurai' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'yamakurai' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'yamakurai' && role === 'Fast Support') return 'Leftovers';
+		if (species.id === 'yamatsukami' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'yamatsukami' && role === 'Bulky Support') return 'Leftovers';
+		if (species.id === 'yiangaruga' && role === 'Fast Attacker') {
+    		return this.sample(['Life Orb', 'Choice Scarf']);
+		}
+		if (species.id === 'yiangaruga' && role === 'Fast Support') return 'Black Sludge';
+		if (species.id === 'yiangaruga' && role === 'Mega') return 'Garugite';
+		if (species.id === 'yiankutku' && role === 'Wallbreaker') return 'Life Orb';
+		if (species.id === 'zamtrios' && role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'zamtrios' && role === 'Fast Attacker') return 'Life Orb';
+		if (species.id === 'zinogre' && role === 'Setup Sweeper') return 'Life Orb';
+		if (species.id === 'zinogre' && role === 'Bulky Setup') return 'Leftovers';
+		if (species.id === 'zinogre' && role === 'Mega') return 'Zinogrite';
+		if (species.id === 'zorahmagdaros' && role === 'Bulky Support') {
+    		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
+		}
+		if (species.id === 'zorahmagdaros' && role === 'Bulky Setup') return 'Leftovers';
 	}
 
 	/** Item generation specific to Random Doubles */
