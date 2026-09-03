@@ -655,6 +655,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 		onResidualOrder: 13,
 		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Normal NPC') return;
 			for (const target of pokemon.adjacentFoes()) {
 				if (target.baseSpecies.name !== 'Onionsan' || target.volatiles['substitute'] || target.isSemiInvulnerable()) return;
 				if (this.randomChance(2, 10)) {

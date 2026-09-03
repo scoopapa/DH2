@@ -1342,8 +1342,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tsunderplane",
 		types: ["Flying", "Normal"],
 		gender: "N",
-		baseStats: {hp: 88, atk: 107, def: 77, spa: 63, spd: 75, spe: 120},
-		abilities: {0: "Wind Rider", 1: "Oblivious", H: "Reckless"},
+		baseStats: {hp: 88, atk: 107, def: 77, spa: 63, spd: 75, spe: 115},
+		abilities: {0: "Wind Rider", 1: "Oblivious", H: "Aftermath"},
 		weightkg: 122,
 	},
 	pyrope: {
