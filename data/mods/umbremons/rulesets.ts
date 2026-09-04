@@ -158,4 +158,21 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion ? pokemon.illusion.getTypes() : pokemon.getTypes()).join('/'), '[silent]');
 		},
 	},
+	ivclause: {
+		effectType: 'Rule',
+		name: 'IV Clause',
+		desc: "All Pokemon must have 31 IVs.",
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (set.ivs) {
+				let stat: StatID;
+				for (stat in set.evs) {
+					const iv = set.ivs[stat];
+					if (iv != 31) {
+						return [`${set.name || set.species} must have 31 IVs in every stat.`];
+					}
+				}
+			}
+		},
+	},
 };
