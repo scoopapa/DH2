@@ -1027,7 +1027,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: null,
 		formeOrder: null,
 	},
-	atricoathan: {
+	atrociathan: {
 		num: 2048,
 		name: "Atrociathan",
 		types: ["Water", "Dark"],
