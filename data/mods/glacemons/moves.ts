@@ -636,10 +636,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -2029,13 +2029,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			boosts: {
+				atk: -1,
+			},
 		},
 		isViable: true,
-		flags: {contact: 0},
+		flags: {contact: 1},
 		type: "Rock",
-		desc: "Has a 10% chance to confuse the target.",
-		shortDesc: "10% chance to confuse the target.",
+		desc: "Has a 10% chance to lower target's Atk by 1.",
+		shortDesc: "10% chance to lower target's Atk by 1.",
 	},
 	bonfire: {
 		num: -36,

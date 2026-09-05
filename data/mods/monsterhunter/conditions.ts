@@ -190,15 +190,15 @@ export const Conditions: { [k: string]: ConditionData; } = {
 		},
 	fatigue: {
 		name: 'Fatigue',
-		duration: 5,
+		durationCallback(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.id === 'crystalblight') return 0;
+			return 5;
+		},
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Fatigue');
 			this.add('-message', `${pokemon.name} is Fatigued! Moves use more PP!`);
 		},
-		onDeductPP(target, source, move) {
-			// Only drain PP if the fatigued Pokémon is the one USING the move
-			if (source !== this.effectState.target) return 0;
-
+		onSourceDeductPP(target, source, move) {
 			const drain = 1;
 			this.add('-message', `${source.name}'s Fatigue drained ${drain} extra PP!`);
 			return drain;

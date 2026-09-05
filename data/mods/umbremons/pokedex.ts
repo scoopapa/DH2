@@ -13,7 +13,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	gallade: {
 		inherit: true,
-		abilities: {0: "Inner Focus", 1: "Sharpness", H: "Justified"},
+		abilities: {0: "Inner Focus", 1: "Sharpness", H: "Dual Wield"},
 	},
 	gallademega: {
 		inherit: true,
@@ -187,10 +187,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Rattled", H: "Screen Cleaner"},
 	},
-	luxray: {
-		inherit: true,
-		abilities: {0: "Screen Cleaner", 1: "Intimidate", H: "Guts"},
-	},
 	polteageist: {
 		inherit: true,
 		abilities: {0: "Weak Armor", 1: "Screen Cleaner", H: "Cursed Body"},
@@ -294,5 +290,89 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	typhlosionhisui: {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Rattled"},
+	},
+	simisage: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Hospitality", H: "Overgrow"},
+	},
+	simisear: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Hospitality", H: "Blaze"},
+	},
+	simipour: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Hospitality", H: "Torrent"},
+	},
+	chandeluremega: {
+		inherit: true,
+		abilities: {0: "Misty Surge"},
+	},
+	luxray: {
+		inherit: true,
+		abilities: {0: "Screen Cleaner", 1: "Intimidate", H: "Galvanize"},
+	},
+	stunfisk: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Electric Surge", H: "Sand Veil"},
+	},
+	falinksmega: {
+		inherit: true,
+		abilities: {0: "As One (Falinks)"},
+	},
+	ceruledge: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Dual Wield", H: "Weak Armor"},
+	},
+	scolipede: {
+		inherit: true,
+		abilities: {0: "Dual Wield", 1: "Swarm", H: "Speed Boost"},
+	},
+	kleavor: {
+		inherit: true,
+		abilities: {0: "Dual Wield", 1: "Sharpness", H: "Sheer Force"},
+	},
+	orthworm: {
+		inherit: true,
+		abilities: {0: "Earth Eater", 1: "Mimicry", H: "Sand Veil"},
+	},
+	dragalge: {
+		inherit: true,
+		abilities: {0: "Poison Point", 1: "Mimicry", H: "Adaptability"},
+	},
+	clawitzer: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Mimicry"},
+	},
+	ditto: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Mimicry", H: "Imposter"},
+	},
+	clefable: {
+		inherit: true,
+		abilities: {0: "Mimicry", 1: "Magic Guard", H: "Unaware"},
+	},
+	tinkaton: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Down-to-Earth"},
+	},
+	swampert: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Down-to-Earth"},
+	},
+	samurott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Unfolding"},
+	},
+	vileplume: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Unfolding", H: "Effect Spore"},
+	},
+	banettemega: {
+		inherit: true,
+		abilities: {0: "Unfolding"},
+	},
+	toxicroak: {
+		inherit: true,
+		abilities: {0: "Unfolding", 1: "Dry Skin", H: "Poison Touch"},
 	},
 };

@@ -739,10 +739,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	baddybad: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	sappyseed: {
 		inherit: true,
 		isNonstandard: null,

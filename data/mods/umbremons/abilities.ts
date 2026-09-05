@@ -152,6 +152,104 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		num: -6,
 	},
+	dualwield: {
+		num: -7,
+		name: "Dual Wield",
+		shortDesc: "Slicing moves hit twice and smart target, but have 3/4 damage.",
+		onModifyMove(move, pokemon) {
+			if (move.flags['slicing']) {
+				if(!move.multihit) {
+					move.multihit = 1;
+				}
+				move.multihit = move.multihit * 2;
+				move.smartTarget = true;
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Dual Wield debuff');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+	},
+	asonefalinks: {
+		num: -8,
+		name: "As One (Falinks)",
+		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield abilities.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			if (!pokemon.swordBoost) {
+				pokemon.swordBoost = true;
+				this.boost({atk: 1}, pokemon, pokemon, this.dex.abilities.get('intrepidsword'));
+			}
+			if (!pokemon.shieldBoost) {
+				pokemon.shieldBoost = true;
+				this.boost({def: 1}, pokemon, pokemon, this.dex.abilities.get('dauntlessshield'));
+			}
+		},
+		flags: {},
+	},
+	downtoearth: {
+		// Hematite note:
+		// This *mostly* just handles  *messages* related to Down-to-Earth, while the actual effect is handled elsewhere:
+		// a section in scripts.ts handling field.isTerrain() for most purposes,
+		// plus additional hard-coding for Mimicry (here in abilities.ts), Terrain Pulse (moves.ts), and each terrain effect (moves.ts)
+		// because for sOME REASON none of those actually check field.isTerrain
+		onStart(pokemon) {
+			pokemon.abilityState.ending = false; // clear the ending flag
+			if (!this.field.isTerrain('')) {
+				this.add('-ability', pokemon, 'Down-to-Earth');
+				this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect);
+			}
+		},
+		onAnyTerrainStart(target, source, terrain) {
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.ending = true;
+			if (!this.field.isTerrain('')) {
+				this.add('-message', `${pokemon.name} is no longer suppressing the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect); // this gives stuff like terrain seeds and Mimicry an opportunity to activate if nothing
+			}
+		},
+		flags: {},
+		name: "Down-to-Earth",
+		shortDesc: "Suppresses terrains.",
+		desc: "While this Pokémon is active, the effects of terrains are disabled.",
+		num: -9,
+	},
+	unfolding: {
+		num: -10,
+		name: "Unfolding",
+		shortDesc: "When targeting a Pokemon with 50% hp or less, moves first in its priority bracket.",
+		desc: "The user of the ability moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			if (action.move.target != 'allAdjacentFoes' && action.move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2 && pokemon != action.move.target) {
+				pokemon.addVolatile('unfolding');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Unfolding');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		flags: {},
+	},
 
 	// Adjusted Abilities
 	moldbreaker: {
@@ -345,5 +443,67 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or lowered stat.",
 		desc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or when a stat is lowered by a foe.",
+	},
+	illuminate: {
+		onStart(pokemon) {
+			pokemon.addVolatile('illuminate');
+		},
+
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
+				return priority + 3;
+			}
+		},
+
+		onAfterMove(pokemon, target, move) {
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
+				pokemon.removeVolatile('illuminate');
+			}
+		},
+		flags: {},
+		name: "Illuminate",
+		num: 35,
+		shortDesc: "This Pokemon's first Normal move on entry gets +3 priority.",
+	},
+	mimicry: {
+		inherit: true,
+		modded: true,
+		onTerrainChange(pokemon) {
+			let terrainType;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				terrainType = 'Electric';
+				break;
+			case 'grassyterrain':
+				terrainType = 'Grass';
+				break;
+			case 'mistyterrain':
+				terrainType = 'Fairy';
+				break;
+			case 'psychicterrain':
+				terrainType = 'Psychic';
+				break;
+			default:
+				terrainType = null;
+			}
+			if (this.field.terrain && !this.field.suppressingTerrain()) {
+				// there is a terrain *and* Down-to-Earth isn't suppressing it
+				if (terrainType && !pokemon.hasType(terrainType)) {
+					if (pokemon.setType(pokemon.baseSpecies.types)) {
+						this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[silent]');
+						if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
+					if (pokemon.addType(terrainType)) this.add('-start', pokemon, 'typeadd', terrainType, '[from] ability: Mimicry');
+				}
+			} else {
+				// there is no terrain at all, or Down-to-Earth is suppressing it
+				if (pokemon.types !== pokemon.baseSpecies.types && pokemon.setType(pokemon.baseSpecies.types)) {
+					if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[from] ability: Mimicry');
+				}
+			}
+		},
+		shortDesc: "Adds a type to the Pokémon based on the terrain.",
+		desc: "Adds an additional type to the Pokémon based on the terrain.",
 	},
 };

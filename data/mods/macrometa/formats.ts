@@ -24,7 +24,7 @@ export const Formats: FormatData[] = [
 					"Wlissey", "Dragondeez", "Featuring Raidou Kuzunoha from Raidou Kuzunoha", "Featuring Dante from Devil May Cry", 
 					"Abomasnow-Mega", "Buzzwole", "Dialga-Origin", "Empoleon", "Flutter Mane", "Genesect", "Ho-Oh", "Incineroar", 
 					"Kartana", "Lanturn", "Mewtwo-Mega-Y", "Nihilego", "Octillery", "Pokestar Spirit", "Quagsire", "Regigigas", 
-					"Skarmory-Mega", "Tinkaton", "Ursaluna", "Venusaur-Mega", "Wyrdeer", "Xerneas", "Yveltal", /*"Zygarde-420%",*/ 
+					"Skarmory-Mega", "Tinkaton", "Ursaluna", "Venusaur-Mega", "Wyrdeer", "Xerneas", "Yveltal", "Zygarde-420%", 
 					"Wingnut", "Halbeetle", "Silvuna", "Barbolt", "Pinkeet", "Sentinel", "Smeltoise", "Corsegeist", "Echologos", 
 					"Zephyrmine", "Boreasel", "Xiphoil", "Skawamud", "Zygola", "Noxon", "Himalao", "Caliguar", "Spiris", "Psychooka", 
 					"Duratreme", "Stone Husk", "Kasappa", "Cyrome-Scribe", "Arbrella-North", "Velocipasta", "Wonderace", "Neil", 
@@ -37,7 +37,7 @@ export const Formats: FormatData[] = [
 					"Reginami", "Regiseed", "Reginerator", "Regintellect", "Regicicle", "Regyvern", "Reginight", "Regifae", 
 					"Miner & Minor", "Festus", "Embry-0", "Breettle", "Desprit", "Land Mine", "Rolling Hand", "Nightmite", 
 					"Albatruss", "Tundread", "Thunjust", "Zephyllin", "Crysynth", "Obstinian", "Apoclasp", "Amalgony", "Mechana", 
-					"Sanpapear", "Crustation", "Bunimaid", "Harbringer", "Hydrangea", "Pestil",
+					"Sanpapear", "Crustation", "Bunimaid", "Harbringer", "Hydrangea", "Pestil","Light of Ruin"
 		],
 	},
 ];

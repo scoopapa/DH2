@@ -174,7 +174,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	maus: {
+	mausdelta: {
 		tier: "DM NFE",
 		doublesTier: "DM NFE",
 		natDexTier: "NFE",
@@ -219,7 +219,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	queen: {
+	queendelta: {
 		tier: "DM OU",
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
@@ -813,6 +813,17 @@ rudinn: {
 		tier: "DM Ubers",
 		doublesTier: "DM DUbers",
 		natDexTier: "Uber",
+	},
+
+	friend: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+		natDexTier: "Illegal",
+	},
+	normalnpc: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+		natDexTier: "Illegal",
 	},
 
 

@@ -280,7 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		shortDesc: "Moves used on user's side is 1.1x power.",
+		shortDesc: "For 4 Turns, moves used on user's side have 1.1x power.",
 	},
 	crescentarc: {
 		num: 2011,
@@ -295,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Beautiful",
-		shortDesc: "Hits all adjacennt opponents",
+		shortDesc: "Hits all adjacent opponents",
 	},
 	brinebucket: {
 		num: 2012,
@@ -459,7 +459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Force-Of-Nature",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryHit(target, source, move) {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
@@ -467,9 +467,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		onTryMove(source, target, move) {
-			if (source.isAlly(target) && source.volatiles['Heal Block']) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Force-Of-Nature', move);
+				this.add('cant', source, 'move: Heal Block', move);
 				return false;
 			}
 		},
@@ -478,7 +478,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.25))) {
 					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
 						this.attrLastMove('[still]');
-						this.add('cant', source, 'move: Force-Of-Nature', move);
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
 					} else {
 						this.add('-immune', target);
 					}
@@ -486,11 +487,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 		},
+		onModifyMove(move, source, target) {
+			if (!source.isAlly(target)) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
-		shortDesc: "Heals target for 1/4 max HP if ally. Hits all adjacent opponents.",
+		shortDesc: "Heals target for 1/4 max HP if ally. If foe, Hits all adjacent opponents.",
 	},
 	selfrepairing: {
 		num: -6,
@@ -533,5 +539,366 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allies",
 		type: "Steel",
+	},
+	strongvigor: {
+		num: 2018,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Strong Vigor",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		heal: [1, 3],
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+		shortDesc: "Heals 1/3 user's max HP and cures user's burn, poison, or paralysis",
+	},
+	elementalbreak: {
+		num: 2019,
+		accuracy: 85,
+		basePower: 90,
+		category: "Special",
+		name: "Elemental Break",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		condition: {
+			noCopy: true,
+			duration: 3,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Elemental Break');
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive) {
+					pokemon.removeVolatile('elementalbreak');
+				}
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({spd: -1}, pokemon, this.effectState.source);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Elemental Break', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'elementalbreak',
+		},
+		target: "normal",
+		type: "Normal",
+		shortDesc: "Target's Spd is lowered by 1 stage for 2 turns.",
+	},
+	fierystabs: {
+		num: 3000,
+		accuracy: 90,
+		basePower: 45,
+		category: "Physical",
+		name: "Fiery Stabs",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 2,
+		self: {
+			volatileStatus: 'laserfocus',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		maxMove: {basePower: 130},
+		contestType: "Tough",
+		shortDesc: "Hits 2 times. User gains Laser Focus on each hit.",
+	},
+	physic: {
+		num: 3001,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Physic",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		shortDesc: "Heals target for 50% of their max HP.",
+	},
+	lighthurricane: {
+		num: 3002,
+		accuracy: 80,
+		basePower: 40,
+		category: "Special",
+		name: "Light Hurricane",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1,  wind: 1},
+		multihit: 3,
+		onAfterMove(pokemon, target, move) {
+			if (this.randomChance(2, 10)) {
+				this.boost({atk: -1}, target);
+				this.boost({spe: -1}, target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		shortDesc: "Hits 3 times. 20% for -1 Atk and Spe after last hit.",
+	},
+	purification: {
+		num: 3003,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Purification",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target) return false;
+			const spatk = source.getStat('spa', false, true);
+			target.cureStatus();
+			return !!(this.heal(spatk / 2, target, source));
+		},
+		secondary: null,
+		target: "adjacentAlly",
+		type: "Fairy",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+		shortDesc: "Removes status from ally. Heals = User's Spatk / 2.",
+	},
+	fairyblessing: {
+		num: 3004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fairy Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'mist',
+		self: {
+			sideCondition: 'safeguard',
+		},
+		onHit(target, source) {
+			if (!target) return false;
+			const spatk = source.getStat('spa', false, true);
+			target.cureStatus();
+			return !!(this.heal(spatk, target, source));
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Lunar Dance", pokemon);
+		},
+		secondary: null,
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
+		target: "adjacentAlly",
+		type: "Fairy",
+		contestType: "Clever",
+		shortDesc: "Heals = User's Spatk. Sets Safeguard and Mist. +1 Atk and Spatk.",
+	},
+	furiouspursuit: {
+		num: 3005,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Furious Pursuit",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterMove(pokemon, target, move) {
+			if (move.totalDamage) {
+				this.damage(move.totalDamage / 8, target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+		shortDesc: "Deals extra damage = 1/8 total move damage.",
+	},
+	azuremight: {
+		num: 3006,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Azure Might",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.getStat('def') > target.getStat('def')) {
+				this.debug("BP boost for higher defense");
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+		shortDesc: "Def > target's Def: Power 1.3x",
+	},
+	exploit: {
+		num: 3007,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Exploit",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] Assurance ' + move.category);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.random(2) === 0)) {
+				move.category = 'Physical';
+				move.flags.contact = 1;
+			}
+		},
+		onHit(target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Exploit");
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Exploit");
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		shortDesc: "Phys+Contact if stronger. Power 2x if target statused. ",	
+	},
+	finalstrike: {
+		num: 3008,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Final Strike",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+		contestType: "Cute",
+		shortDesc: "Power doubles if user is statused. hts adjacent opponents.",
+	},	
+	worldstage: {
+		num: 3009,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "World Stage",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'worldstage',
+		condition: {
+			duration: 10,
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: World Stage');
+			},
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+				if (pokemon.side.sideConditions['worldstage']) {
+				this.add('-message', `World Stage has ${pokemon.side.sideConditions['worldstage'].duration} turns left!`);
+				} else {
+				this.add('-message', `World Stage ended!`);
+				}
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 6,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: World Stage');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Ground",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+		shortDesc: "10 turns. Heals 1/16 of target's max HP for user's side.",
+	},
+	hiss: {
+		num: 3010,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Hiss!",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'hiss',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Hiss!');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				if (pokemon) this.damage(pokemon.baseMaxhp / 8);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Hiss!');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		shortDesc: "Hiss!: Deals 1/8 max HP each turn.",
+	},
+	ouroboros: {
+		num: 3011,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Ouroboros",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.volatiles['hiss']) {
+				this.debug('Hiss! buff');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		shortDesc: "1.5x power against targets with Hiss!.",
 	},
 };

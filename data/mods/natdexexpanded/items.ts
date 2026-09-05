@@ -1,7 +1,7 @@
 export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 	hoohite: {
 		name: "Ho-ohite",
-		//spritenum: 0,
+		spritenum: 1001,
 		megaStone: "Ho-Oh-Mega",
 		megaEvolves: "Ho-Oh",
 		itemUser: ["Ho-Oh"],
@@ -11,10 +11,11 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 		},
 		num: -1,
 		gen: 9,
+		rating: 3,
 	},
 	lugiaite: {
 		name: "Lugiaite",
-		//spritenum: 0,
+		spritenum: 1001,
 		megaStone: "Lugia-Mega",
 		megaEvolves: "Lugia",
 		itemUser: ["Lugia"],
@@ -22,12 +23,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -2,
 		gen: 9,
+		rating: 3,
 	},
 	raikounite: {
 		name: "Raikounite",
-		//spritenum: 0,
+		spritenum: 1002,
 		megaStone: "Raikou-Mega",
 		megaEvolves: "Raikou",
 		itemUser: ["Raikou"],
@@ -35,12 +37,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -3,
 		gen: 9,
+		rating: 3,
 	},
 	enteinite: {
 		name: "Enteinite",
-		//spritenum: 0,
+		spritenum: 1003,
 		megaStone: "Entei-Mega",
 		megaEvolves: "Entei",
 		itemUser: ["Entei"],
@@ -48,12 +51,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -4,
 		gen: 9,
+		rating: 3,
 	},
 	suicunenite: {
 		name: "Suicunenite",
-		//spritenum: 0,
+		spritenum: 1004,
 		megaStone: "Suicune-Mega",
 		megaEvolves: "Suicune",
 		itemUser: ["Suicune"],
@@ -61,12 +65,12 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -5,
 		gen: 9,
 	},
 	celebite: {
-		name: "Celebiite",
-		//spritenum: 0,
+		name: "Celebite",
+		spritenum: 1005,
 		megaStone: "Celebi-Mega",
 		megaEvolves: "Celebi",
 		itemUser: ["Celebi"],
@@ -74,12 +78,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -6,
 		gen: 9,
+		rating: 3,
 	},
 	octillerite: {
 		name: "Octillerite",
-		//spritenum: 0,
+		spritenum: 1006,
 		megaStone: "Octillery-Mega",
 		megaEvolves: "Octillery",
 		itemUser: ["Octillery"],
@@ -87,12 +92,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -7,
 		gen: 9,
+		rating: 3,
 	},
 	tyranitaritei: {
 		name: "Tyranitarite I",
-		//spritenum: 0,
+		spritenum: 1007,
 		megaStone: "Tyranitar-Mega-I",
 		megaEvolves: "Tyranitar",
 		itemUser: ["Tyranitar"],
@@ -100,12 +106,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -8,
 		gen: 9,
+		rating: 3,
 	},
 	flygonite: {
 		name: "Flygonite",
-		//spritenum: 0,
+		spritenum: 1008,
 		megaStone: "Flygon-Mega",
 		megaEvolves: "Flygon",
 		itemUser: ["Flygon"],
@@ -113,12 +120,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -9,
 		gen: 9,
+		rating: 3,
 	},
-	salamenceitez: {
+	salamencitez: {
 		name: "Salamencite Z",
-		//spritenum: 0,
+		spritenum: 1009,
 		megaStone: "Salamence-Mega-Z",
 		megaEvolves: "Salamence",
 		itemUser: ["Salamence"],
@@ -126,12 +134,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -10,
 		gen: 9,
+		rating: 3,
 	},
 	metagrossitez: {
 		name: "Metagrossite Z",
-		//spritenum: 0,
+		spritenum: 1010,
 		megaStone: "Metagross-Mega-Z",
 		megaEvolves: "Metagross",
 		itemUser: ["Metagross"],
@@ -139,12 +148,12 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -11,
 		gen: 9,
 	},
 	infernite: {
 		name: "Infernite",
-		//spritenum: 0,
+		spritenum: 1011,
 		megaStone: "Infernape-Mega",
 		megaEvolves: "Infernape",
 		itemUser: ["Infernape"],
@@ -152,12 +161,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -12,
 		gen: 9,
+		rating: 3,
 	},
 	empoleonite: {
 		name: "Empoleonite",
-		//spritenum: 0,
+		spritenum: 1012,
 		megaStone: "Empoleon-Mega",
 		megaEvolves: "Empoleon",
 		itemUser: ["Empoleon"],
@@ -165,12 +175,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -13,
 		gen: 9,
+		rating: 3,
 	},
 	torterratite: {
 		name: "Torterratite",
-		//spritenum: 0,
+		spritenum: 1013,
 		megaStone: "Torterra-Mega",
 		megaEvolves: "Torterra",
 		itemUser: ["Torterra"],
@@ -178,12 +189,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -14,
 		gen: 9,
+		rating: 3,
 	},
 	magnezoneite: {
 		name: "Magnezoneite",
-		//spritenum: 0,
+		spritenum: 1014,
 		megaStone: "Magnezone-Mega",
 		megaEvolves: "Magnezone",
 		itemUser: ["Magnezone"],
@@ -191,12 +203,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -15,
 		gen: 9,
+		rating: 3,
 	},
 	regigigasite: {
 		name: "Regigigasite",
-		//spritenum: 0,
+		spritenum: 1015,
 		megaStone: "Regigigas-Mega",
 		megaEvolves: "Regigigas",
 		itemUser: ["Regigigas"],
@@ -204,12 +217,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -16,
 		gen: 9,
+		rating: 3,
 	},
 	hydreigonite: {
 		name: "Hydreigonite",
-		//spritenum: 0,
+		spritenum: 1016,
 		megaStone: "Hydreigon-Mega",
 		megaEvolves: "Hydreigon",
 		itemUser: ["Hydreigon"],
@@ -217,12 +231,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -17,
 		gen: 9,
+		rating: 3,
 	},
 	volcaronanite: {
 		name: "Volcaronanite",
-		//spritenum: 0,
+		spritenum: 1017,
 		megaStone: "Volcarona-Mega",
 		megaEvolves: "Volcarona",
 		itemUser: ["Volcarona"],
@@ -230,12 +245,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -18,
 		gen: 9,
+		rating: 3,
 	},
 	keldeonite: {
 		name: "Keldeonite",
-		//spritenum: 0,
+		spritenum: 1018,
 		megaStone: "Keldeo-Mega",
 		megaEvolves: "Keldeo",
 		itemUser: ["Keldeo"],
@@ -243,12 +259,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -19,
 		gen: 9,
+		rating: 3,
 	},
 	haxorusite: {
 		name: "Haxorusite",
-		//spritenum: 0,
+		spritenum: 1019,
 		megaStone: "Haxorus-Mega",
 		megaEvolves: "Haxorus",
 		itemUser: ["Haxorus"],
@@ -256,12 +273,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -20,
 		gen: 9,
+		rating: 3,
 	},
 	braviarinite: {
 		name: "Braviarinite",
-		//spritenum: 0,
+		spritenum: 1020,
 		megaStone: "Braviary-Mega",
 		megaEvolves: "Braviary",
 		itemUser: ["Braviary"],
@@ -269,12 +287,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -21,
 		gen: 9,
+		rating: 3,
 	},
 	ferrothornite: {
 		name: "Ferrothornite",
-		//spritenum: 0,
+		spritenum: 1021,
 		megaStone: "Ferrothorn-Mega",
 		megaEvolves: "Ferrothorn",
 		itemUser: ["Ferrothorn"],
@@ -282,12 +301,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -22,
 		gen: 9,
+		rating: 3,
 	},
 	victorystar: {
 		name: "Victory Star",
-		//spritenum: 0,
+		spritenum: 1022,
 		megaStone: "Victini-Perfected",
 		megaEvolves: "Victini",
 		itemUser: ["Victini"],
@@ -295,12 +315,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -23,
 		gen: 9,
+		rating: 3,
 	},
 	tyrantrumite: {
 		name: "Tyrantrumite",
-		//spritenum: 0,
+		spritenum: 1023,
 		megaStone: "Tyrantrum-Mega",
 		megaEvolves: "Tyrantrum",
 		itemUser: ["Tyrantrum"],
@@ -308,12 +329,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -24,
 		gen: 9,
+		rating: 3,
 	},
 	aurorusite: {
 		name: "Aurorusite",
-		//spritenum: 0,
+		spritenum: 1024,
 		megaStone: "Aurorus-Mega",
 		megaEvolves: "Aurorus",
 		itemUser: ["Aurorus"],
@@ -321,12 +343,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -25,
 		gen: 9,
+		rating: 3,
 	},
 	goodratite: {
 		name: "Goodratite",
-		//spritenum: 0,
+		spritenum: 1025,
 		megaStone: "Goodra-Mega",
 		megaEvolves: "Goodra",
 		itemUser: ["Goodra"],
@@ -334,12 +357,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -26,
 		gen: 9,
+		rating: 3,
 	},
 	wishiwashinite: {
 		name: "Wishiwashinite",
-		//spritenum: 0,
+		spritenum: 1026,
 		megaStone: "Wishiwashi-Mega",
 		megaEvolves: "Wishiwashi",
 		itemUser: ["Wishiwashi"],
@@ -347,12 +371,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -27,
 		gen: 9,
+		rating: 3,
 	},
 	kommoonite: {
 		name: "Kommo-onite",
-		//spritenum: 0,
+		spritenum: 1027,
 		megaStone: "Kommo-o-Mega",
 		megaEvolves: "Kommo-o",
 		itemUser: ["Kommo-o"],
@@ -360,12 +385,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -28,
 		gen: 9,
+		rating: 3,
 	},
 	cinderaceite: {
 		name: "Cinderaceite",
-		//spritenum: 0,
+		spritenum: 1028,
 		megaStone: "Cinderace-Mega",
 		megaEvolves: "Cinderace",
 		itemUser: ["Cinderace"],
@@ -373,12 +399,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -29,
 		gen: 9,
+		rating: 3,
 	},
 	inteleonite: {
 		name: "Inteleonite",
-		//spritenum: 0,
+		spritenum: 1029,
 		megaStone: "Inteleon-Mega",
 		megaEvolves: "Inteleon",
 		itemUser: ["Inteleon"],
@@ -386,12 +413,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -30,
 		gen: 9,
+		rating: 3,
 	},
 	rillaboomite: {
 		name: "Rillaboomite",
-		//spritenum: 0,
+		spritenum: 1030,
 		megaStone: "Rillaboom-Mega",
 		megaEvolves: "Rillaboom",
 		itemUser: ["Rillaboom"],
@@ -399,12 +427,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -31,
 		gen: 9,
+		rating: 3,
 	},
 	dragapultite: {
 		name: "Dragapultite",
-		//spritenum: 0,
+		spritenum: 1031,
 		megaStone: "Dragapult-Mega",
 		megaEvolves: "Dragapult",
 		itemUser: ["Dragapult"],
@@ -412,12 +441,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -32,
 		gen: 9,
+		rating: 3,
 	},
 	kingambitite: {
 		name: "Kingambitite",
-		//spritenum: 0,
+		spritenum: 1032,
 		megaStone: "Kingambit-Mega",
 		megaEvolves: "Kingambit",
 		itemUser: ["Kingambit"],
@@ -425,12 +455,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -33,
 		gen: 9,
+		rating: 3,
 	},
 	gholdengoite: {
 		name: "Gholdengoite",
-		//spritenum: 0,
+		spritenum: 1033,
 		megaStone: "Gholdengo-Mega",
 		megaEvolves: "Gholdengo",
 		itemUser: ["Gholdengo"],
@@ -438,12 +469,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -34,
 		gen: 9,
+		rating: 3,
 	},
 	archaludonite: {
 		name: "Archaludonite",
-		//spritenum: 0,
+		spritenum: 1034,
 		megaStone: "Archaludon-Mega",
 		megaEvolves: "Archaludon",
 		itemUser: ["Archaludon"],
@@ -451,11 +483,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1,
+		num: -35,
 		gen: 9,
+		rating: 3,
 	},
 	hardhat: {
 		name: "Hard Hat",
+		spritenum: 1035,
 		shortDesc: "Prevents the recoil effect of moves.",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -463,10 +497,13 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
+		num: -36,
+		gen: 9,
+		rating: 3,
 	},
 	ancientsouldew: {
 		name: "Ancient Soul Dew",
-		spritenum: 459,
+		spritenum: 1036,
 		fling: {
 			basePower: 30,
 		},
@@ -482,8 +519,9 @@ export const Items: import("../../../sim/dex-items").ModdedItemDataTable = {
 			}
 		},
 		itemUser: ["Latios", "Latias"],
-		num: -1,
+		num: -37,
 		gen: 9,
+		rating: 3,
 		shortDesc: "If held by a Latias or a Latios, its Sp. Atk and Sp. Def are 1.5x.",
 	},
 };

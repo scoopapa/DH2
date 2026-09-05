@@ -45,6 +45,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				pokemon.addVolatile('bigbutton');
 			}
 		},
+		onAfterMove(pokemon, target, move) {
+			pokemon.previousMove = move;
+		},
 	},
 	milfrule: {
 		name: "MILF Rule",
@@ -110,7 +113,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		effectType: "Rule",
 		desc: `Spooky Secret Clause`,
 		onAfterMove(pokemon, target, move) {
-			if(pokemon.metronome >= 26) pokemon.side.win();
+			if(pokemon.metronome >= 26) this.win(pokemon.side);
 		},
 	},
 	ilovehisuirule: {
@@ -156,6 +159,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh') >= 0 &&
 				pokemon.hasAbility('bloodlinegreatestachievement')) {
 				pokemon.formeChange('Wario-Forbidden-One', null, true);
+			}
+		},
+	},
+	honorstudenthelper: {
+		effectType: 'Rule',
+		name: 'honor student helper',
+		desc: `helper function to properly trigger honor student`,
+		onSwitchOut(pokemon) {
+			if ((pokemon.baseSpecies as any).diamondHand) {
+				pokemon.side.addSlotCondition(pokemon, 'diamondhand');
 			}
 		},
 	},
