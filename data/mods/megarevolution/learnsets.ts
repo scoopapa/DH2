@@ -5367,7 +5367,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9L1"],
 		},
 	},
-	atriciathan: {
+	atrociathan: {
 		learnset: {
 			aquatail: ["9L1"],
 			attract: ["9L1"],

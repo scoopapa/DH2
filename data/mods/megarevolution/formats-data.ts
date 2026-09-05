@@ -5023,7 +5023,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gyarados: {
 		tier: "OU",
 	},
-	atriciathan: {
+	atrociathan: {
 		tier: "OU",
 	},
 	staravage: {

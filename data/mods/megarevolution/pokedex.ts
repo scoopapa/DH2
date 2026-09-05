@@ -1023,13 +1023,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	gyarados: {
 		inherit: true,
-		evos: ["Atriciathan"],
+		evos: ["Atrociathan"],
 		otherFormes: null,
 		formeOrder: null,
 	},
-	atriciathan: {
+	atricoathan: {
 		num: 2048,
-		name: "Atriciathan",
+		name: "Atrociathan",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 125, atk: 135, def: 94, spa: 60, spd: 105, spe: 61},
 		abilities: {0: "Intimidate", H: "Mold Breaker"},
