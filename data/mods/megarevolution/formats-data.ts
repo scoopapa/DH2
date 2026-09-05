@@ -5011,4 +5011,26 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	eldropath: {
 		tier: "OU",
 	},
+	zeppelidon: {
+		tier: "OU",
+	},
+	mountamel: {
+		tier: "OU",
+	},
+	leonid: {
+		tier: "OU",
+	},
+	gyarados: {
+		tier: "OU",
+	},
+	atriciathan: {
+		tier: "OU",
+	},
+	staravage: {
+		tier: "OU",
+	},
+	mermanacle: {
+		tier: "OU",
+	},
+
 };
