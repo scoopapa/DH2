@@ -1163,7 +1163,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Horronimbus",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 100, atk: 55, def: 80, spa: 100, spd: 95, spe: 85},
-		abilities: {0: "Motor Drive", H: "Electric Surge"},
+		abilities: {0: "Motor Drive", 1: "Cloud Nine", H: "Electric Surge"},
 		weightkg: 0.1,
 	},
 	woollycrawler: {
@@ -1172,6 +1172,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 67, atk: 113, def: 65, spa: 111, spd: 63, spe: 101},
 		abilities: {0: "Protosynthesis"},
-		weightkg: 9.9,
+		weightkg: 400,
 	},
 };
