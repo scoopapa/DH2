@@ -150,5 +150,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData("Learnsets", "sableye").learnset.poltergeist = ["9L1"];
 		this.modData("Learnsets", "sableye").learnset.suckerpunch = ["9L1"];
+		
+		this.modData("Learnsets", "gyarados").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.jawlock = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.tempertantrum = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.firefang = ["9L1"];
 	},
 };
