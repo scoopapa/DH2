@@ -115,7 +115,6 @@ import { Formats as gen533Valuemons             } from '../data/mods/gen5valuemo
 import { Formats as gen6MegasRevisited          } from '../data/mods/gen6megasrevisited/formats';
 import { Formats as gen6MixAndMegasRevisited    } from '../data/mods/gen6mixandmegasrevisited/formats';
 import { Formats as gen8FusionEvolution         } from '../data/mods/gen8feuu/formats';
-import { Formats as gen8HaxMeters               } from '../data/mods/gen8haxmeters/formats';
 import { Formats as gen8Lucklessplay            } from '../data/mods/gen8lucklessplay/formats';
 import { Formats as gen8MaxMeter                } from '../data/mods/gen8maxmeter/formats';
 import { Formats as gen9CrossoverChaos          } from '../data/mods/gen9crossoverchaos/formats';
