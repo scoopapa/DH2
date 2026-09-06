@@ -56,7 +56,7 @@ rudinn: {
 	},
 	cround: {
 		tier: "DM NFE",
-		doublesTier: "DM DNFE",
+		doublesTier: "DM NFE",
 		natDexTier: "NFE",
 	},
 	kround: {
