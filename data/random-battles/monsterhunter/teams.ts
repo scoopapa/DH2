@@ -1180,12 +1180,10 @@ export class RandomTeams {
     		return this.sample(['Life Orb', 'Choice Band']);
 		}
 		if (species.id === 'arzuros' && role === 'Bulky Setup') return 'Honey';
-		if (species.id === 'arzuros' && role === 'Mega') return 'Arzurite';
 		if (species.id === 'ashshanlung' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'astalos' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
 		}
-		if (species.id === 'astalos' && role === 'Mega') return 'Astalite';
 		if (species.id === 'auroracanth' && role === 'Fast Support') {
     		return this.sample(['Life Orb', 'Focus Sash']);
 		}
@@ -1198,14 +1196,12 @@ export class RandomTeams {
 		if (species.id === 'balenox' && role === 'Wallbreaker') return 'Leftovers';
 		if (species.id === 'banbaro' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'barioth' && role === 'Setup Sweeper') return 'Heavy-Duty Boots';
-		if (species.id === 'barioth' && role === 'Mega') return 'Bariothite';
 		if (species.id === 'barroth' && role === 'Bulky Support') return 'Stealth Rock';
 		if (species.id === 'basarios' && role === 'Bulky Support') return 'Eviolite';
 		if (species.id === 'bazelgeuse' && role === 'Setup Sweeper') {
     		return this.sample(['Life Orb', 'Heavy-Duty Boots']);
 		}
 		if (species.id === 'bazelgeuse' && role === 'Fast Support') return 'Heavy-Duty Boots';
-		if (species.id === 'bazelgeuse' && role === 'Mega') return 'Bazelnite';
 		if (species.id === 'beotodus' && role === 'Setup Sweeper') return 'Sitrus Berry';
 		if (species.id === 'bishaten' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'bishaten' && role === 'Setup Sweeper') return 'Sitrus Berry';
@@ -1235,7 +1231,6 @@ export class RandomTeams {
 		if (species.id === 'brachydios' && role === 'Bulky Attacker') {
     		return this.sample(['Black Sludge', 'Punching Glove']);
 		}
-		if (species.id === 'brachydios' && role === 'Mega') return 'Brachylite';
 		if (species.id === 'bulldrome' && role === 'Wallbreaker') {
     		return this.sample(['Wide Lens', 'Life Orb', 'Choice Band']);
 		}
@@ -1249,7 +1244,6 @@ export class RandomTeams {
     		return this.sample(['Life Orb', 'Black Sludge']);
 		}
 		if (species.id === 'chameleos' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'chameleos' && role === 'Mega') return 'Risenite-C';
 		if (species.id === 'chaoticgore' && role === 'Setup Sweeper') {
     		return this.sample(['Life Orb', 'Assault Vest']);
 		}
@@ -1264,7 +1258,6 @@ export class RandomTeams {
 		}
 		if (species.id === 'daimyohermitaur' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'daimyohermitaur' && role === 'Setup Sweeper') return 'White Herb';
-		if (species.id === 'daimyohermitaur' && role === 'Mega') return 'Daimyite';
 		if (species.id === 'dalamadur' && role === 'Bulky Setup') return 'Leftovers';
 		if (species.id === 'dalamadur' && role === 'Bulky Attacker') {
     		return this.sample(['Life Orb', 'Leftovers']);
@@ -1273,12 +1266,10 @@ export class RandomTeams {
 		if (species.id === 'deviljho' && role === 'Wallbreaker') {
     		return this.sample(['Choice Scarf', 'Choice Band']);
 		}
-		if (species.id === 'deviljho' && role === 'Mega') return 'Devilite';
 		if (species.id === 'diablos' && role === 'Wallbreaker') {
     		return this.sample(['Life Orb', 'Choice Band']);
 		}
 		if (species.id === 'diablos' && role === 'Fast Attacker') return 'Choice Scarf';
-		if (species.id === 'diablos' && role === 'Mega') return 'Diablite';
 		if (species.id === 'diremiralis' && role === 'Bulky Attacker') return 'Leftovers';
 		if (species.id === 'diremiralis' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'disufiroa' && role === 'Wallbreaker') return 'Life Orb';
@@ -1332,7 +1323,6 @@ export class RandomTeams {
 		if (species.id === 'gaismagorm' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'gaismagorm' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'gammoth' && role === 'Bulky Attacker') return 'Light Clay';
-		if (species.id === 'gammoth' && role === 'Mega') return 'Gammothite';
 		if (species.id === 'garangolm' && role === 'Wallbreaker') {
     		return this.sample(['Choice Scarf', 'Choice Band']);
 		}
@@ -1347,11 +1337,9 @@ export class RandomTeams {
 		if (species.id === 'glavenus' && role === 'Wallbreaker') {
     		return this.sample(['Life Orb', 'Choice Band']);
 		}
-		if (species.id === 'glavenus' && role === 'Mega') return 'Glavenite';
 		if (species.id === 'glowstrax' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Choice Specs']);
 		}
-		if (species.id === 'glowstrax' && role === 'Mega') return 'Risenite-G';
 		if (species.id === 'gobul' && role === 'Bulky Setup') {
     		return this.sample(['Leftovers', 'Loaded Dice']);
 		}
@@ -1396,7 +1384,6 @@ export class RandomTeams {
 		if (species.id === 'gypceros' && role === 'Fast Support') return 'Black Sludge';
 		if (species.id === 'hallowedmohran' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'harudomerugu' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'harudomerugu' && role === 'Mega') return 'Harudomerite';
 		if (species.id === 'hirabami' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'hirabami' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Choice Band']);
@@ -1407,7 +1394,6 @@ export class RandomTeams {
 		if (species.id === 'ibushi' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'ibushi' && role === 'Bulky Setup') return 'Leftovers';
 		if (species.id === 'inagami' && role === 'Bulky Setup') return 'Leftovers';
-		if (species.id === 'inagami' && role === 'Mega') return 'Inagamite';
 		if (species.id === 'inferonis' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'invadogaron' && role === 'Bulky Setup') return 'Flame Orb';
 		if (species.id === 'invadogaron' && role === 'Bulky Support') return 'Flame Orb';
@@ -1428,22 +1414,17 @@ export class RandomTeams {
 		if (species.id === 'khezu' && role === 'Wallbreaker') {
     		return this.sample(['Life Orb', 'Choice Specs']);
 		}
-		if (species.id === 'khezu' && role === 'Mega') return 'Khezite';
 		if (species.id === 'kingshakalaka' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'kirin' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
 		}
-		if (species.id === 'kirin' && role === 'Mega') return 'Kirinite';
 		if (species.id === 'kuluyaku' && role === 'Setup Sweeper') return 'Liechi Berry';
 		if (species.id === 'kulvetaroth' && role === 'Wallbreaker') return 'Life Orb';
 		if (species.id === 'kulvetaroth' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'kushaladaora' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'kushaladaora' && role === 'Bulky Setup') return 'Leftovers';
-		if (species.id === 'kushaladaora' && role === 'Mega') return 'Risenite-K';
 		if (species.id === 'lagiacrus' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'lagiacrus' && role === 'Mega') return 'Lagialite';
 		if (species.id === 'lagombi' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'lagombi' && role === 'Mega') return 'Lagombite';
 		if (species.id === 'lalabarina' && role === 'Bulky Attacker') return 'Silver Powder';
 		if (species.id === 'lalabarina' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'lalabarina' && role === 'Bulky Setup') return 'Leftovers';
@@ -1473,16 +1454,13 @@ export class RandomTeams {
 		if (species.id === 'magnamalo' && role === 'Bulky Support') {
     		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
 		}
-		if (species.id === 'magnamalo' && role === 'Mega') return 'Swords Dance';
 		if (species.id === 'malfestio' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'malfestio' && role === 'Bulky Support') {
     		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
 		}
-		if (species.id === 'malfestio' && role === 'Mega') return 'Malfestite';
 		if (species.id === 'malzeno' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'malzeno' && role === 'Fast Attacker') return 'Leftovers';
 		if (species.id === 'mizutsune' && role === 'Fast Support') return 'Leftovers';
-		if (species.id === 'mizutsune' && role === 'Mega') return 'Mizutsunite';
 		if (species.id === 'molgrex' && role === 'Setup Sweeper') return 'Liechi Berry';
 		if (species.id === 'monksnail' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'monoblos' && role === 'Fast Attacker') {
@@ -1500,11 +1478,9 @@ export class RandomTeams {
 		if (species.id === 'namielle' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'namielle' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'nargacuga' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'nargacuga' && role === 'Mega') return 'Nargacugite';
 		if (species.id === 'narwa' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
 		}
-		if (species.id === 'narwa' && role === 'Mega') return 'Narwanite';
 		if (species.id === 'nefgarmat' && role === 'Bulky Setup') return 'Leftovers';
 		if (species.id === 'nefgarmat' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'nergigante' && role === 'Wallbreaker') return 'Frost Orb';
@@ -1549,7 +1525,6 @@ export class RandomTeams {
 		if (species.id === 'pinkian' && role === 'Bulky Support') return 'Black Sludge';
 		if (species.id === 'plesioth' && role === 'Fast Attacker') return 'Choice Scarf';
 		if (species.id === 'plesioth' && role === 'Bulky Support') return 'Leftovers';
-		if (species.id === 'plesioth' && role === 'Mega') return 'Plesite';
 		if (species.id === 'poborubarumu' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'pokaradon' && role === 'Bulky Support') return 'Leftovers';
 		if (species.id === 'pokaradon' && role === 'Bulky Setup') return 'Leftovers';
@@ -1570,18 +1545,15 @@ export class RandomTeams {
 		if (species.id === 'radobaan' && role === 'Fast Support') return 'Leftovers';
 		if (species.id === 'radobaan' && role === 'Setup Sweeper') return 'Sitrus Berry';
 		if (species.id === 'rajang' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'rajang' && role === 'Mega') return 'Rajanite';
 		if (species.id === 'raknakadaki' && role === 'Bulky Support') {
     		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
 		}
 		if (species.id === 'raknakadaki' && role === 'Setup Sweeper') return 'Leftovers';
 		if (species.id === 'rathalos' && role === 'Fast Support') return 'Heavy-Duty Boots';
 		if (species.id === 'rathalos' && role === 'Setup Sweeper') return 'Heavy-Duty Boots';
-		if (species.id === 'rathalos' && role === 'Mega') return 'Rathalosite';
 		if (species.id === 'rathian' && role === 'Bulky Support') {
     		return this.sample(['Black Sludge', 'Rocky Helmet']);
 		}
-		if (species.id === 'rathian' && role === 'Mega') return 'Rathianite';
 		if (species.id === 'rebidiora' && role === 'Fast Attacker') {
     		return this.sample(['Life Orb', 'Choice Scarf', 'Choice Specs']);
 		}
@@ -1632,7 +1604,6 @@ export class RandomTeams {
     		return this.sample(['Leftovers', 'Life Orb']);
 		}
 		if (species.id === 'shagarumagala' && role === 'Bulky Setup') return 'Leftovers';
-		if (species.id === 'shagarumagala' && role === 'Mega') return 'Risenite-S';
 		if (species.id === 'shahmadur' && role === 'Setup Sweeper') return 'Flame Orb';
 		if (species.id === 'shahmadur' && role === 'Bulky Setup') return 'Frost Orb';
 		if (species.id === 'shantien' && role === 'Fast Attacker') {
@@ -1668,7 +1639,6 @@ export class RandomTeams {
     		return this.sample(['Life Orb', 'Choice Band']);
 		}
 		if (species.id === 'teostra' && role === 'Setup Sweeper') return 'Life Orb';
-		if (species.id === 'teostra' && role === 'Mega') return 'Risenite-T';
 		if (species.id === 'terrataur' && role === 'Wallbreaker') {
     		return this.sample(['Life Orb', 'Choice Band']);
 		}
@@ -1684,7 +1654,6 @@ export class RandomTeams {
 		if (species.id === 'tidarala' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'tidarala' && role === 'Fast Attacker') return 'Life Orb';
 		if (species.id === 'tigrex' && role === 'Setup Sweeper') return 'Throat Spray';
-		if (species.id === 'tigrex' && role === 'Mega') return 'Tigrexite';
 		if (species.id === 'tobikadachi' && role === 'Fast Support') return 'Leftovers';
 		if (species.id === 'tzitziyaku' && role === 'Setup Sweeper') return 'Power Herb';
 		if (species.id === 'unknown' && role === 'Wallbreaker') return 'Life Orb';
@@ -1696,7 +1665,6 @@ export class RandomTeams {
     		return this.sample(['Earth Plate', 'Choice Band']);
 		}
 		if (species.id === 'uragaan' && role === 'Fast Support') return 'Leftovers';
-		if (species.id === 'uragaan' && role === 'Mega') return 'Uragaanite';
 		if (species.id === 'uthduna' && role === 'Bulky Setup') return 'Leftovers';
 		if (species.id === 'vaalhazak' && role === 'Bulky Support') return 'Black Sludge';
 		if (species.id === 'valstrax' && role === 'Fast Attacker') return 'Life Orb';
@@ -1735,13 +1703,11 @@ export class RandomTeams {
     		return this.sample(['Life Orb', 'Choice Scarf']);
 		}
 		if (species.id === 'yiangaruga' && role === 'Fast Support') return 'Black Sludge';
-		if (species.id === 'yiangaruga' && role === 'Mega') return 'Garugite';
 		if (species.id === 'yiankutku' && role === 'Wallbreaker') return 'Life Orb';
 		if (species.id === 'zamtrios' && role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'zamtrios' && role === 'Fast Attacker') return 'Life Orb';
 		if (species.id === 'zinogre' && role === 'Setup Sweeper') return 'Life Orb';
 		if (species.id === 'zinogre' && role === 'Bulky Setup') return 'Leftovers';
-		if (species.id === 'zinogre' && role === 'Mega') return 'Zinogrite';
 		if (species.id === 'zorahmagdaros' && role === 'Bulky Support') {
     		return this.sample(['Leftovers', 'Heavy-Duty Boots']);
 		}

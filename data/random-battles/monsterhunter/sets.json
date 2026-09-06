@@ -251,12 +251,6 @@
                 "movepool": ["Bulk Up", "Slack Off", "Hyper Drill", "High Horsepower", "Shadow Claw"],
                 "abilities": ["Honey Gather"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Hyper Drill", "Close Combat", "Fishious Rend", "Bulk Up", "Shadow Claw"],
-                "abilities": ["Tough Claws"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -277,12 +271,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Volt Switch", "Ion Saber", "Bug Buzz", "Energy Ball", "Dazzling Gleam"],
-                "abilities": ["Lightning Rod"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Nasty Plot", "Ion Saber", "Energy Ball", "Dazzling Gleam", "Bug Buzz"],
                 "abilities": ["Lightning Rod"],
                 "teraTypes": ["Normal"]
             }
@@ -368,12 +356,6 @@
                 "movepool": ["Snowscape", "Swords Dance", "Icicle Crash", "Sacred Sword"],
                 "abilities": ["Slush Rush"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Avinia's Blessing", "Rest", "Icicle Crash", "Dual Wingbeat"],
-                "abilities": ["Slush Rush"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -411,12 +393,6 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Spikes", "Parting Shot", "Roost", "Glide Bomb"],
-                "abilities": ["Skill Link"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Dragon Dance", "Pyro Ball", "Knock Off", "Roost"],
                 "abilities": ["Skill Link"],
                 "teraTypes": ["Normal"]
             }
@@ -554,12 +530,6 @@
                 "movepool": ["Drain Punch", "Slime Punch", "Mach Punch", "Fire Punch", "Knock Off"],
                 "abilities": ["Iron Fist"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["No Retreat", "Slime Punch", "Close Combat", "Knock Off"],
-                "abilities": ["Iron Fist"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -620,12 +590,6 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Dragon Dance", "Dragon Claw", "Fire Lash", "Gunk Shot"],
-                "abilities": ["Neutralizing Gas"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Nasty Plot", "Dragon Pulse", "Malignant Chain", "Dark Pulse"],
                 "abilities": ["Neutralizing Gas"],
                 "teraTypes": ["Normal"]
             }
@@ -723,12 +687,6 @@
                 "movepool": ["Shell Smash", "Crabhammer", "High Horsepower", "X-Scissor", "Knock Off"],
                 "abilities": ["Unaware"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Body Press", "Recover", "Scald", "Rapid Spin"],
-                "abilities": ["Unaware"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -763,12 +721,6 @@
                 "movepool": ["Devil's Jaw", "Knock Off", "Thunderous Kick", "Iron Tail"],
                 "abilities": ["Dragon's Maw"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Devil's Jaw", "Dragon Dance", "Knock Off", "Thunderous Kick"],
-                "abilities": ["Dragon's Maw"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -784,12 +736,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Head Smash", "Headlong Rush", "Megahorn", "Knock Off"],
-                "abilities": ["Rock Head"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Bulk Up", "Knock Off", "Headlong Rush", "Iron Tail"],
                 "abilities": ["Rock Head"],
                 "teraTypes": ["Normal"]
             }
@@ -1109,12 +1055,6 @@
                 "movepool": ["Milk Drink", "Aurora Veil", "Earthquake", "Mountain Gale"],
                 "abilities": ["Snow Warning"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Milk Drink", "Bulk Up", "Earthquake", "Mountain Gale"],
-                "abilities": ["Snow Warning"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1198,12 +1138,6 @@
                 "movepool": ["V-create", "Mighty Cleave", "Accelerock", "Bitter Blade"],
                 "abilities": ["Beast Boost"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Swords Dance", "Behemoth Blade", "Bitter Blade", "Mighty Cleave"],
-                "abilities": ["Beast Boost"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1213,12 +1147,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Draco Meteor", "Tachyon Cutter", "Aura Sphere", "U-turn"],
-                "abilities": ["Strafe"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Fiery Wrath", "Draco Meteor", "U-turn", "Tachyon Cutter", "Dark Pulse"],
                 "abilities": ["Strafe"],
                 "teraTypes": ["Normal"]
             }
@@ -1494,12 +1422,6 @@
                 "movepool": ["Dragon Dance", "Gigaton Hammer", "Combat Torque", "Earthquake"],
                 "abilities": ["Silver Subsume"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Dragon Dance", "Gigaton Hammer", "Psychic Fangs", "Combat Torque"],
-                "abilities": ["Silver Subsume"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1571,12 +1493,6 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Body Press", "Horn Leech", "Bulk Up", "Rock Slide", "Synthesis"],
-                "abilities": ["Stamina"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Combat Torque", "Horn Leech", "Rock Slide", "Sedative Spine"],
                 "abilities": ["Stamina"],
                 "teraTypes": ["Normal"]
             }
@@ -1713,12 +1629,6 @@
                 "movepool": ["Rising Voltage", "Giga Drain", "Focus Blast", "Dragon Pulse", "Volt Switch"],
                 "abilities": ["Electric Surge"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Thunder", "Focus Blast", "Giga Drain", "Volt Switch"],
-                "abilities": ["Electric Surge"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1739,12 +1649,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Astral Barrage", "Electro Drift", "Focus Blast", "Volt Switch", "Thunderclap"],
-                "abilities": ["Grim Neigh"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Astral Barrage", "Electro Drift", "Focus Blast", "Volt Switch"],
                 "abilities": ["Grim Neigh"],
                 "teraTypes": ["Normal"]
             }
@@ -1792,12 +1696,6 @@
                 "movepool": ["Iron Defense", "Body Press", "Roost", "Bleakwind Storm"],
                 "abilities": ["Magic Bounce"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Nasty Plot", "Roost", "Flash Cannon", "Bleakwind Storm"],
-                "abilities": ["Magic Bounce"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1809,12 +1707,6 @@
                 "movepool": ["Rain Dance", "Electro Shot", "Cyclone Rend", "Ice Beam"],
                 "abilities": ["Swift Swim"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Jaw Lock", "Nether Current", "Protect", "Substitute"],
-                "abilities": ["Swift Swim"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -1824,12 +1716,6 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Tidy Up", "Collision Course", "Mega Kick", "Snowball Cannon"],
-                "abilities": ["Fur Coat"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Icicle Spear", "Collision Course", "Mega Kick", "U-turn"],
                 "abilities": ["Fur Coat"],
                 "teraTypes": ["Normal"]
             }
@@ -1984,12 +1870,6 @@
                 "movepool": ["Will-O-Wisp", "Parting Shot", "Hellfire Rifle", "Magna Lance"],
                 "abilities": ["Intimidate"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Sucker Punch", "Hellfire Rifle", "Low Kick"],
-                "abilities": ["Intimidate"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -2005,12 +1885,6 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Cloaking Glow", "Parting Shot", "Roost"],
-                "abilities": ["Trace"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Shadow Ball", "Air Slash", "Parting Shot", "Roost"],
                 "abilities": ["Trace"],
                 "teraTypes": ["Normal"]
             }
@@ -2039,12 +1913,6 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Scald", "Moonblast", "Heal Bell", "Glare", "Flip Turn"],
-                "abilities": ["Marvel Scale"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Encore", "Scald", "Moonblast", "Hyper Voice"],
                 "abilities": ["Marvel Scale"],
                 "teraTypes": ["Normal"]
             }
@@ -2160,12 +2028,6 @@
                 "movepool": ["Swords Dance", "Cutwing Barrage", "Thousand Blades", "Sucker Punch"],
                 "abilities": ["Sharpness"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Swords Dance", "Cutwing Barrage", "Thousand Blades", "Iron Head"],
-                "abilities": ["Screen Cleaner"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -2175,12 +2037,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Volt Switch", "Thunderbolt", "Clanging Scales", "Focus Blast"],
-                "abilities": ["Electric Surge"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Calm Mind", "Roost", "Thunderbolt", "Air Slash"],
                 "abilities": ["Electric Surge"],
                 "teraTypes": ["Normal"]
             }
@@ -2446,12 +2302,6 @@
                 "movepool": ["Thunder Wave", "Flip Turn", "Recover", "Fishious Rend"],
                 "abilities": ["Water Veil", "Long Reach"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Wretched Water", "Recover", "Flip Turn", "Ice Beam", "Mud Bomb", "Knock Off", "Sedative Spine"],
-                "abilities": ["Water Veil"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -2586,12 +2436,6 @@
                 "movepool": ["No Retreat", "Drain Punch", "Plasma Fists", "Substitute"],
                 "abilities": ["Defiant"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Plasma Fists", "Close Combat", "Pursuit", "Mach Punch"],
-                "abilities": ["Defiant"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -2626,12 +2470,6 @@
                 "movepool": ["Dragon Dance", "Cutwing Barrage", "Blazing Torque", "Earthquake"],
                 "abilities": ["Poison Touch"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Swords Dance", "Blazing Torque", "Earthquake", "Cutwing Barrage"],
-                "abilities": ["Gale Wings"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -2641,12 +2479,6 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Mortal Spin", "Earthquake", "Spikes", "U-turn", "Slack Off"],
-                "abilities": ["Queenly Majesty"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Mortal Spin", "Slack Off", "Brave Bird", "Earthquake"],
                 "abilities": ["Queenly Majesty"],
                 "teraTypes": ["Normal"]
             }
@@ -2926,12 +2758,6 @@
                 "movepool": ["Recover", "Calm Mind", "Moonblast", "Aura Sphere"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Calm Mind", "Frenzy Pulse", "Dark Pulse", "Clanging Scales"],
-                "abilities": ["Magic Guard"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -3162,12 +2988,6 @@
                 "movepool": ["Earthquake", "Dragon Rush", "Flare Blitz", "Dragon Dance"],
                 "abilities": ["Fire Mane"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Dragon Dance", "Dragon Rush", "Flare Blitz", "Crunch"],
-                "abilities": ["Intimidate"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -3247,12 +3067,6 @@
                 "movepool": ["Clangorous Soul", "Boomburst", "Overdrive", "Focus Blast"],
                 "abilities": ["Punk Rock"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Double-Edge", "Close Combat", "Crunch", "U-turn"],
-                "abilities": ["Punk Rock"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -3330,12 +3144,6 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Stealth Rock", "U-turn", "Earthquake", "Rapid Spin", "Ice Spinner"],
-                "abilities": ["Sturdy"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Play Rough", "Earthquake", "Blazing Torque", "Rapid Spin"],
                 "abilities": ["Sturdy"],
                 "teraTypes": ["Normal"]
             }
@@ -3569,12 +3377,6 @@
                 "movepool": ["Frenzy Slam", "Parting Shot", "Barb Barrage", "Taunt"],
                 "abilities": ["Moxie"],
                 "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Triple Kick", "Poison Tail", "Triple Axel", "Parting Shot"],
-                "abilities": ["Moxie"],
-                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -3618,12 +3420,6 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Bulk Up", "Extreme Speed", "Plasma Fists", "Heal Order"],
-                "abilities": ["Insect Armor"],
-                "teraTypes": ["Normal"]
-            },
-            {
-                "role": "Mega",
-                "movepool": ["Bulk Up", "Extreme Speed", "Ice Fang", "Heal Order"],
                 "abilities": ["Insect Armor"],
                 "teraTypes": ["Normal"]
             }
