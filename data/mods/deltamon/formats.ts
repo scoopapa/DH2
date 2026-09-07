@@ -120,7 +120,7 @@ export const Formats: FormatData[] = [
 		threads: [
 			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'Gravity Sleep Clause', 'OHKO Clause', 'Evasion Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Gravity Sleep Clause', 'OHKO Clause', 'Evasion Clause'],
 		banlist: [
 			'Titan', 'Kaardite', 'Rouxls Kaard', 'Asriel', 'Soul Collective', 'Sans', 'ND AG', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
 			'Annihilape', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Espathra', 'Eternatus',
