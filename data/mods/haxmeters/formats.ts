@@ -3,20 +3,20 @@ import { FormatData } from '../../../sim/dex-formats';
 export const Formats: FormatData[] = [
 	{
 		name: "[Gen 9] Hax Meters OU",
-		mod: 'gen9haxmeters',
+		mod: 'haxmeters',
 		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', '!Evasion Items Clause', 'Hax Meter Rule'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Tera Blast'],
 	},
 	{
 		name: "[Gen 9] Hax Meters Doubles OU",
-		mod: 'gen9haxmeters',
+		mod: 'haxmeters',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Hax Meter Rule'],
 		banlist: ['DUber', 'Commander', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 9] Hax Meters Randoms",
-		mod: 'gen9haxmeters',
+		mod: 'haxmeters',
 		team: 'random',
 		ruleset: ['Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Hax Meter Rule'],
 	},

@@ -570,6 +570,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Air Balloon');
+			this.boost({ spa: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
@@ -578,13 +579,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Air Balloon');
+				this.boost({ spa: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
 		rating: 3,
-		shortDesc: "Holder is immune to Ground-type attacks until popped.",
+		shortDesc: "Holder is immune to Ground-type attacks. Once popped: +1 SpA.",
 	},
 	absorbbulb: {
 		inherit: true,
@@ -602,6 +604,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Absorb Bulb');
+			this.boost({ spa: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
 			this.add('-message', `${target.name}'s Absorb Bulb broke!`);
@@ -612,6 +615,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Absorb Bulb');
+				this.boost({ spa: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
 				this.add('-message', `${target.name}'s Absorb Bulb broke!`);
@@ -625,7 +629,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 //			}
 //		},
 		rating: 3,
-		shortDesc: "Holder is immune to Water-type attacks until popped.",
+		shortDesc: "Holder is immune to Water-type attacks. Once popped: +1 SpA.",
 	},
 	cellbattery: {
 		inherit: true,
@@ -643,6 +647,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Cell Battery');
+			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
 			this.add('-message', `${target.name}'s Cell Battery broke!`);
@@ -652,6 +657,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Cell Battery');
+				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
 				this.add('-message', `${target.name}'s Cell Battery broke!`);
@@ -665,7 +671,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 //			}
 //		},
 		rating: 3,
-		shortDesc: "Holder is immune to Electric-type attacks until popped.",
+		shortDesc: "Holder is immune to Electric-type attacks. Once broken: +1 Atk.",
 	},
 	snowball: {
 		inherit: true,
@@ -683,6 +689,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Snowball');
+			this.boost({ atk: 1 });
 			target.item = '';
 			target.itemState = { id: '', target };
 			this.add('-message', `${target.name}'s Snowball broke!`);
@@ -692,6 +699,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Snowball');
+				this.boost({ atk: 1 });
 				target.item = '';
 				target.itemState = { id: '', target };
 				this.add('-message', `${target.name}'s Snowball broke!`);
@@ -705,7 +713,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 //			}
 //		},
 		rating: 3,
-		shortDesc: "Holder is immune to Ice-type attacks until popped.",
+		shortDesc: "Holder is immune to Ice-type attacks. Once broken: +1 Atk.",
 	},
 	indecisiveorb: {
 		name: "Indecisive Orb",
@@ -808,7 +816,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe) {
 			return this.chainModify(0.5);
 		},
-		onFractionalPriority: 0,
+		onFractionalPriority: -0.1,
 	},
 
 
@@ -1753,15 +1761,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onModifyMove(move, pokemon) {
 			if (move.flags['contact'] && pokemon.useItem()) {
-				if(!move.secondaries){
-					move.secondaries = [];
-				} 
-					move.secondaries.push({
-						chance: 100,
-						onHit(target, source, move) {
-							if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-						},
-					});
+				move.secondaries.push({
+					chance: 100,
+					onHit(target, source, move) {
+						if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+					},
+				});
 			}
 		},
 		num: -24,

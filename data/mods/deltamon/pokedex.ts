@@ -41,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jigsawry: {
 		num: -5,
-		name: "Jigsawry",
+		name: "jigsawry",
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 55, spd: 50, spe: 70},
@@ -637,7 +637,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Carol",
 		types: ["Ice", "Dark"],
 		gender: "F",
-		baseStats: {hp: 80, atk: 92, def: 65, spa: 118, spd: 110, spe: 60},
+		baseStats: {hp: 80, atk: 92, def: 65, spa: 118, spd: 110, spe: 65},
 		abilities: {0: "Cold Gaze"},
 		weightkg: 68,
 	},
@@ -691,7 +691,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cuptain",
 		gender: "M",
 		types: ["Normal"],
-		baseStats: {hp: 60, atk: 90, def: 65, spa: 70, spd: 70, spe: 140},
+		baseStats: {hp: 60, atk: 95, def: 65, spa: 70, spd: 70, spe: 140},
 		abilities: {0: "Water Absorb", H: "Steadfast"},
 		weightkg: 0.4,
 	},
@@ -718,7 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gerson",
 		types: ["Ground"],
 		gender: "M",
-		baseStats: {hp: 80, atk: 95, def: 105, spa: 60, spd: 95, spe: 45},
+		baseStats: {hp: 80, atk: 85, def: 105, spa: 60, spd: 90, spe: 35},
 		abilities: {0: "Shell Armor", H: "Justified"},
 		weightkg: 150,
 		otherFormes: ["Gerson-Mega"],
@@ -731,7 +731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Ground", "Steel"],
 		gender: "M",
-		baseStats: {hp: 80, atk: 100, def: 115, spa: 60, spd: 105, spe: 120},
+		baseStats: {hp: 80, atk: 90, def: 105, spa: 75, spd: 95, spe: 110},
 		abilities: {0: "Mold Breaker"},
 		weightkg: 250,
 		requiredItem: "Gersonite"
@@ -801,7 +801,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sheary",
 		types: ["Grass"],
 		gender: "F",
-		baseStats: {hp: 98, atk: 122, def: 70, spa: 50, spd: 65, spe: 100},
+		baseStats: {hp: 98, atk: 112, def: 70, spa: 53, spd: 65, spe: 97},
 		abilities: {0: "Sharpness", 1: "Iron Barbs", H: "Dancer"},
 		weightkg: 9.5,
 	},
@@ -896,7 +896,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Blue",
 		types: ["Water", "Fairy"],
 		gender: "M",
-		baseStats: {hp: 70, atk: 85, def: 60, spa: 100, spd: 100, spe: 105},
+		baseStats: {hp: 70, atk: 80, def: 60, spa: 105, spd: 100, spe: 105},
 		abilities: {0: "Loving Dances"},
 		weightkg: 68.1,
 	},
@@ -937,7 +937,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Flowery",
 		types: ["Grass", "Fighting"],
 		gender: "M",
-		baseStats: {hp: 110, atk: 133, def: 80, spa: 81, spd: 78, spe: 118},
+		baseStats: {hp: 110, atk: 137, def: 80, spa: 77, spd: 78, spe: 118},
 		abilities: {0: "Blossom Boost"},
 		weightkg: 81.6,
 	},
@@ -1151,7 +1151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lesser Dog",
 		types: ["Normal", "Fairy"],
 		gender: "M",
-		baseStats: {hp: 70, atk: 120, def: 65, spa: 85, spd: 65, spe: 120},
+		baseStats: {hp: 70, atk: 110, def: 65, spa: 95, spd: 65, spe: 120},
 		abilities: {0: "Guard Dog", H: "Long Reach"},
 		weightkg: 56,
 	},
@@ -1214,7 +1214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 140, def: 75, spa: 75, spd: 45, spe: 65},
-		abilities: {0: "Thick Fat", H: "Sheer Force"},
+		abilities: {0: "Thick Fat"},
 		weightkg: 171.6,
 	},
 	papyrus: {
@@ -1284,7 +1284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Mad Dummy",
 		types: ["Ghost", "Fighting"],
 		gender: "N",
-		baseStats: {hp: 55, atk: 120, def: 135, spa: 73, spd: 60, spe: 97},
+		baseStats: {hp: 45, atk: 120, def: 135, spa: 73, spd: 60, spe: 97},
 		abilities: {0: "Anger Point", H: "Fury"},
 		weightkg: 15,
 	},
@@ -1342,8 +1342,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tsunderplane",
 		types: ["Flying", "Normal"],
 		gender: "N",
-		baseStats: {hp: 88, atk: 107, def: 77, spa: 63, spd: 75, spe: 115},
-		abilities: {0: "Wind Rider", 1: "Oblivious", H: "Aftermath"},
+		baseStats: {hp: 88, atk: 107, def: 77, spa: 63, spd: 75, spe: 120},
+		abilities: {0: "Wind Rider", 1: "Oblivious", H: "Reckless"},
 		weightkg: 122,
 	},
 	pyrope: {
@@ -1546,26 +1546,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Asriel",
 	},
 
-	//Randoms Exclusives
-	
-	friend: {
-		num: -1000,
-		name: "Friend",
-		types: ["Dark", "Ghost"],
-		gender: "N",
-		baseStats: {hp: 100, atk: 144, def: 74, spa: 74, spd: 64, spe: 114},
-		abilities: {0: "Darkspawn"},
-		weightkg: 66.6,
-	},
 
-	normalnpc: {
-		num: -1001,
-		name: "Normal NPC",
-		types: ["Normal", "Flying"],
-		gender: "M",
-		baseStats: {hp: 75, atk: 122, def: 75, spa: 66, spd: 72, spe: 130},
-		abilities: {0: "Normal Ability"},
-		weightkg: 30,
-	},
+
+
 };
 	

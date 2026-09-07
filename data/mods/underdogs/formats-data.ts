@@ -1,6 +1,7 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	krookodile: {tier: "underdogs"},
 	tangrowth: {tier: "underdogs"},
+	rotomwash: {tier: "underdogs"},
 
 	cryogonal: {tier: "underdogs"},
 	golurk: {tier: "underdogs"},
@@ -30,13 +31,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	camothflage: {tier: "underdogs"},
 	serperiormaadowr: {tier: "underdogs"},
 	iggloosby: {tier: "underdogs"},
-	alguinice: {tier: "underdogs"},
-
-	grafaiai: {tier: "underdogs"},
-	rotom: {tier: "underdogs"},
-	rotomfreeze: {tier: "underdogs"},
-	rotomheat: {tier: "underdogs"},
-	rotomfan: {tier: "underdogs"},
-	rotommow: {tier: "underdogs"},
-	rotomwash: {tier: "underdogs"},
 };

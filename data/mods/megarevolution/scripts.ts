@@ -134,28 +134,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "banette").learnset.thunderpunch = ["9L1"];
 		this.modData("Learnsets", "banette").learnset.icepunch = ["9L1"];
 		this.modData("Learnsets", "banette").learnset.quickattack = ["9L1"];
-		
-		this.modData("Learnsets", "dragonair").learnset.calmmind = ["9L1"];
-		this.modData("Learnsets", "dragonair").learnset.coil = ["9L1"];
-		this.modData("Learnsets", "dragonair").learnset.dazzlinggleam = ["9L1"];
-		this.modData("Learnsets", "dragonair").learnset.drainingkiss = ["9L1"];
-		this.modData("Learnsets", "dragonite").learnset.alluringvoice = ["9L1"];
-		this.modData("Learnsets", "dragonite").learnset.moonblast = ["9L1"];
-		this.modData("Learnsets", "dragonite").learnset.playrough = ["9L1"];
-		this.modData("Learnsets", "dragonite").learnset.moonlight = ["9L1"];
-		this.modData("Learnsets", "shelgon").learnset.earthpower = ["9L1"];
-		this.modData("Learnsets", "salamence").learnset.bloodmoon = ["9L1"];
-		this.modData("Learnsets", "salamence").learnset.moonblast = ["9L1"];
-		this.modData("Learnsets", "salamence").learnset.moonlight = ["9L1"];
-		
-		this.modData("Learnsets", "sableye").learnset.poltergeist = ["9L1"];
-		this.modData("Learnsets", "sableye").learnset.suckerpunch = ["9L1"];
-		
-		this.modData("Learnsets", "gyarados").learnset.pursuit = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.jawlock = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.tempertantrum = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.defog = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.superpower = ["9L1"];
-		this.modData("Learnsets", "gyarados").learnset.firefang = ["9L1"];
 	},
 };

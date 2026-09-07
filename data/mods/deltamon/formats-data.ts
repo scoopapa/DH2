@@ -815,16 +815,5 @@ rudinn: {
 		natDexTier: "Uber",
 	},
 
-	friend: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "Illegal",
-	},
-	normalnpc: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "Illegal",
-	},
-
 
 };
