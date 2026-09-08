@@ -452,11 +452,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Neo Chaos",
 		type: "Stellar",
 		category: "Special",
-		basePower: 160,
+		basePower: 180,
 		accuracy: true,
 		pp: 1,
-		shortDesc: "Random status, weather, and terrain. User switches.",
-		desc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with a random status condition, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting.",
+		shortDesc: "TOX/PSN/PAR/BRN, rand. weather & terrain. User switches.",
+		desc: "The user bedazzles the target by unleashing a variety of effects all at once. The opponent is inflicted with toxic poison, sleep, poison, or burn, a random Weather and Terrain effect is set, and the user switches places with a party Pokemon in waiting.",
 		priority: 0,
 		flags: {},
 		selfSwitch: true,
@@ -471,7 +471,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		{
 			chance: 100,
 			onHit(target, source) {
-			const randStatus = this.sample(['psn', 'tox', 'par', 'slp', 'frz', 'brn']);
+			const randStatus = this.sample(['psn', 'tox', 'par', 'brn']);
 					//Neo Chaos will attempt to inflict a status before the field effects to avoid clashing with Misty Terrain.
 					target.trySetStatus(randStatus, source);
 			},
