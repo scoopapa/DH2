@@ -58,7 +58,7 @@ export const Formats: FormatData[] = [
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [
-			'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
+			'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Assist',
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -86,5 +86,28 @@ export const Formats: FormatData[] = [
 		unbanlist: ['Jester\'s Shadow Crystal', 'Puppet\'s Shadow Crystal', 'Knight\'s Shadow Crystal', 'Cyan Omega Petal', 'Violet Omega Petal', 'Amber Omega Petal', 'Verdant Omega Petal', 
 					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice'],
 		teambuilderFormat: 'National Dex',
+	},
+	{	
+		name: "[Gen 9] Deltamon: National Dex Dark World Doubles",
+		mod: 'deltamon',
+		gameType: 'doubles',
+		desc: "National Dex Dark World Doubles is a doubles format where you can use Deltamon Recruits with any Pokemon available in the Generation 9 National Dex format!",
+		threads: [
+			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
+		],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Gravity Sleep Clause', 'OHKO Clause', 'Evasion Clause'],
+		banlist: [
+			'Titan', 'Kaardite', 'Rouxls Kaard', 'Asriel', 'Soul Collective', 'Sans', 'ND AG', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
+			'Annihilape', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Espathra', 'Eternatus',
+			'Genesect', 'Gengar-Mega', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Koraidon', 'Kyogre', 'Kyurem-White', 'Lugia',
+			'Lunala', 'Magearna', 'Melmetal', 'Metagross-Mega', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
+			'Necrozma-Ultra', 'Palkia', 'Palkia-Origin', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Stakataka', 'Terapagos',
+			'Urshifu', 'Urshifu-Rapid-Strike', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned',
+			'Zekrom', 'Zygarde-50%', 'Zygarde-Complete', 'Commander', 'Power Construct', 'Eevium Z', 'Assist', 'Dark Void', 'Swagger',
+			 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold'
+		],
+		unbanlist: ['Jester\'s Shadow Crystal', 'Puppet\'s Shadow Crystal', 'Knight\'s Shadow Crystal', 'Cyan Omega Petal', 'Violet Omega Petal', 'Amber Omega Petal', 'Verdant Omega Petal', 
+					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice', 'Shadow Tag'],
+		teambuilderFormat: 'National Dex Doubles',
 	},
 ];

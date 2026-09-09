@@ -252,7 +252,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		
-		flags: {breakable: 1},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Pyromancy",
 		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 Power (max 2 times).",
 	},
@@ -328,7 +328,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		
-		flags: {},
+		flags: {breakable: 1},
 		name: "Tem Outta Tem",
 		shortDesc: "Immunity to stat drops from other Pokemon and all non-volatile status conditions.",
 	},
