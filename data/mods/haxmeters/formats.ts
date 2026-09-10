@@ -57,5 +57,12 @@ export const Formats: FormatData[] = [
 		mod: 'gen7haxmeters',
 		team: 'random',
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Hax Meter Rule'],      
-	}
+	},
+	{
+		name: "[Gen 9 Champions] Hax Meters VGC",
+		mod: 'championshaxmeters',
+		gameType: 'doubles',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', 'Open Team Sheets', 'Data Mod', 'Terastal Clause', 'Hax Meter Rule'],
+	},
 ];
