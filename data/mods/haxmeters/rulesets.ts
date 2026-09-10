@@ -2,12 +2,32 @@ export function roundNum(n: number, places: number): number {
 	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
 }
 
-export function randomMeterValue(): number {
+export function randomMultipleOf5(): number {
+	return 5 * Math.floor(10 * Math.random()) + 25;
+}
+
+export function randomMultipleOf10(): number {
 	return 10 * Math.floor(6 * Math.random()) + 20;
 }
 
-export function randomCritMeterValue(): number {
+export function randomMultipleOf12Point5(): number {
 	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
+}
+
+export function missMeterInitialValue(): number {
+	return randomMultipleOf5();
+}
+
+export function effectMeterInitialValue(): number {
+	return randomMultipleOf10();
+}
+
+export function critMeterInitialValue(): number {
+	return randomMultipleOf12Point5();
+}
+
+export function statusMeterInitialValue(): number {
+	return randomMultipleOf5();
 }
 
 export const Rulesets: {[k: string]: ModdedFormatData} = {
@@ -17,10 +37,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			this.field.addPseudoWeather('haxmeterweather');
-			const missValue = randomMeterValue()
-			const effectValue = randomMeterValue()
-			const critValue = randomCritMeterValue()
-			const statusValue = randomMeterValue()
+			const missValue = missMeterInitialValue();
+			const effectValue = effectMeterInitialValue();
+			const critValue = critMeterInitialValue();
+			const statusValue = statusMeterInitialValue();
 			for (const side of this.sides) {
 				side.miss = missValue;
 				side.effect = effectValue;
