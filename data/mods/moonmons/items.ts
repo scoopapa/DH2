@@ -162,7 +162,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Sancho"],
 	},
 	cathysmirror: {
-		name: "▮▮▮▮▮'s Mirror",
+		name: "\▮\▮\▮\▮\▮'s Mirror",
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies === 'heathcliff')) {
 				return false;

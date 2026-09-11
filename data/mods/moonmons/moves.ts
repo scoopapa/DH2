@@ -120,7 +120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 150,
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "Always burns the target",
+		shortDesc: "Always burns the target, User Faints",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond : 1, sheerforce: 1},
 		selfdestruct: "always",
@@ -136,7 +136,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		
 	},
 	greatersplitvertical: {
-		name: "Greater Split: Vertical",
+		name: "Greater Split\: Vertical",
 		type: "Steel",
 		category: "Physical",
 		basePower: 75,
