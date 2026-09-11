@@ -46,9 +46,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 85, def: 130, spa: 95, spd: 75, spe: 70},
 		abilities: {0: "Stakeout", 1: "Pixilate", H: "Surprise Gift"},
 	},
-	tiphareth: {
+	tiphereth: {
 		num: 1007,
-		name: "Tiphareth",
+		name: "Tiphereth",
 		types: ["Fairy"],
 		baseStats: {hp: 90, atk: 70, def: 95, spa: 115, spd: 105, spe: 85},
 		abilities: {0: "Competitive", 1: "Fairy Aura", H: "Nix"},
@@ -103,8 +103,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	phillipchild: {
 		num: 1014,
 		name: "Phillip-Child",
-		baseName: "Phillip",
-		forme: "Child",
 		types: ["Flying", "Rock"],
 		ensemble: true,
 		baseStats: {hp: 50, atk: 95, def: 90, spa: 100, spd: 80, spe: 65},
@@ -115,8 +113,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	phillipangel: {
 		num: 1015,
 		name: "Phillip-Angel",
-		baseName: "Phillip",
-		forme: "Angel",
 		requiredAbility: "Separating Minds",
 		baseSpecies: "Phillip-Child",
 		types: ["Flying", "Rock"],
@@ -128,7 +124,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1016,
 		name: "Distorted Phillip",
 		forme: "Ensemble Distorted",
-		baseSpecies: "Phillip",
+		baseSpecies: "Phillip-Child",
 		requiredItem: "Mote of Light",
 		types: ["Flying", "Fire"],
 		ensemble: true,
@@ -728,7 +724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nothingtherebreaching: {
 		num: 1078,
 		name: "Nothing There-Breaching",
-		types: ["???"],
+		types: ["Normal"],
 		baseSpecies: "Nothing There",
 		baseStats: {hp: 50, atk: 137, def: 113, spa: 137, spd: 113, spe: 80},
 		abilities: {0: "Shell"},
