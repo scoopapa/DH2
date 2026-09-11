@@ -5,7 +5,7 @@ export const Formats: FormatData[] = [
 	name: "[Gen 9] Geek's Sandbox",
 		mod: 'geekssandbox',
 		desc: `My personal solomod for all my whacky ideas.`,
-		ruleset: ['Standard NatDex', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'No Crit Mod'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['Idiom'];
