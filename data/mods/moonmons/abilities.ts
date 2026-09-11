@@ -179,7 +179,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Sharskin",
+		name: "Sharkskin",
 		shortDesc: "The User takes 1/3 less damage from Super-Effective hits if unstatused",
 	},
 	puffybrume: {
