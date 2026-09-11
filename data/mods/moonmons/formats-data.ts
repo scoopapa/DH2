@@ -1,318 +1,318 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
     roland: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	theblacksilence: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	malkuth: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	yesod: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	netzach: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	hod: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	tiphareth: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	gebura: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	theredmist: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	chesed: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	binah: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	hokma: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	angela: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	phillipchild: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	phillipangel: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedphillip: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	eileen: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedeileen: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	greta: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedgreta: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	bremen: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedbremen: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	oswald: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distoredoswald: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	tanya: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedtanya: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	jaeheon: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distoredjaeheon: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	elena: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedelena: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	pluto: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedpluto: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	argalia: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedargalia: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	yisang: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	sangyi: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	faust: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	donquixote: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	sancho: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ryoshu: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	meursault: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	honglu: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	heathcliff: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	erlkingheathcliff: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ishmael: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	rodion: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	sinclair: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	outis: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	gregor: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ungezeiferkaiser: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	charon: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	vergilius: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	theredgaze: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	kromer: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	dongbaekegospicebush: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	efflorescedegofarmwatch: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ricardo: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ahab: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	ahabgasharpoon: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	lamanchalandsdonquixote: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	nemo: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	gloira: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	hubert: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	esther: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	yanvismok: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	distortedyan: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	thepurpletearblock: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	thepurpletearslash: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	magicalgirloflove: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	thequeenofhatred: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	magicalgirlofhappiness: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	thekingofgreed: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	magicalgirlofjustice: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	theknightofdespair: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	magicalgirlofcourage: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	theservantofwrath: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	nothingthere: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	nothingtherebreaching: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 	meltinglove: {
-		tier: "OU",
+		tier: "Moon",
 		doublesTier: "DOU",
 	},
 };
