@@ -778,7 +778,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, attacker, defender) {
 			if (attacker.species.baseSpecies !== 'The Purple Tear' || attacker.transformed) return;
 			if (move.category === 'Status' && move.id !== 'serpentsbarrier') return;
-			const targetForme = (move.id === 'serpentsbarrier' ? 'thepurpletearblock' : 'thepurpletearslash');
+			const targetForme = (move.id === 'serpentsbarrier' ? 'thepurpletear' : 'thepurpletearslash');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
