@@ -642,7 +642,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Darkspawn",
-		shortDesc: "Immune to and heal 25% from Dark moves. Bite Moves: 1.5x Power.",
+		shortDesc: "Dark Immune: +1 Atk & heal 25%. Bite Moves: 1.5x BP.",
 	},
 
 	normalability: {

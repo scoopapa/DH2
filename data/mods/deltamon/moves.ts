@@ -659,9 +659,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "The user whips up a delectable meal that heals an ally or itself to maximum HP, removes all negative stat changes, fully restores PP, and cures any non-volatile status conditions as well as confusion.",
 		priority: 0,
 		flags: {heal: 1},
-		heal: [1, 1],
 		isZ: "verdantomegapetal",
 		onHit(target) {
+			this.heal(Math.ceil(target.baseMaxhp));
 			target.clearStatus();
 			target.removeVolatile('confusion');
 			target.setBoost(this.effectState.boosts);
