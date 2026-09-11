@@ -231,6 +231,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+	rustedsword: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === -26) || pokemon.baseSpecies.num === -26) {
+				return false;
+			}
+			return true;
+		},
+	},
 
 	//slate 2
 	boosterenergy: {
@@ -565,7 +574,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	covertcloak: {
 		inherit: true,
 		shortDesc: "Holder nullifies all secondary effects of another Pokemon's attack.",
-		onTakeItem: false,
 		onModifySecondaries(secondaries) {
 			return secondaries.filter(effect => !!effect.cloak);
 		},
@@ -1127,6 +1135,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('-fail', target, 'unboost', '[from] item: Diamond Heart', `[of] ${target}`);
 			}
 		},
+		onSwitchInPriority: -1,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Daiyakuza' && !pokemon.transformed) {
+				pokemon.formeChange('Daiyakuza-Origin', this.effect, true);
+			}
+		},
 		onTakeItem(item, source) {
 			if (item.itemUser === source.baseSpecies.baseSpecies) return false;
 			return true;
@@ -1286,14 +1300,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bassjpg: {
 		name: "bass.jpg",
 		shortDesc: "Holder's Fishing attacks have 1.2x power.",
+		desc: "Holder's Fishing attacks have 1.2x power. When flung, returns the item to the holder and adds 1 fishing token to its side.",
 		rating: 2,
 		fling: {
 			basePower: 100,
 			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 				source.lastItem = '';
-				this.add('-item', source, this.dex.items.get(this.effect.id), '[from] move: Fling');
-				source.setItem(this.effect, source, move);
+				const item = this.dex.items.get('bassjpg');
+				this.add('-item', source, item, '[from] move: Fling');
+				source.setItem(item, source, move);
 			},
 		},
 		onBasePowerPriority: 15,

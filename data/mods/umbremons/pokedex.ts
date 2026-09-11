@@ -187,10 +187,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Rattled", H: "Screen Cleaner"},
 	},
-	luxray: {
-		inherit: true,
-		abilities: {0: "Screen Cleaner", 1: "Intimidate", H: "Guts"},
-	},
 	polteageist: {
 		inherit: true,
 		abilities: {0: "Weak Armor", 1: "Screen Cleaner", H: "Cursed Body"},

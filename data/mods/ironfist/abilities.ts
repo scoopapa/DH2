@@ -350,6 +350,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'typechange', allTypes.join('/'), '[from] ability: Prism Wings');
 			},
 			onEnd(pokemon) {
+				pokemon.setType(pokemon.species.types);
 				this.add('-end', pokemon, 'typechange', '[silent]');
 			}
 		},

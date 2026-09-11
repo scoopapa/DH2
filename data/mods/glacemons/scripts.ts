@@ -3033,7 +3033,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tyranitar').learnset.foulfuture = ['9M'];
 		this.modData('Learnsets', 'umbreon').learnset.foulfuture = ['9M'];
 		// rockclimb 
-		this.modData('Learnsets', 'aerodactyl').learnset.rockclimb = ['9M'];
 		this.modData('Learnsets', 'binacle').learnset.rockclimb = ['9M'];
 		this.modData('Learnsets', 'cetitan').learnset.rockclimb = ['9M'];
 		this.modData('Learnsets', 'cobalion').learnset.rockclimb = ['9M'];
@@ -3123,6 +3122,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'pikachukalos').learnset.terrainpulse = ['9L1'];
 		this.modData('Learnsets', 'pikachualola').learnset.terrainpulse = ['9L1'];
 		delete this.modData('Learnsets', 'pikachu').learnset.extremespeed;
+		// aug 9 2026 nerf
+		delete this.modData('Learnsets', 'ragingbolt').learnset.twister;
 
 	}
 };

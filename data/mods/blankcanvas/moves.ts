@@ -35,4 +35,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	oblivionwing: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

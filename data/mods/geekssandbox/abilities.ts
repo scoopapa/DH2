@@ -42,4 +42,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 2000,
 	},
+	fearless: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target.hp && target.volatiles['laserfocus']) {
+				this.actions.useMove('retaliate', this.effectState.target); 
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id === 'retaliate') { 
+				move.type = 'Water';
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.id === 'retaliate') { 
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+			}
+		},
+		flags: {},
+		name: "Fearless",
+		rating: 5,
+		num: 2001,
+	},
 };

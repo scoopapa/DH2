@@ -298,7 +298,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const target of pokemon.foes()) {
 				if (target.baseSpecies == "Goomba") {
 					if (target.volatiles['bigbutton']) {
-						basePower = 0;
+						move.basePower = 0;
 						damageCallback = function (target) {
 							return this.clampIntRange(target.getUndynamaxedHP() / 3, 1);
 						}
@@ -2277,8 +2277,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				success = true;
 			}
 			if (source.side.foe.fishingTokens > 0 || source.side.fishingTokens > 0) {
-				const tempT = source.side.foe.fishingTokens;
-				const tempS = source.side.fishingTokens;
+				const tempT = source.side.foe.fishingTokens || 0;
+				const tempS = source.side.fishingTokens || 0;
 				source.side.foe.removeFishingTokens(tempT);
 				source.side.foe.addFishingTokens(tempS);
 				source.side.removeFishingTokens(tempS);
@@ -2311,7 +2311,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Body Slam", target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 6, pokemon, target, move);
+			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 8, pokemon, target, move);
 		},
 		secondary: null,
 		target: "normal",
@@ -4379,8 +4379,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tera Starstorm", target);
 		},
-		onModifyType(move, pokemon) {
-			if (pokemon.lastMove) move.type = pokemon.lastMove.type;
+		onModifyMove(move, pokemon) {
+			if (pokemon.previousMove) move.type = pokemon.previousMove.type;
 		},
 		secondary: null,
 		target: "normal",
@@ -4455,7 +4455,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onEnd(pokemon) {
-				pokemon.forceSwitch = true;
+				pokemon.forceSwitchFlag = true;
 			},
 		},
 		secondary: null,
@@ -4847,7 +4847,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				const diamondHand = source.side.pokemon.filter(p => p !== source && p.baseSpecies.diamondHand);
-				if (diamondHand.length === 6) this.heal(source.baseMaxhp);
+				if (diamondHand.length === 5) this.heal(source.baseMaxhp);
 			},
 		},
 		secondary: null,

@@ -2144,7 +2144,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	tapufini: {
 		inherit: true,
-		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Comatose"},
+		abilities: {0: "Misty Surge", 1: "Shell Armor"},
 	},
 	zarude: {
 		inherit: true,

@@ -648,6 +648,34 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sunnyday: ["9L1"],
 		},
 	},
+	zygarde: {
+		learnset: {
+			block: ["9L1"],
+			coreenforcer: ["9L1"],
+			glare: ["9L1"],
+			painsplit: ["9L1"],
+			protect: ["9L1"],
+			roar: ["9L1"],
+			sandstorm: ["9L1"],
+			spite: ["9L1"],
+			substitute: ["9L1"],
+			sunnyday: ["9L1"],
+		},
+	},
+	zygardecomplete: {
+		learnset: {
+			block: ["9L1"],
+			coreenforcer: ["9L1"],
+			glare: ["9L1"],
+			painsplit: ["9L1"],
+			protect: ["9L1"],
+			roar: ["9L1"],
+			sandstorm: ["9L1"],
+			spite: ["9L1"],
+			substitute: ["9L1"],
+			sunnyday: ["9L1"],
+		},
+	},
 	dudunsparce: {
 		learnset: {
 			batonpass: ["9L1"],

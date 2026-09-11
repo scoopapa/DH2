@@ -221,6 +221,7 @@ boosterenergy: {
 	thornring: {
 		name: "Thorn Ring",
 		shortDesc: "Damages the holder for 1/8 of their HP every turn. Noelle: Special Attack 1.5x.",
+		itemUser: ["Noelle"],
 		fling: {
 			basePower: 135,
 		},

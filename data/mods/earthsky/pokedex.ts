@@ -2512,7 +2512,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Thick Fat", 1: "Ice Body", H: "Cute Charm"},
 		isNonstandard: null,
-		isNonstandard: null,
 	},
 	walrein: {
 		inherit: true,
