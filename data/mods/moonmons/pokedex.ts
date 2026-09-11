@@ -547,7 +547,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ahabgasharpoon: {
 		num: 1059,
 		name: "Ahab-Gasharpoon",
-		baseName: "Ahab",
 		forme: "Mega",
 		types: ["Water", "Steel"],
 		baseSpecies: "Ahab",
