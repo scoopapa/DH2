@@ -15,7 +15,7 @@ export function randomMultipleOf12Point5(): number {
 }
 
 export function missMeterInitialValue(): number {
-	return randomMultipleOf5();
+	return randomMultipleOf10();
 }
 
 export function effectMeterInitialValue(): number {
