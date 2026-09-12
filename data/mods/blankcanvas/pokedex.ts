@@ -1174,4 +1174,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Protosynthesis"},
 		weightkg: 400,
 	},
+	brainstrom: {
+		num: 9146,
+		name: "Brainstrom",
+		types: ["Ice", "Psychic"],
+		baseStats: {hp: 70, atk: 55, def: 70, spa: 111, spd: 71, spe: 116},
+		abilities: {0: "Natural Cure", H: "Psychic Surge"},
+		weightkg: 8,
+	},
+	monster: {
+		num: 9147,
+		name: "Monster",
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 100, atk: 95, def: 70, spa: 70, spd: 100, spe: 65},
+		abilities: {0: "Sticky Hold", H: "Defiant"},
+		weightkg: 760.2,
+	},
+	grizbearab: {
+		num: 9148,
+		name: "Grizbearab",
+		types: ["Dark"],
+		baseStats: {hp: 98, atk: 77, def: 68, spa: 102, spd: 102, spe: 98},
+		abilities: {0: "Soundproof", H: "Poison Heal"},
+		weightkg: 135,
+	},
 };
