@@ -439,4 +439,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	woollycrawler: {
 		tier: "BC D",
 	},
+	brainstrom: {
+		tier: "BC D",
+	},
+	monster: {
+		tier: "BC D",
+	},
+	grizbearab: {
+		tier: "BC D",
+	},
 };
