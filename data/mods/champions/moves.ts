@@ -216,7 +216,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
-			,
 		},
 	},
 	disarmingvoice: {
