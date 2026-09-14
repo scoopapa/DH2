@@ -393,7 +393,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	thievul: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Masquerade", H: "Stakeout"},
+		abilities: {0: "Masquerade", 1: "Unburden", H: "Stakeout"},
 	},
 	arboliva: {
 		inherit: true,
