@@ -11,6 +11,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	absolitez: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	absorbbulb: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -76,6 +80,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 	},
 	barbaracite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	baxcalibrite: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -377,6 +385,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	garchompitez: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	gardevoirite: {
 		inherit: true,
 		isNonstandard: null,
@@ -399,17 +411,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	golisopite: {
 		inherit: true,
-		name: "Golisopite",
-		spritenum: 0,
-		megaStone: "Golisopod-Mega",
-		megaEvolves: "Golisopod",
-		itemUser: ["Golisopod"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		gen: 9,
-		isNonstandard: "Past",
+		isNonstandard: null,
 	},
 	golurkite: {
 		inherit: true,
@@ -566,6 +568,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: "Past",
 	},
 	lucarionite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	lucarionitez: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -867,6 +873,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	salacberry: {
 		inherit: true,
 		isNonstandard: "Past",
+	},
+	salamencite: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	sceptilite: {
 		inherit: true,
