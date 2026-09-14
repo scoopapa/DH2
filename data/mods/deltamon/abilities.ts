@@ -619,6 +619,54 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Stellar Guard",
 		shortDesc: "This Pokemon takes 0.9x damage from all attacks.",
 	},
+	darkspawn: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				this.heal(target.baseMaxhp / 4, target, target);
+				if (!this.boost({atk: 1})) {
+						this.add('-immune', target, '[from] ability: Darkspawn');
+					}
+				return null;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Darkspawn",
+		shortDesc: "Dark Immune: +1 Atk & heal 25%. Bite Moves: 1.5x BP.",
+	},
+
+	normalability: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Normal') {
+				return this.chainModify(1.2);
+			}
+		},
+
+		onResidualOrder: 13,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Normal NPC') return;
+			for (const target of pokemon.adjacentFoes()) {
+				if (target.baseSpecies.name !== 'Onionsan' || target.volatiles['substitute'] || target.isSemiInvulnerable()) return;
+				if (this.randomChance(2, 10)) {
+					this.add('-message', `${pokemon.name} bludgeoned ${target.name}!`);
+					this.add('-anim', pokemon, "Close Combat", target);
+					target.faint();
+					this.add('-message', `${target.name} was turned into takoyaki!`);
+					this.heal(pokemon.baseMaxhp);
+					this.add('-message', `${pokemon.name} ate the takoyaki and fully restored its health!`);
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Normal Ability",
+		shortDesc: "A normal ability. Does Normal things."
+	},
 	
 // Vanilla abilities edited to interact with Savage Roar
 	guarddog: {
