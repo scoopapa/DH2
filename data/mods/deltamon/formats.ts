@@ -33,9 +33,9 @@ export const Formats: FormatData[] = [
 		threads: [
 			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
 		],
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Evasion Clause', 'OHKO Clause', 'Gravity Sleep Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [
-			'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Assist',
+			'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -50,7 +50,7 @@ export const Formats: FormatData[] = [
 		},
 	},
 	{
-		name: "[Gen 9] Deltamon Ubers",
+	name: "[Gen 9] Deltamon Ubers",
 		mod: 'deltamon',
 		desc: "A format where Deltarune and Undertale characters are Pokemon!",
 		threads: [
@@ -72,32 +72,7 @@ export const Formats: FormatData[] = [
 			}
 		},
 	},
-	{
-		name: "[Gen 9] Deltamon Doubles Ubers",
-		mod: 'deltamon',
-		gameType: 'doubles',
-		desc: "A format where Deltarune and Undertale characters are Pokemon!",
-		threads: [
-			`&bullet; <a href= "https://docs.google.com/spreadsheets/d/1BEBnhDP6YXtgm3b-lXv4wIK7_mC847meN7O31AIAqVw/edit?gid=0#gid=0"> Deltamon Spreadsheet </a>`,
-		],
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Evasion Clause', 'OHKO Clause', 'Gravity Sleep Clause'],
-		banlist: [
-			'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Assist',
-		],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['DM DOU', 'DM DUbers', 'DM NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.doublesTier)) {
-					return [set.species + ' is not a legal Recruit in Deltamon Doubles Ubers!'];
-				}
-			}
-		},
-	},
-	{	
-		name: "[Gen 9] Deltamon: National Dex Dark World",
+	{	name: "[Gen 9] Deltamon: National Dex Dark World",
 		mod: 'deltamon',
 		desc: "National Dex Dark World is a format where you can use Deltamon Recruits with any Pokemon available in the Generation 9 National Dex format!",
 		threads: [

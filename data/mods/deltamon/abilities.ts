@@ -131,7 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {},
 		name: "YOUR TAKING TOO LONG",
-		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until user switches.",
+		shortDesc: "After 5 turns, all Pokemon lose 25% of their HP per turn until it switches.",
 	},
 		
 	//copied from Berserk
@@ -215,7 +215,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	undyingspirit: {	
 		onUpdate(pokemon) {
 			if (pokemon.undyingRecover) return;
-			if (pokemon.hp <= pokemon.maxhp / 4 && !pokemon.fainted && !pokemon.volatiles['healblock']) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && !pokemon.fainted) {
 				this.heal(pokemon.baseMaxhp / 2);
 				pokemon.undyingRecover = true;
 			}
@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Pyromancy",
-		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 BP (max 2).",
+		shortDesc: "Enemy Fire moves: 50% dmg. Hit by Fire move: Fire moves get permanent +10 Power (max 2 times).",
 	},
 	
 	makeththerules: {
@@ -267,7 +267,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyEffectivenessPriority: 1,
 		onAnyEffectiveness(typeMod, target, type, move) {
-			if (move && move.id === 'freezedry' && type === 'Water') return;
 			if (move && !this.dex.getImmunity(move, type)) return 1;
 			return typeMod * -1;
 		},
@@ -421,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Blossom Boost",
-		shortDesc: "Highest stat multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or using Booster Energy."
+		shortDesc: "Highest stat is multiplied by 1.3x (1.5x if Speed) in Grassy Terrain or if holding Booster Energy."
 	},
 	
 	sharpshooter: {
@@ -432,12 +431,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyMove(move) {
-			if (move.flags['bullet']) move.tracksTarget = true;
-		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Sharpshooter",
-		shortDesc: "Bullet moves: 1.5x dmg, cannot be redirected. Pollen Puff heals 3/4.",
+		shortDesc: "This Pokemon's bullet moves do 1.5x their normal damage. Pollen Puff heals 3/4 of the target's max HP.",
 	},
 	
 	//Many Seths were harmed in the making of this ability.
@@ -494,7 +490,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fast Food",
-		shortDesc: "Twice per battle, user + ally heal 15% max HP. Counts as eating a berry. User's Speed +1.",
+		shortDesc: "Twice per battle, user + ally heal 15% of their max HP. Counts as eating a berry. User's Speed +1.",
 	},
 	
 	swordplay: {
@@ -623,7 +619,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Stellar Guard",
 		shortDesc: "This Pokemon takes 0.9x damage from all attacks.",
 	},
-
 	darkspawn: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {

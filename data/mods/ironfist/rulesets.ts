@@ -45,9 +45,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				pokemon.addVolatile('bigbutton');
 			}
 		},
-		onAfterMove(pokemon, target, move) {
-			pokemon.previousMove = move;
-		},
 	},
 	milfrule: {
 		name: "MILF Rule",
