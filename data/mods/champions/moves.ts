@@ -207,7 +207,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to sleep, poison, or paralyze target.",
 	},
 	disable: {
-		shortDesc: "30% chance to sleep, poison, or paralyze target.",
 		inherit: true,
 		condition: {
 			inherit: true,
@@ -216,6 +215,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
+			},
 		},
 	},
 	disarmingvoice: {
