@@ -1096,7 +1096,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Aerodactyl-Present"],
 		formeOrder: ["Aerodactyl", "Aerodactyl-Present"],
 	},
-	aerodactylmega: {
+	aerodactylpresent: {
 		num: 142,
 		name: "Aerodactyl-Present",
 		baseSpecies: "Aerodactyl",
