@@ -92,6 +92,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onMaybeTrapPokemon(pokemon) {
 			pokemon.maybeTrapped = false;
 		},
+		shortDesc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
+		desc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
 	},
 	spicyspray: {
 		inherit: true,
