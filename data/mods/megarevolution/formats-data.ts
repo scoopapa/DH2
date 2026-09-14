@@ -5032,5 +5032,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	mermanacle: {
 		tier: "OU",
 	},
-
+	belloatsom: {
+		tier: "OU",
+	},
+	aerodactylpresent: {
+		tier: "OU",
+	},
+	surgeelite: {
+		tier: "OU",
+	},
 };
