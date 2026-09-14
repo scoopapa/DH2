@@ -507,11 +507,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, 'item: Speeding Ticket', move, '[of] ' + source);
-				target.switchFlag = true;
+				target.forceSwitchFlag = true;
 				if (source.useItem()) {
-					source.switchFlag = false;
+					source.forceSwitchFlag = false;
 				} else {
-					target.switchFlag = false;
+					target.forceSwitchFlag = false;
 				}
 				return false;
 			}
@@ -2053,6 +2053,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onSwitchIn(pokemon) {
 			this.add('-item', pokemon, 'Dungeon\'s Looplet');
 			this.add('-message', `${pokemon.name} is holding a Dungeon's Looplet!`);
+			pokemon.addVolatile('dungeonslooplet');
 			pokemon.m.innates = Object.keys(pokemon.species.abilities)
 					.map(key => this.toID(pokemon.species.abilities[key as "0" | "1" | "H" | "S"]))
 					.filter(ability => ability !== pokemon.ability);
@@ -2062,6 +2063,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 					pokemon.addVolatile("ability:" + innate, pokemon);
 				}
 			}
+		},
+		condition: {
+			duration: 6,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				target.faint();
+			},
+			onResidualOrder: 24,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['dungeonslooplet'].duration;
+				this.add('-start', pokemon, 'perish' + duration);
+			},
 		},
 		rating: 3,
 	},

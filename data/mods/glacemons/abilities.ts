@@ -637,7 +637,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
 			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
 			if (targetForme === 'Aegislash-Blade') move.basePower = move.basePower * 1.2;
-			if (targetForme === 'Aegislash') this.heal(attacker.baseMaxhp / 8);
+			if (targetForme === 'Aegislash') this.heal(attacker.baseMaxhp / 16);
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
