@@ -82,6 +82,19 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = false;
+		},
+		onMaybeTrapPokemonPriority: -10,
+		onMaybeTrapPokemon(pokemon) {
+			pokemon.maybeTrapped = false;
+		},
+		shortDesc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
+		desc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
+	},
 	spicyspray: {
 		inherit: true,
 		isNonstandard: null,
