@@ -751,45 +751,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	unconcerned: {
 		name: "Unconcerned",
-		onTryBoost(boost, target, source, effect) {
-			if (boost.atk) {
-				delete boost.atk;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Attack", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
-			if (boost.def) {
-				delete boost.def;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Defense", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
-			if (boost.spa) {
-				delete boost.spa;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
-			if (boost.spd) {
-				delete boost.spd;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Special Defense", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
-			if (boost.accuracy) {
-				delete boost.accuracy;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Accuracy", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
-			if (boost.evasion) {
-				delete boost.evasion;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "Evasion", "[from] ability: Unconcerned", "[of] " + target);
-				}
-			}
+		onAnyModifyBoost(boosts, pokemon) {
+			const unbotheredUser = this.effectState.target;
+			if (unbotheredUser !== pokemon) return;
+			boosts['atk'] = 0;
+			boosts['def'] = 0;
+			boosts['spa'] = 0;
+			boosts['spd'] = 0;
+			boosts['accuracy'] = 0;
+			boosts['evasion'] = 0;
 		},
+		flags: {breakable: 1},
 		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
+		desc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		rating: 4,
 		num: -14,
 	},
