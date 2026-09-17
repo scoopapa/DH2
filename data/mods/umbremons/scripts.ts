@@ -491,7 +491,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['starburst', 'snatch'], 'wigglytuff');
 		addMove(['snatch', 'astonish', 'lasercut'], 'persian');
 		addMove(['snatch', 'astonish', 'lasercut'], 'persianalola');
-		addMove(['lasercuyt', 'skydrop', 'prevailingwind'], 'farfetchd');
+		addMove(['lasercut', 'skydrop', 'prevailingwind'], 'farfetchd');
 		addMove(['starburst', 'snatch', 'astonish', 'miststep'], 'mrmime');
 		addMove(['astonish', 'cardiotoxin'], 'swalot');
 		addMove('prevailingwind', 'salamence');
@@ -505,7 +505,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['snatch', 'astonish', 'lasercut'], 'perrserker');
 		addMove(['prevailingwind', 'astonish', 'fistbump', 'snatch'], 'sirfetchd');
 		addMove(['thunderclap', 'reflexjolt', 'cardiotoxin'], 'pincurchin');
-		addMove(['snatch', 'prevailingwind', 'skydrop', 'astonish'], ['squawkabilly', 'squawkabillyblue', 'squawkabillyyellow', 'squawkabillywhite']);
+		addMove(['snatch', 'prevailingwind', 'skydrop', 'astonish'], 'squawkabilly');
 		addMove(['snatch', 'astonish'], 'mabosstiff');
 		addMove('lasercut', 'baxcalibur');
 		addMove(['reflexjolt', 'fistbump', 'matblock'], 'pawmot');
