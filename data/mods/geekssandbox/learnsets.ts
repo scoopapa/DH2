@@ -768,6 +768,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 4, level: 5},
 		],
 	},
+	lunatone: {
 		learnset: {
 			acrobatics: ["8M", "7M", "6M", "5M"],
 			allyswitch: ["8M", "7T"],
