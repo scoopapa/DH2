@@ -50,7 +50,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	absolitez: {
 		name: "Absolite Z",
 		spritenum: 499,
-		megaStone: { "Absol": "Absol-Mega-Z" },
+		megaStone: "Absol-Mega-Z",
+		megaEvolves: "Absol",
 		itemUser: ["Absol"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
@@ -429,7 +430,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	baxcalibrite: {
 		name: "Baxcalibrite",
 		spritenum: 514,
-		megaStone: { "Baxcalibur": "Baxcalibur-Mega" },
+		megaStone: "Baxcalibur-Mega",
+		megaEvolves: "Baxcalibur",
 		itemUser: ["Baxcalibur"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
@@ -2494,7 +2496,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	garchompitez: {
 		name: "Garchompite Z",
 		spritenum: 501,
-		megaStone: { "Garchomp": "Garchomp-Mega-Z" },
+		megaStone: "Garchomp-Mega-Z",
+		megaEvolves: "Garchomp",
 		itemUser: ["Garchomp"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
@@ -2615,7 +2618,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	golisopite: {
 		name: "Golisopite",
 		spritenum: 508,
-		megaStone: { "Golisopod": "Golisopod-Mega" },
+		megaStone: "Golisopod-Mega",
+		megaEvolves: "Golisopod",
 		itemUser: ["Golisopod"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
@@ -3619,7 +3623,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	lucarionitez: {
 		name: "Lucarionite Z",
 		spritenum: 502,
-		megaStone: { "Lucario": "Lucario-Mega-Z" },
+		megaStone: "Lucario-Mega-Z",
+		megaEvolves: "Lucario",
 		itemUser: ["Lucario"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
