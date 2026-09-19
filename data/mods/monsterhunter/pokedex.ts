@@ -1689,7 +1689,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 87,
 		name: "Magmadron",
 		types: ["Fire", "Ground"],
-		baseStats: {hp: 112, atk: 100, def: 112, spa: 59, spd: 112, spe: 75},
+		baseStats: {hp: 112, atk: 59, def: 112, spa: 100, spd: 112, spe: 75},
 		abilities: {0: "Flash Fire", H: "Earth Eater"},
 		weightkg: 52.5,
 		tags: ["Leviathan"],

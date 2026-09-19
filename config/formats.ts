@@ -115,7 +115,6 @@ import { Formats as gen533Valuemons             } from '../data/mods/gen5valuemo
 import { Formats as gen6MegasRevisited          } from '../data/mods/gen6megasrevisited/formats';
 import { Formats as gen6MixAndMegasRevisited    } from '../data/mods/gen6mixandmegasrevisited/formats';
 import { Formats as gen8FusionEvolution         } from '../data/mods/gen8feuu/formats';
-import { Formats as gen8HaxMeters               } from '../data/mods/gen8haxmeters/formats';
 import { Formats as gen8Lucklessplay            } from '../data/mods/gen8lucklessplay/formats';
 import { Formats as gen8MaxMeter                } from '../data/mods/gen8maxmeter/formats';
 import { Formats as gen9CrossoverChaos          } from '../data/mods/gen9crossoverchaos/formats';
@@ -179,10 +178,12 @@ import { Formats as ModernGen2Birds             } from '../data/mods/moderngen2b
 import { Formats as ModernGen3                  } from '../data/mods/moderngen3/formats';
 import { Formats as ModernGen4                  } from '../data/mods/moderngen4/formats';
 import { Formats as MonsterHunter               } from '../data/mods/monsterhunter/formats';
+import { Formats as MoonMons                   } from '../data/mods/moonmons/formats';
 import { Formats as PokemonThrone               } from '../data/mods/pokemonthrone/formats';
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
+import { Formats as OneStepFurther                } from '../data/mods/onestepfurther/formats';
 import { Formats as OUTheorymons                } from '../data/mods/outheorymons/formats';
 import { Formats as Pacifistmons                  } from '../data/mods/pacifistmons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
@@ -418,10 +419,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
-	...MegaMania,
+	//...MegaMania,
 	...gen1Metronome,
+	...MoonMons,
 	...NationalDexExpanded,
 	...Solopet,
+	...OneStepFurther,
 	...gen1Moonside,
 	...Pacifistmons,
 	...Patratdex,

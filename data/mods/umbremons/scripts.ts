@@ -426,7 +426,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		// move adjustments
 		addMove('rapidfire', [
-			'armarouge', 'blastoise', 'blaziken', 'camerupt', 'clawitzer', 'dragapult', 'drampa', 'flareon', 'houndoom', 'ninetales', 'rhyperior', 'sandaconda', 'scovillain', 'simisear', 'skeledirge', 'slowbrogalar', 'talonflame',
+			'armarouge', 'blastoise', 'blaziken', 'camerupt', 'clawitzer', 'dragapult', 'drampa', 'flareon', 'houndoom', 'ninetales', 'rhyperior', 'sandaconda', 'scovillain', 'simisear', 'skeledirge', 'slowbrogalar',
 			'toucannon', 'manectric', 'decidueye', 'decidueyehisui', 'chandelure'
 		]);
 		addMove('sunkenlunge', [
@@ -485,5 +485,29 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove('miststep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
 		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommoo', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
 		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichualola']);
+		
+		// // MC DISTRIBUTIONS
+
+		addMove(['starburst', 'snatch'], 'wigglytuff');
+		addMove(['snatch', 'astonish', 'lasercut'], 'persian');
+		addMove(['snatch', 'astonish', 'lasercut'], 'persianalola');
+		addMove(['lasercut', 'skydrop', 'prevailingwind'], 'farfetchd');
+		addMove(['starburst', 'snatch', 'astonish', 'miststep'], 'mrmime');
+		addMove(['astonish', 'cardiotoxin'], 'swalot');
+		addMove('prevailingwind', 'salamence');
+		addMove('lasercut', 'golisopod');
+		addMove(['matblock', 'rapidfire'], 'cinderace');
+		addMove(['rapidfire', 'sunkenlunge', 'astonish', 'miststep'], 'inteleon');
+		addMove(['snatch', 'astonish'], 'thievul');
+		addMove(['cardiotoxin', 'snatch', 'thunderclap'], 'toxtricity');
+		addMove(['cardiotoxin', 'snatch', 'reflexjolt'], 'toxtricitylowkey');
+		addMove(['sunkenlunge', 'fistbump', 'snatch'], 'grapploct');
+		addMove(['snatch', 'astonish', 'lasercut'], 'perrserker');
+		addMove(['prevailingwind', 'astonish', 'fistbump', 'snatch'], 'sirfetchd');
+		addMove(['thunderclap', 'reflexjolt', 'cardiotoxin'], 'pincurchin');
+		addMove(['snatch', 'prevailingwind', 'skydrop', 'astonish'], 'squawkabilly');
+		addMove(['snatch', 'astonish'], 'mabosstiff');
+		addMove('lasercut', 'baxcalibur');
+		addMove(['reflexjolt', 'fistbump', 'matblock'], 'pawmot');
 	},
 };

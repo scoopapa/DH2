@@ -320,7 +320,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	magmasurge: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 20,
 		category: "Physical",
 		name: "Magma Surge",
 		shortDesc: "100% chance to burn the foe.",
@@ -1162,8 +1162,8 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	roughhouse: {
-		accuracy: 90,
-		basePower: 95,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
 		name: "Roughhouse",
 		pp: 10,
@@ -2294,6 +2294,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 	},
 	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	playrough: {
 		inherit: true,
 		accuracy: 100,
 	},

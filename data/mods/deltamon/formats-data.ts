@@ -56,7 +56,7 @@ rudinn: {
 	},
 	cround: {
 		tier: "DM NFE",
-		doublesTier: "DM DNFE",
+		doublesTier: "DM NFE",
 		natDexTier: "NFE",
 	},
 	kround: {
@@ -813,6 +813,17 @@ rudinn: {
 		tier: "DM Ubers",
 		doublesTier: "DM DUbers",
 		natDexTier: "Uber",
+	},
+
+	friend: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+		natDexTier: "Illegal",
+	},
+	normalnpc: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+		natDexTier: "Illegal",
 	},
 
 

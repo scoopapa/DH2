@@ -25,4 +25,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", 1: "Thick Fat", H: "Huge Power"},
 		weightkg: 45.8,
 	},
+
+	alguinice: {
+		num: 9002,
+		name: "Alguinice",
+		types: ["Ice", "Grass"],
+		baseStats: {hp:120, atk:109, def:65, spa:90, spd:97, spe:54},
+		abilities: {0: "Hustle"},
+		weightkg: 70,
+	},
 };

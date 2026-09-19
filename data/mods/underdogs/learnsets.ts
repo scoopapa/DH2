@@ -247,4 +247,38 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			workup: ["8M", "7M"],
 		},
 	},
+
+	alguinice: {
+		learnset: {
+			leechseed: ["9L1"],
+			iceshard: ["9L1"],
+
+			iciclecrash: ["9L1"],
+			powerwhip: ["9L1"],
+			gigadrain: ["9L1"],
+			icebeam: ["9L1"],
+			earthpower: ["9L1"],
+			chillingwater: ["9L1"],
+			gravity: ["9L1"],
+			
+			blizzard: ["9L1"],
+			endure: ["9L1"],
+			grassknot: ["9L1"],
+			helpinghand: ["9L1"],
+			hyperbeam: ["9L1"],
+			ingrain: ["9L1"],
+			leer: ["9L1"],
+			magicalleaf: ["9L1"],
+			protect: ["9L1"],
+			raindance: ["9L1"],
+			rest: ["9L1"],
+			scaryface: ["9L1"],
+			sleeptalk: ["9L1"],
+			snowscape: ["9L1"],
+			weatherball: ["9L1"],
+			aurorabeam: ["9L1"],
+			muddywater: ["9L1"],
+			naturalgift: ["9L1"],
+		}
+	}
 };

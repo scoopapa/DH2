@@ -2070,7 +2070,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             forestcurse: ["9M"],
             worryseed: ["9M"],
             drainingkiss: ["9M"],
-            springtimestorm: ["9M"],
+            springtidestorm: ["9M"],
             wringout: ["9M"],
             growl: ["9M"],
             acidarmor: ["9M"],

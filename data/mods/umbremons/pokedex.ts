@@ -49,7 +49,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	snorlax: {
 		inherit: true,
-		abilities: {0: "Massive", 1: "Thick Fat", H: "Gluttony"},
+		abilities: {0: "Immunity", 1: "Thick Fat", H: "Gluttony"},
 	},
 	steelix: {
 		inherit: true,
@@ -186,10 +186,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	chimecho: {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Rattled", H: "Screen Cleaner"},
-	},
-	luxray: {
-		inherit: true,
-		abilities: {0: "Screen Cleaner", 1: "Intimidate", H: "Guts"},
 	},
 	polteageist: {
 		inherit: true,
@@ -378,5 +374,29 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	toxicroak: {
 		inherit: true,
 		abilities: {0: "Unfolding", 1: "Dry Skin", H: "Poison Touch"},
+	},
+	wigglytuff: {
+		inherit: true,
+		abilities: {0: "Massive", 1: "Competitive", H: "Healer"},
+	},
+	swalot: {
+		inherit: true,
+		abilities: {0: "Down-to-Earth", 1: "Sticky Hold", H: "Gluttony"},
+	},
+	gogoat: {
+		inherit: true,
+		abilities: {0: "Sap Sipper", 1: "Thick Fat", H: "Grass Pelt"},
+	},
+	sirfetchd: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Mold Breaker", H: "Scrappy"},
+	},
+	thievul: {
+		inherit: true,
+		abilities: {0: "Masquerade", 1: "Unburden", H: "Stakeout"},
+	},
+	arboliva: {
+		inherit: true,
+		abilities: {0: "Seed Sower", 1: "Unfolding", H: "Harvest"},
 	},
 };

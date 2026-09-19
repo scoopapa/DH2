@@ -412,4 +412,40 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	nekolepsy: {
 		tier: "BC D",
 	},
+	aberrockin: {
+		tier: "BC D",
+	},
+	tartzacoatl: {
+		tier: "BC D",
+	},
+	iusperare: {
+		tier: "BC D",
+	},
+	wyrmwaren: {
+		tier: "BC D",
+	},
+	irdonerkeb: {
+		tier: "BC D",
+	},
+	kappaqua: {
+		tier: "BC D",
+	},
+	lactoxic: {
+		tier: "BC D",
+	},
+	horronimbus: {
+		tier: "BC D",
+	},
+	woollycrawler: {
+		tier: "BC D",
+	},
+	brainstrom: {
+		tier: "BC D",
+	},
+	monster: {
+		tier: "BC D",
+	},
+	grizbearab: {
+		tier: "BC D",
+	},
 };

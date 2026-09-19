@@ -9,6 +9,13 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			metronome: ["9L1"],
 			taunt: ["9L1"],
 			toxic: ["9L1"],
+			fierystabs: ["9L1"],
+			physic: ["9L1"],
+			jarringjingle: ["9L1"],
+			gravapple: ["9L1"],
+			digestion: ["9L1"],
+			snaptrap: ["9L1"],
+			earthquake: ["9L1"],
 		},
 	},
 	fillermon3: {
