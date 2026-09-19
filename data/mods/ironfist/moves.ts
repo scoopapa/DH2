@@ -299,7 +299,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (target.baseSpecies == "Goomba") {
 					if (target.volatiles['bigbutton']) {
 						move.basePower = 0;
-						damageCallback = function (target) {
+						move.damageCallback = function (target) {
 							return this.clampIntRange(target.getUndynamaxedHP() / 3, 1);
 						}
 					} else {
@@ -4504,16 +4504,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Rain Dance", target);
 		},
-		onTry(source) {
-			return source.side.fishingTokens >= 3;
+		onTry(source, target, move) {
+			if (source.side.fishingTokens < 3) return false;
+			(move as any).krowZoneDuration = source.side.fishingTokens - 3;
+			source.side.removeFishingTokens(source.side.fishingTokens);
 		},
 		sideCondition: 'krowzone',
 		condition: {
-			duration: 1,
-			durationCallback(source, effect) {
-				const tokens = source.side.fishingTokens;
-				source.side.removeFishingTokens(tokens);
-				return tokens - 3;
+			durationCallback(targetSide, source, effect) {
+				return (effect as any)?.krowZoneDuration ?? 1;
 			},
 			onSideStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Krow Zone');
