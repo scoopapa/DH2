@@ -1627,7 +1627,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 					species: 'Terrakion',
 					item: 'choiceband',
 					ability: 'sandrush',
-					teraType: ['Rock', 'Ground' 'Fighting'],
+					teraType: ['Rock', 'Ground', 'Fighting'],
 					nature: 'Jolly',
 				},
 				['closecombat', 'stoneedge', 'earthquake', 'megahorn'],
@@ -1825,7 +1825,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			[
 				{
 					species: 'Zapdos',
-					item: 'heavydutyboots,
+					item: 'heavydutyboots',
 					ability: 'electromorphosis',
 					teraType: ['Water', 'Steel'],
 					nature: 'Bold',
