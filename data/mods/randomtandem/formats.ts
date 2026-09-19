@@ -59,7 +59,6 @@ export const Formats: FormatData[] = [
 						moveset.push(move2);
 						poke1.moves = moveset;
 					} else poke1.moves = mon1[1];
-					poke1.nature = 'Serious';
 					if (!poke1.gender) poke1.gender = this.sample(['M', 'F']);
 					poke1.evs = { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 };
 					poke1.ivs = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
@@ -85,7 +84,6 @@ export const Formats: FormatData[] = [
 						moveset.push(move2);
 						poke2.moves = moveset;
 					} else poke2.moves = mon2[1];
-					poke2.nature = 'Serious';
 					if (!poke2.gender) poke2.gender = this.sample(['M', 'F']);
 					poke2.evs = { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 };
 					poke2.ivs = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
