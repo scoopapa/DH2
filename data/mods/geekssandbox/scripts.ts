@@ -48,7 +48,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "seviper").learnset.slash = ["9L1"];
 		this.modData("Learnsets", "seviper").learnset.smartstrike = ["9L1"];
 		// Farfetchd
-		this.modData("Learnsets", "farfetchd").learnset.sacredswprd = ["9L1"];
+		this.modData("Learnsets", "farfetchd").learnset.sacredsword = ["9L1"];
 		// Miltank
 		// Armaldo
 		this.modData("Learnsets", "armaldo").learnset.uturn = ["9L1"];
