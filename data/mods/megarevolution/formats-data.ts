@@ -841,10 +841,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "LC",
 	},
-	gyarados: {
-		inherit: true,
-		tier: "UUBL",
-	},
 	gyaradosmega: {
 		inherit: true,
 		tier: "Illegal",
