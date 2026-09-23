@@ -1198,4 +1198,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Soundproof", H: "Poison Heal"},
 		weightkg: 135,
 	},
+	frospes: {
+		num: 9149,
+		name: "Frospes",
+		types: ["Ice", "Dark"],
+		baseStats: {hp: 90, atk: 111, def: 75, spa: 43, spd: 75, spe: 112},
+		abilities: {0: "Skill Link"},
+		weightkg: 4.2,
+	},
+	bugpipes: {
+		num: 9150,
+		name: "Bugpipes",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 105, atk: 40, def: 70, spa: 90, spd: 100, spe: 20},
+		abilities: {0: "Filter", 1: "Compound Eyes", H: "Overcoat"},
+		weightkg: 217,
+	},
+	valentine: {
+		num: 9151,
+		name: "Valentine",
+		types: ["Fighting", "Fairy"],
+		baseStats: {hp: 100, atk: 50, def: 95, spa: 100, spd: 80, spe: 65},
+		abilities: {0: "Mummy", 1: "Technician", H: "Cute Charm"},
+		weightkg: 15,
+	},
 };
