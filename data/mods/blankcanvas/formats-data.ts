@@ -448,4 +448,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	grizbearab: {
 		tier: "BC D",
 	},
+	frospes: {
+		tier: "BC D",
+	},
+	bugpipes: {
+		tier: "BC D",
+	},
+	valentine: {
+		tier: "BC D",
+	},
 };
