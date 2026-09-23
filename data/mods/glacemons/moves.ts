@@ -92,14 +92,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Double-Edge", target);
 		},
       basePowerCallback(pokemon, target, move) {
-      	if (pokemon.status && pokemon.status !== 'slp', 'frz') {
+      	if (pokemon.status && pokemon.status !== 'slp') {
          	this.debug('BP boosted from status condition');
             return move.basePower * 1.5;
          }
          return move.basePower;
       },
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			if (['', 'slp'].includes(pokemon.status)) return false;
 			pokemon.cureStatus();
 		},
 		secondary: null,
