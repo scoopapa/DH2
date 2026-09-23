@@ -5037,4 +5037,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	surgeelite: {
 		tier: "OU",
 	},
+	jingleam: {
+		tier: "OU",
+	},
+	chirrupsi: {
+		tier: "OU",
+	},
+	hissterica: {
+		tier: "OU",
+	},
 };
