@@ -7,6 +7,7 @@ export const Formats: FormatData[] = [
 		desc: `My personal solomod for all my whacky ideas.`,
 		ruleset: ['Standard NatDex', 'Data Mod', 'No Crit Mod', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause'],
 		unbanlist: ['Stick', 'Snap Trap', 'Head Charge'],
+		teambuilderFormat: 'National Dex',  
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['Idiom', 'Geekmicro'];
