@@ -2,20 +2,9 @@ export function roundNum(n: number, places: number): number {
 	return Math.round((n + Number.EPSILON) * Math.pow(10, places)) / Math.pow(10, places);
 }
 
-export function randomMultipleOf5(): number {
-	return 5 * Math.floor(10 * Math.random()) + 25;
-}
-
-export function randomMultipleOf10(): number {
-	return 10 * Math.floor(6 * Math.random()) + 20;
-}
-
-export function randomMultipleOf12Point5(): number {
-	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
-}
-
+/*
 export function missMeterInitialValue(): number {
-	return randomMultipleOf10();
+	return randomMultipleOf5();
 }
 
 export function effectMeterInitialValue(): number {
@@ -29,6 +18,7 @@ export function critMeterInitialValue(): number {
 export function statusMeterInitialValue(): number {
 	return randomMultipleOf5();
 }
+*/
 
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	haxmeterrule: {
@@ -37,10 +27,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
         desc: "Implements the Hax Meter",
 		onBegin() {
 			this.field.addPseudoWeather('haxmeterweather');
-			const missValue = missMeterInitialValue();
-			const effectValue = effectMeterInitialValue();
-			const critValue = critMeterInitialValue();
-			const statusValue = statusMeterInitialValue();
+			const missValue = this.missMeterInitialValue();
+			const effectValue = this.effectMeterInitialValue();
+			const critValue = this.critMeterInitialValue();
+			const statusValue = this.statusMeterInitialValue();
 			for (const side of this.sides) {
 				side.miss = missValue;
 				side.effect = effectValue;
@@ -56,6 +46,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					pokemon.statuses = [];
 					pokemon.sleepFromRest = false;
 					pokemon.sleepTurns = 0;
+					pokemon.freezeTurns = 0;
 				}
 			}
 			const sideOne = this.sides[0];
@@ -84,6 +75,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 			}*/
 			if (pokemon.status === 'frz') pokemon.statuses.push('Freeze');
+			else {
+				pokemon.freezeTurns = 0;
+			}
 			if (pokemon.flinchChance > 0) pokemon.statuses.push('Flinch');
 			if (pokemon.volatiles['confusion']) pokemon.statuses.push('Confusion');
 			if (pokemon.volatiles['attract']) pokemon.statuses.push('Infatuation');
@@ -123,14 +117,18 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							clauses++;
 						}		*/		
 						if (!pokemon.sleepFromRest) {
-							let sleepMeterIncreases;
-							if (pokemon.hasAbility('earlybird')) {
+							/*if (pokemon.hasAbility('earlybird')) {
 								sleepMeterIncreases = [200 / 3, 0];
 							}
 							else {
 								sleepMeterIncreases = [100, 200 / 3, 50, 0];
 							}
+							*/
+							/*
+							const sleepMeterIncreases = this.generateSleepMeterIncreases(pokemon);
 							toAdd = sleepMeterIncreases[pokemon.sleepTurns];
+							*/
+							toAdd = this.sleepPoints(pokemon);
 							//clauses++;
 						}
 						break;						
@@ -142,7 +140,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					*/
 					case 'Freeze':
 						if (move.flags['defrost']) break;
-						toAdd = 80;
+						toAdd = this.freezePoints(pokemon);
 						//nonVolatileStatus = true;
 						//clauses++;
 						break;
@@ -165,7 +163,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						//clauses++;
 						break;
 					case 'Paralysis':
-						toAdd = 25;
+						toAdd = this.paralysisPoints();
 						//nonVolatileStatus = true;
 						//clauses++;
 						break;						
@@ -276,6 +274,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								break;
 							case 'Freeze':
 								this.add('cant', pokemon, 'frz');
+								pokemon.freezeTurns++;
 								break;
 							case 'Flinch':
 								this.add('cant', pokemon, 'flinch');
@@ -305,7 +304,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						pokemon.sleepFromRest = false;
 						pokemon.sleepTurns = 0;
 					}
-					else if (status === 'Freeze') pokemon.cureStatus();
+					else if (status === 'Freeze') {
+						pokemon.cureStatus();
+						pokemon.freezeTurns = 0;
+					}
 				}		
 			}
 			return canMove;
