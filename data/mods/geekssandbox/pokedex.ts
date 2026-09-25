@@ -130,7 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		name: "Carnivine",
 		types: ["Grass"],
-		baseStats: {hp: 95, atk: 90, def: 92, spa: 80, spd: 92, spe: 50},
+		baseStats: {hp: 96, atk: 90, def: 92, spa: 80, spd: 92, spe: 50},
 		abilities: {0: "Flytrap"},
 	},
 	ninetales: {
