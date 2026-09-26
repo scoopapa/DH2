@@ -27,7 +27,7 @@ export const Formats: FormatData[] = [
 	name: "[Gen 9] GS Geekmicro",
 		mod: 'geekssandbox',
 		desc: `My personal solomod for all my whacky ideas.`,
-		ruleset: ['Standard NatDex', 'Data Mod', 'No Crit Mod', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'No Crit Mod', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: ['Houndoominite'],
 		threads: [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-11077037">Geekmicro</a>',
