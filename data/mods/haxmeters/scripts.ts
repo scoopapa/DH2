@@ -2,8 +2,47 @@ export function roundNum(n: number): number {
 	return Math.round((n + Number.EPSILON) * 1000) / 1000;
 }
 
+export function randomMultipleOf5(): number {
+	return 5 * Math.floor(10 * Math.random()) + 25;
+}
+
+export function randomMultipleOf10(): number {
+	return 10 * Math.floor(6 * Math.random()) + 20;
+}
+
+export function randomMultipleOf12Point5(): number {
+	return 12.5 * Math.floor(6 * Math.random()) + 12.5;
+}
+
+export function mainlineParalysisPoints(): number {
+	return 25;
+}
+
+export function mainlineSleepPoints(pokemon: Pokemon): number {
+	let sleepMeterIncreases;
+	if (pokemon.hasAbility('earlybird')) {
+		sleepMeterIncreases = [200 / 3, 0];
+	}
+	else {
+		sleepMeterIncreases = [100, 200 / 3, 50, 0];
+	}
+	return sleepMeterIncreases[pokemon.sleepTurns];
+}
+
+export function mainlineFreezePoints(pokemon: Pokemon): number {
+	return 80;
+}
+
 import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	missMeterInitialValue: randomMultipleOf10,
+	effectMeterInitialValue: randomMultipleOf10,
+	critMeterInitialValue: randomMultipleOf12Point5,
+	statusMeterInitialValue: randomMultipleOf5,	
+	//paralysisPoints: 25,
+	paralysisPoints: mainlineParalysisPoints,
+	sleepPoints: mainlineSleepPoints,
+	freezePoints: mainlineFreezePoints,
 	side: {
 		addMiss(amount) {
 			if (amount <= 0) return;
