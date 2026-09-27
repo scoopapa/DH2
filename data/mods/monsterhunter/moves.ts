@@ -2277,6 +2277,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		basePower: 80,
 	},
+	snipeshot: {
+		inherit: true,
+		basePower: 85,
+	},
 	doublekick: {
 		inherit: true,
 		viable: true,
@@ -2385,7 +2389,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		shortDesc: "Ends the effects of Terrain. 30% chance to flinch.",
-		basePower: 95,
+		basePower: 90,
 		onAfterHit(target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
@@ -2886,6 +2890,37 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},	
 		desc: "Has a 20% to frostbite the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% to frostbite the target. Rain: can't miss.",
+	},
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+		isNonstandard: null,
+		secondary: null,
+		type: "Poison", 
+		volatileStatus: 'gastroacid',
+		onTryHit(target) {
+			if (target.getAbility().flags['cantsuppress']) {
+				return false;
+			}
+			if (target.hasItem('Ability Shield')) {
+				this.add('-block', target, 'item: Ability Shield');
+				return null;
+			}
+		},
+		condition: {
+			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.ts
+			onStart(pokemon) {
+				if (pokemon.hasItem('Ability Shield')) return false;
+				this.add('-endability', pokemon);
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityState, pokemon, pokemon, 'gastroacid');
+			},
+			onCopy(pokemon) {
+				if (pokemon.getAbility().flags['cantsuppress']) pokemon.removeVolatile('gastroacid');
+			},
+		},
+		desc: "Nullifies the target's Ability.",
+		shortDesc: "Nullifies the target's Ability.",
 	},
 	/*
 	TORQUES

@@ -9,6 +9,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Night Light",
 		shortDesc: "Damage from Ghost- and Dark-type moves against this Pokemon is halved.",
 	},
+	bonecollection: {
+		onAllyFaint(target) {
+			if (!this.effectState.target.hp) return;
+			const ability = target.getAbility();
+			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
+			if (this.effectState.target.setAbility(ability)) {
+				this.add('-ability', this.effectState.target, ability, '[from] ability: Bone Collection', '[of] ' + target);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Bone Collection",
+		shortdesc: "This Pokemon copies the Ability of an ally that faints."
+	},
 	webtrap: {
 		name: "Web Trap",
 		shortDesc: "Contact with this Pokémon inflicts Webbed. (Webbed Pokemon cannot pivot out.)",
