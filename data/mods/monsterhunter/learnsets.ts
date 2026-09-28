@@ -14178,6 +14178,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aquatail: ["9L1"],
 			bewitchedbubble: ["9L1"],
 			blizzard: ["9L1"],
+			recover: ["9L1"],
+			snipeshot: ["9L1"],
 			calmmind: ["9L1"],
 			chillingwater: ["9L1"],
 			clangingscales: ["9L1"],
