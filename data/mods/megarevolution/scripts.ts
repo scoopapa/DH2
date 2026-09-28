@@ -191,5 +191,26 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "eelektross").learnset.bubblebeam = ["9L1"];
 		this.modData("Learnsets", "eelektross").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "eelektross").learnset.whirlpool = ["9L1"];
+		
+		this.modData("Learnsets", "meganium").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.growth = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.headsmash = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.quickattack = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.bulkup = ["9L1"];
+		this.modData("Learnsets", "pignite").learnset.ragingfury = ["9L1"];
+		this.modData("Learnsets", "pignite").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.aurasphere = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.firelash = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.scorchingsands = ["9L1"];
+
 	},
 };
