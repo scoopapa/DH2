@@ -188,6 +188,7 @@ import { Formats as OUTheorymons                } from '../data/mods/outheorymon
 import { Formats as Pacifistmons                  } from '../data/mods/pacifistmons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
 import { Formats as Patratdex                   } from '../data/mods/patratdex/formats';
+import { Formats as PledgeDoubles                 } from '../data/mods/pledgemons/formats';
 import { Formats as PLZA                        } from '../data/mods/plza/formats';
 //import { Formats as Pokebilities                } from '../data/mods/pokebilities/formats';
 //import { Formats as PokebilitiesBanhammers      } from '../data/mods/pokebilitiesbanhammers/formats';
@@ -428,6 +429,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1Moonside,
 	...Pacifistmons,
 	...Patratdex,
+	...PledgeDoubles,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
 	...PonymonShowdown,
