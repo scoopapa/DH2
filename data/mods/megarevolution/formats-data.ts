@@ -5046,4 +5046,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	hissterica: {
 		tier: "OU",
 	},
+	meganiumeden: {
+		tier: "OU",
+	},
+	feraligatrcore: {
+		tier: "OU",
+	},
+	emboarwarmage: {
+		tier: "OU",
+	},
 };
