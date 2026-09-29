@@ -1629,7 +1629,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Nakarkos",
 		types: ["Dragon", "Ghost"],
 		baseStats: {hp: 116, atk: 85, def: 118, spa: 137, spd: 108, spe: 42},
-		abilities: {0: "Vessel of Ruin"},
+		abilities: {0: "Vessel of Ruin", H: "Bone Collection"},
 		weightkg: 250.0,
 		tags: ["Elder Dragon"],
 	},

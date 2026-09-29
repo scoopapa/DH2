@@ -343,4 +343,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		shortDesc: "When using Poison moves or Inflicting Poison Status: Ignore type immunities.",
 	},
+	cutecharm: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Cute Charm');
+				if (this.randomChance(3, 10)) {
+					this.boost({atk: -1}, source, target, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+		desc: "30% chance of lowering the attack of opposing Pokemon if they make contact.",
+		shortDesc: "30% chance of lowering the attack of opposing Pokemon if they make contact.",
+	},
 }
