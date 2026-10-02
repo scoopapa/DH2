@@ -1222,4 +1222,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mummy", 1: "Technician", H: "Cute Charm"},
 		weightkg: 15,
 	},
+	dionalces: {
+		num: 9152,
+		name: "Dionalces",
+		types: ["Grass", "Steel"],
+		baseStats: {hp: 82, atk: 80, def: 105, spa: 40, spd: 105, spe: 95},
+		abilities: {0: "Mold Breaker", H: "Guts"},
+		weightkg: 900,
+	},
+	ferrignalx: {
+		num: 9153,
+		name: "Ferrignalx",
+		types: ["Fire", "Steel"],
+		baseStats: {hp: 85, atk: 85, def: 95, spa: 40, spd: 85, spe: 25},
+		abilities: {0: "Sharpness", 1: "Harvest", H: "Levitate"},
+		weightkg: 200,
+	},
+	gebbrilis: {
+		num: 9154,
+		name: "Gebbrilis",
+		types: ["Ground", "Steel"],
+		baseStats: {hp: 107, atk: 30, def: 100, spa: 100, spd: 71, spe: 10},
+		abilities: {0: "Cotton Down", H: "Iron Barbs"},
+		weightkg: 163.3,
+	},
 };
