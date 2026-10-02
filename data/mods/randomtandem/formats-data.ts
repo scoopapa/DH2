@@ -117,4 +117,13 @@ export const FormatsData: {[speciesid: IDEntry]: ModdedSpeciesFormatsData} = {
 	scizor: {
 		tier: "Head",
 	},
+	mew: {
+		tier: "Head",
+	},
+	rhyperior: {
+		tier: "Head",
+	},
+	munkidori: {
+		tier: "Head",
+	},
 };
