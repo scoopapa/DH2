@@ -457,4 +457,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	valentine: {
 		tier: "BC D",
 	},
+	dionalces: {
+		tier: "BC D",
+	},
+	ferrignalx: {
+		tier: "BC D",
+	},
+	gebbrilis: {
+		tier: "BC D",
+	},
 };
