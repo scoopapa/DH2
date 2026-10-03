@@ -39,6 +39,7 @@ import { Formats as Balls                       } from '../data/mods/balls/forma
 import { Formats as BanHammersC3                } from '../data/mods/banhammersc3/formats';
 import { Formats as Beaftopia                   } from '../data/mods/beaftopia/formats';
 import { Formats as BearticPhone                } from '../data/mods/bearticphone/formats';
+import { Formats as BetterHackmons              } from '../data/mods/betterhackmons/formats';
 import { Formats as BlackMarket                 } from '../data/mods/blackmarket/formats';
 import { Formats as BlankCanvas                 } from '../data/mods/blankcanvas/formats';
 import { Formats as BoboliefFakemon             } from '../data/mods/bobolieffakemon/formats';
@@ -269,6 +270,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1BacktothePast,
 	...BanHammersC3,
 	...BearticPhone,
+	...BetterHackmons,
 	...BlankCanvas,
 	...Blindsided,
 	...gen1Burgundy,
