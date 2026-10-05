@@ -2011,7 +2011,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 				{
 					species: 'Dragonite',
 					item: 'heavydutyboots',
-					ability: 'aerialate',
+					ability: 'aerilate',
 					teraType: ['Ground', 'Fire'],
 					nature: 'Adamant',
 				},
