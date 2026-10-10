@@ -24,4 +24,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "This Pokemon's moves are used as if the effects of Sun were active.",
 	},
+	auraguard: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['contact']) return this.chainModify(0.5);
+		},
+		flags: {breakable: 1},
+		name: "Aura Guard",
+		rating: 3.5,
+		num: 319,
+		shortDesc: "This Pokemon receives 1/2 damage from contact moves.",
+	},
 };

@@ -5059,4 +5059,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	emboarwarmage: {
 		tier: "OU",
 	},
+	abzolution: {
+		tier: "OU",
+	},
+	zarchomp: {
+		tier: "OU",
+	},
+	paladaura: {
+		tier: "OU",
+	},
 };
