@@ -1942,7 +1942,6 @@ rudinn: {
 			brickbreak: ["9L1"],
 			bulkup: ["9L1"],
 			bulletpunch: ["9L1"],
-			calmmind: ["9L1"],
 			closecombat: ["9L1"],
 			darkpulse: ["9L1"],
 			discharge: ["9L1"],
