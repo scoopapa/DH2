@@ -211,6 +211,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emboar").learnset.mysticalfire = ["9L1"];
 		this.modData("Learnsets", "emboar").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "emboar").learnset.scorchingsands = ["9L1"];
-
+		
+		this.modData("Learnsets", "lucario").learnset.ancientpower = ["9L1"];
 	},
 };
