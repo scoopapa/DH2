@@ -373,7 +373,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	battleact: {
 		name: "Battle Act",
-		type: "Normal",
+		type: "Fighting",
 		category: "Status",
 		basePower: 0,
 		accuracy: true,
@@ -447,7 +447,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	
+
 	neochaos: {
 		name: "Neo Chaos",
 		type: "Stellar",
@@ -874,7 +874,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-anim', pokemon, "Mach Punch", target);
 		},
 		secondary: {
-			chance: 50,
+			chance: 30,
 			boosts: {
 				def: -1,
 			},
@@ -1070,7 +1070,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Spear Barrage",
 		type: "Water",
 		category: "Physical",
-		basePower: 25,
+		basePower: 20,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Hits 4-5 times. Targets a random opponent.",
