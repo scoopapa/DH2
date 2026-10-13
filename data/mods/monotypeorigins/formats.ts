@@ -8,7 +8,7 @@ export const Formats: FormatData[] = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10202864">Monotype: Origins on Smogon Forums</a>`,
 		],
 		mod: 'monotypeorigins',
-		ruleset: ['Standard', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};

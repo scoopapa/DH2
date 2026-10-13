@@ -7,7 +7,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			let type: string | undefined = '';
 			if (pokemon.ability === 'truthandideals') {
 				type = pokemon.getItem().onPlate;
-				if (!type) {
+				if (!type || type == 'Dragon') {
 					return ['Dragon'];
 				}
 			}

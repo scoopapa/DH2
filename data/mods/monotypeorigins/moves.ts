@@ -18,7 +18,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	*/
-	flashflood: {
+	flashflood: { // finally works
 		name: "Flash Flood",
 		type: "Water",
 		category: "Status",
@@ -27,20 +27,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		shortDesc: "Upon usage, sets a side condition on the opponent’s side where any Pokemon weak to Water will take 1/8 of their max HP at the end of each turn. In Rain, this increases to 1/4. Lasts for 3 turns.",
 		priority: 0,
-		flags: {mirror: 1, metronome: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		sideCondition: 'flashflood',
 		condition: {
 			duration: 3,
 			onSideStart(side) {
+				console.log('flashflood debug');
 				this.add('-sidestart', side, 'move: Flash Flood');
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1,
 			onResidual(pokemon) {
+				console.log(pokemon.runEffectiveness('Water'));
+				console.log(1);
+				console.log(pokemon.effectiveWeather());
 				if (pokemon.runEffectiveness('Water') === 1) {
+					console.log('supereffectiveness validated');
 					if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())){
-						pokemon.damage(pokemon.baseMaxhp / 4);
+						this.damage(pokemon.baseMaxhp / 4, pokemon);
 					} else {
-						pokemon.damage(pokemon.baseMaxhp / 8);
+						this.damage(pokemon.baseMaxhp / 8, pokemon);
 					}
 				}
 			},
@@ -53,7 +59,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	originart: {
+	originart: { // TODO
 		name: "Origin Art",
 		type: "Fighting",
 		category: "Special",
@@ -63,24 +69,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Uses higher offense. Hits 2 times, each hit having a 20% chance to lower their highest offense. Makes contact.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		multihit: 2,
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		secondary: {
 			chance: 20,
-			target: {
-				onHit(){
-					if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
-						target.boost({atk: -1})
-					} else {
-						target.boost({spa: -1})
-					}
-				},
+			onHit(target, source){
+				console.log('originart debug');
+				if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+					this.boost({atk: -1});
+				} else {
+					this.boost({spa: -1});
+				}
 			},
 		},
 		target: "normal",
 	},
-	originaura: {
+	originaura: { // works
 		name: "Origin Aura",
 		type: "Dragon",
 		category: "Special",
@@ -113,7 +119,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	originclock: {
+	originclock: { // works
 		name: "Origin Clock",
 		type: "Steel",
 		category: "Special",
@@ -136,14 +142,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			boosts: {
-				spd: -1,
-				spe: 1,
+			self: {
+				boosts: {
+					spd: -1,
+					spe: 1,
+				}
 			}
 		},
 		target: "normal",
 	},
-	originflare: {
+	originflare: { // works
 		name: "Origin Flare",
 		type: "Fire",
 		category: "Special",
@@ -172,7 +180,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originflux: {
+	originflux: { // works
 		name: "Origin Flux",
 		type: "Water",
 		category: "Special",
@@ -195,20 +203,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			boosts: {
-				def: -1,
-				spe: 1,
+			self: {
+				boosts: {
+					def: -1,
+					spe: 1,
+				},
 			},
 		},
 		target: "normal",
 	},
-	originseed: {
+	originseed: { // works
 		name: "Origin Seed",
 		type: "Grass",
 		category: "Special",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
-			if (!pokemon.effectiveWeather() === ''){
+			if (pokemon.effectiveWeather()){
 				return move.basePower * 2;
 			}
 			return move.basePower;
@@ -231,7 +241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originshimmer: {
+	originshimmer: { // works
 		name: "Origin Shimmer",
 		type: "Fairy",
 		category: "Special",
@@ -260,7 +270,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originshock: {
+	originshock: { // works
 		name: "Origin Shock",
 		type: "Poison",
 		category: "Special",
@@ -285,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originsight: {
+	originsight: { // works
 		name: "Origin Sight",
 		type: "Psychic",
 		category: "Special",
@@ -328,7 +338,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originspark: {
+	originspark: { // works
 		name: "Origin Spark",
 		type: "Electric",
 		category: "Special",
@@ -371,7 +381,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	originspite: {
+	originspite: { // works
 			name: "Origin Spite",
 			type: "Dark",
 			category: "Special",
@@ -390,7 +400,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			target: "normal",
 		},
-	originswarm: {
+	originswarm: { // works
 		name: "Origin Swarm",
 		type: "Bug",
 		category: "Special",
@@ -402,7 +412,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				totalBoosts += Math.abs(pokemon.boosts[boostName]);
 				totalBoosts += Math.abs(target.boosts[boostName]);
 			}
-			return basePower + 50 * totalBoosts;
+			return move.basePower + 50 * totalBoosts;
 		},
 		accuracy: 100,
 		pp: 5,
@@ -411,13 +421,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onAfterHit(target, pokemon) {
 			this.add('-clearallboost');
-			pokemon.clearBoosts()
-			target.clearBoosts()
+			pokemon.clearBoosts();
+			target.clearBoosts();
 		},
 		onAfterSubDamage(target, pokemon) {
 			this.add('-clearallboost');
-			pokemon.clearBoosts()
-			target.clearBoosts()
+			pokemon.clearBoosts();
+			target.clearBoosts();
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
@@ -425,13 +435,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	origintomb: {
+	origintomb: { // prob works
 		name: "Origin Tomb",
 		type: "Rock",
 		category: "Special",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)){ // Get clarification on this!
+			if (target.newlySwitched || this.queue.willMove(target)){
 				this.debug('Origin Tomb damage boost');
 				return move.basePower * 2;
 			}
@@ -447,7 +457,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	origintremor: {
+	origintremor: { // works
 		name: "Origin Tremor",
 		type: "Ground",
 		category: "Special",
@@ -476,7 +486,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	originvoid: {
+	originvoid: { // works
 		name: "Origin Void",
 		type: "Ice",
 		category: "Special",
@@ -536,7 +546,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
-	originwarp: {
+	originwarp: { // works
 		name: "Origin Warp",
 		type: "Ghost",
 		category: "Special",
@@ -549,7 +559,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		condition: { // I hope this works
+		sideCondition: 'originwarp',
+		condition: {
 			duration: 3,
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Origin Warp');
@@ -557,25 +568,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualOrder: 5,
 			onResidualSubOrder: 1,
 			onResidual(pokemon) {
-				const bestStat = pokemon.getBestStat(true, true)
-				pokemon.boost({[bestStat]: -1})
+				const bestStat = pokemon.getBestStat(true, true);
+				this.boost({[bestStat]: -1});
 			},
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 8,
 			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'Fire Pledge');
+				this.add('-sideend', targetSide, 'Origin Warp');
 			},
 		},
 		secondary: null,
 		target: "normal",
 	},
-	originzone: {
+	originzone: { // works
 		name: "Origin Zone",
 		type: "Flying",
 		category: "Special",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)){ // Will need to check with Ausma on whether this and Origin Flux use turn order or actual Speed
+			if (target.newlySwitched || this.queue.willMove(target)){
 				this.debug('Origin Zone damage boost');
 				return move.basePower * 1.5;
 			}
