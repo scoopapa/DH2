@@ -373,7 +373,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	battleact: {
 		name: "Battle Act",
-		type: "Normal",
+		type: "Fighting",
 		category: "Status",
 		basePower: 0,
 		accuracy: true,
@@ -447,7 +447,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
-	
+
 	neochaos: {
 		name: "Neo Chaos",
 		type: "Stellar",
@@ -662,6 +662,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isZ: "verdantomegapetal",
 		onHit(target) {
 			this.heal(Math.ceil(target.baseMaxhp));
+			this.add('-curestatus', target, target.status, '[from] move: Omega Kindness');
 			target.clearStatus();
 			target.removeVolatile('confusion');
 			target.setBoost(this.effectState.boosts);
@@ -772,6 +773,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	
 	mewmewwand: {
 		name: "Mew Mew Wand",
+		type: "Psychic",
 		category: "Special",
 		basePower: 95,
 		accuracy: 100,
@@ -861,8 +863,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "50% chance to lower Defense by 1. High critical rate.",
-		desc: "The user unleashes a special punch directed at the target. This move has a 50% chance to lower the target's Defense by one stage. This move has a heightened chance of landing a critical hit.",
+		shortDesc: "30% chance to lower Defense by 1. High critical rate.",
+		desc: "The user unleashes a special punch directed at the target. This move has a 30% chance to lower the target's Defense by one stage. This move has a heightened chance of landing a critical hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
 		critRatio: 2,
@@ -872,7 +874,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-anim', pokemon, "Mach Punch", target);
 		},
 		secondary: {
-			chance: 50,
+			chance: 30,
 			boosts: {
 				def: -1,
 			},
@@ -1068,7 +1070,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Spear Barrage",
 		type: "Water",
 		category: "Physical",
-		basePower: 25,
+		basePower: 20,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Hits 4-5 times. Targets a random opponent.",
@@ -1250,6 +1252,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (target.side.getSideCondition('egg')) {
 				this.heal(source.baseMaxhp * 0.33, source);
 				this.add('-message', `${source.name} consumed the Egg!`);
+				this.add('-sideend', target.side, 'move: Egg', '[from] move: Tail of Hell', '[of] ' + target);
 				target.side.removeSideCondition('egg');
 			}
 		},
