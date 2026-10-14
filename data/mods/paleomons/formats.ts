@@ -15,11 +15,12 @@ export const Formats: FormatData[] = [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
 		onValidateTeam(team, format) {
+			const allowedTiers = ['Paleomons', 'Paleomons NFE', 'Paleomons LC'];
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Paleomons') {
+				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not usable in Paleomons.'];
 				}
 			}

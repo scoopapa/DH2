@@ -115,7 +115,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "35% Chance to unleash a Meggido at 3x power after an Attack. ",
 		name: "Sol Blade",
 		rating: 4,
-		num:1006
+		num: 1006,
 	},
 	floramancy: {
 		onResidualOrder: 28,
@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					if (side.getSideCondition(sideCondition)) {
 						if (!activated) {
 							this.add('-activate', pokemon, 'ability: Floramancy');
-							this.heal(pokemon.baseMaxhp / 4);
+							this.heal(pokemon.baseMaxhp / 16);
 							activated = true;
 						}
 					}
@@ -138,6 +138,195 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Floramancy",
 		rating: 2,
 		num: 1008,
-		desc: "Heals 25% max HP when Floraconda is active.",
+		desc: "Heals 1/16 max HP when Floraconda is active.",
+	},
+	elementalaid: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Elemental Aid');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon) {
+			pokemon.deductPP(move.id, 1);
+			this.add('-activate', pokemon, 'ability: Elemental Aid');
+			}
+		},
+		flags: {},
+		name: "Elemental Aid",
+		rating: 2.5,
+		num: 1007,
+		desc: "Moves use one additional pp but have 1.3x power.",
+	},
+	resolute: {
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+            if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Resolute",
+		rating: 4,
+		num: 1009,
+		desc: "Defenses increase by 1.5x when max HP is reduced to 50% or lower.",
+	},
+	divineblade: {
+		onModifyMove(move, source, target) {
+			if (move.flags['slicing']) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['slicing']) {
+				if (this.randomChance(3, 10)) {
+					this.boost({spe: -1}, target, source, null, true);
+				}
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Divine Blade debuff');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+		name: "Divine Blade",
+		rating: 4,
+		num: 1010,
+		desc: "Slicing moves hit all adjacent opponents but have 3/4 power. 30% chance: -1 Spe",
+	},
+	fearless: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'retaliate') return;
+			if (target.hp && target.volatiles['laserfocus']) {
+				this.actions.useMove('retaliate', this.effectState.target); 
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id === 'retaliate') { 
+				move.type = 'Water';
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.id === 'retaliate') { 
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+			}
+		},
+		flags: {},
+		name: "Fearless",
+		rating: 5,
+		num: 2001,
+		desc: "When damaged with Laser Focus active, Uses Retaliate with fire and water effectiveness.",
+	},
+	soulreaping: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Soul Reaping');
+				this.heal(source.baseMaxhp / 4, source, source, effect);
+			}
+		},
+		flags: {},
+		name: "Soul Reaping",
+		rating: 4,
+		num: 2002,
+		desc: "Heals 25% max HP when it KOes another pokemon with an attack",
+	},
+	levinflight: {
+		onModifyMove(move) {
+			if (move) {
+				move.overrideOffensiveStat = 'def';
+			}
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.getStat('def') > target.getStat('def')) {
+				this.add('-ability', pokemon, 'Levin Flight')
+				target.addVolatile('levinflight');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Levin Flight');
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def) {
+			return this.chainModify(0.75);
+			},
+			onEnd(pokemon) {
+			this.add('-end', pokemon, 'Levin Flight');
+			},
+		},
+		flags: {},
+		name: "Levin Flight",
+		desc: "Attacks use defense as attacking stat. Before Move, If Def > Foe's Def is .75x 1 turn.",
+		shortDesc: "Attacks use defense as attacking stat. Before Move, If Def > Foe's Def is .75x 1 turn.",
+		rating: 3.5,
+		num: 2003,
+	},
+	happyspace: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (!pokemon.hp && !pokemon.status) return false;
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			const status = pokemon.status;
+			for (const target of pokemon.foes()) {
+				target.trySetStatus(status, pokemon);
+				this.add('-activate', pokemon, 'ability: Happy Space');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Happy Space",
+		rating: 4,
+		num: 2004,
+		desc: "At the end of the turn, Transfers Brn/para/Tox/psn to an adjacent opponent.",
+	},
+	warmharmonics: {
+		onModifyMove(move, pokemon) {
+			for (const ally of pokemon.alliesAndSelf()) {
+			if (move.id === 'worldstage') { 
+				this.add('-activate', pokemon, 'ability: Warm Harmonics');
+				ally.addVolatile('supportingsong');
+				pokemon.addVolatile('supportingsong');
+				}
+			}
+		},
+		onAllySwitchIn(pokemon) {
+			if (pokemon.volatiles['supportingsong']) return;
+			if (pokemon.side.sideConditions['worldstage']) {
+				pokemon.addVolatile('supportingsong');
+			}
+		},
+		flags: {},
+		name: "Warm Harmonics",
+		rating: 4.5,
+		num: 2005,
+		desc: "If active, when World Stage is active, ally is granted the supporting song volatile.",
+	},
+	snakesden: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.volatiles['hiss']) {
+				target.trySetStatus('par', source);
+			}
+		},
+		flags: {},
+		name: "Snakes Den",
+		rating: 4,
+		num: 2006,
+		desc: "When attacking a target with Hiss!, paralyzes the target.",
 	},
 };

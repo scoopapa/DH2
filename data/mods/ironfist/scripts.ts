@@ -1,49 +1,73 @@
 import {Dex} from '../../../sim/dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+import type { ChosenAction } from '../../../sim/side';
+import { FS } from '../../../lib';
+import { toID } from '../../../sim/dex-data';
+
+export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
 		customTiers: ['Viable', 'Untested', 'Unviable'],
-	},	
-	
+	},
+ 
 	init() {
-    	for (const id in this.dataCache.Pokedex) {
+		if (!this.dataCache) return;
+		for (const id in this.dataCache.Pokedex) {
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
-				this.modData('Learnsets', this.toID(id)).learnset.fishingterrain = ["9L1"];
-				this.modData('Learnsets', this.toID(id)).learnset.holdhands = ["9L1"];
-				this.modData('Learnsets', this.toID(id)).learnset.mewing = ["9L1"];
-				this.modData('Learnsets', this.toID(id)).learnset.epicbeam = ["9L1"];
-				this.modData('Learnsets', this.toID(id)).learnset.bigbash = ["9L1"];
-				if (!this.data.Pokedex[id].types.includes('Water') && !this.data.Pokedex[id].types.includes('Steel') && !this.data.Pokedex[id].baseForme) {
-	                this.modData('Learnsets', this.toID(id)).learnset.fisheater = ["9L1"];
-            	}
-				if (id.diamondhand) {
-					this.modData('Learnsets', this.toID(id)).learnset.diamondhand = ["9L1"];
+				const species = this.dataCache.Pokedex[id] as any;
+				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
+
+				learnset.fishingterrain = ["9L1"];
+				learnset.holdhands = ["9L1"];
+				learnset.mewing = ["9L1"];
+				learnset.epicbeam = ["9L1"];
+				learnset.bigbash = ["9L1"];
+
+				const types = species.types || [];
+				if (!types.includes('Water') && !types.includes('Steel') && !species.baseForme) {
+					learnset.fisheater = ["9L1"];
+			  
+						 
+																												   
 				}
-				if (id.hoenn || id.gen === 3) {
-					this.modData('Learnsets', this.toID(id)).learnset.hoenn = ["9L1"];
+
+				if (species.diamondhand) {
+					learnset.diamondhand = ["9L1"];
 				}
-				if (id.trans) {
-					this.modData('Learnsets', this.toID(id)).learnset.trans = ["9L1"];
+				if (species.hoenn || species.gen === 3) {
+					learnset.hoenn = ["9L1"];
 				}
-				if (id.bird) {
-					this.modData('Learnsets', this.toID(id)).learnset.bird = ["9L1"];
-					this.modData('Learnsets', this.toID(id)).learnset.justthebirdsthesequel = ["9L1"];
+				if (species.trans) {
+					learnset.trans = ["9L1"];
+																					   
 				}
-				if (id.fish) {
-					this.modData('Learnsets', this.toID(id)).learnset.fish = ["9L1"];
-					this.modData('Learnsets', this.toID(id)).learnset.fishield = ["9L1"];
+				if (species.bird) {
+					learnset.bird = ["9L1"];
+					learnset.justthebirdsthesequel = ["9L1"];
+				}
+				if (species.fish) {
+					learnset.fish = ["9L1"];
+					learnset.fishield = ["9L1"];
 				}
 			}
 		}
+		
+		if (Dex.aliases) {
+    		Dex.aliases.delete(toID('miniororange'));
+			Dex.aliases.delete(toID('minioryellow'));
+			Dex.aliases.delete(toID('miniorgreen'));
+			Dex.aliases.delete(toID('miniorblue'));
+			Dex.aliases.delete(toID('miniorindigo'));
+			Dex.aliases.delete(toID('miniorviolet'));
+		}
 	},
 	battle: {
-		runAction(action: Action) {
+		runAction(this: Battle, action: Action) {
 			const pokemonOriginalHP = action.pokemon?.hp;
 			let residualPokemon: (readonly [Pokemon, number])[] = [];
-			console.log(action);
+					   
 			// returns whether or not we ended in a callback
 			switch (action.choice) {
 			case 'start': {
@@ -53,15 +77,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 				this.add('start');
 
-				// Change Circall into Wario
 				for (const pokemon of this.getAllPokemon()) {
 					let rawSpecies: Species | null = null;
-					console.log(`${pokemon.species.id}\n
-								${pokemon.baseMoves.indexOf('stankyleg')}\n
-								${pokemon.baseMoves.indexOf('youwantfun')}\n
-								${pokemon.baseMoves.indexOf('wariopicrosspuzzle4g')}\n
-								${pokemon.baseMoves.indexOf('ohmygoooodwaaaaaaaaaanisfokifnouh')}\n
-								${pokemon.hasAbility('bloodlinegreatestachievement')}\n`);
+					
+					// Change Circall into Wario
 					if (pokemon.species.id === 'circall' && 
 						pokemon.baseMoves.indexOf('stankyleg') >= 0 &&
 						pokemon.baseMoves.indexOf('youwantfun') >= 0 &&
@@ -70,13 +89,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						pokemon.hasAbility('bloodlinegreatestachievement')) {
 						rawSpecies = this.dex.species.get('Wario-Forbidden-One');
 					}
+					
+					// change ogre to ogre-o
+					if (pokemon.species.id === 'kyogre' && pokemon.item === 'originalitem') {
+						rawSpecies = this.dex.species.get('Kyogre-Original');
+					} 
+					// change daiyakuza to daiyakuza-o
+					else if (pokemon.species.id === 'daiyakuza' && pokemon.item === 'diamondheart') {
+						rawSpecies = this.dex.species.get('Daiyakuza-Origin');
+					}
+					
 					if (!rawSpecies) continue;
 					const species = pokemon.setSpecies(rawSpecies);
 					if (!species) continue;
 					pokemon.baseSpecies = rawSpecies;
 					pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 						(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
-					pokemon.setAbility(species.abilities['0'], null, true);
+					pokemon.setAbility(species.abilities['0'], null,);
 					pokemon.baseAbility = pokemon.ability;
 				}
 
@@ -109,8 +138,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			case 'move':
 				if (!action.pokemon.isActive) return false;
 				if (action.pokemon.fainted) return false;
-				this.actions.runMove(action.move, action.pokemon, action.targetLoc, action.sourceEffect,
-					action.zmove, undefined, action.maxMove, action.originalTarget);
+				this.actions.runMove(action.move, action.pokemon, action.targetLoc, {
+					sourceEffect: action.sourceEffect,
+					zMove: action.zmove,
+					maxMove: action.maxMove,
+					originalTarget: action.originalTarget,
+				});
 				break;
 			case 'megaEvo':
 				this.actions.runMegaEvo(action.pokemon);
@@ -349,7 +382,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			return false;
 		},
-		heal(damage: number, target?: Pokemon, source: Pokemon | null = null, effect: 'drain' | Effect | null = null) {
+		heal(this: Battle, damage: number, target?: Pokemon, source: Pokemon | null = null, effect: 'drain' | Effect | null = null) {
 			if (this.event) {
 				target ||= this.event.target;
 				source ||= this.event.source;
@@ -522,11 +555,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			let type = pokemon.teraType;
 			let canTera = false;
-			if (pokemon.set.ability === 'I Love Fishing') {
+			if (pokemon.hasAbility('ilovefishing')) {
 				canTera = true;
 				type = 'Water';
 			}
-			if (pokemon.set.ability === 'Racer\'s Spirit') {
+			if (pokemon.hasAbility('racersspirit')) {
 				canTera = true;
 				type = 'Steel';
 			}
@@ -673,7 +706,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
 			baseDamage = this.battle.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
 
-			if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			if (move.isZOrMaxPowered && target.getMoveHitData(move).bypassProtect) {
 				baseDamage = this.battle.modify(baseDamage, 0.25);
 				this.battle.add('-zbroken', target);
 			}
@@ -1007,13 +1040,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	side: {
 		//inherit: true,
-		constructor(name: string, battle: Battle, sideNum: number, team: PokemonSet[]) {
+		constructor(this: Side, name: string, battle: Battle, sideNum: number, team: PokemonSet[]) {
 			const sideScripts = battle.dex.data.Scripts.side;
 			if (sideScripts) Object.assign(this, sideScripts);
 	
-			this.battle = battle;
-			this.id = ['p1', 'p2', 'p3', 'p4'][sideNum] as SideID;
-			this.n = sideNum;
+			// this.battle = battle;
+			// this.id = ['p1', 'p2', 'p3', 'p4'][sideNum] as SideID;
+			// this.n = sideNum;
 	
 			this.name = name;
 			this.avatar = '';
@@ -1174,7 +1207,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Should always subtract, but stop at 0 to prevent errors.
 				this.choice.forcedSwitchesLeft = this.battle.clampIntRange(this.choice.forcedSwitchesLeft - 1, 0);
 				pokemon.switchFlag = false;
-				this.battle.faint(targetPokemon, targetPokemon, this.battle.dex.moves.get('epicbeam'));
+				this.battle.faint(targetPokemon, targetPokemon, this.battle.dex.moves.get('epicbeam') as any);
 				this.choice.actions.push({
 					choice: 'epicbeam',
 					pokemon,
@@ -1228,7 +1261,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (this.battle.gen === 9) return false;
 			return true;
 		},
-		addFishingTokens(amount: number) {
+		addFishingTokens(this: Side, amount: number) {
 			if (amount === 0 || Number.isNaN(amount)) return false;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
 			this.fishingTokens += amount;
@@ -1236,7 +1269,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
-		removeFishingTokens(amount: number) {
+		removeFishingTokens(this: Side, amount: number) {
 			if (this.fishingTokens === undefined) this.fishingTokens = 0;
 			if (amount === 0 || Number.isNaN(amount) || amount > this.fishingTokens) return false;
 			this.fishingTokens -= amount;
@@ -1246,7 +1279,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (this.battle.field.isWeather('acidrain')) this.removeFishingToken();
 			return true;
 		},
-		removeFishingToken() {
+		removeFishingToken(this: Side) {
 			if (this.fishingTokens === undefined) this.fishingTokens = 0;
 			if (this.fishingTokens < 1) return false;
 			this.fishingTokens -= 1;
@@ -1288,7 +1321,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 	},
 	pokemon: {
-		inherit: true,
+				
 		hasAbility(ability) {
 			if (this.ignoringAbility()) return false;
 			if (Array.isArray(ability)) return ability.some(abil => this.hasAbility(abil));
@@ -1300,7 +1333,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 			if ('smackdown' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
-			if (item === 'ironball' || item === 'itemfist') return true;
+			if (item === 'ironball' || item === 'ironfist') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
@@ -1311,7 +1344,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-		effectiveWeather(message?: string | boolean) {
+		effectiveWeather(this: Pokemon, sourceEffect?: Effect, message?: string | boolean) {
 			const weather = this.battle.field.effectiveWeather();
 			switch (weather) {
 			case 'sunnyday':
@@ -1321,12 +1354,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.hasItem('utilityumbrella')) return '';
 			}
 			// TODO: check interactions of Mega Sol with Utility Umbrella and Desolate Land
-			if (this.hasAbility('lemonga') && this.battle.activePokemon === this && weather !== 'acidrain') {
+																																												 
+			if (this.hasAbility('lemongasour') && weather !== 'acidrain') {
 				if (message) this.battle.add('-activate', this, 'ability: Lemonga Sour');
 				return 'acidrain' as ID;
 			}
 			return weather;
-		}
+		},
+		recalcStats(this: Pokemon) {
+			const set = this.set;
+			const nature = this.battle.dex.natures.get(set.nature);
+			for (const statName of ['atk', 'def', 'spa', 'spd', 'spe'] as const) {
+				let value = Math.trunc(Math.trunc(
+					2 * this.baseSpecies.baseStats[statName] + set.ivs[statName] + Math.trunc(set.evs[statName] / 4)
+				) * this.level / 100 + 5);
+				if (nature.plus === statName) value = Math.trunc(value * 1.1);
+				else if (nature.minus === statName) value = Math.trunc(value * 0.9);
+				this.storedStats[statName] = value;
+			}
+		},
 	},
 	field: {
 		inherit: true,
@@ -1362,7 +1408,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const prevWeather = this.weather;
 			const prevWeatherState = this.weatherState;
 			this.weather = status.id;
-			this.weatherState = {id: status.id};
+			this.weatherState = this.battle.initEffectState({ id: status.id });
 			if (source) {
 				this.weatherState.source = source;
 				this.weatherState.sourceSlot = source.getSlot();
@@ -1396,12 +1442,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const prevTerrain = this.terrain;
 			const prevTerrainState = this.terrainState;
 			this.terrain = status.id;
-			this.terrainState = {
+			this.terrainState = this.battle.initEffectState({
 				id: status.id,
 				source,
 				sourceSlot: source.getSlot(),
 				duration: status.duration,
-			};
+			});
 			if (status.durationCallback) {
 				this.terrainState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
 			}
@@ -1429,12 +1475,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!(status as any).onFieldRestart) return false;
 				return this.battle.singleEvent('FieldRestart', status, state, this, source, sourceEffect);
 			}
-			state = this.pseudoWeather[status.id] = {
+			state = this.pseudoWeather[status.id] = this.battle.initEffectState({
 				id: status.id,
 				source,
 				sourceSlot: source?.getSlot(),
 				duration: status.duration,
-			};
+			});
 			if (status.durationCallback) {
 				if (!source) throw new Error(`setting fieldcond without a source`);
 				state.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);

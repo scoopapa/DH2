@@ -890,9 +890,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
         color: "White",
         eggGroups: ["Undiscovered"],
     },
-	belioisk: {
+	beliolisk: {
         num: -16082,
-        name: "Belioisk",
+        name: "Beliolisk",
         types: ["Normal", "Electric"],
         baseStats: {hp: 70, atk: 120, def: 70, spa: 83, spd: 90, spe: 120},
         abilities: {0: "Electromorphosis", H: "Opportunist"},
@@ -1025,7 +1025,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	toadparent: {
         num: -16094,
         name: "Toadparent",
-        types: ["Fire", "Dark"],
+        types: ["Normal", "Water"],
         baseStats: {hp: 100, atk: 50, def: 110, spa: 90, spd: 150, spe: 40},
         abilities: {0: "Frisk", H: "Hospitality"},
         heightm: 1,

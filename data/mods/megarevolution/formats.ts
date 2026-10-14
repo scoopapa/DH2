@@ -7,7 +7,7 @@ export const Formats: FormatData[] = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/mega-revolution-slate-1-kanto-starters.3778769/">Thread on the Smogon Forums</a>`,
 		],
 		mod: 'megarevolution',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Stone Clause', 'Z-Move Clause', 'Terastal Clause', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Stone Clause', 'Terastal Clause', 'Data Mod'],
 		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
 		teambuilderFormat: 'National Dex',
 	},

@@ -116,7 +116,7 @@ export const Moves: {[moveid: string]: MoveData} = {
     	},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "normal",
 		contestType: "Beautiful",
 	},
 	wretchedwater: {
@@ -124,7 +124,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Wretched Water",
-		shortDesc: "30% chance to paralyze the target.",
+		shortDesc: "Hits adjacent pokemon. 30% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -132,7 +132,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Water",
 		contestType: "Cool",
 		onPrepareHit(target, source, move) {
@@ -320,7 +320,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	magmasurge: {
 		accuracy: 100,
-		basePower: 60,
+		basePower: 20,
 		category: "Physical",
 		name: "Magma Surge",
 		shortDesc: "100% chance to burn the foe.",
@@ -1046,9 +1046,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		volatileStatus: 'defensedown',
-		shortDesc: "Hits adjacent pokemon. Inflicts defense down.",
+		shortDesc: "Hits adjacent foes. Inflicts defense down.",
 		secondary: null,
-		target: "allAdjacent",
+		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Beautiful",
 		onPrepareHit(target, source, move) {
@@ -1069,7 +1069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'defensedown',
 		},
 		shortDesc: "100% chance to inflict Defense Down.",
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Water",
 		contestType: "Clever",
 		onPrepareHit(target, source, move) {
@@ -1162,8 +1162,8 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
 	},
 	roughhouse: {
-		accuracy: 90,
-		basePower: 95,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
 		name: "Roughhouse",
 		pp: 10,
@@ -2277,6 +2277,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		basePower: 80,
 	},
+	snipeshot: {
+		inherit: true,
+		basePower: 85,
+	},
 	doublekick: {
 		inherit: true,
 		viable: true,
@@ -2292,6 +2296,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		viable: true,
 		accuracy: 100,
 		basePower: 100,
+	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	playrough: {
+		inherit: true,
+		accuracy: 100,
 	},
 	mudbomb: {
 		inherit: true,
@@ -2377,7 +2389,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		viable: true,
 		shortDesc: "Ends the effects of Terrain. 30% chance to flinch.",
-		basePower: 95,
+		basePower: 90,
 		onAfterHit(target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
@@ -2518,6 +2530,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		desc: "30% chance to inflict bleed.",
 		shortDesc: "30% chance to inflict bleed.",
+	},
+	fierywrath: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		desc: "10% chance to burn.",
+		shortDesc: "10% chance to burn.",
+	},
+	triplekick: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
 	},
 	/*
 	DROWSY EDITS
@@ -2862,6 +2890,37 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},	
 		desc: "Has a 20% to frostbite the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% to frostbite the target. Rain: can't miss.",
+	},
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+		isNonstandard: null,
+		secondary: null,
+		type: "Poison", 
+		volatileStatus: 'gastroacid',
+		onTryHit(target) {
+			if (target.getAbility().flags['cantsuppress']) {
+				return false;
+			}
+			if (target.hasItem('Ability Shield')) {
+				this.add('-block', target, 'item: Ability Shield');
+				return null;
+			}
+		},
+		condition: {
+			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.ts
+			onStart(pokemon) {
+				if (pokemon.hasItem('Ability Shield')) return false;
+				this.add('-endability', pokemon);
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityState, pokemon, pokemon, 'gastroacid');
+			},
+			onCopy(pokemon) {
+				if (pokemon.getAbility().flags['cantsuppress']) pokemon.removeVolatile('gastroacid');
+			},
+		},
+		desc: "Nullifies the target's Ability.",
+		shortDesc: "Nullifies the target's Ability.",
 	},
 	/*
 	TORQUES

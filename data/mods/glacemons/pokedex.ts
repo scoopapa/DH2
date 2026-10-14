@@ -2144,7 +2144,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	tapufini: {
 		inherit: true,
-		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Comatose"},
+		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Natural Cure"},
 	},
 	zarude: {
 		inherit: true,
@@ -2246,7 +2246,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	// Slate 10
 	garchomp: {
 		inherit: true,
-		abilities: {0: "Skill Link", 1: "Levitate", H: "Rough Skin"},
+		abilities: {0: "Skill Link", 1: "Sand Force", H: "Rough Skin"},
 	},
 	garchompmega: {
 		inherit: true,

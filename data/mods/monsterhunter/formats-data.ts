@@ -5,6 +5,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	agnaktorex: {
 		tier: "MHUU",
 	},
+	scorchian: {
+		tier: "MHUU",
+	},
+	greatapypos: {
+		tier: "MHRU",
+	},
+	eogarudia: {
+		tier: "MHOU",
+	},
+	baelidae: {
+		tier: "MHRU",
+	},
+	dreadlidae: {
+		tier: "MHRU",
+	},
+	garubadaora: {
+		tier: "MHOU",
+	},
+	guanzorumu: {
+		tier: "MHOU",
+	},
+	invadogaron: {
+		tier: "MHOU",
+	},
+	jielung: {
+		tier: "MHOU",
+	},
+	viperkadachi: {
+		tier: "MHRU",
+	},
+	tidarala: {
+		tier: "MHRU",
+	},
+	monksnail: {
+		tier: "MHNU",
+	},
 	ahtalka: {
 		tier: "MHUU",
 	},
@@ -66,7 +102,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	brachydios: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	bulldrome: {
 		tier: "MHUU",
@@ -228,7 +264,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	lagiacrus: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	ivogiacrus: {
 		tier: "MHRU",
@@ -258,7 +294,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	malzeno: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	mizutsune: {
 		tier: "MHRU",
@@ -330,7 +366,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	rathian: {
-		tier: "MHUU",
+		tier: "MHRU",
 	},
 	royalludroth: {
 		tier: "MHNU",
@@ -426,7 +462,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	xenojiiva: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	yamatsukami: {
 		tier: "MHUU",
@@ -495,7 +531,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHNU",
 	},
 	blackblos: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	sandrioth: {
 		tier: "MHRU",
@@ -537,13 +573,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	astalosboltreaver: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	diablosmassacre: {
 		tier: "MHOU",
 	},
 	primozeno: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	arkveld: {
 		tier: "MHOU",
@@ -606,7 +642,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUUBL",
 	},
 	xuwu: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	oroshirin: {
 		tier: "MHUU",
@@ -630,7 +666,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	inferonis: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	hallowedmohran: {
 		tier: "MHRU",
@@ -639,7 +675,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	yamakurai: {
-		tier: "MHRU",
+		tier: "MHRUBL",
 	},
 	balenox: {
 		tier: "MHRU",
@@ -726,16 +762,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	rathalosdreadking: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	zinogrethunderlord: {
 		tier: "MHUU",
 	},
 	brachydiosraging: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	lagiacrusabyssal: {
-		tier: "MHOU",
+		tier: "MHUUBL",
 	},
 	fataliscrimson: {
 		tier: "MHUU",

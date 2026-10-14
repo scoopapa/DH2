@@ -841,10 +841,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "LC",
 	},
-	gyarados: {
-		inherit: true,
-		tier: "UUBL",
-	},
 	gyaradosmega: {
 		inherit: true,
 		tier: "Illegal",
@@ -3276,6 +3272,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	floetteeternal: {
+		inherit: true,
+		tier: "OU",
+		isNonstandard: null,
 	},
 	florges: {
 		inherit: true,
@@ -4943,6 +4942,126 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	libreagle: {
+		tier: "OU",
+	},
+	shazakazam: {
+		tier: "OU",
+	},
+	slowbrosheltered: {
+		tier: "OU",
+	},
+	druidevoir: {
+		tier: "OU",
+	},
+	valianoble: {
+		tier: "OU",
+	},
+	steelixcrystalshards: {
+		tier: "OU",
+	},
+	aggrondreadnought: {
+		tier: "OU",
+	},
+	auranegade: {
+		tier: "OU",
+	},
+	marronaut: {
+		tier: "OU",
+	},
+	elphablast: {
+		tier: "OU",
+	},
+	grenegade : {
+		tier: "OU",
+	},
+	vendette: {
+		tier: "OU",
+	},
+	centrojan: {
+		tier: "OU",
+	},
+	karaiju: {
+		tier: "OU",
+	},
+	dragonitecupid: {
+		tier: "OU",
+	},
+	mechatar: {
+		tier: "OU",
+	},
+	salamencemoonchild: {
+		tier: "OU",
+	},
+	metagrosspaldea: {
+		tier: "OU",
+	},
+	gark: {
+		tier: "OU",
+	},
+	gemilin: {
+		tier: "OU",
+	},
+	scroundrel: {
+		tier: "OU",
+	},
+	eldropath: {
+		tier: "OU",
+	},
+	zeppelidon: {
+		tier: "OU",
+	},
+	mountamel: {
+		tier: "OU",
+	},
+	leonid: {
+		tier: "OU",
+	},
+	gyarados: {
+		tier: "OU",
+	},
+	atrociathan: {
+		tier: "OU",
+	},
+	staravage: {
+		tier: "OU",
+	},
+	mermanacle: {
+		tier: "OU",
+	},
+	belloatsom: {
+		tier: "OU",
+	},
+	aerodactylpresent: {
+		tier: "OU",
+	},
+	surgeelite: {
+		tier: "OU",
+	},
+	jingleam: {
+		tier: "OU",
+	},
+	chirrupsi: {
+		tier: "OU",
+	},
+	hissterica: {
+		tier: "OU",
+	},
+	meganiumeden: {
+		tier: "OU",
+	},
+	feraligatrcore: {
+		tier: "OU",
+	},
+	emboarwarmage: {
+		tier: "OU",
+	},
+	abzolution: {
+		tier: "OU",
+	},
+	zarchomp: {
+		tier: "OU",
+	},
+	paladaura: {
 		tier: "OU",
 	},
 };

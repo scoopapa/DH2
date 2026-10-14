@@ -33,13 +33,16 @@ After that, find the right section within the formats list that describes your m
 import { Formats as Abilitypos                  } from '../data/mods/abilitypos/formats';
 import { Formats as Alternatium                 } from '../data/mods/alternatium/formats';
 import { Formats as AlternatiumEX               } from '../data/mods/alternatiumex/formats';
+import { Formats as NationalDexExpanded			} from '../data/mods/natdexexpanded/formats';
 import { Formats as BackToSinnoh                } from '../data/mods/backtosinnoh/formats';
 import { Formats as Balls                       } from '../data/mods/balls/formats';
 import { Formats as BanHammersC3                } from '../data/mods/banhammersc3/formats';
 import { Formats as Beaftopia                   } from '../data/mods/beaftopia/formats';
 import { Formats as BearticPhone                } from '../data/mods/bearticphone/formats';
+import { Formats as BetterHackmons              } from '../data/mods/betterhackmons/formats';
 import { Formats as BlackMarket                 } from '../data/mods/blackmarket/formats';
 import { Formats as BlankCanvas                 } from '../data/mods/blankcanvas/formats';
+import { Formats as BoboliefFakemon             } from '../data/mods/bobolieffakemon/formats';
 import { Formats as BookOfEnigmas               } from '../data/mods/bookofenigmas/formats';
 import { Formats as BreedingVariants            } from '../data/mods/breedingvariants/formats';
 import { Formats as BreedingVariantsNatDex      } from '../data/mods/breedingvariantsnatdex/formats';
@@ -49,13 +52,14 @@ import { Formats as CCaPM2024                   } from '../data/mods/ccapm2024/f
 import { Formats as ChatBats                    } from '../data/mods/chatbats/formats';
 import { Formats as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/formats';
 import { Formats as CommunityUsed2              } from '../data/mods/communityused2/formats';
-import { Formats as ConquestDex                 } from '../data/mods/conquestdex/formats';
 import { Formats as CleanSlateMicro2            } from '../data/mods/csm2/formats';
 import { Formats as DeadCells                   } from '../data/mods/deadcells/formats';
+import { Formats as Deltamon					} from '../data/mods/deltamon/formats';
 import { Formats as DenseAF                     } from '../data/mods/denseaf/formats';
 import { Formats as DLCmons                     } from '../data/mods/dlcmons/formats';
 import { Formats as Dollhouse                   } from '../data/mods/dollhouse/formats';
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
+import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
 import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
@@ -112,7 +116,6 @@ import { Formats as gen533Valuemons             } from '../data/mods/gen5valuemo
 import { Formats as gen6MegasRevisited          } from '../data/mods/gen6megasrevisited/formats';
 import { Formats as gen6MixAndMegasRevisited    } from '../data/mods/gen6mixandmegasrevisited/formats';
 import { Formats as gen8FusionEvolution         } from '../data/mods/gen8feuu/formats';
-import { Formats as gen8HaxMeters               } from '../data/mods/gen8haxmeters/formats';
 import { Formats as gen8Lucklessplay            } from '../data/mods/gen8lucklessplay/formats';
 import { Formats as gen8MaxMeter                } from '../data/mods/gen8maxmeter/formats';
 import { Formats as gen9CrossoverChaos          } from '../data/mods/gen9crossoverchaos/formats';
@@ -159,6 +162,7 @@ import { Formats as MegasForAllPaldea           } from '../data/mods/m4apaldea/f
 import { Formats as gen8MegasForAllv6           } from '../data/mods/m4av6/formats';
 import { Formats as Maadowr                     } from '../data/mods/maadowr/formats';
 import { Formats as MaadowrLostZone             } from '../data/mods/maadowrlostzone/formats';
+import { Formats as Macrometa                   } from '../data/mods/macrometa/formats';
 import { Formats as Masquerade                  } from '../data/mods/masquerade/formats';
 import { Formats as MegaMania                   } from '../data/mods/megamania/formats';
 import { Formats as MegaRevolution              } from '../data/mods/megarevolution/formats';
@@ -176,13 +180,17 @@ import { Formats as ModernGen3                  } from '../data/mods/moderngen3/
 import { Formats as ModernGen4                  } from '../data/mods/moderngen4/formats';
 import { Formats as MonotypeOrigins             } from '../data/mods/monotypeorigins/formats';
 import { Formats as MonsterHunter               } from '../data/mods/monsterhunter/formats';
+import { Formats as MoonMons                   } from '../data/mods/moonmons/formats';
 import { Formats as PokemonThrone               } from '../data/mods/pokemonthrone/formats';
 import { Formats as MoreBalancedHackmons        } from '../data/mods/morebalancedhackmons/formats';
 import { Formats as NaturalSelection            } from '../data/mods/naturalselection/formats';
 import { Formats as NotMyType                   } from '../data/mods/notmytype/formats';
+import { Formats as OneStepFurther                } from '../data/mods/onestepfurther/formats';
 import { Formats as OUTheorymons                } from '../data/mods/outheorymons/formats';
+import { Formats as Pacifistmons                  } from '../data/mods/pacifistmons/formats';
 import { Formats as Paleomons                   } from '../data/mods/paleomons/formats';
 import { Formats as Patratdex                   } from '../data/mods/patratdex/formats';
+import { Formats as PledgeDoubles                 } from '../data/mods/pledgemons/formats';
 import { Formats as PLZA                        } from '../data/mods/plza/formats';
 //import { Formats as Pokebilities                } from '../data/mods/pokebilities/formats';
 //import { Formats as PokebilitiesBanhammers      } from '../data/mods/pokebilitiesbanhammers/formats';
@@ -237,6 +245,7 @@ import { Formats as TrainerSupport              } from '../data/mods/trainersupp
 import { Formats as TripleThreat                } from '../data/mods/triplethreat/formats';
 import { Formats as TwoStepMonsV3               } from '../data/mods/twostepmonsv3/formats';
 import { Formats as UmbreMons                   } from '../data/mods/umbremons/formats';
+import { Formats as Underdogs                   } from '../data/mods/underdogs/formats';
 import { Formats as UpsideDown                  } from '../data/mods/upsidedown/formats';
 import { Formats as WeatherWar                  } from '../data/mods/weatherwar/formats';
 import { Formats as Weedmons                    } from '../data/mods/weedmons/formats';
@@ -246,6 +255,7 @@ import { Formats as Worldbuilding               } from '../data/mods/worldbuildi
 //import { Formats as YayaMons                    } from '../data/mods/yayamons/formats';
 import { Formats as Yokaimons                   } from '../data/mods/yokaimons/formats';
 import { Formats as ZAOU						} from '../data/mods/gen9legendsou/formats';
+import { Formats as NatDexZa					} from '../data/mods/natdexza/formats';
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////
@@ -261,6 +271,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1BacktothePast,
 	...BanHammersC3,
 	...BearticPhone,
+	...BetterHackmons,
 	...BlankCanvas,
 	...Blindsided,
 	...gen1Burgundy,
@@ -290,6 +301,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SharedPowerIronFist,
 	...Ironmons,
 	...LittleColosseum,
+	...Macrometa,
 	...Masquerade,
 	...MegaRevolution,
 	...MegasForAllPaldea,
@@ -336,6 +348,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Worldbuilding,
 	...gen9VGC20XX,
 	...ZAOU,
+	...NatDexZa,
 	
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -378,9 +391,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ChatBats,
 	...ClubmonsRequiem,
 	...CommunityUsed2,
-	...ConquestDex,
 	...gen2CrystalLegacy,
   ...DeadCells,
+	...Deltamon,
 	...DenseAF,
 	//...DexReversal,
 	...DoNotUse,
@@ -391,6 +404,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ForgottenMons,
 	...FusionEvoCorruptCouncil,
 	...FusionEvolutionDondozo,
+	...Geekssandbox,
 	...GamenightCAP,
 	...gen9FusionEvolutionVGC,
 	//...gen1Glitch,
@@ -404,16 +418,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen1JumpStarted,
 	...KaensDex,
 	...gen1KantoExpansionPack,
+	...BoboliefFakemon,
 	...Lovelymod,
 	...LucklessPlay,
 	...Maadowr,
 	...MaadowrLostZone,
-	...MegaMania,
+	//...MegaMania,
 	...gen1Metronome,
+	...MoonMons,
+	...NationalDexExpanded,
 	...Solopet,
 	...MonotypeOrigins,
+	...OneStepFurther,
 	...gen1Moonside,
+	...Pacifistmons,
 	...Patratdex,
+	...PledgeDoubles,
 	...PokemoNorthSouthEastWest,
 	...Tamagotchi,
 	...PonymonShowdown,
@@ -434,6 +454,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...The331TypeChart,
 	...Touhou,
 	...gen1TradebacksExpanded,
+	...Underdogs,
 	...UpsideDown,
 	...gen1VioletVersion,
 	...WeatherWar,

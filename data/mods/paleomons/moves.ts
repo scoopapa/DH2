@@ -248,7 +248,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	hemlockhit: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 95,
 		category: "Physical",
 		name: "Hemlock Hit",
 		shortDesc: "30% chance to poison the target.",
@@ -304,8 +304,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				targetBoosts[stat] = target.boosts[stat];
 			}
 
-			target.setBoost({atk: targetBoosts.spa, spa: targetBoosts.atk});
+			if (!targetBoosts.atk && !targetBoosts.spa) return;
 
+			target.setBoost({atk: targetBoosts.spa, spa: targetBoosts.atk});
 			this.add('-setboost', target, 'atk', targetBoosts.spa ?? 0);
 			this.add('-setboost', target, 'spa', targetBoosts.atk ?? 0);
 		},
@@ -425,6 +426,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	twistedheart: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Twisted Heart",
+		shortDesc: "Guaranteed to crit if the target is Poisoned.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
 	
 	//vanilla moves affected by other customs
 	toxicspikes: {
@@ -522,5 +539,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	mountaingale: {
 		inherit: true,
 		accuracy: 100,
+	},
+	frostbreath: {
+		inherit: true,
+		basePower: 55,
 	},
 };

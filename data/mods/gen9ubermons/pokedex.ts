@@ -48,4 +48,27 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 50, atk: 90, def: 110, spa: 90, spd: 110, spe: 150},
 		abilities: {0: "Aftermath"},
 	},
+	xerneas: {
+		inherit: true,
+		types: ["Fairy", "Fighting"],
+		baseStats: {hp: 108, atk: 121, def: 80, spa: 71, spd: 84, spe: 86},
+	},
+	xerneasneutral: {
+		inherit: true,
+		types: ["Fairy", "Fighting"],
+		baseStats: {hp: 108, atk: 121, def: 80, spa: 71, spd: 84, spe: 86},
+	},
+	yveltal: {
+		inherit: true,
+		baseStats: {hp: 96, atk: 118, def: 75, spa: 94, spd: 78, spe: 94},
+		abilities: {0: "Intimidate", H: "Dark Aura"},
+	},
+	zygarde: {
+		inherit: true,
+		baseStats: {hp: 108, atk: 101, def: 100, spa: 101, spd: 85, spe: 75},
+	},
+	zygardecomplete: {
+		inherit: true,
+		baseStats: {hp: 216, atk: 81, def: 80, spa: 103, spd: 65, spe: 75},
+	},
 };

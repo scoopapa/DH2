@@ -721,6 +721,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Quark Drive spe boost');
 				return this.chainModify(1.5);
 			},

@@ -29,6 +29,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'deoxys').learnset.dynamicpunch;
 		delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
 		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
+		
+		this.modData("Learnsets", "yveltal").learnset.throatchop = ["9L1"];
+		delete this.modData('Learnsets', 'yveltal').learnset.knockoff;
+		delete this.modData('Learnsets', 'zygarde').learnset.coil;
 	},
 	
 	actions: {

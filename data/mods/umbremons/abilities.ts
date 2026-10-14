@@ -10,7 +10,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (['allAdjacentFoes', 'allAdjacent'].includes(move.target)) {
 				for (const allyActive of target.adjacentAllies()) {
 					// Announcing the ability when it procs
-                			if (allyActive.ability === 'massive' && allyActive != source) {
+                	if (allyActive.ability === 'massive' && allyActive != source) {
 						this.add('-ability', allyActive, 'Massive');
 						return null;
 					}
@@ -68,9 +68,193 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 	},
+	sandclock: {
+		num: -3,
+		desc: "Under Sandstorm, user skips Charge and Recharge turns. Immunity to Sandstorm damage. (note: this also ignores sand's damage reduction to moves like Solar Beam)",
+		shortDesc: "Under sandstorm, skips charge and recharge. Sand Immunity.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onChargeMove(pokemon, target, move) {
+			if (this.field.isWeather('sandstorm')) {
+				this.add('-ability', pokemon, 'Sandclock');
+				this.debug('sandclock - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (pokemon.getVolatile('mustrecharge')) {
+					this.add('-ability', pokemon, 'Sandclock');
+					pokemon.removeVolatile('mustrecharge');
+					this.add('-end', pokemon, 'mustrecharge');
+				}
+			}	
+		},
+		flags: {},
+		name: "Sandclock",
+	},
+	magicwarp: {
+		num: -4,
+		onStart(source) {
+			if (!this.field.getPseudoWeather('magicroom')) {
+				this.field.addPseudoWeather('magicroom');
+			}
+		},
+		onAnyPseudoWeatherChange() {
+			if (!this.field.getPseudoWeather('magicroom')) {
+				this.field.addPseudoWeather('magicroom');
+			}
+		},
+		onEnd(pokemon) {
+			this.field.removePseudoWeather('magicroom');
+		},
+		flags: {},
+		name: "Magic Warp",
+		shortDesc: "While active, Magic Room will also be active.",
+		desc: "While this ability is active, Magic Room will always be active. If Magic Room ends while this ability active, the the room will become active again.",
+	},
+	aerodynamism: {
+		num: -5,
+		name: "Aerodynamism",
+		desc: "This Pokemon's Wind moves do not miss. Wind move immunity.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				move.accuracy = true;
+				this.add('-immune', target, '[from] ability: Aerodynamism');
+				return null;
+			}
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (move && move.flags['wind'] && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		flags: {breakable: 1},
+	},
+	unbothered: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unbotheredUser = this.effectState.target;
+			if (unbotheredUser !== pokemon) return;
+			boosts['atk'] = 0;
+			boosts['def'] = 0;
+			boosts['spa'] = 0;
+			boosts['spd'] = 0;
+			boosts['accuracy'] = 0;
+			boosts['evasion'] = 0;
+		},
+		flags: {breakable: 1},
+		name: "Unbothered",
+		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
+		desc: "This Pokemon ignores its own stat stages when taking or doing damage.",
+		num: -6,
+	},
+	dualwield: {
+		num: -7,
+		name: "Dual Wield",
+		shortDesc: "Slicing moves hit twice and smart target, but have 3/4 damage.",
+		onModifyMove(move, pokemon) {
+			if (move.flags['slicing']) {
+				if(!move.multihit) {
+					move.multihit = 1;
+				}
+				move.multihit = move.multihit * 2;
+				move.smartTarget = true;
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Dual Wield debuff');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+	},
+	asonefalinks: {
+		num: -8,
+		name: "As One (Falinks)",
+		shortDesc: "Combination of the Intrepid Sword and Dauntless Shield abilities.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			if (!pokemon.swordBoost) {
+				pokemon.swordBoost = true;
+				this.boost({atk: 1}, pokemon, pokemon, this.dex.abilities.get('intrepidsword'));
+			}
+			if (!pokemon.shieldBoost) {
+				pokemon.shieldBoost = true;
+				this.boost({def: 1}, pokemon, pokemon, this.dex.abilities.get('dauntlessshield'));
+			}
+		},
+		flags: {},
+	},
+	downtoearth: {
+		// Hematite note:
+		// This *mostly* just handles  *messages* related to Down-to-Earth, while the actual effect is handled elsewhere:
+		// a section in scripts.ts handling field.isTerrain() for most purposes,
+		// plus additional hard-coding for Mimicry (here in abilities.ts), Terrain Pulse (moves.ts), and each terrain effect (moves.ts)
+		// because for sOME REASON none of those actually check field.isTerrain
+		onStart(pokemon) {
+			pokemon.abilityState.ending = false; // clear the ending flag
+			if (!this.field.isTerrain('')) {
+				this.add('-ability', pokemon, 'Down-to-Earth');
+				this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect);
+			}
+		},
+		onAnyTerrainStart(target, source, terrain) {
+			this.add('-ability', pokemon, 'Down-to-Earth');
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.ending = true;
+			if (!this.field.isTerrain('')) {
+				this.add('-message', `${pokemon.name} is no longer suppressing the effects of the terrain!`);
+				this.eachEvent('TerrainChange', this.effect); // this gives stuff like terrain seeds and Mimicry an opportunity to activate if nothing
+			}
+		},
+		flags: {},
+		name: "Down-to-Earth",
+		shortDesc: "Suppresses terrains.",
+		desc: "While this Pokémon is active, the effects of terrains are disabled.",
+		num: -9,
+	},
+	unfolding: {
+		num: -10,
+		name: "Unfolding",
+		shortDesc: "When targeting a Pokemon with 50% hp or less, moves first in its priority bracket.",
+		desc: "The user of the ability moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			if (action.move.target != 'allAdjacentFoes' && action.move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2 && pokemon != action.move.target) {
+				pokemon.addVolatile('unfolding');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Unfolding');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		flags: {},
+	},
+
 	// Adjusted Abilities
 	moldbreaker: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Mold Breaker');
 		},
@@ -85,6 +269,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	stalwart: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Stalwart');
 		},
@@ -99,6 +284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	propellertail: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Propeller Tail');
 		},
@@ -113,6 +299,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	thickfat: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn' || pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Thick Fat');
@@ -131,6 +318,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	healer: {
 		inherit: true,
+		modded: true, // this makes its description display in Data Mod
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
@@ -143,5 +331,179 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "At the end of every turn, gives 1/8 of its own hp to an ally.",
 		desc: "At the end of every turn, this Pokemon will attempt to heal injured allies equivalent to 1/8 of its own hp. On a successful heal, this Pokemon will damage itself for 1/8. If an ally is at full health, this heal will not be attempted.",
+	},
+	screencleaner: {
+		inherit: true,
+		modded: true, // this makes its description display in Data Mod
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				for (const side of [pokemon.side, ...pokemon.side.foeSidesWithConditions()]) {
+					if (side.getSideCondition(sideCondition)) {
+						if (!activated) {
+							this.add('-activate', pokemon, 'ability: Screen Cleaner');
+							this.boost({spa: 1});
+							activated = true;
+						}
+						side.removeSideCondition(sideCondition);
+					}
+				}
+			}
+		},
+		shortDesc: "On Switch-in, remove all screen effects from both sides of the field and +1 SpA if successful.",
+		desc: "On Switch-in, remove all screen effects from both sides of the field. If a screen gets removed, gain +1 Special Attack (does not stack)."
+	},
+	snowcloak: {
+		modded: true, // this makes its description display in Data Mod
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onAllyImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (!pokemon.hasType('Ice') && this.field.isWeather('snow')) {
+				this.debug("snow cloak def boost")
+				return this.modify(def, 1.5);
+			}
+		},
+		onAllyModifyDefPriority: 10,
+		onAllyModifyDef(def, pokemon) {
+			// Having multiple allies with this abil will not stack (technically irrelevant bc this format is doubles, but covering my bases anyways)
+			const source = this.effectState.source;
+			const snowCloakSources = pokemon.adjacentAllies().filter(
+				ally => ally.hasAbility('snowcloak')
+			);
+			if (!pokemon.hasType('Ice') && !pokemon.hasAbility('snowcloak') && this.field.isWeather('snow') && snowCloakSources[0] === source) {
+				this.debug("snow cloak ally def boost");
+				return this.modify(def, 1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Snow Cloak",
+		shortDesc: "Self and allies may gain Snow's Def boost.",
+		desc: "While Snow is active, grants the defensive benefits of the Snow (Def) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. While hail does not exist, to parallel Sand Veil this would grant hail immunity to self and allies if it could.",
+		num: 81,
+	},
+	sandveil: {
+		modded: true, // this makes its description display in Data Mod
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onAllyImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifySpDPriority: 10,
+		onModifySpD(spd, pokemon) {
+			if (!pokemon.hasType('Rock') && this.field.isWeather('sandstorm')) {
+				this.debug("sand veil spd boost")
+				return this.modify(spd, 1.5);
+			}
+		},
+		onAllyModifySpDPriority: 10,
+		onAllyModifySpD(spd, pokemon) {
+			// Having multiple allies with this abil will not stack (technically irrelevant bc this format is doubles, but covering my bases anyways)
+			const source = this.effectState.source;
+			const sandVeilSources = pokemon.adjacentAllies().filter(
+				ally => ally.hasAbility('sandveil')
+			);
+			if (!pokemon.hasType('Rock') && !pokemon.hasAbility('sandveil') && this.field.isWeather('sandstorm') && sandVeilSources[0] === source) {
+				this.debug("sand veil ally spd boost");
+				return this.modify(spd, 1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sand Veil",
+		shortDesc: "Self and allies may gain Sandstorm's SpD boost. Sandstorm Immunity to self and ally.",
+		desc: "While Sand is active, grants the defensive benefits of the Sandstorm (SpD) to self and allies, if they aren’t already recipients of this boost via type or having this ability themselves. Also grants immunity to sand chip to self and allies",
+		num: 8,
+	},
+	rattled: {
+		inherit: true,
+		modded: true, // this makes its description display in Data Mod
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({spe: 1}, target, target, null, false, true);
+			}
+		},
+		// Overwriting this method to just return since its now handled in onAfterEachBoost
+		onAfterBoost(boost, target, source, effect) {
+			return;
+		},
+		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or lowered stat.",
+		desc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or when a stat is lowered by a foe.",
+	},
+	illuminate: {
+		onStart(pokemon) {
+			pokemon.addVolatile('illuminate');
+		},
+
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
+				return priority + 3;
+			}
+		},
+
+		onAfterMove(pokemon, target, move) {
+			if (move?.type === 'Normal' && pokemon.volatiles['illuminate']) {
+				pokemon.removeVolatile('illuminate');
+			}
+		},
+		flags: {},
+		name: "Illuminate",
+		num: 35,
+		shortDesc: "This Pokemon's first Normal move on entry gets +3 priority.",
+	},
+	mimicry: {
+		inherit: true,
+		modded: true,
+		onTerrainChange(pokemon) {
+			let terrainType;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				terrainType = 'Electric';
+				break;
+			case 'grassyterrain':
+				terrainType = 'Grass';
+				break;
+			case 'mistyterrain':
+				terrainType = 'Fairy';
+				break;
+			case 'psychicterrain':
+				terrainType = 'Psychic';
+				break;
+			default:
+				terrainType = null;
+			}
+			if (this.field.terrain && !this.field.suppressingTerrain()) {
+				// there is a terrain *and* Down-to-Earth isn't suppressing it
+				if (terrainType && !pokemon.hasType(terrainType)) {
+					if (pokemon.setType(pokemon.baseSpecies.types)) {
+						this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[silent]');
+						if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					}
+					if (pokemon.addType(terrainType)) this.add('-start', pokemon, 'typeadd', terrainType, '[from] ability: Mimicry');
+				}
+			} else {
+				// there is no terrain at all, or Down-to-Earth is suppressing it
+				if (pokemon.types !== pokemon.baseSpecies.types && pokemon.setType(pokemon.baseSpecies.types)) {
+					if (pokemon.transformed) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+					this.add('-start', pokemon, 'typechange',  pokemon.getTypes().join('/'), '[from] ability: Mimicry');
+				}
+			}
+		},
+		shortDesc: "Adds a type to the Pokémon based on the terrain.",
+		desc: "Adds an additional type to the Pokémon based on the terrain.",
 	},
 };

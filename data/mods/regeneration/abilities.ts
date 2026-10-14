@@ -327,4 +327,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		shortDesc: "Sandstorm does 2x damage while this Pokemon is active. Held Booster Energy will set up Sandstorm once for 8 turns.",
 	},
+	shortfuse: {
+		onModifyAtk(atk, attacker, defender, move) {
+			if (['explosion','selfdestruct','bravebird','headcharge','volttackle','doubleedge','flareblitz',
+				  'headsmash','submission','takedown','woodhammer','wavecrash','wildcharge'].includes(move.id)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (['mistyexplosion','steelbeam','mindblown','chloroblast','lightofruin'].includes(move.id)) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Short Fuse",
+		rating: 4.5,
+		shortDesc: "Moves that damage the user halve the target(s)'s Defense in calculation.",
+	},
+	rollingstone: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				target.addVolatile('rollingstone');
+				this.add('-ability', target, 'Rolling Stone');
+				this.add('-message', `${target.name} is about to to roll away!`);
+			}
+		},
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				this.add('-ability', pokemon, 'Rolling Stone');
+				this.add('-message', `${pokemon.name} rolled away!`);
+				pokemon.switchFlag = true;
+			},
+		},
+		name: "Rolling Stone",
+		rating: 4.5,
+		shortDesc: "Switches out at end the turn if hit by a contact move.",
+	},
 };

@@ -3155,7 +3155,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["hiddenpowergrass", "hydropump", "icebeam", "shellsmash"],
+                "movepool": ["hydropump", "icebeam", "shellsmash", "storedpower"],
                 "abilities": ["Against Current"]
             }
         ]
@@ -3716,7 +3716,7 @@
         ]
     },
     "lopunny": {
-        "level": 87,
+        "level": 91,
         "sets": [
             {
                 "role": "Fast Attacker",

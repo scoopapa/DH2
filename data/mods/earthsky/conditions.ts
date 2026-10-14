@@ -39,7 +39,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost'] || (pokemon.volatiles['nointerrupt']?.ignore.includes('frz'))) return;
-			if (this.randomChance(pokemon.statusState.time, 4)) {
+			if (this.randomChance(pokemon.statusState.time, 3)) {
 				pokemon.cureStatus();
 				return;
 			} else if(!pokemon.volatiles['stasis']){
@@ -66,6 +66,42 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (type === 'snow') return false;
 		},
 		damage: "  [POKEMON] is hurt by the freezing cold!",
+	},
+	slp: {
+		inherit: true,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', `[from] move: ${sourceEffect.name}`);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			this.effectState.startTime = 3;
+			this.effectState.time = this.effectState.startTime;
+
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
+		},
+		onBeforeMove(pokemon, target, move) {
+			if(!pokemon.volatiles['stasis']){
+				if (pokemon.hasAbility('earlybird')) {
+					pokemon.statusState.time--;
+				}
+				pokemon.statusState.time--;
+				if (pokemon.statusState.time <= 0) {
+					pokemon.cureStatus();
+					return;
+				}
+			}
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('slp')) return;
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
 	},
 	trapped: {
 		inherit: true,
@@ -380,27 +416,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
-		},
-	},
-	slp: {
-		inherit: true,
-		onBeforeMove(pokemon, target, move) {
-			if(!pokemon.volatiles['stasis']){
-				if (pokemon.hasAbility('earlybird')) {
-					pokemon.statusState.time--;
-				}
-				pokemon.statusState.time--;
-				if (pokemon.statusState.time <= 0) {
-					pokemon.cureStatus();
-					return;
-				}
-			}
-			if(pokemon.volatiles['nointerrupt']?.ignore.includes('slp')) return;
-			this.add('cant', pokemon, 'slp');
-			if (move.sleepUsable) {
-				return;
-			}
-			return false;
 		},
 	},
 	choicelock: {

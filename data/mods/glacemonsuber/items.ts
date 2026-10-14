@@ -66,10 +66,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move && move.type === 'Dark' && source.baseSpecies.baseSpecies === 'Kingambit') {
+			if (move && move.type === 'Dark' && attacker.baseSpecies.baseSpecies === 'Kingambit') {
 				return this.chainModify([5325, 4096]);
 			}
-			if (!source.baseSpecies.baseSpecies === 'Kingambit' && move.type === 'Dark' && attacker.volatiles['kingscrown']) {
+			if (!attacker.baseSpecies.baseSpecies === 'Kingambit' && move.type === 'Dark' && attacker.volatiles['kingscrown']) {
 				attacker.removeVolatile('kingscrown');
 				return this.chainModify(1.5);
 			}

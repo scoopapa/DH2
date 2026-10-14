@@ -231,7 +231,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'tauros').learnset.wildcharge;
 		// Timburr-Conch
 		this.modData("Learnsets", "timburr").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "timburr").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.bubble = ["9L1"];
+		this.modData("Learnsets", "timburr").learnset.calmmind = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.hypervoice = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.razorshell = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.scorchingsands = ["9L1"];
@@ -245,7 +247,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'timburr').learnset.poweruppunch;
 		// Gurdurr-Conch
 		this.modData("Learnsets", "gurdurr").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "gurdurr").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "gurdurr").learnset.bubble = ["9L1"];
+		this.modData("Learnsets", "gurdurr").learnset.calmmind = ["9L1"];
 		this.modData("Learnsets", "gurdurr").learnset.hypervoice = ["9L1"];
 		this.modData("Learnsets", "gurdurr").learnset.razorshell = ["9L1"];
 		this.modData("Learnsets", "gurdurr").learnset.scorchingsands = ["9L1"];
@@ -259,7 +263,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'gurdurr').learnset.poweruppunch;
 		// Conkeldurr-Conch
 		this.modData("Learnsets", "conkeldurr").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "conkeldurr").learnset.bubble = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.calmmind = ["9L1"];
 		this.modData("Learnsets", "conkeldurr").learnset.hypervoice = ["9L1"];
 		this.modData("Learnsets", "conkeldurr").learnset.razorshell = ["9L1"];
 		this.modData("Learnsets", "conkeldurr").learnset.scorchingsands = ["9L1"];

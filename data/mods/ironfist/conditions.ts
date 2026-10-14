@@ -277,4 +277,18 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return 5;
 		},
 	},
+
+	//slate uhh
+	diamondhand: {
+		name: 'diamondhand',
+		duration: 1,
+		onSwitchIn(target) {
+			if (!target.hasAbility('honorstudent')) return;
+			this.add('-ability', target, 'Honor Student');
+			for (const foe of target.adjacentFoes()) {
+				this.damage(Math.floor(foe.baseMaxhp * 0.12), foe, target);
+			}
+			target.side.removeSlotCondition(target, 'diamondhand');
+		},
+	},
 };

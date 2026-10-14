@@ -9,10 +9,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			const item = this.data.Items[i];
 			if (!item.megaStone && !item.onDrive && !(item.onPlate && !item.zMove) && !item.onMemory) continue;
 			this.modData('Items', i).onTakeItem = false;
-			if (item.isNonstandard === "Past") this.modData('Items', i).isNonstandard = null;
-			if (item.megaStone) {
+			// if (item.isNonstandard === "Past") this.modData('Items', i).isNonstandard = null;
+		/*	if (item.megaStone) {
 				this.modData('FormatsData', this.toID(item.megaStone)).isNonstandard = null;
-			}
+			} */
 		}
 	},
 	start() {

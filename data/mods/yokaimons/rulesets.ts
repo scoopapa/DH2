@@ -194,40 +194,27 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onEffectivenessPriority: 1,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move.category === 'Special') {
-				if (type === 'Drain' || type === 'Restoration') return 0;
-				// Same element = resist
-				if (target.element == type ||
-				(target.element === 'Earth' && type === 'Rock') ||
-				(target.element === 'Wind' && type === 'Flying') ||
-				(target.element === 'Lightning' && type === 'Electric')) return 2;
-				// Element weaknesses
-				else if ((target.element === 'Fire' && type === 'Water') ||
-						(target.element === 'Water' && type === 'Electric') ||
-						(target.element === 'Lightning' && type === 'Rock') ||
-						(target.element === 'Earth' && type === 'Flying') ||
-						(target.element === 'Wind' && type === 'Ice') ||
-						(target.element === 'Ice' && type === 'Fire')) {
-							if (target?.volatiles['guard'] && target?.hasAbility('spiritguard')) return 0;
-							return 1;
-						}
-				else return 0;
-			} else if (move.category === 'Physical') {
-				if (type === 'Drain' || type === 'Restoration') return;
-				// Same element = resist
-				if (target.element === type ||
-				(target.element === 'Earth' && type === 'Rock') ||
-				(target.element === 'Wind' && type === 'Flying') ||
-				(target.element === 'Lightning' && type === 'Electric')) return -1;
-				// Attribute weaknesses
-				else if ((target.element === 'Fire' && type === 'Water') ||
-						(target.element === 'Water' && type === 'Electric') ||
-						(target.element === 'Lightning' && type === 'Rock') ||
-						(target.element === 'Earth' && type === 'Flying') ||
-						(target.element === 'Wind' && type === 'Ice') ||
-						(target.element === 'Ice' && type === 'Fire')) return 1;
+		onSourceModifyDamagePriority: 1,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category !== 'Special') return;
+			// Same element = resist
+			if (target.element === move.type ||
+			(target.element === 'Earth' && move.type === 'Rock') ||
+			(target.element === 'Wind' && move.type === 'Flying') ||
+			(target.element === 'Lightning' && move.type === 'Electric')) {
+				this.add('-resisted', target);
+				return this.chainModify(0.5);
+			}
+			// Element weaknesses
+			if ((target.element === 'Fire' && move.type === 'Water') ||
+				(target.element === 'Water' && move.type === 'Electric') ||
+				(target.element === 'Lightning' && move.type === 'Rock') ||
+				(target.element === 'Earth' && move.type === 'Flying') ||
+				(target.element === 'Wind' && move.type === 'Ice') ||
+				(target.element === 'Ice' && move.type === 'Fire')) {
+				if (target?.volatiles['guard'] && target?.hasAbility('spiritguard')) return;
+				this.add('-supereffective', target);
+				return this.chainModify(2);
 			}
 		},
 	},

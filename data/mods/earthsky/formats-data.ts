@@ -2440,8 +2440,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'LC'
 	},
 	minior: {
-		tier: 'OU',
-		natDexTier: 'OU'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	sandaconda: {
 		tier: 'OU',

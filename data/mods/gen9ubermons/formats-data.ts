@@ -3467,17 +3467,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	xerneas: {
 		inherit: true,
-		tier: "AG",
+		tier: "OU",
 	},
 	xerneasneutral: {
 	},
 	yveltal: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zygarde: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zygarde10: {
 		inherit: true,
@@ -3485,7 +3485,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zygardecomplete: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	diancie: {
 		inherit: true,

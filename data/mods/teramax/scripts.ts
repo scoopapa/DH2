@@ -1,10 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	teambuilderConfig: {
+	/*teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 		customDoublesTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
-	},
+	},*/
 	init() {
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
@@ -254,6 +254,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "charizard").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "gengar").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "gengar").learnset.chillyreception = ["9L1"];
+		delete this.modData('Learnsets', 'gastly').learnset.gigadrain;
+		delete this.modData('Learnsets', 'gastly').learnset.energyball;
+		delete this.modData('Learnsets', 'haunter').learnset.gigadrain;
+		delete this.modData('Learnsets', 'haunter').learnset.energyball;
+		delete this.modData('Learnsets', 'gengar').learnset.gigadrain;
+		delete this.modData('Learnsets', 'gengar').learnset.energyball;
 		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
 		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
 		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];

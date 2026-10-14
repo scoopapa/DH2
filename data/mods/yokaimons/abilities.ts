@@ -170,7 +170,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			const allies = pokemon.adjacentAllies();
 			if (!allies.length) return;
-			this.add('-activate', this.effectState.target, 'ability: Caring');
 			for (const ally of allies) {
 				this.heal(Math.floor(ally.baseMaxhp / 16), ally, pokemon);
 			}
@@ -816,25 +815,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     	desc: "This Yo-kai restores the HP of adjacent allies by 1/16 at the end of each turn.",
 	},
 	penetrate: {
-		onEffectivenessPriority: 2,
-		onEffectiveness(typeMod, target, type, move) {
+		onSourceModifyDamagePriority: 2,
+		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category !== 'Physical') return;
-			if (!(move.type === this.effectState.target.element ||
-				(move.type === 'Rock' && this.effectState.target.element === 'Earth') ||
-				(move.type === 'Flying' && this.effectState.target.element === 'Wind') ||
-				(move.type === 'Electric' && this.effectState.target.element === 'Lightning'))) return;
-			if (type === 'Drain' || type === 'Restoration') return 0;
-			if (target.element === type ||
-			(target.element === 'Earth' && type === 'Rock') ||
-			(target.element === 'Wind' && type === 'Flying') ||
-			(target.element === 'Lightning' && type === 'Electric')) return 2;
-			else if ((target.element === 'Fire' && type === 'Water') ||
-					(target.element === 'Water' && type === 'Electric') ||
-					(target.element === 'Lightning' && type === 'Rock') ||
-					(target.element === 'Earth' && type === 'Flying') ||
-					(target.element === 'Wind' && type === 'Ice') ||
-					(target.element === 'Ice' && type === 'Fire')) return 1;
-			else return 0;
+			// Same element = resist
+			if (target.element === move.type ||
+			(target.element === 'Earth' && move.type === 'Rock') ||
+			(target.element === 'Wind' && move.type === 'Flying') ||
+			(target.element === 'Lightning' && move.type === 'Electric')) {
+				this.add('-resisted', target);
+				return this.chainModify(0.5);
+			}
+			// Element weaknesses
+			if ((target.element === 'Fire' && move.type === 'Water') ||
+				(target.element === 'Water' && move.type === 'Electric') ||
+				(target.element === 'Lightning' && move.type === 'Rock') ||
+				(target.element === 'Earth' && move.type === 'Flying') ||
+				(target.element === 'Wind' && move.type === 'Ice') ||
+				(target.element === 'Ice' && move.type === 'Fire')) {
+				if (target?.volatiles['guard'] && target?.hasAbility('spiritguard')) return;
+				this.add('-supereffective', target);
+				return this.chainModify(2);
+			}
 		},
 		flags: {},
 		name: "Penetrate",
@@ -915,8 +917,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	revenge: {
 		onDamagingHit(damage, target, source, move) {
-			if (!target.fainted && move.type !== 'Drain') {
-				this.add('-activate', this.effectState.target, 'ability: Revenge');
+			if (target.hp > 0 && move.type !== 'Drain') {
 				this.damage(Math.floor(damage * 0.25), source, target);
 			}
 		},
@@ -1279,12 +1280,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.soultimateMove) return;
 			const maxCharge = this.dex.moves.get(pokemon.soultimateMove).soultimateMaxCharge!;
 			if (pokemon.soultimateCharge >= maxCharge) return;
+			const oldCharge = pokemon.soultimateCharge;
 			pokemon.soultimateCharge = Math.min(pokemon.soultimateCharge + 1, maxCharge);
+			this.add('-end', pokemon, `soultimate${oldCharge}`, '[silent]');
+			this.add('-start', pokemon, `soultimate${pokemon.soultimateCharge}`, '[silent]');
 		},
 		flags: {},
 		name: "Venocharge",
 		shortDesc: "This Yo-kai's Soultimate gains an additional charge at the end of each turn.",
-    	desc: "This Yo-kai's Soultimate gains an additional charge at the end of each turn.",
+		desc: "This Yo-kai's Soultimate gains an additional charge at the end of each turn.",
 	},
 	waterproof: {
 		onSourceModifyAtkPriority: 5,

@@ -92,14 +92,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Double-Edge", target);
 		},
       basePowerCallback(pokemon, target, move) {
-      	if (pokemon.status && pokemon.status !== 'slp', 'frz') {
+      	if (pokemon.status && pokemon.status !== 'slp') {
          	this.debug('BP boosted from status condition');
             return move.basePower * 1.5;
          }
          return move.basePower;
       },
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			if (['', 'slp'].includes(pokemon.status)) return false;
 			pokemon.cureStatus();
 		},
 		secondary: null,
@@ -507,6 +507,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onAfterMoveSecondarySelf(pokemon, target, move) {
 				if (move.category === 'Status' && move.id !== 'selfrepairing') {
 					this.heal(pokemon.baseMaxhp / 4);
+					pokemon.removeVolatile('selfrepairing');
 				}
 			},
 		},
@@ -635,10 +636,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -1155,7 +1156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				let i: BoostID;
 				if (!target) return;
 				for (i in target.boosts) {
-					if (target.boosts[i] !== 0) hasBoost = true;
+					if (target.boosts[i] > 0) hasBoost = true;
 				}
 				if (hasBoost) {
 					target.trySetStatus('brn', source, move);
@@ -2028,13 +2029,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			boosts: {
+				atk: -1,
+			},
 		},
 		isViable: true,
-		flags: {contact: 0},
+		flags: {contact: 1},
 		type: "Rock",
-		desc: "Has a 10% chance to confuse the target.",
-		shortDesc: "10% chance to confuse the target.",
+		desc: "Has a 10% chance to lower target's Atk by 1.",
+		shortDesc: "10% chance to lower target's Atk by 1.",
 	},
 	bonfire: {
 		num: -36,

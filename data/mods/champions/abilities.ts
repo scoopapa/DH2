@@ -26,7 +26,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
-			if (!target.runImmunity(move)) return;
+			if (!target.runImmunity(move.type)) return;
 			this.effectState.neutral = true;
 			return 0;
 		},
@@ -81,6 +81,19 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Regenerator', '[silent]');
 			}
 		},
+	},
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = false;
+		},
+		onMaybeTrapPokemonPriority: -10,
+		onMaybeTrapPokemon(pokemon) {
+			pokemon.maybeTrapped = false;
+		},
+		shortDesc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
+		desc: "This pokemon may switch out regardless of trapping moves and/or abilities.",
 	},
 	spicyspray: {
 		inherit: true,

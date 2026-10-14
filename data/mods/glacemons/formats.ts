@@ -20,6 +20,9 @@ export const Formats: FormatData[] = [
 			'Dungeon\s Looplet + Wobbuffet', 'Dungeon\s Looplet + Wynaut', 'Dungeon\s Looplet + Gothita', 'Dungeon\s Looplet + Gothorita', 'Dungeon\s Looplet + Gothitelle',
 			// will free later on
 			'Parallel Mega Orb',
+			// new balance patch
+			 'Light Clay',
+			//'Dungeon\s Looplet', 
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex',
