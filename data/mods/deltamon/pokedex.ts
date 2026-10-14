@@ -1195,7 +1195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Glyde",
 		types: ["Flying"],
 		gender: "M",
-		baseStats: {hp: 85, atk: 85, def: 58, spa: 66, spd: 74, spe: 132},
+		baseStats: {hp: 85, atk: 85, def: 58, spa: 68, spd: 74, spe: 130},
 		abilities: {0: "Aerilate"},
 		weightkg: 65,
 	},
