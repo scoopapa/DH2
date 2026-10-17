@@ -495,7 +495,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	kommoomega: {
 		num: 784,
 		name: "Kommo-o-Mega",
-		baseSpecies: "Kommoo",
+		baseSpecies: "Kommo-o",
 		forme: "Mega",
 		types: ["Dragon", "Fighting"],
 		baseStats: { hp: 75, atk: 130, def: 135, spa: 130, spd: 135, spe: 95 },

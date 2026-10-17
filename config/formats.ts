@@ -213,6 +213,7 @@ import { Formats as Rpgmod                      } from '../data/mods/rpgmod/form
 import { Formats as Scootopia                   } from '../data/mods/scootopia/formats';
 import { Formats as ScootopiaV4                 } from '../data/mods/scootopiav4/formats';
 import { Formats as SecretSanta                 } from '../data/mods/secretsanta/formats';
+import { Formats as SecretSantav2                 } from '../data/mods/secretsantav2/formats';
 import { Formats as SetInStone                  } from '../data/mods/setinstone/formats';
 //import { Formats as SharedPower                 } from '../data/mods/sharedpower/formats';
 import { Formats as SharedPowerIronFist         } from '../data/mods/sharedpowerironfist/formats';
@@ -329,6 +330,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ReturnToOrreTercera,
 	...Roulettemons2,
 	...SecretSanta,
+	...SecretSantav2,
 	...SetInStone,
 	...gen3ShadowColosseum,
 	...SixBySix,
