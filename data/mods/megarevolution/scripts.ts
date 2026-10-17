@@ -213,5 +213,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emboar").learnset.scorchingsands = ["9L1"];
 		
 		this.modData("Learnsets", "lucario").learnset.ancientpower = ["9L1"];
+		
+		this.modData("Learnsets", "drampa").learnset.whirlwind = ["9L1"];
+		this.modData("Learnsets", "drampa").learnset.dragontail = ["9L1"];
 	},
 };
