@@ -83,4 +83,40 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Resetmons",
 		doublesTier: "Resetmons Doubles",
 	},
+	pristycle: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	penguini: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	morterror: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	rottern: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	tapuwaka: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	vrooosh: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	salamenace: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	tropisaur: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
+	pyrokinestone: {
+		tier: "Resetmons",
+		doublesTier: "Resetmons Doubles",
+	},
 }
