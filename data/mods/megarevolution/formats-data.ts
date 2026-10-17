@@ -5068,4 +5068,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	paladaura: {
 		tier: "OU",
 	},
+	algrake: {
+		tier: "OU",
+	},
+	drancestor: {
+		tier: "OU",
+	},
+	baxcaliburhisui: {
+		tier: "OU",
+	},
 };
