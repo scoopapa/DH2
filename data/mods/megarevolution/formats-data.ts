@@ -5020,9 +5020,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	leonid: {
 		tier: "OU",
 	},
-	gyarados: {
-		tier: "OU",
-	},
 	atrociathan: {
 		tier: "OU",
 	},

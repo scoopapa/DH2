@@ -1,4 +1,4 @@
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stormbringer: {
 		onModifyMove(source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod >= 0) {
@@ -34,7 +34,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
 			const stickyWebs = side.sideConditions['stickywebs'];
-			if (move.category === 'Physical' && (!stickyWebs) {
+			if (move.category === 'Physical' && (!stickyWebs)) {
 				this.add('-activate', target, 'ability: Silky');
 				side.addSideCondition('stickywebs', target);
 			}

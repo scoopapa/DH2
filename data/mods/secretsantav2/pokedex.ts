@@ -1,4 +1,4 @@
-export const Pokedex: {[nameid: string]: nameData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	kindendron: {
 		num: 2000,
 		name: "Kindendron",
@@ -23,6 +23,10 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		abilities: {0: "Prankster", 1: "Run Away", H: "Technician"},
 		weightkg: 14.78,
 	},
+	spinda: {
+		inherit: true,
+		evos: ["Alloyinda"],
+	},
 	alloyinda: {
 		num: 2003,
 		name: "Alloyinda",
@@ -30,9 +34,15 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		baseStats: {hp: 180, atk: 90, def: 60, spa: 60, spd: 90, spe: 60},
 		abilities: {0: "Own Tempo", 1: "Tangled Feet", H: "Scrappy"},
 		weightkg: 50,
+		prevo: "Spinda",
+	},
+	eelektross: {
+		inherit: true,
+		otherFormes: ["Eelektross-Hisui"],
+		formeOrder: ["Eelektross", "Eelektross-Hisui"],
 	},
 	eelektrosshisui: {
-		num: 2004,
+		num: 604,
 		name: "Eelektross-Hisui",
 		baseSpecies: "Eelektross",
 		forme: "Hisui",
@@ -42,7 +52,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		weightkg: 60.5,
 	},
 	driftia: {
-		num: 2005,
+		num: 2004,
 		name: "Driftia",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 121, atk: 99, def: 55, spa: 99, spd: 55, spe: 121},
@@ -50,41 +60,44 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		weightkg: 1,
 	},
 	guande: {
-		num: 2006,
+		num: 2005,
 		name: "Guan-De",
-		baseSpecies: "Guan",
-		forme: "De",
 		types: ["Electric", "Ghost"],
 		baseStats: {hp: 105, atk: 90, def: 80, spa: 120, spd: 80, spe: 75},
 		abilities: {0: "Crown Of Ruin"},
 		weightkg: 54,
 	},
 	numel2: {
-		num: 2007,
-		name: "Numel 2",
+		num: 2006,
+		name: "Numel2",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 75, atk: 75, def: 60, spa: 120, spd: 90, spe: 80},
 		abilities: {0: "Dry Skin"},
 		weightkg: 25,
 	},
 	smogale: {
-		num: 2008,
+		num: 2007,
 		name: "Smogale",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 115, atk: 100, def: 100, spa: 65, spd: 75, spe: 65},
 		abilities: {0: "Illusion"},
 		weightkg: 69,
 	},
-	gjallarröst: {
-		num: 2009,
-		name: "Gjallarröst",
+	gjallarroest: {
+		num: 2008,
+		name: "Gjallarroest",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 85, atk: 65, def: 80, spa: 95, spd: 95, spe: 120},
 		abilities: {0: "Infiltrator", 1: "Pressure", H: "Wind Rider"},
 		weightkg: 190,
 	},
+	drampa: {
+		inherit: true,
+		otherFormes: ["Drampa-Santian"/*, "Drampa-Santian-Mega"*/],
+		formeOrder: ["Drampa", "Drampa-Santian"/*, "Drampa-Santian-Mega"*/],
+	},
 	drampasantian: {
-		num: 2010,
+		num: 780,
 		name: "Drampa-Santian",
 		baseSpecies: "Drampa",
 		forme: "Santian",
@@ -92,11 +105,11 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		baseStats: {hp: 88, atk: 50, def: 75, spa: 125, spd: 111, spe: 36},
 		abilities: {0: "Regenerator", H: "Silky"},
 		weightkg: 1,
-		otherFormes: ["Alakazam-Mega"],
-		formeOrder: ["Drampa-Santian", "Drampa-Santian-Mega"],
+		//otherFormes: ["Drampa-Mega"],
+		//formeOrder: ["Drampa-Santian", "Drampa-Santian-Mega"],
 	},
-	drampasantianmega: {
-		num: 2010,
+	/*drampasantianmega: {
+		num: 780,
 		name: "Drampa-Santian-Mega",
 		baseSpecies: "Drampa-Santian",
 		forme: "Mega",
@@ -104,5 +117,6 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		baseStats: {hp: 88, atk: 75, def: 100, spa: 150, spd: 136, spe: 36},
 		abilities: {0: "Rocky Payload"},
 		weightkg: 1,
-	},
+		requiredItem: "Drampanite",
+	},*/
 };

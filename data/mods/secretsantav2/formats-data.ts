@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	kindendron: {
 		tier: "santa",
 	},
@@ -26,13 +26,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	smogale: {
 		tier: "santa",
 	},
-	gjallarröst: {
+	gjallarroest: {
 		tier: "santa",
 	},
 	drampasantian: {
 		tier: "santa",
 	},
-	drampasantianmega: {
+	/*drampasantianmega: {
 		tier: "santa",
-	},
+	},*/
 };
