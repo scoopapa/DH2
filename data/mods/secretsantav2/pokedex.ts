@@ -64,7 +64,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Guan-De",
 		types: ["Electric", "Ghost"],
 		baseStats: {hp: 105, atk: 90, def: 80, spa: 120, spd: 80, spe: 75},
-		abilities: {0: "Crown Of Ruin"},
+		abilities: {0: "Crown of Ruin"},
 		weightkg: 54,
 	},
 	numel2: {
@@ -93,8 +93,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	drampa: {
 		inherit: true,
-		otherFormes: ["Drampa-Santian"/*, "Drampa-Santian-Mega"*/],
-		formeOrder: ["Drampa", "Drampa-Santian"/*, "Drampa-Santian-Mega"*/],
+		otherFormes: ["Drampa-Santian", "Drampa-Santian-Mega"],
+		formeOrder: ["Drampa", "Drampa-Santian", "Drampa-Santian-Mega"],
 	},
 	drampasantian: {
 		num: 780,
@@ -104,11 +104,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 88, atk: 50, def: 75, spa: 125, spd: 111, spe: 36},
 		abilities: {0: "Regenerator", H: "Silky"},
-		weightkg: 1,
-		//otherFormes: ["Drampa-Mega"],
-		//formeOrder: ["Drampa-Santian", "Drampa-Santian-Mega"],
+		weightkg: 185,
+		otherFormes: ["Drampa-Mega"],
+		formeOrder: ["Drampa-Santian", "Drampa-Santian-Mega"],
 	},
-	/*drampasantianmega: {
+	drampasantianmega: {
 		num: 780,
 		name: "Drampa-Santian-Mega",
 		baseSpecies: "Drampa-Santian",
@@ -116,7 +116,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 88, atk: 75, def: 100, spa: 150, spd: 136, spe: 36},
 		abilities: {0: "Rocky Payload"},
-		weightkg: 1,
+		weightkg: 185,
+		battleOnly: "Drampa-Santian",
 		requiredItem: "Drampanite",
-	},*/
+	},
 };

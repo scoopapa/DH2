@@ -32,7 +32,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	drampasantian: {
 		tier: "santa",
 	},
-	/*drampasantianmega: {
+	drampasantianmega: {
 		tier: "santa",
-	},*/
+	},
 };

@@ -1,6 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stormbringer: {
-		onModifyMove(source, target, move) {
+		onAfterMoveSecondarySelf(source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod >= 0) {
 				this.field.setWeather('raindance');
 			}
@@ -16,13 +16,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Crown of Ruin');
 		},
-		onAnyModifySpe(spe, target, source, move) {
-			const abilityHolder = this.effectState.target;
-			if (target.hasAbility('Crown of Ruin')) return;
-			if (!move.ruinedSpe?.hasAbility('Crown of Ruin')) move.ruinedSpe = abilityHolder;
-			if (move.ruinedSpe !== abilityHolder) return;
-			this.debug('Crown of Ruin Spe drop');
-			return this.chainModify(0.75);
+		onAnyModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('Crown of Ruin')) {
+				this.debug('Crown of Ruin Spe drop');
+				return this.chainModify(0.75);
+			}
+
 		},
 		flags: {},
 		name: "Crown of Ruin",
@@ -33,10 +32,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	silky: {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
-			const stickyWebs = side.sideConditions['stickywebs'];
+			const stickyWebs = side.sideConditions['stickyweb'];
 			if (move.category === 'Physical' && (!stickyWebs)) {
 				this.add('-activate', target, 'ability: Silky');
-				side.addSideCondition('stickywebs', target);
+				side.addSideCondition('stickyweb', target);
 			}
 		},
 		flags: {},
