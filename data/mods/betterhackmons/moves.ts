@@ -18,4 +18,81 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	*/
+	
+	//unchanged
+	healorder: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spectralthief: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	
+	//modded
+	triplearrows: {
+		inherit: true,
+		shortDesc: "Hits 3 times. Always crits.",
+		basePower: 20,
+		multihit: 3,
+		critRatio: null,
+		willCrit: true,
+		secondaries: null,
+	},
+	stoneaxe: {
+		inherit: true,
+		shortDesc: "100% chance to set Stealth Rock if the target resists the move.",
+		onAfterHit: null,
+		onAfterSubDamage: null,
+		secondaries: [
+			{
+				chance: 100,
+				onAfterHit(target, source, move) {
+					if (!source.hp) return;
+					if (target.getMoveHitData(move).typeMod < 0) {
+						source.side.foe.addSideCondition('stealthrock');
+					}
+				},
+			},
+			{
+				chance: 100,
+				onAfterSubDamage(damage, target, source, move) {
+					if (!source.hp) return;
+					if (target.getMoveHitData(move).typeMod < 0) {
+						source.side.foe.addSideCondition('stealthrock');
+					}
+				},
+			},
+		],
+	},
+	ceaselessedge: {
+		inherit: true,
+		shortDesc: "100% chance to set Spikes if the target resists the move.",
+		onAfterHit: null,
+		onAfterSubDamage: null,
+		secondaries: [
+			{
+				chance: 100,
+				onAfterHit(target, source, move) {
+					if (!source.hp) return;
+					if (target.getMoveHitData(move).typeMod < 0) {
+						source.side.foe.addSideCondition('spikes');
+					}
+				},
+			},
+			{
+				chance: 100,
+				onAfterSubDamage(damage, target, source, move) {
+					if (!source.hp) return;
+					if (target.getMoveHitData(move).typeMod < 0) {
+						source.side.foe.addSideCondition('spikes');
+					}
+				},
+			},
+		],
+	},
 };
