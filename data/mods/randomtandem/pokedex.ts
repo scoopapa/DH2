@@ -2082,5 +2082,215 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 				['voltswitch', 'thunderbolt', 'morningsun'],
 			],
 		],
-	}
+	},
+	rotommow: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'Ceruledge',
+					item: 'heavydutyboots',
+					ability: 'flashfire',
+					teraType: ['Grass', 'Fairy', 'Bug'],
+					nature: 'Careful',
+				},
+				['bitterblade', 'swordsdance'],
+				['shadowsneak', 'morningsun'],
+			],
+			[
+				{
+					species: 'Solgaleo',
+					item: 'lifeorb',
+					gender: 'N',
+					ability: 'fullmetalbody',
+					teraType: ['Electric', 'Dark'],
+					nature: 'Naive',
+				},
+				['sunsteelstrike', 'closecombat'],
+				['thunderbolt', 'psychic'],
+			],
+			[
+				{
+					species: 'Koraidon',
+					item: 'assaultvest',
+					gender: 'N',
+					ability: 'orichalcumpulse',
+					teraType: ['Grass', 'Fire'],
+					nature: 'Timid',
+				},
+				['dracometeor', 'bodypress'],
+				['fireblast', 'solarbeam'],
+			],
+			[
+				{
+					species: 'Keldeo-Resolute',
+					item: 'leftovers'
+					ability: 'stormdrain',
+					gender: 'N',
+					teraType: ['Water', 'Steel'],
+					nature: 'Modest',
+				},
+				['surf', 'secretsword'],
+				['painsplit', 'flipturn'],
+			],
+		],
+	},
+	latias: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'Palafin',
+					item: 'assaultvest',
+					ability: 'zerotohero',
+					teraType: 'Fairy',
+					nature: 'Jolly',
+				},
+				['jetpunch', 'magicaltorque'],
+				['drainpunch', 'flipturn'],
+			],
+			[
+				{
+					species: 'Magearna',
+					item: 'leftovers',
+					gender: 'N',
+					ability: 'intimidate',
+					teraType: 'Water',
+					nature: 'Bold',
+				},
+				['icebeam', 'painsplit'],
+				['spikes', 'voltswitch'],
+			],
+			[
+				{
+					species: 'Shaymin-Sky',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'fairyaura',
+					teraType: 'Fairy',
+					nature: 'Timid',
+				},
+				['seedflare', 'dazzlinggleam'],
+				['earthpower', 'healingwish'],
+			],
+			[
+				{
+					species: 'Blaziken',
+					item: 'leftovers'
+					ability: 'speedboost',
+					teraType: 'Flying',
+					nature: 'Jolly',
+				},
+				['sacredfire', 'closecombat'],
+				['knockoff', 'protect'],
+			],
+		],
+	},
+	pawmot: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'Regieleki',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'refrigerate',
+					teraType: 'Ice',
+					nature: 'Naive',
+				},
+				['voltswitch', 'extremespeed'],
+				['rapidspin', 'explosion'],
+			],
+			[
+				{
+					species: 'Annihilape',
+					item: 'leftovers',
+					ability: 'defiant',
+					teraType: 'Fighting',
+					nature: 'Careful',
+				},
+				['ragefist', 'drainpunch'],
+				['bulkup', 'encore', 'taunt', 'rest'],
+			],
+			[
+				{
+					species: 'Groudon',
+					item: 'leftovers',
+					gender: 'N',
+					ability: 'solidrock',
+					teraType: 'Grass',
+					nature: 'Adamant',
+				},
+				['earthquake', 'stoneedge'],
+				['spikes', 'swordsdance', 'willowisp'],
+			],
+			[
+				{
+					species: 'Hoopa-Unbound',
+					item: 'assaultvest',
+					gender: 'N',
+					ability: 'protean',
+					teraType: 'Stellar',
+					nature: 'Brave',
+				},
+				['knockoff', 'gunkshot'],
+				['drainpunch', 'psychicnoise', 'thunderbolt'],
+			],
+		],
+	},
+	mabosstiff: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'Gardevoir',
+					item: 'choicescarf',
+					ability: 'stakeout',
+					teraType: 'Fairy',
+					nature: 'Timid',
+				},
+				['moonblast', 'psychic'],
+				['mysticalfire', 'healingwish', 'trick'],
+			],
+			[
+				{
+					species: 'Terrakion',
+					item: 'lifeorb',
+					gender: 'N',
+					ability: 'stakeout',
+					teraType: ['Fighting', 'Ground'],
+					nature: 'Jolly',
+				},
+				['closecombat', 'earthquake'],
+				['stoneedge', 'swordsdance'],
+			],
+			[
+				{
+					species: 'Zapdos',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'stakeout',
+					teraType: ['Steel', 'Grass', 'Fairy'],
+					nature: 'Bold',
+				},
+				['voltswitch', 'roost'],
+				['heatwave', 'hurricane', 'thunderwave'],
+			],
+			[
+				{
+					species: 'tinglu',
+					item: 'leftovers'
+					ability: 'stakeout',
+					teraType: ['Water', 'Ghost', 'Fairy'],
+					nature: 'Impish',
+				},
+				['earthquake', 'payback'],
+				['stealthrock', 'spikes', 'whirlwind'],
+			],
+		],
+	},
 };
