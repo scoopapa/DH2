@@ -1050,7 +1050,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9130,
 		name: "Snaellcaster",
 		types: ["Electric", "Water"],
-		baseStats: {hp: 100, atk: 55, def: 105, spa: 100, spd: 70, spe: 40},
+		baseStats: {hp: 90, atk: 55, def: 95, spa: 100, spd: 70, spe: 40},
 		abilities: {0: "Iron Barbs", H: "Magic Guard"},
 		weightkg: 6.1,
 	},
