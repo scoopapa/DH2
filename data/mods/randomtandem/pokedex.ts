@@ -2125,7 +2125,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			[
 				{
 					species: 'Keldeo-Resolute',
-					item: 'leftovers'
+					item: 'leftovers',
 					ability: 'stormdrain',
 					gender: 'N',
 					teraType: ['Water', 'Steel'],
@@ -2178,7 +2178,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			[
 				{
 					species: 'Blaziken',
-					item: 'leftovers'
+					item: 'leftovers',
 					ability: 'speedboost',
 					teraType: 'Flying',
 					nature: 'Jolly',
@@ -2283,7 +2283,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			[
 				{
 					species: 'tinglu',
-					item: 'leftovers'
+					item: 'leftovers',
 					ability: 'stakeout',
 					teraType: ['Water', 'Ghost', 'Fairy'],
 					nature: 'Impish',
