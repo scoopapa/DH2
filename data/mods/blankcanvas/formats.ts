@@ -95,24 +95,13 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'blankcanvas',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang'],
+		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang', 'Pinaturbo ++ Parting Shot'],
 		unbanlist: [
 			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinaturbo',
 			'Mediocjur', 'Plushimander', 'Orchrefait', 'Eighremophas', 'Snaellcaster', 'Marultan', 'Vertabrea', 'Flingangel', 'Nekolepsy',
 			'Honeydue', 'Drug', 'Aberrockin', 'Tartzacoatl', 'Iusperare', 'Wyrmware-N', 'Irdonerkeb', 'Kappaqua', 'Lactoxic', 'Horronimbus', 'Woolly Crawler',
 			'Brainstrom', 'Monster', 'Grizbearab', 'Frospes', 'Bugpipes', 'Valentine', 'Dionalces', 'Ferrignalx', 'Gebbrilis',
 		],
-		onValidateTeam(team) {
-			for (const set of team) {
-				if (toID(set.species) === 'pinaturbo') {
-					for (const move in set.moves) {
-						if (toID(move) === 'partingshot') {
-							return ['Pinaturbo cannot use Parting Shot in Blank Canvas Meta D.'];
-						}
-					}
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Blank Canvas Random Battle",
