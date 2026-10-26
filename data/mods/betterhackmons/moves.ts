@@ -45,54 +45,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	stoneaxe: {
 		inherit: true,
+		accuracy: 100,
 		shortDesc: "100% chance to set Stealth Rock if the target resists the move.",
 		onAfterHit: null,
 		onAfterSubDamage: null,
-		secondaries: [
-			{
-				chance: 100,
-				onAfterHit(target, source, move) {
-					if (!source.hp) return;
-					if (target.getMoveHitData(move).typeMod < 0) {
-						source.side.foe.addSideCondition('stealthrock');
-					}
-				},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (!source.hp) return;
+				if (target.getMoveHitData(move).typeMod < 0) {
+					source.side.foe.addSideCondition('stealthrock');
+				}
 			},
-			{
-				chance: 100,
-				onAfterSubDamage(damage, target, source, move) {
-					if (!source.hp) return;
-					if (target.getMoveHitData(move).typeMod < 0) {
-						source.side.foe.addSideCondition('stealthrock');
-					}
-				},
-			},
-		],
+		},
 	},
 	ceaselessedge: {
 		inherit: true,
+		accuracy: 100,
 		shortDesc: "100% chance to set Spikes if the target resists the move.",
 		onAfterHit: null,
 		onAfterSubDamage: null,
-		secondaries: [
-			{
-				chance: 100,
-				onAfterHit(target, source, move) {
-					if (!source.hp) return;
-					if (target.getMoveHitData(move).typeMod < 0) {
-						source.side.foe.addSideCondition('spikes');
-					}
-				},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (!source.hp) return;
+				if (target.getMoveHitData(move).typeMod < 0) {
+					source.side.foe.addSideCondition('spikes');
+				}
 			},
-			{
-				chance: 100,
-				onAfterSubDamage(damage, target, source, move) {
-					if (!source.hp) return;
-					if (target.getMoveHitData(move).typeMod < 0) {
-						source.side.foe.addSideCondition('spikes');
-					}
-				},
-			},
-		],
+		},
 	},
 };
