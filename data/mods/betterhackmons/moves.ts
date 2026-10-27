@@ -32,6 +32,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	technoblast: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//modded
 	triplearrows: {
