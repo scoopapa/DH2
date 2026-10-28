@@ -5070,4 +5070,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	baxcaliburhisui: {
 		tier: "OU",
 	},
+	stagssault: {
+		tier: "OU",
+	},
+	scizorgalar: {
+		tier: "OU",
+	},
+	beetlbrute: {
+		tier: "OU",
+	},
+	xenopede: {
+		tier: "OU",
+	},
+	golisopodstalwart: {
+		tier: "OU",
+	},
 };
