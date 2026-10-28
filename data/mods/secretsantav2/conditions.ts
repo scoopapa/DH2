@@ -12,8 +12,9 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
                     this.effectState.type = 'biohazardblast';
                 }
             } else {
-            this.add('-status', target, 'tox');
-        }
+				this.add('-status', target, 'tox');
+			}
+        },
         onResidual(pokemon) {
             if (this.effectState.stage < 15) {
                 this.effectState.stage++;
