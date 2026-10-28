@@ -20,6 +20,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.damage(pokemon.baseMaxhp / 8);
 			}
 		},
+	},
 	diamonddust: {
 		name: 'Diamond Dust',
 		effectType: 'Weather',
