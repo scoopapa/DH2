@@ -1,0 +1,26 @@
+export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
+	spoob: {
+		num: 3000,
+		name: "Spoob",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 131, atk: 66, def: 81, spa: 127, spd: 75, spe: 131},
+		abilities: {0: "Flower Veil", 1: "Corrosion", H: "Intimidate"},
+		heightm: 0.7,
+		weightkg: 31,
+		color: "Green",
+		eggGroups: ["Water 1", "Grass"],
+		gen: 9,
+	},
+	spoob2: {
+		num: 3000,
+		name: "Spoob 2",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 131, atk: 66, def: 81, spa: 127, spd: 75, spe: 131},
+		abilities: {0: "Seed Sower", 1: "Filter", H: "Wandering Spirit"},
+		heightm: 0.7,
+		weightkg: 31,
+		color: "Green",
+		eggGroups: ["Water 1", "Grass"],
+		gen: 9,
+	},
+};

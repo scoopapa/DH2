@@ -118,6 +118,7 @@ import { Formats as gen6MixAndMegasRevisited    } from '../data/mods/gen6mixandm
 import { Formats as gen8FusionEvolution         } from '../data/mods/gen8feuu/formats';
 import { Formats as gen8Lucklessplay            } from '../data/mods/gen8lucklessplay/formats';
 import { Formats as gen8MaxMeter                } from '../data/mods/gen8maxmeter/formats';
+import { Formats as gen9CAP2                    } from '../data/mods/cap2/formats';
 import { Formats as gen9CrossoverChaos          } from '../data/mods/gen9crossoverchaos/formats';
 import { Formats as gen9CrossoverChaosC         } from '../data/mods/gen9crossoverchaosc/formats';
 import { Formats as gen9EvolutionProject        } from '../data/mods/gen9evolutionproject/formats';
@@ -524,6 +525,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SU,
 	...TPDP,
 	...WhiteTusk,
+	...gen9CAP2,
 	
 	{
 		section: "Sample Teams Random Battles",
