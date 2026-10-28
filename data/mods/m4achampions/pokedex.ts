@@ -117,7 +117,6 @@ export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 		megaAbility: { 0: "Acid Rock" },
 		megaStone: "Toxtricitite",
 		megaCreator: "DrPumpkinz",
-		movepoolAdditions: ["hiddenpower"],
 	},
 	toxtricitylowkey: {
 		inherit: true,
@@ -127,7 +126,6 @@ export const Pokedex: { [speciesid: string]: ModdedSpeciesData } = {
 		megaAbility: { 0: "Acid Rock" },
 		megaStone: "Toxtricitite",
 		megaCreator: "DrPumpkinz",
-		movepoolAdditions: ["hiddenpower"],
 	},
 
 	vanilluxe: {
