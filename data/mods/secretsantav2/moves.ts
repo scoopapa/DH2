@@ -187,7 +187,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			status: 'sev',
+			status: 'tox',
 		},
 		target: "normal",
 		type: "Poison",
