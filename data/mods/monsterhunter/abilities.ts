@@ -20,7 +20,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Bone Collection",
-		shortdesc: "This Pokemon copies the Ability of an ally that faints."
+		shortdesc: "This Pokemon copies the Ability of an ally that faints.",
 	},
 	webtrap: {
 		name: "Web Trap",
@@ -719,7 +719,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Corrupted Poison",
 		desc: "When this Pokémon hits a foe with a non-resisted Poison-type attack, that foe's corresponding defense is lowered by 1 stage, unless the foe is holding a Covert Cloak.",
-		shortDesc: "Non-resisted Poison Moves: Lower targets's Def/SpD by -1 (blocked by Covert Cloak).",
+		shortDesc: "If the target doesn't resist the user's PSN Moves: Their corresponding defense is lowered by -1",
 	},
 	crimsondemon: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -2078,18 +2078,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Shell Armor",
 		shortDesc: "Immune to crits; takes 20% less damage from all attacks.",
 	},
-	silversubsume: {
-		onAnyTryMove(target, source, effect) {
-			if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
-				this.attrLastMove('[still]');
-				this.boost({atk: 1}, source);
-				this.add('cant', this.effectState.target, 'ability: Silver Subsume', effect, '[of] ' + target);
-				return false;
-			}
-		},
-		name: "Silver Subsume",
-		shortDesc: "When targeted by a hazard move: It fails, Attack is raised by 1+.",
+	Subsumption: {
+	onAnyTryMove(target, source, effect) {
+		if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
+			this.attrLastMove('[still]');
+			this.boost({atk: 1}, source);
+			this.add('cant', this.effectState.target, 'ability: Subsumption', effect, '[of] ' + target);
+			return false;
+		}
 	},
+	onTryHit(target, source, move) {
+		if (target === source || move.category === 'Status') return;
+		if (['ceaselessedge', 'stoneaxe'].includes(move.id)) {
+			this.add('-immune', target, '[from] ability: Subsumption');
+			this.boost({atk: 1}, target);
+			return null;
+		}
+	},
+	name: "Subsumption",
+	shortDesc: "When hazards are set or when targeted by a hazard move: Move fails, Attack is raised by 1+.",
+},
 	snowseethe: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
@@ -2229,49 +2237,65 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Swamp Sneeze",
 		shortDesc: "On switch-in, summons Water Sport and Mud Sport.",
 	},
-	tempestenergy: {
-		onImmunity(type, pokemon) {
+		tempestenergy: {
+		onImmunity(type) {
 			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
-				this.boost({ spa: 1 }, pokemon, pokemon);
+			// Tailwind already up when switching in
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({spa: 1}, pokemon, pokemon);
 			}
+			// Sandstorm already up when switching in
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// One sandstorm boost per switch-in
+			if (this.effectState.sandBoosted) return;
+			if (this.field.isWeather(['sandstorm', 'dustdevil'])) {
+				this.effectState.sandBoosted = true;
+				this.boost({spa: 1}, pokemon, pokemon);
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			if (sideCondition.id !== 'tailwind') return;
+			const pokemon = this.effectState.target;
+			this.boost({spa: 1}, pokemon, pokemon);
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
-				if (!this.boost({ spa: 1 }, target, target)) {
+				if (!this.boost({spa: 1}, target, target)) {
 					this.add('-immune', target, '[from] ability: Tempest Energy');
 				}
 				return null;
 			}
 		},
-		onAllySideConditionStart(target, source, sideCondition) {
-			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
-				this.boost({ spa: 1 }, pokemon, pokemon);
-			}
-		},
-		flags: {},
-		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "Hit by Wind Move/Sandstorm: Immunity, +1 SpA | Under Tailwind: +1 SpA.",
+		flags: {breakable: 1},
 		name: "Tempest Energy",
+		desc: "This Pokemon is immune to wind moves and Sandstorm damage. Its Sp. Atk is raised by 1 stage when hit by a wind move, when Tailwind begins on its side (or is already active when it switches in), and the first time Sandstorm is active after it switches in.",
+		shortDesc: "Wind move hit/Tailwind/Sandstorm: +1 SpA. Immune to wind moves and Sandstorm.",
 	},
 	tempestforce: {
-		inherit: true,
-		onImmunity(type, pokemon) {
+		onImmunity(type) {
 			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm', 'dustdevil')) {
-				this.boost({ atk: 1 }, pokemon, pokemon);
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (this.effectState.sandBoosted) return;
+			if (this.field.isWeather(['sandstorm', 'dustdevil'])) {
+				this.effectState.sandBoosted = true;
+				this.boost({atk: 1}, pokemon, pokemon);
 			}
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
+			if (sideCondition.id !== 'tailwind') return;
 			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm', 'dustdevil')) {
-				this.boost({ atk: 1 }, pokemon, pokemon);
-			}
+			this.boost({ atk: 1 }, pokemon, pokemon);
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
@@ -2281,10 +2305,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		flags: {},
-		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "Hit by Wind Move/Sandstorm: Immunity, +1 Atk | Under Tailwind: +1 Atk.",
+		flags: {breakable: 1},
 		name: "Tempest Force",
+		desc: "This Pokemon is immune to wind moves and Sandstorm damage. Its Attack is raised by 1 stage when hit by a wind move, when Tailwind begins on its side (or is already active when it switches in), and the first time Sandstorm is active after it switches in.",
+		shortDesc: "Wind move hit/Tailwind/Sandstorm: +1 Atk. Immune to wind moves and Sandstorm.",
 	},
 	terrestrial: {
 		onStart(pokemon) {

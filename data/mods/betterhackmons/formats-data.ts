@@ -158,9 +158,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	xerneas: {
 		tier: "Illegal",
 	},
-	yveltal: {
-		tier: "Illegal",
-	},
 	zacian: {
 		tier: "Illegal",
 	},
