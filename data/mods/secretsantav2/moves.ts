@@ -77,7 +77,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Protects user from an attacking move. Raises defense depending an attacker's move category.",
+		shortDesc: "Protects from damaging attacks. Raises Def or SpD.",
 		name: "Clampact",
 		pp: 10,
 		priority: 4,
@@ -117,17 +117,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				if (move.isZOrMaxPowered && move.category === "Physical") {
-					this.boost({def: 1}, target, target, this.dex.getActiveMove("Clampact"));
+					this.boost({def: 1}, this.dex.getActiveMove("Clampact"));
 				} else if (move.isZOrMaxPowered && move.category === "Special") {
-					this.boost({spd: 1}, target, target, this.dex.getActiveMove("Clampact"));
+					this.boost({spd: 1}, this.dex.getActiveMove("Clampact"));
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && move.category === "Physical") {
-					this.boost({def: 1}, target, target, this.dex.getActiveMove("Clampact"));
+					this.boost({def: 1}, this.dex.getActiveMove("Clampact"));
 				} else if (move.isZOrMaxPowered && move.category === "Special") {
-					this.boost({spd: 1}, target, target, this.dex.getActiveMove("Clampact"));
+					this.boost({spd: 1}, this.dex.getActiveMove("Clampact"));
 				}
 			},
 		},
@@ -159,12 +159,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Leech Life", target);
 		},
-		onHit(source, target, move) {
+		onHit(target, source) {
 			if (target.hp >= source.hp) {
-				this.heal(source.maxhp / 3);
+				this.heal(source.maxhp / 3, source, source);
 			}
 			if (target.positiveBoosts() >= source.positiveBoosts()) {
-				this.boost({def: 1, spd: 1}, source);
+				this.boost({def: 1, spd: 1}, source, source);
 			}
 		},
 		secondary: null,
@@ -244,9 +244,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "X-Scissor", target);
 		},
 		onHit(pokemon, target, move) {
-			if (!target.newlySwitched && (move.multihit === 1 || move.multihit === 2)) {
-				this.boost({spa: -1}, pokemon);
-			},
+			if (!pokemon.newlySwitched && (move.multihit === 1 || move.multihit === 2)) {
+				this.boost({spa: -1}, target);
+			}
 		},
 		multihit: 2,
 		secondary: null,
@@ -255,6 +255,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	
 	doubleironbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fishiousrend: {
 		inherit: true,
 		isNonstandard: null,
 	},

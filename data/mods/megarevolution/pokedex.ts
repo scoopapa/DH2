@@ -1408,7 +1408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Golisopod-Stalwart"],
 		formeOrder: ["Golisopod", "Golisopod-Stalwart"],
 	},
-	golisopodstalwart {
+	golisopodstalwart: {
 		num: 768,
 		name: "Golisopod-Stalwart",
 		baseSpecies: "Golisopod",

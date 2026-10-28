@@ -122,7 +122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	ironsail: {
 		num: 2009,
 		name: "Iron Sail",
-		types: ["Flying", "ice"],
+		types: ["Flying", "Ice"],
 		baseStats: {hp: 152, atk: 78, def: 72, spa: 128, spd: 102, spe: 38},
 		abilities: {0: "Quark Drive"},
 		weightkg: 500,
@@ -134,7 +134,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	cloyster2: {
 		num: 2010,
 		name: "Cloyster2",
-		types: ["Water", "ice"],
+		types: ["Water", "Ice"],
 		baseStats: {hp: 70, atk: 105, def: 180, spa: 90, spd: 60, spe: 50},
 		abilities: {0: "Tough Shell", 1: "Skill Link", H: "Overcoat"},
 		weightkg: 1,
@@ -356,7 +356,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Sheettor",
 		types: ["Bug", "Grass"],
 		baseStats: {hp: 70, atk: 55, def: 65, spa: 100, spd: 80, spe: 130},
-		abilities: {0: "Swarm", 1: "Mountianeer", H: "Adaptability"},
+		abilities: {0: "Swarm", 1: "Mountaineer", H: "Adaptability"},
 		weightkg: 1,
 	},
 	quagsire: {

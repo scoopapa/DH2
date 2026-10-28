@@ -65,8 +65,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	rotomhisuiruby: {
 		tier: "santa",
 	},
+	jawhive: {
+		tier: "santa",
+	},
 	spiedamis: {
-	tier: "santa",
+		tier: "santa",
 	},
 	trubbisheternal: {
 		tier: "santa",
