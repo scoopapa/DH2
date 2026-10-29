@@ -16,11 +16,11 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'MOD FOLDER NAME HERE',
 		ruleset: [ Use names (not ids) from data/rulesets.ts and your mod's rulesets.ts files. Additionally, by putting in the name of another format, you can inherit all rules and bans of that format. ],
-		banlist: [ Use names (not ids) to ban Mons, moves, etc. here. Can use 'All Pokemon' or similar to blanket ban. 
+		banlist: [ Use names (not ids) to ban Mons, moves, etc. here. Can use 'All Pokemon' or similar to blanket ban.
 		For a Pokemon with multiple formes, putting just the name bans them all. Use the '-Base' suffix to ban only the base forme. ],
 		unbanlist: [ Specific unbans if using 'All Pokemon', etc., or if unbanning from an inherited ruleset. ],
 		gameType: 'doubles/triples/free-for-all' //Only include this line to choose the type of battle
-		teambuilderFormat: 'Uber/National Dex', //Only include this line to have the teambuilder include Ubers/Nonstandard stuff, respectively 
+		teambuilderFormat: 'Uber/National Dex', //Only include this line to have the teambuilder include Ubers/Nonstandard stuff, respectively
 		team: 'random', //Only include this line to declare a Random Battle format, which has extra steps
 	},
 ];
@@ -156,8 +156,8 @@ import { Formats as LittlestCup                 } from '../data/mods/littlestcup
 import { Formats as Lovelymod                   } from '../data/mods/lovelymod/formats';
 import { Formats as LucklessPlay                } from '../data/mods/lucklessplay/formats';
 //import { Formats as LukeMod                     } from '../data/mods/lukemod/formats';
+import { Formats as MegasForAllChampions          } from '../data/mods/m4achampions/formats';
 import { Formats as gen9MegasForAll             } from '../data/mods/m4ag9/formats';
-import { Formats as MegasForAllKalos            } from '../data/mods/m4akalos/formats';
 import { Formats as MegasForAllPaldea           } from '../data/mods/m4apaldea/formats';
 //import { Formats as MegasForAllSandbox          } from '../data/mods/m4asandbox/formats';
 import { Formats as gen8MegasForAllv6           } from '../data/mods/m4av6/formats';
@@ -306,6 +306,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Macrometa,
 	...Masquerade,
 	...MegaRevolution,
+	...MegasForAllChampions,
 	...MegasForAllPaldea,
 	...gen9MegasForAll,
 	...gen8MegasForAllv6,
@@ -352,7 +353,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen9VGC20XX,
 	...ZAOU,
 	...NatDexZa,
-	
+
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -370,11 +371,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen8FusionEvolution,
 	...gen1FutureProofing,
 	...JolteMons,
-	...MegasForAllKalos,
 	...Restrictions,
 	...SignatureRestrictions,
 	...Stereotypes,
-	
+
 	///////////////////////////////////////////////////////////////
 	//////////////////////// Solomods /////////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -413,7 +413,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	//...gen1Glitch,
 	...gen2GSCDoubles,
 	...HaxMeters,
-	//...gen3Hoennification, 
+	//...gen3Hoennification,
 	//...iforgor,
 	...gen1JohtoMons,
 	...gen2JohtoExpansionPack,
@@ -485,7 +485,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	//...CrossoverChaos,
 	...gen3UUHoennGaiden,
 	...gen6MixAndMegasRevisited,
-	
+
 	///////////////////////////////////////////////////////////////
 	////////////////// Monster Hunter Solomod /////////////////////
 	///////////////////////////////////////////////////////////////
@@ -504,7 +504,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ModernGen2Birds,
 	...ModernGen3,
 	...ModernGen4,
-	
+
 	/*{
 		section: "ROPMM Formats",
 		column: 3,
@@ -526,7 +526,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...TPDP,
 	...WhiteTusk,
 	...gen9CAP2,
-	
 	{
 		section: "Sample Teams Random Battles",
 		column: 3,

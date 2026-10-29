@@ -216,5 +216,22 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData("Learnsets", "drampa").learnset.whirlwind = ["9L1"];
 		this.modData("Learnsets", "drampa").learnset.dragontail = ["9L1"];
+		
+		this.modData("Learnsets", "pinsir").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "heracross").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "heracross").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "heracross").learnset.drainpunch = ["9L1"];
+		this.modData("Learnsets", "heracross").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.bodypress = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.stoneedge = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.highhorsepower = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.hardpress = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.pounce = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.aquacutter = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.trailblaze = ["9L1"];
+		this.modData("Learnsets", "golisopod").learnset.temperflare = ["9L1"];
 	},
 };
