@@ -23,4 +23,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Grass"],
 		gen: 9,
 	},
+	obliteryx: {
+		num: -80,
+		name: "Obliteryx",
+		types: ["Dark", "Flying"],
+		baseStats: { hp: 102, atk: 128, def: 126, spa: 45, spd: 78, spe: 64 },
+		abilities: { 0: "Opportunist", 1: "Early Bird", H: "Sniper" },
+		heightm: 1.6,
+		weightkg: 62,
+		color: "Black",
+		eggGroups: ["Flying", "Monster"],
+		gen: 9,
+	},
+
 };
