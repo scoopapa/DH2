@@ -5952,7 +5952,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sludgebomb: ["9L1"],
 			icespinner: ["9L1"],
 			icebeam: ["9L1"],
-			moves: ["9L1"],
 			slackoff: ["9L1"],
 			defog: ["9L1"],
 			toxic: ["9L1"],
