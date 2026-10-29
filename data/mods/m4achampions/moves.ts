@@ -1,5 +1,5 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-	// DESERT GALES, DIAMOND DUST
+	// DIAMOND DUST
 	moonlight: {
 		inherit: true,
 		onHit(pokemon) {
@@ -12,7 +12,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'raindance':
 			case 'primordialsea':
 			case 'sandstorm':
-			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
 			case 'snow':
@@ -39,7 +38,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'raindance':
 			case 'primordialsea':
 			case 'sandstorm':
-			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
 			case 'snow':
@@ -54,25 +52,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return success;
 		},
 	},
-	shoreup: {
-		inherit: true,
-		onHit(pokemon) {
-			let factor = 0.5;
-			if (this.field.isWeather('sandstorm') || this.field.isWeather('desertgales')) {
-				factor = 0.667;
-			}
-			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
-			if (!success) {
-				this.add('-fail', pokemon, 'heal');
-				return this.NOT_FAIL;
-			}
-			return success;
-		},
-	},
 	solarbeam: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust', 'snow'];
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'diamonddust', 'snow'];
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
@@ -82,7 +65,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	solarblade: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust', 'snow'];
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'diamonddust', 'snow'];
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
@@ -101,7 +84,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'raindance':
 			case 'primordialsea':
 			case 'sandstorm':
-			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
 			case 'snow':
@@ -131,9 +113,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'sandstorm':
 				move.type = 'Rock';
 				break;
-			case 'desertgales':
-				move.type = 'Ground';
-				break;
 			case 'hail':
 			case 'diamonddust':
 			case 'snow':
@@ -152,7 +131,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.basePower *= 2;
 				break;
 			case 'sandstorm':
-			case 'desertgales':
 				move.basePower *= 2;
 				break;
 			case 'hail':
@@ -164,8 +142,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.debug('BP: ' + move.basePower);
 		},
 	},
-
-	// JUST DIAMOND DUST
 	auroraveil: {
 		inherit: true,
 		onTry() {
