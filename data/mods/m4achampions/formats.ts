@@ -13,6 +13,6 @@ export const Formats: FormatData[] = [
 		mod: 'm4achampions',
 		gameType: 'doubles',
 		bestOfDefault: true,
-		ruleset: ['Flat Rules', 'Open Team Sheets', 'Data Mod', 'Terastal Clause', 'IV Clause'], // Bye Bye vgc timer
+		ruleset: ['Flat Rules', 'Open Team Sheets', 'Data Mod', 'Terastal Clause'/*, 'IV Clause'*/], // Bye Bye vgc timer
 	},
 ];
