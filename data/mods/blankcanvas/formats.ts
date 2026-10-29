@@ -100,7 +100,8 @@ export const Formats: FormatData[] = [
 			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinaturbo',
 			'Mediocjur', 'Plushimander', 'Orchrefait', 'Eighremophas', 'Snaellcaster', 'Marultan', 'Vertabrea', 'Flingangel', 'Nekolepsy',
 			'Honeydue', 'Drug', 'Aberrockin', 'Tartzacoatl', 'Iusperare', 'Wyrmware-N', 'Irdonerkeb', 'Kappaqua', 'Lactoxic', 'Horronimbus', 'Woolly Crawler',
-			'Brainstrom', 'Monster', 'Grizbearab', 'Frospes', 'Bugpipes', 'Valentine', 'Dionalces', 'Ferrignalx', 'Gebbrilis',
+			'Brainstrom', 'Monster', 'Grizbearab', 'Frospes', 'Bugpipes', 'Valentine', 'Dionalces', 'Ferrignalx', 'Gebbrilis', 'Refrigigator', 'Dragallista',
+			'Papillune', 'Frigacid',
 		],
 	},
 	{
