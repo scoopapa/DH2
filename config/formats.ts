@@ -526,6 +526,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...TPDP,
 	...WhiteTusk,
 	...gen9CAP2,
+	
 	{
 		section: "Sample Teams Random Battles",
 		column: 3,
