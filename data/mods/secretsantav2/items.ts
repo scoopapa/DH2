@@ -13,6 +13,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 2585,
 		gen: 9,
 		isNonstandard: null,
+		shortDesc: "If held by a Drampa-Santian, this item allows it to Mega Evolve in battle.",
 	},
 	flygonite: {
 		name: "Flygonite",
@@ -27,6 +28,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1,
 		gen: 9,
+		shortDesc: "If held by a Flygon, this item allows it to Mega Evolve in battle.",
 	},
 	tropiusite: {
 		name: "Tropiusite",
@@ -41,6 +43,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -2,
 		gen: 9,
+		shortDesc: "If held by a Tropius, this item allows it to Mega Evolve in battle.",
 	},
 	golduckite: {
 		name: "Golduckite",
@@ -55,6 +58,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -3,
 		gen: 9,
+		shortDesc: "If held by a Golduck, this item allows it to Mega Evolve in battle.",
 	},
 	quagsirite: {
 		name: "Quagsirite",
@@ -69,6 +73,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -4,
 		gen: 9,
+		shortDesc: "If held by a Quagsire, this item allows it to Mega Evolve in battle.",
 	},
 	drapionite: {
 		name: "Drapionite",
@@ -83,5 +88,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -5,
 		gen: 9,
+		shortDesc: "If held by a Drapion, this item allows it to Mega Evolve in battle.",
 	},
 };
