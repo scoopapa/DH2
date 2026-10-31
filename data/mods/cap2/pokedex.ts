@@ -23,6 +23,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Grass"],
 		gen: 9,
 	},
+	spoob3: {
+		num: 3000,
+		name: "Spoob 3",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 131, atk: 66, def: 81, spa: 127, spd: 64, spe: 131},
+		abilities: {0: "Regenerator", 1: "Intimidate", H: "Flame Body"},
+		heightm: 0.7,
+		weightkg: 31,
+		color: "Green",
+		eggGroups: ["Water 1", "Grass"],
+		gen: 9,
+	},
 	obliteryx: {
 		num: -80,
 		name: "Obliteryx",
