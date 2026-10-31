@@ -28,7 +28,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Spoob 3",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 131, atk: 66, def: 81, spa: 127, spd: 64, spe: 131},
-		abilities: {0: "Regenerator", 1: "Poison Point", H: "Flame Body"},
+		abilities: {0: "Perish Body", 1: "Poison Point", H: "Flame Body"},
 		heightm: 0.7,
 		weightkg: 31,
 		color: "Green",
