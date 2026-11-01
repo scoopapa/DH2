@@ -2,8 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'champions',
 	gen: 9,
 	teambuilderConfig: {
-		customTiers: ['Mega'],
-		customDoublesTiers: ['Mega'],
+		excludeStandardTiers: true,
+		customTiers: ['Mega', 'Uber', 'OU', 'UUBL', 'UU', 'NFE', '(OU)'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
