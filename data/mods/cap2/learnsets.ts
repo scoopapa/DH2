@@ -23,7 +23,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			clearsmog: ["9L1"],	
 			scorchingsands: ["9L1"],
 			matchagotcha: ["9L1"],
-			infestation: ["9L1"], 		
+			infestation: ["9L1"], 
+			recycle: ["9L1"], 			
 		},
 	},
 	spoob2: {
@@ -50,7 +51,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			clearsmog: ["9L1"],	
 			scorchingsands: ["9L1"],
 			matchagotcha: ["9L1"],	
-			infestation: ["9L1"], 		
+			infestation: ["9L1"], 	
+			recycle: ["9L1"], 		
 		},
 	},
 	spoob3: {
@@ -77,7 +79,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			clearsmog: ["9L1"],	
 			scorchingsands: ["9L1"],
 			matchagotcha: ["9L1"],	
-			infestation: ["9L1"], 		
+			infestation: ["9L1"], 	
+			recycle: ["9L1"], 		
 		},
 	},
 	obliteryx: {
