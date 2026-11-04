@@ -233,5 +233,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "golisopod").learnset.aquacutter = ["9L1"];
 		this.modData("Learnsets", "golisopod").learnset.trailblaze = ["9L1"];
 		this.modData("Learnsets", "golisopod").learnset.temperflare = ["9L1"];
+		
+		this.modData("Learnsets", "tatsugiri").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.calmmind = ["9L1"];
 	},
 };

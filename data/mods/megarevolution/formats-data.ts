@@ -5085,4 +5085,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	golisopodstalwart: {
 		tier: "OU",
 	},
+	tsuraigiri: {
+		tier: "OU",
+	},
+	roisaogiri: {
+		tier: "OU",
+	},
+	kaisogiri: {
+		tier: "OU",
+	},
 };
