@@ -56,9 +56,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	groudon: {
 		tier: "Illegal",
 	},
-	gyaradosmega: {
-		tier: "Illegal",
-	},
 	hooh: {
 		tier: "Illegal",
 	},

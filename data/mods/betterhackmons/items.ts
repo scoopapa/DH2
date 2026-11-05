@@ -16,10 +16,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	
+	//slate 1
 	mail: {
 		inherit: true,
 		shortDesc: "Cannot be removed by any means.",
 		onTakeItem: false,
+		isNonstandard: null,
+	},
+	//slate 2
+	skarmorite: {
+		inherit: true,
 		isNonstandard: null,
 	},
 }
