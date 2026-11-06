@@ -893,12 +893,118 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Leaf Storm", target);
-				this.add('-anim', pokemon, "Mach Punch", target);
+			this.add('-anim', pokemon, "Mach Punch", target);
 		},
 		secondary: {
 			chance: 30,
 			boosts: {
 				def: -1,
+			},
+		},
+		target: "normal",
+	},
+
+	lastjarona: {
+		name: "Last Jarona",
+		type: "Grass",
+		category: "Physical",
+		basePower: 215,
+		accuracy: true,
+		pp: 1,
+		isZ: "prismaticomegapetal",
+		shortDesc: "Sets the Rose-Gold Garden terrain for 6 turns.",
+		desc: "The user channels the Power of Friendship to unleash their ultimate move. This move sets the Rose-Gold Garden effect for 6 turns.",
+		priority: 0,
+		flags: {punch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Prismatic Laser", target);
+			this.add('-anim', pokemon, "Mach Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	bramblearrow: {
+		name: "Bramble Arrow",
+		type: "Grass",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Priority +3, First turn only, uses target's Speed in damage calc.",
+		desc: "The user disrupts the target by firing an arrow at blinding speed, almost always going first (Priority +3).This move uses the target's Speed stat to calculate its damage. This move can only be used during the first turn the user is on the field.",
+		priority: 3,
+		overrideOffensiveStat: 'spe',
+		overrideOffensivePokemon: 'target',
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				return false;
+			}
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pin Missile", target);
+			this.add('-anim', pokemon, "Grass Knot", target);
+		},
+		target: "normal",
+	},
+
+	spiraldance: {
+		name: "Spiral Dance",
+		type: "Bug",
+		category: "Physical",
+		basePower: 60,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Frees user from hazards/bind/Leech Seed; +1 Spe.",
+		desc: "The user performs a twirl that blows away all hazards on their side as well as freeing them from Leech Seed or any binding effects. This also boosts the user's Speed by 1 stage.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, dance: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Teeter Dance", target);
+			this.add('-anim', pokemon, "Springtide Storm", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
 			},
 		},
 		target: "normal",
@@ -1322,7 +1428,62 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 		}, 
-	
+	//Floral Symbiont and Grassy Terrain
+	grassyterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					if (pokemon.hasAbility('floralsymbiont')) {
+						this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon);
+					}
+					else {
+						this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+					}
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+		target: "all",
+		type: "Grass",
+		zMove: { boost: { def: 1 } },
+		contestType: "Beautiful",
+	},
 	//Torque Moves
 	blazingtorque: {
 		inherit: true,

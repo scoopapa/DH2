@@ -356,7 +356,88 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Amalgamation",
 		shortDesc: "Gain the Amalgamation effect: Copy the ability of the last Pokemon to faint in battle.",
 	},
-	
+
+	bigchomp: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceAfterFaint(length, move, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				if (move.flags['bite']) {
+					this.add('-activate', source, 'ability: Big Chomp');
+					this.heal(source.baseMaxhp / 4, source, source, effect);
+				}
+			}
+		},
+		flags: {},
+		name: "Big Chomp",
+		shortDesc: "Biting Moves. 1.3x Damage, KO with Bite Move: Heal 25%",
+	},
+
+	flamephase: {
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Flame Phase');
+			pokemon.addVolatile('flamephase');
+		},
+		condition: {
+			noCopy: true,
+			duration: 1,
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.flags === 'contact') {
+					this.debug('Flame Phase reduction');
+					return this.chainModify(0.25);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Flame Phase');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Flame Phase",
+		shortDesc: "First turn out: contact moves deal 0.25x damage."
+	},
+
+	floralambush: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Floral Ambush Boost');
+				return this.chainModify(1.5);
+			}
+		},
+
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies === 'Aerokota') return;
+			if (move.category === 'Status') return;
+			if (attacker.species.name !== 'Aerokota') attacker.formeChange('Aerokota');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Floral Ambush",
+		shortDesc: "Aerokota: Switch in as Shielded forme. Use an attack: transform into Aerokota. Grass moves: 1.5x BP.",
+	},
+
+	floralsymbiont: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyBasePowerPriority: 19,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				return this.chainModify(1.3);
+			}
+		},
+		//Grassy Terrain healing handled in Grassy Terrain move.
+		flags: {},
+		name: "Floral Symbiont",
+		shortDesc: "Grass moves: 1.5x Power, ally Grass moves: 1.3x Power. Grassy Terrain healing 2x.",
+	},
+
 	// copied from Quark Drive
 	blossomboost: {
 		onSwitchInPriority: -2,
@@ -364,7 +445,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onTerrainChange(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
 				pokemon.addVolatile('blossomboost');
 			} else if (!pokemon.volatiles['blossomboost']?.fromBooster) {
 				pokemon.removeVolatile('blossomboost');
@@ -673,7 +754,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "A normal ability. Does Normal things."
 	},
 	
-// Vanilla abilities edited to interact with Savage Roar
+// Vanilla abilities edited to interact with Savage Roar and/or Demoralize
 	guarddog: {
 		inherit: true,
 		onTryBoostPriority: 2,
@@ -698,7 +779,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rattled: {
 		inherit: true,
 		onAfterBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Savage Roar'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Savage Roar', 'Demoralize'].includes(effect.name) && boost.atk) {
 				this.boost({ spe: 1 });
 			}
 		},
@@ -727,12 +808,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	innerfocus: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Savage Roar'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Savage Roar', 'Demoralize'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', `[of] ${target}`);
 			}
 		},
 	},
-	
 
 };
