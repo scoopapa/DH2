@@ -771,6 +771,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
+	duckofdoom: {
+		name: "Duck of Doom",
+		type: "Normal",
+		category: "Physical",
+		basePower: 1,
+		accuracy: 100,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Seth and Aqua's ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (target.isAlly(pokemon)) return;
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 6, spa: 6, spe: 1}, pokemon, pokemon, move);
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Feather Dance", target);
+			this.add('-anim', target, "Luster Purge", target);
+		},
+		target: "normal",
+	},
 	mewmewwand: {
 		name: "Mew Mew Wand",
 		type: "Psychic",
