@@ -606,7 +606,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Omega Justice",
 		type: "Fighting",
 		category: "Special",
-		basePower: 120,
+		basePower: 130,
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Always crits, bypasses Substitute, ignores abilities.",
@@ -1085,7 +1085,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "randomNormal",
 	},
-	
+
+	steelyshot: {
+		name: "Steely Shot",
+		type: "Steel",
+		category: "Special",
+		basePower: 70,
+		accuracy: true,
+		pp: 15,
+		shortDesc: "This move does not check accuracy.",
+		desc: "The user fires a blast from their gun. This move cannot miss.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Lock-On", target);
+			this.add('-anim', pokemon, "Flash Cannon", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 	flamingtrident: {
 		name: "Flaming Trident",
 		type: "Fire",

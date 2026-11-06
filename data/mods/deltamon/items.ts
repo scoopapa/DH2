@@ -97,6 +97,14 @@ boosterenergy: {
 	zMoveFrom: "Petal Dance",
 	itemUser: ["Yellow"],
 	},
+	prismaticomegapetal: {
+	name: "Prismatic Omega Petal",
+	onTakeItem: false,
+	shortDesc: "If held by Flowery with Jarona, he can Ultra Burst and use Last Jarona",
+	zmove: "Last Jarona",
+	zMoveFrom: "Jarona",
+	itemUser: ["Flowery-Omega"],
+	},
 
 	queenite: {
 		name: "Queenite",
