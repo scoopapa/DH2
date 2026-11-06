@@ -480,7 +480,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	chandelure: {
 		inherit: true,
 		types: ["Ghost", "Fairy"],
-		baseStats: {hp: 100, atk: 55, def: 95, spa: 145, spd: 90, spe: 60},
+		baseStats: {hp: 100, atk: 55, def: 95, spa: 145, spd: 90, spe: 50},
 		abilities: {0: "Competitive", 1: "Huge Power", H: "Sap Sipper"},
 		weightkg: 44,
 	},
