@@ -2061,7 +2061,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	gaismagorm: {
 		num: 114,
 		name: "Gaismagorm",
-		types: ["Dragon", "Dark"],
+		types: ["Dark"],
 		baseStats: {hp: 125, atk: 106, def: 115, spa: 95, spd: 115, spe: 60},
 		abilities: {0: "Regenerator", H: "Dark Aura"},
 		weightkg: 1000.0,
