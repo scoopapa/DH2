@@ -2152,7 +2152,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	spectralthief: {
 		inherit: true,
 		viable: true,
-		basePower: 70,
+		basePower: 80,
 	},
 	electroshot: {
 		inherit: true,
@@ -2441,7 +2441,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	geargrind: {
 		inherit: true,
 		viable: true,
-		accuracy: 90,
+		accuracy: 100,
 	},
 	spinout: {
 		inherit: true,
