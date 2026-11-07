@@ -285,7 +285,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	lunastra: {
-		tier: "MHRU",
+		tier: "MHUU",
 	},
 	magnamalo: {
 		tier: "MHRU",
