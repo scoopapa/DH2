@@ -90,4 +90,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		shortDesc: "If held by a Drapion, this item allows it to Mega Evolve in battle.",
 	},
+	metalpowder: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	quickpowder: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

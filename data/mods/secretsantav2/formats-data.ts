@@ -107,5 +107,52 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	drapionmega: {
 		tier: "santa",
 	},
-
+	hydreigon: {
+		tier: "santa",
+	},
+	sylveon: {
+		tier: "santa",
+	},
+	electivire: {
+		tier: "santa",
+	},
+	crabominable: {
+		tier: "santa",
+	},
+	donphan: {
+		tier: "santa",
+	},
+	lanturn: {
+		tier: "santa",
+	},
+	munkidori: {
+		tier: "santa",
+	},
+	klawf: {
+		tier: "santa",
+	},
+	sandyshocks: {
+		tier: "santa",
+	},
+	tsareena: {
+		tier: "santa",
+	},
+	duraludon: {
+		tier: "santa",
+	},
+	falinks: {
+		tier: "santa",
+	},
+	chandelure: {
+		tier: "santa",
+	},
+	ditto: {
+		tier: "santa",
+	},
+	delibird: {
+		tier: "santa",
+	},
+	sneaselhisui: {
+		tier: "santa",
+	},
 };
