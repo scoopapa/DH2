@@ -35,6 +35,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	manectricmega: {
 		inherit: true,
+		types: ["Electric", "Bug"],
 		baseStats: {hp: 70, atk: 75, def: 80, spa: 150, spd: 80, spe: 135},
 	},
 };
