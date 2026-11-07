@@ -93,7 +93,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (pokemon.setType("Fire")) this.add('-start', pokemon, 'typechange', "Fire", '[silent]');
 		},
-		onModifyAtk: null,
+		onModifyAtk: undefined,
 	},
 	hadronengine: {
 		inherit: true,
@@ -104,7 +104,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (pokemon.setType("Electric")) this.add('-start', pokemon, 'typechange', "Electric", '[silent]');
 		},
-		onModifyAtk: null,
+		onModifyAtk: undefined,
 	},
 	toxicdebris: {
 		inherit: true,

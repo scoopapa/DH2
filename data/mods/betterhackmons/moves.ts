@@ -57,6 +57,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	stoneaxe: {
 		inherit: true,
+		basePower: 80,
 		accuracy: 100,
 		shortDesc: "100% chance to set Stealth Rock if the target resists the move.",
 		onAfterHit: null,
@@ -73,6 +74,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	ceaselessedge: {
 		inherit: true,
+		basePower: 80,
 		accuracy: 100,
 		shortDesc: "100% chance to set Spikes if the target resists the move.",
 		onAfterHit: null,
