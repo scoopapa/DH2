@@ -327,7 +327,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Velocidrome",
 		types: ["Flying"],
 		baseStats: {hp: 80, atk: 116, def: 91, spa: 50, spd: 81, spe: 107},
-		abilities: {0: "Big Pecks", H: "Friend Guard"},
+		abilities: {0: "Big Pecks", 1: "Strafe", H: "Friend Guard"},
 		weightkg: 45.0,
 		tags: ["Bird Wyvern"],
 	},
