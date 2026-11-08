@@ -20,7 +20,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Bone Collection",
-		shortdesc: "This Pokemon copies the Ability of an ally that faints.",
+		shortDesc: "This Pokemon copies the Ability of an ally that faints.",
 	},
 	webtrap: {
 		name: "Web Trap",
@@ -2078,7 +2078,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Shell Armor",
 		shortDesc: "Immune to crits; takes 20% less damage from all attacks.",
 	},
-	Subsumption: {
+	subsumption: {
 	onAnyTryMove(target, source, effect) {
 		if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
 			this.attrLastMove('[still]');
@@ -2237,17 +2237,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Swamp Sneeze",
 		shortDesc: "On switch-in, summons Water Sport and Mud Sport.",
 	},
-		tempestenergy: {
+	tempestenergy: {
 		onImmunity(type) {
 			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
+			// Re-arm the sandstorm boost on every switch-in
+			this.effectState.sandBoosted = false;
 			// Tailwind already up when switching in
 			if (pokemon.side.sideConditions['tailwind']) {
 				this.boost({spa: 1}, pokemon, pokemon);
 			}
 			// Sandstorm already up when switching in
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onSwitchOut(pokemon) {
+			this.effectState.sandBoosted = false;
 		},
 		onWeatherChange(pokemon) {
 			// One sandstorm boost per switch-in
@@ -2280,10 +2285,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (type === 'sandstorm' || type === 'dustdevil') return false;
 		},
 		onStart(pokemon) {
+			this.effectState.sandBoosted = false;
 			if (pokemon.side.sideConditions['tailwind']) {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onSwitchOut(pokemon) {
+			this.effectState.sandBoosted = false;
 		},
 		onWeatherChange(pokemon) {
 			if (this.effectState.sandBoosted) return;
