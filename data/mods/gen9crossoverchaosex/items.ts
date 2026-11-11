@@ -1,18 +1,4 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	atsukoite: {
-		name: "Atsukoite",
-		spritenum: 576,
-		megaStone: "Atsuko Kagari-Mega",
-		megaEvolves: "Atsuko",
-		itemUser: ["Atsuko Kagari", "Atsuko Kagari-Mega"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1,
-		gen: 9,
-		desc: "If held by Atsuko Kagari, this item allows her to Mega Evolve in battle.",
-	},
 	tophiumz: {
 		name: "Tophium Z",
 		desc: "If held by Toph with Meteor Mash, it can use Metalbending.",
@@ -21,7 +7,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "Metalbending",
 		zMoveFrom: "Meteor Mash",
 		itemUser: ["Toph"],
-		num: -2,
+		num: -1,
 		gen: 9,
 	},
 	matrixofleadership: {
@@ -56,8 +42,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return true;
 		},
+		num: -2,
+		gen: 9,
+	},
+	garfiumz: {
+		name: "Garfium Z",
+		desc: "If held by Garfield with Knock Off, it can use Snack Attack.",
+		spritenum: 647,
+		onTakeItem: false,
+		zMove: "Snack Attack",
+		zMoveFrom: "Knock Off",
+		itemUser: ["Garfield"],
 		num: -3,
 		gen: 9,
+	},
+	atsukoite: {
+		name: "Atsukoite",
+		spritenum: 576,
+		megaStone: "Atsuko Kagari-Mega",
+		megaEvolves: "Atsuko",
+		itemUser: ["Atsuko Kagari", "Atsuko Kagari-Mega"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -4,
+		gen: 9,
+		desc: "If held by Atsuko Kagari, this item allows her to Mega Evolve in battle.",
 	},
 	zanite: {
 		name: "zanite",
@@ -69,11 +80,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -4,
+		num: -5,
 		gen: 9,
 		desc: "If held by Zane Julian, this item allows it to Mega Evolve in battle.",
 	},
-	Morningstarite: {
+	morningstarite: {
 		name: "Morningstarite",
 		spritenum: 576,
 		megaStone: "Charlie Morningstar-Mega",
@@ -83,11 +94,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -5,
+		num: -6,
 		gen: 9,
 		desc: "If held by Charlie Morningstar, this item allows it to Mega Evolve in battle.",
 	},
-	Moralite: {
+	aquiumz: {
+		name: "Aquium Z",
+		desc: "If held by Aqua with Psyshock, it can use God Blow.",
+		spritenum: 647,
+		onTakeItem: false,
+		zMove: "God Blow",
+		zMoveFrom: "Psyshock",
+		itemUser: ["Aqua"],
+		num: -7,
+		gen: 9,
+	},
+	moralite: {
 		name: "Moralite",
 		spritenum: 576,
 		megaStone: "Miles Morales-Mega",
@@ -97,11 +119,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -6,
+		num: -8,
 		gen: 9,
 		desc: "If held by Miles Morales, this item allows it to Mega Evolve in battle.",
 	},
-	Assassin Dress: {
+	assassindress: {
 		name: "Assassin Dress",
 		spritenum: 576,
 		megaStone: "Yor Forger-Mega",
@@ -111,7 +133,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -7,
+		num: -9,
 		gen: 9,
 		desc: "If held by Yor Forger, this item allows it to Mega Evolve in battle.",
 	},
