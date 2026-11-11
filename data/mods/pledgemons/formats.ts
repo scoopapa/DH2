@@ -6,7 +6,7 @@ export const Formats: FormatData[] = [
 		mod: 'pledgemons',
 		desc: `6v6 doubles format where only Fire, Water and Grass types are legal. All pokemon gain the pledge moves they would have STAB for.`,
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Data Mod', 'Pledge Moves'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Pledge Moves', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod'],
 		banlist: ['AG', 'Arceus-Water', 'Kyogre', 'Kyogre-Primal', 'Palkia', 'Palkia-Origin', 'Ho-Oh', 'Arceus-Fire', 'Groudon-Primal', 'Reshiram', 'Arceus-Grass'],
 		unbanlist: ['Chandelure-Mega', 'Chesnaught-Mega', 'Delphox-Mega', 'Emboar-Mega', 'Feraligatr-Mega', 'Greninja-Mega', 'Meganium-Mega', 'Pyroar-Mega', 'Starmie-Mega', 'Victreebel-Mega', 'Scovillain-Mega'],
 		teambuilderFormat: 'National Dex', 
