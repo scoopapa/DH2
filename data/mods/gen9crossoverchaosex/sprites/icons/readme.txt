@@ -1,0 +1,1 @@
+Credit goes to DuoM2 for this style of minisprites
