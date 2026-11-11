@@ -2079,13 +2079,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		shortDesc: "Immune to crits; takes 20% less damage from all attacks.",
 	},
 	subsumption: {
-	onAnyTryMove(target, source, effect) {
-		if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
-			this.attrLastMove('[still]');
-			this.boost({atk: 1}, source);
-			this.add('cant', this.effectState.target, 'ability: Subsumption', effect, '[of] ' + target);
-			return false;
-		}
+	onAnyTryMove(source, target, move) {
+		if (!['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(move.id)) return;
+		const holder = this.effectState.target;
+		if (source === holder) return;
+		if (source.isAlly(holder)) return;
+		this.attrLastMove('[still]');
+		this.boost({atk: 1}, holder);
+		this.add('cant', source, 'ability: Subsumption', move, '[of] ' + holder);
+		return false;
 	},
 	onTryHit(target, source, move) {
 		if (target === source || move.category === 'Status') return;
