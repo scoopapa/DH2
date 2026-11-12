@@ -104,7 +104,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (pokemon.setType("Electric")) this.add('-start', pokemon, 'typechange', "Electric", '[silent]');
 		},
-		onModifyAtk: undefined,
+		onModifySpA: undefined,
 	},
 	toxicdebris: {
 		inherit: true,
