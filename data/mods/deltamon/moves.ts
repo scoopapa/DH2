@@ -255,7 +255,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "BIG SHOT",
 		type: "Electric",
 		category: "Special",
-		basePower: 150,
+		basePower: 165,
 		accuracy: true,
 		pp: 1,
 		noPPBoosts: true,
@@ -435,7 +435,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "20% chance to confuse.",
 		desc: "The user playfully and erratically attacks the target with a sharp blade. This move has a 20% chance to confuse the target.",
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1,},
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1,},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Dazzling Gleam", target);
@@ -793,6 +793,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 	},
+
+	drainingflare: {
+		name: "Draining Flare",
+		type: "Fire",
+		category: "Special",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User restores 50% of the damage dealt.",
+		desc: "The user expels a life-leeching flame at the opponent. The user heals 1/2 of the damage dealt by this attack, rounded down.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, heal: 1},
+		drain: [1, 2],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ember", target);
+			this.add('-anim', pokemon, "Morning Sun", pokemon);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 	mewmewwand: {
 		name: "Mew Mew Wand",
 		type: "Psychic",
@@ -913,7 +935,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 1,
 		isZ: "prismaticomegapetal",
 		shortDesc: "Sets the Rose-Gold Garden terrain for 6 turns.",
-		desc: "The user channels the Power of Friendship to unleash their ultimate move. This move sets the Rose-Gold Garden effect for 6 turns.",
+		desc: "The user channels the Power of Friendship to unleash their ultimate move. This move sets the Rose-Gold Garden effect for 6 turns. Rose-Gold Garden: Grassy Terrain effect + Mitigates Grass-Type weaknesses, and triggers any Pokemon's Blossom Boost. Cannot be overwritten or dispelled by any means.",
 		priority: 0,
 		flags: {punch: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -923,6 +945,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
+		onHit(target, source, move) {
+			if (this.field.getTerrain() !== 'rosegoldgarden') {
+				this.field.clearTerrain();
+				this.field.setTerrain('rosegoldgarden');
+			}
+		},
 	},
 
 	bramblearrow: {
@@ -1484,6 +1512,123 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: { boost: { def: 1 } },
 		contestType: "Beautiful",
 	},
+
+	//Moves designed to interact with Grassy Terrain now work with Rose Gold Garden.
+	floralhealing: {
+		inherit: true,
+		onHit(target, source) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && !target.isAlly(source)) {
+				target.staleness = 'external';
+			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	camouflage: {
+		inherit: true,
+		onHit(target) {
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			}
+		},
+	},
+	grassyglide: {
+		inherit: true,
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden') && source.isGrounded()) {
+				return priority + 1;
+			}
+		},
+	},
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			}
+			this.actions.useMove(move, pokemon, target);
+			return null;
+		},
+	},
+	secretpower: {
+		inherit: true,
+			onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+	},
+	terrainpulse: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'rosegoldgarden':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+	},
+
 	//Torque Moves
 	blazingtorque: {
 		inherit: true,

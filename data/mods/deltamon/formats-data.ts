@@ -851,14 +851,34 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
+	friend: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	kingofdiamonds: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	grillby: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	charles: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	charlespancake: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
 
 	//Random Battle exclusives
 
-	friend: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "Illegal",
-	},
 	normalnpc: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
