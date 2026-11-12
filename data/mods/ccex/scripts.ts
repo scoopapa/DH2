@@ -38,7 +38,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			return undefined;
-		}
+		},
 		
 		//insect breathing
 		hitStepInvulnerabilityEvent(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
@@ -62,7 +62,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			return hitResults;
-		}
+		},
 		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
 		const hitResults = [];
 			for (const [i, target] of targets.entries()) {
@@ -125,7 +125,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				hitResults[i] = true;
 			}
 			return hitResults;
-		}
+		},
 		
 		//pack hunter
 		modifyDamage(
@@ -247,7 +247,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
-		}
+		},
 	},
 	pokemon: {
 		//ringmaster
@@ -263,7 +263,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
-		}
+		},
 	},
 };
 

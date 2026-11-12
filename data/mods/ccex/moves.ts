@@ -594,7 +594,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'move: Creation', '[silent]');
 			},
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
