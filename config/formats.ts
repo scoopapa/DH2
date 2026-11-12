@@ -49,6 +49,7 @@ import { Formats as BreedingVariantsNatDex      } from '../data/mods/breedingvar
 import { Formats as BustAMove                   } from '../data/mods/bustamove/formats';
 import { Formats as CCaPM2022                   } from '../data/mods/ccapm2022/formats';
 import { Formats as CCaPM2024                   } from '../data/mods/ccapm2024/formats';
+import { Formats as CCEX              			} from '../data/mods/ccex/formats';
 import { Formats as ChatBats                    } from '../data/mods/chatbats/formats';
 import { Formats as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/formats';
 import { Formats as CommunityUsed2              } from '../data/mods/communityused2/formats';
@@ -281,6 +282,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...CCaPM2024,
 	...CleanSlateMicro2,
 	...gen9CrossoverChaosC,
+	...CCEX,
 	...DLCmons,
 	...Dollhouse,
 	...DoNotUsetPMtM,
