@@ -616,6 +616,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		cosmeticFormes: ["Roaring Knight-Advent"],
 		formeOrder: ["Roaring Knight", "Roaring Knight-Advent"],
 	},
+	roaringknightadvent: {
+		num: -58,
+		name: "Roaring Knight-Advent",
+		baseSpecies: "Roaring Knight",
+		forme: "Advent",
+		types: ["Dark"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 130, def: 90, spa: 80, spd: 90, spe: 110},
+		abilities: {0: "Savage Roar"},
+		weightkg: 122.5,
+	},
 	friend: {
 		num: -59,
 		name: "Friend",
