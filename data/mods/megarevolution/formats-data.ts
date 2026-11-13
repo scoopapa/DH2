@@ -5094,4 +5094,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	kaisogiri: {
 		tier: "OU",
 	},
+	reptarbor: {
+		tier: "OU",
+	},
+	blazikenboosted: {
+		tier: "OU",
+	},
+	swampertsapphire: {
+		tier: "OU",
+	},
 };
