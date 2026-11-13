@@ -558,7 +558,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	stygiogre: {
-		tier: "MHNU",
+		tier: "MHNUBL",
 	},
 	jindahaad: {
 		tier: "MHOU",

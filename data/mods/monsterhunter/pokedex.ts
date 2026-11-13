@@ -689,7 +689,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 31,
 		name: "Molgrex",
 		types: ["Fire"],
-		baseStats: {hp: 100, atk: 114, def: 94, spa: 108, spd: 82, spe: 82},
+		baseStats: {hp: 108, atk: 114, def: 94, spa: 82, spd: 82, spe: 100},
 		abilities: {0: "Aggravation", 1: "Gravedrum", H: "Punk Rock"},
 		weightkg: 130.5,
 		tags: ["Flying Wyvern"],
@@ -2061,7 +2061,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	gaismagorm: {
 		num: 114,
 		name: "Gaismagorm",
-		types: ["Dark"],
+		types: ["Dragon", "Dark",],
 		baseStats: {hp: 125, atk: 106, def: 115, spa: 95, spd: 115, spe: 60},
 		abilities: {0: "Regenerator", H: "Dark Aura"},
 		weightkg: 1000.0,
