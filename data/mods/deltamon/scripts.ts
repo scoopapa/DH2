@@ -214,7 +214,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
 			if (source === 'debug') source = this.battle.sides[0].active[0];
 			if (!source) throw new Error(`setting terrain without a source`);
-
+			
+			//Rose Gold Garden persistence.
 			if (this.terrain === status.id || this.terrain === 'rosegoldgarden' || this.terrainState?.id === 'rosegoldgarden') return false;
 			const prevTerrain = this.terrain;
 			const prevTerrainState = this.terrainState;

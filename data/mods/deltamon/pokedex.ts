@@ -325,7 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Hacker",
 		types: ["Dark", "Electric"],
 		gender: "M",
-		baseStats: {hp: 70, atk: 100, def: 72, spa: 65, spd: 72, spe: 111},
+		baseStats: {hp: 70, atk: 65, def: 72, spa: 100, spd: 72, spe: 121},
 		abilities: {0: "Infiltrator"},
 		weightkg: 35,
 	},

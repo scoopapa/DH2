@@ -433,7 +433,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Flame Phase",
-		shortDesc: "First turn out: enemy contact moves deal 0.25x damage."
+		shortDesc: "First turn out: contact moves deal 0.25x damage."
 	},
 
 	floralambush: {
