@@ -216,14 +216,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (pokemon.undyingRecover) return;
 			if (pokemon.hp <= pokemon.maxhp / 4 && !pokemon.fainted && !pokemon.volatiles['healblock']) {
-				this.heal(pokemon.baseMaxhp / 2);
+				this.heal(pokemon.baseMaxhp / 3);
 				pokemon.undyingRecover = true;
 			}
 		},
 		
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Undying Spirit",
-		shortDesc: "Once per battle, if this Pokemon drops to 1/4 HP or less, restore 1/2 of its HP.",
+		shortDesc: "Once per battle, if this Pokemon drops to 1/4 HP or less, restore 1/3 of its HP.",
 	},
 	
 	pyromancy: {
@@ -335,14 +335,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	amalgamation: {
+		//Copied from Trace
 		onStart(pokemon) {
 			pokemon.addVolatile('amalgamation');
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			// interaction with Ability Shield is similar to No Ability
+			if (pokemon.hasItem('Ability Shield')) {
+				this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
 		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability)) {
+				this.add('-ability', pokemon, ability, '[from] ability: Amalgamation', '[of] ' + target);
+			}
+		},
+
 		condition: {
 			noCopy: true,
-			onStart(target) {
-				this.add('-start', target, 'ability: Amalgamation');
-			},
 			onAnyFaint(target) {
 				if (!this.effectState.target.hp) return;
 				const ability = target.getAbility();
@@ -354,9 +375,105 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Amalgamation",
-		shortDesc: "Gain the Amalgamation effect: Copy the ability of the last Pokemon to faint in battle.",
+		shortDesc: "Trace enemy Ability and gain Amalgamation effect: Copy the ability of Pokemon who faint in battle.",
 	},
-	
+
+	bigchomp: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.3);
+			}
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (!source || source.fainted || source.hp <= 0) {
+				if (move.flags?.bite) {
+					this.add ('-activate', target, 'ability: Big Chomp'),
+					this.heal(target.baseMaxhp / 4, target, target, move);
+				}
+			}
+		},
+		flags: {},
+		name: "Big Chomp",
+		shortDesc: "Biting moves: 1.3x Damage, KO with Bite Move: Heal 25%",
+	},
+
+	shadowingbite: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+	flags: {},
+	name: "Shadowing Bite",
+	shortDesc: "Biting moves: 1.5x Damage, +1 Def upon being hit.",
+	},
+
+	flamephase: {
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Flame Phase');
+			pokemon.addVolatile('flamephase');
+		},
+		condition: {
+			noCopy: true,
+			duration: 1,
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.flags['contact']) {
+					this.debug('Flame Phase reduction');
+					return this.chainModify(0.25);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Flame Phase');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Flame Phase",
+		shortDesc: "First turn out: contact moves deal 0.25x damage."
+	},
+
+	floralambush: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Floral Ambush Boost');
+				return this.chainModify(1.5);
+			}
+		},
+
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Aerokota') return;
+			if (move.category === 'Status') return;
+			if (attacker.species.name !== 'Aerokota') attacker.formeChange('Aerokota');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Floral Ambush",
+		shortDesc: "Aerokota: Switch in as Shielded forme. Attack: transform into Aerokota. Grass moves: 1.5x BP.",
+	},
+
+	floralsymbiont: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyBasePowerPriority: 19,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				return this.chainModify(1.3);
+			}
+		},
+		//Grassy Terrain healing handled in Grassy Terrain move.
+		flags: {},
+		name: "Floral Symbiont",
+		shortDesc: "Grass moves: 1.5x Power, ally Grass moves: 1.3x Power. Grassy Terrain healing 2x.",
+	},
+
 	// copied from Quark Drive
 	blossomboost: {
 		onSwitchInPriority: -2,
@@ -364,7 +481,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onTerrainChange(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
 				pokemon.addVolatile('blossomboost');
 			} else if (!pokemon.volatiles['blossomboost']?.fromBooster) {
 				pokemon.removeVolatile('blossomboost');
@@ -673,7 +790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "A normal ability. Does Normal things."
 	},
 	
-// Vanilla abilities edited to interact with Savage Roar
+// Vanilla abilities edited to interact with Savage Roar and/or Demoralize
 	guarddog: {
 		inherit: true,
 		onTryBoostPriority: 2,
@@ -698,7 +815,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rattled: {
 		inherit: true,
 		onAfterBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Savage Roar'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Savage Roar', 'Demoralize'].includes(effect.name) && boost.atk) {
 				this.boost({ spe: 1 });
 			}
 		},
@@ -727,12 +844,52 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	innerfocus: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Savage Roar'].includes(effect.name) && boost.atk) {
+			if (['Intimidate', 'Savage Roar', 'Demoralize'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', `[of] ${target}`);
 			}
 		},
 	},
-	
 
+	//Abilities made to interact with Grassy Terrain now interact with Omega Flowery's Rose Gold Garden as well.
+	grasspelt: {
+		inherit: true,
+		onModifyDef(pokemon) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) return this.chainModify(1.5);
+		},
+	},
+	mimicry: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'rosegoldgarden':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
+	},
 };
