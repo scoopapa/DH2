@@ -1308,7 +1308,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Grillby",
 		types: ["Fire", "Water"],
 		gender: "M",
-		baseStats: {hp: 108, atk: 68, def: 84, spa: 98, spd: 101, spe: 71},
+		baseStats: {hp: 98, atk: 68, def: 74, spa: 88, spd: 101, spe: 71},
 		abilities: {0: "Flame Body", 1: "Symbiosis", H: "Triage"},
 		weightkg: 0.1,
 	},
