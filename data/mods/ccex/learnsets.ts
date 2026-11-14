@@ -132,7 +132,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			incinerate: ["9L1"],
 			inferno: ["9L1"],
 			irontail: ["9L1"],
-			jeweledsquall: ["9L1"],
+			jewelledsquall: ["9L1"],
 			leer: ["9L1"],
 			makeitrain: ["9L1"],
 			metalclaw: ["9L1"],
