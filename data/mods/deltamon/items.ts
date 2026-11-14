@@ -98,6 +98,15 @@ boosterenergy: {
 	itemUser: ["Yellow"],
 	},
 
+	prismaticomegapetal: {
+	name: "Prismatic Omega Petal",
+	onTakeItem: false,
+	shortDesc: "If held by Flowery with Jarona, he can Ultra Burst and use Last Jarona",
+	zMove: "Last Jarona",
+	zMoveFrom: "Jarona",
+	itemUser: ["Flowery-Omega"],
+	},
+
 	queenite: {
 		name: "Queenite",
 		megaStone: "Queen-Mega",
@@ -237,6 +246,44 @@ boosterenergy: {
 			}
 		},
 	},
+
+	hardhat: {
+		name: "Hard Hat",
+		shortDesc: "Must be held by Charles. Ground/Steel Moves gain 1.1x Power.",
+		itemUser: ["Charles"],
+		fling: {
+			basePower: 70,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.name === 'Charles') return false;
+			return true;
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name === 'Charles' && (move.type === 'Ground' || move.type === 'Steel')) {
+				return this.chainModify(1.1);
+			}
+		},
+	},
+
+	tallhat: {
+		name: "Tall Hat",
+		shortDesc: "Must be held by Charles-Pancake. Ground/Fairy Moves gain 1.1x Power.",
+		itemUser: ["Charles-Pancake"],
+		fling: {
+			basePower: 80,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.name === 'Charles-Pancake') return false;
+			return true;
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name === 'Charles-Pancake' && (move.type === 'Ground' || move.type === 'Fairy')) {
+				return this.chainModify(1.1);
+			}
+		},
+	},
 	
 	soulcollective: {
 		name: "Soul Collective",
@@ -246,4 +293,5 @@ boosterenergy: {
 		zMoveFrom: "Star Blazing",
 		itemUser: ["Asriel-Hyperdeath"],
 	},
+
 };

@@ -814,12 +814,71 @@ rudinn: {
 		doublesTier: "DM DUbers",
 		natDexTier: "Uber",
 	},
+	//Deltamon 1.1 additions
 
-	friend: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "Illegal",
+	aerokotashielded: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
 	},
+	aerokota: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	mantidance: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	floweryomega: {
+		tier: "DM Ubers",
+		doublesTier: "DM DUbers",
+		natDexTier: "Uber",
+	},
+	bigmouth: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	harpy: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	fukufire: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	friend: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	kingofdiamonds: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	grillby: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	charles: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+	charlespancake: {
+		tier: "DM OU",
+		doublesTier: "DM DOU",
+		natDexTier: "OU",
+	},
+
+	//Random Battle exclusives
+
 	normalnpc: {
 		tier: "Illegal",
 		doublesTier: "Illegal",

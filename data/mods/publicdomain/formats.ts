@@ -9,6 +9,7 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'publicdomain',
 		teambuilderFormat: "National Dex",
+		banlist: ['Baton Pass'],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod', 'Z-Move Clause'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

@@ -40,7 +40,7 @@ export const Formats: FormatData[] = [
 		mod: 'blankcanvas',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: [
-			'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang', 
+			'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang',
 			'Lyvamp', 'Treatmint', 'Turvarpega', 'Goodjur', 'Liftaton', 'Triceracotta', 'Woolverine', 'Combustoad', 'Hearthind', 'Koiryu',
 			'Pestiligy', 'Saxum', 'Sascratch', 'Guttergar', 'Rakasa', 'Thermostatic', 'Formaldehydra', 'Strumorthio', 'Iron Mike',
 			'Whalestro', 'Urslag', 'Centaghoul', 'Noirwark', 'Metarachne', 'Monsnooze', 'Oreamoss', 'Sucrillon', 'Taranferno',
@@ -95,23 +95,14 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'blankcanvas',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang'],
+		banlist: ['All Pokemon', 'AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Razor Fang', 'Pinaturbo + Parting Shot'],
 		unbanlist: [
 			'Iron Mike', 'Brasspecter', 'Deadward', 'Ptoxidactyl', 'Craggon', 'Siltworm', 'Arsenstorm', 'Guttergar', 'Goodjur', 'Pinaturbo',
 			'Mediocjur', 'Plushimander', 'Orchrefait', 'Eighremophas', 'Snaellcaster', 'Marultan', 'Vertabrea', 'Flingangel', 'Nekolepsy',
 			'Honeydue', 'Drug', 'Aberrockin', 'Tartzacoatl', 'Iusperare', 'Wyrmware-N', 'Irdonerkeb', 'Kappaqua', 'Lactoxic', 'Horronimbus', 'Woolly Crawler',
-			'Brainstrom', 'Monster', 'Grizbearab', 'Frospes', 'Bugpipes', 'Valentine', 'Dionalces', 'Ferrignalx', 'Gebbrilis',
+			'Brainstrom', 'Monster', 'Grizbearab', 'Frospes', 'Bugpipes', 'Valentine', 'Dionalces', 'Ferrignalx', 'Gebbrilis', 'Refrigigator', 'Dragallista',
+			'Papillune', 'Frigacid',
 		],
-		/* onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['BC C'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Blank Canvas Meta C.'];
-				}
-			}
-		} */
 	},
 	{
 		name: "[Gen 9] Blank Canvas Random Battle",

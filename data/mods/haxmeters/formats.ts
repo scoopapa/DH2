@@ -63,7 +63,7 @@ export const Formats: FormatData[] = [
 		mod: 'championshaxmeters',
 		gameType: 'doubles',
 		bestOfDefault: true,
-		ruleset: ['Flat Rules', 'Open Team Sheets', 'Terastal Clause', 'Hax Meter Rule'],
+		ruleset: ['Flat Rules', 'Open Team Sheets', 'Terastal Clause', 'IV Clause', 'Hax Meter Rule'],
 		//ruleset: ['Flat Rules', 'Open Team Sheets', 'Data Mod', 'Hax Meter Rule'],
 	},
 ];

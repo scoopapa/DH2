@@ -255,7 +255,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "BIG SHOT",
 		type: "Electric",
 		category: "Special",
-		basePower: 150,
+		basePower: 165,
 		accuracy: true,
 		pp: 1,
 		noPPBoosts: true,
@@ -435,7 +435,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "20% chance to confuse.",
 		desc: "The user playfully and erratically attacks the target with a sharp blade. This move has a 20% chance to confuse the target.",
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1,},
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1,},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Dazzling Gleam", target);
@@ -606,7 +606,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Omega Justice",
 		type: "Fighting",
 		category: "Special",
-		basePower: 120,
+		basePower: 130,
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Always crits, bypasses Substitute, ignores abilities.",
@@ -771,6 +771,50 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
+	duckofdoom: {
+		name: "Duck of Doom",
+		type: "Normal",
+		category: "Physical",
+		basePower: 1,
+		accuracy: 100,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "Seth and Aqua's ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (target.isAlly(pokemon)) return;
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 6, spa: 6, spe: 1}, pokemon, pokemon, move);
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Feather Dance", target);
+			this.add('-anim', target, "Luster Purge", target);
+		},
+		target: "normal",
+	},
+
+	drainingflare: {
+		name: "Draining Flare",
+		type: "Fire",
+		category: "Special",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User restores 50% of the damage dealt.",
+		desc: "The user expels a life-leeching flame at the opponent. The user heals 1/2 of the damage dealt by this attack, rounded down.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, heal: 1},
+		drain: [1, 2],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ember", target);
+			this.add('-anim', pokemon, "Morning Sun", pokemon);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 	mewmewwand: {
 		name: "Mew Mew Wand",
 		type: "Psychic",
@@ -871,12 +915,124 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Leaf Storm", target);
-				this.add('-anim', pokemon, "Mach Punch", target);
+			this.add('-anim', pokemon, "Mach Punch", target);
 		},
 		secondary: {
 			chance: 30,
 			boosts: {
 				def: -1,
+			},
+		},
+		target: "normal",
+	},
+
+	lastjarona: {
+		name: "Last Jarona",
+		type: "Grass",
+		category: "Physical",
+		basePower: 215,
+		accuracy: true,
+		pp: 1,
+		isZ: "prismaticomegapetal",
+		shortDesc: "Sets the Rose-Gold Garden terrain for 6 turns.",
+		desc: "The user channels the Power of Friendship to unleash their ultimate move. This move sets the Rose-Gold Garden effect for 6 turns. Rose-Gold Garden: Grassy Terrain effect + Mitigates Grass-Type weaknesses, and triggers any Pokemon's Blossom Boost. Cannot be overwritten or dispelled by any means.",
+		priority: 0,
+		flags: {punch: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Prismatic Laser", target);
+			this.add('-anim', pokemon, "Mach Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		onHit(target, source, move) {
+			if (this.field.getTerrain() !== 'rosegoldgarden') {
+				this.field.clearTerrain();
+				this.field.setTerrain('rosegoldgarden');
+			}
+		},
+	},
+
+	bramblearrow: {
+		name: "Bramble Arrow",
+		type: "Grass",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Priority +3, First turn only, uses target's Speed in damage calc.",
+		desc: "The user disrupts the target by firing an arrow at blinding speed, almost always going first (Priority +3).This move uses the target's Speed stat to calculate its damage. This move can only be used during the first turn the user is on the field.",
+		priority: 3,
+		overrideOffensiveStat: 'spe',
+		overrideOffensivePokemon: 'target',
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				return false;
+			}
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pin Missile", target);
+			this.add('-anim', pokemon, "Grass Knot", target);
+		},
+		target: "normal",
+	},
+
+	spiraldance: {
+		name: "Spiral Dance",
+		type: "Bug",
+		category: "Physical",
+		basePower: 60,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Frees user from hazards/bind/Leech Seed; +1 Spe.",
+		desc: "The user performs a twirl that blows away all hazards on their side as well as freeing them from Leech Seed or any binding effects. This also boosts the user's Speed by 1 stage.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, dance: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Teeter Dance", target);
+			this.add('-anim', pokemon, "Springtide Storm", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
 			},
 		},
 		target: "normal",
@@ -1085,7 +1241,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "randomNormal",
 	},
-	
+
+	steelyshot: {
+		name: "Steely Shot",
+		type: "Steel",
+		category: "Special",
+		basePower: 70,
+		accuracy: true,
+		pp: 15,
+		shortDesc: "This move does not check accuracy.",
+		desc: "The user fires a blast from their gun. This move cannot miss.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Lock-On", target);
+			this.add('-anim', pokemon, "Flash Cannon", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 	flamingtrident: {
 		name: "Flaming Trident",
 		type: "Fire",
@@ -1280,7 +1456,179 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 		}, 
-	
+	//Floral Symbiont and Grassy Terrain
+	grassyterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					if (pokemon.hasAbility('floralsymbiont')) {
+						this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon);
+					}
+					else {
+						this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+					}
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+		target: "all",
+		type: "Grass",
+		zMove: { boost: { def: 1 } },
+		contestType: "Beautiful",
+	},
+
+	//Moves designed to interact with Grassy Terrain now work with Rose Gold Garden.
+	floralhealing: {
+		inherit: true,
+		onHit(target, source) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && !target.isAlly(source)) {
+				target.staleness = 'external';
+			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	camouflage: {
+		inherit: true,
+		onHit(target) {
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			}
+		},
+	},
+	grassyglide: {
+		inherit: true,
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden') && source.isGrounded()) {
+				return priority + 1;
+			}
+		},
+	},
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			}
+			this.actions.useMove(move, pokemon, target);
+			return null;
+		},
+	},
+	secretpower: {
+		inherit: true,
+			onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('rosegoldgarden')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+	},
+	terrainpulse: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'rosegoldgarden':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			}
+		},
+	},
+
 	//Torque Moves
 	blazingtorque: {
 		inherit: true,

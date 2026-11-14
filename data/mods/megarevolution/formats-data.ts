@@ -5016,9 +5016,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	leonid: {
 		tier: "OU",
 	},
-	gyarados: {
-		tier: "OU",
-	},
 	atrociathan: {
 		tier: "OU",
 	},
@@ -5062,6 +5059,48 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	paladaura: {
+		tier: "OU",
+	},
+	algrake: {
+		tier: "OU",
+	},
+	drancestor: {
+		tier: "OU",
+	},
+	baxcaliburhisui: {
+		tier: "OU",
+	},
+	stagssault: {
+		tier: "OU",
+	},
+	scizorgalar: {
+		tier: "OU",
+	},
+	beetlbrute: {
+		tier: "OU",
+	},
+	xenopede: {
+		tier: "OU",
+	},
+	golisopodstalwart: {
+		tier: "OU",
+	},
+	tsuraigiri: {
+		tier: "OU",
+	},
+	roisaogiri: {
+		tier: "OU",
+	},
+	kaisogiri: {
+		tier: "OU",
+	},
+	reptarbor: {
+		tier: "OU",
+	},
+	blazikenboosted: {
+		tier: "OU",
+	},
+	swampertsapphire: {
 		tier: "OU",
 	},
 };

@@ -15,7 +15,7 @@ export function championsSleepPoints(pokemon: Pokemon): number {
 }
 
 export function championsFreezePoints(pokemon: Pokemon): number {
-	if (pokemon.freezeTurns < 3) {
+	if (pokemon.freezeTurns < 2) {
 		return 75;
 	}
 	else {
@@ -27,6 +27,10 @@ export const Scripts = {
 	...BaseScripts,
 	gen: 9,
 	inherit: 'champions',
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['Uber', 'OU', '(OU)', 'UUBL', 'UU', 'RU', 'NFE'],
+	},
 	missMeterInitialValue: randomMultipleOf10,
 	statusMeterInitialValue: randomMultipleOf12Point5,
 	paralysisPoints: championsParalysisPoints,
