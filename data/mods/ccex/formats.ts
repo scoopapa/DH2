@@ -11,6 +11,7 @@ export const Formats: FormatData[] = [
 		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Moves Clause', 'Terastal Clause', 'Mega Data Mod'],
 		//banlist: [],
+		unbanlist: ["Floaty Fall", "Light of Ruin"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -18,7 +19,7 @@ export const Formats: FormatData[] = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Crossover ChaosExpanded.'];
+					return [set.species + ' is not legal in Crossover Chaos Expanded.'];
 				}
 			}
 		}
