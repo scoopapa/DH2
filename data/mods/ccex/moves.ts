@@ -81,11 +81,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const type1 = 'Steel';
 			const type2 = 'Ground';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					move.type = 'Ground';
-				} else if (target.hasType('Flying') && !target.hasItem('ringtarget')) {
-					move.type = 'Ground';
+					move.type = 'Steel';
 				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
-					if (pokemon.hasType('Steel') && !pokemon.hasType('Ground')) {
+					if (pokemon.hasType('Ground') &&
+					!pokemon.hasType('Steel') &&
+					!pokemon.hasAbility('steelworker') && !pokemon.hasAbility('steelyspirit')) {
 						move.type = 'Ground';
 					}
 				}
@@ -403,12 +403,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onSwap(target) {
 				if (!target.fainted) {
-					
+					target.addVolatile('magnetrise');
+					const mr = target.volatiles['magnetrise'];
+					if (mr) mr.duration = 2;
+					target.side.removeSlotCondition(target, 'zerogravity');
 				}
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	demonicarm: {
 		name: "Demonic Arm",
@@ -686,28 +689,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
 				}
-			},
-		},
-	},
-	magnetrise: {
-		inherit: true,
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (effect?.id === 'zerogravity') {
-					return 2;
-				}
-				return 5;
-			},
-			onStart(target) {
-				this.add('-start', target, 'Magnet Rise');
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onResidualOrder: 18,
-			onEnd(target) {
-				this.add('-end', target, 'Magnet Rise');
 			},
 		},
 	},

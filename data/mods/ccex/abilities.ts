@@ -43,18 +43,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	insectbreathing: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (['furyattack', 'hornattack', 'horndrill', 'hyperdrill', 
-				'retaliate', 'fellstinger', 'lunge', 'megahorn', 'twineedle', 
-				'poisonjab', 'poisonsting', 'drillpeck', 'drillrun', 'smartstrike'].includes(move.id)) {
+			if (['furyattack', 'hornattack', 'horndrill', 'hyperdrill', 'retaliate', 'fellstinger', 'lunge', 'megahorn', 'twineedle', 'poisonjab', 'poisonsting', 'drillpeck', 'drillrun', 'smartstrike'].includes(move.id)) {
 				this.debug('Sharpness boost');
 				return this.chainModify(1.2);
 			}
 		},
 		onModifyMovePriority: -1,
-		onModifyMove(move) {
-			if (move.category !== "Status") {
+		onModifyMove(move, pokemon) {
+			if ([
+				'furyattack', 'hornattack', 'horndrill', 'hyperdrill', 'retaliate',
+				'fellstinger', 'lunge', 'megahorn', 'twineedle', 'poisonjab',
+				'poisonsting', 'drillpeck', 'drillrun', 'smartstrike',
+			].includes(move.id)) {
 				this.debug('Adding Insect Breathing poison');
-				if (move.secondaries) move.secondaries = [];
+				if (!move.secondaries) move.secondaries = [];
 				move.secondaries.push({
 					chance: 50,
 					status: 'tox',
@@ -154,8 +156,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!this.effectState.switchingIn) return;
 			this.effectState.switchingIn = false;
 			if (pokemon.baseSpecies.baseSpecies !== 'Velociraptor') return;
-			this.add('-activate', pokemon, 'ability: Pack Hunter');
-			if (pokemon.species.forme === 'Pack') pokemon.addVolatile('packhunter');
+			if (pokemon.species.forme === 'Pack') {
+				this.add('-activate', pokemon, 'ability: Pack Hunter');
+				pokemon.addVolatile('packhunter');
+			}
 		},
 		condition: {
 			duration: 3,
