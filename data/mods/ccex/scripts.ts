@@ -3,6 +3,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['CCEX OU'],
+		customDoublesTiers: ['DCCEX OU'],
 	},
 	actions: {
 		//jewelled squall

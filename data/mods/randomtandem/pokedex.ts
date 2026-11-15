@@ -1333,7 +1333,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		mons: [
 			[
 				{
-					species: 'Dragonite-Mega',
+					species: 'Dragonite',
 					item: 'dragoninite',
 					ability: 'multiscale',
 					teraType: 'Dragon',
@@ -1344,7 +1344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Scizor-Mega',
+					species: 'Scizor',
 					item: 'scizorite',
 					ability: 'technician',
 					teraType: 'Steel',
@@ -1383,7 +1383,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		mons: [
 			[
 				{
-					species: 'Froslass-Mega',
+					species: 'Froslass',
 					item: 'froslassite',
 					ability: 'cursedbody',
 					teraType: 'Ice',
@@ -1394,7 +1394,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Emboar-Mega',
+					species: 'Emboar',
 					item: 'emboarite',
 					ability: 'reckless',
 					teraType: 'Fire',
@@ -1433,7 +1433,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		mons: [
 			[
 				{
-					species: 'Floette-Mega',
+					species: 'Floette',
 					item: 'floettite',
 					ability: 'symbiosis',
 					teraType: 'Fairy',
@@ -1466,8 +1466,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Starmie-Mega',
-					item: 'heavydutyboots',
+					species: 'Starmie',
+					item: 'starminite',
 					ability: 'naturalcure',
 					teraType: 'Water',
 					nature: 'Hasty',
@@ -1483,7 +1483,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		mons: [
 			[
 				{
-					species: 'Charizard-Mega-X',
+					species: 'Charizard',
 					item: 'charizarditex',
 					ability: 'blaze',
 					teraType: 'Fire',
@@ -1505,7 +1505,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Meganium-Mega',
+					species: 'Meganium',
 					item: 'meganiumite',
 					ability: 'overgrow',
 					teraType: 'Grass',
@@ -1555,7 +1555,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Feraligatr-Mega',
+					species: 'Feraligatr',
 					item: 'feraligite',
 					ability: 'sheerforce',
 					teraType: 'Water',
@@ -1566,7 +1566,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Aerodactyl-Mega',
+					species: 'Aerodactyl',
 					item: 'aerodactylite',
 					ability: 'rockhead',
 					teraType: 'Rock',
@@ -1594,7 +1594,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			],
 			[
 				{
-					species: 'Pyroar-Mega',
+					species: 'Pyroar',
 					item: 'pyroarite',
 					ability: 'unnerve',
 					teraType: 'Fire',
@@ -2284,12 +2284,319 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 				{
 					species: 'tinglu',
 					item: 'leftovers',
+					gender: 'N',
 					ability: 'stakeout',
 					teraType: ['Water', 'Ghost', 'Fairy'],
 					nature: 'Impish',
 				},
 				['earthquake', 'payback'],
 				['stealthrock', 'spikes', 'whirlwind'],
+			],
+		],
+	},
+	toxapex: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'Steelix',
+					item: 'steelixite',
+					ability: 'sturdy',
+					teraType: 'Steel',
+					nature: 'Careful',
+				},
+				['earthquake', 'shoreup'],
+				['stealthrock', 'heavyslam', 'curse'],
+			],
+			[
+				{
+					species: 'clefable',
+					item: 'leftovers',
+					ability: ['magicguard', 'unaware'],
+					teraType: ['Fighting', 'Ground'],
+					nature: 'Bold',
+				},
+				['moonblast', 'moonlight'],
+				['takeheart', 'knockoff', 'thunderwave'],
+			],
+			[
+				{
+					species: 'dragalge',
+					item: 'dragalgite',
+					ability: 'adaptability',
+					teraType: 'Dragon',
+					nature: 'Calm',
+				},
+				['dracometeor', 'sludgebomb'],
+				['flipturn', 'scald', 'recover'],
+			],
+			[
+				{
+					species: 'mandibuzz',
+					item: 'heavydutyboots',
+					ability: 'neutralizinggas',
+					teraType: ['Poison', 'Steel', 'Fairy'],
+					nature: 'Impish',
+				},
+				['foulplay', 'roost'],
+				['knockoff', 'toxic', 'uturn', 'defog'],
+			],
+		],
+	},
+	hydrapple: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'golisopod',
+					item: 'golisopodite',
+					ability: 'emergencyexit',
+					teraType: 'Bug',
+					nature: 'Adamant',
+				},
+				['uturn', 'ironhead'],
+				['liquidation', 'firstimpression', 'leechlife'],
+			],
+			[
+				{
+					species: 'garchomp',
+					item: 'garchompitez',
+					ability: 'roughskin',
+					teraType: 'Dragon',
+					nature: 'Timid',
+				},
+				['nastyplot', 'dracometeor'],
+				['flamethrower', 'surf', 'earthpower', 'powergem'],
+			],
+			[
+				{
+					species: 'corviknight',
+					item: 'rockyhelmet',
+					ability: 'wellbakedbody',
+					teraType: 'Electric',
+					nature: 'Impish',
+				},
+				['bodypress', 'bravebird'],
+				['roost', 'defog'],
+			],
+			[
+				{
+					species: 'Clefable',
+					item: 'heavydutyboots',
+					ability: 'prankster',
+					teraType: ['Fairy', 'Fire'],
+					nature: 'Modest',
+				},
+				['moonblast', 'moonlight'],
+				['encore', 'calmmind', 'flamethrower'],
+			],
+		],
+	},
+	tentacruel: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'skarmory',
+					item: 'skarmorite',
+					ability: 'weakarmor',
+					teraType: 'Steel',
+					nature: 'Jolly',
+				},
+				['swordsdance', 'bravebird'],
+				['drillrun', 'sunsteelstrike', 'roost'],
+			],
+			[
+				{
+					species: 'delphox',
+					item: 'delphoxite',
+					ability: 'blaze',
+					teraType: 'Fire',
+					nature: 'Timid',
+				},
+				['fierydance', 'psyshock'],
+				['nastyplot', 'dazzlinggleam', 'substitute', 'encore'],
+			],
+			[
+				{
+					species: 'ironhands',
+					item: 'assaultvest',
+					ability: 'purifyingsalt',
+					teraType: ['Water', 'Flying', 'Fire'],
+					nature: 'Careful',
+				},
+				['closecombat', 'thunderpunch'],
+				['icepunch', 'voltswitch'],
+			],
+			[
+				{
+					species: 'chienpao',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'swordofruin',
+					teraType: ['Ice', 'Dark', 'Fighting', 'Stellar'],
+					nature: 'Jolly',
+				},
+				['icespinner', 'crunch'],
+				['sacredsword', 'partingshot', 'suckerpunch', 'iceshard'],
+			],
+		],
+	},
+	pelipper: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'tinkaton',
+					item: 'leftovers',
+					ability: 'dryskin',
+					teraType: ['Ghost', 'Flying', 'Water'],
+					nature: 'Careful',
+				},
+				['stealthrock', 'gigatonhammer'],
+				['thunderwave', 'knockoff', 'encore'],
+			],
+			[
+				{
+					species: 'golduck',
+					item: ['lifeorb', 'choicespecs'],
+					ability: 'swiftswim',
+					teraType: 'Ice',
+					nature: 'Timid',
+				},
+				['hydropump', 'electroshot'],
+				['icebeam', 'psychic', 'vacuumwave'],
+			],
+			[
+				{
+					species: 'Hydreigon',
+					item: ['roseliberry', 'lifeorb'],
+					ability: 'swiftswim',
+					teraType: ['Water', 'Flying'],
+					nature: 'Careful',
+				},
+				['darkpulse', 'hydropump'],
+				['dragonpulse', 'hurricane', 'nastyplot'],
+			],
+			[
+				{
+					species: 'taurospaldeaaqua',
+					item: 'choiceband',
+					ability: 'intimidate',
+					teraType: 'Water',
+					nature: 'Jolly',
+				},
+				['wavecrash', 'closecombat'],
+				['wildcharge', 'earthquake', 'flipturn'],
+			],
+		],
+	},
+	rillaboom: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'gougingfire',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'intimidate',
+					teraType: 'Fairy',
+					nature: 'Careful',
+				},
+				['stealthrock', 'gigatonhammer'],
+				['thunderwave', 'knockoff', 'encore'],
+			],
+			[
+				{
+					species: 'hatterene',
+					item: 'leftovers',
+					ability: 'magicbounce',
+					teraType: ['Steel', 'Water'],
+					nature: 'Modest',
+				},
+				['luminacrash', 'drainingkiss'],
+				['nuzzle', 'painsplit'],
+			],
+			[
+				{
+					species: 'ursaluna',
+					item: 'flameorb',
+					ability: 'guts',
+					teraType: 'Ghost',
+					nature: 'Brave',
+				},
+				['facade', 'headlongrush'],
+				['firepunch', 'trickroom'],
+			],
+			[
+				{
+					species: 'Gyarados',
+					item: 'loadeddice',
+					ability: 'moxie',
+					teraType: 'Dragon',
+					nature: 'Jolly',
+				},
+				['waterfall', 'dragonascent'],
+				['scaleshot', 'dragondance'],
+			],
+		],
+	},
+	alomomola: {
+		inherit: true,
+		hasMons: true,
+		mons: [
+			[
+				{
+					species: 'deoxys',
+					item: ['expertbelt', 'whiteherb'],
+					gender: 'N',
+					ability: 'defeatist',
+					teraType: ['Stellar', 'Fighting', 'Psychic'],
+					nature: 'Naive',
+				},
+				['psychoboost', 'icebeam'],
+				['superpower', 'knockoff'],
+			],
+			[
+				{
+					species: 'chienpao',
+					item: 'lifeorb',
+					gender: 'N',
+					ability: 'swordofruin',
+					teraType: ['Dark', 'Ice'],
+					nature: 'Jolly',
+				},
+				['beatup', 'icefang'],
+				['swordsdance', 'sacredsword', 'iceshard'],
+			],
+			[
+				{
+					species: 'fezandipiti',
+					item: 'heavydutyboots',
+					gender: 'N',
+					ability: 'toxicchain',
+					teraType: ['Dark', 'Water'],
+					nature: 'Careful',
+				},
+				['beatup', 'uturn'],
+				['roost', 'spiritbreak'],
+			],
+			[
+				{
+					species: 'landorustherian',
+					item: 'rockyhelmet',
+					gender: 'M',
+					ability: 'intimidate',
+					teraType: ['Ghost', 'Water'],
+					nature: 'Impish',
+				},
+				['earthquake', 'uturn'],
+				['toxic', 'stealthrock', 'taunt'],
 			],
 		],
 	},

@@ -1,4 +1,4 @@
-export const Pokedex: {[k: string]: ModdednameData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	thetick: {
 		num: 1,
 		name: "The Tick",
@@ -163,6 +163,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 95, atk: 100, def: 90, spa: 55, spd: 65, spe: 100},
 		abilities: {0: "Pack Hunter"},
+		battleOnly: "Velociraptor",
 	},
 	thesecondcoming: {
 		num: 23,
@@ -179,6 +180,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 120, atk: 105, def: 80, spa: 105, spd: 80, spe: 140},
 		abilities: {0: "Innate Potential"},
+		battleOnly: "The Second Coming",
 	},
 	milesmorales: {
 		num: 25,
