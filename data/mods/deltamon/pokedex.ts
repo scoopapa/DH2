@@ -1050,7 +1050,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ralseihatted: {
 		num: -99,
-		name: "Ralsei",
+		name: "Ralsei-Hatted",
+		baseSpecies: "Ralsei",
 		forme: "Hatted",
 		types: ["Dark", "Fairy"],
 		gender: "M",
