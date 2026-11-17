@@ -5,7 +5,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 73, atk: 101, def: 86, spa: 92, spd: 108, spe: 85},
 		abilities: {0: "Leaf Guard", 1: "Solar Power", H: "Poison Point"},
-		weightkg: 1,
+		weightkg: 21,
 	},
 	athanaga: {
 		num: 2001,
@@ -13,7 +13,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 80, atk: 135, def: 105, spa: 80, spd: 79, spe: 121},
 		abilities: {0: "Stormbringer", 1: "Magic Guard", H: "Wind Rider"},
-		weightkg: 1,
+		weightkg: 54,
 	},
 	mawkery: {
 		num: 2002,
@@ -55,9 +55,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 2004,
 		name: "Driftia",
 		types: ["Bug", "Ground"],
-		baseStats: {hp: 121, atk: 99, def: 55, spa: 99, spd: 55, spe: 121},
+		baseStats: {hp: 121, atk: 99, def: 55, spa: 99, spd: 55, spe: 126},
 		abilities: {0: "Heatproof", 1: "Compound Eyes", H: "Adaptability"},
-		weightkg: 1,
+		weightkg: 15,
 	},
 	guande: {
 		num: 2005,
@@ -129,15 +129,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	cloyster: {
 		inherit: true,
-		evos: ["Cloyster2"],
+		evos: ["Clamperor"],
 	},
-	cloyster2: {
+	clamperor: {
 		num: 2010,
-		name: "Cloyster2",
+		name: "Clamperor",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 70, atk: 105, def: 180, spa: 90, spd: 60, spe: 50},
 		abilities: {0: "Tough Shell", 1: "Skill Link", H: "Overcoat"},
-		weightkg: 1,
+		weightkg: 176.5,
 		prevo: "Cloyster",
 	},
 	flygon: {
@@ -400,7 +400,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	hydreigon: {
 		inherit: true,
 		types: ["Dark", "Ghost"],
-		baseStats: {hp: 92, atk: 64, def: 91, spa: 65, spd: 65, spe: 98},
+		baseStats: {hp: 109, atk: 75, def: 75, spa: 125, spd: 90, spe: 45},
 		abilities: {0: "Electromorphosis", 1: "Levitate", H: "Prankster"},
 	},
 	sylveon: {

@@ -176,7 +176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "Inflicts severe poison to the target.",
+		shortDesc: "Inflicts bad poison to the target.",
 		name: "Biohazard Blast",
 		pp: 10,
 		priority: 0,
@@ -292,5 +292,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	healorder: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
