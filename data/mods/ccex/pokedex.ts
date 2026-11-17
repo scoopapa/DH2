@@ -139,7 +139,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Darth Vader",
 		types: ["Dark", "Steel"],
 		baseStats: {hp: 80, atk: 115, def: 85, spa: 125, spd: 80, spe: 95},
-		abilities: {0: "Pressure"},
+		abilities: {0: "Pressure", H: "Supreme Overlord"},
 	},
 	aqua: {
 		num: 20,
@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Yor Forger",
 		forme: "Mega",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 100, atk: 90, def: 115, spa: 75, spd: 105, spe: 120},
+		baseStats: {hp: 100, atk: 90, def: 115, spa: 85, spd: 105, spe: 110},
 		abilities: {0: "Sharpness"},
 		requiredItem: "Assassin Dress",
 	},

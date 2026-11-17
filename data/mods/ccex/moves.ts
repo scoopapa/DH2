@@ -483,6 +483,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			onHit(target) {
 				target.addVolatile('forcechoke');
+				target.addVolatile('partiallytrapped');
 			},
 		},
 		target: "normal",
@@ -630,7 +631,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Assassinate",
 		type: "Ghost",
 		category: "Physical",
-		basePower: 90,
+		basePower: 80,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "User recovers 50% of the damage dealt.",
@@ -651,10 +652,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "No additional effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Slash", target);

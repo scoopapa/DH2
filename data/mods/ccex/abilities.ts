@@ -43,7 +43,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	insectbreathing: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (['furyattack', 'hornattack', 'horndrill', 'hyperdrill', 'retaliate', 'fellstinger', 'lunge', 'megahorn', 'twineedle', 'poisonjab', 'poisonsting', 'drillpeck', 'drillrun', 'smartstrike'].includes(move.id)) {
+			if (['furyattack', 'hornattack', 'horndrill', 'hyperdrill', 'retaliate', 'fellstinger', 'lunge', 'megahorn', 'twineedle', 'poisonjab', 'poisonsting', 'drillpeck', 'drillrun', 'smartstrike', 'pursuit'].includes(move.id)) {
 				this.debug('Sharpness boost');
 				return this.chainModify(1.2);
 			}
@@ -53,7 +53,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if ([
 				'furyattack', 'hornattack', 'horndrill', 'hyperdrill', 'retaliate',
 				'fellstinger', 'lunge', 'megahorn', 'twineedle', 'poisonjab',
-				'poisonsting', 'drillpeck', 'drillrun', 'smartstrike',
+				'poisonsting', 'drillpeck', 'drillrun', 'smartstrike', 'pursuit'
 			].includes(move.id)) {
 				this.debug('Adding Insect Breathing poison');
 				if (!move.secondaries) move.secondaries = [];
