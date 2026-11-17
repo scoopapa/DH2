@@ -626,6 +626,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 130, def: 90, spa: 80, spd: 90, spe: 110},
 		abilities: {0: "Savage Roar"},
 		weightkg: 122.5,
+		cosmeticFormes: ["Roaring Knight"],
 	},
 	friend: {
 		num: -59,
@@ -1044,6 +1045,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 92, def: 115, spa: 98, spd: 130, spe: 75},
 		abilities: {0: "Hospitality", H: "Dark Aura"},
 		weightkg: 65,
+		cosmeticFormes: ["Ralsei-Hatted"],
+		formeOrder: ["Ralsei", "Ralsei-Hatted"],
+	},
+	ralseihatted: {
+		num: -99,
+		name: "Ralsei-Hatted",
+		baseSpecies: "Ralsei",
+		forme: "Hatted",
+		types: ["Dark", "Fairy"],
+		gender: "M",
+		baseStats: {hp: 70, atk: 92, def: 115, spa: 98, spd: 130, spe: 75},
+		abilities: {0: "Hospitality", H: "Dark Aura"},
+		weightkg: 65,
+		cosmeticFormes: ["Ralsei"],
 	},
 	froggit: {
 		num: -100,

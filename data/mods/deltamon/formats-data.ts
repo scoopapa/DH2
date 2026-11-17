@@ -876,11 +876,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
-	roaringknightadvent: {
-		tier: "DM OU",
-		doublesTier: "DM DOU",
-		natDexTire: "OU",
-	},
+	
 
 	//Random Battle exclusives
 

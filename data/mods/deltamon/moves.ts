@@ -779,7 +779,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		pp: 1,
 		noPPBoosts: true,
-		shortDesc: "Seth and Aqua's ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
+		shortDesc: "The ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
