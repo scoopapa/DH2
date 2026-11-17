@@ -63,11 +63,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CCEX OU",
 		doublesTier: "DCCEX OU",
 	},
-	charliemorningstar: {
+	charlie: {
 		tier: "CCEX OU",
 		doublesTier: "DCCEX OU",
 	},
-	charliemorningstarmega: {
+	charliemega: {
 		tier: "CCEX OU",
 		doublesTier: "DCCEX OU",
 	},

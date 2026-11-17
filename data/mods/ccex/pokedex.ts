@@ -101,7 +101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Dragon"],
 		baseStats: {hp: 75, atk: 110, def: 125, spa: 110, spd: 110, spe: 120},
 		abilities: {0: "Mold Breaker"},
-		requiredItem: "Zanite",
+		requiredItem: "Dragon Core",
 	},
 	medusa: {
 		num: 15,
@@ -117,22 +117,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 105, def: 80, spa: 60, spd: 120, spe: 70},
 		abilities: {0: "Aerilate", H: "Rocky Payload"},
 	},
-	charliemorningstar: {
+	charlie: {
 		num: 17,
-		name: "Charlie Morningstar",
+		name: "Charlie",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 95, atk: 105, def: 70, spa: 105, spd: 70, spe: 95},
 		abilities: {0: "Serene Grace", H: "Competitive"},
 	},
-	charliemorningstarmega: {
+	charliemega: {
 		num: 17,
-		name: "Charlie Morningstar-Mega",
-		baseSpecies: "Charlie Morningstar",
+		name: "Charlie-Mega",
+		baseSpecies: "Charlie",
 		forme: "Mega",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 95, atk: 135, def: 85, spa: 130, spd: 85, spe: 110},
 		abilities: {0: "Defiant"},
-		requiredItem: "Morningstarite",
+		requiredItem: "Lucifer's Trident",
 	},
 	darthvader: {
 		num: 19,
@@ -197,7 +197,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 78, atk: 135, def: 92, spa: 115, spd: 90, spe: 120},
 		abilities: {0: "Galvanize"},
-		requiredItem: "Moralite",
+		requiredItem: "Vibranium Suit",
 	},
 	yorforger: {
 		num: 27,

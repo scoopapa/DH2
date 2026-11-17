@@ -1017,7 +1017,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zerogravity: ["9L1"],
 		},
 	},
-	charliemorningstar: {
+	charlie: {
 		learnset: {
 			agility: ["9L1"],
 			alluringvoice: ["9L1"],
