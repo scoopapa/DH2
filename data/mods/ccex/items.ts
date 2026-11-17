@@ -13,8 +13,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Atsuko Kagari, this item allows her to Mega Evolve in battle.",
 	},
-	zanite: {
-		name: "Zanite",
+	dragoncore: {
+		name: "Dragon Core",
 		megaStone: "Zane Julien-Mega",
 		megaEvolves: "Zane Julien",
 		itemUser: ["Zane Julien", "Zane Julien-Mega"],
@@ -25,8 +25,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Zane Julien, this item allows him to Mega Evolve in battle.",
 	},
-	morningstarite: {
-		name: "Morningstarite",
+	luciferstrident: {
+		name: "Lucifer's Trident",
 		megaStone: "Charlie Morningstar-Mega",
 		megaEvolves: "Charlie Morningstar",
 		itemUser: ["Charlie Morningstar", "Charlie Morningstar-Mega"],
@@ -37,8 +37,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Charlie Morningstar, this item allows her to Mega Evolve in battle.",
 	},
-	moralite: {
-		name: "Moralite",
+	vibraniumsuit: {
+		name: "Vibranium Suit",
 		megaStone: "Miles Morales-Mega",
 		megaEvolves: "Miles Morales",
 		itemUser: ["Miles Morales", "Miles Morales-Mega"],
@@ -63,8 +63,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//z crystals
-	tophiumz: {
-		name: "Tophium Z",
+	meteoritebracelet: {
+		name: "Meteorite Bracelet",
 		desc: "If held by Toph Beifong with Meteor Mash, it can use Metalbending.",
 		spritenum: 647,
 		onTakeItem: false,
@@ -73,8 +73,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Toph Beifong"],
 		gen: 9,
 	},
-	garfieldiumz: {
-		name: "Garfieldium Z",
+	lasagna: {
+		name: "Lasagna",
 		desc: "If held by Garfield with Knock Off, it can use Snack Attack.",
 		onTakeItem: false,
 		zMove: "Snack Attack",
@@ -82,8 +82,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Garfield"],
 		gen: 9,
 	},
-	aquaiumz: {
-		name: "Aquaium Z",
+	archpriestsscepter: {
+		name: "Archpriest's Scepter",
 		desc: "If held by Aqua with Psyshock, it can use God Blow.",
 		onTakeItem: false,
 		zMove: "God Blow",
@@ -92,9 +92,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	
-	//whatever this is
+	//sig item
 	matrixofleadership: {
 		name: "Matrix of Leadership",
+		desc: "Optimus Prime: Clear Amulet + 1.2x STABs.",
+		itemUser: ["Optimus Prime"],
 		spritenum: 734,
 		fling: {
 			basePower: 30,
@@ -110,7 +112,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
+				this.add('-fail', target, 'unboost', '[from] item: Matrix of Leadership', '[of] ' + target);
 			}
 		},
 		onBasePowerPriority: 15,
