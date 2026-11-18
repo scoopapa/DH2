@@ -311,7 +311,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			this.debug('BP: ' + bp);
 			return bp;
-		}
+		},
 		category: "Special",
 		name: "Celestial Descent",
 		pp: 16,
