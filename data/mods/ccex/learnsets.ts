@@ -1226,6 +1226,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			eeriespell: ["9L1"],
 			encore: ["9L1"],
 			extrasensory: ["9L1"],
+			fairylock: ["9L1"],
 			faketears: ["9L1"],
 			flail: ["9L1"],
 			flatter: ["9L1"],
