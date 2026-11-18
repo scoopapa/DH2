@@ -203,7 +203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 27,
 		name: "Yor Forger",
 		types: ["Normal", "Ghost"],
-		baseStats: {hp: 100, atk: 80, def: 110, spa: 60, spd: 75, spe: 80},
+		baseStats: {hp: 100, atk: 80, def: 110, spa: 57, spd: 75, spe: 83},
 		abilities: {0: "Guts", 1: "Quick Feet", H: "Oblivious"},
 	},
 	yorforgermega: {
@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Yor Forger",
 		forme: "Mega",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 100, atk: 90, def: 115, spa: 85, spd: 105, spe: 110},
+		baseStats: {hp: 100, atk: 90, def: 115, spa: 87, spd: 105, spe: 108},
 		abilities: {0: "Sharpness"},
 		requiredItem: "Assassin Dress",
 	},
