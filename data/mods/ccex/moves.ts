@@ -442,7 +442,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		accuracy: 75,
 		pp: 5,
-		shortDesc: "For 2 turns, the target cannot use sound moves.",
+		shortDesc: "Traps for 4-5 turns, disables sound moves.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -450,7 +450,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Throat Chop", target);
 		},
 		condition: {
-			duration: 2,
+			duration: 5,
 			onStart(target) {
 				this.add('-start', target, 'Force Choke', '[silent]');
 			},
@@ -475,15 +475,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 22,
-			onEnd(target) {
-				this.add('-end', target, 'Force Choke', '[silent]');
-			},
+			onUpdate(pokemon) {
+				if (!pokemon.volatiles['partiallytrapped']) pokemon.removeVolatile('forcechoke');
+			}
 		},
 		secondary: {
 			chance: 100,
 			onHit(target) {
-				target.addVolatile('forcechoke');
 				target.addVolatile('partiallytrapped');
+				target.addVolatile('forcechoke');
 			},
 		},
 		target: "normal",
