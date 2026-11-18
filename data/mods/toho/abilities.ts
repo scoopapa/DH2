@@ -692,6 +692,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Immovable",
+		shortDesc: "This Pokémon can't be forced to switch out. ",
 	},
 	truthoverload: {
 		onDamagingHit(damage, target, source, move) {
@@ -703,5 +704,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Truth Overload",
+		shortDesc: "When hit by a contact move, 30% chance to inflict confusion on the attacker.",
 	},
+	libero: {
+		inherit: true,
+		onPrepareHit(source, target, move, pokemon) {
+			if (this.effectState.libero && !pokemon.hasItem('maskofhope')) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.libero = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+	},
+	//spiritlink: {
+	//	name: "Spirit Link",
+	//	shortDesc: "If this Pokémon has been revived by Revival Blessing, the next time it enters the field it gets +1 to all stats (Attack, Defense, Spatk, Spdef, Speed)",
+	//},
 };
