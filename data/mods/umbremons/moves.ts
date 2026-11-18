@@ -275,6 +275,102 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Usually moves first. Grants helping hand to target.",
 		desc: "+2 priority. Grants the effect of helping hand to the target.",
 	},
+	claymaker: {
+		num: -10,
+		accuracy: 80,
+		basePower: 16,
+		category: "Physical",
+		name: "Claymaker",
+		pp: 16,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, punch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Headlong Rush", target);
+		},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		shortDesc: "20% chance to lower target's defense by 1 stage.",
+	},
+	celestialdescent: {
+		num: -11,
+		accuracy: 80,
+		basePower: 16,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower;
+			if (['deltastream'].includes(target.effectiveWeather())) {
+				this.debug('Delta Stream damage boost.');
+				bp += 30;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		}
+		category: "Special",
+		name: "Celestial Descent",
+		pp: 16,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			switch (source.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				this.add('-anim', source, "Fusion Flare", target);
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				this.add('-anim', source, "Fusion Bolt", target);
+				break;
+			case 'sandstorm':
+				this.add('-anim', source, "Max Rockfall", target);
+				break;
+			case 'hail':
+			case 'snow':
+				this.add('-anim', source, "Max Hailstorm", target);
+				break;
+			case 'deltastream':
+				this.add('-anim', source, "Dragon Ascent", target);
+				break;
+			default:
+				this.add('-anim', source, "Sky Attack", target);
+				break;
+			}
+		},
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					target.trySetStatus('brn', source);
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					target.trySetStatus('par', source);
+					break;
+				case 'sandstorm':
+					this.boost({def: -1}, source, target, null, true);
+					break;
+				case 'hail':
+				case 'snow':
+					this.boost({spd: -1}, source, target, null, true);
+					break;
+				}
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Flying",
+		shortDesc: "Gains additional effects depending on weather.",
+		desc: "Gains a secondary effect according to Weather. Hits both opponents. 30% chance to inflict Burn under Sun. 30% chance to inflict Paralyzis under Rain. 30% chance to lower target's Defense by 1 stage under Sand. 30% chance to lower target's Special Defense by 1 stage under Snow. 30 BP higher under Strong Winds.",
+	},
 
 	// Adjusted Moves
 	rockslide: {
@@ -333,6 +429,196 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		modded: true, // this makes its description display in Data Mod
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
+	},
+	lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Life Dew",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, bypasssub: 1},
+		heal: [1, 4],
+		onModifyMove(move, source) {
+			let success = false;
+			// Triples Functionality
+			if (source.side.active.length === 3) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			// Doubles Functionality
+			else if (source.side.active.length === 2) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			if (!success) {
+				move.target = "self";
+				move.heal = [1, 2];
+			}
+		},
+		secondary: null,
+		modded: true,
+		target: "allies",
+		type: "Water",
+		shortDesc: "Heal 25% self + ally, self 50% if cannot reach ally.",
+		desc: "If an ally is on the field, heal user and ally 25% of max HP. If no ally, or if ally cannot be reached (e.g. semi-invulnerable state such as Fly/Dig/Sky Drop) heal user for 50% of max HP.",
+	},
+	moonlight: {
+		num: 236,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Moonlight",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 4],
+		onModifyMove(move, source) {
+			let success = false;
+			// Triples Functionality
+			if (source.side.active.length === 3) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			// Doubles Functionality
+			else if (source.side.active.length === 2) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			if (!success) {
+				move.target = "self";
+				move.heal = [1, 2];
+			}
+		},
+		secondary: null,
+		modded: true,
+		target: "allies",
+		type: "Fairy",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+		shortDesc: "Heal 25% self + ally, self 50% if cannot reach ally.",
+		desc: "If an ally is on the field, heal user and ally 25% of max HP. If no ally, or if ally cannot be reached (e.g. semi-invulnerable state such as Fly/Dig/Sky Drop) heal user for 50% of max HP.",
+	},
+	morningsun: {
+		num: 234,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Morning Sun",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 4],
+		onModifyMove(move, source) {
+			let success = false;
+			// Triples Functionality
+			if (source.side.active.length === 3) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			// Doubles Functionality
+			else if (source.side.active.length === 2) {
+				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+					success = true;
+				}
+				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
+					success = true;
+				}
+			}
+			if (!success) {
+				move.target = "self";
+				move.heal = [1, 2];
+			}
+		},
+		secondary: null,
+		modded: true,
+		target: "allies",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+		shortDesc: "Heal 25% self + ally, self 50% if cannot reach ally.",
+		desc: "If an ally is on the field, heal user and ally 25% of max HP. If no ally, or if ally cannot be reached (e.g. semi-invulnerable state such as Fly/Dig/Sky Drop) heal user for 50% of max HP.",
+	},
+	saltcure: {
+		num: 864,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Salt Cure",
+		pp: 12,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Salt Cure');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Water', 'Steel']) ? 6 : 8));
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Salt Cure');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'saltcure',
+		},
+		target: "normal",
+		type: "Rock",
+		modded: true,
+		shortDesc: "Deals 1/8 max HP each turn; 1/4 on Steel, Water.",
+	},
+	brine: {
+		num: 362,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Brine",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower;
+			for (const activePokemon of this.getAllActive()) {
+				if (activePokemon.hp * 2 <= activePokemon.maxhp) bp += 25;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+		modded: true,
+		shortDesc: "Active Pokemon with 50% or less hp: +25 bp each.",
+		desc: "+25 BP for each Pokemon on the field that has less than or equal to half of its maximum HP remaining.",
 	},
 	
 	// sandclock interactions
