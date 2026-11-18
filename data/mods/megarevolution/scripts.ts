@@ -237,5 +237,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tatsugiri").learnset.scald = ["9L1"];
 		this.modData("Learnsets", "tatsugiri").learnset.flipturn = ["9L1"];
 		this.modData("Learnsets", "tatsugiri").learnset.calmmind = ["9L1"];
+		
+		this.modData("Learnsets", "blaziken").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "swampert").learnset.originpulse = ["9L1"];
+		this.modData("Learnsets", "swampert").learnset.thunder = ["9L1"];
+
 	},
 };

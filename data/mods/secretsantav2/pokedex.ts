@@ -268,7 +268,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	spiedamis: {
 		num: 2012,
 		name: "Spiedamis",
-		types: ["bug", "fighting"],
+		types: ["Bug", "Fighting"],
 		baseStats: {hp: 70, atk: 59, def: 92, spa: 152, spd: 86, spe: 5},
 		abilities: {0: "Long Reach", 1: "Stakeout", H: "Huge Power"},
 		weightkg: 1,
@@ -422,6 +422,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 97, atk: 90, def: 129, spa: 57, spd: 80, spe: 43},
 		abilities: {0: "Justified", 1: "Sheer Force", H: "Iron Fist"},
+		weightkg: 250,
 	},
 	donphan: {
 		inherit: true,
