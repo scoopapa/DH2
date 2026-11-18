@@ -141,9 +141,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 115, def: 85, spa: 125, spd: 80, spe: 95},
 		abilities: {0: "Pressure", H: "Supreme Overlord"},
 	},
-	aqua: {
+	goddessaqua: {
 		num: 20,
-		name: "Aqua",
+		name: "Goddess Aqua",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 105, atk: 70, def: 70, spa: 105, spd: 105, spe: 85},
 		abilities: {0: "Triage", 1: "Poison Heal", H: "Truant"},

@@ -1199,7 +1199,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	aqua: {
+	goddessaqua: {
 		learnset: {
 			agility: ["9L1"],
 			allyswitch: ["9L1"],

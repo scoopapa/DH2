@@ -75,7 +75,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CCEX OU",
 		doublesTier: "DCCEX OU",
 	},
-	aqua: {
+	goddessaqua: {
 		tier: "CCEX OU",
 		doublesTier: "DCCEX OU",
 	},
