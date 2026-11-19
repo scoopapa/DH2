@@ -204,6 +204,7 @@ import { Formats as PublicDomain                } from '../data/mods/publicdomai
 import { Formats as RandomTandem                } from '../data/mods/randomtandem/formats';
 import { Formats as ReGeneration                } from '../data/mods/regeneration/formats';
 import { Formats as ResetMons                   } from '../data/mods/resetmons/formats';
+import { Formats as RobotMasters                 } from '../data/mods/robotmasters/formats';
 import { Formats as RegionalEvolutions          } from '../data/mods/regionalevolutions/formats';
 import { Formats as Restrictions                } from '../data/mods/restrictions/formats';
 import { Formats as ReturnToOrreTercera         } from '../data/mods/returntoorretercera/formats';
@@ -444,6 +445,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...PonymonShowdown,
 	...Pokemorty,
 	...gen1Recolored,
+	...RobotMasters,
 	...RockBottom,
 	//...RoulettemonsSolomod,
 	...Rpgmod,
