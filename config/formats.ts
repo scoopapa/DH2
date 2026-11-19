@@ -62,7 +62,7 @@ import { Formats as Dollhouse                   } from '../data/mods/dollhouse/f
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
 import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
-import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
+// import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
 import { Formats as DoNotUseVGC                 } from '../data/mods/donotusevgc/formats';
 import { Formats as DoNotUseRandoms             } from '../data/mods/donotuse/formats';
@@ -287,7 +287,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...CCEX,
 	...DLCmons,
 	...Dollhouse,
-	...DoNotUsetPMtM,
+	//...DoNotUsetPMtM,
 	...EbbAndFlow,
 	...EliminationWar,
 	...Eramons,
