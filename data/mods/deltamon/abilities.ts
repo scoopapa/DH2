@@ -563,6 +563,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onInvulnerability(pokemon, target, move, source) {
 			if (pokemon.dodged) return;
 			if (pokemon.runEffectiveness(move) > 0 && move.category !== 'Status') {
+				//Additional checks for Psychic Terrain blocked moves.
+				if (move.priority >= 0.1 && this.field.isTerrain('psychicterrain') && pokemon.isGrounded && !target.isAlly(pokemon)) return;
 				this.add('-anim', pokemon, "Nasty Plot", target);
 				this.add ('-activate', pokemon, 'ability: Tactical Dodge');
 				pokemon.dodged = true;
