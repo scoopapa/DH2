@@ -8,6 +8,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "flygon").learnset.dragonhammer = ["9L1"];
 		this.modData("Learnsets", "tropius").learnset.dragonhammer = ["9L1"];
 		this.modData("Learnsets", "tropius").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "tropius").learnset.flareblitz = ["9L1"];
 		this.modData("Learnsets", "arctovish").learnset.thulianmaw = ["9L1"];
 		this.modData("Learnsets", "arctovish").learnset.polarflare = ["9L1"];
 		this.modData("Learnsets", "arctovish").learnset.relicsong = ["9L1"];
