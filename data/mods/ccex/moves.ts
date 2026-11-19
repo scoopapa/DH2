@@ -439,10 +439,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Force Choke",
 		type: "Dark",
 		category: "Special",
-		basePower: 80,
-		accuracy: 100,
-		pp: 15,
-		shortDesc: "For 2 turns, the target cannot use sound moves.",
+		basePower: 100,
+		accuracy: 75,
+		pp: 5,
+		shortDesc: "Traps for 4-5 turns, disables sound moves.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -450,7 +450,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Throat Chop", target);
 		},
 		condition: {
-			duration: 2,
+			duration: 5,
 			onStart(target) {
 				this.add('-start', target, 'Force Choke', '[silent]');
 			},
@@ -475,13 +475,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 22,
-			onEnd(target) {
-				this.add('-end', target, 'Force Choke', '[silent]');
-			},
+			onUpdate(pokemon) {
+				if (!pokemon.volatiles['partiallytrapped']) pokemon.removeVolatile('forcechoke');
+			}
 		},
 		secondary: {
 			chance: 100,
 			onHit(target) {
+				target.addVolatile('partiallytrapped');
 				target.addVolatile('forcechoke');
 			},
 		},
@@ -630,7 +631,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Assassinate",
 		type: "Ghost",
 		category: "Physical",
-		basePower: 90,
+		basePower: 80,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "User recovers 50% of the damage dealt.",
@@ -651,10 +652,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "No additional effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Slash", target);

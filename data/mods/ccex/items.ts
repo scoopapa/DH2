@@ -84,11 +84,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	archpriestsscepter: {
 		name: "Archpriest's Scepter",
-		desc: "If held by Aqua with Psyshock, it can use God Blow.",
+		desc: "If held by Goddess Aqua with Psyshock, it can use God Blow.",
 		onTakeItem: false,
 		zMove: "God Blow",
 		zMoveFrom: "Psyshock",
-		itemUser: ["Aqua"],
+		itemUser: ["Goddess Aqua"],
 		gen: 9,
 	},
 	
