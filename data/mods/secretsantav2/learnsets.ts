@@ -22,6 +22,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			megapunch: ["9L1"],
 			poisonjab: ["9L1"],
 			poisonpowder: ["9L1"],
+			powerwhip: ["9L1"],
 			protect: ["9L1"],
 			razorleaf: ["9L1"],
 			rest: ["9L1"],
@@ -325,6 +326,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bulldoze: ["9L1"],
 			charge: ["9L1"],
 			chargebeam: ["9L1"],
+			coil: ["9L1"],
 			confuseray: ["9L1"],
 			crunch: ["9L1"],
 			crushclaw: ["9L1"],
@@ -746,7 +748,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	cloyster2: {
+	clamperor: {
 		learnset: {
 			explosion: ["9L1"],
 			pinmissile: ["9L1"],
@@ -888,6 +890,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			recycle: ["9L1"],
 			rest: ["9L1"],
 			rockslide: ["9L1"],
+			roost: ["9L1"],
 			sandattack: ["9L1"],
 			sandstorm: ["9L1"],
 			shadowball: ["9L1"],
