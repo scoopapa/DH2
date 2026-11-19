@@ -762,6 +762,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			secretpower: ["9L1"],
 		},
 	},
 	alicemargatroid: {
@@ -1266,6 +1267,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
 			acrobatics: ["9L1"],
+			psychicnoise: ["9L1"],
+			infestation: ["9L1"],
 		},
 	},
 	suikaibuki: {
@@ -1332,6 +1335,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			drinkup: ["9L1"],
 		},
 	},
 	wrigglenightbug: {
@@ -1655,6 +1659,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			hammerarm: ["9L1"],
+			focuspunch: ["9L1"],
 		},
 	},
 	reiseninaba: {
@@ -1840,7 +1846,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			brickbreak: ["9L1"],
 			stormthrow: ["9L1"],
 			poweruppunch: ["9L1"],
-			//machpunch: ["9L1"],
+			machpunch: ["9L1"],
 			bravebird: ["9L1"],
 			aerialace: ["9L1"],
 			acrobatics: ["9L1"],
@@ -2321,6 +2327,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
 			risingvoltage: ["9L1"],
+			bulletpunch: ["9L1"],
+			missile: ["9L1"],
 		},
 	},
 	momijiinubashiri: {
@@ -2832,6 +2840,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			partingshot: ["9L1"],
 		},
 	},
 	yuugihoshiguma: {
@@ -2896,6 +2905,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
 			surgingstrikes: ["9L1"],
+			drinkup: ["9L1"],
+			machpunch: ["9L1"],
 		},
 	},
 	satorikomeiji: {
@@ -6775,7 +6786,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			facade: ["9L1"],
 			cometpunch: ["9L1"],
 			shoreup: ["9L1"],
-			calmmind: ["9L1"],
+			//calmmind: ["9L1"],
 			barrier: ["9L1"],
 			amnesia: ["9L1"],
 			guardswap: ["9L1"],
@@ -6793,6 +6804,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],
+			mysticalpower: ["9L1"],
+			powergem: ["9L1"],
 		},
 	},
 	yuimanasama: {
