@@ -38,7 +38,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ironsail: {
 		tier: "santa",
 	},
-	cloyster2: {
+	clamperor: {
 		tier: "santa",
 	},
 	flygon: {

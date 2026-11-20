@@ -2351,7 +2351,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			[
 				{
 					species: 'golisopod',
-					item: 'golisopodite',
+					item: 'golisopite',
 					ability: 'emergencyexit',
 					teraType: 'Bug',
 					nature: 'Adamant',

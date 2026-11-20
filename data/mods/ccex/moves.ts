@@ -81,11 +81,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const type1 = 'Steel';
 			const type2 = 'Ground';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					move.type = 'Ground';
-				} else if (target.hasType('Flying') && !target.hasItem('ringtarget')) {
-					move.type = 'Ground';
+					move.type = 'Steel';
 				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
-					if (pokemon.hasType('Steel') && !pokemon.hasType('Ground')) {
+					if (pokemon.hasType('Ground') &&
+					!pokemon.hasType('Steel') &&
+					!pokemon.hasAbility('steelworker') && !pokemon.hasAbility('steelyspirit')) {
 						move.type = 'Ground';
 					}
 				}
@@ -403,12 +403,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onSwap(target) {
 				if (!target.fainted) {
-					
+					target.addVolatile('magnetrise');
+					const mr = target.volatiles['magnetrise'];
+					if (mr) mr.duration = 2;
+					target.side.removeSlotCondition(target, 'zerogravity');
 				}
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	demonicarm: {
 		name: "Demonic Arm",
@@ -436,10 +439,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Force Choke",
 		type: "Dark",
 		category: "Special",
-		basePower: 80,
-		accuracy: 100,
-		pp: 15,
-		shortDesc: "For 2 turns, the target cannot use sound moves.",
+		basePower: 100,
+		accuracy: 75,
+		pp: 5,
+		shortDesc: "Traps for 4-5 turns, disables sound moves.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -447,7 +450,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Throat Chop", target);
 		},
 		condition: {
-			duration: 2,
+			duration: 5,
 			onStart(target) {
 				this.add('-start', target, 'Force Choke', '[silent]');
 			},
@@ -472,13 +475,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 22,
-			onEnd(target) {
-				this.add('-end', target, 'Force Choke', '[silent]');
-			},
+			onUpdate(pokemon) {
+				if (!pokemon.volatiles['partiallytrapped']) pokemon.removeVolatile('forcechoke');
+			}
 		},
 		secondary: {
 			chance: 100,
 			onHit(target) {
+				target.addVolatile('partiallytrapped');
 				target.addVolatile('forcechoke');
 			},
 		},
@@ -627,7 +631,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Assassinate",
 		type: "Ghost",
 		category: "Physical",
-		basePower: 90,
+		basePower: 80,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "User recovers 50% of the damage dealt.",
@@ -648,10 +652,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "No additional effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Slash", target);
@@ -686,28 +689,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
 				}
-			},
-		},
-	},
-	magnetrise: {
-		inherit: true,
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (effect?.id === 'zerogravity') {
-					return 2;
-				}
-				return 5;
-			},
-			onStart(target) {
-				this.add('-start', target, 'Magnet Rise');
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onResidualOrder: 18,
-			onEnd(target) {
-				this.add('-end', target, 'Magnet Rise');
 			},
 		},
 	},
