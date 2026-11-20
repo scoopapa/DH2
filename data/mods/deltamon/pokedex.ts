@@ -1013,6 +1013,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Flowery",
 		forme: "Omega",
 		types: ["Grass", "Fighting"],
+		gender: "M",
 		baseStats: {hp: 110, atk: 170, def: 90, spa: 73, spd: 95, spe: 142},
 		abilities: {0: "Blossom Boost"},
 		weightkg: 81.6,
