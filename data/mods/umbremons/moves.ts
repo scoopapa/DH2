@@ -304,7 +304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 80,
 		basePower: 16,
 		basePowerCallback(pokemon, target, move) {
-			const bp = move.basePower;
+			let bp = move.basePower;
 			if (['deltastream'].includes(target.effectiveWeather())) {
 				this.debug('Delta Stream damage boost.');
 				bp += 30;
@@ -605,7 +605,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		basePowerCallback(pokemon, target, move) {
-			const bp = move.basePower;
+			let bp = move.basePower;
 			for (const activePokemon of this.getAllActive()) {
 				if (activePokemon.hp * 2 <= activePokemon.maxhp) bp += 25;
 			}
