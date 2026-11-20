@@ -153,23 +153,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Activates Stealth when Shroud is used. While in Stealth, speed is halved and the user gains Laser Focus. Stealth is exited upon the end of the next turn.",
 	},
 	rapidhealing: {
-		onSwitchIn(pokemon){
-			pokemon.addVolatile('rapidhealing');
-		},
-		condition: {
-			onSourceDamagingHit(damage, target, source, move){
-				this.effectState.rapidhealing = true;
-			},
-			onAfterMove(pokemon){
-				if(this.effectState.rapidhealing){
-					pokemon.heal(pokemon.baseMaxhp / 5);
-					this.effectState.rapidhealing = false;
-				}
-			},
+		onModifyMove(move, pokemon) {
+			move.drain = [1, 2];
 		},
 		flags: {},
 		name: "Rapid Healing",
-		shortDesc: "Upon successfully landing an attack, this Pokémon heals by 20% of its max HP.",
+		shortDesc: "All attacks heal 50% of the damage they deal.",
 	},
 	beetlemight: {
 		onStart(pokemon){

@@ -1,6 +1,5 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-	/*
-	It takes but a moment for the dark fantasy to become reality.
+	// Evil has been unleashed
 	grasspledge: {
 		inherit: true,
 		onModifyMove(move, pokemon) {
@@ -8,7 +7,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.category = 'Physical';
 			}
 		},
-		shortDesc: "Combine with Fire/Water pledge for added effect. Physical if the users Attack > Special Attack.",
+		shortDesc: "Physical if ATK > SPA. Combine with Fire or Water Pledge!",
 	},
 	firepledge: {
 		inherit: true,
@@ -17,7 +16,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.category = 'Physical';
 			}
 		},
-		shortDesc: "Combine with Grass/Water pledge for added effect. Physical if the users Attack > Special Attack.",
+		shortDesc: "Physical if ATK > SPA. Combine with Grass or Water Pledge!",
 	},
 	waterpledge: {
 		inherit: true,
@@ -26,7 +25,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.category = 'Physical';
 			}
 		},
-		shortDesc: "Combine with Fire/Grass pledge for added effect. Physical if the users Attack > Special Attack.",
+		shortDesc: "Physical if ATK > SPA. Combine with Grass or Fire Pledge!",
 	},
-	*/
 };

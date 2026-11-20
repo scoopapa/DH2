@@ -466,4 +466,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	gebbrilis: {
 		tier: "BC D",
 	},
+	refrigigator: {
+		tier: "BC D",
+	},
+	dragallista: {
+		tier: "BC D",
+	},
+	papillune: {
+		tier: "BC D",
+	},
+	frigacid: {
+		tier: "BC D",
+	},
 };

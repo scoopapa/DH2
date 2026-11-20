@@ -188,7 +188,7 @@ wood: {
 		name: "Ninja",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 76, atk: 110, def: 60, spa: 63, spd: 71, spe: 110},
-		abilities: {0: "Super Luck", 1: "Keen Eye", H: "Unburden"},
+		abilities: {0: "Super Luck", 1: "Sharpness", H: "Unburden"},
 	},
 	shadow: {
 		num: 27,
@@ -327,7 +327,7 @@ wood: {
 		name: "Prospector",
 		types: ["Steel", "Psychic"],
 		baseStats: {hp: 74, atk: 116, def: 66, spa: 74, spd: 66, spe: 104},
-		abilities: {0: "Illuminate", 1: "Mirror Armor", H: "Overcoat"},
+		abilities: {0: "Rocky Payload", 1: "Mirror Armor", H: "Overcoat"},
 	},
 	crystalassassin: {
 		num: 43,
@@ -535,7 +535,7 @@ wood: {
 		num: 67,
 		name: "Vortex",
 		types: ["Ghost"],
-		baseStats: {hp: 78, atk: 116, def: 97, spa: 88, spd: 97, spe: 124},
+		baseStats: {hp: 88, atk: 106, def: 97, spa: 88, spd: 97, spe: 124},
 		abilities: {0: "Vortex Stealth", H: "Levitate"},
 	},
 

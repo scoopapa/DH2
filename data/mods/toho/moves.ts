@@ -39,7 +39,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	silverdagger: {
 		accuracy: 100,
-		basePower: 65,
+		basePower: 75,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Silvr Dagger damage boost');
@@ -590,6 +590,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
+	},
+	drinkup: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Drink Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+			spd: 1,
+		},
+		shortDesc: "Raises the user's Attack and Special Defense by 1 stage.",
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {boost: {atk: 1}},
 	},
 
 	//vanilla

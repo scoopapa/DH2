@@ -16,11 +16,11 @@ export const Formats: FormatData[] = [
 		],
 		mod: 'MOD FOLDER NAME HERE',
 		ruleset: [ Use names (not ids) from data/rulesets.ts and your mod's rulesets.ts files. Additionally, by putting in the name of another format, you can inherit all rules and bans of that format. ],
-		banlist: [ Use names (not ids) to ban Mons, moves, etc. here. Can use 'All Pokemon' or similar to blanket ban. 
+		banlist: [ Use names (not ids) to ban Mons, moves, etc. here. Can use 'All Pokemon' or similar to blanket ban.
 		For a Pokemon with multiple formes, putting just the name bans them all. Use the '-Base' suffix to ban only the base forme. ],
 		unbanlist: [ Specific unbans if using 'All Pokemon', etc., or if unbanning from an inherited ruleset. ],
 		gameType: 'doubles/triples/free-for-all' //Only include this line to choose the type of battle
-		teambuilderFormat: 'Uber/National Dex', //Only include this line to have the teambuilder include Ubers/Nonstandard stuff, respectively 
+		teambuilderFormat: 'Uber/National Dex', //Only include this line to have the teambuilder include Ubers/Nonstandard stuff, respectively
 		team: 'random', //Only include this line to declare a Random Battle format, which has extra steps
 	},
 ];
@@ -49,6 +49,7 @@ import { Formats as BreedingVariantsNatDex      } from '../data/mods/breedingvar
 import { Formats as BustAMove                   } from '../data/mods/bustamove/formats';
 import { Formats as CCaPM2022                   } from '../data/mods/ccapm2022/formats';
 import { Formats as CCaPM2024                   } from '../data/mods/ccapm2024/formats';
+import { Formats as CCEX              			} from '../data/mods/ccex/formats';
 import { Formats as ChatBats                    } from '../data/mods/chatbats/formats';
 import { Formats as ClubmonsRequiem             } from '../data/mods/clubmonsrequiem/formats';
 import { Formats as CommunityUsed2              } from '../data/mods/communityused2/formats';
@@ -61,7 +62,7 @@ import { Formats as Dollhouse                   } from '../data/mods/dollhouse/f
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
 import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
-import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
+// import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
 import { Formats as DoNotUseVGC                 } from '../data/mods/donotusevgc/formats';
 import { Formats as DoNotUseRandoms             } from '../data/mods/donotuse/formats';
@@ -118,6 +119,7 @@ import { Formats as gen6MixAndMegasRevisited    } from '../data/mods/gen6mixandm
 import { Formats as gen8FusionEvolution         } from '../data/mods/gen8feuu/formats';
 import { Formats as gen8Lucklessplay            } from '../data/mods/gen8lucklessplay/formats';
 import { Formats as gen8MaxMeter                } from '../data/mods/gen8maxmeter/formats';
+import { Formats as gen9CAP2                    } from '../data/mods/cap2/formats';
 import { Formats as gen9CrossoverChaos          } from '../data/mods/gen9crossoverchaos/formats';
 import { Formats as gen9CrossoverChaosC         } from '../data/mods/gen9crossoverchaosc/formats';
 import { Formats as gen9EvolutionProject        } from '../data/mods/gen9evolutionproject/formats';
@@ -155,8 +157,8 @@ import { Formats as LittlestCup                 } from '../data/mods/littlestcup
 import { Formats as Lovelymod                   } from '../data/mods/lovelymod/formats';
 import { Formats as LucklessPlay                } from '../data/mods/lucklessplay/formats';
 //import { Formats as LukeMod                     } from '../data/mods/lukemod/formats';
+import { Formats as MegasForAllChampions          } from '../data/mods/m4achampions/formats';
 import { Formats as gen9MegasForAll             } from '../data/mods/m4ag9/formats';
-import { Formats as MegasForAllKalos            } from '../data/mods/m4akalos/formats';
 import { Formats as MegasForAllPaldea           } from '../data/mods/m4apaldea/formats';
 //import { Formats as MegasForAllSandbox          } from '../data/mods/m4asandbox/formats';
 import { Formats as gen8MegasForAllv6           } from '../data/mods/m4av6/formats';
@@ -202,6 +204,7 @@ import { Formats as PublicDomain                } from '../data/mods/publicdomai
 import { Formats as RandomTandem                } from '../data/mods/randomtandem/formats';
 import { Formats as ReGeneration                } from '../data/mods/regeneration/formats';
 import { Formats as ResetMons                   } from '../data/mods/resetmons/formats';
+import { Formats as RobotMasters                 } from '../data/mods/robotmasters/formats';
 import { Formats as RegionalEvolutions          } from '../data/mods/regionalevolutions/formats';
 import { Formats as Restrictions                } from '../data/mods/restrictions/formats';
 import { Formats as ReturnToOrreTercera         } from '../data/mods/returntoorretercera/formats';
@@ -281,9 +284,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...CCaPM2024,
 	...CleanSlateMicro2,
 	...gen9CrossoverChaosC,
+	...CCEX,
 	...DLCmons,
 	...Dollhouse,
-	...DoNotUsetPMtM,
+	//...DoNotUsetPMtM,
 	...EbbAndFlow,
 	...EliminationWar,
 	...Eramons,
@@ -305,6 +309,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...Macrometa,
 	...Masquerade,
 	...MegaRevolution,
+	...MegasForAllChampions,
 	...MegasForAllPaldea,
 	...gen9MegasForAll,
 	...gen8MegasForAllv6,
@@ -351,7 +356,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen9VGC20XX,
 	...ZAOU,
 	...NatDexZa,
-	
+
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -369,11 +374,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...gen8FusionEvolution,
 	...gen1FutureProofing,
 	...JolteMons,
-	...MegasForAllKalos,
 	...Restrictions,
 	...SignatureRestrictions,
 	...Stereotypes,
-	
+
 	///////////////////////////////////////////////////////////////
 	//////////////////////// Solomods /////////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -412,7 +416,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	//...gen1Glitch,
 	...gen2GSCDoubles,
 	...HaxMeters,
-	//...gen3Hoennification, 
+	//...gen3Hoennification,
 	//...iforgor,
 	...gen1JohtoMons,
 	...gen2JohtoExpansionPack,
@@ -441,6 +445,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...PonymonShowdown,
 	...Pokemorty,
 	...gen1Recolored,
+	...RobotMasters,
 	...RockBottom,
 	//...RoulettemonsSolomod,
 	...Rpgmod,
@@ -484,7 +489,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	//...CrossoverChaos,
 	...gen3UUHoennGaiden,
 	...gen6MixAndMegasRevisited,
-	
+
 	///////////////////////////////////////////////////////////////
 	////////////////// Monster Hunter Solomod /////////////////////
 	///////////////////////////////////////////////////////////////
@@ -503,7 +508,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...ModernGen2Birds,
 	...ModernGen3,
 	...ModernGen4,
-	
+
 	/*{
 		section: "ROPMM Formats",
 		column: 3,
@@ -524,6 +529,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...SU,
 	...TPDP,
 	...WhiteTusk,
+	...gen9CAP2,
 	
 	{
 		section: "Sample Teams Random Battles",

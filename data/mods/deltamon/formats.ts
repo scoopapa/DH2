@@ -11,7 +11,7 @@ export const Formats: FormatData[] = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',
+			'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects', 'Prismatic Omega Petal'
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -35,7 +35,7 @@ export const Formats: FormatData[] = [
 		],
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Evasion Clause', 'OHKO Clause', 'Gravity Sleep Clause'],
 		banlist: [
-			'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Assist',
+			'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Assist', 'Prismatic Omega Petal'
 		],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
@@ -106,7 +106,7 @@ export const Formats: FormatData[] = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Sleep Clause Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold', 'Prismatic Omega Petal'
 		],
 		unbanlist: ['Jester\'s Shadow Crystal', 'Puppet\'s Shadow Crystal', 'Knight\'s Shadow Crystal', 'Cyan Omega Petal', 'Violet Omega Petal', 'Amber Omega Petal', 'Verdant Omega Petal', 
 					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Kaardite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice'],
@@ -132,7 +132,7 @@ export const Formats: FormatData[] = [
 			 'Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold'
 		],
 		unbanlist: ['Jester\'s Shadow Crystal', 'Puppet\'s Shadow Crystal', 'Knight\'s Shadow Crystal', 'Cyan Omega Petal', 'Violet Omega Petal', 'Amber Omega Petal', 'Verdant Omega Petal', 
-					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice', 'Shadow Tag'],
+					'Azure Omega Petal', 'Golden Omega Petal', 'Thorn Ring', 'Queenite', 'Spamtonite', 'Gersonite', 'Undynite', 'Mettatonite X', 'Mettatonite Y', 'Floweyite', 'Black Knife', 'Bellowing Starburst Slice', 'Shadow Tag', 'Prismatic Omega Petal'],
 		teambuilderFormat: 'National Dex Doubles',
 	},
 ];

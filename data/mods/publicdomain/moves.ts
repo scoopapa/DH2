@@ -1044,7 +1044,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		inherit: true,
-		shortDesc: "User's Def +1 in Grassy/Electric Terrain, SpD +1 in Psychic/Misty Terrain.",
+		shortDesc: "Activates terrain seed effects for user.",
 		type: "Steel",
 		basePower: 90,
 		accuracy: 100,

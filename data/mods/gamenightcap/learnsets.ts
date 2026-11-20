@@ -2067,7 +2067,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             agility: ["9M"],
             lunardance: ["9M"],
             storedpower: ["9M"],
-            forestcurse: ["9M"],
+            forestscurse: ["9M"],
             worryseed: ["9M"],
             drainingkiss: ["9M"],
             springtidestorm: ["9M"],
@@ -2324,7 +2324,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
         teatime: ["9M"],
           },
         },
-      pinpinchurchin: {
+      pinpincurchin: {
         learnset: {
         rest: ["9M"],
         sleeptalk: ["9M"],

@@ -4,7 +4,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'champions',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Uber', 'OU', 'UUBL', 'UU', 'NFE', '(OU)'],
+		customTiers: ['Uber', 'OU', '(OU)', 'UUBL', 'UU', 'RU', 'NFE'],
 	},
 	gen: 9,
 	pokemon: {
@@ -405,7 +405,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 
-		const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug', 
+		const noLearn = ['beldum', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'pyukumuku', 'scatterbug',
 			  'silcoon', 'spewpa', 'tynamo', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
 		const universalTM = [];
 		for (const id in this.dataCache.Pokedex) {
@@ -413,9 +413,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				universalTM.push(id);
 			}
 		}
-		
+
 		// // SLATE 1
-		
+
 		// species adjustments
 		addMove(['taunt', 'toxicspikes', 'disable', 'encore'], 'meowstic');
 		addMove(['earthpower', 'moonblast'], 'meowsticf');
@@ -423,7 +423,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['fakeout', 'suckerpunch', 'partingshot'], 'krookodile');
 		addMove(['mysticalfire', 'psychicnoise', 'tickle'], 'musharna');
 		addMove(['bulkup', 'coil', 'bodypress', 'powertrip', 'stringshot'], 'scolipede');
-		
+
 		// move adjustments
 		addMove('rapidfire', [
 			'armarouge', 'blastoise', 'blaziken', 'camerupt', 'clawitzer', 'dragapult', 'drampa', 'flareon', 'houndoom', 'ninetales', 'rhyperior', 'sandaconda', 'scovillain', 'simisear', 'skeledirge', 'slowbrogalar',
@@ -444,7 +444,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		]);
 
 		// // SLATE 2
-		
+
 		// species adjustments
 		addMove(['howl', 'trickroom', 'lunarblessing'], 'umbreon');
 		addMove(['hypervoice', 'weatherball'], 'ampharos');
@@ -452,7 +452,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// move adjustments
 		addMove('astonish', [
-			'absol', 'arbok', 'ariados', 'banette', 'beedrill', 'chandelure', 'chimecho', 'clawitzer', 'cofagrigus', 'decidueye', 'dragapult', 'forretress', 'glalie', 'golurk', 'gourgeist', 'greninja', 'hatterene', 'houndoom', 
+			'absol', 'arbok', 'ariados', 'banette', 'beedrill', 'chandelure', 'chimecho', 'clawitzer', 'cofagrigus', 'decidueye', 'dragapult', 'forretress', 'glalie', 'golurk', 'gourgeist', 'greninja', 'hatterene', 'houndoom',
 			'klefki', 'liepard', 'luxray', 'lycanrocmidnight', 'malamar', 'meowstic', 'meowsticf', 'mimikyu', 'noivern', 'oranguru', 'overqwil', 'qwilfish', 'rotom', 'runerigus', 'scrafty', 'sharpedo', 'spiritomb', 'stunfisk',
 			'stunfiskgalar', 'tinkaton', 'typhlosionhisui', 'umbreon', 'watchog', 'zoroark', 'zoroarkhisui'
 		]);
@@ -485,7 +485,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove('miststep', ['delphox', 'mimikyu', 'vanilluxe', 'altaria', 'audino']);
 		addMove('fistbump', ['annihilape', 'blaziken', 'chesnaught', 'crabominable', 'emboar', 'falinks', 'gallade', 'hawlucha', 'infernape', 'kommoo', 'lucario', 'machamp', 'medicham', 'pangoro', 'passimian', 'scrafty', 'toxicroak']);
 		addMove('reflexjolt', ['bellibolt', 'dedenne', 'emolga', 'heliolisk', 'jolteon', 'luxray', 'manectric', 'morpeko', 'pikachu', 'raichu', 'raichualola']);
-		
+
 		// // MC DISTRIBUTIONS
 
 		addMove(['starburst', 'snatch'], 'wigglytuff');

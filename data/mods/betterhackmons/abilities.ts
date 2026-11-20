@@ -9,6 +9,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	*/
 	
 	//modded
+	//slate 1
 	protean: {
 		inherit: true,
 		shortDesc: "User's type = move it uses. STAB is 1.25x, not 1.5x.",
@@ -92,7 +93,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (pokemon.setType("Fire")) this.add('-start', pokemon, 'typechange', "Fire", '[silent]');
 		},
-		onModifyAtk: null,
+		onModifyAtk: undefined,
 	},
 	hadronengine: {
 		inherit: true,
@@ -103,7 +104,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (pokemon.setType("Electric")) this.add('-start', pokemon, 'typechange', "Electric", '[silent]');
 		},
-		onModifyAtk: null,
+		onModifySpA: undefined,
 	},
 	toxicdebris: {
 		inherit: true,
@@ -119,6 +120,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-activate', target, 'ability: Toxic Debris');
 				side.addSideCondition('toxicspikes', target);
 			}
+		},
+	},
+	//slate 2
+	normalize: {
+		inherit: true,
+		shortDesc: "This Pokemon's moves are changed to be Normal type and have 1.5x power.",
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
 		},
 	},
 };

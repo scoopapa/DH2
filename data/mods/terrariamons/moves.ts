@@ -901,4 +901,185 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	// making sure any moves not present in sv show in builder
+	doubleironbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sharpen: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	stormthrow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	submission: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	twineedle: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	vitalthrow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wakeupslap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	watersport: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	anchorshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	aromatherapy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	barrier: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boneclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bonemerang: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bubble: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	chipaway: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	clamp: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cometpunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	corrosivegas: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dualchop: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	feintattack: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flameburst: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	frustration: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	return: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	geargrind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grudge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	healorder: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	heartstamp: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	iondeluge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	jumpkick: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	karatechop: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	landswrath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	laserfocus: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	leaftornado: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magnetbomb: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magnitude: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mudbomb: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	needlearm: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	ominouswind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	poweruppunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	psywave: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	punishment: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shadowbone: {
+		inherit: true,
+		isNonstandard: null,
+	},
 }

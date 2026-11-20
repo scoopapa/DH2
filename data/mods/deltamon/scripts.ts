@@ -18,6 +18,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//Asriel Ultra Burst
 		} else if (pokemon.baseSpecies.name === 'Asriel' && pokemon.getItem().id === 'soulcollective') {
 			return "Asriel-Hyperdeath";
+			//Flowery Ultra Burst
+		} else if (pokemon.baseSpecies.name === 'Flowery' && pokemon.getItem().id === 'prismaticomegapetal') {
+			return "Flowery-Omega";
 		}
 			return null;
 		},
@@ -201,6 +204,49 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				hitResults[i] = true;
 			}
 			return hitResults;
+		},
+	},
+	field: {
+		inherit: true,
+		setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+			status = this.battle.dex.conditions.get(status);
+			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+			if (source === 'debug') source = this.battle.sides[0].active[0];
+			if (!source) throw new Error(`setting terrain without a source`);
+			
+			//Rose Gold Garden persistence.
+			if (this.terrain === status.id || this.terrain === 'rosegoldgarden' || this.terrainState?.id === 'rosegoldgarden') return false;
+			const prevTerrain = this.terrain;
+			const prevTerrainState = this.terrainState;
+			this.terrain = status.id;
+			this.terrainState = {
+				id: status.id,
+				source,
+				sourceSlot: source.getSlot(),
+				duration: status.duration,
+			};
+		if (status.durationCallback) {
+			this.terrainState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+		}
+		if (!this.battle.singleEvent('FieldStart', status, this.terrainState, this, source, sourceEffect)) {
+			this.terrain = prevTerrain;
+			this.terrainState = prevTerrainState;
+			return false;
+		}
+		this.battle.eachEvent('TerrainChange', sourceEffect);
+		return true;
+		},
+
+		clearTerrain(this: Field): boolean {
+			const isGarden = this.terrain === 'rosegoldgarden' || this.terrainState?.id === 'rosegoldgarden';
+			if (!this.terrain || (isGarden && (this.terrainState?.duration ?? 1) > 0)) return false;
+			const prevTerrain = this.getTerrain();
+			this.battle.singleEvent('FieldEnd', prevTerrain, this.terrainState, this);
+			this.terrain = '';
+			this.terrainState = {id: ''};
+			this.battle.eachEvent('TerrainChange');
+			return true;
 		},
 	},
 };
