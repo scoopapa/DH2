@@ -708,8 +708,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	libero: {
 		inherit: true,
-		onPrepareHit(source, target, move, pokemon) {
-			if (this.effectState.libero && !pokemon.hasItem('maskofhope')) return;
+		onPrepareHit(source, target, move) {
+			if (this.effectState.libero && !source.hasItem('maskofhope')) return;
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
