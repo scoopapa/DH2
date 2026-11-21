@@ -8,7 +8,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	*/
 	
-	//modded
 	//slate 1
 	protean: {
 		inherit: true,
@@ -122,6 +121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	
 	//slate 2
 	normalize: {
 		inherit: true,
@@ -129,5 +129,95 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
 		},
+	},
+	
+	//slate 3
+	whitesmoke: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+			}
+		},
+		shortDesc: "Prevents this Pokemon's stat stages from being lowered.",
+	},
+	clearbody: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
+			}
+		},
+		shortDesc: "Prevents this Pokemon's stat stages from being lowered.",
+	},
+	grasspelt: {
+		inherit: true,
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) this.heal(pokemon.baseMaxhp / 16);
+		},
+		shortDesc: "User's Def is 1.5x in Grassy Terrain, heals 1/16 HP.",
+	},
+	pixilate: {
+		inherit: true,
+		shortDesc: "This Pokemon's Normal-type moves become Fairy type.",
+		onBasePower: undefined,
+	},
+	refrigerate: {
+		inherit: true,
+		shortDesc: "This Pokemon's Normal-type moves become Ice type.",
+		onBasePower: undefined,
+	},
+	aerilate: {
+		inherit: true,
+		shortDesc: "This Pokemon's Normal-type moves become Flying type.",
+		onBasePower: undefined,
+	},
+	galvanize: {
+		inherit: true,
+		shortDesc: "This Pokemon's Normal-type moves become Electric type.",
+		onBasePower: undefined,
+	},
+	snowforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				if (move.type === 'Ice' || move.type === 'Ghost' || move.type === 'Fairy') {
+					this.debug('Snow Force boost');
+					return this.chainModify([5734, 4096]);
+				}
+				return this.chainModify([4505, 4096]);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		flags: {},
+		name: "Snow Force",
+		shortDesc: "Ice/Ghost/Fairy 1.4x in Snow/Hail, else 1.1x; immunity to it.",
+	},
+	dauntlessshield: {
+		inherit: true,
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
+		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
 	},
 };
