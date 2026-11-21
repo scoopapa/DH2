@@ -443,22 +443,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 4],
 		onModifyMove(move, source) {
 			let success = false;
-			// Triples Functionality
+			let positions: number[] = [];
 			if (source.side.active.length === 3) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
-					success = true;
-				}
-				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
-				}
+				positions = [source.position - 1, source.position + 1];
+			} else if (source.side.active.length === 2) {
+				positions = [1 - source.position];
 			}
-			// Doubles Functionality
-			else if (source.side.active.length === 2) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+			for (const position of positions) {
+				const ally = source.side.active[position];
+				if (ally && !ally.fainted && !ally.isSemiInvulnerable()) {
 					success = true;
-				}
-				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
+					break;
 				}
 			}
 			if (!success) {
@@ -486,22 +481,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 4],
 		onModifyMove(move, source) {
 			let success = false;
-			// Triples Functionality
+			let positions: number[] = [];
 			if (source.side.active.length === 3) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
-					success = true;
-				}
-				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
-				}
+				positions = [source.position - 1, source.position + 1];
+			} else if (source.side.active.length === 2) {
+				positions = [1 - source.position];
 			}
-			// Doubles Functionality
-			else if (source.side.active.length === 2) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+			for (const position of positions) {
+				const ally = source.side.active[position];
+				if (ally && !ally.fainted && !ally.isSemiInvulnerable()) {
 					success = true;
-				}
-				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
+					break;
 				}
 			}
 			if (!success) {
@@ -531,22 +521,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 4],
 		onModifyMove(move, source) {
 			let success = false;
-			// Triples Functionality
+			let positions: number[] = [];
 			if (source.side.active.length === 3) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
-					success = true;
-				}
-				if (source.position + 1 <= 2 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
-				}
+				positions = [source.position - 1, source.position + 1];
+			} else if (source.side.active.length === 2) {
+				positions = [1 - source.position];
 			}
-			// Doubles Functionality
-			else if (source.side.active.length === 2) {
-				if (source.position - 1 >= 0 && !source.side.active[source.position - 1].fainted && !source.side.active[source.position - 1].isSemiInvulnerable()) {
+			for (const position of positions) {
+				const ally = source.side.active[position];
+				if (ally && !ally.fainted && !ally.isSemiInvulnerable()) {
 					success = true;
-				}
-				if (source.position + 1 <= 1 && !source.side.active[source.position + 1].fainted && !source.side.active[source.position + 1].isSemiInvulnerable()) {
-					success = true;
+					break;
 				}
 			}
 			if (!success) {
