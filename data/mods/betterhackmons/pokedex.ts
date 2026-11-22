@@ -12,6 +12,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 89, atk: 151, def: 131, spa: 59, spd: 43, spe: 97},
 	},
+	
 	//slate 2
 	skarmory: {
 		inherit: true,
@@ -37,5 +38,27 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Electric", "Bug"],
 		baseStats: {hp: 70, atk: 75, def: 80, spa: 150, spd: 80, spe: 135},
+	},
+
+	//slate 3
+	zamazenta: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 120, def: 100, spa: 90, spd: 100, spe: 98},
+	},
+	zamazentacrowned: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 150, def: 150, spa: 90, spd: 100, spe: 118},
+	},
+	jynx: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 50, def: 55, spa: 145, spd: 115, spe: 95},
+	},
+	escavalier: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 165, spa: 30, spd: 115, spe: 55},
+	},
+	sandyshocks: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 69, def: 97, spa: 133, spd: 99, spe: 107},
 	},
 };

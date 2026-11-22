@@ -38,11 +38,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	
 	//slate 2
 	oblivionwing: {
 		inherit: true,
 		isNonstandard: null,
 	},
+	
 	//modded
 	
 	//slate 1
@@ -89,6 +91,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	
 	//slate 2
 	mortalspin: {
 		inherit: true,
@@ -153,5 +156,148 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, dance: 1, metronome: 1, defrost: 1},
 		secondary: null,
 		// Damage boost in Rain applied in conditions.ts
+	},
+
+	//slate 3
+	behemothbash: {
+		inherit: true,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if (target.species.bst > 600) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		pp: 10,
+		shortDesc: "Deals doubled damage if the target has greater than 600 BST.",
+	},
+	sheercold: {
+		name: "Sheer Cold",
+		type: "Ice",
+		category: "Special",
+		basePower: 140,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Cannot be selected the turn after it's used.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sheer Cold", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	ficklebeam: {
+		name: "Fickle Beam",
+		type: "Dragon",
+		category: "Special",
+		basePower: 70,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Hits Fairy neutral. User heals 1/16 HP.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fickle Beam", target);
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return; // avoid crashing when called from a chat plugin
+			if (!target.runImmunity('Dragon')) {
+				if (target.hasType('Fairy')) return 0;
+			}
+		},
+		onHit(target, source) {
+			this.heal(source.maxhp / 16, source, source);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	focuspunch: {
+		accuracy: 100,
+		basePower: 45,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Focus Punch",
+		shortDesc: "If a foe is switching out, hits it at 1.5x power.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, punch: 1, protect: 1, mirror: 1, metronome: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('focuspunch', pokemon);
+				const data = side.getSideConditionData('focuspunch');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('focuspunch');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Focus Punch');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('focuspunch', source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Clever",
+	},
+	headlock: {
+		name: "Headlock",
+		type: "Fighting",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Prevents the target from switching out.",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Octolock", target);
+		},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		},
+		secondary: null,
+		target: "normal",
 	},
 };

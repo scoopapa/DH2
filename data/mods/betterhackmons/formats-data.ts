@@ -158,7 +158,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zacian: {
 		tier: "Illegal",
 	},
-	zamazenta: {
+	zamazentacrowned: {
 		tier: "Illegal",
 	},
 	zekrom: {
