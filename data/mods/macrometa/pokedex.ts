@@ -1194,7 +1194,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1144,
 		name: "Duratreme",
 		types: ["Normal", "Water"],
-		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 77, spe: 73},
+		baseStats: {hp: 102, atk: 83, def: 101, spa: 74, spd: 77, spe: 73},
 		abilities: {0: "Strong Jaw", 1: "Hydration", H: "Poison Heal"},
 		weightkg: 125,
 	},
@@ -1445,7 +1445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Glaceon",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 70, atk: 65, def: 110, spa: 135, spd: 70, spe: 95},
-		abilities: {0: "Slush Rush", H: "Technician"},
+		abilities: {0: "Slush Rush"},
 		weightkg: 25.9,
 	},
 	wyrmenom: {
@@ -1827,7 +1827,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Albatruss",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 125, atk: 72, def: 126, spa: 64, spd: 101, spe: 55},
-		abilities: {0: "Magic Guard", 1: "Hydration", H: "Rivalry"},
+		abilities: {0: "Hydration", H: "Rivalry"},
 		weightkg: 80.5,
 	},
 	tundread: {
