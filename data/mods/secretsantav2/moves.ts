@@ -234,7 +234,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "Hits twice. If target does not switch: -1 SpA for each hit.",
+		shortDesc: "Hits twice. Unless target switch: -1 SpA for each hit.",
 		name: "Scythe Wings",
 		pp: 5,
 		priority: 0,
