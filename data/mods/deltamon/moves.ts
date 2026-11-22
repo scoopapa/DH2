@@ -779,7 +779,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		pp: 1,
 		noPPBoosts: true,
-		shortDesc: "Seth and Aqua's ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
+		shortDesc: "The ULTIMATE ATTACK! Atk/SpA +6, Spe +1 upon enemy KO.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
@@ -960,7 +960,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Priority +3, First turn only, uses target's Speed in damage calc.",
+		shortDesc: "First turn only, uses target's Speed in damage calc.",
 		desc: "The user disrupts the target by firing an arrow at blinding speed, almost always going first (Priority +3).This move uses the target's Speed stat to calculate its damage. This move can only be used during the first turn the user is on the field.",
 		priority: 3,
 		overrideOffensiveStat: 'spe',

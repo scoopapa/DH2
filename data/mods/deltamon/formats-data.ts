@@ -876,6 +876,7 @@ rudinn: {
 		doublesTier: "DM DOU",
 		natDexTier: "OU",
 	},
+	
 
 	//Random Battle exclusives
 

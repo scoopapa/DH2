@@ -2,7 +2,7 @@ import { FormatData } from '../../../sim/dex-formats';
 
 export const Formats: FormatData[] = [
 	{
-		name: "[Gen 9] Better Hackmons",
+		name: "[Gen 9] Better BH",
 		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
 		mod: 'betterhackmons',
 		ruleset: [

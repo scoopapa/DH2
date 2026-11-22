@@ -138,5 +138,23 @@ export const FormatsData: {[speciesid: IDEntry]: ModdedSpeciesFormatsData} = {
 	mabosstiff: {
 		tier: "Head",
 	},
-
+	toxapex: {
+		tier: "Head",
+	},
+	hydrapple: {
+		tier: "Head",
+	},
+	tentacruel: {
+		tier: "Head",
+	},
+	pelipper: {
+		tier: "Head",
+	},
+	rillaboom: {
+		tier: "Head",
+	},
+	alomomola: {
+		tier: "Head",
+	},
+	
 };

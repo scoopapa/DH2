@@ -41,7 +41,7 @@ boosterenergy: {
 		shortDesc: "If held by The Roaring Knight with Black Knife, they can use Bellowing Starburst Slice",
 		zMove: "Bellowing Starburst Slice",
 		zMoveFrom: "Black Knife",
-		itemUser: ["Roaring Knight"],
+		itemUser: ["Roaring Knight", "Roaring Knight-Advent"],
 	},
 	
 	cyanomegapetal: {

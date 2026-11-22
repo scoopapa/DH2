@@ -1,0 +1,13 @@
+Robot Masters Sprite Credits and Attribution
+
+The sprites used in the Robot Masters mod were sourced from the following website:
+
+https://prototype.mmrpg-world.net/credits/
+
+The original sprites are the work of their respective creators. I do not claim ownership of these assets or present them as original artwork created by the Robot Masters project.
+
+I have reached out to the lead developer, Adrian Marceau, to request permission to use the sprites in this project and to discuss appropriate credit and attribution. At the time of writing, I have not yet received a response.
+
+I want to properly acknowledge the original artists and respect their work. This credit note is included to document the source of the assets and my attempt to contact the project's lead developer.
+
+Status: Permission request sent; awaiting response.

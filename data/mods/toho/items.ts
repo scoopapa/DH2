@@ -24,6 +24,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 		},
+		fling: {
+			basePower: 50,
+		},
 		itemUser: ["Nazrin", "Shou Toramaru"],
 	},
 	
@@ -221,5 +224,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If held by Hecatia-Otherworld, consumed on entry and transforms into Hecatia-Moon",
+	},
+	maskofhope: {
+		name: "Mask of Hope",
+		spritenum: 760,
+		onDisableMove: function (pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		shortDesc: "Holder can't use the same move twice in a row, allows Libero to activate repeatedly.",
+		fling: {
+			basePower: 30,
+			volatileStatus: 'torment',
+		},
 	},
 }

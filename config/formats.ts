@@ -62,7 +62,7 @@ import { Formats as Dollhouse                   } from '../data/mods/dollhouse/f
 import { Formats as FusionEvolutionDondozo      } from '../data/mods/dondozo/formats';
 import { Formats as Geekssandbox      } from '../data/mods/geekssandbox/formats';
 import { Formats as DoNotUse                    } from '../data/mods/donotuse/formats';
-import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
+// import { Formats as DoNotUsetPMtM               } from '../data/mods/donotusetmptm/formats';
 import { Formats as DoNotUseUU                  } from '../data/mods/donotuseuu/formats';
 import { Formats as DoNotUseVGC                 } from '../data/mods/donotusevgc/formats';
 import { Formats as DoNotUseRandoms             } from '../data/mods/donotuse/formats';
@@ -204,6 +204,7 @@ import { Formats as PublicDomain                } from '../data/mods/publicdomai
 import { Formats as RandomTandem                } from '../data/mods/randomtandem/formats';
 import { Formats as ReGeneration                } from '../data/mods/regeneration/formats';
 import { Formats as ResetMons                   } from '../data/mods/resetmons/formats';
+import { Formats as RobotMasters                 } from '../data/mods/robotmasters/formats';
 import { Formats as RegionalEvolutions          } from '../data/mods/regionalevolutions/formats';
 import { Formats as Restrictions                } from '../data/mods/restrictions/formats';
 import { Formats as ReturnToOrreTercera         } from '../data/mods/returntoorretercera/formats';
@@ -286,7 +287,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...CCEX,
 	...DLCmons,
 	...Dollhouse,
-	...DoNotUsetPMtM,
+	//...DoNotUsetPMtM,
 	...EbbAndFlow,
 	...EliminationWar,
 	...Eramons,
@@ -444,6 +445,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	...PonymonShowdown,
 	...Pokemorty,
 	...gen1Recolored,
+	...RobotMasters,
 	...RockBottom,
 	//...RoulettemonsSolomod,
 	...Rpgmod,
