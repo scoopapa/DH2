@@ -76,6 +76,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 	},
 	wishbone: {
+		num: -4,
 		name: "Wishbone",
 		shortDesc: "When the holder faints, sets a wish on their position. Single use.",
 		fling: {
@@ -85,6 +86,63 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.useItem()) {
 				this.add('-message', pokemon.name + " made a wish!");
 				pokemon.side.addSlotCondition(pokemon, 'wish');
+			}
+		},
+		rating: 3,
+	},
+	friendshipbracelet: {
+		num: -5,
+		name: "Friendship Bracelet",
+		shortDesc: "Prevents the user from taking damage from an ally's attack.",
+		fling: {
+			basePower: 60,
+			basePowerCallback(pokemon, target) {
+				if (target !== pokemon && target.isAlly(pokemon)) {
+					return 0;
+				}
+				return 60;
+			},
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'item: Friendship Bracelet');
+				return null;
+			}
+		},
+		rating: 3,
+	},
+	mouthwash: {
+		num: -6,
+		name: "Mouth Wash",
+		shortDesc: "Raises holder's Attack by 1 stage after it uses a biting move. Single use.",
+		fling: {
+			basePower: 30,
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.flags['bite']) {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+		},
+		rating: 3,
+	},
+	terashellchunk: {
+		num: -7,
+		name: "Tera Shell Chunk",
+		shortDesc: "When using Protect or a similar move, remove all weather/terrain. Single use.",
+		fling: {
+			basePower: 60,
+			effect(target, source, move) {
+				if (target.setType('Normal')) {
+					this.add('-start', target, 'typechange', 'Normal');
+				}
+			},
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'protect' && pokemon.useItem()) {
+				this.field.clearWeather();
 			}
 		},
 		rating: 3,
@@ -166,5 +224,56 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		shortDesc: "If the holder's stat stages are lowered, it switches to a chosen ally.",
 		desc: "If the holder's stat stages are lowered, it switches to a chosen ally. This is no longer single use.",
+	},
+	weaknesspolicy: {
+		inherit: true,
+		isNonstandard: null,
+		rating: 3,
+	},
+	muscleband: {
+		name: "Muscle Band",
+		spritenum: 297,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Physical') {
+				return this.chainModify([4505, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === "Special") {
+				this.debug('Muscle Band power-up');
+				return this.chainModify(1.2);
+			}
+		},
+		num: 266,
+		gen: 4,
+		shortDesc: "The user's Physical moves do 1.2x damage, but the holder takes 1.2x damage from Special moves.",
+		desc: "The user's Physical moves do 1.2x damage, but the holder takes 1.2x damage from Special moves.",
+	},
+	wiseglasses: {
+		name: "Wise Glasses",
+		spritenum: 539,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify([4505, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === "Physical") {
+				this.debug('Wise Glasses power-up');
+				return this.chainModify(1.2);
+			}
+		},
+		num: 267,
+		gen: 4,
+		shortDesc: "The user's Special moves do 1.2x damage, but the holder takes 1.2x damage from Physical moves.",
+		desc: "The user's Special moves do 1.2x damage, but the holder takes 1.2x damage from Physical moves.",
 	},
 };

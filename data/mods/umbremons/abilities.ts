@@ -250,6 +250,74 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {},
 	},
+	retribution: {
+		num: -11,
+		name: "Retribution",
+		shortDesc: "If an ally faints while this Pokémon is on the field, +1 Attack and Special Attack.",
+		onAllyFaint(target) {
+			if (!this.effectState.target.hp) return;
+			this.boost({atk: 1, spa: 1}, target, target);
+		},
+		flags: {},
+	},
+	rampage: {
+		num: -12,
+		name: "Rampage",
+		shortDesc: "If this Pokemon KOes an opposing target, deals 50% of damage dealt to target's ally.",
+		desc: "If an opposing Pokemon is knocked out by one of this Pokemon's single target attacks, do 50% of that attack's damage to it's ally.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!['allAdjacentFoes', 'allAdjacent', 'all'].includes(move.target) && !target.hp && !target.isAlly(source)) {
+				// target determining for cases of triples or doubles
+				const targets = [];
+				if (target.side.active.length === 3) {
+					for (const position of [target.position - 1, target.position + 1]) {
+						const ally = target.side.active[position];
+						if (ally && !ally.fainted && !ally.isSemiInvulnerable()) {
+							targets.push(ally);
+						}
+					}
+				}
+				else if (target.side.active.length === 2) {
+					const ally = target.side.active[1 - target.position];
+					if (ally && !ally.fainted && !ally.isSemiInvulnerable()) {
+						targets.push(ally);
+					}
+				}
+
+				if (!targets.length) return;
+				const randomTarget = targets[this.random(targets.length)];
+				this.attrLastMove('[still]');
+				this.add('-anim', source, "Outrage", randomTarget);
+				this.damage(damage / 2, randomTarget, source);
+			}
+		},
+		flags: {},
+	},
+	ancientcore: {
+		num: -13,
+		name: "Ancient Core",
+		shortDesc: "Applies gen 1-3 phys/spec split. If category changed, 1.2x bp.",
+		desc: "User's moves have gen 1-3's physical / special split. Fairy is physical. If a category change occured, boost move's BP by 20%.",
+		onModifyMove(move, pokemon) {
+			const special = ['Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark'];
+			const originalCategory = move.category;
+			if (['Stellar', '???'].includes(move.type) || move.category === 'Status') return;
+			if (special.includes(move.type) && move.type) move.category = "Special";
+			else move.category = "Physical";
+			if (move.category != originalCategory) pokemon.addVolatile('ancientcore');
+		},
+		condition: {
+			duration: 1,
+			onBasePowerPriority: 4,
+			onBasePower(basePower, attacker, defender, move) {
+				return this.chainModify(1.2);
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('ancientcore');
+			},
+		},
+		flags: {},
+	},
 
 	// Adjusted Abilities
 	moldbreaker: {
@@ -505,5 +573,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Adds a type to the Pokémon based on the terrain.",
 		desc: "Adds an additional type to the Pokémon based on the terrain.",
+	},
+	stall: {
+		modded: true,
+		onModifySpe(spe) {
+			if (this.field.getPseudoWeather('trickroom')) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Stall",
+		num: 100,
+		shortDesc: "Under Trick Room, this Pokemon's speed is halved.",
+	},
+	justified: {
+		inherit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Justified weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Justified weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		shortDesc: "Attack +1 after it is damaged by a Dark-type move. Halves incoming dark damage.",
+		desc: "Dark damage against this Pokemon is dealt with 1/2 offensive stat; Atk raised by 1 after it is damaged by a Dark-type move.",
 	},
 };
