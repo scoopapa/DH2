@@ -554,9 +554,6 @@ exports.chatlogreader = 'fs';
  *     - game: make games.
  */
  
-exports.serverid = 'dragonheaven';
-exports.servertoken = 'qVkzIUlwEU2K';
- 
 exports.grouplist = [
 	{
 		symbol: '~',
@@ -579,8 +576,6 @@ exports.grouplist = [
 		addhtml: true,
 		rangeban: true,
 		makeroom: true,
-		editroom: true,
-		editprivacy: true,
 		potd: true,
 		disableladder: true,
 		gdeclare: true,
@@ -626,15 +621,17 @@ exports.grouplist = [
 		id: "mod",
 		name: "Moderator",
 		inherit: '%',
-		jurisdiction: 'u',
+		jurisdiction: '@u',
 
 		globalban: true,
 		ban: true,
 		modchat: 'a',
-		promote: "+u",
+		promote: "@u",
 		roomvoice: true,
 		roomwhitelist: true,
 		forcerename: true,
+		editprivacy: true,
+		editroom: true,
 		ip: true,
 		alts: '@u',
 		game: true,
