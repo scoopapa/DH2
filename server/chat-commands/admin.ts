@@ -132,7 +132,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	readconfig(target, room, user) {
 		this.canUseConsole();
-		return this.sendReply(`Value for ${target}: ${eval(`Config.${target}`)}`);
+		return this.sendReply(`Value for ${target}: ${Config[target]}`);
 	},
 	potd(target, room, user) {
 		this.canUseConsole();
