@@ -15,17 +15,22 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	spicyspray: {
 		inherit: true,
-		shortDesc: "If this Pokemon is hit by an attack, the attacker becomes burned.",
+		isNonstandard: null,
+	},
+	firemane: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	eelevate: {
+		inherit: true,
 		isNonstandard: null,
 	},
 	dragonize: {
 		inherit: true,
-		shortDesc: "This Pokemon's Normal-type moves become Dragon type and have 1.2× power.",
 		isNonstandard: null,
 	},
 	megasol: {
 		inherit: true,
-		shortDesc: "This Pokemon's moves are used as if the effects of Sun were active.",
 		isNonstandard: null,
 	},
 	auraguard: {
