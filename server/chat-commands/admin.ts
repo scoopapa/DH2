@@ -124,7 +124,7 @@ async function updateserver(context: Chat.CommandContext, codePath: string) {
 export const commands: Chat.ChatCommands = {
 	setconfig(target, room, user) {
 		if (!hasDevAuth(user)) this.commandDoesNotExist();
-		const [setting, value] = target.split(',').map(t => t.trim());
+		const [setting, value] = Utils.splitFirst(target, ',').map(t => t.trim());
 		if (!setting || !value) return this.errorReply('Missing setting or value.');
 		Config[setting] = value;
 		this.sendReply(`The config value '${setting}' was successfully updated to '${value}'.`);
@@ -132,7 +132,17 @@ export const commands: Chat.ChatCommands = {
 	},
 	readconfig(target, room, user) {
 		if (!hasDevAuth(user)) this.commandDoesNotExist();
-		return this.sendReply(`Value for ${target}: ${Config[target]}`);
+		let value = Config[target];
+		if (!value) return this.errorReply(`Config.${target} has no value.`);
+		if (!(Array.isArray(value) || typeof value === 'string' ||
+				typeof value === 'number' || typeof value === 'boolean')) {
+			return this.errorReply(`Config.${target} cannot be read, it is of type ${typeof value}.`);
+		}
+		if (Array.isArray(value)) {
+			value = value.join(',');
+		}
+		
+		return this.sendReply(`Value for ${target}: ${value}`);
 	},
 	potd(target, room, user) {
 		this.canUseConsole();
