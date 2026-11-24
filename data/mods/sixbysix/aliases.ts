@@ -6,12 +6,12 @@ export const Aliases: {[alias: string]: string} = {
 	"druid": "Kingdra-Druid",
 	"gourmet": "Kingdra-Gourmet",
 	
-	"erudite: "Nidoqueen-Erudite",
+	"erudite": "Nidoqueen-Erudite",
 	"jas": "Nidoqueen-Jasper",
-	"jasper: "Nidoqueen-Jasper",
-	"rosegold: "Nidoqueen-Rosegold",
-	"shaman: "Nidoqueen-Shaman",
-	"volcanic: "Nidoqueen-Volcanic",
+	"jasper": "Nidoqueen-Jasper",
+	"rosegold": "Nidoqueen-Rosegold",
+	"shaman": "Nidoqueen-Shaman",
+	"volcanic": "Nidoqueen-Volcanic",
 	
 	"assassin": "Bisharp-Assassin",
 	"ass": "Bisharp-Assassin",
