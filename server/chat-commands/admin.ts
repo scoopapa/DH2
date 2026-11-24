@@ -123,7 +123,7 @@ async function updateserver(context: Chat.CommandContext, codePath: string) {
 
 export const commands: Chat.ChatCommands = {
 	setconfig(target, room, user) {
-		this.canUseConsole();
+		if (!hasDevAuth(user)) this.commandDoesNotExist();
 		const [setting, value] = target.split(',').map(t => t.trim());
 		if (!setting || !value) return this.errorReply('Missing setting or value.');
 		Config[setting] = value;
@@ -131,7 +131,7 @@ export const commands: Chat.ChatCommands = {
 		this.stafflog(`${user} updated the config value for '${setting}'.`);
 	},
 	readconfig(target, room, user) {
-		this.canUseConsole();
+		if (!hasDevAuth(user)) this.commandDoesNotExist();
 		return this.sendReply(`Value for ${target}: ${Config[target]}`);
 	},
 	potd(target, room, user) {
