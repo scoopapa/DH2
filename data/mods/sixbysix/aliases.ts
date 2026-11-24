@@ -7,7 +7,7 @@ export const Aliases: {[alias: string]: string} = {
 	"gourmet": "Kingdra-Gourmet",
 	
 	"erudite: "Nidoqueen-Erudite",
-	"jas: "Nidoqueen-Jasper",
+	"jas": "Nidoqueen-Jasper",
 	"jasper: "Nidoqueen-Jasper",
 	"rosegold: "Nidoqueen-Rosegold",
 	"shaman: "Nidoqueen-Shaman",
