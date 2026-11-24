@@ -22,8 +22,8 @@ interface ProcessData {
 }
 
 function hasDevAuth(user: User) {
-	const devRoom = Rooms.get('development');
-	return devRoom && Users.Auth.atLeast(devRoom.auth.getDirect(user.id), '%');
+	const devRoom = Rooms.get('staff');
+	return devRoom && Users.Auth.atLeast(devRoom.auth.getDirect(user.id), '+');
 }
 
 function bash(command: string, context: Chat.CommandContext, cwd?: string): Promise<[number, string, string]> {
@@ -122,6 +122,18 @@ async function updateserver(context: Chat.CommandContext, codePath: string) {
 }
 
 export const commands: Chat.ChatCommands = {
+	setconfig(target, room, user) {
+		this.canUseConsole();
+		const [setting, value] = target.split(',').map(t => t.trim());
+		if (!setting || !value) return this.errorReply('Missing setting or value.');
+		Config[setting] = value;
+		this.sendReply(`The config value '${setting}' was successfully updated to '${value}'.`);
+		this.stafflog(`${user} updated the config value for '${setting}'.`);
+	},
+	readconfig(target, room, user) {
+		this.canUseConsole();
+		return this.sendReply(`Value for ${target}: ${Config[target]}`);
+	},
 	potd(target, room, user) {
 		this.canUseConsole();
 		const species = Dex.species.get(target);
