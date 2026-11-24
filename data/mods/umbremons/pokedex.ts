@@ -440,7 +440,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Healer", 1: "Stall", H: "Aroma Veil"},
 	},
-	hyrdeigon: {
+	hydreigon: {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Stall", H: "Ancient Core"},
 	},

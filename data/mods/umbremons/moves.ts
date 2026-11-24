@@ -277,8 +277,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	claymaker: {
 		num: -10,
-		accuracy: 80,
-		basePower: 16,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
 		name: "Claymaker",
 		pp: 16,
@@ -301,8 +301,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	celestialdescent: {
 		num: -11,
-		accuracy: 80,
-		basePower: 16,
+		accuracy: 100,
+		basePower: 80,
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
 			if (['deltastream'].includes(target.effectiveWeather())) {
