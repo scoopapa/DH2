@@ -353,7 +353,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	tinkaton: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Down-to-Earth"},
+		abilities: {0: "Mold Breaker", 1: "Stall", H: "Down-to-Earth"},
 	},
 	swampert: {
 		inherit: true,
@@ -389,7 +389,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	sirfetchd: {
 		inherit: true,
-		abilities: {0: "Steadfast", 1: "Mold Breaker", H: "Scrappy"},
+		abilities: {0: "Retribution", 1: "Mold Breaker", H: "Scrappy"},
 	},
 	thievul: {
 		inherit: true,
@@ -398,5 +398,70 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	arboliva: {
 		inherit: true,
 		abilities: {0: "Seed Sower", 1: "Unfolding", H: "Harvest"},
+	},
+	gyarados: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Aerodynamism", H: "Rampage"},
+	},
+	grapploct: {
+		inherit: true,
+		types: ["Fighting", "Water"],
+		abilities: {0: "Limber", 1: "Contrary", H: "Mimicry"},
+	},
+	tsareena: {
+		inherit: true,
+		types: ["Grass", "Fighting"],
+	},
+	gardevoir: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Retribution", H: "Telepathy"},
+	},
+	audinomega: {
+		inherit: true,
+		abilities: {0: "Retribution"},
+	},
+	alcremie: {
+		inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Retribution", H: "Aroma Veil"},
+	},
+	drampamega: {
+		inherit: true,
+		abilities: {0: "Retribution"},
+	},
+	arcanine: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Retribution", H: "Justified"},
+	},
+	slowbro: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Stall", H: "Regenerator"},
+	},
+	aromatisse: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Stall", H: "Aroma Veil"},
+	},
+	hyrdeigon: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Stall", H: "Ancient Core"},
+	},
+	manectric: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Stall"},
+	},
+	corviknight: {
+		inherit: true,
+		abilities: {0: "Justified", 1: "Unnerve", H: "Mirror Armor"},
+	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", 1: "Rampage", H: "Unnerve"},
+	},
+	tyrantrum: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Rampage", H: "Rock Head"},
+	},
+	aggron: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Rock Head", H: "Rampage"},
 	},
 };

@@ -509,5 +509,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		addMove(['snatch', 'astonish'], 'mabosstiff');
 		addMove('lasercut', 'baxcalibur');
 		addMove(['reflexjolt', 'fistbump', 'matblock'], 'pawmot');
+
+		// // SLATE 4
+
+		// species adjustments
+		addMove(['wavecrash', 'knockoff', 'tailwind'], 'gyarados');
+		addMove(['uturn', 'prevailingwind', 'sacredfire'], 'arcanine');
+		addMove(['aquajet', 'aquaring', 'flipturn', 'lifedew', 'raindance', 'upperhand'], 'grapploct');
+		addMove(['closecombat', 'icespinner', 'lifedew', 'woodhammer'], 'tsareena');
+		// move adjustments
+		addMove('lifedew', ['vaporeon', 'araquanid']);
+		addMove('moonlight', ['wigglytuff', 'mabosstiff', 'persianalola', 'absol', 'spiritomb', 'starmie']);
+		addMove('morningsun', ['pyroar', 'camerupt', 'castform', 'flareon', 'ninetales', 'scovillain', 'typhlosion', 'typhlosionhisui']);
+		addMove('claymaker', ['pawmot', 'conkeldurr', 'crabominable', 'annihilape', 'golurk', 'lycanroc', 'lycanrocmidnight', 'lycanrocdusk', 'barbaracle', 'garganacl', 'rhyperior', 'tyranitar', 'scrafty', 'gallade', 'machamp', 'pangoro', 'rampardos']);
+		addMove('celestialdescent', ['altaria', 'clefable', 'drampa', 'dragonite', 'gyarados', 'castform', 'vivillon', 'absol', 'volcarona', 'pidgeot', 'corviknight', 'whimsicott', 'pelipper', 'salamence', 'squawkabilly', 'farfetchd']);
+		addMove('saltcure', ['glalie', 'bastiodon', 'avalugg', 'avalugghisui', 'rhyperior', 'aggron', 'stunfisk', 'stunfiskgalar']);
+		addMove('brine', ['alomomola', 'arceus', 'arctovish', 'armaldo', 'beartic', 'blastoise', 'carracosta', 'cloyster', 'cradily', 'cursola', 'dewgong', 'dhelmise', 'dragapult', 'dracovish', 'empoleon', 'eiscue', 'floatzel', 'gastrodon', 'gorebyss', 'golduck', 'grapploct', 'gyarados', 'hariyama', 'huntail', 'jellicent', 'kingdra', 'kingler', 'kyogre', 'lapras', 'lanturn', 'lugia', 'lumineon', 'luvdisc', 'manaphy', 'mantine', 'milotic', 'mew', 'omastar', 'octillery', 'overqwil', 'palossand', 'palkia', 'pelipper', 'phione', 'pincurchin', 'primarina', 'relicanth', 'samurott', 'sharpedo', 'simipour', 'slowbro', 'slowking', 'starmie', 'suicune', 'swanna', 'tapufini', 'tentacruel', 'toxapex', 'urshifurapidstrike', 'vaporeon', 'walrein', 'wailord', 'wishiwashi']);
 	},
 };

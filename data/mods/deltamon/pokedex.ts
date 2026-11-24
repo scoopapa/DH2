@@ -626,7 +626,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 130, def: 90, spa: 80, spd: 90, spe: 110},
 		abilities: {0: "Savage Roar"},
 		weightkg: 122.5,
-		cosmeticFormes: ["Roaring Knight-Advent"],
+		cosmeticFormes: ["Roaring Knight", "Roaring Knight-Advent"],
 	},
 	friend: {
 		num: -59,
@@ -1013,6 +1013,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Flowery",
 		forme: "Omega",
 		types: ["Grass", "Fighting"],
+		gender: "M",
 		baseStats: {hp: 110, atk: 170, def: 90, spa: 73, spd: 95, spe: 142},
 		abilities: {0: "Blossom Boost"},
 		weightkg: 81.6,
@@ -1058,7 +1059,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 92, def: 115, spa: 98, spd: 130, spe: 75},
 		abilities: {0: "Hospitality", H: "Dark Aura"},
 		weightkg: 65,
-		cosmeticFormes: ["Ralsei-Hatted"],
+		cosmeticFormes: ["Ralsei", "Ralsei-Hatted"],
 	},
 	froggit: {
 		num: -100,

@@ -1040,7 +1040,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ghost"],
 		gender: "F",
 		baseStats: {hp: 81, atk: 112, def: 83, spa: 70, spd: 70, spe: 84},
-		abilities: {0: "Flame Body", 1: "Cursed Body", H: "Poison Heal"},
+		abilities: {0: "Flame Body", 1: "Cursed Body", H: "Toxic Boost"},
 	},
 	hisamiyomotsu: {
 		num: 124,
