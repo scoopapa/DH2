@@ -169,7 +169,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		pp: 10,
-		shortDesc: "Deals doubled damage if the target has greater than 600 BST.",
+		shortDesc: "Doubled damage if the target has over 600 BST.",
 	},
 	sheercold: {
 		name: "Sheer Cold",
