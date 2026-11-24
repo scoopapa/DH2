@@ -1194,7 +1194,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1144,
 		name: "Duratreme",
 		types: ["Normal", "Water"],
-		baseStats: {hp: 102, atk: 83, def: 101, spa: 74, spd: 77, spe: 73},
+		baseStats: {hp: 102, atk: 103, def: 81, spa: 74, spd: 77, spe: 73},
 		abilities: {0: "Strong Jaw", 1: "Hydration", H: "Poison Heal"},
 		weightkg: 125,
 	},
