@@ -135,7 +135,7 @@ export const commands: Chat.ChatCommands = {
 		let value = Config[target];
 		if (!value) return this.errorReply(`Config.${target} has no value.`);
 		if (!(Array.isArray(value) || typeof value === 'string' ||
-				typeof value === 'number' || typeof value === 'boolean') {
+				typeof value === 'number' || typeof value === 'boolean')) {
 			return this.errorReply(`Config.${target} cannot be read, it is of type ${typeof value}.`);
 		}
 		if (Array.isArray(value)) {
