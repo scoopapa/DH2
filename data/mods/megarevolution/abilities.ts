@@ -44,4 +44,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon receives 1/2 damage from contact moves.",
 		isNonstandard: null,
 	},
+	premiumgrade: {
+		onStart(pokemon) {
+			this.boost({spa: 1}, pokemon);
+		},
+		flags: {},
+		name: "Premium Grade",
+		rating: 4,
+		num: 320,
+		shortDesc: "On switch-in, this Pokemon's Special Attack is raised by 1 stage.",
+	},
 };
