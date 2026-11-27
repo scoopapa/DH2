@@ -1,0 +1,25 @@
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	lumiquatro: {
+		num: 75001,
+		name: "Lumiquatro",
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 90, spd: 125, spe: 85},
+		abilities: {0: "Pressure", 1: "Cloud Nine"},
+		formeOrder: ["Lumiquatro", "Lumiquatro-Galar"],
+		heightm: 1.5,
+		weightkg: 75.0,
+		eggGroups: ["Undiscovered"],
+	},
+	lumiquatrogalar: {
+		num: 75002,
+		name: "Lumiquatro-Galar",
+		baseSpecies: "Lumiquatro",
+		forme: "Galar",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 85, spd: 90, spe: 125},
+		abilities: {0: "Moxie"},
+		heightm: 1.5,
+		weightkg: 75.0,
+		eggGroups: ["Undiscovered"],
+	},
+};
