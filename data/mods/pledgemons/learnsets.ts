@@ -128,6 +128,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			inherit: true,
 			scorchingsands: ["9L1"],
 			solarblade: ["9L1"],
+			slackoff: ["9L1"]
 		},
 	},
 	samurotthisui: {
