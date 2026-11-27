@@ -88,4 +88,56 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Poison",
 		contestType: "Tough",
 	},
+	cursedwind: {
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		category: "Special",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+		name: "Cursed Wind",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	expurgation: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Heals lowest-HP living ally for 50% of damage dealt.",
+		name: "Expurgation",
+		pp: 16,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bite: 1, heal: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!pokemon.lastDamage) return;
+			const healAmount = Math.floor(pokemon.lastDamage * 0.5);
+			if (healAmount <= 0) return;
+
+			const livingAllies = pokemon.side.pokemon.filter(p => p && !p.fainted && p !== pokemon);
+			if (livingAllies.length > 0) {
+				livingAllies.sort((a, b) => a.hp - b.hp);
+				const recipient = livingAllies[0];
+				if (recipient.hp < recipient.maxhp) {
+					recipient.heal(healAmount, pokemon, move);
+				}
+				return;
+			}
+
+			if (pokemon.hp < pokemon.maxhp) {
+				pokemon.heal(healAmount, pokemon, move);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
 };
