@@ -166,7 +166,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Bug",
 		contestType: "Tough",
 	},
-	export const Moves: {[k: string]: ModdedMoveData} = {
 	mantleshaper: {
 		accuracy: 100,
 		basePower: 100,
@@ -266,5 +265,4 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-};
 };
