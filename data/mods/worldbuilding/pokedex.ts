@@ -80,13 +80,21 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Pressure", H: "Water Absorb"},
 	},
-	shingyo: {
+	kaprizy: {
 		num: 9005,
+		name: "Kaprizy",
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 106, atk: 90, def: 154, spa: 130, spd: 90, spe: 110},
+		abilities: {0: "Pressure", 1: "Magic Bounce"},
+		weightkg: 382.3,
+		eggGroups: ["Undiscovered"],
+	},
+	shingyo: {
+		num: 9006,
 		name: "Shingyo",
 		types: ["Water", "Fire"],
 		baseStats: {hp: 85, atk: 125, def: 80, spa: 125, spd: 80, spe: 105},
-		abilities: {0: "Healer", 1: "Pressure", 2: "Magic Bounce"},
-		weightkg: 382.3,
+		abilities: {0: "Healer"},
 		eggGroups: ["Undiscovered"],
 	},
 };
