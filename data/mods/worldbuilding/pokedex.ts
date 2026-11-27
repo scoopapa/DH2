@@ -80,4 +80,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Pressure", H: "Water Absorb"},
 	},
+	shingyo: {
+		num: 9005,
+		name: "Shingyo",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 85, atk: 125, def: 80, spa: 125, spd: 80, spe: 105},
+		abilities: {0: "Healer", 1: "Pressure", 2: "Magic Bounce"},
+		weightkg: 382.3,
+		eggGroups: ["Undiscovered"],
+	},
 };
