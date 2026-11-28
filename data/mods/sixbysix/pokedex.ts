@@ -363,7 +363,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseSpecies: "Corviknight",
 		forme: "Yeti",
 		types: ["Flying", "Ice"],
-		baseStats: {hp: 85, atk: 55, def: 80, spa: 95, spd: 110, spe: 110},
+		baseStats: {hp: 85, atk: 55, def: 80, spa: 96, spd: 110, spe: 104},
 		abilities: {0: "Mummy", 1: "Quick Feet", H: "Snow Warning"},
 		heightm: 2.2,
 		weightkg: 75,
