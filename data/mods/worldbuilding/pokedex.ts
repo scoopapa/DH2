@@ -80,4 +80,58 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Pressure", H: "Water Absorb"},
 	},
+	kaprizy: {
+		num: 9005,
+		name: "Kaprizy",
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 106, atk: 90, def: 154, spa: 130, spd: 90, spe: 110},
+		abilities: {0: "Pressure", 1: "Magic Bounce"},
+		weightkg: 382.3,
+		eggGroups: ["Undiscovered"],
+	},
+	shingyo: {
+		num: 9006,
+		name: "Shingyo",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 85, atk: 125, def: 80, spa: 125, spd: 80, spe: 105},
+		abilities: {0: "Healer"},
+		eggGroups: ["Undiscovered"],
+	},
+	regimbyx: {
+		num: 9007,
+		name: "Regimbyx",
+		types: ["Bug"],
+		baseStats: {hp: 85, atk: 110, def: 85, spa: 110, spd: 85, spe: 105},
+		abilities: {0: "Weaver's Will"},
+		eggGroups: ["Undiscovered"],
+	},
+	regirock: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
+		abilities: {0: "Peak Rock Body", 1: "Sturdy"},
+	},
+	regice: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 50, def: 100, spa: 100, spd: 200, spe: 50},
+		abilities: {0: "Deep Frozen Body", 1: "Ice Body"},
+	},
+	registeel: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 75, def: 150, spa: 75, spd: 150, spe: 50},
+		abilities: {0: "Hollow Iron Body", 1: "Light Metal"},
+	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Slow Start", 1: "Weak Start"},
+	},
+	regieleki: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 50, spa: 100, spd: 50, spe: 200},
+		abilities: {0: "Transistor", 1: "Lightning Rod"},
+	},
+	regidrago: {
+		inherit: true,
+		baseStats: {hp: 200, atk: 100, def: 50, spa: 100, spd: 50, spe: 100},
+		abilities: {0: "Dragon's Maw", 1: "Levitate"},
+	},
 };
