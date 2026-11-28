@@ -2351,7 +2351,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			fling: ["9L1"],
 			furycutter: ["9L1"],
 			gigaimpact: ["9L1"],
-			guillotine: ["9L1"],
+			// guillotine: ["9L1"],
 			lowsweep: ["9L1"],
 			metalburst: ["9L1"],
 			metalclaw: ["9L1"],
