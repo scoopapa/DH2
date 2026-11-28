@@ -563,11 +563,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 1,
 		flags: {},
-		onHit(target, source) {
-			const move = target.lastMove;
-			if (source.transformed || !move || source.moves.includes(move.id)) return false;
+		onHit(pokemon) {
+			let move: Move | ActiveMove | null = this.lastMove;
+			if (!move) return;
+			if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) return false;
 			if (move.flags['nosketch'] || move.isZ || move.isMax) return false;
-			const sketchIndex = source.moves.indexOf('creation');
+			const sketchIndex = pokemon.moves.indexOf('creation');
 			if (sketchIndex < 0) return false;
 			const sketchedMove = {
 				move: move.name,
@@ -578,10 +579,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				disabled: false,
 				used: false,
 			};
-			source.moveSlots[sketchIndex] = sketchedMove;
-			source.baseMoveSlots[sketchIndex] = sketchedMove;
-			this.add('-activate', source, 'move: Creation', move.name);
-			source.addVolatile('creation');
+			pokemon.moveSlots[sketchIndex] = sketchedMove;
+			pokemon.baseMoveSlots[sketchIndex] = sketchedMove;
+			this.add('-activate', pokemon, 'move: Creation', move.name);
+			pokemon.addVolatile('creation');
 		},
 		condition: {
 			noCopy: true,
@@ -600,7 +601,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
